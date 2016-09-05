@@ -48,12 +48,10 @@ paper we follow the definitions as given by Patil et al. [-@Patil066803].
 ## WHAT IS THE STATE OF REPRODUCIBLE RESEARCH IN PLANT PATHOLOGY?
 * Madden et al. [-@Madden2015] supply an *e-**X**tra*\* with repoducible examples
 for readers.
-* Duku et al. [-@Duku2016] provide 
-[http://adamhsparks.github.io/MICCORDEA/](models, data and code) necessary to
+* Duku et al. [-@Duku2016] provide models, data and code, (http://adamhsparks.github.io/MICCORDEA/) necessary to
 replicate the entire study modelling the effects of climate change on rice
 bacterial blight and rice leaf blast in Tanzania.
-* Sparks et al. [-@Sparks2011; -@Sparks2014] provide 
-[http://adamhsparks.github.io/Global-Late-Blight-MetaModelling/](models, data and code)
+* Sparks et al. [-@Sparks2011; -@Sparks2014] provide models, data and code, (http://adamhsparks.github.io/Global-Late-Blight-MetaModelling/)
 necessary to replicate model development and the subsequent the study on the effects
 of climate change on potato late blight.
 * Other examples from plant pathology providing e-Xtras or supplemental material
