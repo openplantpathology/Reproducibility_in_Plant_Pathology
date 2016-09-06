@@ -61,7 +61,12 @@ of climate change on potato late blight.
 ## ACKOWLEDGEMENTS
 
 ### Notes
+These are links to resources that may be useful for writing this or as suggested resources in the final
+document that aren't easily printable for inclusion in the Dropbox folder.
+
 https://www.r-statistics.com/2016/07/the-reproducibility-crisis-in-science-and-prospects-for-r/
+
+https://github.com/ropensci/rrrpkg
 
 ### LITERATURE CITED
 
