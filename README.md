@@ -1,6 +1,10 @@
 What Does Reproducible Research Mean for Plant Pathology
 ================
 A. H. Sparks, E. M. Del Ponte, N. J. Grünwald, and Z. Foster
+2016-09-06
+
+AUTHORS and AFFILIATIONS
+========================
 
 1.  Adam H. Sparks: Centre for Crop Health, University of Southern Queensland, Toowoomba, Qld 4350, Australia
 2.  Emerson M. Del Ponte: Universidade Federal de Viçosa, Viçosa, MG, Brasil
