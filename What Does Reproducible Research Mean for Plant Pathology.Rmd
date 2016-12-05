@@ -56,6 +56,9 @@ necessary to replicate model development and the subsequent the study on the eff
 of climate change on potato late blight.
 * Other examples from plant pathology providing e-Xtras or supplemental material
 
+## RANDOM SAMPLING OF ARTICLES FROM THE TOP 20 PLANT PATHOLOGY JOURNALS
+The top 20 plant pathology discipline journals as ranked by Google Scholar were used to create a database of journals from which to randomly select articles for inspection.
+
 ## DISCUSSION
 
 ## ACKOWLEDGEMENTS
