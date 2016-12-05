@@ -57,7 +57,9 @@ of climate change on potato late blight.
 * Other examples from plant pathology providing e-Xtras or supplemental material
 
 ## RANDOM SAMPLING OF ARTICLES FROM THE TOP 20 PLANT PATHOLOGY JOURNALS
-The top 20 plant pathology discipline journals as ranked by Google Scholar were used to create a database of journals from which to randomly select articles for inspection.
+The top 20 plant pathology discipline journals as ranked by Google Scholar, https://scholar.google.com/ (accessed 05 Dec. 2016), were used to create a database of journals from which to randomly select articles for inspection. One hundred articles were randomly selected from 2012 to 2016 from a list of randomly selected start pages assigned to a randomised list of the 20 journals [@Sparks2017]. The start pages list was numbered from page one and went to 150. This was done since some journals restart their numbering with each issue and also ensures that the journal is more likely to have a page number corresponding to the randomly generated value. This also assumes that there is no effect or bias on reproducibility based on the time of year that an article was published, since most journals start with page number one at the beginning of the year.
+
+The list of journals was saved as a comma separated value (CSV) file and imported into R (R2016). 
 
 ## DISCUSSION
 
