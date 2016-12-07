@@ -62,3 +62,4 @@ journals[1:100, -1]
 (Morphological and biochemical responses of five tobacco cultivars to simultaneous infection with Pythium aphanidermatum and Meloidogyne incognita
 Mujeebur Rahman KHAN, Ziaul HAQUE)[http://www.fupress.net/index.php/pm/article/view/11386]
 (The Periplasmic PDZ Domain–Containing Protein Prc Modulates Full Virulence, Envelops Stress Responses, and Directly Interacts with Dipeptidyl Peptidase of Xanthomonas oryzae pv. oryzae)[http://apsjournals.apsnet.org/doi/abs/10.1094/MPMI-08-13-0234-R]
+(The development of a species-specific test to detect Hymenoschyphus pseudoalbidus in ash tissues)[http://onlinelibrary.wiley.com/doi/10.1111/efp.12078/full]
