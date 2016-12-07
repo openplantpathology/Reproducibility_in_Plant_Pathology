@@ -27,14 +27,16 @@ The list of the top 20 plant pathology journals was retrieved from Google Schola
 ```{r journal_list}
 journal_list <- read.csv("../data/Google Scholar Top 20 Plant Pathology Journals 05-12-2016.csv")
 
-journal_list[1:20, -4] # drop h-index median value
+journal_list[1:20, -4] # drop h-index median value just to tidy things up.
+
+journal_list[1:10, ] # select the top ten journals in plant pathology only
 ```
 
 ## Create random lists
 Create a randomised list of the journals
 
 ```{r journal_sample_order}
-journals <- as.data.frame(sample(1:20, 100, replace = TRUE))
+journals <- as.data.frame(sample(1:10, 100, replace = TRUE))
 names(journals) <- "Rank"
 # reorder joural list
 journals <- left_join(journals, journal_list, "Rank")[, -c(3:4)]

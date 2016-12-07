@@ -27,7 +27,7 @@ The list of the top 20 plant pathology journals was retrieved from Google Schola
 ``` r
 journal_list <- read.csv("../data/Google Scholar Top 20 Plant Pathology Journals 05-12-2016.csv")
 
-journal_list[1:20, -4] # drop h-index median value
+journal_list[1:20, -4] # drop h-index median value just to tidy things up.
 ```
 
     ##    Rank                                           Publication h5.index
@@ -52,13 +52,29 @@ journal_list[1:20, -4] # drop h-index median value
     ## 19   19                            Journal of Plant Pathology       14
     ## 20   20                                       Phytoparasitica       14
 
+``` r
+journal_list[1:10, ] # select the top ten journals in plant pathology only
+```
+
+    ##    Rank                          Publication h5.index h5.median
+    ## 1     1 Molecular Plant-Microbe Interactions       47        66
+    ## 2     2            Molecular Plant Pathology       43        56
+    ## 3     3      Annual Review of Phytopathology       42        63
+    ## 4     4                        Plant Disease       35        47
+    ## 5     5                       Phytopathology       34        49
+    ## 6     6                      Plant Pathology       34        41
+    ## 7     7                      Crop Protection       32        39
+    ## 8     8  European Journal of Plant Pathology       29        38
+    ## 9     9                     Forest Pathology       20        23
+    ## 10   10         Phytopathologia Mediterranea       19        21
+
 Create random lists
 -------------------
 
 Create a randomised list of the journals
 
 ``` r
-journals <- as.data.frame(sample(1:20, 100, replace = TRUE))
+journals <- as.data.frame(sample(1:10, 100, replace = TRUE))
 names(journals) <- "Rank"
 # reorder joural list
 journals <- left_join(journals, journal_list, "Rank")[, -c(3:4)]
@@ -81,104 +97,104 @@ journals <- cbind(journals, year, start_page)
 journals[1:100, -1]
 ```
 
-    ##                                               Publication year start_page
-    ## 1                                         Phytoparasitica 2013        101
-    ## 2                               Molecular Plant Pathology 2014         95
-    ## 3                                              Nematology 2014        141
-    ## 4                                         Crop Protection 2012         96
-    ## 5                                          Phytopathology 2015         66
-    ## 6                                        Forest Pathology 2012         72
-    ## 7                               Molecular Plant Pathology 2012         82
-    ## 8                    Molecular Plant-Microbe Interactions 2014         63
-    ## 9                         Annual Review of Phytopathology 2016        121
-    ## 10                                          Plant Disease 2016        111
-    ## 11                           Australasian Plant Pathology 2016         77
-    ## 12                     Journal of General Plant Pathology 2016          5
-    ## 13                              Journal of Phytopathology 2015         73
-    ## 14                    Canadian Journal of Plant Pathology 2015          8
-    ## 15                                             Nematology 2016         83
-    ## 16                                          EPPO Bulletin 2016        108
-    ## 17                                        Phytoparasitica 2015         94
-    ## 18                              Molecular Plant Pathology 2012        136
-    ## 19            Physiological and Molecular Plant Pathology 2016         52
-    ## 20                   Molecular Plant-Microbe Interactions 2016        126
-    ## 21                              Molecular Plant Pathology 2012         58
-    ## 22                                        Phytoparasitica 2015         45
-    ## 23                              Journal of Phytopathology 2015        117
-    ## 24                                       Forest Pathology 2015         31
-    ## 25                             Journal of Plant Pathology 2013         54
-    ## 26                        Annual Review of Phytopathology 2016         98
-    ## 27            Physiological and Molecular Plant Pathology 2016         30
-    ## 28                        Annual Review of Phytopathology 2015         16
-    ## 29                                         Phytopathology 2013        119
-    ## 30                                       Forest Pathology 2016         20
-    ## 31                        Annual Review of Phytopathology 2012        135
-    ## 32                           Phytopathologia Mediterranea 2012        105
-    ## 33                              Molecular Plant Pathology 2015         88
-    ## 34                                        Plant Pathology 2015         24
-    ## 35                        Annual Review of Phytopathology 2014        134
-    ## 36                           Phytopathologia Mediterranea 2015         14
-    ## 37                           Phytopathologia Mediterranea 2013         44
-    ## 38                           Australasian Plant Pathology 2012         79
-    ## 39                           Australasian Plant Pathology 2015         38
-    ## 40                    European Journal of Plant Pathology 2016        143
-    ## 41                                        Plant Pathology 2013         61
-    ## 42                              Molecular Plant Pathology 2012         25
-    ## 43                        Annual Review of Phytopathology 2015        137
-    ## 44                     Journal of General Plant Pathology 2016        131
-    ## 45                              Journal of Phytopathology 2012        115
-    ## 46                                             Nematology 2016          4
-    ## 47                           Phytopathologia Mediterranea 2015        145
-    ## 48                                          Plant Disease 2012         67
-    ## 49                   Molecular Plant-Microbe Interactions 2015         80
-    ## 50                           Australasian Plant Pathology 2014        120
-    ## 51                        Annual Review of Phytopathology 2014         39
-    ## 52                     Journal of General Plant Pathology 2016         11
-    ## 53                                          Plant Disease 2013         50
-    ## 54            Physiological and Molecular Plant Pathology 2014        148
-    ## 55                           Australasian Plant Pathology 2013         97
-    ## 56                                             Nematology 2012        130
-    ## 57                             Journal of Plant Pathology 2015         74
-    ## 58                                        Plant Pathology 2016        102
-    ## 59                           Australasian Plant Pathology 2016         62
-    ## 60                        Annual Review of Phytopathology 2013        114
-    ## 61                                       Forest Pathology 2016         75
-    ## 62                           Phytopathologia Mediterranea 2013         89
-    ## 63                                          Plant Disease 2015        140
-    ## 64            Physiological and Molecular Plant Pathology 2016        138
-    ## 65                                        Phytoparasitica 2013         41
-    ## 66                     Journal of General Plant Pathology 2015         26
-    ## 67                              Molecular Plant Pathology 2015        127
-    ## 68            Physiological and Molecular Plant Pathology 2016        118
-    ## 69                                        Crop Protection 2013         93
-    ## 70                           Australasian Plant Pathology 2013         92
-    ## 71                     Journal of General Plant Pathology 2016         47
-    ## 72                                          Plant Disease 2015        125
-    ## 73                    Canadian Journal of Plant Pathology 2014        123
-    ## 74                           Phytopathologia Mediterranea 2013         57
-    ## 75                                          EPPO Bulletin 2016        124
-    ## 76                    European Journal of Plant Pathology 2013         12
-    ## 77                                       Forest Pathology 2012        113
-    ## 78                                        Plant Pathology 2012        110
-    ## 79                                          EPPO Bulletin 2012         42
-    ## 80                                        Phytoparasitica 2012         17
-    ## 81                   Molecular Plant-Microbe Interactions 2013        128
-    ## 82  International Phytoplasmologist Working Group Meeting 2014         59
-    ## 83                    European Journal of Plant Pathology 2013          2
-    ## 84  International Phytoplasmologist Working Group Meeting 2016         28
-    ## 85                             Journal of Plant Pathology 2016          1
-    ## 86                           Phytopathologia Mediterranea 2015        132
-    ## 87                                        Phytoparasitica 2014         37
-    ## 88                                       Forest Pathology 2014         35
-    ## 89                              Molecular Plant Pathology 2013        106
-    ## 90                           Phytopathologia Mediterranea 2012         70
-    ## 91                        Annual Review of Phytopathology 2015        122
-    ## 92                     Journal of General Plant Pathology 2013         32
-    ## 93                   Molecular Plant-Microbe Interactions 2013         18
-    ## 94                                        Phytoparasitica 2014         22
-    ## 95  International Phytoplasmologist Working Group Meeting 2016         81
-    ## 96                                        Crop Protection 2014         46
-    ## 97                           Australasian Plant Pathology 2015         21
-    ## 98                                        Phytoparasitica 2013         53
-    ## 99                                        Crop Protection 2013         51
-    ## 100                          Phytopathologia Mediterranea 2016         36
+    ##                              Publication year start_page
+    ## 1           Phytopathologia Mediterranea 2013        101
+    ## 2   Molecular Plant-Microbe Interactions 2014         95
+    ## 3                       Forest Pathology 2014        141
+    ## 4                          Plant Disease 2012         96
+    ## 5        Annual Review of Phytopathology 2015         66
+    ## 6                         Phytopathology 2012         72
+    ## 7   Molecular Plant-Microbe Interactions 2012         82
+    ## 8   Molecular Plant-Microbe Interactions 2014         63
+    ## 9              Molecular Plant Pathology 2016        121
+    ## 10             Molecular Plant Pathology 2016        111
+    ## 11                       Crop Protection 2016         77
+    ## 12                      Forest Pathology 2016          5
+    ## 13                       Plant Pathology 2015         73
+    ## 14   European Journal of Plant Pathology 2015          8
+    ## 15                      Forest Pathology 2016         83
+    ## 16   European Journal of Plant Pathology 2016        108
+    ## 17          Phytopathologia Mediterranea 2015         94
+    ## 18  Molecular Plant-Microbe Interactions 2012        136
+    ## 19                       Plant Pathology 2016         52
+    ## 20  Molecular Plant-Microbe Interactions 2016        126
+    ## 21  Molecular Plant-Microbe Interactions 2012         58
+    ## 22          Phytopathologia Mediterranea 2015         45
+    ## 23                       Plant Pathology 2015        117
+    ## 24                        Phytopathology 2015         31
+    ## 25          Phytopathologia Mediterranea 2013         54
+    ## 26             Molecular Plant Pathology 2016         98
+    ## 27                       Plant Pathology 2016         30
+    ## 28             Molecular Plant Pathology 2015         16
+    ## 29       Annual Review of Phytopathology 2013        119
+    ## 30                        Phytopathology 2016         20
+    ## 31             Molecular Plant Pathology 2012        135
+    ## 32                        Phytopathology 2012        105
+    ## 33  Molecular Plant-Microbe Interactions 2015         88
+    ## 34       Annual Review of Phytopathology 2015         24
+    ## 35             Molecular Plant Pathology 2014        134
+    ## 36                        Phytopathology 2015         14
+    ## 37                        Phytopathology 2013         44
+    ## 38                       Crop Protection 2012         79
+    ## 39                       Crop Protection 2015         38
+    ## 40                         Plant Disease 2016        143
+    ## 41       Annual Review of Phytopathology 2013         61
+    ## 42  Molecular Plant-Microbe Interactions 2012         25
+    ## 43             Molecular Plant Pathology 2015        137
+    ## 44                      Forest Pathology 2016        131
+    ## 45                       Plant Pathology 2012        115
+    ## 46                      Forest Pathology 2016          4
+    ## 47                        Phytopathology 2015        145
+    ## 48             Molecular Plant Pathology 2012         67
+    ## 49  Molecular Plant-Microbe Interactions 2015         80
+    ## 50                       Crop Protection 2014        120
+    ## 51             Molecular Plant Pathology 2014         39
+    ## 52                      Forest Pathology 2016         11
+    ## 53             Molecular Plant Pathology 2013         50
+    ## 54                       Plant Pathology 2014        148
+    ## 55                       Crop Protection 2013         97
+    ## 56                      Forest Pathology 2012        130
+    ## 57          Phytopathologia Mediterranea 2015         74
+    ## 58       Annual Review of Phytopathology 2016        102
+    ## 59                       Crop Protection 2016         62
+    ## 60             Molecular Plant Pathology 2013        114
+    ## 61                        Phytopathology 2016         75
+    ## 62                        Phytopathology 2013         89
+    ## 63             Molecular Plant Pathology 2015        140
+    ## 64                       Plant Pathology 2016        138
+    ## 65          Phytopathologia Mediterranea 2013         41
+    ## 66                      Forest Pathology 2015         26
+    ## 67  Molecular Plant-Microbe Interactions 2015        127
+    ## 68                       Plant Pathology 2016        118
+    ## 69                         Plant Disease 2013         93
+    ## 70                       Crop Protection 2013         92
+    ## 71                      Forest Pathology 2016         47
+    ## 72             Molecular Plant Pathology 2015        125
+    ## 73   European Journal of Plant Pathology 2014        123
+    ## 74                        Phytopathology 2013         57
+    ## 75   European Journal of Plant Pathology 2016        124
+    ## 76                         Plant Disease 2013         12
+    ## 77                        Phytopathology 2012        113
+    ## 78       Annual Review of Phytopathology 2012        110
+    ## 79   European Journal of Plant Pathology 2012         42
+    ## 80          Phytopathologia Mediterranea 2012         17
+    ## 81  Molecular Plant-Microbe Interactions 2013        128
+    ## 82                       Crop Protection 2014         59
+    ## 83                         Plant Disease 2013          2
+    ## 84                       Crop Protection 2016         28
+    ## 85          Phytopathologia Mediterranea 2016          1
+    ## 86                        Phytopathology 2015        132
+    ## 87          Phytopathologia Mediterranea 2014         37
+    ## 88                        Phytopathology 2014         35
+    ## 89  Molecular Plant-Microbe Interactions 2013        106
+    ## 90                        Phytopathology 2012         70
+    ## 91             Molecular Plant Pathology 2015        122
+    ## 92                      Forest Pathology 2013         32
+    ## 93  Molecular Plant-Microbe Interactions 2013         18
+    ## 94          Phytopathologia Mediterranea 2014         22
+    ## 95                       Crop Protection 2016         81
+    ## 96                         Plant Disease 2014         46
+    ## 97                       Crop Protection 2015         21
+    ## 98          Phytopathologia Mediterranea 2013         53
+    ## 99                         Plant Disease 2013         51
+    ## 100                       Phytopathology 2016         36
