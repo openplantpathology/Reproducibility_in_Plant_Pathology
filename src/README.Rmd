@@ -1,5 +1,5 @@
 ---
-title: "Journal Article Sampling Methodology"
+title: "README"
 output: github_document
 ---
 
@@ -27,16 +27,14 @@ The list of the top 20 plant pathology journals was retrieved from Google Schola
 ```{r journal_list}
 journal_list <- read.csv("../data/Google Scholar Top 20 Plant Pathology Journals 05-12-2016.csv")
 
-journal_list[1:20, -4] # drop h-index median value just to tidy things up.
-
-journal_list[1:10, ] # select the top ten journals in plant pathology only
+journal_list[1:20, -4] # drop h-index median value
 ```
 
 ## Create random lists
 Create a randomised list of the journals
 
 ```{r journal_sample_order}
-journals <- as.data.frame(sample(1:10, 100, replace = TRUE))
+journals <- as.data.frame(sample(1:20, 100, replace = TRUE))
 names(journals) <- "Rank"
 # reorder joural list
 journals <- left_join(journals, journal_list, "Rank")[, -c(3:4)]
@@ -56,10 +54,18 @@ start_page <- sample.int(150, 100)
 journals <- cbind(journals, year, start_page)
 
 journals[1:100, -1]
+
+```
+
+### Check the number of articles per journal
+
+```{r}
+journals %>%  
+ group_by(Publication) %>% 
+    tally(sort = TRUE) 
+
 ```
 
 
-(Morphological and biochemical responses of five tobacco cultivars to simultaneous infection with Pythium aphanidermatum and Meloidogyne incognita
-Mujeebur Rahman KHAN, Ziaul HAQUE)[http://www.fupress.net/index.php/pm/article/view/11386]
-(The Periplasmic PDZ Domain–Containing Protein Prc Modulates Full Virulence, Envelops Stress Responses, and Directly Interacts with Dipeptidyl Peptidase of Xanthomonas oryzae pv. oryzae)[http://apsjournals.apsnet.org/doi/abs/10.1094/MPMI-08-13-0234-R]
-(The development of a species-specific test to detect Hymenoschyphus pseudoalbidus in ash tissues)[http://onlinelibrary.wiley.com/doi/10.1111/efp.12078/full]
+
+
