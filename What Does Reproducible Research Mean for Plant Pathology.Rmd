@@ -1,12 +1,14 @@
 ---
 title: "What Does Reproducible Research Mean for Plant Pathology?"
 author: "A. H. Sparks, E. M. Del Ponte, N. J. Grünwald, and Z. Foster"
-date: "`r Sys.Date()`"
+date: '`r Sys.Date()`'
 output:
   word_document:
+    keep_md: yes
     reference_docx: Phytopathology_Style_Reference.docx
-bibliography: bibliography.bib
+  html_document: default
 csl: phytopathology.csl
+bibliography: bibliography.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -52,8 +54,8 @@ for readers.
 replicate the entire study modelling the effects of climate change on rice
 bacterial blight and rice leaf blast in Tanzania.
 * Sparks et al. [-@Sparks2011; -@Sparks2014] provide models, data and code, (http://adamhsparks.github.io/Global-Late-Blight-MetaModelling/)
-necessary to replicate model development and the subsequent the study on the effects
-of climate change on potato late blight.
+necessary to replicate model development and the subsequent the study on the effects of climate change on potato late blight.
+* Del Ponte provides data and a reproducible report that explan in details all steps of the analysis and the R codes for conducting a meta-analysis for assessing heterogeneity in relationship between white mold incidence and soybean yield and between incidence and soybean yied.
 * Other examples from plant pathology providing e-Xtras or supplemental material
 
 ## RANDOM SAMPLING OF ARTICLES FROM THE TOP 20 PLANT PATHOLOGY JOURNALS
