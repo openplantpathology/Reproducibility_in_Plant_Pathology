@@ -54,4 +54,18 @@ start_page <- sample.int(150, 100)
 journals <- cbind(journals, year, start_page)
 
 journals[1:100, -1]
+
 ```
+
+### Check the number of articles per journal
+
+```{r}
+journals %>%  
+ group_by(Publication) %>% 
+    tally(sort = TRUE) 
+
+```
+
+
+
+
