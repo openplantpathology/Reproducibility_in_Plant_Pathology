@@ -1,0 +1,45 @@
+---
+title: "Criteria for evaluating reproducibility"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+* Raw data availability
+    0. Not available or not mentioned in the publication
+    1. Available upon request to author
+    2. Online, but inconvenient/non-permanent (e.g. login needed, pay wall, FTP server, personal lab website)
+    3. Freely available online to anonymous users for foreseeable future
+* Raw data annotation
+    0. No annotation
+    1. The structure/content of the data is clear, but the relevance to the study is not
+    2. Fully understandable in the context of the paper
+    3. Fully understandable without reading the paper
+* Raw data tidiness
+    0. Not easily parsed with code or loaded by standard office software (e.g. unstructured raw text or binary equipment outputs or no raw data)
+    1. Difficult, but possible, to parse with code or manipulate with standard office software (i.e. you technically could, but would not want to)
+    2. Able to parse using code with minimal cleanup (e.g. you might need a few extra lines of code for clean up or do a few extra steps to work with your operating system. An example would be a text file with multiple tables)
+    3. Tidy data in a standardized format (e.g. tsv) that is loaded correctly without cleanup or using uncommon parsing tools.
+* Computational methods availability
+    0. Not available or not mentioned in the publication
+    1. Available upon request to author
+    2. Online, but inconvenient/non-permanent (e.g. login needed, pay wall, FTP server, personal/lab website)
+    3. Freely available online to anonymous users for foreseeable future
+* Availability of software used
+    0. Not available or not mentioned in the publication
+    1. Uses expensive proprietary software that only institutions would typically purchase (i.e. ArcGIS standard is $7000)
+    2. Uses proprietary software that most individuals can afford (e.g. Excel, Matlab? ($500))
+    3. Uses entirely open source and free software (e.g. R).
+* Citation of software used
+    0. Not available or not mentioned in the publication
+    1. Software mentioned by name only
+    2. Attempts at citing
+    3. Properly cited
+* Analysis automation
+    0. All steps were performed manually with no choesive document describing exactly what was done
+    1. Steps were performed manually, but with a detailed record (e.g. pasted commands in a text file)
+    2. A set of runnable scripts were used, but have to be executed individually or the outputs require manually modifications
+    3. A makefile or master script was provided that runs the entire analysis from raw data to published results
+    
