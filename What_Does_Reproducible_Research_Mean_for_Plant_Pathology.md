@@ -1,19 +1,8 @@
----
-title: "What Does Reproducible Research Mean for Plant Pathology?"
-author: "A. H. Sparks, E. M. Del Ponte, N. J. Grünwald, and Z. Foster"
-date: '`r Sys.Date()`'
-output:
-  word_document:
-    keep_md: yes
-    reference_docx: Phytopathology_Style_Reference.docx
-  html_document: default
-csl: phytopathology.csl
-bibliography: bibliography.bib
----
+# What Does Reproducible Research Mean for Plant Pathology?
+A. H. Sparks, E. M. Del Ponte, N. J. Grünwald, and Z. Foster  
+`r Sys.Date()`  
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+
 1. Adam H. Sparks: Centre for Crop Health, University of Southern Queensland, 
 Toowoomba, Qld 4350, Australia
 2. Emerson M. Del Ponte: Universidade Federal de Viçosa, Viçosa, MG, Brasil
