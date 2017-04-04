@@ -59,3 +59,46 @@ knitr::opts_chunk$set(echo = TRUE)
 1. Steps were performed manually, but with a detailed record (e.g. pasted commands in a text file)
 2. A set of runnable scripts were used, but have to be executed individually or the outputs require manual modifications
 3. A makefile or master script was provided that runs the entire analysis from raw data to published results
+
+# Example of reproducibility `tibble`
+
+```{r}
+reproducibility <- tibble::tibble(
+  Article = "The Area Under the Disease Progress Stairs: Calculation, Advantage, and Application",
+  DOI = "PHYTO-07-11-0216",
+  Journal = "Phytopathology",
+  Authors =  "Ivan Simko and Hans-Peter Piepho",
+  Year = 2012,
+  Vol = 102,
+  Iss = 4,
+  pp = "381-389",
+  IF = 3.011,
+  Journal_class = "Fundamental",
+  Page_charges = 130,
+  Country =  "USA",
+  Open_or_Restricted = "Optional",
+  Reproducibility_instructions = FALSE,
+  Iss_per_Year = 12,
+  Supl_mats = TRUE,
+  Comp_methods_availability = 2,
+  Software_availability = 1,
+  Software_citation = 3,
+  Analysis_automation = 0,
+  Data_availability = 0,
+  Data_annotation = 0,
+  Data_tidiness = 0
+)
+
+reproducibility <- dplyr::mutate(reproducibility,
+                                 Reproducibility_score = sum(Comp_methods_availability,
+                                                             Software_availability,
+                                                             Software_citation,
+                                                             Analysis_automation,
+                                                             Data_availability,
+                                                             Data_annotation,
+                                                             Data_tidiness))
+
+reproducibility
+
+reproducibility$Reproducibility_score
+```

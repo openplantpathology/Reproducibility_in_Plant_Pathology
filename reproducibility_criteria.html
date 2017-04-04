@@ -189,6 +189,60 @@ $(document).ready(function () {
 </ol>
 </div>
 </div>
+<div id="example-of-reproducibility-tibble" class="section level1">
+<h1>Example of reproducibility <code>tibble</code></h1>
+<pre class="r"><code>reproducibility &lt;- tibble::tibble(
+  Article = &quot;The Area Under the Disease Progress Stairs: Calculation, Advantage, and Application&quot;,
+  DOI = &quot;PHYTO-07-11-0216&quot;,
+  Journal = &quot;Phytopathology&quot;,
+  Authors =  &quot;Ivan Simko and Hans-Peter Piepho&quot;,
+  Year = 2012,
+  Vol = 102,
+  Iss = 4,
+  pp = &quot;381-389&quot;,
+  IF = 3.011,
+  Journal_class = &quot;Fundamental&quot;,
+  Page_charges = 130,
+  Country =  &quot;USA&quot;,
+  Open_or_Restricted = &quot;Optional&quot;,
+  Reproducibility_instructions = FALSE,
+  Iss_per_Year = 12,
+  Supl_mats = TRUE,
+  Comp_methods_availability = 2,
+  Software_availability = 1,
+  Software_citation = 3,
+  Analysis_automation = 0,
+  Data_availability = 0,
+  Data_annotation = 0,
+  Data_tidiness = 0
+)
+
+reproducibility &lt;- dplyr::mutate(reproducibility,
+                                 Reproducibility_score = sum(Comp_methods_availability,
+                                                             Software_availability,
+                                                             Software_citation,
+                                                             Analysis_automation,
+                                                             Data_availability,
+                                                             Data_annotation,
+                                                             Data_tidiness))
+
+reproducibility</code></pre>
+<pre><code>## # A tibble: 1 × 24
+##                                                                       Article
+##                                                                         &lt;chr&gt;
+## 1 The Area Under the Disease Progress Stairs: Calculation, Advantage, and App
+## # ... with 23 more variables: DOI &lt;chr&gt;, Journal &lt;chr&gt;, Authors &lt;chr&gt;,
+## #   Year &lt;dbl&gt;, Vol &lt;dbl&gt;, Iss &lt;dbl&gt;, pp &lt;chr&gt;, IF &lt;dbl&gt;,
+## #   Journal_class &lt;chr&gt;, Page_charges &lt;dbl&gt;, Country &lt;chr&gt;,
+## #   Open_or_Restricted &lt;chr&gt;, Reproducibility_instructions &lt;lgl&gt;,
+## #   Iss_per_Year &lt;dbl&gt;, Supl_mats &lt;lgl&gt;, Comp_methods_availability &lt;dbl&gt;,
+## #   Software_availability &lt;dbl&gt;, Software_citation &lt;dbl&gt;,
+## #   Analysis_automation &lt;dbl&gt;, Data_availability &lt;dbl&gt;,
+## #   Data_annotation &lt;dbl&gt;, Data_tidiness &lt;dbl&gt;,
+## #   Reproducibility_score &lt;dbl&gt;</code></pre>
+<pre class="r"><code>reproducibility$Reproducibility_score</code></pre>
+<pre><code>## [1] 6</code></pre>
+</div>
 
 
 
