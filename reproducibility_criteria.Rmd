@@ -55,8 +55,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #### Analysis automation
 
-0. All steps were performed manually with no choesive document describing exactly what was done
+0. All steps were performed manually with no cohesive document describing exactly what was done
 1. Steps were performed manually, but with a detailed record (e.g. pasted commands in a text file)
-2. A set of runnable scripts were used, but have to be executed individually or the outputs require manually modifications
+2. A set of runnable scripts were used, but have to be executed individually or the outputs require manual modifications
 3. A makefile or master script was provided that runs the entire analysis from raw data to published results
-

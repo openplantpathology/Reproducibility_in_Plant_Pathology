@@ -15,10 +15,21 @@ reproducibility <- tibble::tibble(
   Reproducibility_instructions = FALSE,
   Iss_per_Year = 12,
   Supl_mats = TRUE,
-  Comp_methods = 2,
-  Raw_data = 0,
-  Reproducibility_score = NA
+  Comp_methods_availability = 2,
+  Software_availability = 1,
+  Software_citation = 3,
+  Analysis_automation = 0,
+  Data_availability = 0,
+  Data_annotation = 0,
+  Data_tidiness = 0
 )
 
-reproducibility$Reproducibility_score <- reproducibility$Comp_methods + reproducibility$Raw_data
+reproducibility <- dplyr::mutate(reproducibility,
+                                 Reproducibility_score = sum(Comp_methods_availability,
+                                                             Software_availability,
+                                                             Software_citation,
+                                                             Analysis_automation,
+                                                             Data_availability,
+                                                             Data_annotation,
+                                                             Data_tidiness))
 
