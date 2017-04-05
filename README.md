@@ -8,8 +8,8 @@ AUTHORS and AFFILIATIONS
 
 1.  Adam H. Sparks: Centre for Crop Health, University of Southern Queensland, Toowoomba, Qld 4350, Australia
 2.  Emerson M. Del Ponte: Universidade Federal de Viçosa, Viçosa, MG, Brasil
-3.  Niklaus J. Grünwald: Horticultural Crops Research Laboratory, USDA Agricultural Research Service, Corvallis, OR 97330, USA
-4.  Zachary Foster: Horticultural Crops Research Laboratory, USDA Agricultural Research Service, Corvallis, OR 97330, USA
+3.  Zachary S. L. Foster: Dept. Botany and Plant Pathology, Oregon State University, Corvallis, OR 97330, USA
+4.  Niklaus J. Grünwald: Horticultural Crops Research Laboratory, USDA Agricultural Research Service, Corvallis, OR 97330, USA
 
 ABSTRACT
 ========
