@@ -14,13 +14,11 @@ bibliography: bibliography.bib
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-1. Adam H. Sparks: Centre for Crop Health, University of Southern Queensland, 
-Toowoomba, Qld 4350, Australia
+1. Adam H. Sparks: Centre for Crop Health, University of Southern Queensland, Toowoomba, Qld 4350, Australia
 2. Emerson M. Del Ponte: Universidade Federal de Viçosa, Viçosa, MG, Brasil
-3. Niklaus J. Grünwald: Horticultural Crops Research Laboratory, USDA
-Agricultural Research Service, Corvallis, OR 97330, USA
-4. Zachary Foster: Horticultural Crops Research Laboratory, USDA Agricultural
-Research Service, Corvallis, OR 97330, USA
+3. Zachary S. L. Foster: Department of Botany and Plant Pathology, ORegon State Unviersity, Corvallis, OR 97330, USA
+4. Niklaus J. Grünwald: Horticultural Crops Research Laboratory, USDA Agricultural Research Service, Corvallis, OR 97330, USA
+
 
 # ABSTRACT
 
@@ -56,6 +54,9 @@ bacterial blight and rice leaf blast in Tanzania.
 * Sparks et al. [-@Sparks2011; -@Sparks2014] provide models, data and code, (http://adamhsparks.github.io/Global-Late-Blight-MetaModelling/)
 necessary to replicate model development and the subsequent the study on the effects of climate change on potato late blight.
 * Del Ponte provides data and a reproducible report that explan in details all steps of the analysis and the R codes for conducting a meta-analysis for assessing heterogeneity in relationship between white mold incidence and soybean yield and between incidence and soybean yied.
+* Example from my lab: 
+  - paper http://apsjournals.apsnet.org/doi/full/10.1094/PHYTO-12-14-0350-FI
+  - github repo https://github.com/grunwaldlab/Sudden_Oak_Death_in_Oregon_Forests
 * Other examples from plant pathology providing e-Xtras or supplemental material
 
 ## RANDOM SAMPLING OF ARTICLES FROM THE TOP 20 PLANT PATHOLOGY JOURNALS
