@@ -54,7 +54,7 @@ bacterial blight and rice leaf blast in Tanzania.
 * Sparks et al. [-@Sparks2011; -@Sparks2014] provide models, data and code, (http://adamhsparks.github.io/Global-Late-Blight-MetaModelling/)
 necessary to replicate model development and the subsequent the study on the effects of climate change on potato late blight.
 * Del Ponte provides data and a reproducible report that explan in details all steps of the analysis and the R codes for conducting a meta-analysis for assessing heterogeneity in relationship between white mold incidence and soybean yield and between incidence and soybean yied.
-* Example from my lab: 
+* Example from Grunwald lab: 
   - paper http://apsjournals.apsnet.org/doi/full/10.1094/PHYTO-12-14-0350-FI
   - github repo https://github.com/grunwaldlab/Sudden_Oak_Death_in_Oregon_Forests
 * Other examples from plant pathology providing e-Xtras or supplemental material
