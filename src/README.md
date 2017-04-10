@@ -19,10 +19,8 @@ library(dplyr)
 set.seed(1)
 ```
 
-Import data
------------
-
-The list of the top 20 plant pathology journals was retrieved from Google Scholar on December 5, 2016 and saved as a CSV file for reproducibility.
+Create list of journals
+-----------------------
 
 ``` r
 journal_list <- tibble(
@@ -51,6 +49,15 @@ journal_list <- tibble(
 names(journal_list) <- c("number", "publication")
 ```
 
+Create list of assignees
+------------------------
+
+From the four authors of this paper, create a list for us to use that will randomly assign articles for us to evaluate for this manuscript.
+
+``` r
+assignee <- rep(c("Adam", "Emerson", "Zach", "Nik"), 50)
+```
+
 Create random lists
 -------------------
 
@@ -64,15 +71,7 @@ journals <- left_join(journals, journal_list, "number")
 
 ### Randomly select articles
 
-Generate a random list of years between 2012 and 2016 and a random list of start pages between 1 and 150 since some journals start numbering at 1 with every issue. Then bind the columns of the randomised list of journals with the randomised years and page start numbers. This then assumes that there is no temporal effect, i.e., the time of year an article is published does not affect whether or not it is reproducible.
-
-### Create list of reviewers
-
-From the four authors of this paper, create a list for us to use that will randomly assign articles for us to evaluate for this manuscript.
-
-``` r
-assignee <- rep(c("Adam", "Emerson", "Zach", "Nik"), 50)
-```
+Generate a random list of years between 2012 and 2016 and a random list of start pages between 1 and 150 since some journals start numbering at 1 with every issue. Then bind the columns of the randomised list of journals with the randomised years and page start numbers. This then assumes that there is no temporal effect, *i.e.*, the time of year an article is published does not affect whether or not it is reproducible.
 
 ``` r
 year <- sample(2012:2016, 200, replace = TRUE)
