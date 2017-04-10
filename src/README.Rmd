@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Creating a sample of articles
 
-Twenty journals in the discipline of plant pathology were selected by the authors as being the primary choice for most plant pathologists when publishing manuscripts.
+Twenty journals in the discipline of plant pathology were selected by the assignee as being the primary choice for most plant pathologists when publishing manuscripts.
 
 Using the assumption that journals publish an average 10 articles per issue, for a population of ~1000 articles, using a confidence level of 95% and confidence interval of 10% we need 88 samples. In [Issue #3](https://github.com/adamhsparks/Reproducible-Research-in-Plant-Pathology/issues/3), we decided to select 200 articles to have a large sample of the population.
 
@@ -52,7 +52,8 @@ names(journal_list) <- c("number", "publication")
 ```
 
 ## Create random lists
-Create a randomised list of the journals
+
+### Create a randomised list of the journals
 
 ```{r journal_sample}
 journals <- tibble(sample(1:20, 200, replace = TRUE))
@@ -60,8 +61,16 @@ names(journals) <- "number"
 journals <- left_join(journals, journal_list, "number")
 ```
 
-## Randomly select articles
+### Randomly select articles
 Generate a random list of years between 2012 and 2016 and a random list of start pages between 1 and 150 since some journals start numbering at 1 with every issue. Then bind the columns of the randomised list of journals with the randomised years and page start numbers. This then assumes that there is no temporal effect, i.e., the time of year an article is published does not affect whether or not it is reproducible.
+
+### Create list of reviewers
+From the four authors of this paper, create a list for us to use that will randomly assign articles for us to evaluate for this manuscript.
+
+```{r assignee}
+assignee <- rep(c("Adam", "Emerson", "Zach", "Nik"), 50)
+
+```
 
 ```{r years_and_articles}
 
@@ -69,7 +78,9 @@ year <- sample(2012:2016, 200, replace = TRUE)
 
 start_page <- sample.int(150, 200, replace = TRUE)
 
-(journals <- cbind(journals, year, start_page)[, -1])
+journals <- cbind(journals[, -1], year, start_page, assignee)
+
+arrange(journals, assignee)
 
 ```
 

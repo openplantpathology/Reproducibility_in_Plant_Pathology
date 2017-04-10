@@ -4,7 +4,7 @@ README
 Creating a sample of articles
 -----------------------------
 
-Twenty journals in the discipline of plant pathology were selected by the authors as being the primary choice for most plant pathologists when publishing manuscripts.
+Twenty journals in the discipline of plant pathology were selected by the assignee as being the primary choice for most plant pathologists when publishing manuscripts.
 
 Using the assumption that journals publish an average 10 articles per issue, for a population of ~1000 articles, using a confidence level of 95% and confidence interval of 10% we need 88 samples. In [Issue \#3](https://github.com/adamhsparks/Reproducible-Research-in-Plant-Pathology/issues/3), we decided to select 200 articles to have a large sample of the population.
 
@@ -54,7 +54,7 @@ names(journal_list) <- c("number", "publication")
 Create random lists
 -------------------
 
-Create a randomised list of the journals
+### Create a randomised list of the journals
 
 ``` r
 journals <- tibble(sample(1:20, 200, replace = TRUE))
@@ -62,220 +62,229 @@ names(journals) <- "number"
 journals <- left_join(journals, journal_list, "number")
 ```
 
-Randomly select articles
-------------------------
+### Randomly select articles
 
 Generate a random list of years between 2012 and 2016 and a random list of start pages between 1 and 150 since some journals start numbering at 1 with every issue. Then bind the columns of the randomised list of journals with the randomised years and page start numbers. This then assumes that there is no temporal effect, i.e., the time of year an article is published does not affect whether or not it is reproducible.
+
+### Create list of reviewers
+
+From the four authors of this paper, create a list for us to use that will randomly assign articles for us to evaluate for this manuscript.
+
+``` r
+assignee <- rep(c("Adam", "Emerson", "Zach", "Nik"), 50)
+```
 
 ``` r
 year <- sample(2012:2016, 200, replace = TRUE)
 
 start_page <- sample.int(150, 200, replace = TRUE)
 
-(journals <- cbind(journals, year, start_page)[, -1])
+journals <- cbind(journals[, -1], year, start_page, assignee)
+
+arrange(journals, assignee)
 ```
 
-    ##                                     publication year start_page
-    ## 1            Journal of General Plant Pathology 2013         99
-    ## 2                    Journal of Plant Pathology 2013         28
-    ## 3   Physiological and Molecular Plant Pathology 2014        144
-    ## 4             Revista Mexicana de Fitopatología 2013        135
-    ## 5                              Forest Pathology 2012        142
-    ## 6                               Plant Pathology 2014        109
-    ## 7             Revista Mexicana de Fitopatología 2014         56
-    ## 8                  Phytopathologia Mediterranea 2012        118
-    ## 9                               Phytoparasitica 2013          2
-    ## 10          Canadian Journal of Plant Pathology 2015        142
-    ## 11                             Forest Pathology 2016        150
-    ## 12          European Journal of Plant Pathology 2012         54
-    ## 13                 Phytopathologia Mediterranea 2015        113
-    ## 14                   Journal of Plant Pathology 2016        119
-    ## 15                                Plant Disease 2016        106
-    ## 16                    Molecular Plant Pathology 2013         72
-    ## 17                               Phytopathology 2015         75
-    ## 18                     Tropical Plant Pathology 2016         47
-    ## 19                   Journal of Plant Pathology 2016        105
-    ## 20                                Plant Disease 2013        124
-    ## 21            Revista Mexicana de Fitopatología 2013         66
-    ## 22                             Forest Pathology 2012         78
-    ## 23                 Phytopathologia Mediterranea 2013        100
-    ## 24                              Crop Protection 2014         22
-    ## 25           Journal of General Plant Pathology 2016         52
-    ## 26                   Journal of Plant Pathology 2014         61
-    ## 27                 Australasian Plant Pathology 2013         13
-    ## 28                   Journal of Plant Pathology 2012        140
-    ## 29                              Plant Pathology 2014        126
-    ## 30                    Journal of Phytopathology 2016        132
-    ## 31                    Molecular Plant Pathology 2013        141
-    ## 32  Physiological and Molecular Plant Pathology 2012         11
-    ## 33                    Molecular Plant Pathology 2013         57
-    ## 34          European Journal of Plant Pathology 2015         81
-    ## 35                        Plant Health Progress 2013         16
-    ## 36                 Phytopathologia Mediterranea 2015        121
-    ## 37                                Plant Disease 2015        111
-    ## 38                              Crop Protection 2014          8
-    ## 39                               Phytopathology 2014         73
-    ## 40                    Journal of Plant Virology 2014        139
-    ## 41                        Plant Health Progress 2013          7
-    ## 42                              Phytoparasitica 2014         45
-    ## 43                                Plant Disease 2016         76
-    ## 44  Physiological and Molecular Plant Pathology 2012         92
-    ## 45                                   Nematology 2014         40
-    ## 46                                Plant Disease 2013         64
-    ## 47                 Australasian Plant Pathology 2014         55
-    ## 48                    Molecular Plant Pathology 2012        142
-    ## 49                               Phytopathology 2014         19
-    ## 50                 Phytopathologia Mediterranea 2016         11
-    ## 51                    Molecular Plant Pathology 2015        145
-    ## 52                              Plant Pathology 2016         67
-    ## 53                    Journal of Plant Virology 2014         56
-    ## 54                             Forest Pathology 2015         26
-    ## 55          Canadian Journal of Plant Pathology 2014          9
-    ## 56          Canadian Journal of Plant Pathology 2012         99
-    ## 57                    Journal of Phytopathology 2013         87
-    ## 58                                   Nematology 2014        149
-    ## 59                 Phytopathologia Mediterranea 2013         91
-    ## 60                    Journal of Plant Virology 2016         10
-    ## 61            Revista Mexicana de Fitopatología 2014         25
-    ## 62           Journal of General Plant Pathology 2013         72
-    ## 63                    Molecular Plant Pathology 2013          1
-    ## 64                    Journal of Phytopathology 2015         67
-    ## 65                 Phytopathologia Mediterranea 2015         40
-    ## 66           Journal of General Plant Pathology 2012        141
-    ## 67                    Molecular Plant Pathology 2012        108
-    ## 68                                Plant Disease 2015         25
-    ## 69          Canadian Journal of Plant Pathology 2015         72
-    ## 70                              Plant Pathology 2012        104
-    ## 71                    Journal of Phytopathology 2012         70
-    ## 72                        Plant Health Progress 2012        144
-    ## 73                    Journal of Phytopathology 2013        107
-    ## 74                    Journal of Phytopathology 2012         60
-    ## 75                    Molecular Plant Pathology 2013         18
-    ## 76                              Plant Pathology 2012         37
-    ## 77                              Plant Pathology 2013        130
-    ## 78                   Journal of Plant Pathology 2012         66
-    ## 79                                Plant Disease 2014         75
-    ## 80                     Tropical Plant Pathology 2015        104
-    ## 81                    Journal of Plant Virology 2012        115
-    ## 82                               Phytopathology 2014         24
-    ## 83                   Journal of Plant Pathology 2016        128
-    ## 84                    Journal of Phytopathology 2013        143
-    ## 85                                Plant Disease 2012         89
-    ## 86                             Forest Pathology 2012         76
-    ## 87                               Phytopathology 2013         29
-    ## 88                              Crop Protection 2012          1
-    ## 89                             Forest Pathology 2012        132
-    ## 90                              Crop Protection 2013         21
-    ## 91                             Forest Pathology 2013          4
-    ## 92          Canadian Journal of Plant Pathology 2012        141
-    ## 93                              Phytoparasitica 2016         44
-    ## 94                              Plant Pathology 2013         25
-    ## 95                                Plant Disease 2014         60
-    ## 96                                Plant Disease 2015         69
-    ## 97                    Molecular Plant Pathology 2012         66
-    ## 98                    Journal of Plant Virology 2012         78
-    ## 99                        Plant Health Progress 2012        127
-    ## 100                             Phytoparasitica 2016          9
-    ## 101                Phytopathologia Mediterranea 2015         84
-    ## 102                  Journal of Plant Pathology 2012        104
-    ## 103          Journal of General Plant Pathology 2014         99
-    ## 104                    Tropical Plant Pathology 2014        100
-    ## 105                             Phytoparasitica 2013         71
-    ## 106                            Forest Pathology 2016        146
-    ## 107                             Crop Protection 2012         61
-    ## 108                   Molecular Plant Pathology 2016        128
-    ## 109           Revista Mexicana de Fitopatología 2012        114
-    ## 110 Physiological and Molecular Plant Pathology 2014         80
-    ## 111                    Tropical Plant Pathology 2012        132
-    ## 112                              Phytopathology 2012         71
-    ## 113                  Journal of Plant Pathology 2016          2
-    ## 114                   Journal of Plant Virology 2015        110
-    ## 115                             Crop Protection 2013        108
-    ## 116                Australasian Plant Pathology 2014         29
-    ## 117                              Phytopathology 2012         97
-    ## 118                             Crop Protection 2013         82
-    ## 119                   Journal of Plant Virology 2016         51
-    ## 120                             Phytoparasitica 2015         96
-    ## 121                    Tropical Plant Pathology 2015        125
-    ## 122                   Molecular Plant Pathology 2013        107
-    ## 123                   Molecular Plant Pathology 2014         53
-    ## 124         European Journal of Plant Pathology 2016         20
-    ## 125                               Plant Disease 2016         59
-    ## 126                   Molecular Plant Pathology 2016        140
-    ## 127                                  Nematology 2016        121
-    ## 128                            Forest Pathology 2015        114
-    ## 129                            Forest Pathology 2013        144
-    ## 130 Physiological and Molecular Plant Pathology 2015        150
-    ## 131 Physiological and Molecular Plant Pathology 2016         91
-    ## 132         Canadian Journal of Plant Pathology 2013          5
-    ## 133                Australasian Plant Pathology 2013         51
-    ## 134                             Phytoparasitica 2016         42
-    ## 135           Revista Mexicana de Fitopatología 2012         18
-    ## 136 Physiological and Molecular Plant Pathology 2013          7
-    ## 137 Physiological and Molecular Plant Pathology 2014         56
-    ## 138                                  Nematology 2012         51
-    ## 139                    Tropical Plant Pathology 2014         27
-    ## 140                                  Nematology 2016         94
-    ## 141                Phytopathologia Mediterranea 2016         60
-    ## 142                             Phytoparasitica 2012        144
-    ## 143                            Forest Pathology 2014         99
-    ## 144          Journal of General Plant Pathology 2013         50
-    ## 145                              Phytopathology 2015         30
-    ## 146                   Molecular Plant Pathology 2013         18
-    ## 147         European Journal of Plant Pathology 2014        150
-    ## 148                              Phytopathology 2012         57
-    ## 149                             Crop Protection 2013         85
-    ## 150                             Plant Pathology 2015        110
-    ## 151                             Phytoparasitica 2014        131
-    ## 152 Physiological and Molecular Plant Pathology 2012         86
-    ## 153                   Journal of Phytopathology 2015          2
-    ## 154                   Molecular Plant Pathology 2014        136
-    ## 155                                  Nematology 2016        116
-    ## 156         European Journal of Plant Pathology 2013         58
-    ## 157                                  Nematology 2016         15
-    ## 158         Canadian Journal of Plant Pathology 2012          8
-    ## 159          Journal of General Plant Pathology 2016        124
-    ## 160                            Forest Pathology 2014        125
-    ## 161          Journal of General Plant Pathology 2012         99
-    ## 162                             Plant Pathology 2013         20
-    ## 163                   Journal of Plant Virology 2016         52
-    ## 164                               Plant Disease 2013        110
-    ## 165                             Plant Pathology 2014        137
-    ## 166                   Journal of Plant Virology 2016        105
-    ## 167         Canadian Journal of Plant Pathology 2012         37
-    ## 168                   Journal of Phytopathology 2015         97
-    ## 169                              Phytopathology 2015         43
-    ## 170                   Journal of Phytopathology 2014        144
-    ## 171                             Phytoparasitica 2014         24
-    ## 172                       Plant Health Progress 2014         63
-    ## 173                             Plant Pathology 2016         38
-    ## 174                  Journal of Plant Pathology 2013         15
-    ## 175                  Journal of Plant Pathology 2013        125
-    ## 176                             Plant Pathology 2014         79
-    ## 177                             Phytoparasitica 2013        101
-    ## 178                              Phytopathology 2016         62
-    ## 179                             Phytoparasitica 2012        127
-    ## 180           Revista Mexicana de Fitopatología 2014        111
-    ## 181          Journal of General Plant Pathology 2014         53
-    ## 182         European Journal of Plant Pathology 2014        143
-    ## 183                             Plant Pathology 2015         98
-    ## 184                                  Nematology 2016          6
-    ## 185                             Plant Pathology 2013         90
-    ## 186         European Journal of Plant Pathology 2013         63
-    ## 187                               Plant Disease 2015         12
-    ## 188                              Phytopathology 2016         80
-    ## 189           Revista Mexicana de Fitopatología 2012        145
-    ## 190                                  Nematology 2016        107
-    ## 191                              Phytopathology 2012         84
-    ## 192                  Journal of Plant Pathology 2012         37
-    ## 193                             Crop Protection 2016        117
-    ## 194           Revista Mexicana de Fitopatología 2014         98
-    ## 195          Journal of General Plant Pathology 2012        125
-    ## 196 Physiological and Molecular Plant Pathology 2013         98
-    ## 197                             Crop Protection 2015         72
-    ## 198                       Plant Health Progress 2013         75
-    ## 199                   Journal of Phytopathology 2013         57
-    ## 200                               Plant Disease 2012         68
+    ##                                     publication year start_page assignee
+    ## 1            Journal of General Plant Pathology 2013         99     Adam
+    ## 2                              Forest Pathology 2012        142     Adam
+    ## 3                               Phytoparasitica 2013          2     Adam
+    ## 4                  Phytopathologia Mediterranea 2015        113     Adam
+    ## 5                                Phytopathology 2015         75     Adam
+    ## 6             Revista Mexicana de Fitopatología 2013         66     Adam
+    ## 7            Journal of General Plant Pathology 2016         52     Adam
+    ## 8                               Plant Pathology 2014        126     Adam
+    ## 9                     Molecular Plant Pathology 2013         57     Adam
+    ## 10                                Plant Disease 2015        111     Adam
+    ## 11                        Plant Health Progress 2013          7     Adam
+    ## 12                                   Nematology 2014         40     Adam
+    ## 13                               Phytopathology 2014         19     Adam
+    ## 14                    Journal of Plant Virology 2014         56     Adam
+    ## 15                    Journal of Phytopathology 2013         87     Adam
+    ## 16            Revista Mexicana de Fitopatología 2014         25     Adam
+    ## 17                 Phytopathologia Mediterranea 2015         40     Adam
+    ## 18          Canadian Journal of Plant Pathology 2015         72     Adam
+    ## 19                    Journal of Phytopathology 2013        107     Adam
+    ## 20                              Plant Pathology 2013        130     Adam
+    ## 21                    Journal of Plant Virology 2012        115     Adam
+    ## 22                                Plant Disease 2012         89     Adam
+    ## 23                             Forest Pathology 2012        132     Adam
+    ## 24                              Phytoparasitica 2016         44     Adam
+    ## 25                    Molecular Plant Pathology 2012         66     Adam
+    ## 26                 Phytopathologia Mediterranea 2015         84     Adam
+    ## 27                              Phytoparasitica 2013         71     Adam
+    ## 28            Revista Mexicana de Fitopatología 2012        114     Adam
+    ## 29                   Journal of Plant Pathology 2016          2     Adam
+    ## 30                               Phytopathology 2012         97     Adam
+    ## 31                     Tropical Plant Pathology 2015        125     Adam
+    ## 32                                Plant Disease 2016         59     Adam
+    ## 33                             Forest Pathology 2013        144     Adam
+    ## 34                 Australasian Plant Pathology 2013         51     Adam
+    ## 35  Physiological and Molecular Plant Pathology 2014         56     Adam
+    ## 36                 Phytopathologia Mediterranea 2016         60     Adam
+    ## 37                               Phytopathology 2015         30     Adam
+    ## 38                              Crop Protection 2013         85     Adam
+    ## 39                    Journal of Phytopathology 2015          2     Adam
+    ## 40                                   Nematology 2016         15     Adam
+    ## 41           Journal of General Plant Pathology 2012         99     Adam
+    ## 42                              Plant Pathology 2014        137     Adam
+    ## 43                               Phytopathology 2015         43     Adam
+    ## 44                              Plant Pathology 2016         38     Adam
+    ## 45                              Phytoparasitica 2013        101     Adam
+    ## 46           Journal of General Plant Pathology 2014         53     Adam
+    ## 47                              Plant Pathology 2013         90     Adam
+    ## 48            Revista Mexicana de Fitopatología 2012        145     Adam
+    ## 49                              Crop Protection 2016        117     Adam
+    ## 50                              Crop Protection 2015         72     Adam
+    ## 51                   Journal of Plant Pathology 2013         28  Emerson
+    ## 52                              Plant Pathology 2014        109  Emerson
+    ## 53          Canadian Journal of Plant Pathology 2015        142  Emerson
+    ## 54                   Journal of Plant Pathology 2016        119  Emerson
+    ## 55                     Tropical Plant Pathology 2016         47  Emerson
+    ## 56                             Forest Pathology 2012         78  Emerson
+    ## 57                   Journal of Plant Pathology 2014         61  Emerson
+    ## 58                    Journal of Phytopathology 2016        132  Emerson
+    ## 59          European Journal of Plant Pathology 2015         81  Emerson
+    ## 60                              Crop Protection 2014          8  Emerson
+    ## 61                              Phytoparasitica 2014         45  Emerson
+    ## 62                                Plant Disease 2013         64  Emerson
+    ## 63                 Phytopathologia Mediterranea 2016         11  Emerson
+    ## 64                             Forest Pathology 2015         26  Emerson
+    ## 65                                   Nematology 2014        149  Emerson
+    ## 66           Journal of General Plant Pathology 2013         72  Emerson
+    ## 67           Journal of General Plant Pathology 2012        141  Emerson
+    ## 68                              Plant Pathology 2012        104  Emerson
+    ## 69                    Journal of Phytopathology 2012         60  Emerson
+    ## 70                   Journal of Plant Pathology 2012         66  Emerson
+    ## 71                               Phytopathology 2014         24  Emerson
+    ## 72                             Forest Pathology 2012         76  Emerson
+    ## 73                              Crop Protection 2013         21  Emerson
+    ## 74                              Plant Pathology 2013         25  Emerson
+    ## 75                    Journal of Plant Virology 2012         78  Emerson
+    ## 76                   Journal of Plant Pathology 2012        104  Emerson
+    ## 77                             Forest Pathology 2016        146  Emerson
+    ## 78  Physiological and Molecular Plant Pathology 2014         80  Emerson
+    ## 79                    Journal of Plant Virology 2015        110  Emerson
+    ## 80                              Crop Protection 2013         82  Emerson
+    ## 81                    Molecular Plant Pathology 2013        107  Emerson
+    ## 82                    Molecular Plant Pathology 2016        140  Emerson
+    ## 83  Physiological and Molecular Plant Pathology 2015        150  Emerson
+    ## 84                              Phytoparasitica 2016         42  Emerson
+    ## 85                                   Nematology 2012         51  Emerson
+    ## 86                              Phytoparasitica 2012        144  Emerson
+    ## 87                    Molecular Plant Pathology 2013         18  Emerson
+    ## 88                              Plant Pathology 2015        110  Emerson
+    ## 89                    Molecular Plant Pathology 2014        136  Emerson
+    ## 90          Canadian Journal of Plant Pathology 2012          8  Emerson
+    ## 91                              Plant Pathology 2013         20  Emerson
+    ## 92                    Journal of Plant Virology 2016        105  Emerson
+    ## 93                    Journal of Phytopathology 2014        144  Emerson
+    ## 94                   Journal of Plant Pathology 2013         15  Emerson
+    ## 95                               Phytopathology 2016         62  Emerson
+    ## 96          European Journal of Plant Pathology 2014        143  Emerson
+    ## 97          European Journal of Plant Pathology 2013         63  Emerson
+    ## 98                                   Nematology 2016        107  Emerson
+    ## 99            Revista Mexicana de Fitopatología 2014         98  Emerson
+    ## 100                       Plant Health Progress 2013         75  Emerson
+    ## 101           Revista Mexicana de Fitopatología 2013        135      Nik
+    ## 102                Phytopathologia Mediterranea 2012        118      Nik
+    ## 103         European Journal of Plant Pathology 2012         54      Nik
+    ## 104                   Molecular Plant Pathology 2013         72      Nik
+    ## 105                               Plant Disease 2013        124      Nik
+    ## 106                             Crop Protection 2014         22      Nik
+    ## 107                  Journal of Plant Pathology 2012        140      Nik
+    ## 108 Physiological and Molecular Plant Pathology 2012         11      Nik
+    ## 109                Phytopathologia Mediterranea 2015        121      Nik
+    ## 110                   Journal of Plant Virology 2014        139      Nik
+    ## 111 Physiological and Molecular Plant Pathology 2012         92      Nik
+    ## 112                   Molecular Plant Pathology 2012        142      Nik
+    ## 113                             Plant Pathology 2016         67      Nik
+    ## 114         Canadian Journal of Plant Pathology 2012         99      Nik
+    ## 115                   Journal of Plant Virology 2016         10      Nik
+    ## 116                   Journal of Phytopathology 2015         67      Nik
+    ## 117                               Plant Disease 2015         25      Nik
+    ## 118                       Plant Health Progress 2012        144      Nik
+    ## 119                             Plant Pathology 2012         37      Nik
+    ## 120                    Tropical Plant Pathology 2015        104      Nik
+    ## 121                   Journal of Phytopathology 2013        143      Nik
+    ## 122                             Crop Protection 2012          1      Nik
+    ## 123         Canadian Journal of Plant Pathology 2012        141      Nik
+    ## 124                               Plant Disease 2015         69      Nik
+    ## 125                             Phytoparasitica 2016          9      Nik
+    ## 126                    Tropical Plant Pathology 2014        100      Nik
+    ## 127                   Molecular Plant Pathology 2016        128      Nik
+    ## 128                              Phytopathology 2012         71      Nik
+    ## 129                Australasian Plant Pathology 2014         29      Nik
+    ## 130                             Phytoparasitica 2015         96      Nik
+    ## 131         European Journal of Plant Pathology 2016         20      Nik
+    ## 132                            Forest Pathology 2015        114      Nik
+    ## 133         Canadian Journal of Plant Pathology 2013          5      Nik
+    ## 134 Physiological and Molecular Plant Pathology 2013          7      Nik
+    ## 135                                  Nematology 2016         94      Nik
+    ## 136          Journal of General Plant Pathology 2013         50      Nik
+    ## 137                              Phytopathology 2012         57      Nik
+    ## 138 Physiological and Molecular Plant Pathology 2012         86      Nik
+    ## 139         European Journal of Plant Pathology 2013         58      Nik
+    ## 140                            Forest Pathology 2014        125      Nik
+    ## 141                               Plant Disease 2013        110      Nik
+    ## 142                   Journal of Phytopathology 2015         97      Nik
+    ## 143                       Plant Health Progress 2014         63      Nik
+    ## 144                             Plant Pathology 2014         79      Nik
+    ## 145           Revista Mexicana de Fitopatología 2014        111      Nik
+    ## 146                                  Nematology 2016          6      Nik
+    ## 147                              Phytopathology 2016         80      Nik
+    ## 148                  Journal of Plant Pathology 2012         37      Nik
+    ## 149 Physiological and Molecular Plant Pathology 2013         98      Nik
+    ## 150                               Plant Disease 2012         68      Nik
+    ## 151 Physiological and Molecular Plant Pathology 2014        144     Zach
+    ## 152           Revista Mexicana de Fitopatología 2014         56     Zach
+    ## 153                            Forest Pathology 2016        150     Zach
+    ## 154                               Plant Disease 2016        106     Zach
+    ## 155                  Journal of Plant Pathology 2016        105     Zach
+    ## 156                Phytopathologia Mediterranea 2013        100     Zach
+    ## 157                Australasian Plant Pathology 2013         13     Zach
+    ## 158                   Molecular Plant Pathology 2013        141     Zach
+    ## 159                       Plant Health Progress 2013         16     Zach
+    ## 160                              Phytopathology 2014         73     Zach
+    ## 161                               Plant Disease 2016         76     Zach
+    ## 162                Australasian Plant Pathology 2014         55     Zach
+    ## 163                   Molecular Plant Pathology 2015        145     Zach
+    ## 164         Canadian Journal of Plant Pathology 2014          9     Zach
+    ## 165                Phytopathologia Mediterranea 2013         91     Zach
+    ## 166                   Molecular Plant Pathology 2013          1     Zach
+    ## 167                   Molecular Plant Pathology 2012        108     Zach
+    ## 168                   Journal of Phytopathology 2012         70     Zach
+    ## 169                   Molecular Plant Pathology 2013         18     Zach
+    ## 170                               Plant Disease 2014         75     Zach
+    ## 171                  Journal of Plant Pathology 2016        128     Zach
+    ## 172                              Phytopathology 2013         29     Zach
+    ## 173                            Forest Pathology 2013          4     Zach
+    ## 174                               Plant Disease 2014         60     Zach
+    ## 175                       Plant Health Progress 2012        127     Zach
+    ## 176          Journal of General Plant Pathology 2014         99     Zach
+    ## 177                             Crop Protection 2012         61     Zach
+    ## 178                    Tropical Plant Pathology 2012        132     Zach
+    ## 179                             Crop Protection 2013        108     Zach
+    ## 180                   Journal of Plant Virology 2016         51     Zach
+    ## 181                   Molecular Plant Pathology 2014         53     Zach
+    ## 182                                  Nematology 2016        121     Zach
+    ## 183 Physiological and Molecular Plant Pathology 2016         91     Zach
+    ## 184           Revista Mexicana de Fitopatología 2012         18     Zach
+    ## 185                    Tropical Plant Pathology 2014         27     Zach
+    ## 186                            Forest Pathology 2014         99     Zach
+    ## 187         European Journal of Plant Pathology 2014        150     Zach
+    ## 188                             Phytoparasitica 2014        131     Zach
+    ## 189                                  Nematology 2016        116     Zach
+    ## 190          Journal of General Plant Pathology 2016        124     Zach
+    ## 191                   Journal of Plant Virology 2016         52     Zach
+    ## 192         Canadian Journal of Plant Pathology 2012         37     Zach
+    ## 193                             Phytoparasitica 2014         24     Zach
+    ## 194                  Journal of Plant Pathology 2013        125     Zach
+    ## 195                             Phytoparasitica 2012        127     Zach
+    ## 196                             Plant Pathology 2015         98     Zach
+    ## 197                               Plant Disease 2015         12     Zach
+    ## 198                              Phytopathology 2012         84     Zach
+    ## 199          Journal of General Plant Pathology 2012        125     Zach
+    ## 200                   Journal of Phytopathology 2013         57     Zach
 
 Check the number of articles per journal
 ----------------------------------------
