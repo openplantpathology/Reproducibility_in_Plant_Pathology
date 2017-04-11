@@ -18,6 +18,7 @@ Set up the R environment
 
 ```{r library, message=FALSE}
 library(dplyr)
+library(readr)
 
 set.seed(1)
 
@@ -94,6 +95,18 @@ arrange(journals, publication, year, start_page)
 journals %>%  
   group_by(publication) %>% 
   tally(sort = TRUE) 
+```
+
+# Joining articles with assignees
+The articles were searched for and citations were downloaded, DOIs were saved in a CSV file with notes related to the articles and selections. Using this CSV file along with a CSV file generated from an export of the bibliography information from Zotero, join the two files.
+
+```{r join_files}
+articles <- read.csv("data/Journals_for_review.csv", strip.white = TRUE)
+
+notes <- read.csv("data/Article_notes.csv", strip.white = TRUE)
+
+# todo join articles and notes
+
 ```
 
 ## R Session Info
