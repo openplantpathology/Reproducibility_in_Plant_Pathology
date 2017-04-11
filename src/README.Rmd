@@ -103,7 +103,11 @@ The articles were searched for and citations were downloaded, DOIs were saved in
 ```{r join_files}
 articles <- read.csv("data/Journals_for_review.csv", strip.white = TRUE)
 
+# Remove any columns with no information in them
+articles <- articles[colSums(!is.na(articles)) > 0]
+
 notes <- read.csv("data/Article_notes.csv", strip.white = TRUE)
+notes$DOI <- tolower(notes$DOI)
 
 # todo join articles and notes
 
