@@ -36,7 +36,7 @@ journal_list <- tibble(
     "Journal of General Plant Pathology",
     "Journal of Phytopathology",
     "Journal of Plant Pathology",
-    "Journal of Plant Virology",
+    "Virology Journal (Plant Viruses Section)",
     "Molecular Plant-Microbe Interactions",
     "Molecular Plant Pathology",
     "Nematology",
@@ -155,139 +155,139 @@ arrange(journals, publication, year, start_page)
     ## 65                   Journal of Plant Pathology 2016          2     Adam
     ## 66                   Journal of Plant Pathology 2016        105     Zach
     ## 67                   Journal of Plant Pathology 2016        132  Emerson
-    ## 68                    Journal of Plant Virology 2012         37      Nik
-    ## 69                    Journal of Plant Virology 2012         66  Emerson
-    ## 70                    Journal of Plant Virology 2012         78  Emerson
-    ## 71                    Journal of Plant Virology 2012        140      Nik
-    ## 72                    Journal of Plant Virology 2013         15  Emerson
-    ## 73                    Journal of Plant Virology 2014         61  Emerson
-    ## 74                    Journal of Plant Virology 2014        139      Nik
-    ## 75                    Journal of Plant Virology 2016         10      Nik
-    ## 76                    Journal of Plant Virology 2016        105  Emerson
-    ## 77                    Journal of Plant Virology 2016        119  Emerson
-    ## 78                    Journal of Plant Virology 2016        128     Zach
-    ## 79                    Molecular Plant Pathology 2012        108     Zach
-    ## 80                    Molecular Plant Pathology 2012        142      Nik
-    ## 81                    Molecular Plant Pathology 2013         18     Zach
-    ## 82                    Molecular Plant Pathology 2013         57     Adam
-    ## 83                    Molecular Plant Pathology 2013         72      Nik
-    ## 84                    Molecular Plant Pathology 2013        107  Emerson
-    ## 85                    Molecular Plant Pathology 2013        141     Zach
-    ## 86                    Molecular Plant Pathology 2014         53     Zach
-    ## 87                    Molecular Plant Pathology 2014        149  Emerson
-    ## 88                    Molecular Plant Pathology 2015        145     Zach
-    ## 89                    Molecular Plant Pathology 2016          6      Nik
-    ## 90                    Molecular Plant Pathology 2016         94      Nik
-    ## 91                    Molecular Plant Pathology 2016        116     Zach
-    ## 92                    Molecular Plant Pathology 2016        121     Zach
-    ## 93                    Molecular Plant Pathology 2016        128      Nik
-    ## 94         Molecular Plant-Microbe Interactions 2012         66     Adam
-    ## 95         Molecular Plant-Microbe Interactions 2012        115     Adam
-    ## 96         Molecular Plant-Microbe Interactions 2013          1     Zach
-    ## 97         Molecular Plant-Microbe Interactions 2013         18  Emerson
-    ## 98         Molecular Plant-Microbe Interactions 2014         56     Adam
-    ## 99         Molecular Plant-Microbe Interactions 2014        136  Emerson
-    ## 100        Molecular Plant-Microbe Interactions 2015        110  Emerson
-    ## 101        Molecular Plant-Microbe Interactions 2016         51     Zach
-    ## 102        Molecular Plant-Microbe Interactions 2016         52     Zach
-    ## 103        Molecular Plant-Microbe Interactions 2016        140  Emerson
-    ## 104                                  Nematology 2012         51  Emerson
-    ## 105                                  Nematology 2012         86      Nik
-    ## 106                                  Nematology 2012         92      Nik
-    ## 107                                  Nematology 2014         40     Adam
-    ## 108                                  Nematology 2014         56     Adam
-    ## 109                                  Nematology 2016         15     Adam
-    ## 110                                  Nematology 2016        107  Emerson
-    ## 111 Physiological and Molecular Plant Pathology 2012         11      Nik
-    ## 112 Physiological and Molecular Plant Pathology 2012        127     Zach
-    ## 113 Physiological and Molecular Plant Pathology 2012        144  Emerson
-    ## 114 Physiological and Molecular Plant Pathology 2013          7      Nik
-    ## 115 Physiological and Molecular Plant Pathology 2013         98      Nik
-    ## 116 Physiological and Molecular Plant Pathology 2014         80  Emerson
-    ## 117 Physiological and Molecular Plant Pathology 2014        131     Zach
-    ## 118 Physiological and Molecular Plant Pathology 2014        144     Zach
-    ## 119 Physiological and Molecular Plant Pathology 2015        150  Emerson
-    ## 120 Physiological and Molecular Plant Pathology 2016          9      Nik
-    ## 121 Physiological and Molecular Plant Pathology 2016         91     Zach
-    ## 122                             Phytoparasitica 2012        118      Nik
-    ## 123                             Phytoparasitica 2013          2     Adam
-    ## 124                             Phytoparasitica 2013         71     Adam
-    ## 125                             Phytoparasitica 2013         91     Zach
-    ## 126                             Phytoparasitica 2013        100     Zach
-    ## 127                             Phytoparasitica 2013        101     Adam
-    ## 128                             Phytoparasitica 2014         24     Zach
-    ## 129                             Phytoparasitica 2014         45  Emerson
-    ## 130                             Phytoparasitica 2015         40     Adam
-    ## 131                             Phytoparasitica 2015         84     Adam
-    ## 132                             Phytoparasitica 2015         96      Nik
-    ## 133                             Phytoparasitica 2016         42  Emerson
-    ## 134                             Phytoparasitica 2016         44     Adam
-    ## 135                Phytopathologia Mediterranea 2012         84     Zach
-    ## 136                Phytopathologia Mediterranea 2013         29     Zach
-    ## 137                Phytopathologia Mediterranea 2014         24  Emerson
-    ## 138                Phytopathologia Mediterranea 2015        113     Adam
-    ## 139                Phytopathologia Mediterranea 2015        121      Nik
-    ## 140                Phytopathologia Mediterranea 2016         11  Emerson
-    ## 141                Phytopathologia Mediterranea 2016         60     Adam
-    ## 142                              Phytopathology 2012         57      Nik
-    ## 143                              Phytopathology 2012         71      Nik
-    ## 144                              Phytopathology 2012         89     Adam
-    ## 145                              Phytopathology 2012         97     Adam
-    ## 146                              Phytopathology 2014         19     Adam
-    ## 147                              Phytopathology 2014         73     Zach
-    ## 148                              Phytopathology 2015         12     Zach
-    ## 149                              Phytopathology 2015         30     Adam
-    ## 150                              Phytopathology 2015         43     Adam
-    ## 151                              Phytopathology 2015         75     Adam
-    ## 152                              Phytopathology 2016         59     Adam
-    ## 153                              Phytopathology 2016         62  Emerson
-    ## 154                              Phytopathology 2016         80      Nik
-    ## 155                               Plant Disease 2012         68      Nik
-    ## 156                               Plant Disease 2013         64  Emerson
-    ## 157                               Plant Disease 2013        110      Nik
-    ## 158                               Plant Disease 2013        124      Nik
-    ## 159                               Plant Disease 2014         60     Zach
-    ## 160                               Plant Disease 2014         75     Zach
-    ## 161                               Plant Disease 2015         25      Nik
-    ## 162                               Plant Disease 2015         69      Nik
-    ## 163                               Plant Disease 2015        111     Adam
-    ## 164                               Plant Disease 2016         76     Zach
-    ## 165                               Plant Disease 2016        106     Zach
-    ## 166                       Plant Health Progress 2012        127     Zach
-    ## 167                       Plant Health Progress 2012        144      Nik
-    ## 168                       Plant Health Progress 2013          7     Adam
-    ## 169                       Plant Health Progress 2013         16     Zach
-    ## 170                       Plant Health Progress 2013         75  Emerson
-    ## 171                       Plant Health Progress 2014         63      Nik
-    ## 172                       Plant Health Progress 2016         38     Adam
-    ## 173                             Plant Pathology 2012         37      Nik
-    ## 174                             Plant Pathology 2012        104  Emerson
-    ## 175                             Plant Pathology 2013         20  Emerson
-    ## 176                             Plant Pathology 2013         25  Emerson
-    ## 177                             Plant Pathology 2013         90     Adam
-    ## 178                             Plant Pathology 2013        130     Adam
-    ## 179                             Plant Pathology 2014         79      Nik
-    ## 180                             Plant Pathology 2014        109  Emerson
-    ## 181                             Plant Pathology 2014        111      Nik
-    ## 182                             Plant Pathology 2014        126     Adam
-    ## 183                             Plant Pathology 2014        137     Adam
-    ## 184                             Plant Pathology 2015         98     Zach
-    ## 185                             Plant Pathology 2015        110  Emerson
-    ## 186                             Plant Pathology 2016         67      Nik
-    ## 187           Revista Mexicana de Fitopatología 2012         18     Zach
-    ## 188           Revista Mexicana de Fitopatología 2012        114     Adam
-    ## 189           Revista Mexicana de Fitopatología 2012        145     Adam
-    ## 190           Revista Mexicana de Fitopatología 2013         66     Adam
-    ## 191           Revista Mexicana de Fitopatología 2013        135      Nik
-    ## 192           Revista Mexicana de Fitopatología 2014         25     Adam
-    ## 193           Revista Mexicana de Fitopatología 2014         56     Zach
-    ## 194           Revista Mexicana de Fitopatología 2014         98  Emerson
-    ## 195                    Tropical Plant Pathology 2012        132     Zach
-    ## 196                    Tropical Plant Pathology 2014         27     Zach
-    ## 197                    Tropical Plant Pathology 2014        100      Nik
-    ## 198                    Tropical Plant Pathology 2015        104      Nik
-    ## 199                    Tropical Plant Pathology 2015        125     Adam
-    ## 200                    Tropical Plant Pathology 2016         47  Emerson
+    ## 68                    Molecular Plant Pathology 2012        108     Zach
+    ## 69                    Molecular Plant Pathology 2012        142      Nik
+    ## 70                    Molecular Plant Pathology 2013         18     Zach
+    ## 71                    Molecular Plant Pathology 2013         57     Adam
+    ## 72                    Molecular Plant Pathology 2013         72      Nik
+    ## 73                    Molecular Plant Pathology 2013        107  Emerson
+    ## 74                    Molecular Plant Pathology 2013        141     Zach
+    ## 75                    Molecular Plant Pathology 2014         53     Zach
+    ## 76                    Molecular Plant Pathology 2014        149  Emerson
+    ## 77                    Molecular Plant Pathology 2015        145     Zach
+    ## 78                    Molecular Plant Pathology 2016          6      Nik
+    ## 79                    Molecular Plant Pathology 2016         94      Nik
+    ## 80                    Molecular Plant Pathology 2016        116     Zach
+    ## 81                    Molecular Plant Pathology 2016        121     Zach
+    ## 82                    Molecular Plant Pathology 2016        128      Nik
+    ## 83         Molecular Plant-Microbe Interactions 2012         66     Adam
+    ## 84         Molecular Plant-Microbe Interactions 2012        115     Adam
+    ## 85         Molecular Plant-Microbe Interactions 2013          1     Zach
+    ## 86         Molecular Plant-Microbe Interactions 2013         18  Emerson
+    ## 87         Molecular Plant-Microbe Interactions 2014         56     Adam
+    ## 88         Molecular Plant-Microbe Interactions 2014        136  Emerson
+    ## 89         Molecular Plant-Microbe Interactions 2015        110  Emerson
+    ## 90         Molecular Plant-Microbe Interactions 2016         51     Zach
+    ## 91         Molecular Plant-Microbe Interactions 2016         52     Zach
+    ## 92         Molecular Plant-Microbe Interactions 2016        140  Emerson
+    ## 93                                   Nematology 2012         51  Emerson
+    ## 94                                   Nematology 2012         86      Nik
+    ## 95                                   Nematology 2012         92      Nik
+    ## 96                                   Nematology 2014         40     Adam
+    ## 97                                   Nematology 2014         56     Adam
+    ## 98                                   Nematology 2016         15     Adam
+    ## 99                                   Nematology 2016        107  Emerson
+    ## 100 Physiological and Molecular Plant Pathology 2012         11      Nik
+    ## 101 Physiological and Molecular Plant Pathology 2012        127     Zach
+    ## 102 Physiological and Molecular Plant Pathology 2012        144  Emerson
+    ## 103 Physiological and Molecular Plant Pathology 2013          7      Nik
+    ## 104 Physiological and Molecular Plant Pathology 2013         98      Nik
+    ## 105 Physiological and Molecular Plant Pathology 2014         80  Emerson
+    ## 106 Physiological and Molecular Plant Pathology 2014        131     Zach
+    ## 107 Physiological and Molecular Plant Pathology 2014        144     Zach
+    ## 108 Physiological and Molecular Plant Pathology 2015        150  Emerson
+    ## 109 Physiological and Molecular Plant Pathology 2016          9      Nik
+    ## 110 Physiological and Molecular Plant Pathology 2016         91     Zach
+    ## 111                             Phytoparasitica 2012        118      Nik
+    ## 112                             Phytoparasitica 2013          2     Adam
+    ## 113                             Phytoparasitica 2013         71     Adam
+    ## 114                             Phytoparasitica 2013         91     Zach
+    ## 115                             Phytoparasitica 2013        100     Zach
+    ## 116                             Phytoparasitica 2013        101     Adam
+    ## 117                             Phytoparasitica 2014         24     Zach
+    ## 118                             Phytoparasitica 2014         45  Emerson
+    ## 119                             Phytoparasitica 2015         40     Adam
+    ## 120                             Phytoparasitica 2015         84     Adam
+    ## 121                             Phytoparasitica 2015         96      Nik
+    ## 122                             Phytoparasitica 2016         42  Emerson
+    ## 123                             Phytoparasitica 2016         44     Adam
+    ## 124                Phytopathologia Mediterranea 2012         84     Zach
+    ## 125                Phytopathologia Mediterranea 2013         29     Zach
+    ## 126                Phytopathologia Mediterranea 2014         24  Emerson
+    ## 127                Phytopathologia Mediterranea 2015        113     Adam
+    ## 128                Phytopathologia Mediterranea 2015        121      Nik
+    ## 129                Phytopathologia Mediterranea 2016         11  Emerson
+    ## 130                Phytopathologia Mediterranea 2016         60     Adam
+    ## 131                              Phytopathology 2012         57      Nik
+    ## 132                              Phytopathology 2012         71      Nik
+    ## 133                              Phytopathology 2012         89     Adam
+    ## 134                              Phytopathology 2012         97     Adam
+    ## 135                              Phytopathology 2014         19     Adam
+    ## 136                              Phytopathology 2014         73     Zach
+    ## 137                              Phytopathology 2015         12     Zach
+    ## 138                              Phytopathology 2015         30     Adam
+    ## 139                              Phytopathology 2015         43     Adam
+    ## 140                              Phytopathology 2015         75     Adam
+    ## 141                              Phytopathology 2016         59     Adam
+    ## 142                              Phytopathology 2016         62  Emerson
+    ## 143                              Phytopathology 2016         80      Nik
+    ## 144                               Plant Disease 2012         68      Nik
+    ## 145                               Plant Disease 2013         64  Emerson
+    ## 146                               Plant Disease 2013        110      Nik
+    ## 147                               Plant Disease 2013        124      Nik
+    ## 148                               Plant Disease 2014         60     Zach
+    ## 149                               Plant Disease 2014         75     Zach
+    ## 150                               Plant Disease 2015         25      Nik
+    ## 151                               Plant Disease 2015         69      Nik
+    ## 152                               Plant Disease 2015        111     Adam
+    ## 153                               Plant Disease 2016         76     Zach
+    ## 154                               Plant Disease 2016        106     Zach
+    ## 155                       Plant Health Progress 2012        127     Zach
+    ## 156                       Plant Health Progress 2012        144      Nik
+    ## 157                       Plant Health Progress 2013          7     Adam
+    ## 158                       Plant Health Progress 2013         16     Zach
+    ## 159                       Plant Health Progress 2013         75  Emerson
+    ## 160                       Plant Health Progress 2014         63      Nik
+    ## 161                       Plant Health Progress 2016         38     Adam
+    ## 162                             Plant Pathology 2012         37      Nik
+    ## 163                             Plant Pathology 2012        104  Emerson
+    ## 164                             Plant Pathology 2013         20  Emerson
+    ## 165                             Plant Pathology 2013         25  Emerson
+    ## 166                             Plant Pathology 2013         90     Adam
+    ## 167                             Plant Pathology 2013        130     Adam
+    ## 168                             Plant Pathology 2014         79      Nik
+    ## 169                             Plant Pathology 2014        109  Emerson
+    ## 170                             Plant Pathology 2014        111      Nik
+    ## 171                             Plant Pathology 2014        126     Adam
+    ## 172                             Plant Pathology 2014        137     Adam
+    ## 173                             Plant Pathology 2015         98     Zach
+    ## 174                             Plant Pathology 2015        110  Emerson
+    ## 175                             Plant Pathology 2016         67      Nik
+    ## 176           Revista Mexicana de Fitopatología 2012         18     Zach
+    ## 177           Revista Mexicana de Fitopatología 2012        114     Adam
+    ## 178           Revista Mexicana de Fitopatología 2012        145     Adam
+    ## 179           Revista Mexicana de Fitopatología 2013         66     Adam
+    ## 180           Revista Mexicana de Fitopatología 2013        135      Nik
+    ## 181           Revista Mexicana de Fitopatología 2014         25     Adam
+    ## 182           Revista Mexicana de Fitopatología 2014         56     Zach
+    ## 183           Revista Mexicana de Fitopatología 2014         98  Emerson
+    ## 184                    Tropical Plant Pathology 2012        132     Zach
+    ## 185                    Tropical Plant Pathology 2014         27     Zach
+    ## 186                    Tropical Plant Pathology 2014        100      Nik
+    ## 187                    Tropical Plant Pathology 2015        104      Nik
+    ## 188                    Tropical Plant Pathology 2015        125     Adam
+    ## 189                    Tropical Plant Pathology 2016         47  Emerson
+    ## 190    Virology Journal (Plant Viruses Section) 2012         37      Nik
+    ## 191    Virology Journal (Plant Viruses Section) 2012         66  Emerson
+    ## 192    Virology Journal (Plant Viruses Section) 2012         78  Emerson
+    ## 193    Virology Journal (Plant Viruses Section) 2012        140      Nik
+    ## 194    Virology Journal (Plant Viruses Section) 2013         15  Emerson
+    ## 195    Virology Journal (Plant Viruses Section) 2014         61  Emerson
+    ## 196    Virology Journal (Plant Viruses Section) 2014        139      Nik
+    ## 197    Virology Journal (Plant Viruses Section) 2016         10      Nik
+    ## 198    Virology Journal (Plant Viruses Section) 2016        105  Emerson
+    ## 199    Virology Journal (Plant Viruses Section) 2016        119  Emerson
+    ## 200    Virology Journal (Plant Viruses Section) 2016        128     Zach
 
 Check the number of articles per journal
 ----------------------------------------
@@ -307,9 +307,9 @@ journals %>%
     ## 4                               Phytopathology    13
     ## 5           Journal of General Plant Pathology    12
     ## 6                   Journal of Plant Pathology    11
-    ## 7                    Journal of Plant Virology    11
-    ## 8  Physiological and Molecular Plant Pathology    11
-    ## 9                                Plant Disease    11
+    ## 7  Physiological and Molecular Plant Pathology    11
+    ## 8                                Plant Disease    11
+    ## 9     Virology Journal (Plant Viruses Section)    11
     ## 10        Molecular Plant-Microbe Interactions    10
     ## 11                             Crop Protection     9
     ## 12                            Forest Pathology     9

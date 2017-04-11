@@ -37,7 +37,7 @@ journal_list <- tibble(
     "Journal of General Plant Pathology",
     "Journal of Phytopathology",
     "Journal of Plant Pathology",
-    "Journal of Plant Virology",
+    "Virology Journal (Plant Viruses Section)",
     "Molecular Plant-Microbe Interactions",
     "Molecular Plant Pathology",
     "Nematology",

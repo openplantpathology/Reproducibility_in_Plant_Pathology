@@ -70,6 +70,11 @@ Version: 0.10
 Hash: c3601a10c987d439e0c63ec635234a76
 Requires: stringr
 
+Package: formatR
+Source: CRAN
+Version: 1.4
+Hash: b2a47a2b91737978cf50ba95825a9cd1
+
 Package: highr
 Source: CRAN
 Version: 0.6
