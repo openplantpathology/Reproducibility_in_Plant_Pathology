@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Creating a sample of articles
 
-Twenty journals in the discipline of plant pathology were selected by the assignee as being the primary choice for most plant pathologists when publishing manuscripts.
+Twenty one journals in the discipline of plant pathology were selected by the four authors as being the primary choice for most plant pathologists when publishing manuscripts.
 
 Using the assumption that journals publish an average 10 articles per issue, for a population of ~1000 articles, using a confidence level of 95% and confidence interval of 10% we need 88 samples. In [Issue #3](https://github.com/adamhsparks/Reproducible-Research-in-Plant-Pathology/issues/3), we decided to select 200 articles to have a large sample of the population.
 
@@ -20,12 +20,15 @@ Set up the R environment
 library(dplyr)
 
 set.seed(1)
+
+# For printing tibble in total
+options(tibble.print_max = 21, tibble.print_min = 21)
 ```
 ## Create list of journals
 
 ```{r journal_list}
 journal_list <- tibble(
-  seq(1:20),
+  seq(1:21),
   c("Australasian Plant Pathology",
     "Canadian Journal of Plant Pathology",
     "Crop Protection",
@@ -35,6 +38,7 @@ journal_list <- tibble(
     "Journal of Phytopathology",
     "Journal of Plant Pathology",
     "Journal of Plant Virology",
+    "Molecular Plant-Microbe Interactions",
     "Molecular Plant Pathology",
     "Nematology",
     "Physiological and Molecular Plant Pathology",
@@ -63,7 +67,7 @@ assignee <- rep(c("Adam", "Emerson", "Zach", "Nik"), 50)
 ### Create a randomised list of the journals
 
 ```{r journal_sample}
-journals <- tibble(sample(1:20, 200, replace = TRUE))
+journals <- tibble(sample(1:21, 200, replace = TRUE))
 names(journals) <- "number"
 journals <- left_join(journals, journal_list, "number")
 ```
@@ -80,7 +84,7 @@ start_page <- sample.int(150, 200, replace = TRUE)
 
 journals <- cbind(journals[, -1], year, start_page, assignee)
 
-arrange(journals, assignee)
+arrange(journals, publication, year, start_page)
 
 ```
 
@@ -88,8 +92,8 @@ arrange(journals, assignee)
 
 ```{r, count}
 journals %>%  
- group_by(publication) %>% 
-    tally(sort = TRUE) 
+  group_by(publication) %>% 
+  tally(sort = TRUE) 
 ```
 
 ## R Session Info
