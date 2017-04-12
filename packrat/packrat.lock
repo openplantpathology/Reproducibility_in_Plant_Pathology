@@ -80,6 +80,11 @@ Source: CRAN
 Version: 0.6
 Hash: aa3d5b7912b5fed4b546ed5cd2a1760b
 
+Package: hms
+Source: CRAN
+Version: 0.3
+Hash: 3fca8a1c97e6cfb297fe3f4690f82c58
+
 Package: htmltools
 Source: CRAN
 Version: 0.3.5
@@ -122,6 +127,12 @@ Package: packrat
 Source: CRAN
 Version: 0.4.8-1
 Hash: 6ad605ba7b4b476d84be6632393f5765
+
+Package: readr
+Source: CRAN
+Version: 1.1.0
+Hash: 3506086f41d307f5a78ee64e010536fa
+Requires: BH, R6, Rcpp, hms, tibble
 
 Package: rmarkdown
 Source: github
