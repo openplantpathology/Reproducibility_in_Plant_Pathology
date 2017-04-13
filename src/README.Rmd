@@ -98,16 +98,25 @@ journals %>%
 ```
 
 # Joining articles with assignees
-The articles were searched for and citations were downloaded, DOIs were saved in a CSV file with notes related to the articles and selections. Using this CSV file along with a CSV file generated from an export of the bibliography information from Zotero, join the two files.
+The articles were searched for and DOIs were saved in a CSV file with notes related to the articles and selections. Using this CSV file retrieve the BibTex citations for those available and write a "Assigned_Articles.bib" file to disk as well as the updated "Assigned_Articles.csv".
 
-```{r join_files}
-articles <- RefManageR::ReadBib("data/Journals_for_review.bib")
-articles <- as.data.frame(articles)
+```{r join_files, warning=FALSE}
+notes <- read.csv("Assigned_article_notes.csv", strip.white = TRUE)
 
-notes <- read.csv("data/Article_notes.csv", strip.white = TRUE)
-notes$DOI <- tolower(notes$DOI)
+bib <- RefManageR::GetBibEntryWithDOI(notes$doi)
 
-# todo join articles and notes
+# Join articles and references for saving to CSV for reference
+Assigned_Articles <- dplyr::left_join(as.data.frame(bib), notes, by = "doi")
+
+write.csv(Assigned_Articles, "Assigned_Articles.csv")
+
+RefManageR::WriteBib(bib, "Assigned_Articles.bib")
+
+```
+
+Note that not all of the articles have DOIs and some of the DOIs don't appear to work, so we'll manually add them here.
+
+```{r add_missing_articles}
 
 ```
 

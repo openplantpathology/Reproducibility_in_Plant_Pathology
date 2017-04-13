@@ -15,6 +15,7 @@ Set up the R environment
 
 ``` r
 library(dplyr)
+library(readr)
 
 set.seed(1)
 
@@ -323,6 +324,38 @@ journals %>%
     ## 20                    Tropical Plant Pathology     6
     ## 21                Australasian Plant Pathology     4
 
+Joining articles with assignees
+===============================
+
+The articles were searched for and DOIs were saved in a CSV file with notes related to the articles and selections. Using this CSV file retrieve the BibTex citations for those available and write a "Assigned\_Articles.bib" file to disk as well as the updated "Assigned\_Articles.csv".
+
+``` r
+notes <- read.csv("Assigned_article_notes.csv", strip.white = TRUE)
+
+bib <- RefManageR::GetBibEntryWithDOI(notes$doi)
+```
+
+    ## unable to retrieve bibliographic data for the following supplied DOIs: 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA'
+
+    ## Ignoring entry '2010' (line1912) because:
+    ##  A bibentry of bibtype 'Article' has to specify the field: author
+
+``` r
+# Join articles and references for saving to CSV for reference
+Assigned_Articles <- dplyr::left_join(as.data.frame(bib), notes, by = "doi")
+
+write.csv(Assigned_Articles, "Assigned_Articles.csv")
+
+RefManageR::WriteBib(bib, "Assigned_Articles.bib")
+```
+
+    ## Writing 173 Bibtex entries ...
+
+    ## OK
+    ## Results written to file 'Assigned_Articles.bib'
+
+Note that not all of the articles have DOIs and some of the DOIs don't appear to work, so we'll manually add them here.
+
 R Session Info
 --------------
 
@@ -331,8 +364,8 @@ sessionInfo()
 ```
 
     ## R version 3.3.3 (2017-03-06)
-    ## Platform: x86_64-apple-darwin15.6.0 (64-bit)
-    ## Running under: OS X El Capitan 10.11.6
+    ## Platform: x86_64-apple-darwin16.5.0 (64-bit)
+    ## Running under: macOS Sierra 10.12.4
     ## 
     ## locale:
     ## [1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8
@@ -341,12 +374,16 @@ sessionInfo()
     ## [1] stats     graphics  grDevices utils     datasets  methods   base     
     ## 
     ## other attached packages:
-    ## [1] dplyr_0.5.0
+    ## [1] readr_1.1.0 dplyr_0.5.0
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] Rcpp_0.12.10         digest_0.6.12        rprojroot_1.2       
-    ##  [4] assertthat_0.1       R6_2.2.0             DBI_0.6-1           
-    ##  [7] backports_1.0.5      magrittr_1.5         evaluate_0.10       
-    ## [10] stringi_1.1.5        lazyeval_0.2.0       rmarkdown_1.4.0.9001
-    ## [13] tools_3.3.3          stringr_1.2.0        yaml_2.1.14         
-    ## [16] htmltools_0.3.5      knitr_1.15.1         tibble_1.3.0
+    ##  [1] Rcpp_0.12.10         knitr_1.15.1         magrittr_1.5        
+    ##  [4] hms_0.3              R6_2.2.0             bibtex_0.4.0        
+    ##  [7] plyr_1.8.4           stringr_1.2.0        httr_1.2.1          
+    ## [10] tools_3.3.3          DBI_0.6-1            htmltools_0.3.5     
+    ## [13] yaml_2.1.14          lazyeval_0.2.0       assertthat_0.1      
+    ## [16] rprojroot_1.2        digest_0.6.12        tibble_1.3.0        
+    ## [19] RJSONIO_1.3-0        RefManageR_0.13.1    bitops_1.0-6        
+    ## [22] RCurl_1.95-4.8       evaluate_0.10        rmarkdown_1.4.0.9001
+    ## [25] stringi_1.1.5        backports_1.0.5      XML_3.98-1.6        
+    ## [28] lubridate_1.6.0
