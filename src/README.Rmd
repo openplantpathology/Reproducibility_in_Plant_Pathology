@@ -101,10 +101,8 @@ journals %>%
 The articles were searched for and citations were downloaded, DOIs were saved in a CSV file with notes related to the articles and selections. Using this CSV file along with a CSV file generated from an export of the bibliography information from Zotero, join the two files.
 
 ```{r join_files}
-articles <- read.csv("data/Journals_for_review.csv", strip.white = TRUE)
-
-# Remove any columns with no information in them
-articles <- articles[colSums(!is.na(articles)) > 0]
+articles <- RefManageR::ReadBib("data/Journals_for_review.bib")
+articles <- as.data.frame(articles)
 
 notes <- read.csv("data/Article_notes.csv", strip.white = TRUE)
 notes$DOI <- tolower(notes$DOI)
