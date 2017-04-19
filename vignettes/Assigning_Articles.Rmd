@@ -1,11 +1,13 @@
 ---
-title: "README"
-output: github_document
+title: "Assigning articles to authors"
+author: "Adam H Sparks"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ## Creating a sample of articles
 
@@ -26,6 +28,8 @@ set.seed(1)
 options(tibble.print_max = 21, tibble.print_min = 21)
 ```
 ## Create list of journals
+
+We handpicked a list of 21 journals that we felt represented plant pathology research. In this step, we will create a tibble in R of these journals, assigning them a number so that we can randomise them.
 
 ```{r journal_list}
 journal_list <- tibble(
@@ -56,14 +60,16 @@ names(journal_list) <- c("number", "publication")
 ```
 
 ## Create list of assignees
-From the four authors of this paper, create a list for us to use that will randomly assign articles for us to evaluate for this manuscript.
+From the four authors of this paper, in this step, we will create a list for us to use that will randomly assign articles for us to evaluate for this manuscript.
 
 ```{r assignee}
 assignee <- rep(c("Adam", "Emerson", "Zach", "Nik"), 50)
 
 ```
 
-## Create random lists
+## Create randomised list
+
+Now we will create a randomised list of journal articles to assign to each of the four authors for this paper.
 
 ### Create a randomised list of the journals
 
@@ -74,6 +80,7 @@ journals <- left_join(journals, journal_list, "number")
 ```
 
 ### Randomly select articles
+
 Generate a random list of years between 2012 and 2016 and a random list of start pages between 1 and 150 since some journals start numbering at 1 with every issue. Then bind the columns of the randomised list of journals with the randomised years and page start numbers. This then assumes that there is no temporal effect, _i.e._, the time of year an article is published does not affect whether or not it is reproducible.
 
 
@@ -89,7 +96,7 @@ arrange(journals, publication, year, start_page)
 
 ```
 
-## Check the number of articles per journal
+### Check the number of articles per journal
 
 ```{r, count}
 journals %>%  
@@ -97,20 +104,20 @@ journals %>%
   tally(sort = TRUE) 
 ```
 
-# Joining articles with assignees
-The articles were searched for and DOIs were saved in a CSV file with notes related to the articles and selections. Using this CSV file retrieve the BibTex citations for those available and write a "Assigned_Articles.bib" file to disk as well as the updated "Assigned_Articles.csv".
+## Join articles with assignees
+
+The articles generated previously were searched for and DOIs were saved in a data file, `assigned_article_notes.rda`, with notes related to the articles and selections. Using the DOIs in this file, we can retrieve the BibTex citations for those articles that provide a DOI.
 
 ```{r join_files, warning=FALSE}
-notes <- read.csv("Assigned_article_notes.csv", strip.white = TRUE)
+notes <- data(Reproducibility.in.Plant.Pathology::assigned_article_notes)
 
 bib <- RefManageR::GetBibEntryWithDOI(notes$doi)
 
 # Join articles and references for saving to CSV for reference
-Assigned_Articles <- dplyr::left_join(as.data.frame(bib), notes, by = "doi")
+article_assignments <- dplyr::left_join(notes, as.data.frame(bib), by = "doi")
 
-write.csv(Assigned_Articles, "Assigned_Articles.csv")
-
-RefManageR::WriteBib(bib, "Assigned_Articles.bib")
+# clean up an extra year column (that reports the first online, not actual print publish year)
+article_assignments <- article_assignments[, -9]
 
 ```
 
@@ -118,6 +125,16 @@ Note that not all of the articles have DOIs and some of the DOIs don't appear to
 
 ```{r add_missing_articles}
 
+```
+
+## Save data
+
+```{r save data}
+# Save assigned_articles to data object
+devtools::use_data(article_assignments)
+
+# Save the bibiblography item to generate .bib file from later
+devtools::use_data(bib)
 ```
 
 ## R Session Info

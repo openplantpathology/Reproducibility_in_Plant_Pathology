@@ -1,0 +1,27 @@
+Package: Reproducibility.in.Plant.Pathology
+Type: Package
+Title: A Systematic Quantitative Review of Articles Providing a Basis for Identifying Reproducible Research Efforts the Field of Plant Pathology
+Version: 0.0.1-1
+Authors@R: as.person(c(
+    "Adam H Sparks <adamhsparks@gmail.com> [aut, cre]",
+    "Emerson M Del Ponte <delponte@ufv.br> [aut]",
+    "Zachary S L Foster <zacharyfoster1989@gmail.com> [aut]",
+    "Niklaus J Grünwald <grunwaln@science.oregonstate.edu> [aut]"
+  ))
+URL: https://github.com/phytopathology/Reproducible-Research-in-Plant-Pathology
+BugReports: https://github.com/phytopathology/Reproducible-Research-in-Plant-Pathology/issues
+Description: A research compendium for the paper, "xxxxxxx", published in "xxxxxx".
+Depends:
+    R (>= 3.2.0)
+License: MIT + file LICENSE
+Suggests:
+    devtools,
+    knitr,
+    rmarkdown,
+    roxygen2 (>= 6.0.1),
+    utils
+RoxygenNote: 6.0.1
+Encoding: UTF-8
+NeedsCompilation: no
+LazyData: TRUE
+VignetteBuilder: knitr

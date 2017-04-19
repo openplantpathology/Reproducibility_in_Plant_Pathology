@@ -5,3 +5,4 @@
 
 .DS_Store
 packrat/lib*/
+inst/doc
