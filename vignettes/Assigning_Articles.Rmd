@@ -110,12 +110,13 @@ journals %>%
 The articles generated previously were searched for and DOIs were saved in a data file, `assigned_article_notes.rda`, with notes related to the articles and selections. Using the DOIs in this file, we can retrieve the BibTex citations for those articles that provide a DOI.
 
 ```{r join_files, warning=FALSE}
-notes <- assigned_article_notes # loaded from this package's data
 
-bib <- RefManageR::GetBibEntryWithDOI(notes$doi)
+notes <- Reproducible.Plant.Pathology::assigned_article_notes
+
+bib <- RefManageR::GetBibEntryWithDOI(notes$doi) # from this package's data
 
 # Join articles and references for saving to CSV for reference
-article_assignments <- dplyr::left_join(notes, as.data.frame(bib), by = "doi")
+article_assignments <- merge(notes, as.data.frame(bib), by = "doi")
 
 # clean up an extra year column (that reports the first online, not actual print publish year)
 article_assignments <- article_assignments[, -9]
@@ -125,6 +126,7 @@ article_assignments <- article_assignments[, -9]
 Note that not all of the articles have DOIs and some of the DOIs don't appear to work, so we'll manually add them here.
 
 ```{r add_missing_articles}
+(missing <- subset(notes, !(notes$doi %in% article_assignments$doi)))
 
 ```
 
