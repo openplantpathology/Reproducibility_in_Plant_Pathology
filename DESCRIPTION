@@ -1,4 +1,4 @@
-Package: Reproducibility.in.Plant.Pathology
+Package: Reproducible.Plant.Pathology
 Type: Package
 Title: A Systematic Quantitative Review of Articles Providing a Basis for Identifying Reproducible Research Efforts the Field of Plant Pathology
 Version: 0.0.1-1
@@ -15,13 +15,18 @@ Depends:
     R (>= 3.2.0)
 License: MIT + file LICENSE
 Suggests:
+    RefManageR,
+    dplyr,
     devtools,
     knitr,
+    readr,
     rmarkdown,
     roxygen2 (>= 6.0.1),
+    tibble,
     utils
 RoxygenNote: 6.0.1
 Encoding: UTF-8
 NeedsCompilation: no
 LazyData: TRUE
 VignetteBuilder: knitr
+Encoding: latin1

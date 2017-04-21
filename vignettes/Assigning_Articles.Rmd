@@ -21,6 +21,7 @@ Set up the R environment
 ```{r library, message=FALSE}
 library(dplyr)
 library(readr)
+library(Reproducible.Plant.Pathology)
 
 set.seed(1)
 
@@ -74,9 +75,9 @@ Now we will create a randomised list of journal articles to assign to each of th
 ### Create a randomised list of the journals
 
 ```{r journal_sample}
-journals <- tibble(sample(1:21, 200, replace = TRUE))
+journals <- tibble::tibble(sample(1:21, 200, replace = TRUE))
 names(journals) <- "number"
-journals <- left_join(journals, journal_list, "number")
+journals <- dplyr::left_join(journals, journal_list, "number")
 ```
 
 ### Randomly select articles
@@ -92,7 +93,7 @@ start_page <- sample.int(150, 200, replace = TRUE)
 
 journals <- cbind(journals[, -1], year, start_page, assignee)
 
-arrange(journals, publication, year, start_page)
+dplyr::arrange(journals, publication, year, start_page)
 
 ```
 
@@ -100,8 +101,8 @@ arrange(journals, publication, year, start_page)
 
 ```{r, count}
 journals %>%  
-  group_by(publication) %>% 
-  tally(sort = TRUE) 
+  dplyr::group_by(publication) %>% 
+  dplyr::tally(sort = TRUE) 
 ```
 
 ## Join articles with assignees
@@ -109,7 +110,7 @@ journals %>%
 The articles generated previously were searched for and DOIs were saved in a data file, `assigned_article_notes.rda`, with notes related to the articles and selections. Using the DOIs in this file, we can retrieve the BibTex citations for those articles that provide a DOI.
 
 ```{r join_files, warning=FALSE}
-notes <- data(Reproducibility.in.Plant.Pathology::assigned_article_notes)
+notes <- assigned_article_notes # loaded from this package's data
 
 bib <- RefManageR::GetBibEntryWithDOI(notes$doi)
 
@@ -130,11 +131,10 @@ Note that not all of the articles have DOIs and some of the DOIs don't appear to
 ## Save data
 
 ```{r save data}
-# Save assigned_articles to data object
-devtools::use_data(article_assignments)
 
-# Save the bibiblography item to generate .bib file from later
-devtools::use_data(bib)
+# Save assigned_articles to data object
+devtools::use_data(article_assignments, overwrite = TRUE)
+
 ```
 
 ## R Session Info
