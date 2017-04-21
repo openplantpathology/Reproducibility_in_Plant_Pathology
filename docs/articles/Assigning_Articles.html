@@ -389,31 +389,31 @@ article_assignments &lt;-<span class="st"> </span><span class="kw">merge</span>(
 article_assignments &lt;-<span class="st"> </span>article_assignments[, <span class="op">-</span><span class="dv">9</span>]</code></pre></div>
 <p>Note that not all of the articles have DOIs and some of the DOIs don’t appear to work, so we’ll manually add them here.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(missing &lt;-<span class="st"> </span><span class="kw">subset</span>(notes, <span class="op">!</span>(notes<span class="op">$</span>doi <span class="op">%in%</span><span class="st"> </span>article_assignments<span class="op">$</span>doi)))</code></pre></div>
-<pre><code>## # A tibble: 30 × 6
-##                         journal  year start_page assignee
-##                           &lt;chr&gt; &lt;int&gt;      &lt;int&gt;    &lt;chr&gt;
-## 1    Journal of Plant Pathology  2012         60  Emerson
-## 2    Journal of Plant Pathology  2012         70     Zach
-## 3    Journal of Plant Pathology  2012        104  Emerson
-## 4    Journal of Plant Pathology  2013         28  Emerson
-## 5    Journal of Plant Pathology  2013        107     Adam
-## 6    Journal of Plant Pathology  2013        125     Zach
-## 7    Journal of Plant Pathology  2014        144  Emerson
-## 8    Journal of Plant Pathology  2015         97      Nik
-## 9    Journal of Plant Pathology  2016          2     Adam
-## 10   Journal of Plant Pathology  2016        105     Zach
-## 11   Journal of Plant Pathology  2016        132  Emerson
-## 12    Molecular Plant Pathology  2014         53     Zach
-## 13    Molecular Plant Pathology  2014        149  Emerson
-## 14    Molecular Plant Pathology  2015        145     Zach
-## 15    Molecular Plant Pathology  2016          6      Nik
-## 16 Phytopathologia Mediterranea  2012         84     Zach
-## 17 Phytopathologia Mediterranea  2013         29     Zach
-## 18 Phytopathologia Mediterranea  2014         24  Emerson
-## 19 Phytopathologia Mediterranea  2015        113     Adam
-## 20 Phytopathologia Mediterranea  2015        121      Nik
-## 21 Phytopathologia Mediterranea  2016         11  Emerson
-## # ... with 9 more rows, and 2 more variables: doi &lt;chr&gt;, comments &lt;chr&gt;</code></pre>
+<pre><code>## # A tibble: 26 × 6
+##                                 journal  year start_page assignee
+##                                   &lt;chr&gt; &lt;int&gt;      &lt;int&gt;    &lt;chr&gt;
+## 1            Journal of Plant Pathology  2012         60  Emerson
+## 2            Journal of Plant Pathology  2012         70     Zach
+## 3            Journal of Plant Pathology  2012        104  Emerson
+## 4            Journal of Plant Pathology  2013         28  Emerson
+## 5            Journal of Plant Pathology  2013        107     Adam
+## 6            Journal of Plant Pathology  2013        125     Zach
+## 7            Journal of Plant Pathology  2014        144  Emerson
+## 8            Journal of Plant Pathology  2015         97      Nik
+## 9            Journal of Plant Pathology  2016          2     Adam
+## 10           Journal of Plant Pathology  2016        105     Zach
+## 11           Journal of Plant Pathology  2016        132  Emerson
+## 12         Phytopathologia Mediterranea  2012         84     Zach
+## 13         Phytopathologia Mediterranea  2013         29     Zach
+## 14         Phytopathologia Mediterranea  2014         24  Emerson
+## 15         Phytopathologia Mediterranea  2015        113     Adam
+## 16         Phytopathologia Mediterranea  2015        121      Nik
+## 17         Phytopathologia Mediterranea  2016         11  Emerson
+## 18         Phytopathologia Mediterranea  2016         60     Adam
+## 19 Revista Mexicana de Fitopatolog\xcda  2012         18     Zach
+## 20 Revista Mexicana de Fitopatolog\xcda  2012        114     Adam
+## 21 Revista Mexicana de Fitopatolog\xcda  2012        145     Adam
+## # ... with 5 more rows, and 2 more variables: doi &lt;chr&gt;, comments &lt;chr&gt;</code></pre>
 </div>
 <div id="save-data" class="section level2">
 <h2 class="hasAnchor">

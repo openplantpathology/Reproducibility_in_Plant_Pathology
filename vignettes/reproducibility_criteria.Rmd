@@ -13,6 +13,8 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+Each article will be scored on a set of defined criteria. We defined our scoring system for the articles as follows. 
+
 ### Raw data
 
 #### Raw data availability
@@ -108,3 +110,7 @@ reproducibility
 
 reproducibility$Reproducibility_score
 ```
+
+## Final score
+
+Thus a perfect score would be 21, scoring three in all six categories.
