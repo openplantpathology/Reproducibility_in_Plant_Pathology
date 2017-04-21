@@ -29,4 +29,3 @@ Encoding: UTF-8
 NeedsCompilation: no
 LazyData: TRUE
 VignetteBuilder: knitr
-Encoding: latin1
