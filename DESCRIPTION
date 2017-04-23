@@ -18,7 +18,6 @@ Imports:
     httr,
     methods
 Suggests:
-    covr,
     dplyr,
     devtools,
     knitr,
