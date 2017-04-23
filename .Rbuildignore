@@ -6,3 +6,6 @@
 ^README-.*\.png$
 ^inst/paper/
 ^docs$
+^\.travis\.yml$
+^codecov\.yml$
+^appveyor\.yml$

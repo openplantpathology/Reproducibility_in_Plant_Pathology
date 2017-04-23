@@ -1,7 +1,7 @@
 Reproducible Plant Pathology
 ================
 
-[![Last-changedate](https://img.shields.io/badge/last%20change-2017--04--21-brightgreen.svg)](https://github.com/phytopathology/Reproducible.Plant.Pathology/commits/master) [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.3.3-brightgreen.svg)](https://cran.r-project.org/) [![Licence](https://img.shields.io/github/license/mashape/apistatus.svg)](http://choosealicense.com/licenses/mit/) [![Travis-CI Build Status](https://travis-ci.org/phytopathology/Reproducible.Plant.Pathology.png?branch=master)](https://travis-ci.org/phytopathology/Reproducible.Plant.Pathology) [![codecov.io](https://codecov.io/github/phytopathology/Reproducible.Plant.Pathology/coverage.svg?branch=master)](https://codecov.io/github/phytopathology/Reproducible.Plant.Pathology?branch=master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2017--04--23-brightgreen.svg)](https://github.com/phytopathology/Reproducible.Plant.Pathology/commits/master) [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.4.0-brightgreen.svg)](https://cran.r-project.org/) [![Licence](https://img.shields.io/github/license/mashape/apistatus.svg)](http://choosealicense.com/licenses/mit/) [![Travis-CI Build Status](https://travis-ci.org/phytopathology/Reproducible.Plant.Pathology.png?branch=master)](https://travis-ci.org/phytopathology/Reproducible.Plant.Pathology) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/phytopathology/Reproducible.Plant.Pathology?branch=master&svg=true)](https://ci.appveyor.com/project/phytopathology/Reproducible.Plant.Pathology) [![codecov.io](https://codecov.io/github/phytopathology/Reproducible.Plant.Pathology/coverage.svg?branch=master)](https://codecov.io/github/phytopathology/Reproducible.Plant.Pathology?branch=master)
 
 Research compendium for a report on the reproducibility of research in plant pathology
 --------------------------------------------------------------------------------------
@@ -10,39 +10,40 @@ Research compendium for a report on the reproducibility of research in plant pat
 
 <http://dx.doi.org/xxxxxxx>
 
-The files at the URL above will generate the results as found in the publication. The files hosted at <https://github.com/phytopathology/Reproducible.Plant.Pathology> are the development versions and may have changed since the report was published
+The files at the URL above will generate the results as found in the publication. The files hosted at <https://github.com/phytopathology/Reproducible.Plant.Pathology> are the development versions and may have changed since the report was published.
 
 ### Authors of this repository:
 
-Adam H Sparks (<adamhsparks@gmail.com>) Emerson M Del Ponte Zachary Foster Niklas J Grünwald
+Adam H Sparks (<adamhsparks@gmail.com>)
+Emerson M Del Ponte (<delponte@ufv.br>)
+Zachary Foster (<zacharyfoster1989@gmail.com>)
+Niklaus J Grünwald (<grunwaln@science.oregonstate.edu>)
 
 ### Published in:
 
 ### Overview of contents
 
-This repository is our research compendium that details our methodology for examining the state of reproducible research in plant pathology. The compendium contains all data, code, and text associated with the publication XXXX published in XXX. The `Rmd` files in the `inst/paper/` directory contain details of how all the analyses reported in the paper were conducted. Instructions on how to rerun the analysis to reproduce the results are found in the vingette, in the `vingettes/` directory.
+This repository is our research compendium that details our methodology for examining the state of reproducible research in plant pathology. The compendium contains all data, code, and text associated with the publication XXXX published in XXX. The `R markdown format` (`Rmd`) files in the `inst/paper/` directory contain details of how all the analyses reported in the paper were conducted. Detailed instructions on methods used and how to rerun the analysis to reproduce the results are found in the vignettes, in the `vingettes/` directory.
 
 ### The supplementary files
 
 The `inst/` directory contains:
 
--   the manuscript as submitted (in MS Word format) and its Rmd source file (in the `paper/` directory)
--   supplementary information source files (in R markdown format) and executed versions
+-   the manuscript as submitted (in MS Word format) and its `Rmd` source file (in the `paper/` directory)
+-   supplementary information source files (in `Rmd` format) and executed versions
 -   all the figures that are included in the paper (in the `figures/` directory)
 
 ### The R package
 
-This repository is organized as an R package. There are no actual R functions in this package - all the R code is in the Rmd file. I simply used the R package structure to help manage dependencies, to take advantage of continuous integration for automated code testing, and so I didn't have to think too much about how to organise the files.
+This repository is organized as an R package. There is one R function, `doi2bib()`, that is used in this repository, along with the data, `assigned_article_notes.rda` that are located in `data` directory. We have used the R package structure to help manage dependencies, to take advantage of continuous integration for automated code testing and for file organisation.
 
 To download the package source as you see it on GitHub, for offline browsing, use this line at the shell prompt (assuming you have Git installed on your computer):
 
-``` r
-git clone https://github.com/phytopathology/Reproducible.Plant.Pathology.git
-```
+    git clone https://github.com/phytopathology/Reproducible.Plant.Pathology.git
 
 Once the download is complete, open the `Reproducible.Plant.Pathology.Rproj` in RStudio to begin working with the package and compendium files.
 
-The package has a number of dependencies on other R packages, and programs outside of R. These are listed at the bottom of this README. Installing these can be time-consuming and complicated, so we've done two things to simpify access to the compendium. First is the `packrat/` directory, which contains the source code for all the packages we depend on. If all works well, these will be installed on your computer when you open `Reproducible.Plant.Pathology.Rproj` in RStudio. <!--- Second is our Docker image that includes all the necessary software, code and data to run our analysis. The Docker image may give a quicker entry point to the project, and is more self-contained, so might save some fiddling with installing things.   
+The package has a number of dependencies on other R packages, and programs outside of R. These are listed at the bottom of this README. Installing these can be time-consuming and complicated, so we've done two things to simplify access to the compendium. First is the `packrat/` directory, which contains the source code for all the packages we depend on. If all works well, these will be installed on your computer when you open `Reproducible.Plant.Pathology.Rproj` in RStudio. <!--- Second is our Docker image that includes all the necessary software, code and data to run our analysis. The Docker image may give a quicker entry point to the project, and is more self-contained, so might save some fiddling with installing things.   
 
 
 ### The Docker image 

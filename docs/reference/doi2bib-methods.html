@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • Reproducible.Plant.Pathology</title>
+<title>Convert doi to bibtex — doi2bib • Reproducible.Plant.Pathology</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -36,7 +36,7 @@
   </head>
 
   <body>
-    <div class="container template-vignette-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -73,21 +73,62 @@
       
       </header>
 
-      <div class="page-header">
-  <h1>Articles <small>version&nbsp;0.0.1-1</small></h1>
-</div>
-
-<div class="row">
-  <div class="col-md-9">
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
-
-      <ul>
-        <li><a href="assigning_articles.html">Assigning articles to evaluators</a></li>
-        <li><a href="reproducibility_criteria.html">Criteria for evaluating reproducibility</a></li>
-      </ul>
+      <div class="row">
+  <div class="col-md-9 contents">
+    <div class="page-header">
+    <h1>Convert doi to bibtex</h1>
     </div>
+
+    
+    <p>Convert a digital object identifier (doi) string into a bibtex entry using
+the web service &lt;http://www.doi2bib.org&gt;.</p>
+    
+
+    <pre class="usage"><span class='fu'>doi2bib</span>(<span class='no'>doi</span>)
+
+<span class='co'># S4 method for character</span>
+<span class='fu'>doi2bib</span>(<span class='no'>doi</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>doi</th>
+      <td><p>The character string of the doi.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>a bibtex entry as a character string.</p>
+    
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p>Original script from William Keith Morris,
+&lt;https://gist.github.com/wkmor1/ae2cc96acad472d49c35&gt;.  Documented for use
+in an R package by Adam H Sparks</p>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>doi2bib</span>(<span class='st'>"10.4454/jpp.fa.2012.002"</span>)</div><div class='output co'>#&gt; <span class='message'>No encoding supplied: defaulting to UTF-8.</span></div><div class='output co'>#&gt; [1] " @article{F. Suárez-Estrella_M.A. Bustamante_R. Moral_M.C. Vargas-García_M.J. López_J. Moreno_2012, title={IN VITRO CONTROL OF FUSARIUM WILT USING AGROINDUSTRIAL SUBPRODUCT-BASED COMPOSTS}, volume={94}, ISSN={1125-4653}, url={http://doi.org/10.4454/jpp.fa.2012.002}, DOI={10.4454/jpp.fa.2012.002}, number={1}, journal={Journal of Plant Pathology}, author={F. Suárez-Estrella and M.A. Bustamante and R. Moral and M.C. Vargas-García and M.J. López and J. Moreno}, year={2012}}\n"</div><div class='input'>
+</div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#note">Note</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
+
+    <h2>Author</h2>
+    
+William Keith Morris &lt;wkmor1@gmail.com&gt; and Adam H Sparks
+
   </div>
 </div>
 

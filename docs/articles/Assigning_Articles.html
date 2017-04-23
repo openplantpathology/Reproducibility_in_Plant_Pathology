@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Assigning articles to authors • Reproducible.Plant.Pathology</title>
+<title>Assigning articles to evaluators • Reproducible.Plant.Pathology</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
@@ -54,10 +54,10 @@
       </header><div class="row">
   <div class="col-md-9">
     <div class="page-header toc-ignore">
-      <h1>Assigning articles to authors</h1>
+      <h1>Assigning articles to evaluators</h1>
                         <h4 class="author">Adam H Sparks</h4>
             
-            <h4 class="date">2017-04-21</h4>
+            <h4 class="date">2017-04-23</h4>
           </div>
 
     
@@ -85,7 +85,7 @@
 <div id="create-list-of-journals" class="section level2">
 <h2 class="hasAnchor">
 <a href="#create-list-of-journals" class="anchor"></a>Create list of journals</h2>
-<p>We handpicked a list of 21 journals that we felt represented plant pathology research. In this step, we will create a tibble in R of these journals, assigning them a number so that we can randomise them.</p>
+<p>We hand-picked a list of 21 journals that we felt represented plant pathology research. In this step, we will create a <code>tibble</code> in R of these journals, assigning them a number so that we can randomise them.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">journal_list &lt;-<span class="st"> </span><span class="kw">tibble</span>(
   <span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">21</span>),
   <span class="kw">c</span>(<span class="st">"Australasian Plant Pathology"</span>,
@@ -112,9 +112,9 @@
 
 <span class="kw">names</span>(journal_list) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"number"</span>, <span class="st">"publication"</span>)</code></pre></div>
 </div>
-<div id="create-list-of-assignees" class="section level2">
+<div id="create-list-of-evaluators" class="section level2">
 <h2 class="hasAnchor">
-<a href="#create-list-of-assignees" class="anchor"></a>Create list of assignees</h2>
+<a href="#create-list-of-evaluators" class="anchor"></a>Create list of evaluators</h2>
 <p>From the four authors of this paper, in this step, we will create a list for us to use that will randomly assign articles for us to evaluate for this manuscript.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">assignee &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">"Adam"</span>, <span class="st">"Emerson"</span>, <span class="st">"Zach"</span>, <span class="st">"Nik"</span>), <span class="dv">50</span>)</code></pre></div>
 </div>
@@ -374,85 +374,22 @@ dplyr<span class="op">::</span><span class="kw">arrange</span>(journals, publica
 ## 21                Australasian Plant Pathology     4</code></pre>
 </div>
 </div>
-<div id="join-articles-with-assignees" class="section level2">
+<div id="generate-a-bibliography-file-to-use-with-the-paper" class="section level2">
 <h2 class="hasAnchor">
-<a href="#join-articles-with-assignees" class="anchor"></a>Join articles with assignees</h2>
-<p>The articles generated previously were searched for and DOIs were saved in a data file, <code>assigned_article_notes.rda</code>, with notes related to the articles and selections. Using the DOIs in this file, we can retrieve the BibTex citations for those articles that provide a DOI.</p>
+<a href="#generate-a-bibliography-file-to-use-with-the-paper" class="anchor"></a>Generate a bibliography file to use with the paper</h2>
+<p>The articles generated previously were searched for and DOIs were saved in a data file, <code>assigned_article_notes.rda</code>, with notes related to the articles and selections. Using the DOIs in this file, we can retrieve the BibTex citations for those articles that provide a DOI. Note that not all of the selected articles have a DOI, so we’ll have to manually generate those entries, or fetch them from the journals’ website later.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">notes &lt;-<span class="st"> </span>Reproducible.Plant.Pathology<span class="op">::</span>assigned_article_notes
+notes<span class="op">$</span>doi &lt;-<span class="st"> </span><span class="kw">tolower</span>(notes<span class="op">$</span>doi) <span class="co"># format DOIs to all be uniform, lower-case</span>
+notes<span class="op">$</span>journal &lt;-<span class="st"> </span><span class="kw">iconv</span>(notes<span class="op">$</span>journal, <span class="st">"latin1"</span>, <span class="st">"UTF-8"</span>) <span class="co"># convert encodings for text with accents</span>
 
-bib &lt;-<span class="st"> </span>RefManageR<span class="op">::</span><span class="kw">GetBibEntryWithDOI</span>(notes<span class="op">$</span>doi) <span class="co"># from this package's data</span></code></pre></div>
-<pre><code>## unable to retrieve bibliographic data for the following supplied DOIs: 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA', 'NA'</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Join articles and references for saving to CSV for reference</span>
-article_assignments &lt;-<span class="st"> </span><span class="kw">merge</span>(notes, <span class="kw">as.data.frame</span>(bib), <span class="dt">by =</span> <span class="st">"doi"</span>)
+bib &lt;-<span class="st"> </span><span class="kw">lapply</span>(notes<span class="op">$</span>doi, doi2bib) <span class="co"># get bib references from the DOI (that exist)</span>
 
-<span class="co"># clean up an extra year column (that reports the first online, not actual print publish year)</span>
-article_assignments &lt;-<span class="st"> </span>article_assignments[, <span class="op">-</span><span class="dv">9</span>]</code></pre></div>
-<p>Note that not all of the articles have DOIs and some of the DOIs don’t appear to work, so we’ll manually add them here.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(missing &lt;-<span class="st"> </span><span class="kw">subset</span>(notes, <span class="op">!</span>(notes<span class="op">$</span>doi <span class="op">%in%</span><span class="st"> </span>article_assignments<span class="op">$</span>doi)))</code></pre></div>
-<pre><code>## # A tibble: 26 × 6
-##                                 journal  year start_page assignee
-##                                   &lt;chr&gt; &lt;int&gt;      &lt;int&gt;    &lt;chr&gt;
-## 1            Journal of Plant Pathology  2012         60  Emerson
-## 2            Journal of Plant Pathology  2012         70     Zach
-## 3            Journal of Plant Pathology  2012        104  Emerson
-## 4            Journal of Plant Pathology  2013         28  Emerson
-## 5            Journal of Plant Pathology  2013        107     Adam
-## 6            Journal of Plant Pathology  2013        125     Zach
-## 7            Journal of Plant Pathology  2014        144  Emerson
-## 8            Journal of Plant Pathology  2015         97      Nik
-## 9            Journal of Plant Pathology  2016          2     Adam
-## 10           Journal of Plant Pathology  2016        105     Zach
-## 11           Journal of Plant Pathology  2016        132  Emerson
-## 12         Phytopathologia Mediterranea  2012         84     Zach
-## 13         Phytopathologia Mediterranea  2013         29     Zach
-## 14         Phytopathologia Mediterranea  2014         24  Emerson
-## 15         Phytopathologia Mediterranea  2015        113     Adam
-## 16         Phytopathologia Mediterranea  2015        121      Nik
-## 17         Phytopathologia Mediterranea  2016         11  Emerson
-## 18         Phytopathologia Mediterranea  2016         60     Adam
-## 19 Revista Mexicana de Fitopatolog\xcda  2012         18     Zach
-## 20 Revista Mexicana de Fitopatolog\xcda  2012        114     Adam
-## 21 Revista Mexicana de Fitopatolog\xcda  2012        145     Adam
-## # ... with 5 more rows, and 2 more variables: doi &lt;chr&gt;, comments &lt;chr&gt;</code></pre>
+<span class="kw">lapply</span>(bib, write, <span class="st">"~/examined_articles.bib"</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</code></pre></div>
 </div>
-<div id="save-data" class="section level2">
+<div id="last-steps" class="section level2">
 <h2 class="hasAnchor">
-<a href="#save-data" class="anchor"></a>Save data</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Save assigned_articles to data object</span>
-devtools<span class="op">::</span><span class="kw">use_data</span>(article_assignments, <span class="dt">overwrite =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<pre><code>## Saving article_assignments as article_assignments.rda to /Users/asparks/Development/Reproducible-Research-in-Plant-Pathology/data</code></pre>
-</div>
-<div id="r-session-info" class="section level2">
-<h2 class="hasAnchor">
-<a href="#r-session-info" class="anchor"></a>R Session Info</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre></div>
-<pre><code>## R version 3.3.3 (2017-03-06)
-## Platform: x86_64-apple-darwin16.5.0 (64-bit)
-## Running under: macOS Sierra 10.12.4
-## 
-## locale:
-## [1] en_AU.UTF-8/en_AU.UTF-8/en_AU.UTF-8/C/en_AU.UTF-8/en_AU.UTF-8
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
-## other attached packages:
-## [1] Reproducible.Plant.Pathology_0.0.1-1
-## [2] readr_1.1.0                         
-## [3] dplyr_0.5.0                         
-## 
-## loaded via a namespace (and not attached):
-##  [1] Rcpp_0.12.10      knitr_1.15.1      magrittr_1.5     
-##  [4] devtools_1.12.0   hms_0.3           R6_2.2.0         
-##  [7] bibtex_0.4.0      plyr_1.8.4        stringr_1.2.0    
-## [10] httr_1.2.1.9000   tools_3.3.3       DBI_0.6-1        
-## [13] withr_1.0.2       htmltools_0.3.5   yaml_2.1.14      
-## [16] lazyeval_0.2.0    assertthat_0.2.0  rprojroot_1.2    
-## [19] digest_0.6.12     tibble_1.3.0      RJSONIO_1.3-0    
-## [22] RefManageR_0.13.1 bitops_1.0-6      RCurl_1.95-4.8   
-## [25] memoise_1.0.0     evaluate_0.10     rmarkdown_1.4    
-## [28] stringi_1.1.5     backports_1.0.5   XML_3.98-1.6     
-## [31] lubridate_1.6.0</code></pre>
+<a href="#last-steps" class="anchor"></a>Last steps</h2>
+<p>The last few steps are completed outside of R, manually add the missing articles to the <code>examined_articles.bib</code> file and put it in the <code>inst/paper</code> directory for use writing the paper.</p>
 </div>
 </div>
   </div>
@@ -464,11 +401,10 @@ devtools<span class="op">::</span><span class="kw">use_data</span>(article_assig
 <li><a href="#creating-a-sample-of-articles">Creating a sample of articles</a></li>
       <li><a href="#r-setup">R setup</a></li>
       <li><a href="#create-list-of-journals">Create list of journals</a></li>
-      <li><a href="#create-list-of-assignees">Create list of assignees</a></li>
+      <li><a href="#create-list-of-evaluators">Create list of evaluators</a></li>
       <li><a href="#create-randomised-list">Create randomised list</a></li>
-      <li><a href="#join-articles-with-assignees">Join articles with assignees</a></li>
-      <li><a href="#save-data">Save data</a></li>
-      <li><a href="#r-session-info">R Session Info</a></li>
+      <li><a href="#generate-a-bibliography-file-to-use-with-the-paper">Generate a bibliography file to use with the paper</a></li>
+      <li><a href="#last-steps">Last steps</a></li>
       </ul>
 </div>
       </div>

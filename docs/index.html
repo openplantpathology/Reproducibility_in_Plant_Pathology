@@ -66,12 +66,15 @@
 <h3 class="hasAnchor">
 <a href="#compendium-doi" class="anchor"></a>Compendium DOI:</h3>
 <p><a href="http://dx.doi.org/xxxxxxx" class="uri">http://dx.doi.org/xxxxxxx</a></p>
-<p>The files at the URL above will generate the results as found in the publication. The files hosted at <a href="https://github.com/phytopathology/Reproducible.Plant.Pathology" class="uri">https://github.com/phytopathology/Reproducible.Plant.Pathology</a> are the development versions and may have changed since the report was published</p>
+<p>The files at the URL above will generate the results as found in the publication. The files hosted at <a href="https://github.com/phytopathology/Reproducible.Plant.Pathology" class="uri">https://github.com/phytopathology/Reproducible.Plant.Pathology</a> are the development versions and may have changed since the report was published.</p>
 </div>
 <div id="authors-of-this-repository" class="section level3">
 <h3 class="hasAnchor">
 <a href="#authors-of-this-repository" class="anchor"></a>Authors of this repository:</h3>
-<p>Adam H Sparks (<a href="mailto:adamhsparks@gmail.com">adamhsparks@gmail.com</a>) Emerson M Del Ponte Zachary Foster Niklas J Grünwald</p>
+<p>Adam H Sparks (<a href="mailto:adamhsparks@gmail.com">adamhsparks@gmail.com</a>)<br>
+Emerson M Del Ponte (<a href="mailto:delponte@ufv.br">delponte@ufv.br</a>)<br>
+Zachary Foster (<a href="mailto:zacharyfoster1989@gmail.com">zacharyfoster1989@gmail.com</a>)<br>
+Niklaus J Grünwald (<a href="mailto:grunwaln@science.oregonstate.edu">grunwaln@science.oregonstate.edu</a>)</p>
 </div>
 <div id="published-in" class="section level3">
 <h3 class="hasAnchor">
@@ -80,16 +83,16 @@
 <div id="overview-of-contents" class="section level3">
 <h3 class="hasAnchor">
 <a href="#overview-of-contents" class="anchor"></a>Overview of contents</h3>
-<p>This repository is our research compendium that details our methodology for examining the state of reproducible research in plant pathology. The compendium contains all data, code, and text associated with the publication XXXX published in XXX. The <code>Rmd</code> files in the <code>inst/paper/</code> directory contain details of how all the analyses reported in the paper were conducted. Instructions on how to rerun the analysis to reproduce the results are found in the vingette, in the <code>vingettes/</code> directory.</p>
+<p>This repository is our research compendium that details our methodology for examining the state of reproducible research in plant pathology. The compendium contains all data, code, and text associated with the publication XXXX published in XXX. The <code>R markdown format</code> (<code>Rmd</code>) files in the <code>inst/paper/</code> directory contain details of how all the analyses reported in the paper were conducted. Detailed instructions on methods used and how to rerun the analysis to reproduce the results are found in the vignettes, in the <code>vingettes/</code> directory.</p>
 </div>
 <div id="the-supplementary-files" class="section level3">
 <h3 class="hasAnchor">
 <a href="#the-supplementary-files" class="anchor"></a>The supplementary files</h3>
 <p>The <code>inst/</code> directory contains:</p>
 <ul>
-<li>the manuscript as submitted (in MS Word format) and its Rmd source file (in the <code>paper/</code> directory)<br>
+<li>the manuscript as submitted (in MS Word format) and its <code>Rmd</code> source file (in the <code>paper/</code> directory)<br>
 </li>
-<li>supplementary information source files (in R markdown format) and executed versions<br>
+<li>supplementary information source files (in <code>Rmd</code> format) and executed versions<br>
 </li>
 <li>all the figures that are included in the paper (in the <code>figures/</code> directory)</li>
 </ul>
@@ -97,11 +100,11 @@
 <div id="the-r-package" class="section level3">
 <h3 class="hasAnchor">
 <a href="#the-r-package" class="anchor"></a>The R package</h3>
-<p>This repository is organized as an R package. There are no actual R functions in this package - all the R code is in the Rmd file. I simply used the R package structure to help manage dependencies, to take advantage of continuous integration for automated code testing, and so I didn’t have to think too much about how to organise the files.</p>
+<p>This repository is organized as an R package. There is one R function, <code><a href="reference/doi2bib-methods.html">doi2bib()</a></code>, that is used in this repository, along with the data, <code>assigned_article_notes.rda</code> that are located in <code>data</code> directory. We have used the R package structure to help manage dependencies, to take advantage of continuous integration for automated code testing and for file organisation.</p>
 <p>To download the package source as you see it on GitHub, for offline browsing, use this line at the shell prompt (assuming you have Git installed on your computer):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">git clone https<span class="op">:</span><span class="er">//</span>github.com<span class="op">/</span>phytopathology<span class="op">/</span>Reproducible.Plant.Pathology.git</code></pre></div>
+<pre><code>git clone https://github.com/phytopathology/Reproducible.Plant.Pathology.git</code></pre>
 <p>Once the download is complete, open the <code>Reproducible.Plant.Pathology.Rproj</code> in RStudio to begin working with the package and compendium files.</p>
-<p>The package has a number of dependencies on other R packages, and programs outside of R. These are listed at the bottom of this README. Installing these can be time-consuming and complicated, so we’ve done two things to simpify access to the compendium. First is the <code>packrat/</code> directory, which contains the source code for all the packages we depend on. If all works well, these will be installed on your computer when you open <code>Reproducible.Plant.Pathology.Rproj</code> in RStudio. <!--- Second is our Docker image that includes all the necessary software, code and data to run our analysis. The Docker image may give a quicker entry point to the project, and is more self-contained, so might save some fiddling with installing things.   
+<p>The package has a number of dependencies on other R packages, and programs outside of R. These are listed at the bottom of this README. Installing these can be time-consuming and complicated, so we’ve done two things to simplify access to the compendium. First is the <code>packrat/</code> directory, which contains the source code for all the packages we depend on. If all works well, these will be installed on your computer when you open <code>Reproducible.Plant.Pathology.Rproj</code> in RStudio. <!--- Second is our Docker image that includes all the necessary software, code and data to run our analysis. The Docker image may give a quicker entry point to the project, and is more self-contained, so might save some fiddling with installing things.   
 
 
 ### The Docker image 
@@ -163,10 +166,11 @@ We developed and tested the package on this Docker container, so this is the onl
 </ul>
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/phytopathology/Reproducible.Plant.Pathology/commits/master"><img src="https://img.shields.io/badge/last%20change-2017--04--21-brightgreen.svg" alt="Last-changedate"></a></li>
-<li><a href="https://cran.r-project.org/"><img src="https://img.shields.io/badge/R%3E%3D-3.3.3-brightgreen.svg" alt="minimal R version"></a></li>
+<li><a href="https://github.com/phytopathology/Reproducible.Plant.Pathology/commits/master"><img src="https://img.shields.io/badge/last%20change-2017--04--23-brightgreen.svg" alt="Last-changedate"></a></li>
+<li><a href="https://cran.r-project.org/"><img src="https://img.shields.io/badge/R%3E%3D-3.4.0-brightgreen.svg" alt="minimal R version"></a></li>
 <li><a href="http://choosealicense.com/licenses/mit/"><img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="Licence"></a></li>
 <li><a href="https://travis-ci.org/phytopathology/Reproducible.Plant.Pathology"><img src="https://travis-ci.org/phytopathology/Reproducible.Plant.Pathology.png?branch=master" alt="Travis-CI Build Status"></a></li>
+<li><a href="https://ci.appveyor.com/project/phytopathology/Reproducible.Plant.Pathology"><embed src="https://ci.appveyor.com/api/projects/status/github/phytopathology/Reproducible.Plant.Pathology?branch=master&amp;svg=true"></embed></a></li>
 <li><a href="https://codecov.io/github/phytopathology/Reproducible.Plant.Pathology?branch=master"><img src="https://codecov.io/github/phytopathology/Reproducible.Plant.Pathology/coverage.svg?branch=master" alt="codecov.io"></a></li>
 </ul>
 </div>

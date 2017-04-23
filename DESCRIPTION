@@ -10,18 +10,22 @@ Authors@R: as.person(c(
   ))
 URL: https://github.com/phytopathology/Reproducible-Research-in-Plant-Pathology
 BugReports: https://github.com/phytopathology/Reproducible-Research-in-Plant-Pathology/issues
-Description: A research compendium for the paper, "xxxxxxx", published in "xxxxxx".
+Description: A research compendium for the paper, "xxxxxx", published in "xxxxxx".
 Depends:
     R (>= 3.2.0)
 License: MIT + file LICENSE
+Imports:
+    httr,
+    methods
 Suggests:
-    RefManageR,
+    covr,
     dplyr,
     devtools,
     knitr,
     readr,
     rmarkdown,
     roxygen2 (>= 6.0.1),
+    testthat,
     tibble,
     utils
 RoxygenNote: 6.0.1
