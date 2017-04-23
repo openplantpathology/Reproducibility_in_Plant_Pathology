@@ -8,7 +8,6 @@ A. H. Sparks, E. M. Del Ponte, N. J. Grünwald, and Z. Foster
 3. Zachary S. L. Foster: Department of Botany and Plant Pathology, Oregon State University, Corvallis, OR 97330, USA
 4. Niklaus J. Grünwald: Horticultural Crops Research Laboratory, USDA Agricultural Research Service, Corvallis, OR 97330, USA
 
-
 # ABSTRACT
 
 Abstracts are mandatory and limited to one 200 word paragraph.
