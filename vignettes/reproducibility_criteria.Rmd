@@ -13,7 +13,17 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Each article will be scored on a set of defined criteria. We defined our scoring system for the articles as follows. 
+## Article classification
+
+Articles will be classified by the evaluator as to whether they are:
+  - Fundamental research  
+  - Applied research  
+  - Molecular research  
+  - Combined
+  
+## Reproducibility score
+
+Each article will be scored on a set of defined reproducibility criteria. We defined our scoring system for the articles as follows. 
 
 ### Raw data
 
@@ -70,6 +80,8 @@ Each article will be scored on a set of defined criteria. We defined our scoring
 
 # Example of reproducibility `tibble`
 
+Using the scoring system and journal classification, the final `tibble` will look something like this example:
+
 ```{r}
 reproducibility <- tibble::tibble(
   Article = "The Area Under the Disease Progress Stairs: Calculation, Advantage, and Application",
@@ -81,12 +93,12 @@ reproducibility <- tibble::tibble(
   Iss = 4,
   pp = "381-389",
   IF = 3.011,
-  Journal_class = "Fundamental",
   Page_charges = 130,
   Country =  "USA",
   Open_or_Restricted = "Optional",
   Reproducibility_instructions = FALSE,
   Iss_per_Year = 12,
+  Article_class = "Fundamental",
   Supl_mats = TRUE,
   Comp_methods_availability = 2,
   Software_availability = 1,
@@ -113,4 +125,4 @@ reproducibility$Reproducibility_score
 
 ## Final score
 
-Thus a perfect score would be 21, scoring three in all six categories.
+Thus a perfect score would be 21, scoring three in all seven categories.
