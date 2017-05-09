@@ -110,6 +110,29 @@ Once this is done, the articles are manually examined for suitability. Reference
 off-topic articles are not included. Notes are provided regarding these cases in `assigned_article_notes`. If the selected page number/article
 was not suitable, the next sequential article was selected manually.
 
+
+## Add empty columns for data to collect
+
+A variety of information will be collected with each article to be used in the analysis later.
+It is easiest to enter this using a spreadsheet application, so we will add on the columns for what information we want to collect and save the table as a csv for manual editing.
+
+```{r}
+to_record <- c("doi", "Article", "Authors", "Vol", "Iss", 
+"pp", "IF", "Page_charges", "Country", "Open_or_Restricted", 
+"Reproducibility_instructions", "Iss_per_Year", "Article_class", 
+"Supl_mats", "Comp_methods_availability", "Software_availability", 
+"Software_citation", "Analysis_automation", "Data_availability", 
+"Data_annotation", "Data_tidiness", "Reproducibility_score")
+journals[to_record] <- ""
+```
+
+Since we don't want to overwrite our edits each time this Rmd is run, we will save this as "article_data_template.csv" and the one we edit will be called just "article_data.csv" and will live in the "data" folder.
+
+```{r}
+write.csv(journals, file = "article_data_template.csv", quote = FALSE)
+```
+
+
 ## Generate a bibliography file to use with the paper
 
 Using the DOIs in this file, we can retrieve the BibTex citations for those articles that provide a DOI. Note that not all of the selected articles have a DOI, so we'll have to manually generate those entries, or fetch them from the journals' website later.
