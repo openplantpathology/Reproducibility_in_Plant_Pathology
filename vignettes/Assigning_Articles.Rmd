@@ -21,6 +21,7 @@ Set up the R environment
 ```{r library, message=FALSE}
 library(dplyr)
 library(readr)
+library(bibtex)
 library(Reproducible.Plant.Pathology)
 
 set.seed(1)
@@ -138,15 +139,27 @@ write.csv(journals, file = "article_data_template.csv", quote = FALSE)
 Using the DOIs in this file, we can retrieve the BibTex citations for those articles that provide a DOI. Note that not all of the selected articles have a DOI, so we'll have to manually generate those entries, or fetch them from the journals' website later.
 
 ```{r join_files, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
-
 notes <- Reproducible.Plant.Pathology::assigned_article_notes
 notes$doi <- tolower(notes$doi) # format DOIs to all be uniform, lower-case
 notes$journal <- iconv(notes$journal, "latin1", "UTF-8") # convert encodings for text with accents
 
-bib <- lapply(notes$doi, doi2bib) # get bib references from the DOI (that exist)
+bib <- unlist(lapply(notes$doi, doi2bib)) # get bib references from the DOI (that exist)
+bib <- unlist(bib)
+bib <- bib[bib != "Invalid DOI"]
 
-lapply(bib, write, "~/examined_articles.bib", append = TRUE)
 
+bib_path <- "../inst/examined_articles.bib"
+writeChar(paste0(bib, collapse = "\n\n"), bib_path)
+```
+
+
+```{r}
+parsed_bib <- read.bib(bib_path)
+bib_data <- data.frame(
+  authors = vapply(parsed_bib$author, FUN.VALUE = character(1), paste0, collapse = ", "), 
+  title = unlist(parsed_bib$title), 
+  volume = unlist(parsed_bib$volume)
+)
 ```
 
 ## Last steps
