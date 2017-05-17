@@ -1,9 +1,9 @@
 publication	year	start_page	assignee	doi	Article	Authors	Publisher	Vol	Iss	pp	IF	Page_charges	Country	Open_or_Restricted	Reproducibility_instructions	Iss_per_Year	Article_class	Supl_mats	Comp_methods_availability	Software_availability	Software_citation	Analysis_automation	Data_availability	Data_annotation	Data_tidiness	Reproducibility_score	comments
 Australasian Plant Pathology	2013	51	Adam	10.1007/s13313-012-0178-7	Taxonomic uncertainty and decision making for biosecurity: spatial models for myrtle/guava rust	J. Elith, J. Simpson, M. Hirsch	Springer	42	1	43-51	1.026	yes	NLD	restricted	no	6	applied	yes	3	3	3	NA	NA	NA	NA	NA	NA
-Canadian Journal of Plant Pathology	2015	72	Adam	10.1080/07060661.2014.986526	NA	NA	Taylor & Francis	NA	NA	NA	NA	NA	GBR	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-Crop Protection	2013	85	Adam	10.1016/j.cropro.2012.09.009	NA	NA	Elsevier	NA	NA	NA	NA	NA	NLD	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	Original random page number included in previous article. Next sequential article selected
-Crop Protection	2015	72	Adam	10.1016/j.cropro.2014.09.015	NA	NA	Elsevier	NA	NA	NA	NA	NA	NLD	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	Original random page number is review, next sequential article selected
-Crop Protection	2016	117	Adam	10.1016/j.cropro.2015.10.019	NA	NA	Elsevier	NA	NA	NA	NA	NA	NLD	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
+Canadian Journal of Plant Pathology	2015	72	Adam	10.1080/07060661.2014.986526	Alien fungal species on asymptomatic live woody plant material imported into Canada	Jean A. Bérubé, Guillaume G. Nicolas	Taylor & Francis	37	1	67-81	1.252	yes	GBR	restricted	no	4	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
+Crop Protection	2013	85	Adam	10.1016/j.cropro.2012.09.009	Effects of rice-water chestnut intercropping on rice sheath blight and rice blast diseases	Junhao Qin, Hongzhi He, Shiming Luo, Huashou Li	Elsevier	43	NA	NA	1.652	NA	NLD	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	Original random page number included in previous article. Next sequential article selected
+Crop Protection	2015	72	Adam	10.1016/j.cropro.2014.09.015	NA	NA	Elsevier	NA	NA	NA	1.652	NA	NLD	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	Original random page number is review, next sequential article selected
+Crop Protection	2016	117	Adam	10.1016/j.cropro.2015.10.019	NA	NA	Elsevier	NA	NA	NA	1.652	NA	NLD	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
 Forest Pathology	2012	142	Adam	10.1111/j.1439-0329.2011.00729.x	NA	NA	Wiley	NA	NA	NA	NA	NA	USA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
 Forest Pathology	2013	144	Adam	10.1111/efp.12011	NA	NA	Wiley	NA	NA	NA	NA	NA	USA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
 Journal of General Plant Pathology	2012	132	Adam	10.1007/s10327-012-0360-3	NA	NA	Springer	NA	NA	NA	NA	NA	NLD	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
