@@ -1,10 +1,10 @@
 PackratFormat: 1.4
 PackratVersion: 0.4.8.1
 RVersion: 3.4.0
-Repos: BioCsoft=http://bioconductor.org/packages/2.13/bioc,
-    BioCann=http://bioconductor.org/packages/2.13/data/annotation,
-    BioCexp=http://bioconductor.org/packages/2.13/data/experiment,
-    BioCextra=http://bioconductor.org/packages/2.13/extra,
+Repos: BioCsoft=https://bioconductor.org/packages/3.5/bioc,
+    BioCann=https://bioconductor.org/packages/3.5/data/annotation,
+    BioCexp=https://bioconductor.org/packages/3.5/data/experiment,
+    BioCextra=https://bioconductor.org/packages/3.5/extra,
     CRAN=https://cran.rstudio.com/
 
 Package: BH
@@ -22,10 +22,32 @@ Source: CRAN
 Version: 2.2.0
 Hash: 712773a3439bd32db5c40938e1a9aac2
 
+Package: RCurl
+Source: CRAN
+Version: 1.95-4.8
+Hash: 79c7d5a8684e44e0e3426d3093aa7d90
+Requires: bitops
+
+Package: RJSONIO
+Source: CRAN
+Version: 1.3-0
+Hash: fb672e20eb6f3010a3639f855d8ef6de
+
 Package: Rcpp
 Source: CRAN
 Version: 0.12.10
 Hash: 6cf65d0dd6a92f2d43c8d4805d33efe9
+
+Package: RefManageR
+Source: CRAN
+Version: 0.13.1
+Hash: 2b8293052338614c4391242bc59c88ef
+Requires: RCurl, RJSONIO, XML, bibtex, httr, lubridate, plyr, stringr
+
+Package: XML
+Source: CRAN
+Version: 3.98-1.7
+Hash: fd1bf3df333ac6d5ad6ce2688c6080aa
 
 Package: assertthat
 Source: CRAN
@@ -48,6 +70,11 @@ Version: 0.1.1
 Hash: bb86c110687fc1ac09410a822ada3b94
 Requires: dplyr, plyr, stringr
 
+Package: bibtex
+Source: CRAN
+Version: 0.4.0
+Hash: 1884fc6fc10f47e9c6a77bfd9370b28a
+
 Package: bitops
 Source: CRAN
 Version: 1.0-6
@@ -63,6 +90,12 @@ Source: CRAN
 Version: 1.17.1
 Hash: 97cb6f6293cd18d17df77a6383cc6763
 Requires: bitops
+
+Package: cellranger
+Source: CRAN
+Version: 1.1.0
+Hash: 4e1ef4d099b0c5fd531a3938cf4624bd
+Requires: rematch, tibble
 
 Package: commonmark
 Source: CRAN
@@ -125,6 +158,13 @@ Source: CRAN
 Version: 0.18.0
 Hash: 9dfaafbcca68be29b89ef7783dc1dac0
 
+Package: googlesheets
+Source: CRAN
+Version: 0.2.2
+Hash: b317d6b5f8bdf48f56a5789f80b883bd
+Requires: cellranger, dplyr, httr, jsonlite, purrr, readr, stringr,
+    tidyr, xml2
+
 Package: highr
 Source: CRAN
 Version: 0.6
@@ -140,6 +180,12 @@ Source: CRAN
 Version: 0.3.5
 Hash: 3411e0671a44177109dc1a9e4a6bd2a4
 Requires: Rcpp, digest
+
+Package: httpuv
+Source: CRAN
+Version: 1.3.3
+Hash: 15df1efb155731a0ac9c0bfd84f13499
+Requires: Rcpp
 
 Package: httr
 Source: CRAN
@@ -162,6 +208,12 @@ Package: lazyeval
 Source: CRAN
 Version: 0.2.0
 Hash: 3d6e7608e65bbf5cb170dab1e3c9ed8b
+
+Package: lubridate
+Source: CRAN
+Version: 1.6.0
+Hash: b90f4cbefe0b3c545dd68b22c66a8a12
+Requires: stringr
 
 Package: magrittr
 Source: CRAN
@@ -206,11 +258,22 @@ Source: CRAN
 Version: 1.0.0
 Hash: 77da8f1df873a4b91e5c4a68fe2fb1b6
 
+Package: purrr
+Source: CRAN
+Version: 0.2.2.2
+Hash: faada139260184912fea03f3fea13842
+Requires: Rcpp, lazyeval, magrittr, tibble
+
 Package: readr
 Source: CRAN
 Version: 1.1.0
 Hash: 3506086f41d307f5a78ee64e010536fa
 Requires: BH, R6, Rcpp, hms, tibble
+
+Package: rematch
+Source: CRAN
+Version: 1.0.1
+Hash: ad4faf59e7611117ff165817074c50c7
 
 Package: rex
 Source: CRAN
@@ -269,6 +332,12 @@ Source: CRAN
 Version: 1.3.0
 Hash: 8de64ed3345488e66b676875ed1ebdce
 Requires: Rcpp, lazyeval
+
+Package: tidyr
+Source: CRAN
+Version: 0.6.3
+Hash: 4ee794557c8022957d43899e9694b066
+Requires: Rcpp, dplyr, lazyeval, magrittr, stringi, tibble
 
 Package: whisker
 Source: CRAN

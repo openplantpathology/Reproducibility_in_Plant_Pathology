@@ -20,6 +20,7 @@ Imports:
 Suggests:
     dplyr,
     devtools,
+    googlesheets,
     knitr,
     readr,
     rmarkdown,
