@@ -23,6 +23,7 @@ library(dplyr)
 library(readr)
 library(bib2df)
 library(googlesheets)
+library(stringr)
 library(Reproducible.Plant.Pathology)
 
 set.seed(1)
@@ -79,7 +80,9 @@ Now we will create a randomised list of journal articles to assign to each of th
 
 ```{r journal_sample}
 journals <- tibble::tibble(sample(1:21, 200, replace = TRUE))
+
 names(journals) <- "number"
+
 journals <- dplyr::left_join(journals, journal_list, "number")
 ```
 
@@ -89,7 +92,6 @@ Generate a random list of years between 2012 and 2016 and a random list of start
 
 
 ```{r years_and_articles}
-
 year <- sample(2012:2016, 200, replace = TRUE)
 
 start_page <- sample.int(150, 200, replace = TRUE)
@@ -109,8 +111,7 @@ journals %>%
 ```
 
 Once this is done, the articles are manually examined for suitability. Reference articles or
-off-topic articles are not included. Notes are provided regarding these cases in `assigned_article_notes`. If the selected page number/article
-was not suitable, the next sequential article was selected manually.
+off-topic articles are not included. Notes are provided regarding these cases in `assigned_article_notes`. If the selected page number/article was not suitable, the next sequential article was selected manually.
 
 
 ## Add empty columns for data to collect
@@ -121,11 +122,6 @@ It is easiest to enter this using a spreadsheet application, so we will add on t
 ```{r}
 to_record <- c(
   "doi",
-  "art",
-  "aut",
-  "vol",
-  "iss",
-  "pp",
   "if",
   "page_charges",
   "country",
@@ -146,37 +142,108 @@ to_record <- c(
   journals[to_record] <- ""
 ```
 
-Since we don't want to overwrite our edits each time this Rmd is run, we will save this as "article_data_template.csv" and the one we edit will be called just "article_data.csv" and will live in the "data" folder.
+## Google Sheets
 
-```{r}
-write.csv(journals, file = "article_data_template.csv", quote = FALSE)
+We decided to use Google Sheets so that we could concurrently edit the file more easily. Once we're done filling in our evaluations, we will import the data back to R. Jenny Bryan has created a handy package, _googlesheets_ that we use here. _Note that this must be run interactively for `gs_new()` to work. Knitting this .Rmd file will not generate any gsheets, it must be done in an interactive R session._
+
+Create a Google Sheets workbook to hold worksheets for this project. This first sheet will serve as a template.
+
+```{r setup_gs, eval=FALSE}
+# Give googlesheets permission to access spreadsheets and Google Drive
+gs_auth()
+
+# create Google Sheet for concurrent edits, first sheet: article notes template
+gs_new(
+  "article_notes",
+  ws_title = "template",
+  input = journals,
+  trim = TRUE,
+  verbose = FALSE
+  )
 ```
 
+## Add article DOI's
+
+This step is completed in gsheets, Adam looked up articles and added notes and DOIs to a gsheet, "article_notes" which will be read into R in the next step.
 
 ## Generate a bibliography file to use with the paper
 
 Using the DOIs in this file, we can retrieve the BibTex citations for those articles that provide a DOI. Note that not all of the selected articles have a DOI, so we'll have to manually generate those entries, or fetch them from the journals' website later.
 
-```{r join_files, warning=FALSE, message=FALSE, results="hide", eval=TRUE}
-notes <- Reproducible.Plant.Pathology::assigned_article_notes
+```{r join_files, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
+article_notes <- gs_title("article_notes")
+
+notes <- 
+  article_notes %>% 
+    gs_read(ws = "article_notes")
+  
 notes$doi <- tolower(notes$doi) # format DOIs to all be uniform, lower-case
 notes$journal <- iconv(notes$journal, "latin1", "UTF-8") # convert encodings for text with accents
 
 bib <- unlist(lapply(notes$doi, doi2bib)) # get bib references from the DOI (that exist)
-bib <- unlist(bib)
+```
+
+The Journal of Plant Pathology does not supply valid bib entries via the DOI. So we need to clean them up.
+
+```{r clean_bib, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
+# locations of Journal of PLant Pathology entries in bib object
+clean <- grep("journal=\\{Journal of Plant Pathology\\}", bib)
+
+bib_clean <- bib[clean]
+
+# function to clean the entries
+clean_arts <- function(x) {
+  title_loc <- unlist(gregexpr(pattern = "title", x))
+  y <- substr(x, start = title_loc[1], stop = nchar(x))
+  y <- paste0(" @article{jpp,\n\t" , y)
+  y <- gsub("}, ", "},\n\t", y)
+  y <- gsub("=", " = ", y)
+  y <- gsub("}}\n", "}\n}", y)
+}
+
+# apply function and clean the bib entries
+cleaned <- unlist(lapply(bib_clean, clean_arts))
+
+# remove the bad entries
 bib <- bib[bib != "Invalid DOI"]
+bib <- bib[-clean]
 
-bib <- lapply(notes$doi, doi2bib) # get bib references from the DOI (that exist)
+# put the cleaned entries back in
+bib <- c(bib, cleaned)
+```
 
-lapply(bib, write, paste0(tempdir(), "/notes.bib"), append = TRUE)
-parsed_bib <- bib2df(paste0(tempdir(), "/notes.bib"))
+Next create a data frame of the references and export to Google.
 
-bib_gs <- gs_new("bib_notes", ws_title = "bib_notes", input = parsed_bib,
-                    trim = TRUE, verbose = FALSE)
+```{r google, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
+# write to a temp directory and read back as a tibble
+bib <- unlist(bib)
+lapply(bib, write, paste0(tempdir(), "/article_notes.bib"), append = TRUE)
+parsed_bib <- bib2df(paste0(tempdir(), "/article_notes.bib"))
+names(parsed_bib) <- tolower(names(parsed_bib))
+
+# join notes with bibliographic data
+parsed_bib <- left_join(parsed_bib, notes)
+parsed_bib <- arrange(parsed_bib, assignee)
+
+# the author and editor columns are actually a list of items, this causes issues
+# writing the parsed_bib object out to a file. We can drop it for now since it's
+# not necessary for the evaluation of the articles themselves.
+
+parsed_bib <- parsed_bib[, -c(9, 12)]
+
+# create Google Sheet for concurrent edits
+article_notes <-
+  article_notes %>%
+    gs_ws_new(
+    ws_title = "article_evaluations",
+    input = parsed_bib,
+    trim = TRUE,
+    verbose = FALSE
+    )
 
 ```
 
 ## Last steps
 
-The last few steps are completed outside of R in Google Docs, manually adding the missing articles to the spreadsheet.
+The last few steps are completed outside of R in Google Docs, manually adding the missing information to the spreadsheet and the assignees adding their evaluations of their respective articles.
 
