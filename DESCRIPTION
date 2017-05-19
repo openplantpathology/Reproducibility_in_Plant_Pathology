@@ -18,12 +18,15 @@ Imports:
     httr,
     methods
 Suggests:
+    bib2df,
     dplyr,
     devtools,
+    googlesheets,
     knitr,
     readr,
     rmarkdown,
     roxygen2 (>= 6.0.1),
+    stringr,
     testthat,
     tibble,
     utils

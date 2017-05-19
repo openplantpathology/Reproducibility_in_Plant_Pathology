@@ -57,13 +57,24 @@
       <h1>Criteria for evaluating reproducibility</h1>
                         <h4 class="author">Adam H Sparks and Emerson M Del Ponte and Zachary S L Foster and Niklaus J. Grünwald</h4>
             
-            <h4 class="date">2017-04-23</h4>
+            <h4 class="date">2017-05-19</h4>
           </div>
 
     
     
 <div class="contents">
-<p>Each article will be scored on a set of defined criteria. We defined our scoring system for the articles as follows.</p>
+<div id="article-classification" class="section level2">
+<h2 class="hasAnchor">
+<a href="#article-classification" class="anchor"></a>Article classification</h2>
+<p>Articles will be classified by the evaluator as to whether they are: - Fundamental research<br>
+- Applied research<br>
+- Molecular research<br>
+- Combined</p>
+</div>
+<div id="reproducibility-score" class="section level2">
+<h2 class="hasAnchor">
+<a href="#reproducibility-score" class="anchor"></a>Reproducibility score</h2>
+<p>Each article will be scored on a set of defined reproducibility criteria. We defined our scoring system for the articles as follows.</p>
 <div id="raw-data" class="section level3">
 <h3 class="hasAnchor">
 <a href="#raw-data" class="anchor"></a>Raw data</h3>
@@ -142,10 +153,12 @@
 </ol>
 </div>
 </div>
+</div>
 <div id="example-of-reproducibility-tibble" class="section level1">
 <h1 class="hasAnchor">
 <a href="#example-of-reproducibility-tibble" class="anchor"></a>Example of reproducibility <code>tibble</code>
 </h1>
+<p>Using the scoring system and journal classification, the final <code>tibble</code> will look something like this example:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">reproducibility &lt;-<span class="st"> </span>tibble<span class="op">::</span><span class="kw">tibble</span>(
   <span class="dt">Article =</span> <span class="st">"The Area Under the Disease Progress Stairs: Calculation, Advantage, and Application"</span>,
   <span class="dt">DOI =</span> <span class="st">"PHYTO-07-11-0216"</span>,
@@ -156,12 +169,12 @@
   <span class="dt">Iss =</span> <span class="dv">4</span>,
   <span class="dt">pp =</span> <span class="st">"381-389"</span>,
   <span class="dt">IF =</span> <span class="fl">3.011</span>,
-  <span class="dt">Journal_class =</span> <span class="st">"Fundamental"</span>,
   <span class="dt">Page_charges =</span> <span class="dv">130</span>,
   <span class="dt">Country =</span>  <span class="st">"USA"</span>,
   <span class="dt">Open_or_Restricted =</span> <span class="st">"Optional"</span>,
   <span class="dt">Reproducibility_instructions =</span> <span class="ot">FALSE</span>,
   <span class="dt">Iss_per_Year =</span> <span class="dv">12</span>,
+  <span class="dt">Article_class =</span> <span class="st">"Fundamental"</span>,
   <span class="dt">Supl_mats =</span> <span class="ot">TRUE</span>,
   <span class="dt">Comp_methods_availability =</span> <span class="dv">2</span>,
   <span class="dt">Software_availability =</span> <span class="dv">1</span>,
@@ -182,15 +195,15 @@ reproducibility &lt;-<span class="st"> </span>dplyr<span class="op">::</span><sp
                                                              Data_tidiness))
 
 reproducibility</code></pre></div>
-<pre><code>## # A tibble: 1 × 24
+<pre><code>## # A tibble: 1 x 24
 ##                                                                       Article
 ##                                                                         &lt;chr&gt;
 ## 1 The Area Under the Disease Progress Stairs: Calculation, Advantage, and App
 ## # ... with 23 more variables: DOI &lt;chr&gt;, Journal &lt;chr&gt;, Authors &lt;chr&gt;,
 ## #   Year &lt;dbl&gt;, Vol &lt;dbl&gt;, Iss &lt;dbl&gt;, pp &lt;chr&gt;, IF &lt;dbl&gt;,
-## #   Journal_class &lt;chr&gt;, Page_charges &lt;dbl&gt;, Country &lt;chr&gt;,
-## #   Open_or_Restricted &lt;chr&gt;, Reproducibility_instructions &lt;lgl&gt;,
-## #   Iss_per_Year &lt;dbl&gt;, Supl_mats &lt;lgl&gt;, Comp_methods_availability &lt;dbl&gt;,
+## #   Page_charges &lt;dbl&gt;, Country &lt;chr&gt;, Open_or_Restricted &lt;chr&gt;,
+## #   Reproducibility_instructions &lt;lgl&gt;, Iss_per_Year &lt;dbl&gt;,
+## #   Article_class &lt;chr&gt;, Supl_mats &lt;lgl&gt;, Comp_methods_availability &lt;dbl&gt;,
 ## #   Software_availability &lt;dbl&gt;, Software_citation &lt;dbl&gt;,
 ## #   Analysis_automation &lt;dbl&gt;, Data_availability &lt;dbl&gt;,
 ## #   Data_annotation &lt;dbl&gt;, Data_tidiness &lt;dbl&gt;,
@@ -200,7 +213,7 @@ reproducibility</code></pre></div>
 <div id="final-score" class="section level2">
 <h2 class="hasAnchor">
 <a href="#final-score" class="anchor"></a>Final score</h2>
-<p>Thus a perfect score would be 21, scoring three in all six categories.</p>
+<p>Thus a perfect score would be 21, scoring three in all seven categories.</p>
 </div>
 </div>
 </div>
@@ -210,7 +223,9 @@ reproducibility</code></pre></div>
         <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li>
+<li><a href="#article-classification">Article classification</a></li>
+      <li><a href="#reproducibility-score">Reproducibility score</a></li>
+      <li>
 <a href="#example-of-reproducibility-tibble">Example of reproducibility <code>tibble</code></a><ul class="nav nav-pills nav-stacked">
 <li><a href="#final-score">Final score</a></li>
       </ul>

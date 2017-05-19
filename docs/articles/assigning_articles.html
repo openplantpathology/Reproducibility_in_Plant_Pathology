@@ -57,7 +57,7 @@
       <h1>Assigning articles to evaluators</h1>
                         <h4 class="author">Adam H Sparks</h4>
             
-            <h4 class="date">2017-04-23</h4>
+            <h4 class="date">2017-05-19</h4>
           </div>
 
     
@@ -75,6 +75,9 @@
 <p>Set up the R environment</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
 <span class="kw">library</span>(readr)
+<span class="kw">library</span>(bib2df)
+<span class="kw">library</span>(googlesheets)
+<span class="kw">library</span>(stringr)
 <span class="kw">library</span>(Reproducible.Plant.Pathology)
 
 <span class="kw">set.seed</span>(<span class="dv">1</span>)
@@ -126,7 +129,9 @@
 <h3 class="hasAnchor">
 <a href="#create-a-randomised-list-of-the-journals" class="anchor"></a>Create a randomised list of the journals</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">journals &lt;-<span class="st"> </span>tibble<span class="op">::</span><span class="kw">tibble</span>(<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">21</span>, <span class="dv">200</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))
+
 <span class="kw">names</span>(journals) &lt;-<span class="st"> "number"</span>
+
 journals &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">left_join</span>(journals, journal_list, <span class="st">"number"</span>)</code></pre></div>
 </div>
 <div id="randomly-select-articles" class="section level3">
@@ -348,18 +353,18 @@ dplyr<span class="op">::</span><span class="kw">arrange</span>(journals, publica
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">journals <span class="op">%&gt;%</span><span class="st">  </span>
 <span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(publication) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span>dplyr<span class="op">::</span><span class="kw">tally</span>(<span class="dt">sort =</span> <span class="ot">TRUE</span>) </code></pre></div>
-<pre><code>## # A tibble: 21 × 2
+<pre><code>## # A tibble: 21 x 2
 ##                                    publication     n
 ##                                          &lt;chr&gt; &lt;int&gt;
-## 1                    Molecular Plant Pathology    15
-## 2                              Plant Pathology    14
-## 3                              Phytoparasitica    13
-## 4                               Phytopathology    13
-## 5           Journal of General Plant Pathology    12
-## 6                   Journal of Plant Pathology    11
-## 7  Physiological and Molecular Plant Pathology    11
-## 8                                Plant Disease    11
-## 9     Virology Journal (Plant Viruses Section)    11
+##  1                   Molecular Plant Pathology    15
+##  2                             Plant Pathology    14
+##  3                             Phytoparasitica    13
+##  4                              Phytopathology    13
+##  5          Journal of General Plant Pathology    12
+##  6                  Journal of Plant Pathology    11
+##  7 Physiological and Molecular Plant Pathology    11
+##  8                               Plant Disease    11
+##  9    Virology Journal (Plant Viruses Section)    11
 ## 10        Molecular Plant-Microbe Interactions    10
 ## 11                             Crop Protection     9
 ## 12                            Forest Pathology     9
@@ -372,24 +377,133 @@ dplyr<span class="op">::</span><span class="kw">arrange</span>(journals, publica
 ## 19                       Plant Health Progress     7
 ## 20                    Tropical Plant Pathology     6
 ## 21                Australasian Plant Pathology     4</code></pre>
+<p>Once this is done, the articles are manually examined for suitability. Reference articles or off-topic articles are not included. Notes are provided regarding these cases in <code>assigned_article_notes</code>. If the selected page number/article was not suitable, the next sequential article was selected manually.</p>
 </div>
+</div>
+<div id="add-empty-columns-for-data-to-collect" class="section level2">
+<h2 class="hasAnchor">
+<a href="#add-empty-columns-for-data-to-collect" class="anchor"></a>Add empty columns for data to collect</h2>
+<p>A variety of information will be collected with each article to be used in the analysis later. It is easiest to enter this using a spreadsheet application, so we will add on the columns for what information we want to collect and save the table as a csv for manual editing.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">to_record &lt;-<span class="st"> </span><span class="kw">c</span>(
+  <span class="st">"doi"</span>,
+  <span class="st">"if"</span>,
+  <span class="st">"page_charges"</span>,
+  <span class="st">"country"</span>,
+  <span class="st">"open"</span>,
+  <span class="st">"repro_inst"</span>,
+  <span class="st">"iss_per_year"</span>,
+  <span class="st">"art_class"</span>,
+  <span class="st">"supl_mats"</span>,
+  <span class="st">"comp_mthds_avail"</span>,
+  <span class="st">"software_avail"</span>,
+  <span class="st">"software_cite"</span>,
+  <span class="st">"anlysis_auto"</span>,
+  <span class="st">"data_avail"</span>,
+  <span class="st">"data_annot"</span>,
+  <span class="st">"data_tidy"</span>,
+  <span class="st">"reproducibility_score"</span>
+  )
+  journals[to_record] &lt;-<span class="st"> ""</span></code></pre></div>
+</div>
+<div id="google-sheets" class="section level2">
+<h2 class="hasAnchor">
+<a href="#google-sheets" class="anchor"></a>Google Sheets</h2>
+<p>We decided to use Google Sheets so that we could concurrently edit the file more easily. Once we’re done filling in our evaluations, we will import the data back to R. Jenny Bryan has created a handy package, <em>googlesheets</em> that we use here. <em>Note that this must be run interactively for <code>gs_new()</code> to work. Knitting this .Rmd file will not generate any gsheets, it must be done in an interactive R session.</em></p>
+<p>Create a Google Sheets workbook to hold worksheets for this project. This first sheet will serve as a template.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Give googlesheets permission to access spreadsheets and Google Drive</span>
+<span class="kw">gs_auth</span>()
+
+<span class="co"># create Google Sheet for concurrent edits, first sheet: article notes template</span>
+<span class="kw">gs_new</span>(
+  <span class="st">"article_notes"</span>,
+  <span class="dt">ws_title =</span> <span class="st">"template"</span>,
+  <span class="dt">input =</span> journals,
+  <span class="dt">trim =</span> <span class="ot">TRUE</span>,
+  <span class="dt">verbose =</span> <span class="ot">FALSE</span>
+  )</code></pre></div>
+</div>
+<div id="add-article-dois" class="section level2">
+<h2 class="hasAnchor">
+<a href="#add-article-dois" class="anchor"></a>Add article DOI’s</h2>
+<p>This step is completed in gsheets, Adam looked up articles and added notes and DOIs to a gsheet, “article_notes” which will be read into R in the next step.</p>
 </div>
 <div id="generate-a-bibliography-file-to-use-with-the-paper" class="section level2">
 <h2 class="hasAnchor">
 <a href="#generate-a-bibliography-file-to-use-with-the-paper" class="anchor"></a>Generate a bibliography file to use with the paper</h2>
-<p>The articles generated previously were searched for and DOIs were saved in a data file, <code>assigned_article_notes.rda</code>, with notes related to the articles and selections. Using the DOIs in this file, we can retrieve the BibTex citations for those articles that provide a DOI. Note that not all of the selected articles have a DOI, so we’ll have to manually generate those entries, or fetch them from the journals’ website later.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">notes &lt;-<span class="st"> </span>Reproducible.Plant.Pathology<span class="op">::</span>assigned_article_notes
+<p>Using the DOIs in this file, we can retrieve the BibTex citations for those articles that provide a DOI. Note that not all of the selected articles have a DOI, so we’ll have to manually generate those entries, or fetch them from the journals’ website later.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">article_notes &lt;-<span class="st"> </span><span class="kw">gs_title</span>(<span class="st">"article_notes"</span>)
+
+notes &lt;-<span class="st"> </span>
+<span class="st">  </span>article_notes <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">gs_read</span>(<span class="dt">ws =</span> <span class="st">"article_notes"</span>)
+  
 notes<span class="op">$</span>doi &lt;-<span class="st"> </span><span class="kw">tolower</span>(notes<span class="op">$</span>doi) <span class="co"># format DOIs to all be uniform, lower-case</span>
 notes<span class="op">$</span>journal &lt;-<span class="st"> </span><span class="kw">iconv</span>(notes<span class="op">$</span>journal, <span class="st">"latin1"</span>, <span class="st">"UTF-8"</span>) <span class="co"># convert encodings for text with accents</span>
 
-bib &lt;-<span class="st"> </span><span class="kw">lapply</span>(notes<span class="op">$</span>doi, doi2bib) <span class="co"># get bib references from the DOI (that exist)</span>
+bib &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(notes<span class="op">$</span>doi, doi2bib)) <span class="co"># get bib references from the DOI (that exist)</span></code></pre></div>
+<p>The Journal of Plant Pathology does not supply valid bib entries via the DOI. So we need to clean them up.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># locations of Journal of PLant Pathology entries in bib object</span>
+clean &lt;-<span class="st"> </span><span class="kw">grep</span>(<span class="st">"journal=</span><span class="ch">\\</span><span class="st">{Journal of Plant Pathology</span><span class="ch">\\</span><span class="st">}"</span>, bib)
 
-<span class="kw">lapply</span>(bib, write, <span class="st">"~/examined_articles.bib"</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<span class="co"># create a dataset of just those bib entries</span>
+bib_clean &lt;-<span class="st"> </span>bib[clean]
+
+<span class="co"># function to clean the entries</span>
+clean_arts &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+  title_loc &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">gregexpr</span>(<span class="dt">pattern =</span> <span class="st">"title"</span>, x))
+  y &lt;-<span class="st"> </span><span class="kw">substr</span>(x, <span class="dt">start =</span> title_loc[<span class="dv">1</span>], <span class="dt">stop =</span> <span class="kw">nchar</span>(x))
+  y &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">" @article{jpp,</span><span class="ch">\n\t</span><span class="st">"</span> , y)
+  y &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">"}, "</span>, <span class="st">"},</span><span class="ch">\n\t</span><span class="st">"</span>, y)
+  y &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">"="</span>, <span class="st">" = "</span>, y)
+  y &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">"}}</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">"}</span><span class="ch">\n</span><span class="st">}"</span>, y)
+}
+
+<span class="co"># apply function and clean the bib entries</span>
+cleaned &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(bib_clean, clean_arts))
+
+<span class="co"># remove the bad entries</span>
+bib &lt;-<span class="st"> </span>bib[bib <span class="op">!=</span><span class="st"> "Invalid DOI"</span>]
+bib &lt;-<span class="st"> </span>bib[<span class="op">-</span>clean]
+
+<span class="co"># fix the "year" field so that it has brackets, necessary later to reimport as data frame</span>
+bib &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">"year = "</span>, <span class="st">"year = {"</span>, bib, <span class="dt">fixed =</span> <span class="ot">TRUE</span>)
+bib &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">",</span><span class="ch">\n\t</span><span class="st">month"</span>, <span class="st">"},</span><span class="ch">\n\t</span><span class="st">month"</span>, bib, <span class="dt">fixed =</span> <span class="ot">TRUE</span>)
+bib &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">",</span><span class="ch">\n\t</span><span class="st">publisher"</span>, <span class="st">"},</span><span class="ch">\n\t</span><span class="st">publisher"</span>, bib, <span class="dt">fixed =</span> <span class="ot">TRUE</span>)
+
+<span class="co"># fix the "month"" field</span>
+bib &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">"}},</span><span class="ch">\n\t</span><span class="st">publisher"</span>, <span class="st">"},</span><span class="ch">\n\t</span><span class="st">publisher"</span>, bib, <span class="dt">fixed =</span> <span class="ot">TRUE</span>)
+
+<span class="co"># put the cleaned entries back in</span>
+bib &lt;-<span class="st"> </span><span class="kw">c</span>(bib, cleaned)</code></pre></div>
+<p>Next create a data frame of the references and export to Google.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># write to a temp directory and read back as a tibble</span>
+bib &lt;-<span class="st"> </span><span class="kw">unlist</span>(bib)
+<span class="kw">lapply</span>(bib, write, <span class="st">"~/tmp/article_notes.bib"</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)
+parsed_bib &lt;-<span class="st"> </span><span class="kw">bib2df</span>(<span class="st">"~/tmp/article_notes.bib"</span>)
+<span class="kw">names</span>(parsed_bib) &lt;-<span class="st"> </span><span class="kw">tolower</span>(<span class="kw">names</span>(parsed_bib))
+
+<span class="co"># remove an extra "}" in the month column</span>
+parsed_bib[[<span class="dv">5</span>]] &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">"}"</span>, <span class="st">""</span>, parsed_bib[[<span class="dv">5</span>]])
+
+<span class="co"># join notes with bibliographic data</span>
+bib_df &lt;-<span class="st"> </span><span class="kw">left_join</span>(parsed_bib, notes, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">"doi"</span> =<span class="st"> "doi"</span>,
+                                              <span class="st">"journal"</span> =<span class="st"> "journal"</span>))
+bib_df &lt;-<span class="st"> </span><span class="kw">arrange</span>(bib_df, assignee)
+
+<span class="co"># create Google Sheet for concurrent edits</span>
+article_notes &lt;-
+<span class="st">  </span>article_notes <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">gs_ws_new</span>(
+    <span class="dt">ws_title =</span> <span class="st">"article_evaluations"</span>,
+    <span class="dt">input =</span> bib_df,
+    <span class="dt">trim =</span> <span class="ot">TRUE</span>,
+    <span class="dt">verbose =</span> <span class="ot">FALSE</span>
+    )</code></pre></div>
 </div>
 <div id="last-steps" class="section level2">
 <h2 class="hasAnchor">
 <a href="#last-steps" class="anchor"></a>Last steps</h2>
-<p>The last few steps are completed outside of R, manually add the missing articles to the <code>examined_articles.bib</code> file and put it in the <code>inst/paper</code> directory for use writing the paper.</p>
+<p>The last few steps are completed outside of R in Google Docs, manually adding the missing information to the spreadsheet and the assignees adding their evaluations of their respective articles.</p>
 </div>
 </div>
   </div>
@@ -403,6 +517,9 @@ bib &lt;-<span class="st"> </span><span class="kw">lapply</span>(notes<span clas
       <li><a href="#create-list-of-journals">Create list of journals</a></li>
       <li><a href="#create-list-of-evaluators">Create list of evaluators</a></li>
       <li><a href="#create-randomised-list">Create randomised list</a></li>
+      <li><a href="#add-empty-columns-for-data-to-collect">Add empty columns for data to collect</a></li>
+      <li><a href="#google-sheets">Google Sheets</a></li>
+      <li><a href="#add-article-dois">Add article DOI’s</a></li>
       <li><a href="#generate-a-bibliography-file-to-use-with-the-paper">Generate a bibliography file to use with the paper</a></li>
       <li><a href="#last-steps">Last steps</a></li>
       </ul>
