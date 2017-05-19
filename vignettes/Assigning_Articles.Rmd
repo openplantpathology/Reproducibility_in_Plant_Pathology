@@ -189,6 +189,7 @@ The Journal of Plant Pathology does not supply valid bib entries via the DOI. So
 # locations of Journal of PLant Pathology entries in bib object
 clean <- grep("journal=\\{Journal of Plant Pathology\\}", bib)
 
+# create a dataset of just those bib entries
 bib_clean <- bib[clean]
 
 # function to clean the entries
@@ -217,19 +218,23 @@ Next create a data frame of the references and export to Google.
 ```{r google, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
 # write to a temp directory and read back as a tibble
 bib <- unlist(bib)
-lapply(bib, write, paste0(tempdir(), "/article_notes.bib"), append = TRUE)
-parsed_bib <- bib2df(paste0(tempdir(), "/article_notes.bib"))
+lapply(bib, write, "~/tmp/article_notes.bib", append = TRUE)
+parsed_bib <- bib2df("~/tmp/article_notes.bib")
 names(parsed_bib) <- tolower(names(parsed_bib))
-
-# join notes with bibliographic data
-parsed_bib <- left_join(parsed_bib, notes)
-parsed_bib <- arrange(parsed_bib, assignee)
 
 # the author and editor columns are actually a list of items, this causes issues
 # writing the parsed_bib object out to a file. We can drop it for now since it's
-# not necessary for the evaluation of the articles themselves.
+# not necessary for the evaluation of the articles themselves. 
+# The year column, 14, is incomplete, but provided by notes and causes issues
+# when left joining, drop it as well.
 
-parsed_bib <- parsed_bib[, -c(9, 12)]
+parsed_bib <- parsed_bib[, -c(9, 12, 14)]
+
+# join notes with bibliographic data
+bib_df <- left_join(parsed_bib, notes, by = c("doi" = "doi",
+                                              "journal" = "journal"))
+bib_df <- arrange(bib_df, assignee)
+
 
 # create Google Sheet for concurrent edits
 article_notes <-
