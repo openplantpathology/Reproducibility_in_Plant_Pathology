@@ -209,6 +209,14 @@ cleaned <- unlist(lapply(bib_clean, clean_arts))
 bib <- bib[bib != "Invalid DOI"]
 bib <- bib[-clean]
 
+# fix the "year" field so that it has brackets, necessary later to reimport as data frame
+bib <- gsub("year = ", "year = {", bib, fixed = TRUE)
+bib <- gsub(",\n\tmonth", "},\n\tmonth", bib, fixed = TRUE)
+bib <- gsub(",\n\tpublisher", "},\n\tpublisher", bib, fixed = TRUE)
+
+# fix the "month"" field
+bib <- gsub("}},\n\tpublisher", "},\n\tpublisher", bib, fixed = TRUE)
+
 # put the cleaned entries back in
 bib <- c(bib, cleaned)
 ```
@@ -222,26 +230,20 @@ lapply(bib, write, "~/tmp/article_notes.bib", append = TRUE)
 parsed_bib <- bib2df("~/tmp/article_notes.bib")
 names(parsed_bib) <- tolower(names(parsed_bib))
 
-# the author and editor columns are actually a list of items, this causes issues
-# writing the parsed_bib object out to a file. We can drop it for now since it's
-# not necessary for the evaluation of the articles themselves. 
-# The year column, 14, is incomplete, but provided by notes and causes issues
-# when left joining, drop it as well.
-
-parsed_bib <- parsed_bib[, -c(9, 12, 14)]
+# remove an extra "}" in the month column
+parsed_bib[[5]] <- gsub("}", "", parsed_bib[[5]])
 
 # join notes with bibliographic data
 bib_df <- left_join(parsed_bib, notes, by = c("doi" = "doi",
                                               "journal" = "journal"))
 bib_df <- arrange(bib_df, assignee)
 
-
 # create Google Sheet for concurrent edits
 article_notes <-
   article_notes %>%
     gs_ws_new(
     ws_title = "article_evaluations",
-    input = parsed_bib,
+    input = bib_df,
     trim = TRUE,
     verbose = FALSE
     )

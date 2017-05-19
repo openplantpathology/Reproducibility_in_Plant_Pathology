@@ -181,12 +181,6 @@ Version: 0.3.5
 Hash: 3411e0671a44177109dc1a9e4a6bd2a4
 Requires: Rcpp, digest
 
-Package: httpuv
-Source: CRAN
-Version: 1.3.3
-Hash: 15df1efb155731a0ac9c0bfd84f13499
-Requires: Rcpp
-
 Package: httr
 Source: CRAN
 Version: 1.2.1
