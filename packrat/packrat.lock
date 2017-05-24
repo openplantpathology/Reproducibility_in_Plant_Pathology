@@ -66,9 +66,9 @@ Hash: c590d29e555926af053055e23ee79efb
 
 Package: bib2df
 Source: CRAN
-Version: 0.1.1
-Hash: bb86c110687fc1ac09410a822ada3b94
-Requires: dplyr, plyr, stringr
+Version: 0.2
+Hash: c5827ad19bfe8c3d111083733b84ae86
+Requires: dplyr, humaniformat, plyr, stringr
 
 Package: bibtex
 Source: CRAN
@@ -186,6 +186,12 @@ Source: CRAN
 Version: 1.2.1
 Hash: 7de1f8f760441881804af7c1ff324340
 Requires: R6, curl, jsonlite, mime, openssl
+
+Package: humaniformat
+Source: CRAN
+Version: 0.6.0
+Hash: e4da5d44c02da55e00f8b8abf833b118
+Requires: Rcpp
 
 Package: jsonlite
 Source: CRAN
