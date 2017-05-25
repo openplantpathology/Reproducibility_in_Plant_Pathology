@@ -20,9 +20,23 @@ knitr::opts_chunk$set(echo = TRUE)
 Year the article was published.
 Entered as a 4-digit number.
 
+#### "vol"
+
+journal volume.
+
+#### "issue"
+
+journal issue.
+
 #### "start_page" 
 
 The page the article started on. 
+Entered as a number without commas.
+If the journal does not have page numbers, enter `NA`.
+
+#### "last_page" 
+
+The page the article ends on. 
 Entered as a number without commas.
 If the journal does not have page numbers, enter `NA`.
 
@@ -44,26 +58,28 @@ If the article does not have a doi, enter `NA`.
 #### "if"
 
 The 5-year impact factor of the journal. 
-Entered as a number.
+Entered as a number. Nik entered all values.
 
 #### "page_charges"
 
 How much it costs to publish in the journal?
 Entered as a number in dollars without dollar sign?
+> This is ahrd to do. Some journals have choice of open access APC or page charges
 
 #### "country"
 
 The country of the publisher.
 Entered as a 3 letter ISO code (e.g. Netherlands = `NLD`)?
+> Would this make more sense as the coutnry the correspondiong author works in?
 
 #### "open"
 
 Whether the journal is open-access or not. 
-Entered as `TRUE`/`FALSE`. 
+Entered as `TRUE`/`FALSE`/'BOTH`. 
 
 #### "repro_inst"
 
-Does the jounral have guidlines for reporducibility? 
+Does the journal have guidlines for reporducibility? 
 Entered as `TRUE`/`FALSE`. 
 
 #### "iss_per_year"
