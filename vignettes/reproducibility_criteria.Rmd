@@ -13,72 +13,165 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Article classification
+## Key for data collection
 
-Articles will be classified by the evaluator as to whether they are:
-  - Fundamental research  
-  - Applied research  
-  - Molecular research  
-  - Combined
-  
-## Reproducibility score
+#### "year"
 
-Each article will be scored on a set of defined reproducibility criteria. We defined our scoring system for the articles as follows. 
+Year the article was published.
+Entered as a 4-digit number.
 
-### Raw data
+#### "start_page" 
 
-#### Raw data availability
+The page the article started on. 
+Entered as a number without commas.
+If the journal does not have page numbers, enter `NA`.
 
-0. Not available or not mentioned in the publication
-1. Available upon request to author
-2. Online, but inconvenient/non-permanent (e.g. login needed, pay wall, FTP server, personal lab website)
-3. Freely available online to anonymous users for foreseeable future
+#### "assignee"
 
-#### Raw data annotation
+The person evaluating the paper. 
+One of:
 
-0. No annotation
-1. The structure/content of the data is clear, but the relevance to the study is not
-2. Fully understandable in the context of the paper
-3. Fully understandable without reading the paper
+* `Adam`
+* `Emerson`
+* `Zach`
+* `Nik`
 
-#### Raw data tidiness
+#### "doi"
 
-0. Not easily parsed with code or loaded by standard office software (e.g. unstructured raw text or binary equipment outputs or no raw data)
-1. Difficult, but possible, to parse with code or manipulate with standard office software (i.e. you technically could, but would not want to)
-2. Able to parse using code with minimal cleanup (e.g. you might need a few extra lines of code for clean up or do a few extra steps to work with your operating system. An example would be a text file with multiple tables)
-3. Tidy data in a standardized format (e.g. tsv) that is loaded correctly without cleanup or using uncommon parsing tools.
+The doi for the article.
+If the article does not have a doi, enter `NA`.
 
-### Computational methods
+#### "if"
 
-#### Computational methods availability
+The 5-year impact factor of the journal. 
+Entered as a number.
 
-0. Not available or not mentioned in the publication
-1. Available upon request to author
-2. Online, but inconvenient/non-permanent (e.g. login needed, pay wall, FTP server, personal/lab website)
-3. Freely available online to anonymous users for foreseeable future
+#### "page_charges"
 
-#### Availability of software used
+How much it costs to publish in the journal?
+Entered as a number in dollars without dollar sign?
 
-0. Not available or not mentioned in the publication
-1. Uses expensive proprietary software that only institutions would typically purchase (i.e. ArcGIS standard is $7000)
-2. Uses proprietary software that most individuals can afford (e.g. Excel, Matlab? ($500))
-3. Uses entirely open source and free software (e.g. R).
+#### "country"
 
-#### Citation of software used
+The country of the publisher.
+Entered as a 3 letter ISO code (e.g. Netherlands = `NLD`)?
 
-0. Not available or not mentioned in the publication
-1. Software mentioned by name only
-2. Attempts at citing
-3. Properly cited
+#### "open"
 
-#### Analysis automation
+Whether the journal is open-access or not. 
+Entered as `TRUE`/`FALSE`. 
+
+#### "repro_inst"
+
+Does the jounral have guidlines for reporducibility? 
+Entered as `TRUE`/`FALSE`. 
+
+#### "iss_per_year"
+
+The number of articles per year the journal publishes.
+Entered as a number without commas.
+
+#### "art_class"
+
+What kind of research the article describes. 
+One or more of the following:
+
+* `Fundamental`
+* `Applied`
+* `Molecular`
+
+Entered as a comma-separated list with no spaces.
+
+For example: `Applied,Molecular`
+
+#### "supl_mats"
+
+Does the article supply supplemental materials??
+I am not sure what this column is for..
+
+#### "anlysis_auto"
+
+Analysis automation score.
+Entered as a number between `0` and `4`.
 
 0. All steps were performed manually with no cohesive document describing exactly what was done
 1. Steps were performed manually, but with a detailed record (e.g. pasted commands in a text file)
 2. A set of runnable scripts were used, but have to be executed individually or the outputs require manual modifications
 3. A makefile or master script was provided that runs the entire analysis from raw data to published results
 
-# Example of reproducibility `tibble`
+
+#### "data_avail"
+
+Raw data availability score.
+Entered as a number between `0` and `4`.
+
+0. Not available or not mentioned in the publication
+1. Available upon request to author
+2. Online, but inconvenient/non-permanent (e.g. login needed, pay wall, FTP server, personal lab website)
+3. Freely available online to anonymous users for foreseeable future
+
+
+#### "data_annot"
+
+Raw data annotation score.
+Entered as a number between `0` and `4`.
+
+0. No annotation
+1. The structure/content of the data is clear, but the relevance to the study is not
+2. Fully understandable in the context of the paper
+3. Fully understandable without reading the paper
+
+#### "data_tidy"
+
+Raw data tidiness score.
+Entered as a number between `0` and `4`.
+
+0. Not easily parsed with code or loaded by standard office software (e.g. unstructured raw text or binary equipment outputs or no raw data)
+1. Difficult, but possible, to parse with code or manipulate with standard office software (i.e. you technically could, but would not want to)
+2. Able to parse using code with minimal cleanup (e.g. you might need a few extra lines of code for clean up or do a few extra steps to work with your operating system. An example would be a text file with multiple tables)
+3. Tidy data in a standardized format (e.g. tsv) that is loaded correctly without cleanup or using uncommon parsing tools.
+
+
+#### "comp_meth_avail"
+
+Computational methods availability score.
+Entered as a number between `0` and `4`.
+
+0. Not available or not mentioned in the publication
+1. Available upon request to author
+2. Online, but inconvenient/non-permanent (e.g. login needed, pay wall, FTP server, personal/lab website)
+3. Freely available online to anonymous users for foreseeable future
+
+#### "software_avail"
+
+Availability of software used score.
+Entered as a number between `0` and `4`.
+
+0. Not available or not mentioned in the publication
+1. Uses expensive proprietary software that only institutions would typically purchase (i.e. ArcGIS standard is $7000)
+2. Uses proprietary software that most individuals can afford (e.g. Excel, Matlab? ($500))
+3. Uses entirely open source and free software (e.g. R).
+
+#### "software_citation"
+
+Citation of software used score.
+Entered as a number between `0` and `4`.
+
+0. Not available or not mentioned in the publication
+1. Software mentioned by name only
+2. Attempts at citing
+3. Properly cited
+
+
+## Final reproducibility score
+
+Each article will be scored on a set of defined reproducibility criteria.
+The reproducibility score will be the sum of the scores for each criteria.
+Thus a perfect score would be 30, scoring three in all ten categories.
+
+
+
+## Example of reproducibility `tibble`
 
 Using the scoring system and journal classification, the final `tibble` will look something like this example:
 
@@ -123,6 +216,3 @@ reproducibility
 reproducibility$Reproducibility_score
 ```
 
-## Final score
-
-Thus a perfect score would be 21, scoring three in all seven categories.
