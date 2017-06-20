@@ -11,9 +11,14 @@ vignette: >
 
 ## Creating a sample of articles
 
-Twenty one journals in the discipline of plant pathology were selected by the four authors as being the primary choice for most plant pathologists when publishing manuscripts.
+Twenty one journals in the discipline of plant pathology were selected by the
+four authors as being the primary choice for most plant pathologists when
+publishing manuscripts.
 
-Using the assumption that journals publish an average 10 articles per issue, for a population of ~1000 articles, using a confidence level of 95% and confidence interval of 10% we need 88 samples. In [Issue #3](https://github.com/adamhsparks/Reproducible-Research-in-Plant-Pathology/issues/3), we decided to select 200 articles to have a large sample of the population.
+Using the assumption that journals publish an average 10 articles per issue, for
+a population of ~1000 articles, using a confidence level of 95% and confidence
+interval of 10% we need 88 samples. In [Issue #3](https://github.com/adamhsparks/Reproducible-Research-in-Plant-Pathology/issues/3),
+we decided to select 200 articles to have a large sample of the population.
 
 ## R setup
 Set up the R environment
@@ -33,7 +38,9 @@ options(tibble.print_max = 21, tibble.print_min = 21)
 ```
 ## Create list of journals
 
-We hand-picked a list of 21 journals that we felt represented plant pathology research. In this step, we will create a `tibble` in R of these journals, assigning them a number so that we can randomise them.
+We hand-picked a list of 21 journals that we felt represented plant pathology
+research. In this step, we will create a `tibble` in R of these journals,
+assigning them a number so that we can randomise them.
 
 ```{r journal_list}
 journal_list <- tibble(
@@ -65,7 +72,9 @@ names(journal_list) <- c("number", "publication")
 
 ## Create list of evaluators
 
-From the four authors of this paper, in this step, we will create a list for us to use that will randomly assign articles for us to evaluate for this manuscript.
+From the four authors of this paper, in this step, we will create a list for us
+to use that will randomly assign articles for us to evaluate for this
+manuscript.
 
 ```{r assignee}
 assignee <- rep(c("Adam", "Emerson", "Zach", "Nik"), 50)
@@ -74,7 +83,8 @@ assignee <- rep(c("Adam", "Emerson", "Zach", "Nik"), 50)
 
 ## Create randomised list
 
-Now we will create a randomised list of journal articles to assign to each of the four authors for this paper.
+Now we will create a randomised list of journal articles to assign to each of
+the four authors for this paper.
 
 ### Create a randomised list of the journals
 
@@ -88,7 +98,12 @@ journals <- dplyr::left_join(journals, journal_list, "number")
 
 ### Randomly select articles
 
-Generate a random list of years between 2012 and 2016 and a random list of start pages between 1 and 150 since some journals start numbering at 1 with every issue. Then bind the columns of the randomised list of journals with the randomised years and page start numbers. This then assumes that there is no temporal effect, _i.e._, the time of year an article is published does not affect whether or not it is reproducible.
+Generate a random list of years between 2012 and 2016 and a random list of start
+pages between 1 and 150 since some journals start numbering at 1 with every
+issue. Then bind the columns of the randomised list of journals with the
+randomised years and page start numbers. This then assumes that there is no
+temporal effect, _i.e._, the time of year an article is published does not
+affect whether or not it is reproducible.
 
 
 ```{r years_and_articles}
@@ -110,14 +125,18 @@ journals %>%
   dplyr::tally(sort = TRUE) 
 ```
 
-Once this is done, the articles are manually examined for suitability. Reference articles or
-off-topic articles are not included. Notes are provided regarding these cases in `assigned_article_notes`. If the selected page number/article was not suitable, the next sequential article was selected manually.
+Once this is done, the articles are manually examined for suitability. Reference
+articles or off-topic articles are not included. Notes are provided regarding
+these cases in `assigned_article_notes`. If the selected page number/article was
+not suitable, the next sequential article was selected manually.
 
 
 ## Add empty columns for data to collect
 
-A variety of information will be collected with each article to be used in the analysis later.
-It is easiest to enter this using a spreadsheet application, so we will add on the columns for what information we want to collect and save the table as a csv for manual editing.
+A variety of information will be collected with each article to be used in the
+analysis later. It is easiest to enter this using a spreadsheet application, so
+we will add on the columns for what information we want to collect and save the
+table as a csv for manual editing.
 
 ```{r}
 to_record <- c(
@@ -144,9 +163,15 @@ to_record <- c(
 
 ## Google Sheets
 
-We decided to use Google Sheets so that we could concurrently edit the file more easily. Once we're done filling in our evaluations, we will import the data back to R. Jenny Bryan has created a handy package, _googlesheets_ that we use here. _Note that this must be run interactively for `gs_new()` to work. Knitting this .Rmd file will not generate any gsheets, it must be done in an interactive R session._
+We decided to use Google Sheets so that we could concurrently edit the file more
+easily. Once we're done filling in our evaluations, we will import the data back
+to R. Jenny Bryan has created a handy package, _googlesheets_ that we use here.
+_Note that this must be run interactively for `gs_new()` to work. Knitting this
+.Rmd file will not generate any gsheets, it must be done in an interactive R
+session._
 
-Create a Google Sheets workbook to hold worksheets for this project. This first sheet will serve as a template.
+Create a Google Sheets workbook to hold worksheets for this project. This first
+sheet will serve as a template.
 
 ```{r setup_gs, eval=FALSE}
 # Give googlesheets permission to access spreadsheets and Google Drive
@@ -164,11 +189,15 @@ gs_new(
 
 ## Add article DOI's
 
-This step is completed in gsheets, Adam looked up articles and added notes and DOIs to a gsheet, "article_notes" which will be read into R in the next step.
+This step is completed in gsheets, Adam looked up articles and added notes and
+DOIs to a gsheet, "article_notes" which will be read into R in the next step.
 
 ## Generate a bibliography file to use with the paper
 
-Using the DOIs in this file, we can retrieve the BibTex citations for those articles that provide a DOI. Note that not all of the selected articles have a DOI, so we'll have to manually generate those entries, or fetch them from the journals' website later.
+Using the DOIs in this file, we can retrieve the BibTex citations for those
+articles that provide a DOI. Note that not all of the selected articles have a
+DOI, so we'll have to manually generate those entries, or fetch them from the
+journals' website later.
 
 ```{r join_files, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
 article_notes <- gs_title("article_notes")
@@ -177,13 +206,18 @@ notes <-
   article_notes %>% 
     gs_read(ws = "article_notes")
   
-notes$doi <- tolower(notes$doi) # format DOIs to all be uniform, lower-case
-notes$journal <- iconv(notes$journal, "latin1", "UTF-8") # convert encodings for text with accents
+# format DOIs to all be uniform, lower-case
+notes$doi <- tolower(notes$doi)
 
-bib <- unlist(lapply(notes$doi, doi2bib)) # get bib references from the DOI (that exist)
+# convert encodings for text with accents
+notes$journal <- iconv(notes$journal, "latin1", "UTF-8") 
+
+# get bib references from the DOI (that exist)
+bib <- unlist(lapply(notes$doi, doi2bib))
 ```
 
-The Journal of Plant Pathology does not supply valid bib entries via the DOI. So we need to clean them up.
+The Journal of Plant Pathology does not supply valid bib entries via the DOI.
+So we need to clean them up.
 
 ```{r clean_bib, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
 # locations of Journal of PLant Pathology entries in bib object
@@ -209,13 +243,12 @@ cleaned <- unlist(lapply(bib_clean, clean_articles))
 bib <- bib[bib != "Invalid DOI"]
 bib <- bib[-clean]
 
-# fix the "year" field so that it has brackets, necessary later to reimport as data frame
+# fix the "year" field so that it has brackets, 
+# necessary later to reimport as data frame
 bib <- gsub("year = ", "year = \\{", bib, fixed = TRUE)
-bib <- gsub(",\n\tmonth", "\\},\n\tmonth", bib, fixed = TRUE)
-bib <- gsub(",\n\tpublisher", "\\},\n\tpublisher", bib, fixed = TRUE)
+bib <- gsub(",\n\tmonth = {", "},\n\tmonth = {", bib, fixed = TRUE)
+bib <- gsub("}},\n\tpublisher", "},\n\tpublisher", bib, fixed = TRUE)
 
-# fix the "month"" field
-bib <- gsub("\\}},\n\tpublisher", "\\},\n\tpublisher", bib, fixed = TRUE)
 
 # put the cleaned entries back in
 bib <- c(bib, cleaned)
@@ -233,8 +266,11 @@ names(parsed_bib) <- tolower(names(parsed_bib))
 # when parsing the bib file, it creates duplicate rows, remove them
 parsed_bib <- parsed_bib[!duplicated(parsed_bib), ]
 
+# fix the "month" field
+parsed_bib$month <- gsub("\\}", "", parsed_bib[, 15])
+
 # join notes with bibliographic data
-bib_df <- left_join(notes, parsed_bib, by = c("doi" = "doi",
+bib_df <- left_join(parsed_bib, notes, by = c("doi" = "doi",
                                               "journal" = "journal"))
 bib_df <- arrange(bib_df, assignee)
 
@@ -252,4 +288,6 @@ article_notes <-
 
 ## Last steps
 
-The last few steps are completed outside of R in Google Docs, manually adding the missing information to the spreadsheet and the assignees adding their evaluations of their respective articles.
+The last few steps are completed outside of R in Google Docs, manually adding
+the missing information to the spreadsheet and the assignees adding their
+evaluations of their respective articles.
