@@ -4,7 +4,7 @@ author: "Adam H Sparks and Emerson M Del Ponte and Zachary S L Foster and Niklau
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Criteria for evaluating reproducibility}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -16,10 +16,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Article classification
 
 Articles will be classified by the evaluator as to whether they are:
-  - Fundamental research  
-  - Applied research  
-  - Molecular research  
-  - Combined
+- Fundamental research
+
+- Applied research
+
+- Molecular research
+
+- Combined
   
 ## Reproducibility score
 
@@ -30,8 +33,11 @@ Each article will be scored on a set of defined reproducibility criteria. We def
 #### Raw data availability
 
 0. Not available or not mentioned in the publication
+
 1. Available upon request to author
+
 2. Online, but inconvenient/non-permanent (e.g. login needed, pay wall, FTP server, personal lab website)
+
 3. Freely available online to anonymous users for foreseeable future
 
 #### Raw data annotation
@@ -74,8 +80,11 @@ Each article will be scored on a set of defined reproducibility criteria. We def
 #### Analysis automation
 
 0. All steps were performed manually with no cohesive document describing exactly what was done
+
 1. Steps were performed manually, but with a detailed record (e.g. pasted commands in a text file)
+
 2. A set of runnable scripts were used, but have to be executed individually or the outputs require manual modifications
+
 3. A makefile or master script was provided that runs the entire analysis from raw data to published results
 
 # Example of reproducibility `tibble`

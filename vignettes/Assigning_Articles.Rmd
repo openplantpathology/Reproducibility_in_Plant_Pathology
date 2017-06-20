@@ -1,10 +1,10 @@
 ---
-title: "Assigning articles to evaluators"
+title: "Assigning Articles to Evaluators"
 author: "Adam H Sparks"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Assigning Articles to Evaluators}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -253,4 +253,3 @@ article_notes <-
 ## Last steps
 
 The last few steps are completed outside of R in Google Docs, manually adding the missing information to the spreadsheet and the assignees adding their evaluations of their respective articles.
-
