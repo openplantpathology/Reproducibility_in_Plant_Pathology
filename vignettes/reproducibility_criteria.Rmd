@@ -64,22 +64,24 @@ Entered as a number. Nik entered all values.
 
 How much it costs to publish in the journal?
 Entered as a number in dollars without dollar sign?
-> This is ahrd to do. Some journals have choice of open access APC or page charges
+> This is hard to do. Some journals have choice of open access APC or page charges
+> Agree, not sure that it adds much to our work.
 
 #### "country"
 
 The country of the publisher.
 Entered as a 3 letter ISO code (e.g. Netherlands = `NLD`)?
-> Would this make more sense as the coutnry the correspondiong author works in?
+> Would this make more sense as the country the correspondiong author works in?
+> That makes sense, we could do that -AS
 
 #### "open"
 
 Whether the journal is open-access or not. 
-Entered as `TRUE`/`FALSE`/'BOTH`. 
+Entered as `TRUE`/`FALSE`/`BOTH`. 
 
 #### "repro_inst"
 
-Does the journal have guidlines for reporducibility? 
+Does the journal have guidelines for reproducibility? 
 Entered as `TRUE`/`FALSE`. 
 
 #### "iss_per_year"
@@ -104,6 +106,7 @@ For example: `Applied,Molecular`
 
 Does the article supply supplemental materials??
 I am not sure what this column is for..
+> Are supplmental materials avaiable for the article? -AS
 
 #### "anlysis_auto"
 
@@ -144,8 +147,8 @@ Entered as a number between `0` and `4`.
 
 0. Not easily parsed with code or loaded by standard office software (e.g. unstructured raw text or binary equipment outputs or no raw data)
 1. Difficult, but possible, to parse with code or manipulate with standard office software (i.e. you technically could, but would not want to)
-2. Able to parse using code with minimal cleanup (e.g. you might need a few extra lines of code for clean up or do a few extra steps to work with your operating system. An example would be a text file with multiple tables)
-3. Tidy data in a standardized format (e.g. tsv) that is loaded correctly without cleanup or using uncommon parsing tools.
+2. Able to parse using code with minimal clean-up (e.g. you might need a few extra lines of code for clean up or do a few extra steps to work with your operating system. An example would be a text file with multiple tables)
+3. Tidy data in a standardized format (e.g. tsv) that is loaded correctly without clean-up or using uncommon parsing tools.
 
 
 #### "comp_meth_avail"
@@ -231,4 +234,3 @@ reproducibility
 
 reproducibility$Reproducibility_score
 ```
-
