@@ -193,29 +193,29 @@ clean <- grep("journal=\\{Journal of Plant Pathology\\}", bib)
 bib_clean <- bib[clean]
 
 # function to clean the entries
-clean_arts <- function(x) {
+clean_articles <- function(x) {
   title_loc <- unlist(gregexpr(pattern = "title", x))
   y <- substr(x, start = title_loc[1], stop = nchar(x))
   y <- paste0(" @article{jpp,\n\t" , y)
-  y <- gsub("}, ", "},\n\t", y)
+  y <- gsub("\\}, ", "\\},\n\t", y)
   y <- gsub("=", " = ", y)
-  y <- gsub("}}\n", "}\n}", y)
+  y <- gsub("\\}}\n", "\\}\n}", y)
 }
 
 # apply function and clean the bib entries
-cleaned <- unlist(lapply(bib_clean, clean_arts))
+cleaned <- unlist(lapply(bib_clean, clean_articles))
 
 # remove the bad entries
 bib <- bib[bib != "Invalid DOI"]
 bib <- bib[-clean]
 
 # fix the "year" field so that it has brackets, necessary later to reimport as data frame
-bib <- gsub("year = ", "year = {", bib, fixed = TRUE)
-bib <- gsub(",\n\tmonth", "},\n\tmonth", bib, fixed = TRUE)
-bib <- gsub(",\n\tpublisher", "},\n\tpublisher", bib, fixed = TRUE)
+bib <- gsub("year = ", "year = \\{", bib, fixed = TRUE)
+bib <- gsub(",\n\tmonth", "\\},\n\tmonth", bib, fixed = TRUE)
+bib <- gsub(",\n\tpublisher", "\\},\n\tpublisher", bib, fixed = TRUE)
 
 # fix the "month"" field
-bib <- gsub("}},\n\tpublisher", "},\n\tpublisher", bib, fixed = TRUE)
+bib <- gsub("\\}},\n\tpublisher", "\\},\n\tpublisher", bib, fixed = TRUE)
 
 # put the cleaned entries back in
 bib <- c(bib, cleaned)
@@ -230,11 +230,11 @@ lapply(bib, write, "~/tmp/article_notes.bib", append = TRUE)
 parsed_bib <- bib2df("~/tmp/article_notes.bib")
 names(parsed_bib) <- tolower(names(parsed_bib))
 
-# remove an extra "}" in the month column
-parsed_bib[[5]] <- gsub("}", "", parsed_bib[[5]])
+# when parsing the bib file, it creates duplicate rows, remove them
+parsed_bib <- parsed_bib[!duplicated(parsed_bib), ]
 
 # join notes with bibliographic data
-bib_df <- left_join(parsed_bib, notes, by = c("doi" = "doi",
+bib_df <- left_join(notes, parsed_bib, by = c("doi" = "doi",
                                               "journal" = "journal"))
 bib_df <- arrange(bib_df, assignee)
 
