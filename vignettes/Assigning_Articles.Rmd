@@ -311,3 +311,9 @@ article_notes <-
 The last few steps are completed outside of R in Google Docs, manually adding
 the missing information to the spreadsheet and the assignees adding their
 evaluations of their respective articles.
+
+The last few steps are completed outside of R in Google Docs, manually adding the missing information to the spreadsheet and the assignees adding their evaluations of their respective articles.
+
+### Google Sheets
+
+The Google Sheets can be found here https://docs.google.com/spreadsheets/d/1pwUnvJgcnvwg-b8vLEbrdAbIpS6Rdbd0lIiZJi2-GfI/edit?usp=sharing.
