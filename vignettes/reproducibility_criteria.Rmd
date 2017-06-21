@@ -4,7 +4,7 @@ author: "Adam H Sparks and Emerson M Del Ponte and Zachary S L Foster and Niklau
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Criteria for evaluating reproducibility}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,6 +14,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Key for data collection
+
+## Reproducibility score
 
 #### "year"
 
@@ -125,8 +127,11 @@ Raw data availability score.
 Entered as a number between `0` and `4`.
 
 0. Not available or not mentioned in the publication
+
 1. Available upon request to author
+
 2. Online, but inconvenient/non-permanent (e.g. login needed, pay wall, FTP server, personal lab website)
+
 3. Freely available online to anonymous users for foreseeable future
 
 
@@ -187,8 +192,6 @@ Entered as a number between `0` and `4`.
 Each article will be scored on a set of defined reproducibility criteria.
 The reproducibility score will be the sum of the scores for each criteria.
 Thus a perfect score would be 30, scoring three in all ten categories.
-
-
 
 ## Example of reproducibility `tibble`
 
