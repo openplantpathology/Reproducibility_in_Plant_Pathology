@@ -259,7 +259,7 @@ properly, resulting in an improperly formatted bib file when importing using
 `bib2df()`. All that is neeeded is to open the resulting file and resave using
 Bibdesk.
 
-```{r clean_bib, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
+```{r export_import_bib, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
 # write file to a temp directory and read back as a tibble
 cleaned <- unlist(cleaned)
 
