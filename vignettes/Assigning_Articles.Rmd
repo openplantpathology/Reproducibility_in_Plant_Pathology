@@ -304,6 +304,9 @@ article_notes <-
     trim = TRUE,
     verbose = FALSE
     )
+
+# clean up files to build R package properly with no NOTES
+unlink(".httr-oauth")
 ```
 
 ## Last steps
@@ -311,8 +314,6 @@ article_notes <-
 The last few steps are completed outside of R in Google Docs, manually adding
 the missing information to the spreadsheet and the assignees adding their
 evaluations of their respective articles.
-
-The last few steps are completed outside of R in Google Docs, manually adding the missing information to the spreadsheet and the assignees adding their evaluations of their respective articles.
 
 ### Google Sheets
 

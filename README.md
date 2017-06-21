@@ -1,7 +1,7 @@
 Reproducible Plant Pathology
 ================
 
-[![Last-changedate](https://img.shields.io/badge/last%20change-2017--05--20-brightgreen.svg)](https://github.com/phytopathology/Reproducible.Plant.Pathology/commits/master) [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.4.0-brightgreen.svg)](https://cran.r-project.org/) [![Licence](https://img.shields.io/github/license/mashape/apistatus.svg)](http://choosealicense.com/licenses/mit/) [![Travis-CI Build Status](https://travis-ci.org/phytopathology/Reproducible.Plant.Pathology.svg?branch=master)](https://travis-ci.org/phytopathology/Reproducible.Plant.Pathology)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2017--06--21-brightgreen.svg)](https://github.com/phytopathology/Reproducible.Plant.Pathology/commits/master) [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.4.0-brightgreen.svg)](https://cran.r-project.org/) [![Licence](https://img.shields.io/github/license/mashape/apistatus.svg)](http://choosealicense.com/licenses/mit/) [![Travis-CI Build Status](https://travis-ci.org/phytopathology/Reproducible.Plant.Pathology.svg?branch=master)](https://travis-ci.org/phytopathology/Reproducible.Plant.Pathology)
 
 Research compendium for a report on the reproducibility of research in plant pathology
 --------------------------------------------------------------------------------------
