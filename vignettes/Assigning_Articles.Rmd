@@ -230,10 +230,10 @@ bib_clean <- bib[clean]
 clean_articles <- function(x) {
   title_loc <- unlist(gregexpr(pattern = "title", x))
   y <- substr(x, start = title_loc[1], stop = nchar(x))
-  y <- paste0(" @article{jpp,\n\t" , y)
-  y <- gsub("\\}, ", "\\},\n\t", y)
+  y <- paste0("@article{jpp,\n\t" , y)
+  y <- gsub("}, ", "},\n\t", y)
   y <- gsub("=", " = ", y)
-  y <- gsub("\\}}\n", "\\}\n}", y)
+  y <- gsub("}}\n", "}\n}", y)
 }
 
 # apply function and clean the bib entries
@@ -245,32 +245,53 @@ bib <- bib[-clean]
 
 # fix the "year" field so that it has brackets, 
 # necessary later to reimport as data frame
-bib <- gsub("year = ", "year = \\{", bib, fixed = TRUE)
-bib <- gsub(",\n\tmonth = {", "},\n\tmonth = {", bib, fixed = TRUE)
+bib <- gsub("year = ", "year = {", bib, fixed = TRUE)
+bib <- gsub("year = \\{", "year = {", bib, fixed = TRUE)
+bib <- gsub(",\n\tpublisher", "},\n\tpublisher", bib, fixed = TRUE)
 bib <- gsub("}},\n\tpublisher", "},\n\tpublisher", bib, fixed = TRUE)
-
-
-# put the cleaned entries back in
-bib <- c(bib, cleaned)
+bib <- gsub(",\n\tmonth = {", "},\n\tmonth = {", bib, fixed = TRUE)
 ```
 
-Next create a data frame of the references and export to Google.
+Next export the file to disk as .bib files to be cleaned using
+[Bibdesk](bibdesk.sourceforge.net). This is only necessary for the "cleaned"
+entries. This set of data have special characters that are not handled by R
+properly, resulting in an improperly formatted bib file when importing using
+`bib2df()`. All that is neeeded is to open the resulting file and resave using
+Bibdesk.
+
+```{r clean_bib, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
+# write file to a temp directory and read back as a tibble
+cleaned <- unlist(cleaned)
+
+# remove any previous files from running this
+unlink("~/tmp/cleaned_article_notes.bib")
+
+# write to disk and reimport
+lapply(cleaned, write, "~/tmp/cleaned_article_notes.bib", append = TRUE)
+```
+
+*Important* Open resulting , "~/tmp/cleaned_article_notes.bib" in JabRef and
+resave. Bibdesk will fix inconsistencies allowing R to import the file properly.
+
 
 ```{r google, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
-# write to a temp directory and read back as a tibble
 bib <- unlist(bib)
-lapply(bib, write, "~/tmp/article_notes.bib", append = TRUE)
-parsed_bib <- bib2df("~/tmp/article_notes.bib")
-names(parsed_bib) <- tolower(names(parsed_bib))
+unlink("~/tmp/bib_article_notes.bib")
+lapply(bib, write, "~/tmp/bib_article_notes.bib", append = TRUE)
 
-# when parsing the bib file, it creates duplicate rows, remove them
-parsed_bib <- parsed_bib[!duplicated(parsed_bib), ]
 
-# fix the "month" field
-parsed_bib$month <- gsub("\\}", "", parsed_bib[, 15])
+bib <- bib2df("~/tmp/bib_article_notes.bib")
+cleaned_bib <- bib2df("~/tmp/cleaned_article_notes.bib")
+# drop extra cols from bibdesk
+cleaned_bib <- cleaned_bib[, -c(28, 30)]
+
+# bind rows
+bib <- rbind(bib, cleaned_bib)
+
+names(bib) <- tolower(names(bib))
 
 # join notes with bibliographic data
-bib_df <- left_join(parsed_bib, notes, by = c("doi" = "doi",
+bib_df <- left_join(bib, notes, by = c("doi" = "doi",
                                               "journal" = "journal"))
 bib_df <- arrange(bib_df, assignee)
 
@@ -283,7 +304,6 @@ article_notes <-
     trim = TRUE,
     verbose = FALSE
     )
-
 ```
 
 ## Last steps
