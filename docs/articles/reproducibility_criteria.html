@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Criteria for evaluating reproducibility • Reproducible.Plant.Pathology</title>
+<title>Criteria for Evaluating Reproducibility • Reproducible.Plant.Pathology</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
@@ -29,10 +29,28 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="..//index.html">
+    <span class="fa fa-home fa-lg"></span>
+     
+  </a>
 </li>
 <li>
-  <a href="../articles/index.html">Articles</a>
+  <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="../articles/Assigning_Articles.html">Assigning Articles to Evaluators</a>
+    </li>
+    <li>
+      <a href="../articles/reproducibility_criteria.html">Criteria for Evaluating Reproducibility</a>
+    </li>
+  </ul>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -54,97 +72,114 @@
       </header><div class="row">
   <div class="col-md-9">
     <div class="page-header toc-ignore">
-      <h1>Criteria for evaluating reproducibility</h1>
+      <h1>Criteria for Evaluating Reproducibility</h1>
                         <h4 class="author">Adam H Sparks and Emerson M Del Ponte and Zachary S L Foster and Niklaus J. Grünwald</h4>
             
-            <h4 class="date">2017-05-20</h4>
+            <h4 class="date">2017-06-22</h4>
           </div>
 
     
     
 <div class="contents">
-<div id="article-classification" class="section level2">
+<div id="key-for-data-collection" class="section level2">
 <h2 class="hasAnchor">
-<a href="#article-classification" class="anchor"></a>Article classification</h2>
-<p>Articles will be classified by the evaluator as to whether they are: - Fundamental research<br>
-- Applied research<br>
-- Molecular research<br>
-- Combined</p>
+<a href="#key-for-data-collection" class="anchor"></a>Key for data collection</h2>
 </div>
 <div id="reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
 <a href="#reproducibility-score" class="anchor"></a>Reproducibility score</h2>
-<p>Each article will be scored on a set of defined reproducibility criteria. We defined our scoring system for the articles as follows.</p>
-<div id="raw-data" class="section level3">
-<h3 class="hasAnchor">
-<a href="#raw-data" class="anchor"></a>Raw data</h3>
-<div id="raw-data-availability" class="section level4">
+<div id="year" class="section level4">
 <h4 class="hasAnchor">
-<a href="#raw-data-availability" class="anchor"></a>Raw data availability</h4>
-<ol start="0" style="list-style-type: decimal">
-<li>Not available or not mentioned in the publication</li>
-<li>Available upon request to author</li>
-<li>Online, but inconvenient/non-permanent (e.g. login needed, pay wall, FTP server, personal lab website)</li>
-<li>Freely available online to anonymous users for foreseeable future</li>
-</ol>
+<a href="#year" class="anchor"></a>“year”</h4>
+<p>Year the article was published. Entered as a 4-digit number.</p>
 </div>
-<div id="raw-data-annotation" class="section level4">
+<div id="vol" class="section level4">
 <h4 class="hasAnchor">
-<a href="#raw-data-annotation" class="anchor"></a>Raw data annotation</h4>
-<ol start="0" style="list-style-type: decimal">
-<li>No annotation</li>
-<li>The structure/content of the data is clear, but the relevance to the study is not</li>
-<li>Fully understandable in the context of the paper</li>
-<li>Fully understandable without reading the paper</li>
-</ol>
+<a href="#vol" class="anchor"></a>“vol”</h4>
+<p>journal volume.</p>
 </div>
-<div id="raw-data-tidiness" class="section level4">
+<div id="issue" class="section level4">
 <h4 class="hasAnchor">
-<a href="#raw-data-tidiness" class="anchor"></a>Raw data tidiness</h4>
-<ol start="0" style="list-style-type: decimal">
-<li>Not easily parsed with code or loaded by standard office software (e.g. unstructured raw text or binary equipment outputs or no raw data)</li>
-<li>Difficult, but possible, to parse with code or manipulate with standard office software (i.e. you technically could, but would not want to)</li>
-<li>Able to parse using code with minimal cleanup (e.g. you might need a few extra lines of code for clean up or do a few extra steps to work with your operating system. An example would be a text file with multiple tables)</li>
-<li>Tidy data in a standardized format (e.g. tsv) that is loaded correctly without cleanup or using uncommon parsing tools.</li>
-</ol>
+<a href="#issue" class="anchor"></a>“issue”</h4>
+<p>journal issue.</p>
 </div>
-</div>
-<div id="computational-methods" class="section level3">
-<h3 class="hasAnchor">
-<a href="#computational-methods" class="anchor"></a>Computational methods</h3>
-<div id="computational-methods-availability" class="section level4">
+<div id="start_page" class="section level4">
 <h4 class="hasAnchor">
-<a href="#computational-methods-availability" class="anchor"></a>Computational methods availability</h4>
-<ol start="0" style="list-style-type: decimal">
-<li>Not available or not mentioned in the publication</li>
-<li>Available upon request to author</li>
-<li>Online, but inconvenient/non-permanent (e.g. login needed, pay wall, FTP server, personal/lab website)</li>
-<li>Freely available online to anonymous users for foreseeable future</li>
-</ol>
+<a href="#start_page" class="anchor"></a>“start_page”</h4>
+<p>The page the article started on. Entered as a number without commas. If the journal does not have page numbers, enter <code>NA</code>.</p>
 </div>
-<div id="availability-of-software-used" class="section level4">
+<div id="last_page" class="section level4">
 <h4 class="hasAnchor">
-<a href="#availability-of-software-used" class="anchor"></a>Availability of software used</h4>
-<ol start="0" style="list-style-type: decimal">
-<li>Not available or not mentioned in the publication</li>
-<li>Uses expensive proprietary software that only institutions would typically purchase (i.e. ArcGIS standard is $7000)</li>
-<li>Uses proprietary software that most individuals can afford (e.g. Excel, Matlab? ($500))</li>
-<li>Uses entirely open source and free software (e.g. R).</li>
-</ol>
+<a href="#last_page" class="anchor"></a>“last_page”</h4>
+<p>The page the article ends on. Entered as a number without commas. If the journal does not have page numbers, enter <code>NA</code>.</p>
 </div>
-<div id="citation-of-software-used" class="section level4">
+<div id="assignee" class="section level4">
 <h4 class="hasAnchor">
-<a href="#citation-of-software-used" class="anchor"></a>Citation of software used</h4>
-<ol start="0" style="list-style-type: decimal">
-<li>Not available or not mentioned in the publication</li>
-<li>Software mentioned by name only</li>
-<li>Attempts at citing</li>
-<li>Properly cited</li>
-</ol>
+<a href="#assignee" class="anchor"></a>“assignee”</h4>
+<p>The person evaluating the paper. One of:</p>
+<ul>
+<li><code>Adam</code></li>
+<li><code>Emerson</code></li>
+<li><code>Zach</code></li>
+<li><code>Nik</code></li>
+</ul>
 </div>
-<div id="analysis-automation" class="section level4">
+<div id="doi" class="section level4">
 <h4 class="hasAnchor">
-<a href="#analysis-automation" class="anchor"></a>Analysis automation</h4>
+<a href="#doi" class="anchor"></a>“doi”</h4>
+<p>The doi for the article. If the article does not have a doi, enter <code>NA</code>.</p>
+</div>
+<div id="if" class="section level4">
+<h4 class="hasAnchor">
+<a href="#if" class="anchor"></a>“if”</h4>
+<p>The 5-year impact factor of the journal. Entered as a number. Nik entered all values.</p>
+</div>
+<div id="page_charges" class="section level4">
+<h4 class="hasAnchor">
+<a href="#page_charges" class="anchor"></a>“page_charges”</h4>
+<p>How much it costs to publish in the journal? Entered as a number in dollars without dollar sign? &gt; This is hard to do. Some journals have choice of open access APC or page charges &gt; Agree, not sure that it adds much to our work.</p>
+</div>
+<div id="country" class="section level4">
+<h4 class="hasAnchor">
+<a href="#country" class="anchor"></a>“country”</h4>
+<p>The country of the publisher. Entered as a 3 letter ISO code (e.g. Netherlands = <code>NLD</code>)? &gt; Would this make more sense as the country the correspondiong author works in? &gt; That makes sense, we could do that -AS</p>
+</div>
+<div id="open" class="section level4">
+<h4 class="hasAnchor">
+<a href="#open" class="anchor"></a>“open”</h4>
+<p>Whether the journal is open-access or not. Entered as <code>TRUE</code>/<code>FALSE</code>/<code>BOTH</code>.</p>
+</div>
+<div id="repro_inst" class="section level4">
+<h4 class="hasAnchor">
+<a href="#repro_inst" class="anchor"></a>“repro_inst”</h4>
+<p>Does the journal have guidelines for reproducibility? Entered as <code>TRUE</code>/<code>FALSE</code>.</p>
+</div>
+<div id="iss_per_year" class="section level4">
+<h4 class="hasAnchor">
+<a href="#iss_per_year" class="anchor"></a>“iss_per_year”</h4>
+<p>The number of articles per year the journal publishes. Entered as a number without commas.</p>
+</div>
+<div id="art_class" class="section level4">
+<h4 class="hasAnchor">
+<a href="#art_class" class="anchor"></a>“art_class”</h4>
+<p>What kind of research the article describes. One or more of the following:</p>
+<ul>
+<li><code>Fundamental</code></li>
+<li><code>Applied</code></li>
+<li><code>Molecular</code></li>
+</ul>
+<p>Entered as a comma-separated list with no spaces.</p>
+<p>For example: <code>Applied,Molecular</code></p>
+</div>
+<div id="supl_mats" class="section level4">
+<h4 class="hasAnchor">
+<a href="#supl_mats" class="anchor"></a>“supl_mats”</h4>
+<p>Does the article supply supplemental materials?? I am not sure what this column is for.. &gt; Are supplmental materials avaiable for the article? -AS</p>
+</div>
+<div id="anlysis_auto" class="section level4">
+<h4 class="hasAnchor">
+<a href="#anlysis_auto" class="anchor"></a>“anlysis_auto”</h4>
+<p>Analysis automation score. Entered as a number between <code>0</code> and <code>4</code>.</p>
 <ol start="0" style="list-style-type: decimal">
 <li>All steps were performed manually with no cohesive document describing exactly what was done</li>
 <li>Steps were performed manually, but with a detailed record (e.g. pasted commands in a text file)</li>
@@ -152,14 +187,84 @@
 <li>A makefile or master script was provided that runs the entire analysis from raw data to published results</li>
 </ol>
 </div>
+<div id="data_avail" class="section level4">
+<h4 class="hasAnchor">
+<a href="#data_avail" class="anchor"></a>“data_avail”</h4>
+<p>Raw data availability score. Entered as a number between <code>0</code> and <code>4</code>.</p>
+<ol start="0" style="list-style-type: decimal">
+<li><p>Not available or not mentioned in the publication</p></li>
+<li><p>Available upon request to author</p></li>
+<li><p>Online, but inconvenient/non-permanent (e.g. login needed, pay wall, FTP server, personal lab website)</p></li>
+<li><p>Freely available online to anonymous users for foreseeable future</p></li>
+</ol>
+</div>
+<div id="data_annot" class="section level4">
+<h4 class="hasAnchor">
+<a href="#data_annot" class="anchor"></a>“data_annot”</h4>
+<p>Raw data annotation score. Entered as a number between <code>0</code> and <code>4</code>.</p>
+<ol start="0" style="list-style-type: decimal">
+<li>No annotation</li>
+<li>The structure/content of the data is clear, but the relevance to the study is not</li>
+<li>Fully understandable in the context of the paper</li>
+<li>Fully understandable without reading the paper</li>
+</ol>
+</div>
+<div id="data_tidy" class="section level4">
+<h4 class="hasAnchor">
+<a href="#data_tidy" class="anchor"></a>“data_tidy”</h4>
+<p>Raw data tidiness score. Entered as a number between <code>0</code> and <code>4</code>.</p>
+<ol start="0" style="list-style-type: decimal">
+<li>Not easily parsed with code or loaded by standard office software (e.g. unstructured raw text or binary equipment outputs or no raw data)</li>
+<li>Difficult, but possible, to parse with code or manipulate with standard office software (i.e. you technically could, but would not want to)</li>
+<li>Able to parse using code with minimal clean-up (e.g. you might need a few extra lines of code for clean up or do a few extra steps to work with your operating system. An example would be a text file with multiple tables)</li>
+<li>Tidy data in a standardized format (e.g. tsv) that is loaded correctly without clean-up or using uncommon parsing tools.</li>
+</ol>
+</div>
+<div id="comp_meth_avail" class="section level4">
+<h4 class="hasAnchor">
+<a href="#comp_meth_avail" class="anchor"></a>“comp_meth_avail”</h4>
+<p>Computational methods availability score. Entered as a number between <code>0</code> and <code>4</code>.</p>
+<ol start="0" style="list-style-type: decimal">
+<li>Not available or not mentioned in the publication</li>
+<li>Available upon request to author</li>
+<li>Online, but inconvenient/non-permanent (e.g. login needed, pay wall, FTP server, personal/lab website)</li>
+<li>Freely available online to anonymous users for foreseeable future</li>
+</ol>
+</div>
+<div id="software_avail" class="section level4">
+<h4 class="hasAnchor">
+<a href="#software_avail" class="anchor"></a>“software_avail”</h4>
+<p>Availability of software used score. Entered as a number between <code>0</code> and <code>4</code>.</p>
+<ol start="0" style="list-style-type: decimal">
+<li>Not available or not mentioned in the publication</li>
+<li>Uses expensive proprietary software that only institutions would typically purchase (i.e. ArcGIS standard is $7000)</li>
+<li>Uses proprietary software that most individuals can afford (e.g. Excel, Matlab? ($500))</li>
+<li>Uses entirely open source and free software (e.g. R).</li>
+</ol>
+</div>
+<div id="software_citation" class="section level4">
+<h4 class="hasAnchor">
+<a href="#software_citation" class="anchor"></a>“software_citation”</h4>
+<p>Citation of software used score. Entered as a number between <code>0</code> and <code>4</code>.</p>
+<ol start="0" style="list-style-type: decimal">
+<li>Not available or not mentioned in the publication</li>
+<li>Software mentioned by name only</li>
+<li>Attempts at citing</li>
+<li>Properly cited</li>
+</ol>
 </div>
 </div>
-<div id="example-of-reproducibility-tibble" class="section level1">
-<h1 class="hasAnchor">
+<div id="final-reproducibility-score" class="section level2">
+<h2 class="hasAnchor">
+<a href="#final-reproducibility-score" class="anchor"></a>Final reproducibility score</h2>
+<p>Each article will be scored on a set of defined reproducibility criteria. The reproducibility score will be the sum of the scores for each criteria. Thus a perfect score would be 30, scoring three in all ten categories.</p>
+</div>
+<div id="example-of-reproducibility-tibble" class="section level2">
+<h2 class="hasAnchor">
 <a href="#example-of-reproducibility-tibble" class="anchor"></a>Example of reproducibility <code>tibble</code>
-</h1>
+</h2>
 <p>Using the scoring system and journal classification, the final <code>tibble</code> will look something like this example:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">reproducibility &lt;-<span class="st"> </span>tibble<span class="op">::</span><span class="kw">tibble</span>(
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">reproducibility &lt;-<span class="st"> </span>tibble<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/tibble/topics/tibble">tibble</a></span>(
   <span class="dt">Article =</span> <span class="st">"The Area Under the Disease Progress Stairs: Calculation, Advantage, and Application"</span>,
   <span class="dt">DOI =</span> <span class="st">"PHYTO-07-11-0216"</span>,
   <span class="dt">Journal =</span> <span class="st">"Phytopathology"</span>,
@@ -185,7 +290,7 @@
   <span class="dt">Data_tidiness =</span> <span class="dv">0</span>
 )
 
-reproducibility &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(reproducibility,
+reproducibility &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(reproducibility,
                                  <span class="dt">Reproducibility_score =</span> <span class="kw">sum</span>(Comp_methods_availability,
                                                              Software_availability,
                                                              Software_citation,
@@ -210,26 +315,19 @@ reproducibility</code></pre></div>
 ## #   Reproducibility_score &lt;dbl&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">reproducibility<span class="op">$</span>Reproducibility_score</code></pre></div>
 <pre><code>## [1] 6</code></pre>
-<div id="final-score" class="section level2">
-<h2 class="hasAnchor">
-<a href="#final-score" class="anchor"></a>Final score</h2>
-<p>Thus a perfect score would be 21, scoring three in all seven categories.</p>
-</div>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
         <div id="tocnav">
-      <h2>Contents</h2>
+      <h2 class="hasAnchor">
+<a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#article-classification">Article classification</a></li>
+<li><a href="#key-for-data-collection">Key for data collection</a></li>
       <li><a href="#reproducibility-score">Reproducibility score</a></li>
-      <li>
-<a href="#example-of-reproducibility-tibble">Example of reproducibility <code>tibble</code></a><ul class="nav nav-pills nav-stacked">
-<li><a href="#final-score">Final score</a></li>
-      </ul>
-</li>
+      <li><a href="#final-reproducibility-score">Final reproducibility score</a></li>
+      <li><a href="#example-of-reproducibility-tibble">Example of reproducibility <code>tibble</code></a></li>
       </ul>
 </div>
       </div>

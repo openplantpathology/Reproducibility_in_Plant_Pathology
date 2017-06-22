@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Assigning articles to evaluators • Reproducible.Plant.Pathology</title>
+<title>Assigning Articles to Evaluators • Reproducible.Plant.Pathology</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
@@ -29,10 +29,28 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="..//index.html">
+    <span class="fa fa-home fa-lg"></span>
+     
+  </a>
 </li>
 <li>
-  <a href="../articles/index.html">Articles</a>
+  <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="../articles/Assigning_Articles.html">Assigning Articles to Evaluators</a>
+    </li>
+    <li>
+      <a href="../articles/reproducibility_criteria.html">Criteria for Evaluating Reproducibility</a>
+    </li>
+  </ul>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -54,10 +72,10 @@
       </header><div class="row">
   <div class="col-md-9">
     <div class="page-header toc-ignore">
-      <h1>Assigning articles to evaluators</h1>
+      <h1>Assigning Articles to Evaluators</h1>
                         <h4 class="author">Adam H Sparks</h4>
             
-            <h4 class="date">2017-05-20</h4>
+            <h4 class="date">2017-06-22</h4>
           </div>
 
     
@@ -89,7 +107,7 @@
 <h2 class="hasAnchor">
 <a href="#create-list-of-journals" class="anchor"></a>Create list of journals</h2>
 <p>We hand-picked a list of 21 journals that we felt represented plant pathology research. In this step, we will create a <code>tibble</code> in R of these journals, assigning them a number so that we can randomise them.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">journal_list &lt;-<span class="st"> </span><span class="kw">tibble</span>(
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">journal_list &lt;-<span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(
   <span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">21</span>),
   <span class="kw">c</span>(<span class="st">"Australasian Plant Pathology"</span>,
     <span class="st">"Canadian Journal of Plant Pathology"</span>,
@@ -128,23 +146,23 @@
 <div id="create-a-randomised-list-of-the-journals" class="section level3">
 <h3 class="hasAnchor">
 <a href="#create-a-randomised-list-of-the-journals" class="anchor"></a>Create a randomised list of the journals</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">journals &lt;-<span class="st"> </span>tibble<span class="op">::</span><span class="kw">tibble</span>(<span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">21</span>, <span class="dv">200</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">journals &lt;-<span class="st"> </span>tibble<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/tibble/topics/tibble">tibble</a></span>(<span class="kw"><a href="http://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">21</span>, <span class="dv">200</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))
 
 <span class="kw">names</span>(journals) &lt;-<span class="st"> "number"</span>
 
-journals &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">left_join</span>(journals, journal_list, <span class="st">"number"</span>)</code></pre></div>
+journals &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(journals, journal_list, <span class="st">"number"</span>)</code></pre></div>
 </div>
 <div id="randomly-select-articles" class="section level3">
 <h3 class="hasAnchor">
 <a href="#randomly-select-articles" class="anchor"></a>Randomly select articles</h3>
 <p>Generate a random list of years between 2012 and 2016 and a random list of start pages between 1 and 150 since some journals start numbering at 1 with every issue. Then bind the columns of the randomised list of journals with the randomised years and page start numbers. This then assumes that there is no temporal effect, <em>i.e.</em>, the time of year an article is published does not affect whether or not it is reproducible.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">year &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">2012</span><span class="op">:</span><span class="dv">2016</span>, <span class="dv">200</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">year &lt;-<span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(<span class="dv">2012</span><span class="op">:</span><span class="dv">2016</span>, <span class="dv">200</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
 
 start_page &lt;-<span class="st"> </span><span class="kw">sample.int</span>(<span class="dv">150</span>, <span class="dv">200</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
 
 journals &lt;-<span class="st"> </span><span class="kw">cbind</span>(journals[, <span class="op">-</span><span class="dv">1</span>], year, start_page, assignee)
 
-dplyr<span class="op">::</span><span class="kw">arrange</span>(journals, publication, year, start_page)</code></pre></div>
+dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(journals, publication, year, start_page)</code></pre></div>
 <pre><code>##                                     publication year start_page assignee
 ## 1                  Australasian Plant Pathology 2013         13     Zach
 ## 2                  Australasian Plant Pathology 2013         51     Adam
@@ -351,8 +369,8 @@ dplyr<span class="op">::</span><span class="kw">arrange</span>(journals, publica
 <h3 class="hasAnchor">
 <a href="#check-the-number-of-articles-per-journal" class="anchor"></a>Check the number of articles per journal</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">journals <span class="op">%&gt;%</span><span class="st">  </span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">group_by</span>(publication) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">tally</span>(<span class="dt">sort =</span> <span class="ot">TRUE</span>) </code></pre></div>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(publication) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/tally.html">tally</a></span>(<span class="dt">sort =</span> <span class="ot">TRUE</span>) </code></pre></div>
 <pre><code>## # A tibble: 21 x 2
 ##                                    publication     n
 ##                                          &lt;chr&gt; &lt;int&gt;
@@ -411,10 +429,10 @@ dplyr<span class="op">::</span><span class="kw">arrange</span>(journals, publica
 <p>We decided to use Google Sheets so that we could concurrently edit the file more easily. Once we’re done filling in our evaluations, we will import the data back to R. Jenny Bryan has created a handy package, <em>googlesheets</em> that we use here. <em>Note that this must be run interactively for <code>gs_new()</code> to work. Knitting this .Rmd file will not generate any gsheets, it must be done in an interactive R session.</em></p>
 <p>Create a Google Sheets workbook to hold worksheets for this project. This first sheet will serve as a template.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Give googlesheets permission to access spreadsheets and Google Drive</span>
-<span class="kw">gs_auth</span>()
+<span class="kw"><a href="http://www.rdocumentation.org/packages/googlesheets/topics/gs_auth">gs_auth</a></span>()
 
 <span class="co"># create Google Sheet for concurrent edits, first sheet: article notes template</span>
-<span class="kw">gs_new</span>(
+<span class="kw"><a href="http://www.rdocumentation.org/packages/googlesheets/topics/gs_new">gs_new</a></span>(
   <span class="st">"article_notes"</span>,
   <span class="dt">ws_title =</span> <span class="st">"template"</span>,
   <span class="dt">input =</span> journals,
@@ -431,16 +449,20 @@ dplyr<span class="op">::</span><span class="kw">arrange</span>(journals, publica
 <h2 class="hasAnchor">
 <a href="#generate-a-bibliography-file-to-use-with-the-paper" class="anchor"></a>Generate a bibliography file to use with the paper</h2>
 <p>Using the DOIs in this file, we can retrieve the BibTex citations for those articles that provide a DOI. Note that not all of the selected articles have a DOI, so we’ll have to manually generate those entries, or fetch them from the journals’ website later.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">article_notes &lt;-<span class="st"> </span><span class="kw">gs_title</span>(<span class="st">"article_notes"</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">article_notes &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/googlesheets/topics/googlesheet">gs_title</a></span>(<span class="st">"article_notes"</span>)
 
 notes &lt;-<span class="st"> </span>
 <span class="st">  </span>article_notes <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">gs_read</span>(<span class="dt">ws =</span> <span class="st">"article_notes"</span>)
+<span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/googlesheets/topics/gs_read">gs_read</a></span>(<span class="dt">ws =</span> <span class="st">"article_notes"</span>)
   
-notes<span class="op">$</span>doi &lt;-<span class="st"> </span><span class="kw">tolower</span>(notes<span class="op">$</span>doi) <span class="co"># format DOIs to all be uniform, lower-case</span>
-notes<span class="op">$</span>journal &lt;-<span class="st"> </span><span class="kw">iconv</span>(notes<span class="op">$</span>journal, <span class="st">"latin1"</span>, <span class="st">"UTF-8"</span>) <span class="co"># convert encodings for text with accents</span>
+<span class="co"># format DOIs to all be uniform, lower-case</span>
+notes<span class="op">$</span>doi &lt;-<span class="st"> </span><span class="kw">tolower</span>(notes<span class="op">$</span>doi)
 
-bib &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(notes<span class="op">$</span>doi, doi2bib)) <span class="co"># get bib references from the DOI (that exist)</span></code></pre></div>
+<span class="co"># convert encodings for text with accents</span>
+notes<span class="op">$</span>journal &lt;-<span class="st"> </span><span class="kw">iconv</span>(notes<span class="op">$</span>journal, <span class="st">"latin1"</span>, <span class="st">"UTF-8"</span>) 
+
+<span class="co"># get bib references from the DOI (that exist)</span>
+bib &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(notes<span class="op">$</span>doi, doi2bib))</code></pre></div>
 <p>The Journal of Plant Pathology does not supply valid bib entries via the DOI. So we need to clean them up.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># locations of Journal of PLant Pathology entries in bib object</span>
 clean &lt;-<span class="st"> </span><span class="kw">grep</span>(<span class="st">"journal=</span><span class="ch">\\</span><span class="st">{Journal of Plant Pathology</span><span class="ch">\\</span><span class="st">}"</span>, bib)
@@ -449,51 +471,63 @@ clean &lt;-<span class="st"> </span><span class="kw">grep</span>(<span class="st
 bib_clean &lt;-<span class="st"> </span>bib[clean]
 
 <span class="co"># function to clean the entries</span>
-clean_arts &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
+clean_articles &lt;-<span class="st"> </span><span class="cf">function</span>(x) {
   title_loc &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">gregexpr</span>(<span class="dt">pattern =</span> <span class="st">"title"</span>, x))
   y &lt;-<span class="st"> </span><span class="kw">substr</span>(x, <span class="dt">start =</span> title_loc[<span class="dv">1</span>], <span class="dt">stop =</span> <span class="kw">nchar</span>(x))
-  y &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">" @article{jpp,</span><span class="ch">\n\t</span><span class="st">"</span> , y)
+  y &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">"@article{jpp,</span><span class="ch">\n\t</span><span class="st">"</span> , y)
   y &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">"}, "</span>, <span class="st">"},</span><span class="ch">\n\t</span><span class="st">"</span>, y)
   y &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">"="</span>, <span class="st">" = "</span>, y)
   y &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">"}}</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">"}</span><span class="ch">\n</span><span class="st">}"</span>, y)
 }
 
 <span class="co"># apply function and clean the bib entries</span>
-cleaned &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(bib_clean, clean_arts))
+cleaned &lt;-<span class="st"> </span><span class="kw">unlist</span>(<span class="kw">lapply</span>(bib_clean, clean_articles))
 
 <span class="co"># remove the bad entries</span>
 bib &lt;-<span class="st"> </span>bib[bib <span class="op">!=</span><span class="st"> "Invalid DOI"</span>]
 bib &lt;-<span class="st"> </span>bib[<span class="op">-</span>clean]
 
-<span class="co"># fix the "year" field so that it has brackets, necessary later to reimport as data frame</span>
+<span class="co"># fix the "year" field so that it has brackets, </span>
+<span class="co"># necessary later to reimport as data frame</span>
 bib &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">"year = "</span>, <span class="st">"year = {"</span>, bib, <span class="dt">fixed =</span> <span class="ot">TRUE</span>)
-bib &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">",</span><span class="ch">\n\t</span><span class="st">month"</span>, <span class="st">"},</span><span class="ch">\n\t</span><span class="st">month"</span>, bib, <span class="dt">fixed =</span> <span class="ot">TRUE</span>)
+bib &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">"year = </span><span class="ch">\\</span><span class="st">{"</span>, <span class="st">"year = {"</span>, bib, <span class="dt">fixed =</span> <span class="ot">TRUE</span>)
 bib &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">",</span><span class="ch">\n\t</span><span class="st">publisher"</span>, <span class="st">"},</span><span class="ch">\n\t</span><span class="st">publisher"</span>, bib, <span class="dt">fixed =</span> <span class="ot">TRUE</span>)
-
-<span class="co"># fix the "month"" field</span>
 bib &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">"}},</span><span class="ch">\n\t</span><span class="st">publisher"</span>, <span class="st">"},</span><span class="ch">\n\t</span><span class="st">publisher"</span>, bib, <span class="dt">fixed =</span> <span class="ot">TRUE</span>)
+bib &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">",</span><span class="ch">\n\t</span><span class="st">month = {"</span>, <span class="st">"},</span><span class="ch">\n\t</span><span class="st">month = {"</span>, bib, <span class="dt">fixed =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>Next export the file to disk as .bib files to be cleaned using <a href="bibdesk.sourceforge.net">Bibdesk</a>. This is only necessary for the “cleaned” entries. This set of data have special characters that are not handled by R properly, resulting in an improperly formatted bib file when importing using <code>bib2df()</code>. All that is neeeded is to open the resulting file and resave using Bibdesk.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># write file to a temp directory and read back as a tibble</span>
+cleaned &lt;-<span class="st"> </span><span class="kw">unlist</span>(cleaned)
 
-<span class="co"># put the cleaned entries back in</span>
-bib &lt;-<span class="st"> </span><span class="kw">c</span>(bib, cleaned)</code></pre></div>
-<p>Next create a data frame of the references and export to Google.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># write to a temp directory and read back as a tibble</span>
-bib &lt;-<span class="st"> </span><span class="kw">unlist</span>(bib)
-<span class="kw">lapply</span>(bib, write, <span class="st">"~/tmp/article_notes.bib"</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)
-parsed_bib &lt;-<span class="st"> </span><span class="kw">bib2df</span>(<span class="st">"~/tmp/article_notes.bib"</span>)
-<span class="kw">names</span>(parsed_bib) &lt;-<span class="st"> </span><span class="kw">tolower</span>(<span class="kw">names</span>(parsed_bib))
+<span class="co"># remove any previous files from running this</span>
+<span class="kw">unlink</span>(<span class="st">"~/tmp/cleaned_article_notes.bib"</span>)
 
-<span class="co"># remove an extra "}" in the month column</span>
-parsed_bib[[<span class="dv">5</span>]] &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">"}"</span>, <span class="st">""</span>, parsed_bib[[<span class="dv">5</span>]])
+<span class="co"># write to disk and reimport</span>
+<span class="kw">lapply</span>(cleaned, write, <span class="st">"~/tmp/cleaned_article_notes.bib"</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p><em>Important</em> Open resulting , “~/tmp/cleaned_article_notes.bib” in JabRef and resave. Bibdesk will fix inconsistencies allowing R to import the file properly.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bib &lt;-<span class="st"> </span><span class="kw">unlist</span>(bib)
+<span class="kw">unlink</span>(<span class="st">"~/tmp/bib_article_notes.bib"</span>)
+<span class="kw">lapply</span>(bib, write, <span class="st">"~/tmp/bib_article_notes.bib"</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)
+
+
+bib &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/bib2df/topics/bib2df">bib2df</a></span>(<span class="st">"~/tmp/bib_article_notes.bib"</span>)
+cleaned_bib &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/bib2df/topics/bib2df">bib2df</a></span>(<span class="st">"~/tmp/cleaned_article_notes.bib"</span>)
+<span class="co"># drop extra cols from bibdesk</span>
+cleaned_bib &lt;-<span class="st"> </span>cleaned_bib[, <span class="op">-</span><span class="kw">c</span>(<span class="dv">28</span>, <span class="dv">30</span>)]
+
+<span class="co"># bind rows</span>
+bib &lt;-<span class="st"> </span><span class="kw">rbind</span>(bib, cleaned_bib)
+
+<span class="kw">names</span>(bib) &lt;-<span class="st"> </span><span class="kw">tolower</span>(<span class="kw">names</span>(bib))
 
 <span class="co"># join notes with bibliographic data</span>
-bib_df &lt;-<span class="st"> </span><span class="kw">left_join</span>(parsed_bib, notes, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">"doi"</span> =<span class="st"> "doi"</span>,
+bib_df &lt;-<span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(bib, notes, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">"doi"</span> =<span class="st"> "doi"</span>,
                                               <span class="st">"journal"</span> =<span class="st"> "journal"</span>))
-bib_df &lt;-<span class="st"> </span><span class="kw">arrange</span>(bib_df, assignee)
+bib_df &lt;-<span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(bib_df, assignee)
 
 <span class="co"># create Google Sheet for concurrent edits</span>
 article_notes &lt;-
 <span class="st">  </span>article_notes <span class="op">%&gt;%</span>
-<span class="st">    </span><span class="kw">gs_ws_new</span>(
+<span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/googlesheets/topics/gs_ws_new">gs_ws_new</a></span>(
     <span class="dt">ws_title =</span> <span class="st">"article_evaluations"</span>,
     <span class="dt">input =</span> bib_df,
     <span class="dt">trim =</span> <span class="ot">TRUE</span>,
@@ -503,6 +537,7 @@ article_notes &lt;-
 <div id="last-steps" class="section level2">
 <h2 class="hasAnchor">
 <a href="#last-steps" class="anchor"></a>Last steps</h2>
+<p>The last few steps are completed outside of R in Google Docs, manually adding the missing information to the spreadsheet and the assignees adding their evaluations of their respective articles.</p>
 <p>The last few steps are completed outside of R in Google Docs, manually adding the missing information to the spreadsheet and the assignees adding their evaluations of their respective articles.</p>
 <div id="google-sheets-1" class="section level3">
 <h3 class="hasAnchor">
@@ -515,7 +550,8 @@ article_notes &lt;-
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
         <div id="tocnav">
-      <h2>Contents</h2>
+      <h2 class="hasAnchor">
+<a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#creating-a-sample-of-articles">Creating a sample of articles</a></li>
       <li><a href="#r-setup">R setup</a></li>

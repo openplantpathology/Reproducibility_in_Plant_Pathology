@@ -1,10 +1,10 @@
 ---
-title: "Criteria for evaluating reproducibility"
+title: "Criteria for Evaluating Reproducibility"
 author: "Adam H Sparks and Emerson M Del Ponte and Zachary S L Foster and Niklaus J. Grünwald"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Criteria for evaluating reproducibility}
+  %\VignetteIndexEntry{Criteria for Evaluating Reproducibility}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
