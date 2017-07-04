@@ -17,7 +17,8 @@ publishing manuscripts.
 
 Using the assumption that journals publish an average 10 articles per issue, for
 a population of ~1000 articles, using a confidence level of 95% and confidence
-interval of 10% we need 88 samples. In [Issue #3](https://github.com/adamhsparks/Reproducible-Research-in-Plant-Pathology/issues/3),
+interval of 10% we need 88 samples. In
+[Issue #3](https://github.com/adamhsparks/Reproducible-Research-in-Plant-Pathology/issues/3),
 we decided to select 200 articles to have a large sample of the population.
 
 ## R setup
@@ -67,7 +68,7 @@ journal_list <- tibble(
     "Revista Mexicana de Fitopatología",
     "Tropical Plant Pathology"))
 
-names(journal_list) <- c("number", "publication")
+names(journal_list) <- c("number", "journal")
 ```
 
 ## Create list of evaluators
@@ -89,11 +90,11 @@ the four authors for this paper.
 ### Create a randomised list of the journals
 
 ```{r journal_sample}
-journals <- tibble::tibble(sample(1:21, 200, replace = TRUE))
+journals <- tibble(sample(1:21, 200, replace = TRUE))
 
 names(journals) <- "number"
 
-journals <- dplyr::left_join(journals, journal_list, "number")
+journals <- left_join(journals, journal_list, "number")
 ```
 
 ### Randomly select articles
@@ -105,24 +106,23 @@ randomised years and page start numbers. This then assumes that there is no
 temporal effect, _i.e._, the time of year an article is published does not
 affect whether or not it is reproducible.
 
-
 ```{r years_and_articles}
 year <- sample(2012:2016, 200, replace = TRUE)
 
-start_page <- sample.int(150, 200, replace = TRUE)
+contains_page <- sample.int(150, 200, replace = TRUE)
 
-journals <- cbind(journals[, -1], year, start_page, assignee)
+journals <- cbind(journals[, -1], year, contains_page, assignee)
 
-dplyr::arrange(journals, publication, year, start_page)
+journals <- arrange(.data = journals, assignee, journal, year, contains_page)
 
 ```
 
 ### Check the number of articles per journal
 
 ```{r, count}
-journals %>%  
-  dplyr::group_by(publication) %>% 
-  dplyr::tally(sort = TRUE) 
+journals %>%
+  group_by(journal) %>%
+  tally(sort = TRUE)
 ```
 
 Once this is done, the articles are manually examined for suitability. Reference
@@ -159,6 +159,11 @@ to_record <- c(
   "reproducibility_score"
   )
   journals[to_record] <- ""
+  
+  journals <- 
+    journals %>%
+    group_by(assignee) %>%
+    as_tibble()
 ```
 
 ## Google Sheets
@@ -171,7 +176,7 @@ _Note that this must be run interactively for `gs_new()` to work. Knitting this
 session._
 
 Create a Google Sheets workbook to hold worksheets for this project. This first
-sheet will serve as a template.
+sheet will serve as a template and is thus named "template".
 
 ```{r setup_gs, eval=FALSE}
 # Give googlesheets permission to access spreadsheets and Google Drive
@@ -190,7 +195,7 @@ gs_new(
 ## Add article DOI's
 
 This step is completed in gsheets, Adam looked up articles and added notes and
-DOIs to a gsheet, "article_notes" which will be read into R in the next step.
+DOIs to a gsheet, "article_notes" which will be imported to R in the next step.
 
 ## Generate a bibliography file to use with the paper
 
@@ -220,7 +225,7 @@ The Journal of Plant Pathology does not supply valid bib entries via the DOI.
 So we need to clean them up.
 
 ```{r clean_bib, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
-# locations of Journal of PLant Pathology entries in bib object
+# locations of Journal of "Plant Pathology"" entries in bib object
 clean <- grep("journal=\\{Journal of Plant Pathology\\}", bib)
 
 # create a dataset of just those bib entries
@@ -240,16 +245,23 @@ clean_articles <- function(x) {
 cleaned <- unlist(lapply(bib_clean, clean_articles))
 
 # remove the bad entries
-bib <- bib[bib != "Invalid DOI"]
 bib <- bib[-clean]
+bib <- bib[bib != "Invalid DOI"]
+```
 
-# fix the "year" field so that it has brackets, 
-# necessary later to reimport as data frame
-bib <- gsub("year = ", "year = {", bib, fixed = TRUE)
-bib <- gsub("year = \\{", "year = {", bib, fixed = TRUE)
-bib <- gsub(",\n\tpublisher", "},\n\tpublisher", bib, fixed = TRUE)
-bib <- gsub("}},\n\tpublisher", "},\n\tpublisher", bib, fixed = TRUE)
-bib <- gsub(",\n\tmonth = {", "},\n\tmonth = {", bib, fixed = TRUE)
+"Phytopathologia Mediterranea" also provides some malformed bib entries.
+
+```{r second_cleaning, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
+# locations of Journal of "Phytopathologia Mediterranea" entries in bib object
+clean2 <- grep("journal=\\{Phytopathologia Mediterranea\\}", bib)
+bib_clean2 <- bib[clean2]
+clean_articles2 <- function(x) {
+    gsub(" @article., title=", "PM", y)
+}
+
+# apply function and clean the bib entries
+cleaned <- unlist(lapply(bib_clean2, clean_articles2))
+  
 ```
 
 Next export the file to disk as .bib files to be cleaned using
@@ -270,8 +282,9 @@ unlink("~/tmp/cleaned_article_notes.bib")
 lapply(cleaned, write, "~/tmp/cleaned_article_notes.bib", append = TRUE)
 ```
 
-*Important* Open resulting , "~/tmp/cleaned_article_notes.bib" in JabRef and
-resave. Bibdesk will fix inconsistencies allowing R to import the file properly.
+*Important* Open resulting , "~/tmp/cleaned_article_notes.bib" in Bibdesk and
+resave. Bibdesk will fix inconsistencies in these 11 entries allowing R to
+import the file properly.
 
 
 ```{r google, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
@@ -279,11 +292,9 @@ bib <- unlist(bib)
 unlink("~/tmp/bib_article_notes.bib")
 lapply(bib, write, "~/tmp/bib_article_notes.bib", append = TRUE)
 
-
+# import both the Journal of Plant Pathology (cleaned_bib) and article_notes.bib
 bib <- bib2df("~/tmp/bib_article_notes.bib")
 cleaned_bib <- bib2df("~/tmp/cleaned_article_notes.bib")
-# drop extra cols from bibdesk
-cleaned_bib <- cleaned_bib[, -c(28, 30)]
 
 # bind rows
 bib <- rbind(bib, cleaned_bib)
@@ -291,8 +302,7 @@ bib <- rbind(bib, cleaned_bib)
 names(bib) <- tolower(names(bib))
 
 # join notes with bibliographic data
-bib_df <- left_join(bib, notes, by = c("doi" = "doi",
-                                              "journal" = "journal"))
+bib_df <- left_join(notes, bib, by = c("doi" = "doi"))
 bib_df <- arrange(bib_df, assignee)
 
 # create Google Sheet for concurrent edits
