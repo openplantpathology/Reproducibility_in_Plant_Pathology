@@ -250,7 +250,7 @@ bib <- bib[-clean_pp]
 
 _Phytopathologia Mediterranea_ also provides some malformed bib entries. The
 cite entries are malformed and `<em> </em>` is used rather than the proper
-`\textit{}` for a bibtex file.
+`\textit{}` for a BibTeX file.
 
 ```{r second_bib_cleaning, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
 clean_pm <- grep("journal=\\{Phytopathologia Mediterranea\\}", bib)
@@ -281,11 +281,9 @@ bib <- unique(bib)
 ```
 
 Next export the items as files to disk as .bib files to be cleaned using
-[Bibdesk](bibdesk.sourceforge.net). This is only necessary for the "cleaned"
-entries. This set of data have special characters that are not handled by R
-properly, resulting in an improperly formatted bib file when importing using
-`bib2df()`. All that is neeeded is to open the resulting file and resave using
-Bibdesk.
+JabRef. This will automatically assign unique cite keys and fix some issues with
+characaters in the bib file. All that is needed is to open the resulting file
+and resave using Bibdesk.
 
 ```{r export_import_bib, eval=FALSE}
 # clean up any existing files since we're appending
