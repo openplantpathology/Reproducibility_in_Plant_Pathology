@@ -1,10 +1,10 @@
 Reproducible Plant Pathology
 ================
 
-[![Last-changedate](https://img.shields.io/badge/last%20change-2017--07--05-brightgreen.svg)](https://github.com/phytopathology/Reproducible.Plant.Pathology/commits/master) [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.4.0-brightgreen.svg)](https://cran.r-project.org/) [![Licence](https://img.shields.io/github/license/mashape/apistatus.svg)](http://choosealicense.com/licenses/mit/) [![Travis-CI Build Status](https://travis-ci.org/phytopathology/Reproducible.Plant.Pathology.svg?branch=master)](https://travis-ci.org/phytopathology/Reproducible.Plant.Pathology)
+[![Licence](https://img.shields.io/github/license/mashape/apistatus.svg)](http://choosealicense.com/licenses/mit/) [![Travis-CI Build Status](https://travis-ci.org/phytopathology/Reproducible.Plant.Pathology.svg?branch=master)](https://travis-ci.org/phytopathology/Reproducible.Plant.Pathology)
 
-Research compendium for a report on the reproducibility of research in plant pathology
---------------------------------------------------------------------------------------
+A research compendium for a report on the reproducibility of research in plant pathology
+----------------------------------------------------------------------------------------
 
 ### Compendium DOI:
 
@@ -49,7 +49,9 @@ To download the package source as you see it on GitHub, for offline browsing, us
 
 Once the download is complete, open the `Reproducible.Plant.Pathology.Rproj` in RStudio to begin working with the package and compendium files.
 
-The package has a number of dependencies on other R packages, and programs outside of R. These are listed at the bottom of this README. Installing these can be time-consuming and complicated, so we've done two things to simplify access to the compendium. First is the `packrat/` directory, which contains the source code for all the packages we depend on. If all works well, these will be installed on your computer when you open `Reproducible.Plant.Pathology.Rproj` in RStudio. <!--- Second is our Docker image that includes all the necessary software, code and data to run our analysis. The Docker image may give a quicker entry point to the project, and is more self-contained, so might save some fiddling with installing things.   
+The package has a number of dependencies on other R packages, and programs outside of R. These are listed at the bottom of this README. Installing these can be time-consuming and complicated, so we've done two things to simplify access to the compendium. First is the `packrat/` directory, which contains the source code for all the packages we depend on. If all works well, these will be installed on your computer when you open `Reproducible.Plant.Pathology.Rproj` in RStudio.
+
+<!--- Second is our Docker image that includes all the necessary software, code and data to run our analysis. The Docker image may give a quicker entry point to the project, and is more self-contained, so might save some fiddling with installing things.   
 
 
 ### The Docker image 
@@ -64,7 +66,6 @@ Once logged in, use the Files pane (bottom right) to navigate to `/` (the root d
  
 We developed and tested the package on this Docker container, so this is the only platform that We're confident it works on, and so recommend to anyone wanting to use this package to generate the vignette, etc. 
 --->
-
 ### Licenses
 
 Manuscript: [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
