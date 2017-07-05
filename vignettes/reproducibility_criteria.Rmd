@@ -128,7 +128,7 @@ One or more of the following:
 
 Entered as an R `vector` object in comma-separated list with spaces.
 
-For example: `c(Applied, Molecular)` or `Fundamental`
+For example: `c("Applied"", "Molecular")` or `Fundamental`
 
 #### "supl_mats"
 
