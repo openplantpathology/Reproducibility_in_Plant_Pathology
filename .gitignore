@@ -9,3 +9,5 @@ inst/doc
 packrat/src/
 
 vignettes/.httr-oauth
+
+.httr-oauth

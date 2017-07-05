@@ -141,8 +141,7 @@ table as a csv for manual editing.
 ```{r}
 to_record <- c(
   "doi",
-  "if",
-  "page_charges",
+  "IF_5year",
   "country",
   "open",
   "repro_inst",
@@ -152,7 +151,7 @@ to_record <- c(
   "comp_mthds_avail",
   "software_avail",
   "software_cite",
-  "anlysis_auto",
+  "analysis_auto",
   "data_avail",
   "data_annot",
   "data_tidy",
@@ -221,18 +220,19 @@ notes$journal <- iconv(notes$journal, "latin1", "UTF-8")
 bib <- unlist(lapply(notes$doi, doi2bib))
 ```
 
-The Journal of Plant Pathology does not supply valid bib entries via the DOI.
+The _Journal of Plant Pathology_ does not supply valid bib entries via the DOI.
 So we need to clean them up.
 
-```{r clean_bib, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
+```{r first_bib_cleaning, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
+
 # locations of Journal of "Plant Pathology"" entries in bib object
-clean <- grep("journal=\\{Journal of Plant Pathology\\}", bib)
+clean_pp <- grep("journal=\\{Journal of Plant Pathology\\}", bib)
 
 # create a dataset of just those bib entries
-bib_clean <- bib[clean]
+bib_clean_pp <- bib[clean_pp]
 
 # function to clean the entries
-clean_articles <- function(x) {
+clean_articles_pp <- function(x) {
   title_loc <- unlist(gregexpr(pattern = "title", x))
   y <- substr(x, start = title_loc[1], stop = nchar(x))
   y <- paste0("@article{jpp,\n\t" , y)
@@ -242,67 +242,75 @@ clean_articles <- function(x) {
 }
 
 # apply function and clean the bib entries
-cleaned <- unlist(lapply(bib_clean, clean_articles))
+cleaned_pp <- unlist(lapply(bib_clean_pp, clean_articles_pp))
 
-# remove the bad entries
-bib <- bib[-clean]
-bib <- bib[bib != "Invalid DOI"]
+# remove the incorrect entries for Journal of Plant Pathology
+bib <- bib[-clean_pp]
 ```
 
-"Phytopathologia Mediterranea" also provides some malformed bib entries.
+_Phytopathologia Mediterranea_ also provides some malformed bib entries. The
+cite entries are malformed and `<em> </em>` is used rather than the proper
+`\textit{}` for a bibtex file.
 
-```{r second_cleaning, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
-# locations of Journal of "Phytopathologia Mediterranea" entries in bib object
-clean2 <- grep("journal=\\{Phytopathologia Mediterranea\\}", bib)
-bib_clean2 <- bib[clean2]
-clean_articles2 <- function(x) {
-    gsub(" @article., title=", "PM", y)
-}
+```{r second_bib_cleaning, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
+clean_pm <- grep("journal=\\{Phytopathologia Mediterranea\\}", bib)
+bib_clean_pm <- bib[clean_pm]
+clean_articles_pm <- function(x) {
+  x <- gsub(" @article\\{[[:print:]]+, title=\\{", "@article\\{PM, title = \\{", x)
+  x <- gsub("<em>", "\\\textit\\{", x)
+  x <- gsub("</em>", "}", x)
+  }
 
 # apply function and clean the bib entries
-cleaned <- unlist(lapply(bib_clean2, clean_articles2))
+cleaned_pm <- unlist(lapply(bib_clean_pm, clean_articles_pm))
+bib <- bib[-clean_pm]
   
 ```
 
-Next export the file to disk as .bib files to be cleaned using
+The larger list of bib objects has some items that are supposedly invalid DOIs.
+In this step we remove them and clean up the list. They'll be added back to the
+database when we merge the notes at the end.
+
+Also there are duplicates in the list somehow. Use `unique()` to clean the list
+up.
+
+```{r, clean_bib, eval=FALSE}
+bib <- bib[bib != "Invalid DOI"]
+
+bib <- unique(bib)
+```
+
+Next export the items as files to disk as .bib files to be cleaned using
 [Bibdesk](bibdesk.sourceforge.net). This is only necessary for the "cleaned"
 entries. This set of data have special characters that are not handled by R
 properly, resulting in an improperly formatted bib file when importing using
 `bib2df()`. All that is neeeded is to open the resulting file and resave using
 Bibdesk.
 
-```{r export_import_bib, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
-# write file to a temp directory and read back as a tibble
-cleaned <- unlist(cleaned)
+```{r export_import_bib, eval=FALSE}
+# clean up any existing files since we're appending
+unlink("~/tmp/bib_article_notes.bib")
 
-# remove any previous files from running this
-unlink("~/tmp/cleaned_article_notes.bib")
+# write files to a local directory and clean up with JabRef
+lapply(unlist(bib), write, "~/tmp/bib_article_notes.bib", append = TRUE)
+lapply(unlist(cleaned_pp), write, "~/tmp/bib_article_notes.bib", append = TRUE)
+lapply(unlist(cleaned_pm), write, "~/tmp/bib_article_notes.bib", append = TRUE)
 
-# write to disk and reimport
-lapply(cleaned, write, "~/tmp/cleaned_article_notes.bib", append = TRUE)
 ```
 
-*Important* Open resulting , "~/tmp/cleaned_article_notes.bib" in Bibdesk and
-resave. Bibdesk will fix inconsistencies in these 11 entries allowing R to
-import the file properly.
+*Important* Open resulting files in `~/tmp` directory in JabRef, create new
+keys and  resave. JabRef will fix inconsistencies as well as generating unique
+keys in these 13 entries allowing R (`bib2df`) to import the file properly.
 
 
 ```{r google, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
-bib <- unlist(bib)
-unlink("~/tmp/bib_article_notes.bib")
-lapply(bib, write, "~/tmp/bib_article_notes.bib", append = TRUE)
 
 # import both the Journal of Plant Pathology (cleaned_bib) and article_notes.bib
 bib <- bib2df("~/tmp/bib_article_notes.bib")
-cleaned_bib <- bib2df("~/tmp/cleaned_article_notes.bib")
-
-# bind rows
-bib <- rbind(bib, cleaned_bib)
-
 names(bib) <- tolower(names(bib))
 
 # join notes with bibliographic data
-bib_df <- left_join(notes, bib, by = c("doi" = "doi"))
+bib_df <- left_join(notes, bib)
 bib_df <- arrange(bib_df, assignee)
 
 # create Google Sheet for concurrent edits
@@ -327,4 +335,5 @@ evaluations of their respective articles.
 
 ### Google Sheets
 
-The Google Sheets can be found here https://docs.google.com/spreadsheets/d/1pwUnvJgcnvwg-b8vLEbrdAbIpS6Rdbd0lIiZJi2-GfI/edit?usp=sharing.
+The Google Sheets can be found here
+https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381.
