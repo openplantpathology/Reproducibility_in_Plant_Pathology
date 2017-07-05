@@ -30,8 +30,14 @@ This repository is our research compendium that details our methodology for exam
 The `inst/` directory contains:
 
 -   the manuscript as submitted (in MS Word format) and its `Rmd` source file (in the `paper/` directory)
+
 -   supplementary information source files (in `Rmd` format) and executed versions
+
 -   all the figures that are included in the paper (in the `figures/` directory)
+
+### The external files
+
+Much of the collaborative work was done outside of GitHub and R using Google Sheets. You can view the [article notes](https://drive.google.com/open?id=19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M) that we collected in the "article\_evaluations" tab. Where "template" and "article\_notes" are used in creating that tab and are explained the "Assigning Articles" vignette of this R package.
 
 ### The R package
 
@@ -69,7 +75,9 @@ Data: [CC-0](http://creativecommons.org/publicdomain/zero/1.0/) attribution requ
 
 ### Dependencies
 
-We used [RStudio](http://www.rstudio.com/products/rstudio/) on MacOS and Ubuntu 16.04 LTS.
+We used [RStudio](http://www.rstudio.com/products/rstudio/) on macOS and Ubuntu 16.04 LTS.
+
+We also used [JabRef](http://www.jabref.org/) and [Google Sheets](https://www.google.com/sheets/about/).
 
 ### Contact
 
