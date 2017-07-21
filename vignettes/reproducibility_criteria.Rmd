@@ -116,7 +116,7 @@ Does the journal have guidelines for reproducibility?
 
 #### "iss_per_year"
 
-The number of articles per year the journal publishes
+The number of articles per year the journal publishes according to web of science.
 
 Entered as a number without commas
 
