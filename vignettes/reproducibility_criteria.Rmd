@@ -90,12 +90,6 @@ Entered as a decimal value.
 
 ### Evaluation of reproducibility
 
-#### "country"
-
-The country where the corresponding author works
-
-Entered as a 3 letter ISO code (_e.g._, Netherlands = `NLD`)
-
 #### "open"
 
 Whether the journal is open-access or not
@@ -114,12 +108,6 @@ Does the journal have guidelines for reproducibility?
 
 - `3` - Detailed intructions on where to place data and code
 
-#### "iss_per_year"
-
-The number of articles per year the journal publishes according to web of science.
-
-Entered as a number without commas
-
 #### "art_class"
 
 What kind of research the article describes
@@ -136,11 +124,6 @@ Entered as an R `vector` object in comma-separated list with spaces.
 
 For example: `c("Applied"", "Molecular")` or `Fundamental`
 
-#### "supl_mats"
-
-Does the article supply supplemental materials?
-
-Entered as `TRUE`/`FALSE`
 
 #### "comp_mthds_avail"
 
@@ -197,21 +180,6 @@ Entered as an R `vector` object in comma-separated list with spaces.
 
 For example: `c("R", "TableTool")` or `R`
 
-#### "analysis_auto"
-
-Is analysis automated, _e.g._ fully scripted and reproducible by downloading
-and running the scripts or was it point and click type of work?
-
-Entered as a number between `0` and `3`
-
-- `0` - Methods not described or fully point and click
-
-- `1` - Methods were mostly point and click
-
-- `2` - Methods were mostly automated
-
-- `3` - Methods were fully automated
-
 #### "data_avail"
   
 Raw data availability score
@@ -226,41 +194,6 @@ Entered as a number between `0` and `3`
 FTP server, personal lab website)
 
 - `3` - Freely available online to anonymous users for foreseeable future
-
-#### "data_annot"
-
-Raw data annotation score.
-
-Entered as a number between `0` and `3`
-
-- `0` - No annotation
-
-- `1` - The structure/content of the data is clear, but the relevance to the
-study is not
-
-- `2` - Fully understandable in the context of the paper
-
-- `3` - Fully understandable without reading the paper
-
-#### "data_tidy"
-
-Raw data tidiness score
-
-Entered as a number between `0` and `3`
-
-- `0` - Not easily parsed with code or loaded by standard office software
-(_e.g._, unstructured raw text or binary equipment outputs or no raw data)
-
-- `1` - Difficult, but possible, to parse with code or manipulate with standard
-office software (_i.e._ you technically could, but would not want to)
-
-- `2` - Able to parse using code with minimal clean-up (_e.g._, you might need
-a few extra lines of code for clean up or do a few extra steps to work with
-your
-operating system. An example would be a text file with multiple tables)
-
-- `3` - Tidy data in a standardized format (_e.g._, TSV) that is loaded
-correctly without clean-up or using uncommon parsing tools.
 
 #### "reproducibility_score"
 
