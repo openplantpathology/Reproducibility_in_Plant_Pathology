@@ -191,6 +191,12 @@ Entered as a number between `0` and `3`
 
 - `3` - All software used properly cited
 
+#### "software_used"
+
+Entered as an R `vector` object in comma-separated list with spaces.
+
+For example: `c("R", "TableTool")` or `R`
+
 #### "analysis_auto"
 
 Is analysis automated, _e.g._ fully scripted and reproducible by downloading
