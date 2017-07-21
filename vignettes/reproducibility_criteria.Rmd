@@ -106,7 +106,13 @@ Entered as `TRUE`/`FALSE`/`BOTH`
 
 Does the journal have guidelines for reproducibility?
 
-Entered as `TRUE`/`FALSE`
+- `0` - Not mentioned
+
+- `1` - At least a suggestion to put data online, but not details on how/where.
+
+- `2` - Detailed intructions on where to place data
+
+- `3` - Detailed intructions on where to place data and code
 
 #### "iss_per_year"
 
