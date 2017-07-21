@@ -166,13 +166,13 @@ Score of citations for software used
 
 Entered as a number between `0` and `3`
 
-- `0` - Not available or not mentioned in the publication
+- `0` - not mentioned
 
 - `1` - Software mentioned by name only
 
-- `2` - Attempts at citing software used
+- `2` - Software cited with version number
 
-- `3` - All software used properly cited
+- `3` - All software components (PROCs, packages) etc. cited
 
 #### "software_used"
 
