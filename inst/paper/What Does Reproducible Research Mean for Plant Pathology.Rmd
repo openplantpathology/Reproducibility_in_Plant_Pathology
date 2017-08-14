@@ -2,17 +2,13 @@
 title: "Status and Best Practices for Reproducible Research In Plant Pathology"
 author: "A. H. Sparks, E. M. Del Ponte, N. J. Grünwald, and Z. Foster"
 date: 'Last update: `r Sys.Date()`'
+output:
+  word_document:
+    keep_md: yes
+    reference_docx: Phytopathology_Style_Reference.docx
 csl: phytopathology.csl
 bibliography: bibliography.bib
-output:
-  html_document: 
-    css: my-style.css
-    theme: flatly
-    toc: true
-    toc_float: 
-     collapsed: true
-     smooth_scroll: true
-    
+always_allow_html: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -44,44 +40,49 @@ Reproducibility and replicability in scientific research have once again been hi
 
 A general workflow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, and writing the manuscript. Here we defined three levels of reproducibility which are also related with the evolution of computational methods and reproducible practices (Fig. 1).
 
-A first level of reproducibility involves making available research materials such as strains and/or nucleic acid sequences in public collection and citations for methods used. A second level involves providing raw data and codes as binary files (PDF or other non-text file) in supplemental materials which do not allow promptly access to the data and running the codes because of use of expensive commercial software or a paywall. A highest level includes efforts to annotate structured raw data and fully document the analysis using open source code which are deposited in public repositories and can be run more easily following download of data and codes. The first level as reported is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations. In the next section we present standards and tools that can be used to ensure reproducibility.
+A first level of reproducibility involves making available research materials such as strains and/or nucleic acid sequences in public collection and citations for methods used. A second level involves providing raw data and codes as binary files (PDF or other non-text file) in supplemental materials which do not allow promptly access to the data and running the codes because of use of expensive commercial software or a paywall. A highest level includes efforts to annotate structured raw data and fully document the analysis using open source code which are deposited in public repositories and can be run more easily following download of data and codes. The first level as reported is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations. In the next section we present standards and tools that can be used to ensure reproducibility (Figure 1).
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=FALSE}
-
-
+```{r echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
 library(DiagrammeR)
-grViz("
+library(DiagrammeRsvg)
+library(rsvg)
+
+p <- export_svg(grViz(
+  "
   digraph Fig1 {
+  
+  graph [fontsize = 8, nodesep=0.5]
+  
+  node [shape = box, style = filled, fillcolor = grey99, width = 1.2,fontname = Helvetica]
+  Question;  Methodology;  Data;  Analysis;  Manuscript;
+  
+  node [shape = box, style = filled, fillcolor = grey90, width = 1.2,fontname = Helvetica]
+  Description; Availability; Citation
+  
+  node [shape = box, style = filled, fillcolor = grey80, width = 1.2]
+  Binary_Code; Binary_File; Supplement
+  
+  node [shape = box, style = filled, fillcolor = grey70, width = 1.2]
+  Source_Code;  Data_File; Pub_Repository;
+  
+  Question->Methodology->Data->Analysis
+  Analysis->Manuscript
+  Methodology->Description
+  Methodology->Citation
+  Methodology->Availability
+  Manuscript->Supplement
+  Data->Data_File->Pub_Repository
+  Analysis->Binary_Code->Supplement
+  Analysis->Source_Code->Pub_Repository
+  Data->Binary_File->Supplement
+  }
+  ",
+  width = 1000,
+  height = 750
+))
 
-graph [fontsize = 8, nodesep=0.5]
-
-node [shape = box, style = filled, fillcolor = grey99, width = 1.2,fontname = Helvetica]
-Question;  Methodology;  Data;  Analysis;  Manuscript;
-
-node [shape = box, style = filled, fillcolor = grey90, width = 1.2,fontname = Helvetica]
-Description; Availability; Citation
-
-node [shape = box, style = filled, fillcolor = grey80, width = 1.2]
-Binary_Code; Binary_File; Supplement
-
-node [shape = box, style = filled, fillcolor = grey70, width = 1.2]
-Source_Code;  Data_File; Pub_Repository;
-
-Question->Methodology->Data->Analysis
-Analysis->Manuscript
-Methodology->Description
-Methodology->Citation
-Methodology->Availability
-Manuscript->Supplement
-Data->Data_File->Pub_Repository
-Analysis->Binary_Code->Supplement
-Analysis->Source_Code->Pub_Repository
-Data->Binary_File->Supplement
-}
-")
-
+rsvg_pdf(charToRaw(p), "Figure 1.pdf")
 ```
-
 
 ### Methods
 

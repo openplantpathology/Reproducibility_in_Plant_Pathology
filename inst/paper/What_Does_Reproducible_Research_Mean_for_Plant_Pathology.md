@@ -1,46 +1,39 @@
 # Status and Best Practices for Reproducible Research In Plant Pathology
 A. H. Sparks, E. M. Del Ponte, N. J. Grünwald, and Z. Foster  
-`r Sys.Date()`  
+Last update: `r Sys.Date()`  
 
 
-1. Adam H. Sparks: Centre for Crop Health, University of Southern Queensland, Toowoomba, Qld 4350, Australia
-2. Emerson M. Del Ponte: Departamento de Fitopatologia, Universidade Federal de Viçosa, Viçosa, MG, Brasil
-3. Zachary S. L. Foster: Department of Botany and Plant Pathology, Oregon State University, Corvallis, OR 97330, USA
-4. Niklaus J. Grünwald: Horticultural Crops Research Laboratory, USDA Agricultural Research Service, Corvallis, OR 97330, USA
+First author: Centre for Crop Health, University of Southern Queensland, Toowoomba, Qld 4350, Australia; second author: Departamento de Fitopatologia, Universidade Federal de Viçosa, Viçosa, MG, Brasil; third and fourth authors: Horticultural Crops Research Laboratory, USDA Agricultural Research Service, Corvallis, OR 97330, USA 
+
+Accepted for publication: 
 
 # Abstract
 
+Reproducible research practices have been highlighted extensively during the last ten years in many fields of study as standard to promote transparency and replication of scientific results, a well known current issue in science. In fact, scientific claims can only be evaluated based on how: protocols, materials, equipments and methods were described; data were collected and prepared; and analyses conducted. Sharing of data and computational code are central for current scholarly dissemination and communication standadars, but in many fields, including Plant Pathology, the rate at which the researchers are engaged in this endeavour is apparently slow. We randomly selected 200 articles published from 2012 to 2016 across 21 journals representative of the pathology discipline, which were scrutinized to obtain data reflecting reproducibility. We found that.. Protocols specific to plant pathology and open source tools for producing reproducible work and analysis is proposed to promote such practice among plant pathologists.
 
 
-Abstracts are mandatory and limited to one 200 word paragraph.
+# Main text
+
+## Introductory
+
+Modern plant pathological research has many facets given the array of disciplines and subdisciplines currently involved. Collectively, they contribute to increase our basic and applied knowledge on several aspects of pathogen biology and disease development to ultimately improve management. Scientific research in the field vary from purely observational/descriptive nature to inferential based on experimental or simulation-derived small/large datasets. Whenever the case, research findings are verifiable based on how much of the research materials, processes and outcomes, beyond what is reported in the scientific article, are made available. These include biological materials (strains), acid nucleic sequences, experimental and simulated raw data annotations, drawing and photographs, statistical analysis codes, among others.
 
 
-Reproducible research practices have been highlighted extensively during the last ten years in many fields of study as standard to promote transparency and replication of scientific results, a well known current issue in science. In fact, scientific claims can only be evaluated based on how: protocols, materials, equipments and methods were described; data were collected and prepared; and analyses conducted. Sharing of data and computational code are central for current scholarly dissemination and communication standadars, but in many fields, including Plant Pathology, the rate at which the researchers are engaged in this endeavour is apparently slow. We randomly selected 200 articles published from 2012 to 2016 across 21 journals representative of the pathology discipline, which were scrutinized to obtain data reflecting reproducibility. We found that.. 
-Protocols specific to plant pathology and open source tools for producing reproducible work and analysis is proposed to promote such practice among plant pathologists.
-
-
-
-Modern plant pathological research has many facets given the array of disciplines and subdisciplines currently involved and that contribute to increase basic and applied knowledge on several aspects of pathogen biology and disease development to ultimately improve management. Scientific research in the field vary from purely observational/descriptive nature to inferential based on experimental or simulation-derived small to big datasets. Whenever the case, research findings are verifiable based on how much of the research materials, processes and outcomes, beyond what is reported in the scientific article, are made available. These include biological materials (strains), acid nucleic sequences, experimental and simulated raw data annotations, drawing and photographs, statistical analysis codes, among others.
-
-
-## WHAT IS REPRODUCIBLE RESEARCH
+##3 Reproducible research
 
 Reproducibility and replicability in scientific research have once again been highlighted recently [@Nature_Editorial_2016; @Baker2016a] as an issue. Patil et al. [-@Patil066803] have provided several definitions to clarify the concepts surrounding reproducibility and replicability. For the purposes of this paper we follow the definitions as given by Patil et al. [-@Patil066803].
 
 
 
-
-## TOWARDS REPRODUCIBLE RESEARCH PRACTICES
+## A general workflow
 
 A general workflow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, and writing the manuscript. Here we defined three levels of reproducibility which are also related with the evolution of computational methods and reproducible practices (Fig. 1).
 
-A first level of reproducibility involves making available research materials such as strains and/or nucleic acid sequences in public collection and citations for methods used. A second level involves providing raw data and codes as binary files (PDF or other non-text file) in supplemental materials which do not allow promptly access to the data and running the codes because of use of expensive commercial software or a paywall. A highest level includes efforts to annotate structured raw data and fully document the analysis using open source code which are deposited in public repositories and can be run more easily following download of data and codes. The first level as reported is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations. In the next section we present standards and tools that can be used to ensure reproducibility.
+A first level of reproducibility involves making available research materials such as strains and/or nucleic acid sequences in public collection and citations for methods used. A second level involves providing raw data and codes as binary files (PDF or other non-text file) in supplemental materials which do not allow promptly access to the data and running the codes because of use of expensive commercial software or a paywall. A highest level includes efforts to annotate structured raw data and fully document the analysis using open source code which are deposited in public repositories and can be run more easily following download of data and codes. The first level as reported is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations. In the next section we present standards and tools that can be used to ensure reproducibility (Figure 1).
 
 
 
-[]!('Diagram.png')
-
-### Methodology
+### Methods
 
 - Citation of methods, software, packages, etc.
 - deposit and annotate biological materials
@@ -65,7 +58,7 @@ A first level of reproducibility involves making available research materials su
 
 
 
-## STATE OF REPRODUCIBLE RESEARCH IN PLANT PATHOLOGY
+## Status in Plant Pathology
 
 * Madden et al. [-@Madden2015] supply an *e-**X**tra*\* with reproducible examples
 for readers.
@@ -81,16 +74,14 @@ necessary to replicate model development and the subsequent the study on the eff
 * Other examples from plant pathology providing e-Xtras or supplemental material
 
 
-## SUMMARY OF REPRODUCIBLE RESEARCH IN PLANT PATHOLOGY
-
 Twenty-one plant pathology discipline journals were selected by the authors as representations of discipline-based journals target by the plant pathology research community. Among them, both fundamental and/or applied as well as journals covering specific group of pathogens/plants or broad areas were included. Two hundred articles were randomly selected from issues published from 2012 to 2016. A list of randomly selected pages was assigned to a randomised list of the 21 journals [@Sparks2017] where the page number fell within an article for the given journal. In cases where an article was not suitable, _e.g._, a review or otherwise not related to plant pathology, the next article was selected until a suitable article was found. Notes regarding the selection of articles can be found in the file, XXXX, available in this paper's repository. The pages list was numbered from page one and went to 150. This was done since some journals restart their numbering with each issue and also ensures that the journal is more likely to have a page number corresponding to the randomly generated value. This also assumes that there is no effect or bias on reproducibility based on the time of year that an article was published, since most journals start with page number one at the beginning of the year. The list of journals was saved as a comma separated value (CSV) file and imported into R [@R2017]. 
 
 
-## DISCUSSION
+## Discussion
 
 
-## ACKOWLEDGEMENTS
+## Acknowledgments
 
 
-### LITERATURE CITED
+## Literature cited
 
