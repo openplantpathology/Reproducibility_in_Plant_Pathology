@@ -1,4 +1,4 @@
-Package: Reproducible.Plant.Pathology
+Package: Reproducibility.in.Plant.Pathology
 Type: Package
 Title: A Systematic Quantitative Review of Articles Providing a Basis for Identifying Reproducible Research Efforts the Field of Plant Pathology
 Version: 0.0.1-1
@@ -8,8 +8,8 @@ Authors@R: as.person(c(
     "Zachary S L Foster <zacharyfoster1989@gmail.com> [aut]",
     "Niklaus J Grünwald <grunwaln@science.oregonstate.edu> [aut]"
   ))
-URL: https://github.com/phytopathology/Reproducible-Research-in-Plant-Pathology
-BugReports: https://github.com/phytopathology/Reproducible-Research-in-Plant-Pathology/issues
+URL: https://github.com/phytopathology/Reproducibility_in_Plant_Pathology
+BugReports: https://github.com/phytopathology/Reproducibility_in_Plant_Pathology/issues
 Description: A research compendium for the paper, "xxxxxx", published in "xxxxxx".
 Depends:
     R (>= 3.2.0)

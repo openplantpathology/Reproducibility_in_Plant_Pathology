@@ -5,8 +5,8 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Criteria for Evaluating Reproducibility • Reproducible.Plant.Pathology</title>
-<!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<title>Criteria for Evaluating Reproducibility • Reproducibility_in_plant_pathology</title>
+<!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script><script src="../pkgdown.js"></script><!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
@@ -24,7 +24,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">Reproducible.Plant.Pathology</a>
+      <a class="navbar-brand" href="../index.html">Reproducibility.in.Plant.Pathology</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -75,7 +75,7 @@
       <h1>Criteria for Evaluating Reproducibility</h1>
                         <h4 class="author">Adam H Sparks and Emerson M Del Ponte and Zachary S L Foster and Niklaus J. Grünwald</h4>
             
-            <h4 class="date">2017-07-05</h4>
+            <h4 class="date">2017-08-15</h4>
           </div>
 
     
@@ -144,12 +144,6 @@
 <div id="evaluation-of-reproducibility" class="section level3">
 <h3 class="hasAnchor">
 <a href="#evaluation-of-reproducibility" class="anchor"></a>Evaluation of reproducibility</h3>
-<div id="country" class="section level4">
-<h4 class="hasAnchor">
-<a href="#country" class="anchor"></a>“country”</h4>
-<p>The country where the corresponding author works</p>
-<p>Entered as a 3 letter ISO code (<em>e.g.</em>, Netherlands = <code>NLD</code>)</p>
-</div>
 <div id="open" class="section level4">
 <h4 class="hasAnchor">
 <a href="#open" class="anchor"></a>“open”</h4>
@@ -160,13 +154,12 @@
 <h4 class="hasAnchor">
 <a href="#repro_inst" class="anchor"></a>“repro_inst”</h4>
 <p>Does the journal have guidelines for reproducibility?</p>
-<p>Entered as <code>TRUE</code>/<code>FALSE</code></p>
-</div>
-<div id="iss_per_year" class="section level4">
-<h4 class="hasAnchor">
-<a href="#iss_per_year" class="anchor"></a>“iss_per_year”</h4>
-<p>The number of articles per year the journal publishes</p>
-<p>Entered as a number without commas</p>
+<ul>
+<li><p><code>0</code> - Not mentioned</p></li>
+<li><p><code>1</code> - At least a suggestion to put data online, but not details on how/where.</p></li>
+<li><p><code>2</code> - Detailed instructions on where to place data</p></li>
+<li><p><code>3</code> - Detailed instructions on where to place data and code</p></li>
+</ul>
 </div>
 <div id="art_class" class="section level4">
 <h4 class="hasAnchor">
@@ -180,12 +173,6 @@
 </ul>
 <p>Entered as an R <code>vector</code> object in comma-separated list with spaces.</p>
 <p>For example: <code>c("Applied"", "Molecular")</code> or <code>Fundamental</code></p>
-</div>
-<div id="supl_mats" class="section level4">
-<h4 class="hasAnchor">
-<a href="#supl_mats" class="anchor"></a>“supl_mats”</h4>
-<p>Does the article supply supplemental materials?</p>
-<p>Entered as <code>TRUE</code>/<code>FALSE</code></p>
 </div>
 <div id="comp_mthds_avail" class="section level4">
 <h4 class="hasAnchor">
@@ -218,23 +205,17 @@
 <p>Score of citations for software used</p>
 <p>Entered as a number between <code>0</code> and <code>3</code></p>
 <ul>
-<li><p><code>0</code> - Not available or not mentioned in the publication</p></li>
+<li><p><code>0</code> - not mentioned</p></li>
 <li><p><code>1</code> - Software mentioned by name only</p></li>
-<li><p><code>2</code> - Attempts at citing software used</p></li>
-<li><p><code>3</code> - All software used properly cited</p></li>
+<li><p><code>2</code> - Software cited with version number</p></li>
+<li><p><code>3</code> - All software components (PROCs, packages) etc. cited</p></li>
 </ul>
 </div>
-<div id="analysis_auto" class="section level4">
+<div id="software_used" class="section level4">
 <h4 class="hasAnchor">
-<a href="#analysis_auto" class="anchor"></a>“analysis_auto”</h4>
-<p>Is analysis automated, <em>e.g.</em> fully scripted and reproducible by downloading and running the scripts or was it point and click type of work?</p>
-<p>Entered as a number between <code>0</code> and <code>3</code></p>
-<ul>
-<li><p><code>0</code> - Methods not described or fully point and click</p></li>
-<li><p><code>1</code> - Methods were mostly point and click</p></li>
-<li><p><code>2</code> - Methods were mostly automated</p></li>
-<li><p><code>3</code> - Methods were fully automated</p></li>
-</ul>
+<a href="#software_used" class="anchor"></a>“software_used”</h4>
+<p>Entered as an R <code>vector</code> object in comma-separated list with spaces.</p>
+<p>For example: <code>c("R", "TableTool")</code> or <code>R</code></p>
 </div>
 <div id="data_avail" class="section level4">
 <h4 class="hasAnchor">
@@ -246,30 +227,6 @@
 <li><p><code>1</code> - Available upon request to author</p></li>
 <li><p><code>2</code> - Online, but inconvenient/non-permanent (<em>e.g.</em> login needed, pay wall, FTP server, personal lab website)</p></li>
 <li><p><code>3</code> - Freely available online to anonymous users for foreseeable future</p></li>
-</ul>
-</div>
-<div id="data_annot" class="section level4">
-<h4 class="hasAnchor">
-<a href="#data_annot" class="anchor"></a>“data_annot”</h4>
-<p>Raw data annotation score.</p>
-<p>Entered as a number between <code>0</code> and <code>3</code></p>
-<ul>
-<li><p><code>0</code> - No annotation</p></li>
-<li><p><code>1</code> - The structure/content of the data is clear, but the relevance to the study is not</p></li>
-<li><p><code>2</code> - Fully understandable in the context of the paper</p></li>
-<li><p><code>3</code> - Fully understandable without reading the paper</p></li>
-</ul>
-</div>
-<div id="data_tidy" class="section level4">
-<h4 class="hasAnchor">
-<a href="#data_tidy" class="anchor"></a>“data_tidy”</h4>
-<p>Raw data tidiness score</p>
-<p>Entered as a number between <code>0</code> and <code>3</code></p>
-<ul>
-<li><p><code>0</code> - Not easily parsed with code or loaded by standard office software (<em>e.g.</em>, unstructured raw text or binary equipment outputs or no raw data)</p></li>
-<li><p><code>1</code> - Difficult, but possible, to parse with code or manipulate with standard office software (<em>i.e.</em> you technically could, but would not want to)</p></li>
-<li><p><code>2</code> - Able to parse using code with minimal clean-up (<em>e.g.</em>, you might need a few extra lines of code for clean up or do a few extra steps to work with your operating system. An example would be a text file with multiple tables)</p></li>
-<li><p><code>3</code> - Tidy data in a standardized format (<em>e.g.</em>, TSV) that is loaded correctly without clean-up or using uncommon parsing tools.</p></li>
 </ul>
 </div>
 <div id="reproducibility_score" class="section level4">

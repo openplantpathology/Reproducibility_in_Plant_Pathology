@@ -1,4 +1,4 @@
 library(testthat)
-library(Reproducible.Plant.Pathology)
+library(Reproducibility.in.Plant.Pathology)
 
-test_check("Reproducible.Plant.Pathology")
+test_check("Reproducibility.in.Plant.Pathology")

@@ -1,0 +1,7 @@
+urls:
+  reference: https://phytopathology.github.io/Reproducible.Plant.Pathology//reference
+  article: https://phytopathology.github.io/Reproducible.Plant.Pathology//articles
+articles:
+  assigning_articles: assigning_articles.html
+  reproducibility_criteria: reproducibility_criteria.html
+

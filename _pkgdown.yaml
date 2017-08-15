@@ -1,0 +1,5 @@
+title: Reproducibility_in_plant_pathology
+url: https://phytopathology.github.io/Reproducible.Plant.Pathology/
+template:
+  params:
+    bootswatch: flatly

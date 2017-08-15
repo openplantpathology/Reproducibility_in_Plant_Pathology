@@ -1,24 +1,28 @@
 ---
-title: "Reproducible Plant Pathology"
+title: "Reproducibility in Plant Pathology"
 output: github_document
 ---
 
-[![Licence](https://img.shields.io/github/license/mashape/apistatus.svg)](http://choosealicense.com/licenses/mit/) 
-[![Travis-CI Build Status](https://travis-ci.org/phytopathology/Reproducible.Plant.Pathology.svg?branch=master)](https://travis-ci.org/phytopathology/Reproducible.Plant.Pathology) 
+[![Travis-CI Build Status](https://travis-ci.org/phytopathology/Reproducibility_in_Plant_Pathology.svg?branch=master)](https://travis-ci.org/phytopathology/Reproducibility_in_Plant_Pathology) 
 
 ## A research compendium for a report on the reproducibility of research in plant pathology
+
+For optimal webviewing of this report, please see the [HTML version](http://htmlpreview.github.io/?https://github.com/phytopathology/Reproducibility_in_Plant_Pathology/blob/master/inst/paper/Sparks_et_al-main_text.html).
 
 ### Compendium DOI: 
  
 http://dx.doi.org/xxxxxxx
 
-The files at the URL above will generate the results as found in the publication. The files hosted at https://github.com/phytopathology/Reproducible.Plant.Pathology are the development versions and may have changed since the report was published.
+The files at the URL above will generate the results as found in the publication. The files hosted at https://github.com/phytopathology/Reproducibility_in_Plant_Pathology are the development versions and may have changed since the report was published.
 
 ### Authors of this repository:
 
-Adam H Sparks (adamhsparks@gmail.com)  
-Emerson M Del Ponte (delponte@ufv.br)  
-Zachary Foster (zacharyfoster1989@gmail.com)  
+Adam H Sparks (adamhsparks@gmail.com)
+
+Emerson M Del Ponte (delponte@ufv.br)
+
+Zachary Foster (zacharyfoster1989@gmail.com)
+
 Niklaus J Grünwald (grunwaln@science.oregonstate.edu)
 
 ### Published in: 
@@ -58,16 +62,16 @@ use this line at the shell prompt (assuming you have Git installed on your
 computer):
 
 ```
-git clone https://github.com/phytopathology/Reproducible.Plant.Pathology.git
+git clone https://github.com/phytopathology/Reproducibility_in_Plant_Pathology.git
 ```
 
-Once the download is complete, open the `Reproducible.Plant.Pathology.Rproj` in
+Once the download is complete, open the `Reproducibility_in_Plant_Pathology.Rproj` in
 RStudio to begin working with the package and compendium files. 
 
 The package has a number of dependencies on other R packages, and programs
 outside of R. These are listed at the bottom of this README. Installing these can be time-consuming and complicated, so we've done two things to simplify access to the compendium. First is the `packrat/` directory, which contains the
 source code for all the packages we depend on. If all works well, these will be
-installed on your computer when you open `Reproducible.Plant.Pathology.Rproj` in RStudio.
+installed on your computer when you open `Reproducibility_in_Plant_Pathology.Rproj` in RStudio.
 
 <!--- Second is our Docker image that includes all the necessary software, code and data to run our analysis. The Docker image may give a quicker entry point to the project, and is more self-contained, so might save some fiddling with installing things.   
 
@@ -76,7 +80,7 @@ installed on your computer when you open `Reproducible.Plant.Pathology.Rproj` in
 
 A Docker image is a lightweight GNU/Linux virtual computer that can be run as a piece of software on Windows and OSX (and other Linux systems). To capture the complete computational environment used for this project we have a Dockerfile that specifies how to make the Docker image that we developed this project in. The Docker image includes all of the software dependencies needed to run the code in this project, as well as the R package and other compendium files. To launch the Docker image for this project, first, [install Docker](https://docs.docker.com/installation/) on your computer. At the Docker prompt, enter:
 
-    docker run -dp 8787:8787 phytopathology/Reproducible.Plant.Pathology
+    docker run -dp 8787:8787 phytopathology/Reproducibility_in_Plant_Pathology
 
 This will start a server instance of RStudio. Then open your web browser at localhost:8787 or or run `docker-machine ip default` in the shell to find the correct IP address, and log in with rstudio/rstudio.
 
@@ -114,4 +118,3 @@ https://staffprofile.usq.edu.au/Profile/Adam-Sparks
 ### Credits
 This research compendium was based on https://github.com/benmarwick/researchcompendium but not
 forked from because it was already under development when I found Ben's.
-
