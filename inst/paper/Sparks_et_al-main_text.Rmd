@@ -3,11 +3,16 @@ title: "Status and Best Practices for Reproducible Research In Plant Pathology"
 author: "A. H. Sparks, E. M. Del Ponte, N. J. Grünwald, and Z. Foster"
 date: 'Last update: `r Sys.Date()`'
 output:
-  word_document:
-    keep_md: yes
-    reference_docx: Phytopathology_Style_Reference.docx
+  html_document:
+    css: my-style.css
+    theme: flatly
+    toc: true
+    toc_float: 
+     collapsed: true
+     smooth_scroll: true
   pdf_document: default
-  html_document: default
+  word_document:
+    reference_docx: Phytopathology_Style_Reference.docx
 csl: phytopathology.csl
 bibliography: bibliography.bib
 always_allow_html: yes
