@@ -6,10 +6,17 @@ output:
   word_document:
     keep_md: yes
     reference_docx: Phytopathology_Style_Reference.docx
+  pdf_document: default
+  html_document: default
 csl: phytopathology.csl
 bibliography: bibliography.bib
 always_allow_html: yes
 ---
+
+<!-- 
+To render all formats:
+rmarkdown::render('What Does Reproducible Research Mean for Plant Pathology.Rmd', output_format = 'all')
+-->
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
