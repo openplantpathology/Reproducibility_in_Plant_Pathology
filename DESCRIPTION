@@ -2,12 +2,25 @@ Package: Reproducibility.in.Plant.Pathology
 Type: Package
 Title: A Systematic Quantitative Review of Articles Providing a Basis for Identifying Reproducible Research Efforts the Field of Plant Pathology
 Version: 0.0.1-1
-Authors@R: as.person(c(
-    "Adam H Sparks <adamhsparks@gmail.com> [aut, cre]",
-    "Emerson M Del Ponte <delponte@ufv.br> [aut]",
-    "Zachary S L Foster <zacharyfoster1989@gmail.com> [aut]",
-    "Niklaus J Grünwald <grunwaln@science.oregonstate.edu> [aut]"
-  ))
+Authors@R: c(
+    person(given = "Adam H.", family = "Sparks",
+    role = c("aut", "cre"),
+    email = "adamhsparks@gmail.com",
+    comment = c(ORCID = "0000-0002-0061-8359")),
+    person(given = "Emerson M.", family ="Del Ponte",
+    role = "aut",
+    email = "edelponte@gmail.com",
+    comment = c(ORCID = "0000-0003-4398-409X")),
+    person(given = "Sydney", family = "Everhart",
+    role = "aut",
+    email = "everhart@unl.edu"),
+    person(given = "Zachary S. L.", family = "Foster",
+    role = "aut",
+    email = "zacharyfoster1989@gmail.com"),
+    person(given = "Niklaus J.", family = "Grünwald",
+    role = "aut",
+    email = "grunwaln@science.oregonstate.edu")
+  )
 URL: https://github.com/phytopathology/Reproducibility_in_Plant_Pathology
 BugReports: https://github.com/phytopathology/Reproducibility_in_Plant_Pathology/issues
 Description: A research compendium for the paper, "xxxxxx", published in "xxxxxx".
