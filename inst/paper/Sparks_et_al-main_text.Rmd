@@ -119,7 +119,7 @@ rsvg_pdf(charToRaw(p), "Figure 1.pdf")
 ### Repository
 - Using GitHub for code (and small data?)
 - Using Figshare or Zenodo vs a lab website (DOIs, other reasons)
-- Most ideal a library or other proper long-term data archival service
+- Or using, most ideally, a library or other proper long-term data archival service
 
 
 
