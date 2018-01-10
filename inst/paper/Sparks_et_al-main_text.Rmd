@@ -101,6 +101,7 @@ rsvg_pdf(charToRaw(p), "Figure 1.pdf")
 - Citation of methods, software, packages, etc.
 - deposit and annotate biological materials
 - provide full description for equipments, etc.
+- rOpenSci Reproducible Research: http://ropensci.github.io/reproducibility-guide/sections/introduction/
 
 ### Data
 
@@ -118,6 +119,7 @@ rsvg_pdf(charToRaw(p), "Figure 1.pdf")
 ### Repository
 - Using GitHub for code (and small data?)
 - Using Figshare or Zenodo vs a lab website (DOIs, other reasons)
+- Most ideal a library or other proper long-term data archival service
 
 
 
@@ -135,7 +137,6 @@ necessary to replicate model development and the subsequent the study on the eff
   - paper http://apsjournals.apsnet.org/doi/full/10.1094/PHYTO-12-14-0350-FI
   - github repo https://github.com/grunwaldlab/Sudden_Oak_Death_in_Oregon_Forests
 * Other examples from plant pathology providing e-Xtras or supplemental material
-
 
 Twenty-one plant pathology discipline journals were selected by the authors as representations of discipline-based journals target by the plant pathology research community. Among them, both fundamental and/or applied as well as journals covering specific group of pathogens/plants or broad areas were included. Two hundred articles were randomly selected from issues published from 2012 to 2016. A list of randomly selected pages was assigned to a randomized list of the 21 journals [@Sparks2017] where the page number fell within an article for the given journal. In cases where an article was not suitable, _e.g._, a review or otherwise not related to plant pathology, the next article was selected until a suitable article was found. Notes regarding the selection of articles can be found in the file, XXXX, available in this paper's repository. The pages list was numbered from page one and went to 150. This was done since some journals restart their numbering with each issue and also ensures that the journal is more likely to have a page number corresponding to the randomly generated value. This also assumes that there is no effect or bias on reproducibility based on the time of year that an article was published, since most journals start with page number one at the beginning of the year. The list of journals was saved as a comma separated value (CSV) file and imported into R [@R2017]. 
 
