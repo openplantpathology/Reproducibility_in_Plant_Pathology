@@ -2,12 +2,12 @@ Reproducibility in Plant Pathology
 ================
 
 [![Travis-CI Build
-Status](https://travis-ci.org/phytopathology/Reproducibility_in_Plant_Pathology.svg?branch=master)](https://travis-ci.org/phytopathology/Reproducibility_in_Plant_Pathology)
+Status](https://travis-ci.org/openplantpathology/Reproducibility_in_Plant_Pathology.svg?branch=master)](https://travis-ci.org/openplantpathology/Reproducibility_in_Plant_Pathology)
 
 ## A research compendium for a report on the reproducibility of research in plant pathology
 
 For optimal webviewing of this report, please see the [HTML
-version](http://htmlpreview.github.io/?https://github.com/phytopathology/Reproducibility_in_Plant_Pathology/blob/master/inst/paper/Sparks_et_al-main_text.html).
+version](http://htmlpreview.github.io/?https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/master/inst/paper/Sparks_et_al-main_text.html).
 
 ### Compendium DOI:
 
@@ -15,7 +15,7 @@ version](http://htmlpreview.github.io/?https://github.com/phytopathology/Reprodu
 
 The files at the URL above will generate the results as found in the
 publication. The files hosted at
-<https://github.com/phytopathology/Reproducibility_in_Plant_Pathology>
+<https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology>
 are the development versions and may have changed since the report was
 published.
 
@@ -80,7 +80,7 @@ browsing, use this line at the shell prompt (assuming you have Git
 installed on your
     computer):
 
-    git clone https://github.com/phytopathology/Reproducibility_in_Plant_Pathology.git
+    git clone https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology.git
 
 Once the download is complete, open the
 `Reproducibility_in_Plant_Pathology.Rproj` in RStudio to begin working
@@ -102,7 +102,7 @@ RStudio.
 
 A Docker image is a lightweight GNU/Linux virtual computer that can be run as a piece of software on Windows and OSX (and other Linux systems). To capture the complete computational environment used for this project we have a Dockerfile that specifies how to make the Docker image that we developed this project in. The Docker image includes all of the software dependencies needed to run the code in this project, as well as the R package and other compendium files. To launch the Docker image for this project, first, [install Docker](https://docs.docker.com/installation/) on your computer. At the Docker prompt, enter:
 
-    docker run -dp 8787:8787 phytopathology/Reproducibility_in_Plant_Pathology
+    docker run -dp 8787:8787 openplantpathology/Reproducibility_in_Plant_Pathology
 
 This will start a server instance of RStudio. Then open your web browser at localhost:8787 or or run `docker-machine ip default` in the shell to find the correct IP address, and log in with rstudio/rstudio.
 
