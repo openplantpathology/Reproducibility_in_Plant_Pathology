@@ -17,13 +17,15 @@ The files at the URL above will generate the results as found in the publication
 
 ### Authors of this repository:
 
-Adam H Sparks (adamhsparks@gmail.com)
+Adam H Sparks (<adamhsparks@gmail.com>)
 
-Emerson M Del Ponte (delponte@ufv.br)
+Emerson M Del Ponte (<delponte@ufv.br>)
 
-Zachary Foster (zacharyfoster1989@gmail.com)
+Sydney Everhart (<everhart@unl.edu>)
 
-Niklaus J Grünwald (grunwaln@science.oregonstate.edu)
+Zachary Foster (<zacharyfoster1989@gmail.com>)
+
+Niklaus J Grünwald (<grunwaln@science.oregonstate.edu>)
 
 ### Published in: 
 

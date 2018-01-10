@@ -25,6 +25,8 @@ Adam H Sparks (<adamhsparks@gmail.com>)
 
 Emerson M Del Ponte (<delponte@ufv.br>)
 
+Sydney Everhart (<everhart@unl.edu>)
+
 Zachary Foster (<zacharyfoster1989@gmail.com>)
 
 Niklaus J Grünwald (<grunwaln@science.oregonstate.edu>)
