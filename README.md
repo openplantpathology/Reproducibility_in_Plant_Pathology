@@ -1,18 +1,23 @@
 Reproducibility in Plant Pathology
 ================
 
-[![Travis-CI Build Status](https://travis-ci.org/phytopathology/Reproducibility_in_Plant_Pathology.svg?branch=master)](https://travis-ci.org/phytopathology/Reproducibility_in_Plant_Pathology)
+[![Travis-CI Build
+Status](https://travis-ci.org/phytopathology/Reproducibility_in_Plant_Pathology.svg?branch=master)](https://travis-ci.org/phytopathology/Reproducibility_in_Plant_Pathology)
 
-A research compendium for a report on the reproducibility of research in plant pathology
-----------------------------------------------------------------------------------------
+## A research compendium for a report on the reproducibility of research in plant pathology
 
-For optimal webviewing of this report, please see the [HTML version](http://htmlpreview.github.io/?https://github.com/phytopathology/Reproducibility_in_Plant_Pathology/blob/master/inst/paper/Sparks_et_al-main_text.html).
+For optimal webviewing of this report, please see the [HTML
+version](http://htmlpreview.github.io/?https://github.com/phytopathology/Reproducibility_in_Plant_Pathology/blob/master/inst/paper/Sparks_et_al-main_text.html).
 
 ### Compendium DOI:
 
 <http://dx.doi.org/xxxxxxx>
 
-The files at the URL above will generate the results as found in the publication. The files hosted at <https://github.com/phytopathology/Reproducibility_in_Plant_Pathology> are the development versions and may have changed since the report was published.
+The files at the URL above will generate the results as found in the
+publication. The files hosted at
+<https://github.com/phytopathology/Reproducibility_in_Plant_Pathology>
+are the development versions and may have changed since the report was
+published.
 
 ### Authors of this repository:
 
@@ -28,33 +33,65 @@ Niklaus J Grünwald (<grunwaln@science.oregonstate.edu>)
 
 ### Overview of contents
 
-This repository is our research compendium that details our methodology for examining the state of reproducible research in plant pathology. The compendium contains all data, code, and text associated with the publication XXXX published in XXX. The `R markdown format` (`Rmd`) files in the `inst/paper/` directory contain details of how all the analyses reported in the paper were conducted. Detailed instructions on methods used and how to rerun the analysis to reproduce the results are found in the vignettes, in the `vingettes/` directory.
+This repository is our research compendium that details our methodology
+for examining the state of reproducible research in plant pathology. The
+compendium contains all data, code, and text associated with the
+publication XXXX published in XXX. The `R markdown format` (`Rmd`) files
+in the `inst/paper/` directory contain details of how all the analyses
+reported in the paper were conducted. Detailed instructions on methods
+used and how to rerun the analysis to reproduce the results are found in
+the vignettes, in the `vingettes/` directory.
 
 ### The supplementary files
 
 The `inst/` directory contains:
 
--   the manuscript as submitted (in MS Word format) and its `Rmd` source file (in the `paper/` directory)
+  - the manuscript as submitted (in MS Word format) and its `Rmd` source
+    file (in the `paper/` directory)
 
--   supplementary information source files (in `Rmd` format) and executed versions
+  - supplementary information source files (in `Rmd` format) and
+    executed versions
 
--   all the figures that are included in the paper (in the `figures/` directory)
+  - all the figures that are included in the paper (in the `figures/`
+    directory)
 
 ### The external files
 
-Much of the collaborative work was done outside of GitHub and R using Google Sheets. You can view the [article notes](https://drive.google.com/open?id=19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M) that we collected in the "article\_evaluations" tab. Where "template" and "article\_notes" are used in creating that tab and are explained the "Assigning Articles" vignette of this R package.
+Much of the collaborative work was done outside of GitHub and R using
+Google Sheets. You can view the [article
+notes](https://drive.google.com/open?id=19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M)
+that we collected in the “article\_evaluations” tab. Where “template”
+and “article\_notes” are used in creating that tab and are explained the
+“Assigning Articles” vignette of this R package.
 
 ### The R package
 
-This repository is organized as an R package. There is one R function, `doi2bib()`, that is used in this repository, along with the data, `assigned_article_notes.rda` that are located in `data` directory. We have used the R package structure to help manage dependencies, to take advantage of continuous integration for automated code testing and for file organisation.
+This repository is organized as an R package. There is one R function,
+`doi2bib()`, that is used in this repository, along with the data,
+`assigned_article_notes.rda` that are located in `data` directory. We
+have used the R package structure to help manage dependencies, to take
+advantage of continuous integration for automated code testing and for
+file organisation.
 
-To download the package source as you see it on GitHub, for offline browsing, use this line at the shell prompt (assuming you have Git installed on your computer):
+To download the package source as you see it on GitHub, for offline
+browsing, use this line at the shell prompt (assuming you have Git
+installed on your
+    computer):
 
     git clone https://github.com/phytopathology/Reproducibility_in_Plant_Pathology.git
 
-Once the download is complete, open the `Reproducibility_in_Plant_Pathology.Rproj` in RStudio to begin working with the package and compendium files.
+Once the download is complete, open the
+`Reproducibility_in_Plant_Pathology.Rproj` in RStudio to begin working
+with the package and compendium files.
 
-The package has a number of dependencies on other R packages, and programs outside of R. These are listed at the bottom of this README. Installing these can be time-consuming and complicated, so we've done two things to simplify access to the compendium. First is the `packrat/` directory, which contains the source code for all the packages we depend on. If all works well, these will be installed on your computer when you open `Reproducibility_in_Plant_Pathology.Rproj` in RStudio.
+The package has a number of dependencies on other R packages, and
+programs outside of R. These are listed at the bottom of this README.
+Installing these can be time-consuming and complicated, so we’ve done
+two things to simplify access to the compendium. First is the `packrat/`
+directory, which contains the source code for all the packages we depend
+on. If all works well, these will be installed on your computer when you
+open `Reproducibility_in_Plant_Pathology.Rproj` in
+RStudio.
 
 <!--- Second is our Docker image that includes all the necessary software, code and data to run our analysis. The Docker image may give a quicker entry point to the project, and is more self-contained, so might save some fiddling with installing things.   
 
@@ -71,26 +108,35 @@ Once logged in, use the Files pane (bottom right) to navigate to `/` (the root d
  
 We developed and tested the package on this Docker container, so this is the only platform that We're confident it works on, and so recommend to anyone wanting to use this package to generate the vignette, etc. 
 --->
+
 ### Licenses
 
 Manuscript: [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
 
-Code: [MIT](http://opensource.org/licenses/MIT) year: 2017, copyright holder: Adam H Sparks
+Code: [MIT](http://opensource.org/licenses/MIT) year: 2018, copyright
+holder: Adam H Sparks
 
-Data: [CC-0](http://creativecommons.org/publicdomain/zero/1.0/) attribution requested in reuse
+Data: [CC-0](http://creativecommons.org/publicdomain/zero/1.0/)
+attribution requested in reuse
 
 ### Dependencies
 
-We used [RStudio](http://www.rstudio.com/products/rstudio/) on macOS and Ubuntu 16.04 LTS.
+We used [RStudio](http://www.rstudio.com/products/rstudio/) on macOS and
+Ubuntu 16.04 LTS.
 
-We also used [JabRef](http://www.jabref.org/) and [Google Sheets](https://www.google.com/sheets/about/).
+We also used [JabRef](http://www.jabref.org/) and [Google
+Sheets](https://www.google.com/sheets/about/).
 
 ### Contact
 
-Adam H Sparks, Associate Professor, Centre for Crop Health University of Southern Queensland Toowoomba, Queensland 4350
+Adam H Sparks, Associate Professor, Centre for Crop Health University of
+Southern Queensland Toowoomba, Queensland 4350
 
-(+61) (7) 4831 1948 e. <adam.sparks@usq.edu.au> <https://staffprofile.usq.edu.au/Profile/Adam-Sparks>
+(+61) (7) 4831 1948 e. <adam.sparks@usq.edu.au>
+<https://staffprofile.usq.edu.au/Profile/Adam-Sparks>
 
 ### Credits
 
-This research compendium was based on <https://github.com/benmarwick/researchcompendium> but not forked from because it was already under development when I found Ben's.
+This research compendium was based on
+<https://github.com/benmarwick/researchcompendium> but not forked from
+because it was already under development when I found Ben’s.
