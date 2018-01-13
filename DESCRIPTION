@@ -21,8 +21,8 @@ Authors@R: c(
     role = "aut",
     email = "grunwaln@science.oregonstate.edu")
   )
-URL: https://github.com/phytopathology/Reproducibility_in_Plant_Pathology
-BugReports: https://github.com/phytopathology/Reproducibility_in_Plant_Pathology/issues
+URL: https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology
+BugReports: https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/issues
 Description: A research compendium for the paper, "xxxxxx", published in "xxxxxx".
 Depends:
     R (>= 3.2.0)
