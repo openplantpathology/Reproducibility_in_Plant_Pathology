@@ -75,30 +75,22 @@
       <h1>Assigning Articles to Evaluators</h1>
                         <h4 class="author">Adam H Sparks</h4>
             
-            <h4 class="date">2018-01-14</h4>
+            <h4 class="date">2018-02-01</h4>
           </div>
 
     
     
 <div class="contents">
-<div id="creating-a-sample-of-articles" class="section level2">
-<h2 class="hasAnchor">
-<a href="#creating-a-sample-of-articles" class="anchor"></a>Creating a sample of articles</h2>
+<section id="creating-a-sample-of-articles" class="level2"><h2>Creating a sample of articles</h2>
 <p>Twenty one journals in the discipline of plant pathology were selected by the four authors as being the primary choice for most plant pathologists when publishing manuscripts.</p>
 <p>Using the assumption that journals publish an average 10 articles per issue, for a population of ~1000 articles, using a confidence level of 95% and confidence interval of 10% we need 88 samples. In <a href="https://github.com/adamhsparks/Reproducibility_in_Plant_Pathology/issues/3">Issue #3</a>, we decided to select 200 articles to have a large sample of the population.</p>
 <p>There are three distinct steps involved:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>Set up the journals, years, and page numbers and evaluators and assign randomly. Create a tibble that holds these data along with empty fields for the evaluation of the articles. Create a Google Sheets object to serve as a template for the second step.</p></li>
 <li><p>Look up the articles and check that the selected journal, year, page number actually are appropriate and enter the DOI and other comments regarding article selection in Google Sheets. Which is used in the third step.</p></li>
 <li><p>Import article notes and DOIs from Google Sheets back to R, retrieve as many bib entries as possible using the DOI. Merge the bib entries with the notes and DOI values. Create a new tab in the Google Sheets object for the evaluators to carry out evaluations.</p></li>
-</ol>
-</div>
-<div id="step-1" class="section level2">
-<h2 class="hasAnchor">
-<a href="#step-1" class="anchor"></a>Step 1</h2>
-<div id="r-setup" class="section level3">
-<h3 class="hasAnchor">
-<a href="#r-setup" class="anchor"></a>R setup</h3>
+</ol></section><section id="step-1" class="level2"><h2>Step 1</h2>
+<section id="r-setup" class="level3"><h3>R setup</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(readr)</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">library</span>(bib2df)</a>
@@ -110,10 +102,7 @@
 <a class="sourceLine" id="cb1-9" data-line-number="9"></a>
 <a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co"># For printing tibble in total</span></a>
 <a class="sourceLine" id="cb1-11" data-line-number="11"><span class="kw">options</span>(<span class="dt">tibble.print_max =</span> <span class="dv">21</span>, <span class="dt">tibble.print_min =</span> <span class="dv">21</span>)</a></code></pre></div>
-</div>
-<div id="create-list-of-journals" class="section level3">
-<h3 class="hasAnchor">
-<a href="#create-list-of-journals" class="anchor"></a>Create list of journals</h3>
+</section><section id="create-list-of-journals" class="level3"><h3>Create list of journals</h3>
 <p>We hand-picked a list of 21 journals that we felt represented plant pathology research. In this step, we will create a <code>tibble</code> in R of these journals, assigning them a number so that we can randomise them.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">journal_list &lt;-<span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">21</span>),</a>
@@ -140,29 +129,18 @@
 <a class="sourceLine" id="cb2-23" data-line-number="23">    <span class="st">"Tropical Plant Pathology"</span>))</a>
 <a class="sourceLine" id="cb2-24" data-line-number="24"></a>
 <a class="sourceLine" id="cb2-25" data-line-number="25"><span class="kw">names</span>(journal_list) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">"number"</span>, <span class="st">"journal"</span>)</a></code></pre></div>
-</div>
-<div id="create-list-of-evaluators" class="section level3">
-<h3 class="hasAnchor">
-<a href="#create-list-of-evaluators" class="anchor"></a>Create list of evaluators</h3>
+</section><section id="create-list-of-evaluators" class="level3"><h3>Create list of evaluators</h3>
 <p>From the four authors of this paper, in this step, we will create a list for us to use that will randomly assign articles for us to evaluate for this manuscript.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">assignee &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">"Adam"</span>, <span class="st">"Emerson"</span>, <span class="st">"Zach"</span>, <span class="st">"Nik"</span>), <span class="dv">50</span>)</a></code></pre></div>
-</div>
-<div id="create-randomised-list" class="section level3">
-<h3 class="hasAnchor">
-<a href="#create-randomised-list" class="anchor"></a>Create randomised list</h3>
+</section><section id="create-randomised-list" class="level3"><h3>Create randomised list</h3>
 <p>Now we will create a randomised list of journal articles to assign to each of the four authors for this paper.</p>
-<div id="create-a-randomised-list-of-the-journals" class="section level4">
-<h4 class="hasAnchor">
-<a href="#create-a-randomised-list-of-the-journals" class="anchor"></a>Create a randomised list of the journals</h4>
+<section id="create-a-randomised-list-of-the-journals" class="level4"><h4>Create a randomised list of the journals</h4>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">journals &lt;-<span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(<span class="kw"><a href="http://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">21</span>, <span class="dv">200</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">names</span>(journals) &lt;-<span class="st"> "number"</span></a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb4-5" data-line-number="5">journals &lt;-<span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(journals, journal_list, <span class="st">"number"</span>)</a></code></pre></div>
-</div>
-<div id="randomly-select-articles" class="section level4">
-<h4 class="hasAnchor">
-<a href="#randomly-select-articles" class="anchor"></a>Randomly select articles</h4>
+</section><section id="randomly-select-articles" class="level4"><h4>Randomly select articles</h4>
 <p>Generate a random list of years between 2012 and 2016 and a random list of start pages between 1 and 150 since some journals start numbering at 1 with every issue. Then bind the columns of the randomised list of journals with the randomised years and page start numbers. This then assumes that there is no temporal effect, <em>i.e.</em>, the time of year an article is published does not affect whether or not it is reproducible.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">year &lt;-<span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(<span class="dv">2012</span><span class="op">:</span><span class="dv">2016</span>, <span class="dv">200</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"></a>
@@ -171,10 +149,7 @@
 <a class="sourceLine" id="cb5-5" data-line-number="5">journals &lt;-<span class="st"> </span><span class="kw">cbind</span>(journals[, <span class="dv">-1</span>], year, contains_page, assignee)</a>
 <a class="sourceLine" id="cb5-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb5-7" data-line-number="7">journals &lt;-<span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="dt">.data =</span> journals, assignee, journal, year, contains_page)</a></code></pre></div>
-</div>
-<div id="check-the-number-of-articles-per-journal" class="section level4">
-<h4 class="hasAnchor">
-<a href="#check-the-number-of-articles-per-journal" class="anchor"></a>Check the number of articles per journal</h4>
+</section><section id="check-the-number-of-articles-per-journal" class="level4"><h4>Check the number of articles per journal</h4>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">journals <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(journal) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/tally.html">tally</a></span>(<span class="dt">sort =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
@@ -203,11 +178,7 @@
 ## 20 Tropical Plant Pathology                        6
 ## 21 Australasian Plant Pathology                    4</code></pre>
 <p>Once this is done, the articles are manually examined for suitability. Reference articles or off-topic articles are not included. Notes are provided regarding these cases in <code>assigned_article_notes</code>. If the selected page number/article was not suitable, the next sequential article was selected manually.</p>
-</div>
-</div>
-<div id="add-empty-columns-for-evaluations" class="section level3">
-<h3 class="hasAnchor">
-<a href="#add-empty-columns-for-evaluations" class="anchor"></a>Add empty columns for evaluations</h3>
+</section></section><section id="add-empty-columns-for-evaluations" class="level3"><h3>Add empty columns for evaluations</h3>
 <p>A variety of information will be collected with each article to be used in the analysis later. It is easiest to enter this using a spreadsheet application, so we will add on the columns for what information we want to collect and save the table as a csv for manual editing.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">to_record &lt;-<span class="st"> </span><span class="kw">c</span>(</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="st">"doi"</span>,</a>
@@ -233,10 +204,7 @@
 <a class="sourceLine" id="cb8-22" data-line-number="22"><span class="st">    </span>journals <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb8-23" data-line-number="23"><span class="st">    </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(assignee) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb8-24" data-line-number="24"><span class="st">    </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>()</a></code></pre></div>
-</div>
-<div id="write-to-google-sheets" class="section level3">
-<h3 class="hasAnchor">
-<a href="#write-to-google-sheets" class="anchor"></a>Write to Google Sheets</h3>
+</section><section id="write-to-google-sheets" class="level3"><h3>Write to Google Sheets</h3>
 <p>We decided to use Google Sheets so that we could concurrently edit the file more easily. Once we’re done filling in our evaluations, we will import the data back to R. Jenny Bryan has created a handy package, <em>googlesheets</em> that we use here. <em>Note that this must be run interactively for <code><a href="http://www.rdocumentation.org/packages/googlesheets/topics/gs_new">gs_new()</a></code> to work. Knitting this .Rmd file will not generate any gsheets, it must be done in an interactive R session.</em></p>
 <p>Create a Google Sheets workbook to hold worksheets for this project. This first sheet will serve as a template and is thus named “template”.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># Give googlesheets permission to access spreadsheets and Google Drive</span></a>
@@ -250,23 +218,11 @@
 <a class="sourceLine" id="cb9-9" data-line-number="9">  <span class="dt">trim =</span> <span class="ot">TRUE</span>,</a>
 <a class="sourceLine" id="cb9-10" data-line-number="10">  <span class="dt">verbose =</span> <span class="ot">FALSE</span></a>
 <a class="sourceLine" id="cb9-11" data-line-number="11">  )</a></code></pre></div>
-</div>
-</div>
-<div id="step-2" class="section level2">
-<h2 class="hasAnchor">
-<a href="#step-2" class="anchor"></a>Step 2</h2>
-<div id="add-article-dois" class="section level3">
-<h3 class="hasAnchor">
-<a href="#add-article-dois" class="anchor"></a>Add article DOI’s</h3>
+</section></section><section id="step-2" class="level2"><h2>Step 2</h2>
+<section id="add-article-dois" class="level3"><h3>Add article DOI’s</h3>
 <p>This step is completed in gsheets, Adam looked up articles and added notes and DOIs to a gsheet, “article_notes” which will be imported to R in the next step.</p>
-</div>
-</div>
-<div id="step-3" class="section level2">
-<h2 class="hasAnchor">
-<a href="#step-3" class="anchor"></a>Step 3</h2>
-<div id="generate-a-bibliography-file-to-use-with-the-paper" class="section level3">
-<h3 class="hasAnchor">
-<a href="#generate-a-bibliography-file-to-use-with-the-paper" class="anchor"></a>Generate a bibliography file to use with the paper</h3>
+</section></section><section id="step-3" class="level2"><h2>Step 3</h2>
+<section id="generate-a-bibliography-file-to-use-with-the-paper" class="level3"><h3>Generate a bibliography file to use with the paper</h3>
 <p>Using the DOIs in this file, we can retrieve the BibTex citations for those articles that provide a DOI. Note that not all of the selected articles have a DOI, so we’ll have to manually generate those entries, or fetch them from the journals’ website later.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">article_notes &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/googlesheets/topics/googlesheet">gs_title</a></span>(<span class="st">"article_notes"</span>)</a>
 <a class="sourceLine" id="cb10-2" data-line-number="2"></a>
@@ -330,10 +286,7 @@
 <a class="sourceLine" id="cb14-6" data-line-number="6"><span class="kw">lapply</span>(<span class="kw">unlist</span>(cleaned_pp), write, <span class="st">"~/tmp/bib_article_notes.bib"</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb14-7" data-line-number="7"><span class="kw">lapply</span>(<span class="kw">unlist</span>(cleaned_pm), write, <span class="st">"~/tmp/bib_article_notes.bib"</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><em>Important</em> Open resulting files in <code>~/tmp</code> directory in JabRef, create new keys and resave. JabRef will generate unique keys and fix any inconsistencies that may exist from the DOI search.</p>
-</div>
-<div id="export-google-sheets" class="section level3">
-<h3 class="hasAnchor">
-<a href="#export-google-sheets" class="anchor"></a>Export Google Sheets</h3>
+</section><section id="export-google-sheets" class="level3"><h3>Export Google Sheets</h3>
 <p>In this last bit, import the BibTeX file back into R and export to a tab in the Google Sheets for collaborative edits.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co"># import both the Journal of Plant Pathology (cleaned_bib) and article_notes.bib</span></a>
 <a class="sourceLine" id="cb15-2" data-line-number="2">bib &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/bib2df/topics/bib2df">bib2df</a></span>(<span class="st">"~/tmp/bib_article_notes.bib"</span>)</a>
@@ -355,14 +308,10 @@
 <a class="sourceLine" id="cb15-18" data-line-number="18"></a>
 <a class="sourceLine" id="cb15-19" data-line-number="19"><span class="co"># clean up files to build R package properly with no NOTES</span></a>
 <a class="sourceLine" id="cb15-20" data-line-number="20"><span class="kw">unlink</span>(<span class="st">".httr-oauth"</span>)</a></code></pre></div>
-</div>
-<div id="last-steps" class="section level3">
-<h3 class="hasAnchor">
-<a href="#last-steps" class="anchor"></a>Last steps</h3>
+</section><section id="last-steps" class="level3"><h3>Last steps</h3>
 <p>The last few steps are completed outside of R in Google Docs, manually adding the missing information to the spreadsheet and the assignees adding their evaluations of their respective articles.</p>
 <p>The Google Sheets can be found here: <a href="https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381" class="uri">https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381</a>.</p>
-</div>
-</div>
+</section></section>
 </div>
   </div>
 

@@ -77,52 +77,29 @@
     
 <div class="contents">
 
-<div id="a-research-compendium-for-a-report-on-the-reproducibility-of-research-in-plant-pathology" class="section level2">
-<h2 class="hasAnchor">
-<a href="#a-research-compendium-for-a-report-on-the-reproducibility-of-research-in-plant-pathology" class="anchor"></a>A research compendium for a report on the reproducibility of research in plant pathology</h2>
+<section id="a-research-compendium-for-a-report-on-the-reproducibility-of-research-in-plant-pathology" class="level2"><h2>A research compendium for a report on the reproducibility of research in plant pathology</h2>
 <p>For optimal webviewing of this report, please see the <a href="http://htmlpreview.github.io/?https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/master/inst/paper/Sparks_et_al-main_text.html">HTML version</a>.</p>
-<div id="compendium-doi" class="section level3">
-<h3 class="hasAnchor">
-<a href="#compendium-doi" class="anchor"></a>Compendium DOI:</h3>
+<section id="compendium-doi" class="level3"><h3>Compendium DOI:</h3>
 <p><a href="http://dx.doi.org/xxxxxxx" class="uri">http://dx.doi.org/xxxxxxx</a></p>
 <p>The files at the URL above will generate the results as found in the publication. The files hosted at <a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology" class="uri">https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology</a> are the development versions and may have changed since the report was published.</p>
-</div>
-<div id="authors-of-this-repository" class="section level3">
-<h3 class="hasAnchor">
-<a href="#authors-of-this-repository" class="anchor"></a>Authors of this repository:</h3>
+</section><section id="authors-of-this-repository" class="level3"><h3>Authors of this repository:</h3>
 <p>Adam H Sparks (<a href="mailto:adamhsparks@gmail.com">adamhsparks@gmail.com</a>)</p>
 <p>Emerson M Del Ponte (<a href="mailto:delponte@ufv.br">delponte@ufv.br</a>)</p>
 <p>Sydney Everhart (<a href="mailto:everhart@unl.edu">everhart@unl.edu</a>)</p>
 <p>Zachary Foster (<a href="mailto:zacharyfoster1989@gmail.com">zacharyfoster1989@gmail.com</a>)</p>
 <p>Niklaus J Grünwald (<a href="mailto:grunwaln@science.oregonstate.edu">grunwaln@science.oregonstate.edu</a>)</p>
-</div>
-<div id="published-in" class="section level3">
-<h3 class="hasAnchor">
-<a href="#published-in" class="anchor"></a>Published in:</h3>
-</div>
-<div id="overview-of-contents" class="section level3">
-<h3 class="hasAnchor">
-<a href="#overview-of-contents" class="anchor"></a>Overview of contents</h3>
+</section><section id="published-in" class="level3"><h3>Published in:</h3>
+</section><section id="overview-of-contents" class="level3"><h3>Overview of contents</h3>
 <p>This repository is our research compendium that details our methodology for examining the state of reproducible research in plant pathology. The compendium contains all data, code, and text associated with the publication XXXX published in XXX. The <code>R markdown format</code> (<code>Rmd</code>) files in the <code>inst/paper/</code> directory contain details of how all the analyses reported in the paper were conducted. Detailed instructions on methods used and how to rerun the analysis to reproduce the results are found in the vignettes, in the <code>vingettes/</code> directory.</p>
-</div>
-<div id="the-supplementary-files" class="section level3">
-<h3 class="hasAnchor">
-<a href="#the-supplementary-files" class="anchor"></a>The supplementary files</h3>
+</section><section id="the-supplementary-files" class="level3"><h3>The supplementary files</h3>
 <p>The <code>inst/</code> directory contains:</p>
 <ul>
 <li><p>the manuscript as submitted (in MS Word format) and its <code>Rmd</code> source file (in the <code>paper/</code> directory)</p></li>
 <li><p>supplementary information source files (in <code>Rmd</code> format) and executed versions</p></li>
 <li><p>all the figures that are included in the paper (in the <code>figures/</code> directory)</p></li>
-</ul>
-</div>
-<div id="the-external-files" class="section level3">
-<h3 class="hasAnchor">
-<a href="#the-external-files" class="anchor"></a>The external files</h3>
+</ul></section><section id="the-external-files" class="level3"><h3>The external files</h3>
 <p>Much of the collaborative work was done outside of GitHub and R using Google Sheets. You can view the <a href="https://drive.google.com/open?id=19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M">article notes</a> that we collected in the “article_evaluations” tab. Where “template” and “article_notes” are used in creating that tab and are explained the “Assigning Articles” vignette of this R package.</p>
-</div>
-<div id="the-r-package" class="section level3">
-<h3 class="hasAnchor">
-<a href="#the-r-package" class="anchor"></a>The R package</h3>
+</section><section id="the-r-package" class="level3"><h3>The R package</h3>
 <p>This repository is organized as an R package. There is one R function, <code><a href="reference/doi2bib-methods.html">doi2bib()</a></code>, that is used in this repository, along with the data, <code>assigned_article_notes.rda</code> that are located in <code>data</code> directory. We have used the R package structure to help manage dependencies, to take advantage of continuous integration for automated code testing and for file organisation.</p>
 <p>To download the package source as you see it on GitHub, for offline browsing, use this line at the shell prompt (assuming you have Git installed on your computer):</p>
 <pre><code>git clone https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology.git</code></pre>
@@ -143,32 +120,19 @@ Once logged in, use the Files pane (bottom right) to navigate to `/` (the root d
  
 We developed and tested the package on this Docker container, so this is the only platform that We're confident it works on, and so recommend to anyone wanting to use this package to generate the vignette, etc. 
 --->
-</div>
-<div id="licenses" class="section level3">
-<h3 class="hasAnchor">
-<a href="#licenses" class="anchor"></a>Licenses</h3>
+</section><section id="licenses" class="level3"><h3>Licenses</h3>
 <p>Manuscript: <a href="http://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a></p>
 <p>Code: <a href="http://opensource.org/licenses/MIT">MIT</a> year: 2018, copyright holder: Adam H Sparks</p>
 <p>Data: <a href="http://creativecommons.org/publicdomain/zero/1.0/">CC-0</a> attribution requested in reuse</p>
-</div>
-<div id="dependencies" class="section level3">
-<h3 class="hasAnchor">
-<a href="#dependencies" class="anchor"></a>Dependencies</h3>
+</section><section id="dependencies" class="level3"><h3>Dependencies</h3>
 <p>We used <a href="http://www.rstudio.com/products/rstudio/">RStudio</a> on macOS and Ubuntu 16.04 LTS.</p>
 <p>We also used <a href="http://www.jabref.org/">JabRef</a> and <a href="https://www.google.com/sheets/about/">Google Sheets</a>.</p>
-</div>
-<div id="contact" class="section level3">
-<h3 class="hasAnchor">
-<a href="#contact" class="anchor"></a>Contact</h3>
+</section><section id="contact" class="level3"><h3>Contact</h3>
 <p>Adam H Sparks, Associate Professor, Centre for Crop Health University of Southern Queensland Toowoomba, Queensland 4350</p>
 <p>(+61) (7) 4831 1948 e. <a href="mailto:adam.sparks@usq.edu.au">adam.sparks@usq.edu.au</a> <a href="https://staffprofile.usq.edu.au/Profile/Adam-Sparks" class="uri">https://staffprofile.usq.edu.au/Profile/Adam-Sparks</a></p>
-</div>
-<div id="credits" class="section level3">
-<h3 class="hasAnchor">
-<a href="#credits" class="anchor"></a>Credits</h3>
+</section><section id="credits" class="level3"><h3>Credits</h3>
 <p>This research compendium was based on <a href="https://github.com/benmarwick/researchcompendium" class="uri">https://github.com/benmarwick/researchcompendium</a> but not forked from because it was already under development when I found Ben’s.</p>
-</div>
-</div>
+</section></section>
 </div>
   </div>
 
