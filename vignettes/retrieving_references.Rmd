@@ -1,0 +1,45 @@
+---
+title: "Retrieving References Using DOI"
+author: "Adam H Sparks"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Retrieving References Using DOI}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Creating a sample of articles
+
+## Load the DOIs
+
+```{r message=FALSE, warning=FALSE}
+library(gsheet)
+doi <-
+  gsheet2tbl(
+    "https://docs.google.com/spreadsheets/d/1WGbblaDD8eIEBvkxWNBwIi1HL0FTo6-HsLDwMVrfZbI/edit?usp=sharing
+"
+  )
+```
+
+## Get the bibtex entry
+
+```{r message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
+library(rcrossref)
+
+sink("references.bib")
+for (i in 1:192) {
+  cat(cr_cn(doi$DOI[i]))
+}
+sink()
+
+```
+
+
+
+```{r message=FALSE, warning=FALSE}
+library(bib2df)
+file <- "references.bib"
+df_references <- bib2df(file)
+df_references
+```
