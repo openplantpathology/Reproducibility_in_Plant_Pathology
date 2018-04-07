@@ -1,7 +1,11 @@
-urls:
-  reference: https://openplantpathology.github.io/Reproducible.Plant.Pathology//reference
-  article: https://openplantpathology.github.io/Reproducible.Plant.Pathology//articles
+pandoc: 2.1.3
+pkgdown: 0.1.0.9000
+pkgdown_sha: d6ebaea156244a88bee4f14b4e8bcfb9e36f7727
 articles:
   assigning_articles: assigning_articles.html
   reproducibility_criteria: reproducibility_criteria.html
+  retrieving_references: retrieving_references.html
+urls:
+  reference: https://openplantpathology.github.io/Reproducible.Plant.Pathology//reference
+  article: https://openplantpathology.github.io/Reproducible.Plant.Pathology//articles
 
