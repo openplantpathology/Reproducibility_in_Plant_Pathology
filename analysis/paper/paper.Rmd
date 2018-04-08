@@ -9,7 +9,7 @@ output:
       fig_caption: yes
       reference_docx: "../templates/template.docx" # Insert path for the DOCX file
 bibliography: references.bib
-csl: "../templates/journal-of-archaeological-science.csl" # Insert path for the bib-style
+csl: "../templates/phytopathology.csl" # Insert path for the bib-style
 abstract: |
   Text of abstract
 keywords: |
