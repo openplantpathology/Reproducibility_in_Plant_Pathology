@@ -1,8 +1,11 @@
 ---
 title: "Title Goes Here"
 author:
-  - Author One
-  - Author Two
+  - Adam H. Sparks
+  - Emerson Del Ponte
+  - Sydney Everhart
+  - Zachary Foster
+  - Niklaus J Grünwald
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
     bookdown::html_document2:
