@@ -29,7 +29,8 @@ Depends:
 License: MIT + file LICENSE
 Imports:
     httr,
-    methods
+    methods,
+    bookdown
 Suggests:
     bib2df,
     dplyr,

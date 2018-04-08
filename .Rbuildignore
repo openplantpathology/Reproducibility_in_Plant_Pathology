@@ -11,3 +11,4 @@
 ^appveyor\.yml$
 ^_pkgdown\.yaml$
 ^Dockerfile$
+analysis
