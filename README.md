@@ -69,11 +69,11 @@ and “article\_notes” are used in creating that tab and are explained the
 ### The R package
 
 This repository is organized as an R package. There is one R function,
-`doi2bib()`, that is used in this repository, along with the data,
-`assigned_article_notes.rda` that are located in `data` directory. We
-have used the R package structure to help manage dependencies, to take
-advantage of continuous integration for automated code testing and for
-file organisation.
+`doi2bib()`, that is used in this repository, along with a bibliography
+file of the articles that were examined that are located in
+`inst/extdata` directory. We have used the R package structure to help
+manage dependencies, to take advantage of continuous integration for
+automated code testing and for file organisation.
 
 To download the package source as you see it on GitHub, for offline
 browsing, use this line at the shell prompt (assuming you have Git
@@ -125,7 +125,7 @@ pages.
 
 We developed and tested the package on this Docker container, so this is
 the only platform that we’re confident it works on, and so recommend to
-anyone wanting to use this package to generate the vignette, etc.
+anyone wanting to use this package to generate the vignettes, etc.
 
 ### Licenses
 
