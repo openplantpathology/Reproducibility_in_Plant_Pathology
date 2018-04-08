@@ -132,7 +132,7 @@
 <div id="the-r-package" class="section level3">
 <h3 class="hasAnchor">
 <a href="#the-r-package" class="anchor"></a>The R package</h3>
-<p>This repository is organized as an R package. There is one R function, <code><a href="reference/doi2bib-methods.html">doi2bib()</a></code>, that is used in this repository, along with the data, <code>assigned_article_notes.rda</code> that are located in <code>data</code> directory. We have used the R package structure to help manage dependencies, to take advantage of continuous integration for automated code testing and for file organisation.</p>
+<p>This repository is organized as an R package. There is one R function, <code><a href="reference/doi2bib-methods.html">doi2bib()</a></code>, that is used in this repository, along with a bibliography file of the articles that were examined that are located in <code>inst/extdata</code> directory. We have used the R package structure to help manage dependencies, to take advantage of continuous integration for automated code testing and for file organisation.</p>
 <p>To download the package source as you see it on GitHub, for offline browsing, use this line at the shell prompt (assuming you have Git installed on your computer):</p>
 <pre><code>git clone https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology.git</code></pre>
 <p>Once the download is complete, open the <code>Reproducibility_in_Plant_Pathology.Rproj</code> in RStudio to begin working with the package and compendium files.</p>
@@ -145,7 +145,7 @@
 <pre><code>docker run -dp 8787:8787 adamhsparks/reproducibility_in_plant_pathology</code></pre>
 <p>This will start a server instance of RStudio. Then open your web browser at localhost:8787 or or run <code>docker-machine ip default</code> in the shell to find the correct IP address, and log in with rstudio/rstudio.</p>
 <p>Once logged in, use the Files pane (bottom right) to navigate to <code>Reproduciblity_in_Plant_Pathology</code> folder for this project, and open the <code>.Rproj</code> file for this project. Once that’s open, you’ll see the <code>analysis/paper</code> directory in the Files pane where you can find the R markdown document, and knit them to produce the results in the paper. More information about using RStudio in Docker is available at the <a href="https://github.com/rocker-org">Rocker</a> <a href="https://github.com/rocker-org/rocker/wiki/Using-the-RStudio-image">wiki</a> pages.</p>
-<p>We developed and tested the package on this Docker container, so this is the only platform that we’re confident it works on, and so recommend to anyone wanting to use this package to generate the vignette, etc.</p>
+<p>We developed and tested the package on this Docker container, so this is the only platform that we’re confident it works on, and so recommend to anyone wanting to use this package to generate the vignettes, etc.</p>
 </div>
 <div id="licenses" class="section level3">
 <h3 class="hasAnchor">
