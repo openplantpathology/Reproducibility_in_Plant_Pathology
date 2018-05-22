@@ -22,10 +22,10 @@ Our pre-print is online here:
 
 Please cite this compendium as:
 
-> Sparks, A.H., Del Ponte, E.M., Everhart, S., Foster, Z., Grünwald, N.,
-> (2018). *Compendium of R code and data for ‘Status and Best Practices
-> for Reproducible Research In Plant Pathology’*. Accessed 22 May 2018.
-> Online at <https://doi.org/10.5281/zenodo.1250665>
+> Sparks, A.H., Del Ponte, E.M., Everhart, S., Foster, Z.S.L., Grünwald,
+> N., (2018). *Compendium of R code and data for ‘Status and Best
+> Practices for Reproducible Research In Plant Pathology’*. Accessed 22
+> May 2018. Online at <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
 
