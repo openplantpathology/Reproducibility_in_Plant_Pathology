@@ -1,72 +1,34 @@
-Reproducibility in Plant Pathology
-================
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# Reproducibility.in.Plant.Pathology
 
 [![Travis-CI Build
 Status](https://travis-ci.org/openplantpathology/Reproducibility_in_Plant_Pathology.svg?branch=master)](https://travis-ci.org/openplantpathology/Reproducibility_in_Plant_Pathology)
+[![DOI](https://zenodo.org/badge/62676177.svg)](https://zenodo.org/badge/latestdoi/62676177)
 
-## A research compendium for a report on the reproducibility of research in plant pathology
+This repository contains the data and code for our paper:
 
-For optimal webviewing of this report, please see the [HTML
-version](http://htmlpreview.github.io/?https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/master/inst/paper/Sparks_et_al-main_text.html).
+> Sparks, A.H., Del Ponte, E.M., Everhart, S., Foster, Z., Grünwald, N.
+> (YYYY). *Title of paper*. Name of journal/book
+> <https://doi.org/xxx/xxx>
 
-### Compendium DOI:
+Our pre-print is online here:
 
-<http://dx.doi.org/xxxxxxx>
+> Authors, (YYYY). *Title of paper*. Name of journal/book, Accessed 22
+> May 2018. Online at <https://doi.org/xxx/xxx>
 
-The files at the URL above will generate the results as found in the
-publication. The files hosted at
-<https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology>
-are the development versions and may have changed since the report was
-published.
+### How to cite
 
-### Authors of this repository:
+Please cite this compendium as:
 
-Adam H Sparks (<adamhsparks@gmail.com>)
+> Authors, (2018). *Compendium of R code and data for ‘Status and Best
+> Practices for Reproducible Research In Plant Pathology’*. Accessed 22
+> May 2018. Online at <https://doi.org/10.5281/zenodo.1250665>
 
-Emerson M Del Ponte (<delponte@ufv.br>)
+### How to download or install
 
-Sydney Everhart (<everhart@unl.edu>)
-
-Zachary Foster (<zacharyfoster1989@gmail.com>)
-
-Niklaus J Grünwald (<grunwaln@science.oregonstate.edu>)
-
-### Published in:
-
-### Overview of contents
-
-This repository is our research compendium that details our methodology
-for examining the state of reproducible research in plant pathology. The
-compendium contains all data, code, and text associated with the
-publication XXXX published in XXX. The `R markdown format` (`Rmd`) files
-in the `inst/paper/` directory contain details of how all the analyses
-reported in the paper were conducted. Detailed instructions on methods
-used and how to rerun the analysis to reproduce the results are found in
-the vignettes, in the `vingettes/` directory.
-
-### The supplementary files
-
-The `inst/` directory contains:
-
-  - the manuscript as submitted (in MS Word format) and its `Rmd` source
-    file (in the `paper/` directory)
-
-  - supplementary information source files (in `Rmd` format) and
-    executed versions
-
-  - all the figures that are included in the paper (in the `figures/`
-    directory)
-
-### The external files
-
-Much of the collaborative work was done outside of GitHub and R using
-Google Sheets. You can view the [article
-notes](https://drive.google.com/open?id=19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M)
-that we collected in the “article\_evaluations” tab. Where “template”
-and “article\_notes” are used in creating that tab and are explained the
-“Assigning Articles” vignette of this R package.
-
-### The R package
+#### The R package
 
 This repository is organized as an R package. There is one R function,
 `doi2bib()`, that is used in this repository, along with a bibliography
@@ -75,12 +37,16 @@ file of the articles that were examined that are located in
 manage dependencies, to take advantage of continuous integration for
 automated code testing and for file organisation.
 
-To download the package source as you see it on GitHub, for offline
-browsing, use this line at the shell prompt (assuming you have Git
-installed on your
-    computer):
+You can download the compendium as a zip from from this URL:
+<https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/archive/master.zip>
 
-    git clone https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology.git
+Or you can install this compendium as an R package,
+Reproducibility.in.Plant.Pathology, from GitHub with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("adamhsparks/Reproducibility_in_Plant_Pathology")
+```
 
 Once the download is complete, open the
 `Reproducibility_in_Plant_Pathology.Rproj` in RStudio to begin working
@@ -94,7 +60,7 @@ and data to run our analysis. The Docker image may give a quicker entry
 point to the project, and is more self-contained, so might save some
 fiddling with installing things.
 
-### The Docker image
+#### The Docker image
 
 A Docker image is a lightweight GNU/Linux virtual computer that can be
 run as a piece of software on Windows and OSX (and other Linux systems).
@@ -127,34 +93,30 @@ We developed and tested the package on this Docker container, so this is
 the only platform that we’re confident it works on, and so recommend to
 anyone wanting to use this package to generate the vignettes, etc.
 
+## Meta
+
+### The external files
+
+Much of the collaborative work was done outside of GitHub and R using
+Google Sheets. You can view the [article
+notes](https://drive.google.com/open?id=19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M)
+that we collected in the “article\_evaluations” tab. Where “template”
+and “article\_notes” are used in creating that tab and are explained the
+“Assigning Articles” vignette of this R package.
+
 ### Licenses
 
-Manuscript: [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
+**Text and figures :**
+[CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
 
-Code: [MIT](http://opensource.org/licenses/MIT) year: 2018, copyright
-holder: Adam H Sparks
+**Code :** See the [DESCRIPTION](DESCRIPTION) file
 
-Data: [CC-0](http://creativecommons.org/publicdomain/zero/1.0/)
+**Data :** [CC-0](http://creativecommons.org/publicdomain/zero/1.0/)
 attribution requested in reuse
 
-### Dependencies
+### Contributions
 
-We used [RStudio](http://www.rstudio.com/products/rstudio/) on macOS and
-Ubuntu 16.04 LTS.
-
-We also used [JabRef](http://www.jabref.org/) and [Google
-Sheets](https://www.google.com/sheets/about/).
-
-### Contact
-
-Adam H Sparks, Associate Professor, Centre for Crop Health University of
-Southern Queensland Toowoomba, Queensland 4350
-
-(+61) (7) 4831 1948 e. <adam.sparks@usq.edu.au>
-<https://staffprofile.usq.edu.au/Profile/Adam-Sparks>
-
-### Credits
-
-This research compendium was based on
-<https://github.com/benmarwick/researchcompendium> but not forked from
-because it was already under development when I found Ben’s.
+We welcome contributions from everyone. Before you get started, please
+see our [contributor guidelines](CONTRIBUTING.md). Please note that this
+project is released with a [Contributor Code of Conduct](CONDUCT.md). By
+participating in this project you agree to abide by its terms.

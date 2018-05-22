@@ -12,3 +12,5 @@
 ^_pkgdown\.yaml$
 ^Dockerfile$
 analysis
+^CONDUCT\.md$
+^CONTRIBUTING\.md$
