@@ -13,16 +13,10 @@ This repository contains the data and code for our paper:
 > (YYYY). *Title of paper*. Name of journal/book
 > <https://doi.org/xxx/xxx>
 
-<<<<<<< HEAD
-Sparks et al. XXXX
-
-### Overview of contents
-=======
 Our pre-print is online here:
->>>>>>> 4038b805729963c30ffb1820d50aa814b8a74e74
 
-> Authors, (YYYY). *Title of paper*. Name of journal/book, Accessed 22
-> May 2018. Online at <https://doi.org/xxx/xxx>
+> Authors, (YYYY). *Title of paper*. Name of journal/book, Accessed 02
+> Jun 2018. Online at <https://doi.org/xxx/xxx>
 
 ### How to cite
 
@@ -30,8 +24,8 @@ Please cite this compendium as:
 
 > Sparks, A.H., Del Ponte, E.M., Everhart, S., Foster, Z.S.L., Grünwald,
 > N., (2018). *Compendium of R code and data for ‘Status and Best
-> Practices for Reproducible Research In Plant Pathology’*. Accessed 22
-> May 2018. Online at <https://doi.org/10.5281/zenodo.1250665>
+> Practices for Reproducible Research In Plant Pathology’*. Accessed 02
+> Jun 2018. Online at <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
 
@@ -102,42 +96,25 @@ anyone wanting to use this package to generate the vignettes, etc.
 
 ## Meta
 
-### The external files
+Code: [MIT](http://opensource.org/licenses/MIT) year: 2018, copyright
+holder: Adam H Sparks
 
-<<<<<<< HEAD
-We used [RStudio](http://www.rstudio.com/products/rstudio/) on macOS and
-Ubuntu 17.10.
-=======
-Much of the collaborative work was done outside of GitHub and R using
-Google Sheets. You can view the [article
-notes](https://drive.google.com/open?id=19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M)
-that we collected in the “article\_evaluations” tab. Where “template”
-and “article\_notes” are used in creating that tab and are explained the
-“Assigning Articles” vignette of this R package.
->>>>>>> 4038b805729963c30ffb1820d50aa814b8a74e74
+Data: [CC-0](http://creativecommons.org/publicdomain/zero/1.0/)
+attribution requested in reuse
 
 ### Licenses
 
-**Text and figures :**
-[CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
+We used [RStudio](http://www.rstudio.com/products/rstudio/) on macOS and
+Ubuntu 17.10.
 
-<<<<<<< HEAD
+**Code :** See the [DESCRIPTION](DESCRIPTION) file
+
+**Data :** [CC-0](http://creativecommons.org/publicdomain/zero/1.0/)
+attribution requested in reuse
+
 Adam H Sparks, Associate Professor, Centre for Crop Health  
 University of Southern Queensland  
 Toowoomba, Queensland 4350
 
 (+61) (7) 4831 1948 <adam.sparks@usq.edu.au>
 <https://staffprofile.usq.edu.au/Profile/Adam-Sparks>
-=======
-**Code :** See the [DESCRIPTION](DESCRIPTION) file
-
-**Data :** [CC-0](http://creativecommons.org/publicdomain/zero/1.0/)
-attribution requested in reuse
->>>>>>> 4038b805729963c30ffb1820d50aa814b8a74e74
-
-### Contributions
-
-We welcome contributions from everyone. Before you get started, please
-see our [contributor guidelines](CONTRIBUTING.md). Please note that this
-project is released with a [Contributor Code of Conduct](CONDUCT.md). By
-participating in this project you agree to abide by its terms.
