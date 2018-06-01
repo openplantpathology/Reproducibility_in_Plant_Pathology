@@ -1,6 +1,6 @@
 ---
 title: "Status and Best Practices for Reproducible Research In Plant Pathology"
-author: "A. H. Sparks, E. M. Del Ponte, S. Everhart, N. J. Grünwald, and Z. Foster"
+author: "A. H. Sparks, E. M. Del Ponte, S. Everhart, Z.S.L. Foster and N. J. Grünwald"
 date: 'Last update: `r Sys.Date()`'
 output:
   html_document:
