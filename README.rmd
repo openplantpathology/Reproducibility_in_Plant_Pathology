@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 
 [![Travis-CI Build Status](https://travis-ci.org/openplantpathology/Reproducibility_in_Plant_Pathology.svg?branch=master)](https://travis-ci.org/openplantpathology/Reproducibility_in_Plant_Pathology)
 [![DOI](https://zenodo.org/badge/62676177.svg)](https://zenodo.org/badge/latestdoi/62676177)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
 This repository contains the data and code for our paper:
 
