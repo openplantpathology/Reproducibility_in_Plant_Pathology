@@ -33,6 +33,8 @@ Niklaus J Grünwald (<grunwaln@science.oregonstate.edu>)
 
 ### Published in:
 
+Sparks et al. XXXX
+
 ### Overview of contents
 
 This repository is our research compendium that details our methodology
@@ -140,17 +142,18 @@ attribution requested in reuse
 ### Dependencies
 
 We used [RStudio](http://www.rstudio.com/products/rstudio/) on macOS and
-Ubuntu 16.04 LTS.
+Ubuntu 17.10.
 
 We also used [JabRef](http://www.jabref.org/) and [Google
 Sheets](https://www.google.com/sheets/about/).
 
 ### Contact
 
-Adam H Sparks, Associate Professor, Centre for Crop Health University of
-Southern Queensland Toowoomba, Queensland 4350
+Adam H Sparks, Associate Professor, Centre for Crop Health  
+University of Southern Queensland  
+Toowoomba, Queensland 4350
 
-(+61) (7) 4831 1948 e. <adam.sparks@usq.edu.au>
+(+61) (7) 4831 1948 <adam.sparks@usq.edu.au>
 <https://staffprofile.usq.edu.au/Profile/Adam-Sparks>
 
 ### Credits

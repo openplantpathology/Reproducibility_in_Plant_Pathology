@@ -1,0 +1,23 @@
+---
+title: "Generate .bib file of references reviewed"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r}
+ref <- gsheet::gsheet2tbl(
+    "https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381"
+  )
+
+ref2 <- ref[, -c(3:4, 5:15)]
+
+bib2df::df2bib(ref, file = "~/tmp/df.bib")
+```
+
+
+
+
+

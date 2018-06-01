@@ -301,7 +301,8 @@ bib <- unique(bib)
 ```
 
 Next export the items as files to disk as .bib files to be cleaned using
-JabRef. This will automatically assign unique cite keys and fix some issues with characters in the bib file. Open the file in JabRef and click "yes" when
+JabRef. This will automatically assign unique cite keys and fix some issues with
+characters in the bib file. Open the file in JabRef and click "yes" when
 prompted to regarding the cite keys.
 
 ```{r export_import_bib, eval=FALSE}
