@@ -1,0 +1,48 @@
+---
+title: "Initial Analysis"
+author: "Adam H Sparks"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Criteria for Evaluating Reproducibility}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+  
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+collapse = TRUE,
+comment = "#>"
+)
+library(ggplot2)
+```
+
+# Import article evaluations
+
+```{r}
+rrpp <- gsheet::gsheet2tbl(
+  "https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381"
+)
+```
+
+# Visualise evaluations
+
+## Article classes
+
+```{r}
+ggplot(rrpp, aes(x = art_class)) +
+  geom_histogram(stat = "count") +
+  xlab("Class(es)") +
+  scale_x_discrete(labels = c("Applied","Applied, Fundamental, Molecular","Applied, Fundamental","Applied, Molecular","Fundamental, Molecular", "Fundamental", "Molecular", "NA")) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  ggtitle("Article Classifications")
+```
+
+## Computational methods available
+
+```{r}
+ggplot(rrpp, aes(x = comp_mthds_avail)) +
+  geom_histogram() +
+  ggtitle("Computational Methods Available") +
+  xlab("Score")
+```

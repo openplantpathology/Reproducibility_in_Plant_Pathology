@@ -1,8 +1,10 @@
 pandoc: 2.2.1
-pkgdown: 1.0.0
+pkgdown: 1.1.0
 pkgdown_sha: ~
 articles:
   assigning_articles: assigning_articles.html
+  generate_final_bib: generate_final_bib.html
+  initial_analysis: initial_analysis.html
   reproducibility_criteria: reproducibility_criteria.html
   retrieving_references: retrieving_references.html
 urls:

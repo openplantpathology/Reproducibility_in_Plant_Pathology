@@ -17,8 +17,7 @@ vignette: >
 library(gsheet)
 doi <-
   gsheet2tbl(
-    "https://docs.google.com/spreadsheets/d/1WGbblaDD8eIEBvkxWNBwIi1HL0FTo6-HsLDwMVrfZbI/edit?usp=sharing
-"
+    "https://docs.google.com/spreadsheets/d/1WGbblaDD8eIEBvkxWNBwIi1HL0FTo6-HsLDwMVrfZbI/edit?usp=sharing"
   )
 ```
 

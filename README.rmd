@@ -14,8 +14,9 @@ knitr::opts_chunk$set(
 
 # Reproducibility.in.Plant.Pathology
 
-[![Travis-CI Build Status](https://travis-ci.org/openplantpathology/Reproducibility_in_Plant_Pathology.svg?branch=master)](https://travis-ci.org/openplantpathology/Reproducibility_in_Plant_Pathology) 
+[![Travis-CI Build Status](https://travis-ci.org/openplantpathology/Reproducibility_in_Plant_Pathology.svg?branch=master)](https://travis-ci.org/openplantpathology/Reproducibility_in_Plant_Pathology)
 [![DOI](https://zenodo.org/badge/62676177.svg)](https://zenodo.org/badge/latestdoi/62676177)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
 This repository contains the data and code for our paper:
 
@@ -34,7 +35,7 @@ Please cite this compendium as:
 
 ### How to download or install
 
-#### The R package 
+#### The R package
 
 This repository is organized as an R package. There is one R function,
 `doi2bib()`, that is used in this repository, along with a bibliography file of
@@ -52,7 +53,7 @@ devtools::install_github("adamhsparks/Reproducibility_in_Plant_Pathology")
 
 Once the download is complete, open the
 `Reproducibility_in_Plant_Pathology.Rproj` in RStudio to begin working with the
-package and compendium files. 
+package and compendium files.
 
 The package has a number of dependencies on other R packages, and programs
 outside of R. These are listed at the bottom of this README. Installing these
@@ -61,7 +62,7 @@ includes all the necessary software, code and data to run our analysis. The
 Docker image may give a quicker entry point to the project, and is more
 self-contained, so might save some fiddling with installing things.
 
-#### The Docker image 
+#### The Docker image
 
 A Docker image is a lightweight GNU/Linux virtual computer that can be run as a
 piece of software on Windows and OSX (and other Linux systems). To capture the
@@ -87,31 +88,29 @@ document, and knit them to produce the results in the paper. More information
 about using RStudio in Docker is available at the
 [Rocker](https://github.com/rocker-org)
 [wiki](https://github.com/rocker-org/rocker/wiki/Using-the-RStudio-image) pages.
- 
+
 We developed and tested the package on this Docker container, so this is the
 only platform that we're confident it works on, and so recommend to anyone
-wanting to use this package to generate the vignettes, etc. 
+wanting to use this package to generate the vignettes, etc.
 
 ## Meta
 
-### The external files
+Code: [MIT](http://opensource.org/licenses/MIT) year: `r format(Sys.Date(), "%Y")`, copyright holder: Adam H Sparks
 
-Much of the collaborative work was done outside of GitHub and R using Google
-Sheets. You can view the
-[article notes](https://drive.google.com/open?id=19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M)
-that we collected in the "article_evaluations" tab. Where "template" and
-"article_notes" are used in creating that tab and are explained the "Assigning
-Articles" vignette of this R package.
+Data: [CC-0](http://creativecommons.org/publicdomain/zero/1.0/) attribution requested in reuse
 
 ### Licenses
 
-**Text and figures :**  [CC-BY-4.0](http://creativecommons.org/licenses/by/4.0/)
+We used [RStudio](http://www.rstudio.com/products/rstudio/) on macOS and Ubuntu
+17.10.
 
 **Code :** See the [DESCRIPTION](DESCRIPTION) file
 
 **Data :** [CC-0](http://creativecommons.org/publicdomain/zero/1.0/) attribution requested in reuse
 
-### Contributions
+Adam H Sparks, Associate Professor, Centre for Crop Health  
+University of Southern Queensland  
+Toowoomba, Queensland 4350
 
-We welcome contributions from everyone. Before you get started, please see our [contributor guidelines](CONTRIBUTING.md). Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
-
+(+61) (7) 4831 1948   adam.sparks@usq.edu.au
+https://staffprofile.usq.edu.au/Profile/Adam-Sparks
