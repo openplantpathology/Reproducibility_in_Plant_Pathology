@@ -1,5 +1,13 @@
-title: Reproducibility_in_plant_pathology
+title: Reproducibility in Plant Pathology
 url: https://openplantpathology.github.io/Reproducible.Plant.Pathology/
 template:
   params:
     bootswatch: flatly
+articles:
+- title: All vignettes
+  contents:
+  - Criteria for Evaluating Reproducibility
+  - Assigning Articles to Evaluators
+  - Retrieving References Using DOI
+  - Generate Final .bib File of References Reviewed
+  - Initial Analysis
