@@ -90,3 +90,29 @@ ggplot(rrpp, aes(x = reproducibility_score)) +
   ggtitle("Combined Reproducibility Score") +
   xlab("Score")
 ```
+
+## Does the article class affect reproducibility score?
+
+```{r}
+ggplot(rrpp, aes(y = reproducibility_score,
+                 x = art_class)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.25, alpha = 0.5) +
+  ggtitle("Overall Reproducibility Score") +
+  xlab("Class(es)") +
+  ylab("Score") +
+  scale_x_discrete(labels = c("Applied","Applied, Fundamental, Molecular","Applied, Fundamental","Applied, Molecular","Fundamental, Molecular", "Fundamental", "Molecular", "NA")) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+## Does the evaluator affect reproducibility score?
+
+```{r}
+ggplot(rrpp, aes(y = reproducibility_score,
+                 x = assignee)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.25, alpha = 0.5) +
+  ggtitle("Overall Reproducibility Score") +
+  xlab("Evaluator") +
+  ylab("Score")
+```
