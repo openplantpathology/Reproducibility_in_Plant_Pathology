@@ -33,9 +33,20 @@ rrpp <- gsheet::gsheet2tbl(
 ggplot(rrpp, aes(x = art_class)) +
   geom_histogram(stat = "count") +
   xlab("Class(es)") +
-  scale_x_discrete(labels = c("Applied","Applied, Fundamental, Molecular","Applied, Fundamental","Applied, Molecular","Fundamental, Molecular", "Fundamental", "Molecular", "NA")) +
+  scale_x_discrete(
+    labels = c(
+      "Applied",
+      "Applied, Fundamental, Molecular",
+      "Applied, Fundamental",
+      "Applied, Molecular",
+      "Fundamental, Molecular",
+      "Fundamental",
+      "Molecular",
+      "NA"
+    )
+  ) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  ggtitle("Article Classifications")
+  ggtitle("Article Classification")
 ```
 
 ## Computational methods available
@@ -43,7 +54,7 @@ ggplot(rrpp, aes(x = art_class)) +
 ```{r}
 ggplot(rrpp, aes(x = comp_mthds_avail)) +
   geom_histogram() +
-  ggtitle("Computational Methods Available") +
+  ggtitle("Computational Methods Availability") +
   xlab("Score")
 ```
 
@@ -54,7 +65,7 @@ Was the software used readily available and preferably open-source?
 ```{r}
 ggplot(rrpp, aes(x = software_avail)) +
   geom_bar() +
-  ggtitle("Computational Methods Available?") +
+  ggtitle("Software Methods Availablity") +
   xlab("Score")
 ```
 
@@ -65,7 +76,7 @@ Was the data made available?
 ```{r}
 ggplot(rrpp, aes(x = data_avail)) +
   geom_bar() +
-  ggtitle("Data Available?") +
+  ggtitle("Data Availability") +
   xlab("Score")
 ```
 
@@ -76,7 +87,7 @@ Was the software that was used properly cited?
 ```{r}
 ggplot(rrpp, aes(x = software_cite)) +
   geom_bar() +
-  ggtitle("Software Citations") +
+  ggtitle("Software Cited") +
   xlab("Score")
 ```
 
@@ -91,28 +102,52 @@ ggplot(rrpp, aes(x = reproducibility_score)) +
   xlab("Score")
 ```
 
-## Does the article class affect reproducibility score?
+## Article class affect on reproducibility score
 
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = art_class)) +
   geom_boxplot() +
   geom_jitter(width = 0.25, alpha = 0.5) +
-  ggtitle("Overall Reproducibility Score") +
+  ggtitle("Article Class Effect on Reproducibility") +
   xlab("Class(es)") +
   ylab("Score") +
-  scale_x_discrete(labels = c("Applied","Applied, Fundamental, Molecular","Applied, Fundamental","Applied, Molecular","Fundamental, Molecular", "Fundamental", "Molecular", "NA")) +
+  scale_x_discrete(
+    labels = c(
+      "Applied",
+      "Applied, Fundamental, Molecular",
+      "Applied, Fundamental",
+      "Applied, Molecular",
+      "Fundamental, Molecular",
+      "Fundamental",
+      "Molecular",
+      "NA"
+    )
+  ) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-## Does the evaluator affect reproducibility score?
+## Journal affect on reproducibility score?
+
+```{r}
+ggplot(rrpp, aes(y = reproducibility_score,
+                 x = abbreviation)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.25, alpha = 0.5) +
+  ggtitle("Journal Effect on Reproducibility") +
+  xlab("Journal") +
+  ylab("Score") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+## Evaluator affect on reproducibility score?
 
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = assignee)) +
   geom_boxplot() +
   geom_jitter(width = 0.25, alpha = 0.5) +
-  ggtitle("Overall Reproducibility Score") +
+  ggtitle("Evaluator Effect on Reproducibility Score") +
   xlab("Evaluator") +
   ylab("Score")
 ```

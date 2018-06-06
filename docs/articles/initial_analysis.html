@@ -91,7 +91,7 @@
       <h1>Initial Analysis</h1>
                         <h4 class="author">Adam H Sparks</h4>
             
-            <h4 class="date">2018-06-06</h4>
+            <h4 class="date">2018-06-07</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/master/vignettes/initial_analysis.Rmd"><code>vignettes/initial_analysis.Rmd</code></a></small>
       <div class="hidden name"><code>initial_analysis.Rmd</code></div>
@@ -116,10 +116,21 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">x =</span> art_class)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">stat =</span> <span class="st">"count"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Class(es)"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">"Applied"</span>,<span class="st">"Applied, Fundamental, Molecular"</span>,<span class="st">"Applied, Fundamental"</span>,<span class="st">"Applied, Molecular"</span>,<span class="st">"Fundamental, Molecular"</span>, <span class="st">"Fundamental"</span>, <span class="st">"Molecular"</span>, <span class="st">"NA"</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Article Classifications"</span>)</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; Warning: Ignoring unknown parameters: binwidth, bins, pad</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_x_discrete</span>(</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">    <span class="dt">labels =</span> <span class="kw">c</span>(</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">      <span class="st">"Applied"</span>,</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">      <span class="st">"Applied, Fundamental, Molecular"</span>,</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">      <span class="st">"Applied, Fundamental"</span>,</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">      <span class="st">"Applied, Molecular"</span>,</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">      <span class="st">"Fundamental, Molecular"</span>,</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">      <span class="st">"Fundamental"</span>,</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12">      <span class="st">"Molecular"</span>,</a>
+<a class="sourceLine" id="cb2-13" data-line-number="13">      <span class="st">"NA"</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14">    )</a>
+<a class="sourceLine" id="cb2-15" data-line-number="15">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Article Classification"</span>)</a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt; Warning: Ignoring unknown parameters: binwidth, bins, pad</span></a></code></pre></div>
 <p><img src="initial_analysis_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
 </div>
 <div id="computational-methods-available" class="section level2">
@@ -127,7 +138,7 @@
 <a href="#computational-methods-available" class="anchor"></a>Computational methods available</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">x =</span> comp_mthds_avail)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Computational Methods Available"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Computational Methods Availability"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Score"</span>)</a>
 <a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></a>
 <a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; Warning: Removed 5 rows containing non-finite values (stat_bin).</span></a></code></pre></div>
@@ -139,8 +150,9 @@
 <p>Was the software used readily available and preferably open-source?</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">x =</span> software_avail)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Computational Methods Available?"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Score"</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Software Methods Availablity"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Score"</span>)</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; Warning: Removed 6 rows containing non-finite values (stat_count).</span></a></code></pre></div>
 <p><img src="initial_analysis_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
 </div>
 <div id="data-availability" class="section level2">
@@ -149,7 +161,7 @@
 <p>Was the data made available?</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">x =</span> data_avail)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Data Available?"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Data Availability"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Score"</span>)</a>
 <a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt; Warning: Removed 4 rows containing non-finite values (stat_count).</span></a></code></pre></div>
 <p><img src="initial_analysis_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
@@ -160,7 +172,7 @@
 <p>Was the software that was used properly cited?</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">x =</span> software_cite)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Software Citations"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Software Cited"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Score"</span>)</a>
 <a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; Warning: Removed 6 rows containing non-finite values (stat_count).</span></a></code></pre></div>
 <p><img src="initial_analysis_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
@@ -175,31 +187,55 @@
 <a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Score"</span>)</a></code></pre></div>
 <p><img src="initial_analysis_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
 </div>
-<div id="does-the-article-class-affect-reproducibility-score" class="section level2">
+<div id="article-class-affect-on-reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
-<a href="#does-the-article-class-affect-reproducibility-score" class="anchor"></a>Does the article class affect reproducibility score?</h2>
+<a href="#article-class-affect-on-reproducibility-score" class="anchor"></a>Article class affect on reproducibility score</h2>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">y =</span> reproducibility_score,</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2">                 <span class="dt">x =</span> art_class)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb8-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Overall Reproducibility Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Article Class Effect on Reproducibility"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb8-6" data-line-number="6"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Class(es)"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb8-7" data-line-number="7"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">"Applied"</span>,<span class="st">"Applied, Fundamental, Molecular"</span>,<span class="st">"Applied, Fundamental"</span>,<span class="st">"Applied, Molecular"</span>,<span class="st">"Fundamental, Molecular"</span>, <span class="st">"Fundamental"</span>, <span class="st">"Molecular"</span>, <span class="st">"NA"</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</a></code></pre></div>
+<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="st">  </span><span class="kw">scale_x_discrete</span>(</a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">    <span class="dt">labels =</span> <span class="kw">c</span>(</a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">      <span class="st">"Applied"</span>,</a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">      <span class="st">"Applied, Fundamental, Molecular"</span>,</a>
+<a class="sourceLine" id="cb8-12" data-line-number="12">      <span class="st">"Applied, Fundamental"</span>,</a>
+<a class="sourceLine" id="cb8-13" data-line-number="13">      <span class="st">"Applied, Molecular"</span>,</a>
+<a class="sourceLine" id="cb8-14" data-line-number="14">      <span class="st">"Fundamental, Molecular"</span>,</a>
+<a class="sourceLine" id="cb8-15" data-line-number="15">      <span class="st">"Fundamental"</span>,</a>
+<a class="sourceLine" id="cb8-16" data-line-number="16">      <span class="st">"Molecular"</span>,</a>
+<a class="sourceLine" id="cb8-17" data-line-number="17">      <span class="st">"NA"</span></a>
+<a class="sourceLine" id="cb8-18" data-line-number="18">    )</a>
+<a class="sourceLine" id="cb8-19" data-line-number="19">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-20" data-line-number="20"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</a></code></pre></div>
 <p><img src="initial_analysis_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
 </div>
-<div id="does-the-evaluator-affect-reproducibility-score" class="section level2">
+<div id="journal-affect-on-reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
-<a href="#does-the-evaluator-affect-reproducibility-score" class="anchor"></a>Does the evaluator affect reproducibility score?</h2>
+<a href="#journal-affect-on-reproducibility-score" class="anchor"></a>Journal affect on reproducibility score?</h2>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">y =</span> reproducibility_score,</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">                 <span class="dt">x =</span> assignee)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">                 <span class="dt">x =</span> abbreviation)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb9-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Overall Reproducibility Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Evaluator"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">"Score"</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Journal Effect on Reproducibility"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Journal"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</a></code></pre></div>
 <p><img src="initial_analysis_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
+</div>
+<div id="evaluator-affect-on-reproducibility-score" class="section level2">
+<h2 class="hasAnchor">
+<a href="#evaluator-affect-on-reproducibility-score" class="anchor"></a>Evaluator affect on reproducibility score?</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">y =</span> reproducibility_score,</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">                 <span class="dt">x =</span> assignee)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Evaluator Effect on Reproducibility Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Evaluator"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">"Score"</span>)</a></code></pre></div>
+<p><img src="initial_analysis_files/figure-html/unnamed-chunk-10-1.png" width="700"></p>
 </div>
 </div>
   </div>
@@ -218,8 +254,9 @@
       <li><a href="#data-availability">Data availability</a></li>
       <li><a href="#software-citations">Software citations</a></li>
       <li><a href="#reproducibility-score">Reproducibility score</a></li>
-      <li><a href="#does-the-article-class-affect-reproducibility-score">Does the article class affect reproducibility score?</a></li>
-      <li><a href="#does-the-evaluator-affect-reproducibility-score">Does the evaluator affect reproducibility score?</a></li>
+      <li><a href="#article-class-affect-on-reproducibility-score">Article class affect on reproducibility score</a></li>
+      <li><a href="#journal-affect-on-reproducibility-score">Journal affect on reproducibility score?</a></li>
+      <li><a href="#evaluator-affect-on-reproducibility-score">Evaluator affect on reproducibility score?</a></li>
       </ul>
 </li>
       </ul>
