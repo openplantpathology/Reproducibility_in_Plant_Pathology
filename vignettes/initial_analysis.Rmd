@@ -4,7 +4,7 @@ author: "Adam H Sparks"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Criteria for Evaluating Reproducibility}
+  %\VignetteIndexEntry{Initial Analysis}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
