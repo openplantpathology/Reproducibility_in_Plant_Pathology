@@ -1,5 +1,13 @@
-title: Reproducibility_in_plant_pathology
+title: Reproducibility in Plant Pathology
 url: https://openplantpathology.github.io/Reproducible.Plant.Pathology/
 template:
   params:
     bootswatch: flatly
+articles:
+- title: Reproducible Analyses
+  contents:
+  - reproducibility_criteria
+  - assigning_articles
+  - retrieving_references
+  - generate_final_bib
+  - initial_analysis

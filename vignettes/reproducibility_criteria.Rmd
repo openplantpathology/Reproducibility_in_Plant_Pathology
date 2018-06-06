@@ -4,7 +4,7 @@ author: "Adam H Sparks and Emerson M Del Ponte and Zachary S L Foster and Niklau
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Criteria for Evaluating Reproducibility}
+  %\VignetteIndexEntry{reproducibility_criteria}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

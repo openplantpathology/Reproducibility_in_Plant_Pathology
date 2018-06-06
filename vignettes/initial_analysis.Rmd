@@ -4,7 +4,7 @@ author: "Adam H Sparks"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Criteria for Evaluating Reproducibility}
+  %\VignetteIndexEntry{initial_analysis}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -44,5 +44,49 @@ ggplot(rrpp, aes(x = art_class)) +
 ggplot(rrpp, aes(x = comp_mthds_avail)) +
   geom_histogram() +
   ggtitle("Computational Methods Available") +
+  xlab("Score")
+```
+
+## Software availability
+
+Was the software used readily available and preferably open-source?
+
+```{r}
+ggplot(rrpp, aes(x = software_avail)) +
+  geom_bar() +
+  ggtitle("Computational Methods Available?") +
+  xlab("Score")
+```
+
+## Data availability
+
+Was the data made available?
+
+```{r}
+ggplot(rrpp, aes(x = data_avail)) +
+  geom_bar() +
+  ggtitle("Data Available?") +
+  xlab("Score")
+```
+
+## Software citations
+
+Was the software that was used properly cited?
+
+```{r}
+ggplot(rrpp, aes(x = software_cite)) +
+  geom_bar() +
+  ggtitle("Software Citations") +
+  xlab("Score")
+```
+
+## Reproducibility score
+
+What is the combined reproducibility score, a maxiumum of 12 is possible.
+
+```{r}
+ggplot(rrpp, aes(x = reproducibility_score)) +
+  geom_bar() +
+  ggtitle("Combined Reproducibility Score") +
   xlab("Score")
 ```
