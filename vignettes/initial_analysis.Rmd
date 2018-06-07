@@ -53,7 +53,7 @@ ggplot(rrpp, aes(x = art_class)) +
 
 ```{r}
 ggplot(rrpp, aes(x = comp_mthds_avail)) +
-  geom_histogram() +
+  geom_bar() +
   ggtitle("Computational Methods Availability") +
   xlab("Score")
 ```
