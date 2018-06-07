@@ -141,13 +141,17 @@ Entered as a number between `0` and `3`
 pay wall, FTP server, personal lab website)
 
 - `3` - Freely available online to anonymous users for foreseeable future
-(_e.g_, GitHub, Figshare, Dataverse)
+(_e.g._ archived using Zenodo, dataverse or university library or some
+other proper archiving system)
 
 - `NA` - No computational methods were used that can be shared, _i.e._, there is
 no statistical analysis or figures that were prepared. For example, a molecular
 study used proprietary software for the experiment imaging and only gel images
 are included in the article. Then there are no computational methods to be
 shared.
+
+In the case of multiple methods where some are available and some are not, score
+using the lowest value.
 
 #### "software_avail"
 
@@ -203,10 +207,12 @@ Entered as a number between `0` and `3`
 - `1` - Available upon request to author
 
 - `2` - Online, but inconvenient or non-permanent (_e.g._ login needed,
-pay wall, FTP server, personal lab website that may dispensary)
+pay wall, FTP server, personal lab website that may dissappear, or may have
+already disappeared)
 
 - `3` - Freely available online to anonymous users for foreseeable future
-(_e.g._ archived using Zenodo, dataverse or university library system)
+(_e.g._ archived using Zenodo, dataverse or university library or some
+other proper archiving system)
 
 #### "reproducibility_score"
 
