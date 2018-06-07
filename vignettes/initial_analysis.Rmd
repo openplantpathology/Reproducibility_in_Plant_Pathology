@@ -102,7 +102,7 @@ ggplot(rrpp, aes(x = reproducibility_score)) +
   xlab("Score")
 ```
 
-## Article class affect on reproducibility score
+## Article class effect on reproducibility score
 
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
@@ -127,7 +127,7 @@ ggplot(rrpp, aes(y = reproducibility_score,
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-## Journal affect on reproducibility score?
+## Journal effect on reproducibility score
 
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
@@ -140,7 +140,7 @@ ggplot(rrpp, aes(y = reproducibility_score,
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
-## Evaluator affect on reproducibility score?
+## Evaluator effect on reproducibility score
 
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
