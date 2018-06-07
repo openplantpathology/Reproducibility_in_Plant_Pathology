@@ -164,7 +164,7 @@ ggplot(rrpp, aes(y = reproducibility_score,
 
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
-                 x = as.factor(round(IF_5year, 2)))) +
+                 x = as.factor(round(IF_5year, 1)))) +
   geom_boxplot() +
   ggtitle("Five Year IF Effect on Reproducibility Score") +
   xlab("Impact Factor") +
