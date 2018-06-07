@@ -236,6 +236,42 @@
 <a class="sourceLine" id="cb10-7" data-line-number="7"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">"Score"</span>)</a></code></pre></div>
 <p><img src="initial_analysis_files/figure-html/unnamed-chunk-10-1.png" width="700"></p>
 </div>
+<div id="five-year-impact-factor-effect-on-reproducibility-score" class="section level2">
+<h2 class="hasAnchor">
+<a href="#five-year-impact-factor-effect-on-reproducibility-score" class="anchor"></a>Five year impact factor effect on reproducibility score</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">y =</span> reproducibility_score,</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">                 <span class="dt">x =</span> IF_5year)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Five Year IF Effect on Reproducibility Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Impact Factor"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">"Score"</span>)</a>
+<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co">#&gt; Warning: Removed 15 rows containing missing values (geom_point).</span></a></code></pre></div>
+<p><img src="initial_analysis_files/figure-html/unnamed-chunk-11-1.png" width="700"></p>
+</div>
+<div id="journal-open-access-effect-on-reproducibility-score" class="section level2">
+<h2 class="hasAnchor">
+<a href="#journal-open-access-effect-on-reproducibility-score" class="anchor"></a>Journal open access effect on reproducibility score</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">y =</span> reproducibility_score,</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">                 <span class="dt">x =</span> open)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Open Access Effect on Reproducibility Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Impact Factor"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">"Score"</span>)</a></code></pre></div>
+<p><img src="initial_analysis_files/figure-html/unnamed-chunk-12-1.png" width="700"></p>
+</div>
+<div id="journal-reproducibility-instructions-effect-on-reproducibility-score" class="section level2">
+<h2 class="hasAnchor">
+<a href="#journal-reproducibility-instructions-effect-on-reproducibility-score" class="anchor"></a>Journal reproducibility instructions effect on reproducibility score</h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">y =</span> reproducibility_score,</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">                 <span class="dt">x =</span> <span class="kw">as.factor</span>(repro_inst))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Reproducibility Instructions Effect on Reproducibility Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Reproducibility Instructions Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-7" data-line-number="7"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">"Score"</span>)</a></code></pre></div>
+<p><img src="initial_analysis_files/figure-html/unnamed-chunk-13-1.png" width="700"></p>
+</div>
 </div>
   </div>
 
@@ -256,6 +292,9 @@
       <li><a href="#article-class-effect-on-reproducibility-score">Article class effect on reproducibility score</a></li>
       <li><a href="#journal-effect-on-reproducibility-score">Journal effect on reproducibility score</a></li>
       <li><a href="#evaluator-effect-on-reproducibility-score">Evaluator effect on reproducibility score</a></li>
+      <li><a href="#five-year-impact-factor-effect-on-reproducibility-score">Five year impact factor effect on reproducibility score</a></li>
+      <li><a href="#journal-open-access-effect-on-reproducibility-score">Journal open access effect on reproducibility score</a></li>
+      <li><a href="#journal-reproducibility-instructions-effect-on-reproducibility-score">Journal reproducibility instructions effect on reproducibility score</a></li>
       </ul>
 </li>
       </ul>

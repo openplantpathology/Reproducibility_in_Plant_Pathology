@@ -151,3 +151,38 @@ ggplot(rrpp, aes(y = reproducibility_score,
   xlab("Evaluator") +
   ylab("Score")
 ```
+
+## Five year impact factor effect on reproducibility score
+
+```{r}
+ggplot(rrpp, aes(y = reproducibility_score,
+                 x = IF_5year)) +
+  geom_jitter(width = 0.25, alpha = 0.5) +
+  ggtitle("Five Year IF Effect on Reproducibility Score") +
+  xlab("Impact Factor") +
+  ylab("Score")
+```
+
+## Journal open access effect on reproducibility score
+
+```{r}
+ggplot(rrpp, aes(y = reproducibility_score,
+                 x = open)) +
+  geom_boxplot() +
+  geom_jitter(width = 0.25, alpha = 0.5) +
+  ggtitle("Open Access Effect on Reproducibility Score") +
+  xlab("Impact Factor") +
+  ylab("Score")
+```
+
+## Journal reproducibility instructions effect on reproducibility score
+
+```{r}
+ggplot(rrpp, aes(y = reproducibility_score,
+                 x = as.factor(repro_inst))) +
+  geom_boxplot() +
+  geom_jitter(width = 0.25, alpha = 0.5) +
+  ggtitle("Reproducibility Instructions Effect on Reproducibility Score") +
+  xlab("Reproducibility Instructions Score") +
+  ylab("Score")
+```
