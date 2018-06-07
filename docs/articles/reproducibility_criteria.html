@@ -204,6 +204,7 @@
 <li><p><code>1</code> - Available upon request to author</p></li>
 <li><p><code>2</code> - Online, but inconvenient/non-permanent (<em>e.g.</em>, login necessary, pay wall, FTP server, personal lab website)</p></li>
 <li><p><code>3</code> - Freely available online to anonymous users for foreseeable future (<em>e.g</em>, GitHub, Figshare, Dataverse)</p></li>
+<li><p><code>NA</code> - No computational methods were used that can be shared, <em>i.e.</em>, there is no statistical analysis or figures that were prepared. For example, a molecular study used proprietary software for the experiment imaging and only gel images are included in the article. Then there are no computational methods to be shared.</p></li>
 </ul>
 </div>
 <div id="software_avail" class="section level4">
@@ -216,6 +217,7 @@
 <li><p><code>1</code> - Uses expensive proprietary software that only institutions would typically purchase (<em>i.e.</em>, ArcGIS standard is $7000)</p></li>
 <li><p><code>2</code> - Uses proprietary software that most individuals can afford (<em>e.g.</em>, Excel, Matlab? ($500))</p></li>
 <li><p><code>3</code> - Uses entirely open source and free software (<em>e.g.</em>, R, Python).</p></li>
+<li><p><code>NA</code> - No software was used in the research that can be determined as the article is written.</p></li>
 </ul>
 </div>
 <div id="software_cite" class="section level4">
@@ -228,12 +230,13 @@
 <li><p><code>1</code> - Software mentioned by name only</p></li>
 <li><p><code>2</code> - Software cited with version number</p></li>
 <li><p><code>3</code> - All software components (PROCs, packages) etc. cited</p></li>
+<li><p><code>NA</code> - No software was used in the research that can be determined as the article is written.</p></li>
 </ul>
 </div>
 <div id="software_used" class="section level4">
 <h4 class="hasAnchor">
 <a href="#software_used" class="anchor"></a>“software_used”</h4>
-<p>Entered as an R <code>vector</code> object in comma-separated list with spaces.</p>
+<p>Entered as an R <code>vector</code> object in comma-separated list with spaces, <code>NA</code> for no software that can be determined.</p>
 <p>For example: <code>c("R", "TableTool")</code> or <code>R</code></p>
 </div>
 <div id="data_avail" class="section level4">
@@ -244,8 +247,8 @@
 <ul>
 <li><p><code>0</code> - Not available or not mentioned in the publication</p></li>
 <li><p><code>1</code> - Available upon request to author</p></li>
-<li><p><code>2</code> - Online, but inconvenient/non-permanent (<em>e.g.</em> login needed, pay wall, FTP server, personal lab website)</p></li>
-<li><p><code>3</code> - Freely available online to anonymous users for foreseeable future</p></li>
+<li><p><code>2</code> - Online, but inconvenient or non-permanent (<em>e.g.</em> login needed, pay wall, FTP server, personal lab website that may dispensary)</p></li>
+<li><p><code>3</code> - Freely available online to anonymous users for foreseeable future (<em>e.g.</em> archived using Zenodo, dataverse or university library system)</p></li>
 </ul>
 </div>
 <div id="reproducibility_score" class="section level4">

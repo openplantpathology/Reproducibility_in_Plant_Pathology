@@ -124,7 +124,6 @@ Entered as an R `vector` object in comma-separated list with spaces.
 
 For example: `c("Applied"", "Molecular")` or `Fundamental`
 
-
 #### "comp_mthds_avail"
 
 Score of computational methods documentation
@@ -144,6 +143,12 @@ pay wall, FTP server, personal lab website)
 - `3` - Freely available online to anonymous users for foreseeable future
 (_e.g_, GitHub, Figshare, Dataverse)
 
+- `NA` - No computational methods were used that can be shared, _i.e._, there is
+no statistical analysis or figures that were prepared. For example, a molecular
+study used proprietary software for the experiment imaging and only gel images
+are included in the article. Then there are no computational methods to be
+shared.
+
 #### "software_avail"
 
 Score of software availability
@@ -160,6 +165,9 @@ Excel, Matlab? ($500))
 
 - `3` - Uses entirely open source and free software (_e.g._, R, Python).
 
+- `NA` - No software was used in the research that can be determined as the
+article is written.
+
 #### "software_cite"
 
 Score of citations for software used
@@ -174,9 +182,13 @@ Entered as a number between `0` and `3`
 
 - `3` - All software components (PROCs, packages) etc. cited
 
+- `NA` - No software was used in the research that can be determined as the
+article is written.
+
 #### "software_used"
 
-Entered as an R `vector` object in comma-separated list with spaces.
+Entered as an R `vector` object in comma-separated list with spaces, `NA` for
+no software that can be determined.
 
 For example: `c("R", "TableTool")` or `R`
 
@@ -190,10 +202,11 @@ Entered as a number between `0` and `3`
 
 - `1` - Available upon request to author
 
-- `2` - Online, but inconvenient/non-permanent (_e.g._ login needed, pay wall,
-FTP server, personal lab website)
+- `2` - Online, but inconvenient or non-permanent (_e.g._ login needed,
+pay wall, FTP server, personal lab website that may dispensary)
 
 - `3` - Freely available online to anonymous users for foreseeable future
+(_e.g._ archived using Zenodo, dataverse or university library system)
 
 #### "reproducibility_score"
 
