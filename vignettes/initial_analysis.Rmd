@@ -44,18 +44,6 @@ library(ggplot2)
 ggplot(rrpp, aes(x = art_class)) +
   geom_bar(stat = "count") +
   xlab("Class(es)") +
-  scale_x_discrete(
-    labels = c(
-      "Applied",
-      "Applied, Fundamental, Molecular",
-      "Applied, Fundamental",
-      "Applied, Molecular",
-      "Fundamental, Molecular",
-      "Fundamental",
-      "Molecular",
-      "NA"
-    )
-  ) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   ggtitle("Article Classification")
 ```
@@ -144,18 +132,6 @@ ggplot(rrpp, aes(y = reproducibility_score,
   ggtitle("Article Class Effect on Reproducibility") +
   xlab("Class(es)") +
   ylab("Score") +
-  scale_x_discrete(
-    labels = c(
-      "Applied",
-      "Applied, Fundamental, Molecular",
-      "Applied, Fundamental",
-      "Applied, Molecular",
-      "Fundamental, Molecular",
-      "Fundamental",
-      "Molecular",
-      "NA"
-    )
-  ) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
@@ -188,8 +164,8 @@ ggplot(rrpp, aes(y = reproducibility_score,
 
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
-                 x = IF_5year)) +
-  geom_jitter(width = 0.25, alpha = 0.5) +
+                 x = as.factor(round(IF_5year, 1)))) +
+  geom_boxplot() +
   ggtitle("Five Year IF Effect on Reproducibility Score") +
   xlab("Impact Factor") +
   ylab("Score")
