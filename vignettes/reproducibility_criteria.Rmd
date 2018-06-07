@@ -122,7 +122,7 @@ One or more of the following:
 
 Entered as an R `vector` object in comma-separated list with spaces.
 
-For example: `c("Applied"", "Molecular")` or `Fundamental`
+For example: `"Applied"", "Molecular"` or `Fundamental`
 
 #### "comp_mthds_avail"
 
@@ -194,7 +194,7 @@ article is written.
 Entered as an R `vector` object in comma-separated list with spaces, `NA` for
 no software that can be determined.
 
-For example: `c("R", "TableTool")` or `R`
+For example: `R, TableTool` or `R`
 
 #### "data_avail"
   
@@ -231,7 +231,7 @@ fields to enter are:
 ### "author"
 
 Entered as character string in R `vector` format with spaces following BibTex
-style, _e.g._, c("A H Sparks", "E {Del Ponte}", "Z Foster", "N Grünwald")
+style, _e.g._, `A H Sparks, E Del Ponte, Z Foster, N Grünwald`
 
 ### "pages"
 
