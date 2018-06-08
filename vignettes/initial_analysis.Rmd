@@ -96,12 +96,14 @@ ggplot(rrpp, aes(x = software_cite)) +
 
 ## Software used (cited)
 
+Count and sort top 10 software packages cited. There are likely others that are
+used, but they have not been properly identified by the authors.
+
 ```{r}
 
-# count and sort top 10 software cited
 tab <- table(rrpp$software_used)
 tab_s <- sort(tab)
-top10 <- tail(names(tab_s), 10)
+top10 <- tail(names(tab_s), 17) # checking the table, there are several ties
 top_software <- subset(rrpp, software_used %in% top10)
 top_software$software_used <- factor(top_software$software_used,
                                      levels = rev(top10))
