@@ -24,6 +24,18 @@ rrpp <- gsheet::gsheet2tbl(
 )
 ```
 
+## Calculate reproducibility score
+
+```{r}
+library(dplyr)
+
+rrpp %>%
+  mutate(reproducibility_score = 
+           if_else(data_avail >= 1,
+                   comp_mthds_avail + software_avail + software_cite + data_avail,
+                   data_avail))
+```
+
 ## Unnest the software that were used
 
 Create a tidy data frame of the data by unnesting software used as in many cases
@@ -118,9 +130,8 @@ ggplot(top_software, aes(x = software_used)) +
 
 ## Reproducibility score
 
-What is the combined reproducibility score? Data and computational methods
-available are weighted more heavily than software citation or availability. A
-maxiumum of 9 is possible.
+The reproducibility score was calculated as the sum of the scores for computational
+method availability, 
 
 ```{r}
 ggplot(rrpp, aes(x = reproducibility_score)) +
