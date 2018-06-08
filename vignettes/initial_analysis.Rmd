@@ -26,6 +26,10 @@ rrpp <- gsheet::gsheet2tbl(
 
 ## Unnest the software that were used
 
+Create a tidy data frame of the data by unnesting software used as in many cases
+multiple software packages were used, so will end up with multiple rows for same
+article, one for each software.
+
 ```{r}
 library(magrittr)
 library(tidyr)
@@ -64,7 +68,7 @@ Was the software used readily available and preferably open-source?
 ```{r}
 ggplot(rrpp, aes(x = software_avail)) +
   geom_bar() +
-  ggtitle("Software Methods Availablity") +
+  ggtitle("Software Availablity") +
   xlab("Score")
 ```
 
@@ -113,7 +117,9 @@ ggplot(top_software, aes(x = software_used)) +
 
 ## Reproducibility score
 
-What is the combined reproducibility score, a maxiumum of 12 is possible.
+What is the combined reproducibility score? Data and computational methods
+available are weighted more heavily than software citation or availability. A
+maxiumum of 9 is possible.
 
 ```{r}
 ggplot(rrpp, aes(x = reproducibility_score)) +
@@ -127,7 +133,7 @@ ggplot(rrpp, aes(x = reproducibility_score)) +
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = art_class)) +
-  geom_boxplot() +
+  geom_boxplot(outlier.shape = NA) +
   geom_jitter(width = 0.25, alpha = 0.5) +
   ggtitle("Article Class Effect on Reproducibility") +
   xlab("Class(es)") +
@@ -140,7 +146,7 @@ ggplot(rrpp, aes(y = reproducibility_score,
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = abbreviation)) +
-  geom_boxplot() +
+  geom_boxplot(outlier.shape = NA) +
   geom_jitter(width = 0.25, alpha = 0.5) +
   ggtitle("Journal Effect on Reproducibility") +
   xlab("Journal") +
@@ -153,7 +159,7 @@ ggplot(rrpp, aes(y = reproducibility_score,
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = assignee)) +
-  geom_boxplot() +
+  geom_boxplot(outlier.shape = NA) +
   geom_jitter(width = 0.25, alpha = 0.5) +
   ggtitle("Evaluator Effect on Reproducibility Score") +
   xlab("Evaluator") +
@@ -165,7 +171,7 @@ ggplot(rrpp, aes(y = reproducibility_score,
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = as.factor(round(IF_5year, 1)))) +
-  geom_boxplot() +
+  geom_boxplot(outlier.shape = NA) +
   ggtitle("Five Year IF Effect on Reproducibility Score") +
   xlab("Impact Factor") +
   ylab("Score")
@@ -176,7 +182,7 @@ ggplot(rrpp, aes(y = reproducibility_score,
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = open)) +
-  geom_boxplot() +
+  geom_boxplot(outlier.shape = NA) +
   geom_jitter(width = 0.25, alpha = 0.5) +
   ggtitle("Open Access Effect on Reproducibility Score") +
   xlab("Impact Factor") +
@@ -188,7 +194,7 @@ ggplot(rrpp, aes(y = reproducibility_score,
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = as.factor(repro_inst))) +
-  geom_boxplot() +
+  geom_boxplot(outlier.shape = NA) +
   geom_jitter(width = 0.25, alpha = 0.5) +
   ggtitle("Reproducibility Instructions Effect on Reproducibility Score") +
   xlab("Reproducibility Instructions Score") +

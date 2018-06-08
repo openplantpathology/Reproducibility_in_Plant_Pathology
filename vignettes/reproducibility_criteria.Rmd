@@ -102,7 +102,7 @@ Does the journal have guidelines for reproducibility?
 
 - `0` - Not mentioned
 
-- `1` - At least a suggestion to put data online, but not details on how/where.
+- `1` - At least a suggestion to put data online, but not details on how/where
 
 - `2` - Detailed instructions on where to place data
 
@@ -118,11 +118,15 @@ One or more of the following:
 
 - `Applied`
 
-- `Molecular`
-
 Entered as an R `vector` object in comma-separated list with spaces.
 
-For example: `"Applied"", "Molecular"` or `Fundamental`
+For example: `Applied` or `Fundamental`
+
+#### "molecular"
+
+Was the article primarily focused on using or developing molecular methods?
+
+Entered as `TRUE` or `FALSE`
 
 #### "comp_mthds_avail"
 
@@ -207,7 +211,7 @@ Entered as a number between `0` and `3`
 - `1` - Available upon request to author
 
 - `2` - Online, but inconvenient or non-permanent (_e.g._ login needed,
-pay wall, FTP server, personal lab website that may dissappear, or may have
+pay wall, FTP server, personal lab website that may disappear, or may have
 already disappeared)
 
 - `3` - Freely available online to anonymous users for foreseeable future
