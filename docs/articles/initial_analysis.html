@@ -103,23 +103,56 @@
 <div id="import-article-evaluations" class="section level1">
 <h1 class="hasAnchor">
 <a href="#import-article-evaluations" class="anchor"></a>Import article evaluations</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">rrpp &lt;-<span class="st"> </span>gsheet<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/gsheet/topics/gsheet2tbl">gsheet2tbl</a></span>(</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="st">"https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381"</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">rrpp &lt;-<span class="st"> </span>gsheet<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/gsheet/topics/gsheet2tbl">gsheet2tbl</a></span>(
+  <span class="st">"https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381"</span>
+)</code></pre></div>
+<div id="calculate-reproducibility-score" class="section level2">
+<h2 class="hasAnchor">
+<a href="#calculate-reproducibility-score" class="anchor"></a>Calculate reproducibility score</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: 'dplyr'</span>
+<span class="co">#&gt; The following objects are masked from 'package:stats':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     filter, lag</span>
+<span class="co">#&gt; The following objects are masked from 'package:base':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     intersect, setdiff, setequal, union</span>
+
+rrpp &lt;-
+<span class="st">  </span>rrpp <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(
+    <span class="dt">reproducibility_score =</span>
+      <span class="kw"><a href="http://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span>(
+        data_avail <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>,
+        <span class="kw">na.omit</span>(comp_mthds_avail) <span class="op">+</span>
+<span class="st">          </span><span class="kw">na.omit</span>(software_avail) <span class="op">+</span>
+<span class="st">          </span><span class="kw">na.omit</span>(software_cite) <span class="op">+</span>
+<span class="st">          </span>data_avail,
+        <span class="kw">as.integer</span>(data_avail),
+        <span class="kw">as.integer</span>(<span class="dv">0</span>)
+      )
+  )
+<span class="co">#&gt; Warning in na.omit(comp_mthds_avail) + na.omit(software_avail): longer</span>
+<span class="co">#&gt; object length is not a multiple of shorter object length</span>
+<span class="co">#&gt; Warning in na.omit(comp_mthds_avail) + na.omit(software_avail) +</span>
+<span class="co">#&gt; na.omit(software_cite) + : longer object length is not a multiple of</span>
+<span class="co">#&gt; shorter object length</span></code></pre></div>
+</div>
 <div id="unnest-the-software-that-were-used" class="section level2">
 <h2 class="hasAnchor">
 <a href="#unnest-the-software-that-were-used" class="anchor"></a>Unnest the software that were used</h2>
 <p>Create a tidy data frame of the data by unnesting software used as in many cases multiple software packages were used, so will end up with multiple rows for same article, one for each software.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(magrittr)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">library</span>(tidyr)</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co">#&gt; Attaching package: 'tidyr'</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co">#&gt; The following object is masked from 'package:magrittr':</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt;     extract</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">rrpp &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="st">  </span>rrpp <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tidyr/topics/unnest">unnest</a></span>(<span class="dt">software_used =</span> <span class="kw">strsplit</span>(software_used, <span class="st">", "</span>))</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(magrittr)
+<span class="kw">library</span>(tidyr)
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: 'tidyr'</span>
+<span class="co">#&gt; The following object is masked from 'package:magrittr':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     extract</span>
+rrpp &lt;-<span class="st"> </span>
+<span class="st">  </span>rrpp <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/tidyr/topics/unnest">unnest</a></span>(<span class="dt">software_used =</span> <span class="kw">strsplit</span>(software_used, <span class="st">", "</span>))</code></pre></div>
 </div>
 </div>
 <div id="visualise-evaluations" class="section level1">
@@ -128,160 +161,160 @@
 <div id="article-classes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#article-classes" class="anchor"></a>Article classes</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> art_class)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>(<span class="dt">stat =</span> <span class="st">"count"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Class(es)"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">axis.text.x =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/element">element_text</a></span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Article Classification"</span>)</a></code></pre></div>
-<p><img src="initial_analysis_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+<span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> art_class)) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>(<span class="dt">stat =</span> <span class="st">"count"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Class(es)"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">axis.text.x =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/element">element_text</a></span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Article Classification"</span>)</code></pre></div>
+<p><img src="initial_analysis_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
 </div>
 <div id="computational-methods-available" class="section level2">
 <h2 class="hasAnchor">
 <a href="#computational-methods-available" class="anchor"></a>Computational methods available</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> comp_mthds_avail)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Computational Methods Availability"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>)</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="co">#&gt; Warning: Removed 9 rows containing non-finite values (stat_count).</span></a></code></pre></div>
-<p><img src="initial_analysis_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> comp_mthds_avail)) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Computational Methods Availability"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>)
+<span class="co">#&gt; Warning: Removed 8 rows containing non-finite values (stat_count).</span></code></pre></div>
+<p><img src="initial_analysis_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
 </div>
 <div id="software-availability" class="section level2">
 <h2 class="hasAnchor">
 <a href="#software-availability" class="anchor"></a>Software availability</h2>
 <p>Was the software used readily available and preferably open-source?</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> software_avail)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Software Availablity"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>)</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt; Warning: Removed 4 rows containing non-finite values (stat_count).</span></a></code></pre></div>
-<p><img src="initial_analysis_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> software_avail)) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Software Availablity"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>)
+<span class="co">#&gt; Warning: Removed 3 rows containing non-finite values (stat_count).</span></code></pre></div>
+<p><img src="initial_analysis_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
 </div>
 <div id="data-availability" class="section level2">
 <h2 class="hasAnchor">
 <a href="#data-availability" class="anchor"></a>Data availability</h2>
 <p>Was the data made available?</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> data_avail)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Data Availability"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>)</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; Warning: Removed 6 rows containing non-finite values (stat_count).</span></a></code></pre></div>
-<p><img src="initial_analysis_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> data_avail)) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Data Availability"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>)
+<span class="co">#&gt; Warning: Removed 1 rows containing non-finite values (stat_count).</span></code></pre></div>
+<p><img src="initial_analysis_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
 </div>
 <div id="software-citations" class="section level2">
 <h2 class="hasAnchor">
 <a href="#software-citations" class="anchor"></a>Software citations</h2>
 <p>Was the software that was used properly cited?</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> software_cite)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Software Cited"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>)</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt; Warning: Removed 4 rows containing non-finite values (stat_count).</span></a></code></pre></div>
-<p><img src="initial_analysis_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> software_cite)) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Software Cited"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>)
+<span class="co">#&gt; Warning: Removed 3 rows containing non-finite values (stat_count).</span></code></pre></div>
+<p><img src="initial_analysis_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
 </div>
 <div id="software-used-cited" class="section level2">
 <h2 class="hasAnchor">
 <a href="#software-used-cited" class="anchor"></a>Software used (cited)</h2>
 <p>Count and sort top 10 software packages cited. There are likely others that are used, but they have not been properly identified by the authors.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">tab &lt;-<span class="st"> </span><span class="kw">table</span>(rrpp<span class="op">$</span>software_used)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">tab_s &lt;-<span class="st"> </span><span class="kw">sort</span>(tab)</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">top10 &lt;-<span class="st"> </span><span class="kw">tail</span>(<span class="kw">names</span>(tab_s), <span class="dv">17</span>) <span class="co"># checking the table, there are several ties</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">top_software &lt;-<span class="st"> </span><span class="kw">subset</span>(rrpp, software_used <span class="op">%in%</span><span class="st"> </span>top10)</a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">top_software<span class="op">$</span>software_used &lt;-<span class="st"> </span><span class="kw">factor</span>(top_software<span class="op">$</span>software_used,</a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">                                     <span class="dt">levels =</span> <span class="kw">rev</span>(top10))</a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(top_software, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> software_used)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Top 10 Software Used"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Software"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Count"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">axis.text.x =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/element">element_text</a></span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</a></code></pre></div>
-<p><img src="initial_analysis_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tab &lt;-<span class="st"> </span><span class="kw">table</span>(rrpp<span class="op">$</span>software_used)
+tab_s &lt;-<span class="st"> </span><span class="kw">sort</span>(tab)
+top10 &lt;-<span class="st"> </span><span class="kw">tail</span>(<span class="kw">names</span>(tab_s), <span class="dv">17</span>) <span class="co"># checking the table, there are several ties</span>
+top_software &lt;-<span class="st"> </span><span class="kw">subset</span>(rrpp, software_used <span class="op">%in%</span><span class="st"> </span>top10)
+top_software<span class="op">$</span>software_used &lt;-<span class="st"> </span><span class="kw">factor</span>(top_software<span class="op">$</span>software_used,
+                                     <span class="dt">levels =</span> <span class="kw">rev</span>(top10))
+
+
+<span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(top_software, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> software_used)) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Top 10 Software Used"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Software"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Count"</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">axis.text.x =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/element">element_text</a></span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</code></pre></div>
+<p><img src="initial_analysis_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
 </div>
 <div id="reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
 <a href="#reproducibility-score" class="anchor"></a>Reproducibility score</h2>
-<p>What is the combined reproducibility score? Data and computational methods available are weighted more heavily than software citation or availability. A maxiumum of 9 is possible.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> reproducibility_score)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Combined Reproducibility Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>)</a></code></pre></div>
-<p><img src="initial_analysis_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
+<p>The reproducibility score was calculated as the sum of the scores for computational method availability,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> reproducibility_score)) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Combined Reproducibility Score"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>)</code></pre></div>
+<p><img src="initial_analysis_files/figure-html/unnamed-chunk-10-1.png" width="700"></p>
 </div>
 <div id="article-class-effect-on-reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
 <a href="#article-class-effect-on-reproducibility-score" class="anchor"></a>Article class effect on reproducibility score</h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">y =</span> reproducibility_score,</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">                 <span class="dt">x =</span> art_class)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_boxplot">geom_boxplot</a></span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_jitter">geom_jitter</a></span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Article Class Effect on Reproducibility"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Class(es)"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">axis.text.x =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/element">element_text</a></span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</a></code></pre></div>
-<p><img src="initial_analysis_files/figure-html/unnamed-chunk-10-1.png" width="700"></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">y =</span> reproducibility_score,
+                 <span class="dt">x =</span> art_class)) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_boxplot">geom_boxplot</a></span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_jitter">geom_jitter</a></span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Article Class Effect on Reproducibility"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Class(es)"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">axis.text.x =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/element">element_text</a></span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</code></pre></div>
+<p><img src="initial_analysis_files/figure-html/unnamed-chunk-11-1.png" width="700"></p>
 </div>
 <div id="journal-effect-on-reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
 <a href="#journal-effect-on-reproducibility-score" class="anchor"></a>Journal effect on reproducibility score</h2>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">y =</span> reproducibility_score,</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">                 <span class="dt">x =</span> abbreviation)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_boxplot">geom_boxplot</a></span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_jitter">geom_jitter</a></span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Journal Effect on Reproducibility"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Journal"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">axis.text.x =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/element">element_text</a></span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</a></code></pre></div>
-<p><img src="initial_analysis_files/figure-html/unnamed-chunk-11-1.png" width="700"></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">y =</span> reproducibility_score,
+                 <span class="dt">x =</span> abbreviation)) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_boxplot">geom_boxplot</a></span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_jitter">geom_jitter</a></span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Journal Effect on Reproducibility"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Journal"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">axis.text.x =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/element">element_text</a></span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</code></pre></div>
+<p><img src="initial_analysis_files/figure-html/unnamed-chunk-12-1.png" width="700"></p>
 </div>
 <div id="evaluator-effect-on-reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
 <a href="#evaluator-effect-on-reproducibility-score" class="anchor"></a>Evaluator effect on reproducibility score</h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">y =</span> reproducibility_score,</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">                 <span class="dt">x =</span> assignee)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_boxplot">geom_boxplot</a></span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_jitter">geom_jitter</a></span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Evaluator Effect on Reproducibility Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Evaluator"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Score"</span>)</a></code></pre></div>
-<p><img src="initial_analysis_files/figure-html/unnamed-chunk-12-1.png" width="700"></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">y =</span> reproducibility_score,
+                 <span class="dt">x =</span> assignee)) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_boxplot">geom_boxplot</a></span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_jitter">geom_jitter</a></span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Evaluator Effect on Reproducibility Score"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Evaluator"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Score"</span>)</code></pre></div>
+<p><img src="initial_analysis_files/figure-html/unnamed-chunk-13-1.png" width="700"></p>
 </div>
 <div id="five-year-impact-factor-effect-on-reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
 <a href="#five-year-impact-factor-effect-on-reproducibility-score" class="anchor"></a>Five year impact factor effect on reproducibility score</h2>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">y =</span> reproducibility_score,</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">                 <span class="dt">x =</span> <span class="kw">as.factor</span>(<span class="kw">round</span>(IF_5year, <span class="dv">1</span>)))) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_boxplot">geom_boxplot</a></span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Five Year IF Effect on Reproducibility Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Impact Factor"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Score"</span>)</a></code></pre></div>
-<p><img src="initial_analysis_files/figure-html/unnamed-chunk-13-1.png" width="700"></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">y =</span> reproducibility_score,
+                 <span class="dt">x =</span> <span class="kw">as.factor</span>(<span class="kw">round</span>(IF_5year, <span class="dv">1</span>)))) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_boxplot">geom_boxplot</a></span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Five Year IF Effect on Reproducibility Score"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Impact Factor"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Score"</span>)</code></pre></div>
+<p><img src="initial_analysis_files/figure-html/unnamed-chunk-14-1.png" width="700"></p>
 </div>
 <div id="journal-open-access-effect-on-reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
 <a href="#journal-open-access-effect-on-reproducibility-score" class="anchor"></a>Journal open access effect on reproducibility score</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">y =</span> reproducibility_score,</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">                 <span class="dt">x =</span> open)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_boxplot">geom_boxplot</a></span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_jitter">geom_jitter</a></span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Open Access Effect on Reproducibility Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Impact Factor"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Score"</span>)</a></code></pre></div>
-<p><img src="initial_analysis_files/figure-html/unnamed-chunk-14-1.png" width="700"></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">y =</span> reproducibility_score,
+                 <span class="dt">x =</span> open)) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_boxplot">geom_boxplot</a></span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_jitter">geom_jitter</a></span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Open Access Effect on Reproducibility Score"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Impact Factor"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Score"</span>)</code></pre></div>
+<p><img src="initial_analysis_files/figure-html/unnamed-chunk-15-1.png" width="700"></p>
 </div>
 <div id="journal-reproducibility-instructions-effect-on-reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
 <a href="#journal-reproducibility-instructions-effect-on-reproducibility-score" class="anchor"></a>Journal reproducibility instructions effect on reproducibility score</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">y =</span> reproducibility_score,</a>
-<a class="sourceLine" id="cb15-2" data-line-number="2">                 <span class="dt">x =</span> <span class="kw">as.factor</span>(repro_inst))) <span class="op">+</span></a>
-<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_boxplot">geom_boxplot</a></span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_jitter">geom_jitter</a></span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Reproducibility Instructions Effect on Reproducibility Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb15-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Reproducibility Instructions Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb15-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Score"</span>)</a></code></pre></div>
-<p><img src="initial_analysis_files/figure-html/unnamed-chunk-15-1.png" width="700"></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">y =</span> reproducibility_score,
+                 <span class="dt">x =</span> <span class="kw">as.factor</span>(repro_inst))) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_boxplot">geom_boxplot</a></span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_jitter">geom_jitter</a></span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Reproducibility Instructions Effect on Reproducibility Score"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Reproducibility Instructions Score"</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Score"</span>)</code></pre></div>
+<p><img src="initial_analysis_files/figure-html/unnamed-chunk-16-1.png" width="700"></p>
 </div>
 </div>
   </div>
@@ -293,7 +326,8 @@
       <ul class="nav nav-pills nav-stacked">
 <li>
 <a href="#import-article-evaluations">Import article evaluations</a><ul class="nav nav-pills nav-stacked">
-<li><a href="#unnest-the-software-that-were-used">Unnest the software that were used</a></li>
+<li><a href="#calculate-reproducibility-score">Calculate reproducibility score</a></li>
+      <li><a href="#unnest-the-software-that-were-used">Unnest the software that were used</a></li>
       </ul>
 </li>
       <li>

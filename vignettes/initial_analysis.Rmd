@@ -29,11 +29,20 @@ rrpp <- gsheet::gsheet2tbl(
 ```{r}
 library(dplyr)
 
-rrpp %>%
-  mutate(reproducibility_score = 
-           if_else(data_avail >= 1,
-                   comp_mthds_avail + software_avail + software_cite + data_avail,
-                   data_avail))
+rrpp <-
+  rrpp %>%
+  mutate(
+    reproducibility_score =
+      if_else(
+        data_avail > 0,
+        na.omit(comp_mthds_avail) +
+          na.omit(software_avail) +
+          na.omit(software_cite) +
+          data_avail,
+        as.integer(data_avail),
+        as.integer(0)
+      )
+  )
 ```
 
 ## Unnest the software that were used
