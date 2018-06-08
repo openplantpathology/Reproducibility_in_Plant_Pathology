@@ -184,21 +184,20 @@
 <h2 class="hasAnchor">
 <a href="#software-used-cited" class="anchor"></a>Software used (cited)</h2>
 <p>Count and sort top 10 software packages cited. There are likely others that are used, but they have not been properly identified by the authors.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">tab &lt;-<span class="st"> </span><span class="kw">table</span>(rrpp<span class="op">$</span>software_used)</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">tab_s &lt;-<span class="st"> </span><span class="kw">sort</span>(tab)</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">top10 &lt;-<span class="st"> </span><span class="kw">tail</span>(<span class="kw">names</span>(tab_s), <span class="dv">17</span>) <span class="co"># checking the table, there are several ties</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">top_software &lt;-<span class="st"> </span><span class="kw">subset</span>(rrpp, software_used <span class="op">%in%</span><span class="st"> </span>top10)</a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">top_software<span class="op">$</span>software_used &lt;-<span class="st"> </span><span class="kw">factor</span>(top_software<span class="op">$</span>software_used,</a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">                                     <span class="dt">levels =</span> <span class="kw">rev</span>(top10))</a>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">tab &lt;-<span class="st"> </span><span class="kw">table</span>(rrpp<span class="op">$</span>software_used)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">tab_s &lt;-<span class="st"> </span><span class="kw">sort</span>(tab)</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">top10 &lt;-<span class="st"> </span><span class="kw">tail</span>(<span class="kw">names</span>(tab_s), <span class="dv">17</span>) <span class="co"># checking the table, there are several ties</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">top_software &lt;-<span class="st"> </span><span class="kw">subset</span>(rrpp, software_used <span class="op">%in%</span><span class="st"> </span>top10)</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">top_software<span class="op">$</span>software_used &lt;-<span class="st"> </span><span class="kw">factor</span>(top_software<span class="op">$</span>software_used,</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">                                     <span class="dt">levels =</span> <span class="kw">rev</span>(top10))</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb8-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(top_software, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> software_used)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Top 10 Software Used"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Software"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Count"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-15" data-line-number="15"><span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">axis.text.x =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/element">element_text</a></span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</a></code></pre></div>
+<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(top_software, <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> software_used)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Top 10 Software Used"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Software"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="st">  </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Count"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="st">    </span><span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">axis.text.x =</span> <span class="kw"><a href="http://www.rdocumentation.org/packages/ggplot2/topics/element">element_text</a></span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>))</a></code></pre></div>
 <p><img src="initial_analysis_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
 </div>
 <div id="reproducibility-score" class="section level2">
