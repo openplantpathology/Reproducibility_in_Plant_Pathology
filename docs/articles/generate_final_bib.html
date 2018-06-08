@@ -100,13 +100,13 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">ref &lt;-<span class="st"> </span>gsheet<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/gsheet/topics/gsheet2tbl">gsheet2tbl</a></span>(</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">    <span class="st">"https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381"</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">  )</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">ref2 &lt;-<span class="st"> </span>ref[, <span class="op">-</span><span class="kw">c</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">4</span>, <span class="dv">5</span><span class="op">:</span><span class="dv">15</span>)]</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">bib2df<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/bib2df/topics/df2bib">df2bib</a></span>(ref, <span class="dt">file =</span> <span class="st">"~/tmp/df.bib"</span>)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ref &lt;-<span class="st"> </span>gsheet<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/gsheet/topics/gsheet2tbl">gsheet2tbl</a></span>(
+    <span class="st">"https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381"</span>
+  )
+
+ref2 &lt;-<span class="st"> </span>ref[, <span class="op">-</span><span class="kw">c</span>(<span class="dv">3</span><span class="op">:</span><span class="dv">4</span>, <span class="dv">5</span><span class="op">:</span><span class="dv">15</span>)]
+
+bib2df<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/bib2df/topics/df2bib">df2bib</a></span>(ref, <span class="dt">file =</span> <span class="st">"~/tmp/df.bib"</span>)</code></pre></div>
 <pre><code>## Warning: Unknown or uninitialised column: 'AUTHOR'.</code></pre>
 <pre><code>## Warning: Unknown or uninitialised column: 'Category'.</code></pre>
 <pre><code>## Warning: Unknown or uninitialised column: 'Bibtexkey'.</code></pre>
