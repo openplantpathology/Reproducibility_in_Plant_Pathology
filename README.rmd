@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 
 This repository contains the data and code for our paper:
 
-> Del Ponte, E.M., Everhart, S., Foster, Z., Grünwald, N., Sparks, A.H. (YYYY). _Title of paper_. Name of journal/book <https://doi.org/xxx/xxx>
+> Sparks, A.H., Del Ponte, E.M., Everhart, S., Foster, Z., Grünwald, N. (YYYY). _Title of paper_. Name of journal/book <https://doi.org/xxx/xxx>
 
 Our pre-print is online here:
 
@@ -31,7 +31,7 @@ Our pre-print is online here:
 
 Please cite this compendium as:
 
-> Del Ponte, E.M., Everhart, S., Foster, Z.S.L., Grünwald, N., Sparks, A.H. (`r format(Sys.Date(), "%Y")`). _Compendium of R code and data for 'Status and Best Practices for Reproducible Research In Plant Pathology'_. Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/10.5281/zenodo.1250665>
+> Sparks, A.H., Del Ponte, E.M., Everhart, S., Foster, Z.S.L., Grünwald, N. (`r format(Sys.Date(), "%Y")`). _Compendium of R code and data for 'Status and Best Practices for Reproducible Research In Plant Pathology'_. Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
 
