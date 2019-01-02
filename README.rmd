@@ -47,8 +47,8 @@ You can download the compendium as a zip from from this URL: <https://github.com
 
 Or you can install this compendium as an R package, Reproducibility.in.Plant.Pathology, from GitHub with:
 ```{r gh-installation, eval = FALSE}
-# install.packages("devtools")
-devtools::install_github("adamhsparks/Reproducibility_in_Plant_Pathology")
+if (!require("remotes")) install.packages("remotes")
+remotes::install_github("openplantpathology/Reproducibility_in_Plant_Pathology")
 ```
 
 Once the download is complete, open the

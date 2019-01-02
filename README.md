@@ -18,17 +18,17 @@ This repository contains the data and code for our paper:
 
 Our pre-print is online here:
 
-> Authors, (YYYY). *Title of paper*. Name of journal/book, Accessed 13
-> Jun 2018. Online at <https://doi.org/xxx/xxx>
+> Authors, (YYYY). *Title of paper*. Name of journal/book, Accessed 02
+> Jan 2019. Online at <https://doi.org/xxx/xxx>
 
 ### How to cite
 
 Please cite this compendium as:
 
 > Sparks, A.H., Del Ponte, E.M., Everhart, S., Foster, Z.S.L., Grünwald,
-> N. (2018). *Compendium of R code and data for ‘Status and Best
-> Practices for Reproducible Research In Plant Pathology’*. Accessed 13
-> Jun 2018. Online at <https://doi.org/10.5281/zenodo.1250665>
+> N. (2019). *Compendium of R code and data for ‘Status and Best
+> Practices for Reproducible Research In Plant Pathology’*. Accessed 02
+> Jan 2019. Online at <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
 
@@ -48,8 +48,8 @@ Or you can install this compendium as an R package,
 Reproducibility.in.Plant.Pathology, from GitHub with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("adamhsparks/Reproducibility_in_Plant_Pathology")
+if (!require("remotes")) install.packages("remotes")
+remotes::install_github("openplantpathology/Reproducibility_in_Plant_Pathology")
 ```
 
 Once the download is complete, open the
@@ -99,7 +99,7 @@ anyone wanting to use this package to generate the vignettes, etc.
 
 ## Meta
 
-Code: [MIT](http://opensource.org/licenses/MIT) year: 2018, copyright
+Code: [MIT](http://opensource.org/licenses/MIT) year: 2019, copyright
 holder: Adam H Sparks
 
 Data: [CC-0](http://creativecommons.org/publicdomain/zero/1.0/)
