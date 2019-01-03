@@ -9,13 +9,32 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+# Generate Final .bib File of References Reviewed
 
-```{r}
+This file generates a .bib file of the references that were reviewed. Unfortunately not all references have a DOI and not DOIs resolve properly, so some manual intervention will be required after the creation of the file.
+
+Some of the original references were not suitable when we began to review them, so we selected new references. Therefore, we will download the notes from Google Drive and look up the DOIs from them.
+
+```{r import}
 ref <- gsheet::gsheet2tbl(
     "https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381"
   )
+```
 
-ref2 <- ref[, -c(3:4, 5:15)]
+There are eight articles that do not have a DOI, remove them. They will be added manually to the resulting "references_reviewed_for_check.bib" file.
 
-bib2df::df2bib(ref, file = "~/tmp/df.bib")
+```{r drop_na}
+# remove the 8 articles with no DOI
+ref <- ref[!is.na(ref$doi), ]
+```
+
+Using `sapply()`, fetch the DOIs using `crossref::cr_cn()` and generate a .bib object in R.
+```{r fetch_bib}
+test <- sapply(ref$doi, rcrossref::cr_cn)
+```
+
+Save the resulting .bib file for checking and completion.
+
+```{r write_file}
+bib2df::df2bib(ref, file = "../inst/extdata/references_reviewed_for_check.bib")
 ```

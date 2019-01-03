@@ -14,9 +14,8 @@ vignette: >
 ## Load the DOIs
 
 ```{r message=FALSE, warning=FALSE}
-library(gsheet)
 doi <-
-  gsheet2tbl(
+  gsheet::gsheet2tbl(
     "https://docs.google.com/spreadsheets/d/1WGbblaDD8eIEBvkxWNBwIi1HL0FTo6-HsLDwMVrfZbI/edit?usp=sharing"
   )
 ```
