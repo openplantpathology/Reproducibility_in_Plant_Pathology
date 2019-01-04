@@ -30,11 +30,14 @@ ref <- ref[!is.na(ref$doi), ]
 
 Using `sapply()`, fetch the DOIs using `crossref::cr_cn()` and generate a .bib object in R.
 ```{r fetch_bib}
-test <- sapply(ref$doi, rcrossref::cr_cn)
+bib <- sapply(ref$doi, rcrossref::cr_cn)
 ```
 
 Save the resulting .bib file for checking and completion.
 
 ```{r write_file}
-bib2df::df2bib(ref, file = "../inst/extdata/references_reviewed_for_check.bib")
+bib_con <- file(file.path("../inst/extdata/references_reviewed_for_check.bib"))
+writeLines(text = bib,
+           con = bib_con)
+close(bib_con)
 ```
