@@ -45,14 +45,13 @@ Reproducibility in scientific research has once again been highlighted recently 
 
 ## Open science
 
-Open science has become highlighted lately with many donors expecting data to be available (XXXX) and other scientists interested in sharing and collaborating more widely.
-
+Open science has become highlighted lately with many donors expecting data to be available (XXXX) and other scientists interested in sharing and collaborating more widely (XXXX).
 
 # A general workflow
 
 A general workflow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, and writing the manuscript. Here we defined three levels of reproducibility which are also related with the evolution of computational methods and reproducible practices (Figure 1).
 
-A first level of reproducibility involves making available research materials such as strains and/or nucleic acid sequences in public collection and citations for methods used. A second level involves providing raw data and codes as binary files (PDF or other non-text file) in supplemental materials which do not allow prompt access to the data and running the codes because of use of expensive commercial software or a pay-wall. A highest level includes efforts to annotate structured raw data and fully document the analysis using open source code which are deposited in public repositories and can be run more easily following download of data and codes. The first level as reported is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations. In the next section we present standards and tools that can be used to ensure reproducibility (Figure 1).
+A first level of reproducibility involves making available research materials such as strains and/or nucleic acid sequences in public collection and citations for methods used. A second level involves providing raw data and codes as binary files (PDF or other non-text file) in supplemental materials which do not allow prompt access to the data and running the codes because of use of expensive commercial software or a pay-wall. The highest level includes efforts to annotate structured raw data and fully document the analysis using open source code which are deposited in public repositories and can be run by anyone following download of data and code. The first level as reported is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations. In the next section we present standards and tools that can be used to ensure reproducibility (Figure 1).
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
 library(DiagrammeR)
@@ -98,8 +97,11 @@ rsvg_pdf(charToRaw(p), "Figure 1.pdf")
 
 ### Methods
 
-- Citation of methods, software, packages, etc.
+When making your science more open and reproducible, methods, software used (including things like R packages), etc. should be cited. This allows end users to identify what was used and identify the methods used more accurately. Just as importantly, this acknowledges the contributions of others whose works were instrumental in your research. This also helps ensure that you as a researcher are able to reconstruct what you have done since you will have good notes and documentation.
+
 - deposit and annotate biological materials
+
+
 - provide full description for equipments, etc.
 - rOpenSci Reproducible Research: http://ropensci.github.io/reproducibility-guide/sections/introduction/
 
@@ -117,9 +119,11 @@ rsvg_pdf(charToRaw(p), "Figure 1.pdf")
 - Availability in public repositories
 
 ### Repository
-- Using GitHub for code (and small data?)
-- Using Figshare or Zenodo vs a lab website (DOIs, other reasons)
-- Or using, most ideally, a library or other proper long-term data archival service
+- Using GitHub, Gitlab, Bitbucket for code (and small data?)
+- Using Figshare, Dataverse or some other data repository for large data
+- Zenodo or OSF to generate DOIs
+- Why not use a lab website (DOIs, other reasons)
+- Most ideally, deposit in university library or other proper long-term data archival service
 
 
 # Status in Plant Pathology
