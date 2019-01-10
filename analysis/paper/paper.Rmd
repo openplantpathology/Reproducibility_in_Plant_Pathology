@@ -8,17 +8,17 @@ author:
   - Niklaus J Grünwald
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
-    bookdown::word_document2:
+    bookdown::html_document2:
       fig_caption: yes
       reference_docx: "../templates/template.docx" # Insert path for the DOCX file
 bibliography: references.bib
 csl: "../templates/phytopathology.csl" # Insert path for the bib-style
 abstract: |
-  Open research practices have been highlighted extensively during the last ten years in many fields of study as essential standards needed to promote transparency and reproducibility of scientific results. In fact, scientific claims can only be evaluated based on how protocols, materials, equipment and methods were described; data were collected and prepared; and analyses conducted. Openly sharing protocols, data and computational code are central for current scholarly dissemination and communication, but in many fields, including Plant Pathology, adoption of these practices has been slow. We randomly selected 200 articles published from 2012 to 2016 across 21 journals representative of the pathology discipline, and assigned them scores reflecting their openness and reproducibility. We found that most of the articles failed to share data or code in a meaningful way. We propose that and open source tools for producing open and reproducible work and analysis is necessary and provide ideas and tools to promote reproducible practices among plant pathologists.
+  Open research practices have been highlighted extensively during the last ten years in many fields of study as essential standards needed to promote transparency and reproducibility of scientific results. In fact, scientific claims can only be evaluated based on how protocols, materials, equipment and methods were described; data were collected and prepared; and analyses conducted. Openly sharing protocols, data and computational code are central for current scholarly dissemination and communication, but in many fields, including Plant Pathology, adoption of these practices has been slow. We randomly selected 200 articles published from 2012 to 2016 across 21 journals representative of the pathology discipline, and assigned them scores reflecting their openness and reproducibility. We found that most of the articles failed to share data or code in a meaningful way. We propose that using open source tools for producing open and reproducible work and analysis is necessary and provide ideas and tools to promote reproducible practices among plant pathologists.
 keywords: |
   open science; open data; reproducible research; FAIR data
 highlights: |
-  Open research practices are highlighted extensively in the broader scientific community. Our survey of 200 randomly selected articles from 2012 to 2016 indicates that we have work to do in this area as plant pathologists. 
+  Open research practices are highlighted extensively in the broader scientific community. Our survey of 200 randomly selected articles from 2012 to 2016 indicates that we have work to do in this area as plant pathologists with most articles scoring low in openness and reproduciblity.
 ---
 
 ```{r, setup, echo = FALSE}
@@ -43,8 +43,12 @@ Modern plant pathological research has many facets given the array of discipline
 
 Reproducibility in scientific research has once again been highlighted recently [@Nature2016; @Baker2016a] as an important issue. Patil et al. [-@Patil2016] have provided several definitions to clarify the concepts surrounding reproducibility. For the purposes of this paper we follow the definitions as given by Patil et al. [-@Patil2016].
 
+## Open science
 
-## A general workflow
+Open science has become highlighted lately with many donors expecting data to be available (XXXX) and other scientists interested in sharing and collaborating more widely.
+
+
+# A general workflow
 
 A general workflow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, and writing the manuscript. Here we defined three levels of reproducibility which are also related with the evolution of computational methods and reproducible practices (Figure 1).
 
@@ -68,10 +72,10 @@ p <- export_svg(grViz(
   Description; Availability; Citation
   
   node [shape = box, style = filled, fillcolor = grey80, width = 1.2]
-  Binary_Code; Binary_File; Supplement
+  'Binary Code'; 'Binary File'; Supplement
   
   node [shape = box, style = filled, fillcolor = grey70, width = 1.2]
-  Source_Code;  Data_File; Pub_Repository;
+  'Source Code';  'Data File'; 'Public Repository';
   
   Question->Methodology->Data->Analysis
   Analysis->Manuscript
@@ -79,10 +83,10 @@ p <- export_svg(grViz(
   Methodology->Citation
   Methodology->Availability
   Manuscript->Supplement
-  Data->Data_File->Pub_Repository
-  Analysis->Binary_Code->Supplement
-  Analysis->Source_Code->Pub_Repository
-  Data->Binary_File->Supplement
+  Data->'Data File'->'Public Repository'
+  Analysis->'Binary Code'->Supplement
+  Analysis->'Source Code'->'Public Repository'
+  Data->'Binary File'->Supplement
   }
   ",
   width = 1000,
@@ -118,8 +122,7 @@ rsvg_pdf(charToRaw(p), "Figure 1.pdf")
 - Or using, most ideally, a library or other proper long-term data archival service
 
 
-
-## Status in Plant Pathology
+# Status in Plant Pathology
 
 * Madden et al. [-@Madden2015] supply an *e-**X**tra*\* with reproducible examples
 for readers.
@@ -136,7 +139,7 @@ necessary to replicate model development and the subsequent the study on the eff
 
 Twenty-one plant pathology discipline journals were selected by the authors as representations of discipline-based journals target by the plant pathology research community. Among them, both fundamental and/or applied as well as journals covering specific group of pathogens/plants or broad areas were included. Two hundred articles were randomly selected from issues published from 2012 to 2016. A list of randomly selected pages was assigned to a randomized list of the 21 journals [@Sparks2017] where the page number fell within an article for the given journal. In cases where an article was not suitable, _e.g._, a review or otherwise not related to plant pathology, the next article was selected until a suitable article was found. Notes regarding the selection of articles can be found in the file, XXXX, available in this paper's repository. The pages list was numbered from page one and went to 150. This was done since some journals restart their numbering with each issue and also ensures that the journal is more likely to have a page number corresponding to the randomly generated value. This also assumes that there is no effect or bias on reproducibility based on the time of year that an article was published, since most journals start with page number one at the beginning of the year. The list of journals was saved as a comma separated value (CSV) file and imported into R [@R2018]. 
 
-## Discussion
+# Discussion
 
 # Acknowledgements
 
