@@ -8,7 +8,7 @@ author:
   - Niklaus J Grünwald
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
-    bookdown::html_document2:
+    bookdown::word_document2:
       fig_caption: yes
       reference_docx: "../templates/template.docx" # Insert path for the DOCX file
 bibliography: references.bib
@@ -48,51 +48,9 @@ Open science has become highlighted lately with many donors expecting data to be
 
 # A General Workflow
 
-A general workflow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, and writing the manuscript. Here we defined three levels of reproducibility which are also related with the evolution of computational methods and reproducible practices (Figure 1).
+A general workflow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, and writing the manuscript. Here we defined three levels of reproducibility which are also related with the evolution of computational methods and reproducible practices \@ref(fig:workflow-dia).
 
-A first level of reproducibility involves openly available research materials such as strains and/or nucleic acid sequences in public collections and citations for methods used. A second level involves providing raw data and code as binary files (PDF or other non-text file) in supplemental materials, which do not allow prompt access to the data and running the code because of use of expensive commercial software or a pay-wall. The highest level includes efforts to annotate structured raw data (FAIR -- Findable, Accessible, Interoperable and Re-usable) and fully document the analysis using open source code which are deposited in public repositories and can be run by anyone following download of data and code. The first level, as reported, is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations. In the next section we present standards and tools that can be used to ensure reproducibility \@ref(fig:workflow-dia).
-
-```{r workflow-dia, echo=FALSE, message=FALSE, warning=FALSE, results='hide', caption="An open and reproducible research workflow."}
-library(DiagrammeR)
-library(DiagrammeRsvg)
-library(rsvg)
-
-p <- export_svg(grViz(
-  "
-  digraph Fig1 {
-  
-  graph [fontsize = 8, nodesep=0.5]
-  
-  node [shape = box, style = filled, fillcolor = grey99, width = 1.2,fontname = Helvetica]
-  Question;  Methodology;  Data;  Analysis;  Manuscript;
-  
-  node [shape = box, style = filled, fillcolor = grey90, width = 1.2,fontname = Helvetica]
-  Description; Availability; Citation
-  
-  node [shape = box, style = filled, fillcolor = grey80, width = 1.2]
-  'Binary Code'; 'Binary File'; Supplement
-  
-  node [shape = box, style = filled, fillcolor = grey70, width = 1.2]
-  'Source Code';  'Data File'; 'Public Repository';
-  
-  Question->Methodology->Data->Analysis
-  Analysis->Manuscript
-  Methodology->Description
-  Methodology->Citation
-  Methodology->Availability
-  Manuscript->Supplement
-  Data->'Data File'->'Public Repository'
-  Analysis->'Binary Code'->Supplement
-  Analysis->'Source Code'->'Public Repository'
-  Data->'Binary File'->Supplement
-  }
-  ",
-  width = 1000,
-  height = 750
-))
-
-rsvg_pdf(charToRaw(p), "Figure 1.pdf")
-```
+A first level of reproducibility involves openly available research materials such as strains and/or nucleic acid sequences in public collections and citations for methods used. A second level involves providing raw data and code as binary files (PDF or other non-text file) in supplemental materials, which do not allow prompt access to the data and running the code because of use of expensive commercial software or a pay-wall. The highest level includes efforts to annotate structured raw data (FAIR -- Findable, Accessible, Interoperable and Re-usable) and fully document the analysis using open source code which are deposited in public repositories and can be run by anyone following download of data and code. The first level, as reported, is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations. In the next section we present standards and tools that can be used to ensure reproducibility.
 
 ### Methods
 
@@ -155,13 +113,62 @@ Twenty-one plant pathology discipline journals were selected by the authors as r
 
 ##### pagebreak
 
-### Colophon
+<!-- The following line inserts a page break when the output is MS Word. For page breaks in PDF, use \newpage on its own line.  -->
+##### pagebreak
+
+# Figures
+
+```{r workflow-dia, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='An open and reproducible research workflow.', cache=FALSE, fig.env='figure'}
+library(DiagrammeR)
+library(DiagrammeRsvg)
+library(rsvg)
+
+p <- export_svg(
+  grViz(
+    "digraph Fig1 {
+    graph [fontsize = 8, nodesep=0.5]
+  
+    node [shape = box, style = filled, fillcolor = grey99, width = 1.2,fontname = Helvetica]
+    Question; Methodology; Data; Analysis; Manuscript;
+  
+    node [shape = box, style = filled, fillcolor = grey90, width = 1.2,fontname = Helvetica]
+    Description; Availability; Citation
+  
+    node [shape = box, style = filled, fillcolor = grey80, width = 1.2]
+    'Binary Code'; 'Binary File'; Supplement
+  
+    node [shape = box, style = filled, fillcolor = grey70, width = 1.2]
+    'Source Code'; 'Data File'; 'Public Repository';
+  
+    Question->Methodology->Data->Analysis
+    Analysis->Manuscript
+    Methodology->Description
+    Methodology->Citation
+    Methodology->Availability
+    Manuscript->Supplement
+    Data->'Data File'->'Public Repository'
+    Analysis->'Binary Code'->Supplement
+    Analysis->'Source Code'->'Public Repository'
+    Data->'Binary File'->Supplement
+  }",
+  width = 1000,
+  height = 750
+))
+rsvg_pdf(charToRaw(p), "Figure 1.pdf")
+
+knitr::include_graphics("Figure 1.pdf")
+```
+
+<!-- The following line inserts a page break when the output is MS Word. For page breaks in PDF, use \newpage on its own line.  -->
+##### pagebreak
+
+# Colophon
 
 This report was generated on `r Sys.time()` using the following computational environment and dependencies: 
 
 ```{r colophon, cache = FALSE}
 # which R packages and versions?
-devtools::session_info()
+sessionInfo()
 ```
 
 The current Git commit details are:
