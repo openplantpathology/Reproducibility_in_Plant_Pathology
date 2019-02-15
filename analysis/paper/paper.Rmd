@@ -36,13 +36,29 @@ library(Reproducibility.in.Plant.Pathology)
 
 # Introduction
 
-Modern plant pathological research has many facets given the array of disciplines and sub-disciplines currently involved. Collectively, they contribute to increase our basic and applied knowledge on several aspects of pathogen biology and disease development to ultimately improve management. Scientific research in the field varies from the purely observational or descriptive nature to inferential based on experimental or simulation-derived data sets. Whatever the case, research findings are verifiable based on how much of the research materials, processes and outcomes are made available beyond what is reported in the scientific article. These include biological materials (strains), nucleic/protein sequences, experimental and simulated raw data annotations, drawings and photographs and statistical analysis code among other data.
+Modern plant pathological research has many facets given the array of disciplines and sub-disciplines currently involved. Collectively, they contribute to increase our basic and applied knowledge on several aspects of pathogen biology and disease development to ultimately improve plant disease management. Scientific research in the field varies from the purely observational or descriptive nature to inferential based on experimental or simulation-derived data sets. Whatever the case, research findings are verifiable based on how much of the research materials, processes and outcomes are made available beyond what is reported in the scientific article. These include biological materials (strains), nucleic/protein sequences, experimental and simulated raw data annotations, drawings and photographs and statistical analysis code among other materials and data. That is, open science leads to reproducibility and replicability.
 
-## Reproducible Research
+## Definitions
 
-Reproducibility in scientific research has once again been highlighted recently [@Nature2016; @Baker2016a] as an important issue. Patil et al. [-@Patil2016] have provided several definitions to clarify the concepts surrounding reproducibility. For the purposes of this paper we follow the definitions as given by Patil et al. [-@Patil2016].
+In order for us to easily discuss the topic, we first must define what we mean so that we may clearly communicate. Many of the terms used in this area have varying definitions that may or may not agree with each other. For instance, reproducible research is recently hightlighted by many authors [@Baker2016a; @Iqbal2016; @Nature2016; @Weissgerber2016; @Brunsdon2015; @Sweedler2015; @Fitzjohn2014; @Ioannidis2014; @Fidler2013; @Stodden2013] as an important issue. This has resulted in attepmts to define "reproducibility", _e.g._ [@Patil2016], therefore the following definitions will be used for these terms throughout this paper.
 
-## Open Science
+### Repeatability
+
+The International Union of Pure and Applied Chemistry defines repeatability in the "Compendium of Chemical Terminology Gold Book" [@mcnaughtcompendium],
+
+> "The closeness of agreement between independent results obtained with the same method on identical test material, under the same conditions (same operator, same apparatus, same laboratory and after short intervals of time). The measure of repeatability is the standard deviation qualified with the term: `repeatability' as repeatability standard deviation. In some contexts repeatability may be defined as the value below which the absolute difference between two single test results obtained under the above conditions, may be expected to lie with a specified probability."
+
+### Reproducibility
+
+The International Union of Pure and Applied Chemistry defines reproducibility in the "Compendium of Chemical Terminology Gold Book" [@mcnaughtcompendium],
+
+>"The closeness of agreement between independent results obtained with the same method on identical test material but under different conditions (different operators, different apparatus, different laboratories and/or after different intervals of time). The measure of reproducibility is the standard deviation qualified with the term 'reproducibility' as reproducibility standard deviation. In some contexts reproducibility may be defined as the value below which the absolute difference between two single test results on identical material obtained under the above conditions, may be expected to lie with a specified probability. Note that a complete statement of reproducibility requires specification of the experimental conditions which differ."
+
+### Replicability
+
+XXXX
+
+### Open Science
 
 Open science has become highlighted lately with many donors expecting data to be available (XXXX) and other scientists interested in sharing and collaborating more widely (XXXX).
 
