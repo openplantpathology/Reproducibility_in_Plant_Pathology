@@ -11,9 +11,8 @@ vignette: >
 
 ## Creating a sample of articles
 
-Twenty one journals in the discipline of plant pathology were selected by the
-four authors as being the primary choice for most plant pathologists when
-publishing manuscripts.
+Twenty one journals in the discipline of plant pathology were selected by the authors
+as being the primary choice for most plant pathologists when publishing manuscripts.
 
 Using the assumption that journals publish an average 10 articles per issue, for
 a population of ~1000 articles, using a confidence level of 95% and confidence
