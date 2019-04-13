@@ -30,6 +30,9 @@ Depends:
     R (>= 3.2.0)
 License: MIT + file LICENSE
 Imports:
+    DiagrammeR,
+    DiagrammeRsvg,
+    rsvg,
     httr,
     methods,
     bookdown
