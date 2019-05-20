@@ -7,7 +7,7 @@ bibentry(bibtype = "Manual",
                     person("Emerson M.", "Del Ponte"),
                     person("Sydney", "Everhart"),
                     person("Zachary S. L.", "Foster"),
-                    person("Niklaus J.", "Grünwald"))
+                    person("Niklaus J.", "Grünwald")),
          year = year,
          note = note,
          url = "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology",
