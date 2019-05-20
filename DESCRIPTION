@@ -45,6 +45,7 @@ Suggests:
     googlesheets,
     gsheet,
     knitr,
+    pkgdown,
     rcrossref,
     readr,
     rmarkdown,
