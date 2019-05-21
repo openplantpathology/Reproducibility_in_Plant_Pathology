@@ -6,8 +6,8 @@ template:
 articles:
 - title: Reproducible Analyses
   contents:
-  - reproducibility_criteria
-  - assigning_articles
-  - retrieving_references
-  - generate_final_bib
-  - analysis
+  - a_reproducibility_criteria
+  - b_assigning_articles
+  - c_retrieving_references
+  - d_generate_final_bib
+  - e_analysis
