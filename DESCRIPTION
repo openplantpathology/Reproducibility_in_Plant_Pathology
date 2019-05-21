@@ -30,28 +30,27 @@ Depends:
     R (>= 3.2.0)
 License: MIT + file LICENSE
 Imports:
-    httr,
-    methods,
-    bookdown
-Suggests:
     bib2df,
     dplyr,
-    DiagrammeR,
-    DiagrammeRsvg,
-    devtools,
+    httr,
+    methods,
+    pander
+Suggests:
+    ggplot2,
     googlesheets,
     gsheet,
     knitr,
+    pkgdown,
     rcrossref,
     readr,
     rmarkdown,
     roxygen2 (>= 6.0.1),
-    rsvg,
     stringr,
     testthat,
-    tibble,
-    utils
-RoxygenNote: 6.0.1
+    tibble
+Remotes:
+    ropensci/bib2df
+RoxygenNote: 6.1.1
 Encoding: UTF-8
 NeedsCompilation: no
 LazyData: TRUE

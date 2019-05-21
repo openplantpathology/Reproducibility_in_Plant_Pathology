@@ -11,14 +11,13 @@ vignette: >
 
 ## Creating a sample of articles
 
-Twenty one journals in the discipline of plant pathology were selected by the
-four authors as being the primary choice for most plant pathologists when
-publishing manuscripts.
+Twenty one journals in the discipline of plant pathology were selected by the authors
+as being the primary choice for most plant pathologists when publishing manuscripts.
 
 Using the assumption that journals publish an average 10 articles per issue, for
 a population of ~1000 articles, using a confidence level of 95% and confidence
 interval of 10% we need 88 samples. In
-[Issue #3](https://github.com/adamhsparks/Reproducibility_in_Plant_Pathology/issues/3),
+[Issue #3](https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/issues/3),
 we decided to select 200 articles to have a large sample of the population.
 
 There are three distinct steps involved:
