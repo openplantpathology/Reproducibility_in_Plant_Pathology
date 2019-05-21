@@ -30,6 +30,7 @@ Depends:
     R (>= 3.2.0)
 License: MIT + file LICENSE
 Imports:
+    bib2df,
     dplyr,
     httr,
     methods,
