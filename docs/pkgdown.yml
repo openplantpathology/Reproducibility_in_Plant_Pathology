@@ -1,0 +1,13 @@
+pandoc: 2.7.2
+pkgdown: 1.3.0
+pkgdown_sha: ~
+articles:
+  a_reproducibility_criteria: a_reproducibility_criteria.html
+  b_assigning_articles: b_assigning_articles.html
+  c_retrieving_references: c_retrieving_references.html
+  d_generate_final_bib: d_generate_final_bib.html
+  e_analysis: e_analysis.html
+urls:
+  reference: https://openplantpathology.github.io/Reproducible.Plant.Pathology//reference
+  article: https://openplantpathology.github.io/Reproducible.Plant.Pathology//articles
+
