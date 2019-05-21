@@ -30,18 +30,12 @@ Depends:
     R (>= 3.2.0)
 License: MIT + file LICENSE
 Imports:
-    DiagrammeR,
-    DiagrammeRsvg,
-    rsvg,
+    dplyr,
     httr,
     methods,
-    bookdown
+    pander
 Suggests:
-    bib2df,
-    dplyr,
-    DiagrammeR,
-    DiagrammeRsvg,
-    devtools,
+    ggplot2,
     googlesheets,
     gsheet,
     knitr,
@@ -50,11 +44,11 @@ Suggests:
     readr,
     rmarkdown,
     roxygen2 (>= 6.0.1),
-    rsvg,
     stringr,
     testthat,
-    tibble,
-    utils
+    tibble
+Remotes:
+    ropensci/bib2df
 RoxygenNote: 6.1.1
 Encoding: UTF-8
 NeedsCompilation: no
