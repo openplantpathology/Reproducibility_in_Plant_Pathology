@@ -4,16 +4,23 @@
 \alias{table_of_journals}
 \title{Create Table of Journals Surveyed}
 \usage{
-table_of_journals()
+table_of_journals(rrpp)
+}
+\arguments{
+\item{rrpp}{`data.frame` of article evaluations}
 }
 \value{
-pander table of journals surveyed
+\pkg{pander} table of journals surveyed
 }
 \description{
 Create Table of Journals Surveyed
 }
 \examples{
-
-table_of_journals()
+\donttest{
+rrpp <- gsheet::gsheet2tbl(
+"https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381"
+)
+table_of_journals(rrpp)
+}
 
 }
