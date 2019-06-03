@@ -92,7 +92,7 @@
       <h1>Analysis</h1>
                         <h4 class="author">Adam H Sparks</h4>
             
-            <h4 class="date">2019-05-22</h4>
+            <h4 class="date">2019-06-03</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/master/vignettes/e_analysis.Rmd"><code>vignettes/e_analysis.Rmd</code></a></small>
       <div class="hidden name"><code>e_analysis.Rmd</code></div>
@@ -260,30 +260,22 @@
 <h2 class="hasAnchor">
 <a href="#article-classes" class="anchor"></a>Article classes</h2>
 <p>What class did the articles fall into, "Applied,</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggplot2)</a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="co">#&gt; Registered S3 methods overwritten by 'ggplot2':</span></a>
-<a class="sourceLine" id="cb5-3" title="3"><span class="co">#&gt;   method         from </span></a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="co">#&gt;   [.quosures     rlang</span></a>
-<a class="sourceLine" id="cb5-5" title="5"><span class="co">#&gt;   c.quosures     rlang</span></a>
-<a class="sourceLine" id="cb5-6" title="6"><span class="co">#&gt;   print.quosures rlang</span></a>
-<a class="sourceLine" id="cb5-7" title="7"></a>
-<a class="sourceLine" id="cb5-8" title="8"><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> art_class)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-9" title="9"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>(<span class="dt">stat =</span> <span class="st">"count"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-10" title="10"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Class(es)"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-11" title="11"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/theme">theme</a></span>(<span class="dt">axis.text.x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/element">element_text</a></span>(<span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">hjust =</span> <span class="dv">1</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-12" title="12"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Article Classification"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-13" title="13"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/coord_flip">coord_flip</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">x =</span> art_class)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">"count"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Class(es)"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Article Classification"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="st">  </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="e_analysis_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
 </div>
 <div id="computational-methods-available" class="section level2">
 <h2 class="hasAnchor">
 <a href="#computational-methods-available" class="anchor"></a>Computational methods available</h2>
 <p>Were the computational methods, scripts, source code, etc. made available?</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> comp_mthds_avail)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-2" title="2"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-3" title="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Computational Methods Availability"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-4" title="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-5" title="5"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/coord_flip">coord_flip</a></span>()</a>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">x =</span> comp_mthds_avail)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Computational Methods Availability"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="st">  </span><span class="kw">coord_flip</span>()</a>
 <a class="sourceLine" id="cb6-6" title="6"><span class="co">#&gt; Warning: Removed 6 rows containing non-finite values (stat_count).</span></a></code></pre></div>
 <p><img src="e_analysis_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
 </div>
@@ -291,11 +283,11 @@
 <h2 class="hasAnchor">
 <a href="#software-availability" class="anchor"></a>Software availability</h2>
 <p>Were the software used readily available and preferably open-source?</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> software_avail)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-3" title="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Software Availability"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-4" title="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/coord_flip">coord_flip</a></span>()</a>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">x =</span> software_avail)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Software Availability"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="st">  </span><span class="kw">coord_flip</span>()</a>
 <a class="sourceLine" id="cb7-6" title="6"><span class="co">#&gt; Warning: Removed 3 rows containing non-finite values (stat_count).</span></a></code></pre></div>
 <p><img src="e_analysis_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
 </div>
@@ -303,22 +295,22 @@
 <h2 class="hasAnchor">
 <a href="#data-availability" class="anchor"></a>Data availability</h2>
 <p>Were the data made available?</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> data_avail)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-3" title="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Data Availability"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-4" title="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-5" title="5"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/coord_flip">coord_flip</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">x =</span> data_avail)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Data Availability"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="st">  </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="e_analysis_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
 </div>
 <div id="software-citations" class="section level2">
 <h2 class="hasAnchor">
 <a href="#software-citations" class="anchor"></a>Software citations</h2>
 <p>Were the software that was used properly cited?</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> software_cite)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-3" title="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Software Cited"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-4" title="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-5" title="5"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/coord_flip">coord_flip</a></span>()</a>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">x =</span> software_cite)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Software Cited"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="st">  </span><span class="kw">coord_flip</span>()</a>
 <a class="sourceLine" id="cb9-6" title="6"><span class="co">#&gt; Warning: Removed 3 rows containing non-finite values (stat_count).</span></a></code></pre></div>
 <p><img src="e_analysis_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
 </div>
@@ -333,37 +325,37 @@
 <a class="sourceLine" id="cb10-5" title="5">top_software<span class="op">$</span>software_used &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/factor">factor</a></span>(top_software<span class="op">$</span>software_used,</a>
 <a class="sourceLine" id="cb10-6" title="6">                                     <span class="dt">levels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rev">rev</a></span>(top10))</a>
 <a class="sourceLine" id="cb10-7" title="7"></a>
-<a class="sourceLine" id="cb10-8" title="8"><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(top_software, <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> software_used)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-9" title="9"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-10" title="10"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Top 10 Software Used"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-11" title="11"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Software"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-12" title="12"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Count"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-13" title="13"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/coord_flip">coord_flip</a></span>()</a></code></pre></div>
+<a class="sourceLine" id="cb10-8" title="8"><span class="kw">ggplot</span>(top_software, <span class="kw">aes</span>(<span class="dt">x =</span> software_used)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-9" title="9"><span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-10" title="10"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Top 10 Software Used"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-11" title="11"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Software"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-12" title="12"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">"Count"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-13" title="13"><span class="st">  </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="e_analysis_files/figure-html/unnamed-chunk-10-1.png" width="700"></p>
 </div>
 <div id="reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
 <a href="#reproducibility-score" class="anchor"></a>Reproducibility score</h2>
 <p>The reproducibility score was calculated as the sum of the scores for computational method availability,</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x =</span> reproducibility_score)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-2" title="2"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_bar">geom_bar</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-3" title="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Combined Reproducibility Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-4" title="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-5" title="5"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/coord_flip">coord_flip</a></span>()</a>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">x =</span> reproducibility_score)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Combined Reproducibility Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="st">  </span><span class="kw">coord_flip</span>()</a>
 <a class="sourceLine" id="cb11-6" title="6"><span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_count).</span></a></code></pre></div>
 <p><img src="e_analysis_files/figure-html/unnamed-chunk-11-1.png" width="700"></p>
 </div>
 <div id="article-class-effect-on-reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
 <a href="#article-class-effect-on-reproducibility-score" class="anchor"></a>Article class effect on reproducibility score</h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">y =</span> reproducibility_score,</a>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">y =</span> reproducibility_score,</a>
 <a class="sourceLine" id="cb12-2" title="2">                 <span class="dt">x =</span> art_class)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-3" title="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_boxplot">geom_boxplot</a></span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-4" title="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_jitter">geom_jitter</a></span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-5" title="5"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Article Class Effect"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-6" title="6"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Class(es)"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-7" title="7"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-8" title="8"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/coord_flip">coord_flip</a></span>()</a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-4" title="4"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-5" title="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Article Class Effect"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-6" title="6"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Class(es)"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-7" title="7"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-8" title="8"><span class="st">  </span><span class="kw">coord_flip</span>()</a>
 <a class="sourceLine" id="cb12-9" title="9"><span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_boxplot).</span></a>
 <a class="sourceLine" id="cb12-10" title="10"><span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span></a></code></pre></div>
 <p><img src="e_analysis_files/figure-html/unnamed-chunk-12-1.png" width="700"></p>
@@ -371,14 +363,14 @@
 <div id="journal-effect-on-reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
 <a href="#journal-effect-on-reproducibility-score" class="anchor"></a>Journal effect on reproducibility score</h2>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">y =</span> reproducibility_score,</a>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">y =</span> reproducibility_score,</a>
 <a class="sourceLine" id="cb13-2" title="2">                 <span class="dt">x =</span> abbreviation)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-3" title="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_boxplot">geom_boxplot</a></span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-4" title="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_jitter">geom_jitter</a></span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-5" title="5"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Journal Effect"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-6" title="6"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Journal"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-7" title="7"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-8" title="8"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/coord_flip">coord_flip</a></span>()</a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-4" title="4"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-5" title="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Journal Effect"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-6" title="6"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Journal"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-7" title="7"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-8" title="8"><span class="st">  </span><span class="kw">coord_flip</span>()</a>
 <a class="sourceLine" id="cb13-9" title="9"><span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_boxplot).</span></a>
 <a class="sourceLine" id="cb13-10" title="10"><span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span></a></code></pre></div>
 <p><img src="e_analysis_files/figure-html/unnamed-chunk-13-1.png" width="700"></p>
@@ -386,14 +378,14 @@
 <div id="evaluator-effect-on-reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
 <a href="#evaluator-effect-on-reproducibility-score" class="anchor"></a>Evaluator effect on reproducibility score</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">y =</span> reproducibility_score,</a>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">y =</span> reproducibility_score,</a>
 <a class="sourceLine" id="cb14-2" title="2">                 <span class="dt">x =</span> assignee)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-3" title="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_boxplot">geom_boxplot</a></span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-4" title="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_jitter">geom_jitter</a></span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-5" title="5"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Evaluator Effect"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-6" title="6"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Evaluator"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-7" title="7"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-8" title="8"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/coord_flip">coord_flip</a></span>()</a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-4" title="4"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-5" title="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Evaluator Effect"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-6" title="6"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Evaluator"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-7" title="7"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-8" title="8"><span class="st">  </span><span class="kw">coord_flip</span>()</a>
 <a class="sourceLine" id="cb14-9" title="9"><span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_boxplot).</span></a>
 <a class="sourceLine" id="cb14-10" title="10"><span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span></a></code></pre></div>
 <p><img src="e_analysis_files/figure-html/unnamed-chunk-14-1.png" width="700"></p>
@@ -401,27 +393,27 @@
 <div id="five-year-impact-factor-effect-on-reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
 <a href="#five-year-impact-factor-effect-on-reproducibility-score" class="anchor"></a>Five year impact factor effect on reproducibility score</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">y =</span> reproducibility_score,</a>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">y =</span> reproducibility_score,</a>
 <a class="sourceLine" id="cb15-2" title="2">                 <span class="dt">x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/factor">as.factor</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Round">round</a></span>(IF_5year, <span class="dv">1</span>)))) <span class="op">+</span></a>
-<a class="sourceLine" id="cb15-3" title="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_boxplot">geom_boxplot</a></span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb15-4" title="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Five Year IF Effect"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb15-5" title="5"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Impact Factor"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb15-6" title="6"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb15-7" title="7"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/coord_flip">coord_flip</a></span>()</a>
+<a class="sourceLine" id="cb15-3" title="3"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-4" title="4"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Five Year IF Effect"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-5" title="5"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Impact Factor"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-6" title="6"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-7" title="7"><span class="st">  </span><span class="kw">coord_flip</span>()</a>
 <a class="sourceLine" id="cb15-8" title="8"><span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_boxplot).</span></a></code></pre></div>
 <p><img src="e_analysis_files/figure-html/unnamed-chunk-15-1.png" width="700"></p>
 </div>
 <div id="journal-open-access-effect-on-reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
 <a href="#journal-open-access-effect-on-reproducibility-score" class="anchor"></a>Journal open access effect on reproducibility score</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">y =</span> reproducibility_score,</a>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">y =</span> reproducibility_score,</a>
 <a class="sourceLine" id="cb16-2" title="2">                 <span class="dt">x =</span> open)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb16-3" title="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_boxplot">geom_boxplot</a></span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb16-4" title="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_jitter">geom_jitter</a></span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb16-5" title="5"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Open Access Effect"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb16-6" title="6"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Impact Factor"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb16-7" title="7"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb16-8" title="8"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/coord_flip">coord_flip</a></span>()</a>
+<a class="sourceLine" id="cb16-3" title="3"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb16-4" title="4"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb16-5" title="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Open Access Effect"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb16-6" title="6"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Open Access Classification"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb16-7" title="7"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb16-8" title="8"><span class="st">  </span><span class="kw">coord_flip</span>()</a>
 <a class="sourceLine" id="cb16-9" title="9"><span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_boxplot).</span></a>
 <a class="sourceLine" id="cb16-10" title="10"><span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span></a></code></pre></div>
 <p><img src="e_analysis_files/figure-html/unnamed-chunk-16-1.png" width="700"></p>
@@ -429,14 +421,14 @@
 <div id="journal-reproducibility-instructions-effect-on-reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
 <a href="#journal-reproducibility-instructions-effect-on-reproducibility-score" class="anchor"></a>Journal reproducibility instructions effect on reproducibility score</h2>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(rrpp, <span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">y =</span> reproducibility_score,</a>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">ggplot</span>(rrpp, <span class="kw">aes</span>(<span class="dt">y =</span> reproducibility_score,</a>
 <a class="sourceLine" id="cb17-2" title="2">                 <span class="dt">x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/factor">as.factor</a></span>(repro_inst))) <span class="op">+</span></a>
-<a class="sourceLine" id="cb17-3" title="3"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_boxplot">geom_boxplot</a></span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb17-4" title="4"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_jitter">geom_jitter</a></span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb17-5" title="5"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ggtitle</a></span>(<span class="st">"Reproducibility Instructions Effect"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb17-6" title="6"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">xlab</a></span>(<span class="st">"Reproducibility Instructions Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb17-7" title="7"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">ylab</a></span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb17-8" title="8"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/coord_flip">coord_flip</a></span>()</a>
+<a class="sourceLine" id="cb17-3" title="3"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">outlier.shape =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb17-4" title="4"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb17-5" title="5"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">"Reproducibility Instructions Effect"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb17-6" title="6"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">"Reproducibility Instructions Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb17-7" title="7"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">"Score"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb17-8" title="8"><span class="st">  </span><span class="kw">coord_flip</span>()</a>
 <a class="sourceLine" id="cb17-9" title="9"><span class="co">#&gt; Warning: Removed 2 rows containing non-finite values (stat_boxplot).</span></a>
 <a class="sourceLine" id="cb17-10" title="10"><span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span></a></code></pre></div>
 <p><img src="e_analysis_files/figure-html/unnamed-chunk-17-1.png" width="700"></p>

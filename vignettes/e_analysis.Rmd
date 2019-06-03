@@ -14,6 +14,9 @@ knitr::opts_chunk$set(
 collapse = TRUE,
 comment = "#>"
 )
+library(hrbrthemes)
+library(ggplot2)
+theme_set(theme_ipsum_rc())
 ```
 
 This analysis is a simple visualisation and tabulation of the data gathered from surveying 21 journals and 200 articles in the field of plant pathology for their openness and reproducibility.
@@ -77,12 +80,9 @@ rrpp_software <-
 What class did the articles fall into, "Applied, 
 
 ```{r}
-library(ggplot2)
-
 ggplot(rrpp, aes(x = art_class)) +
   geom_bar(stat = "count") +
   xlab("Class(es)") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   ggtitle("Article Classification") +
   coord_flip()
 ```
@@ -228,7 +228,7 @@ ggplot(rrpp, aes(y = reproducibility_score,
   geom_boxplot(outlier.shape = NA) +
   geom_jitter(width = 0.25, alpha = 0.5) +
   ggtitle("Open Access Effect") +
-  xlab("Impact Factor") +
+  xlab("Open Access Classification") +
   ylab("Score") +
   coord_flip()
 ```
