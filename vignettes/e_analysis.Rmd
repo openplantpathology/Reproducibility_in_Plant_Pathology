@@ -14,12 +14,24 @@ knitr::opts_chunk$set(
 collapse = TRUE,
 comment = "#>"
 )
-library(hrbrthemes)
-library(ggplot2)
-theme_set(theme_ipsum_rc())
 ```
 
 This analysis is a simple visualisation and tabulation of the data gathered from surveying 21 journals and 200 articles in the field of plant pathology for their openness and reproducibility.
+
+# Setup Workspace
+
+Setup workspace by loading libraries used and setting the ggplot2 theme for the document.
+
+```{r load-libraries}
+library(BayesFactor)
+library(dplyr)
+library(ggplot2)
+library(hrbrthemes)
+library(magrittr)
+library(tidyr)
+
+theme_set(theme_ipsum_rc())
+```
 
 # Import article evaluations
 
@@ -38,9 +50,9 @@ table_of_journals(rrpp)
 
 ## Prepare the data
 
-```{r}
-library(dplyr)
+Calculate the reproducibility score, dropping any rows (in this case two) that have `NA` for the full score and convert fields to factors and the tibble to a data.frame.
 
+```{r}
 rrpp <-
   rrpp %>%
   mutate(
@@ -57,17 +69,27 @@ rrpp <-
         
         missing = as.integer(0)
       )
-  )
+  ) %>%
+  mutate(IF_5year =
+           if_else(
+             condition = is.na(IF_5year),
+             true = 0,
+             false = IF_5year
+           )) %>%
+  mutate(art_class = as.factor(art_class)) %>%
+  mutate(repro_inst = as.factor(repro_inst)) %>%
+  mutate(open = as.factor(open)) %>%
+  mutate(abbreviation = as.factor(abbreviation)) %>%
+  mutate(assignee = as.factor(assignee)) %>%
+  filter(!is.na(reproducibility_score)) %>%
+  as.data.frame()
 ```
-
 
 Create a tidy data frame of the data by unnesting software used as in many cases
 multiple software packages were used, so will end up with multiple rows for same
 article, one for each software.
 
 ```{r}
-library(magrittr)
-library(tidyr)
 rrpp_software <- 
   rrpp %>%
   unnest(software_used = strsplit(software_used, ", "))
@@ -180,6 +202,8 @@ ggplot(rrpp, aes(y = reproducibility_score,
   xlab("Class(es)") +
   ylab("Score") +
   coord_flip()
+
+ttestBF(formula = reproducibility_score ~ art_class, data = rrpp)
 ```
 
 ## Journal effect on reproducibility score
@@ -187,12 +211,13 @@ ggplot(rrpp, aes(y = reproducibility_score,
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = abbreviation)) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_jitter(width = 0.25, alpha = 0.5) +
+  geom_count() +
   ggtitle("Journal Effect") +
   xlab("Journal") +
   ylab("Score") +
   coord_flip()
+
+anovaBF(formula = reproducibility_score ~ abbreviation, data = rrpp)
 ```
 
 ## Evaluator effect on reproducibility score
@@ -200,24 +225,27 @@ ggplot(rrpp, aes(y = reproducibility_score,
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = assignee)) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_jitter(width = 0.25, alpha = 0.5) +
+  geom_count() +
   ggtitle("Evaluator Effect") +
   xlab("Evaluator") +
   ylab("Score") +
   coord_flip()
+
+anovaBF(formula = reproducibility_score ~ assignee, data = rrpp)
 ```
 
 ## Five year impact factor effect on reproducibility score
 
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
-                 x = as.factor(round(IF_5year, 1)))) +
-  geom_boxplot(outlier.shape = NA) +
+                 x = IF_5year)) +
+  geom_count() +
   ggtitle("Five Year IF Effect") +
   xlab("Impact Factor") +
   ylab("Score") +
   coord_flip()
+
+regressionBF(formula = reproducibility_score ~ IF_5year, data = rrpp)
 ```
 
 ## Journal open access effect on reproducibility score
@@ -225,12 +253,13 @@ ggplot(rrpp, aes(y = reproducibility_score,
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = open)) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_jitter(width = 0.25, alpha = 0.5) +
+   geom_count() +
   ggtitle("Open Access Effect") +
   xlab("Open Access Classification") +
   ylab("Score") +
   coord_flip()
+
+ttestBF(formula = reproducibility_score ~ open, data = rrpp)
 ```
 
 ## Journal reproducibility instructions effect on reproducibility score
@@ -244,4 +273,6 @@ ggplot(rrpp, aes(y = reproducibility_score,
   xlab("Reproducibility Instructions Score") +
   ylab("Score") +
   coord_flip()
+
+anovaBF(formula = reproducibility_score ~ repro_inst, data = rrpp)
 ```
