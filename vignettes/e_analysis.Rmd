@@ -23,11 +23,13 @@ This analysis is a simple visualisation and tabulation of the data gathered from
 Setup workspace by loading libraries used and setting the ggplot2 theme for the document.
 
 ```{r load-libraries}
-library(BayesFactor)
 library(dplyr)
 library(ggplot2)
 library(hrbrthemes)
+library(janitor)
 library(magrittr)
+library(pander)
+library(Reproducibility.in.Plant.Pathology)
 library(tidyr)
 
 theme_set(theme_ipsum_rc())
@@ -39,13 +41,6 @@ theme_set(theme_ipsum_rc())
 rrpp <- gsheet::gsheet2tbl(
   "https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381"
 )
-```
-
-## Table of Journals Surveyed
-
-```{r}
-library(Reproducibility.in.Plant.Pathology)
-table_of_journals(rrpp)
 ```
 
 ## Prepare the data
@@ -202,8 +197,6 @@ ggplot(rrpp, aes(y = reproducibility_score,
   xlab("Class(es)") +
   ylab("Score") +
   coord_flip()
-
-ttestBF(formula = reproducibility_score ~ art_class, data = rrpp)
 ```
 
 ## Journal effect on reproducibility score
@@ -216,8 +209,6 @@ ggplot(rrpp, aes(y = reproducibility_score,
   xlab("Journal") +
   ylab("Score") +
   coord_flip()
-
-anovaBF(formula = reproducibility_score ~ abbreviation, data = rrpp)
 ```
 
 ## Evaluator effect on reproducibility score
@@ -230,8 +221,6 @@ ggplot(rrpp, aes(y = reproducibility_score,
   xlab("Evaluator") +
   ylab("Score") +
   coord_flip()
-
-anovaBF(formula = reproducibility_score ~ assignee, data = rrpp)
 ```
 
 ## Five year impact factor effect on reproducibility score
@@ -244,8 +233,6 @@ ggplot(rrpp, aes(y = reproducibility_score,
   xlab("Impact Factor") +
   ylab("Score") +
   coord_flip()
-
-regressionBF(formula = reproducibility_score ~ IF_5year, data = rrpp)
 ```
 
 ## Journal open access effect on reproducibility score
@@ -258,8 +245,6 @@ ggplot(rrpp, aes(y = reproducibility_score,
   xlab("Open Access Classification") +
   ylab("Score") +
   coord_flip()
-
-ttestBF(formula = reproducibility_score ~ open, data = rrpp)
 ```
 
 ## Journal reproducibility instructions effect on reproducibility score
@@ -273,6 +258,24 @@ ggplot(rrpp, aes(y = reproducibility_score,
   xlab("Reproducibility Instructions Score") +
   ylab("Score") +
   coord_flip()
-
-anovaBF(formula = reproducibility_score ~ repro_inst, data = rrpp)
 ```
+
+## Tables
+
+### Table of Journals Surveyed
+
+```{r}
+rrpp_journals <- tabyl(rrpp, journal)
+names(rrpp_journals) <- c("Journal", "n", "Percent")
+rrpp_journals$percent <- rrpp_journals$percent * 100
+pander(rrpp_journals)
+```
+
+### Table of Article Scores
+
+```{r table_scores}
+article_scores <- tabyl(rrpp, reproducibility_score)
+names(article_scores) <- c("Score", "n", "Percent")
+pander(article_scores)
+```
+
