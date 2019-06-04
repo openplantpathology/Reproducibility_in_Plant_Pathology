@@ -264,10 +264,9 @@ ggplot(rrpp, aes(y = reproducibility_score,
 
 ### Table of Journals Surveyed
 
-```{r}
-rrpp_journals <- tabyl(rrpp, journal)
-names(rrpp_journals) <- c("Journal", "n", "Percent")
-rrpp_journals$percent <- rrpp_journals$percent * 100
+```{r journals}
+rrpp_journals <- tabyl(rrpp, journal)[, -3]
+names(rrpp_journals) <- c("Journal", "n")
 pander(rrpp_journals)
 ```
 
@@ -276,6 +275,7 @@ pander(rrpp_journals)
 ```{r table_scores}
 article_scores <- tabyl(rrpp, reproducibility_score)
 names(article_scores) <- c("Score", "n", "Percent")
+article_scores$Percent <- round(article_scores$Percent * 100, 1)
 pander(article_scores)
 ```
 
