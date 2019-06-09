@@ -1,5 +1,5 @@
 ---
-title: "Assigning Articles to Evaluators"
+title: "Second Round of Assigning Articles to Evaluators"
 author: "Adam H Sparks"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -87,15 +87,15 @@ journal_list <- tibble(
 names(journal_list) <- c("number", "journal")
 ```
 
-### Create list of evaluators
+### Create list of evaluators for second round of reviews
 
-From the four authors of this paper, in this step, we will create a list for us
-to use that will randomly assign articles for us to evaluate for this
-manuscript.
+These articles were added at a later date to look for any possible trends in
+the plant pathology literature being published. The same journal titles were
+sampled for 2017-2018 using the same protocols as the original set of 200
+articles for 100 articles over two years.
 
-```{r assignee}
-assignee <- rep(c("Adam", "Emerson", "Zach", "Nik"), 50)
-
+```{r new_assignees}
+org_new_assigneess <- rep(c("Emerson", "Kaique"), 50)
 ```
 
 ### Create randomised list
@@ -106,7 +106,7 @@ the four authors for this paper.
 #### Create a randomised list of the journals
 
 ```{r journal_sample}
-journals <- tibble(sample(1:21, 200, replace = TRUE))
+journals <- tibble(sample(1:21, 100, replace = TRUE))
 
 names(journals) <- "number"
 
@@ -123,13 +123,13 @@ temporal effect, _i.e._, the time of year an article is published does not
 affect whether or not it is reproducible.
 
 ```{r years_and_articles}
-year <- sample(2012:2016, 200, replace = TRUE)
+year <- sample(2017:2018, 100, replace = TRUE)
 
 contains_page <- sample.int(150, 200, replace = TRUE)
 
-journals <- cbind(journals[, -1], year, contains_page, assignee)
+journals <- cbind(journals[, -1], year, contains_page, new_assignees)
 
-journals <- arrange(.data = journals, assignee, journal, year, contains_page)
+journals <- arrange(.data = journals, new_assignees, journal, year, contains_page)
 
 ```
 
@@ -176,7 +176,7 @@ to_record <- c(
   
   journals <- 
     journals %>%
-    group_by(assignee) %>%
+    group_by(new_assignees) %>%
     as_tibble()
 ```
 
@@ -223,11 +223,11 @@ DOI, so we'll have to manually generate those entries, or fetch them from the
 journals' website later.
 
 ```{r join_files, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
-article_notes <- gs_title("article_notes")
+article_notes <- gs_title("new_article_notes")
 
 notes <- 
   article_notes %>% 
-    gs_read(ws = "article_notes")
+    gs_read(ws = "new_article_notes")
   
 # format DOIs to all be uniform, lower-case
 notes$doi <- tolower(notes$doi)
@@ -283,7 +283,6 @@ clean_articles_pm <- function(x) {
 # apply function and clean the bib entries
 cleaned_pm <- unlist(lapply(bib_clean_pm, clean_articles_pm))
 bib <- bib[-clean_pm]
-  
 ```
 
 The larger list of bib objects has some items that are supposedly invalid DOIs.
@@ -306,13 +305,18 @@ prompted to regarding the cite keys.
 
 ```{r export_import_bib, eval=FALSE}
 # clean up any existing files since we're appending
-unlink("~/tmp/bib_article_notes.bib")
+unlink("~/tmp/bib_new_article_notes.bib")
 
 # write files to a local directory and clean up with JabRef
-lapply(unlist(bib), write, "~/tmp/bib_article_notes.bib", append = TRUE)
-lapply(unlist(cleaned_pp), write, "~/tmp/bib_article_notes.bib", append = TRUE)
-lapply(unlist(cleaned_pm), write, "~/tmp/bib_article_notes.bib", append = TRUE)
-
+lapply(unlist(bib),
+       write, "~/tmp/bib_new_article_notes.bib",
+       append = TRUE)
+lapply(unlist(cleaned_pp),
+       write, "~/tmp/bib_new_article_notes.bib",
+       append = TRUE)
+lapply(unlist(cleaned_pm),
+       write, "~/tmp/bib_new_article_notes.bib",
+       append = TRUE)
 ```
 
 *Important* Open resulting files in `~/tmp` directory in JabRef, create new
@@ -327,22 +331,22 @@ Google Sheets for collaborative edits.
 ```{r google, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
 
 # import both the Journal of Plant Pathology (cleaned_bib) and article_notes.bib
-bib <- bib2df("~/tmp/bib_article_notes.bib")
+bib <- bib2df("~/tmp/bib_new_article_notes.bib")
 names(bib) <- tolower(names(bib))
 
 # join notes with bibliographic data
 bib_df <- left_join(notes, bib)
-bib_df <- arrange(bib_df, assignee)
+bib_df <- arrange(bib_df, new_assignees)
 
 # create Google Sheet for concurrent edits
-article_notes <-
-  article_notes %>%
-    gs_ws_new(
-    ws_title = "article_evaluations",
+new_article_notes <-
+  new_article_notes %>%
+  gs_ws_new(
+    ws_title = "new_article_evaluations",
     input = bib_df,
     trim = TRUE,
     verbose = FALSE
-    )
+  )
 
 # clean up files to build R package properly with no NOTES
 unlink(".httr-oauth")
@@ -351,7 +355,7 @@ unlink(".httr-oauth")
 ### Last steps
 
 The last few steps are completed outside of R in Google Docs, manually adding
-the missing information to the spreadsheet and the assignees adding their
+the missing information to the spreadsheet and the new_assigneess adding their
 evaluations of their respective articles.
 
 The Google Sheets can be found here:
