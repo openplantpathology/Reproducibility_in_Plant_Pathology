@@ -100,7 +100,7 @@ Later we decided to add more authors and more articles. That work is detailed
 in this [second document](b2_assigning_articles).
 
 ```{r assignees}
-assigneess <- rep(c("Adam", "Emerson", "Zach", "Nik"), 50)
+assignees <- rep(c("Adam", "Emerson", "Zach", "Nik"), 50)
 
 ```
 
