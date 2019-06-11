@@ -6,3 +6,4 @@
 inst/doc
 vignettes/.httr-oauth
 .httr-oauth
+*.bib.bak

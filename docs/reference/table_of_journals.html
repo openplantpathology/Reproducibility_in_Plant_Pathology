@@ -32,7 +32,8 @@
 
 <meta property="og:title" content="Create Table of Journals Surveyed — table_of_journals" />
 
-<meta property="og:description" content="Create Table of Journals Surveyed" />
+<meta property="og:description" content="Create Table of Journals Surveyed
+Create Table of Article Scores" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -124,21 +125,28 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Create Table of Journals Surveyed</h1>
-    <small class="dont-index">Source: <a href='https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/master/R/table_of_journals.R'><code>R/table_of_journals.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/master/R/table_of_journals.R'><code>R/table_of_journals.R</code></a>, <a href='https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/master/R/table_of_scores.R'><code>R/table_of_scores.R</code></a></small>
     <div class="hidden name"><code>table_of_journals.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
     <p>Create Table of Journals Surveyed</p>
+<p>Create Table of Article Scores</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>table_of_journals</span>(<span class='no'>rrpp</span>)</pre>
+    <pre class="usage"><span class='fu'>table_of_journals</span>(<span class='no'>rrpp</span>)
+
+<span class='fu'>table_of_journals</span>(<span class='no'>rrpp</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>rrpp</th>
+      <td><p>`data.frame` of article evaluations</p></td>
+    </tr>
     <tr>
       <th>rrpp</th>
       <td><p>`data.frame` of article evaluations</p></td>
@@ -148,66 +156,18 @@
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><span class="pkg">pander</span> table of journals surveyed</p>
+<p><span class="pkg">pander</span> table summarising article scores</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>rrpp</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>gsheet</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/gsheet/topics/gsheet2tbl'>gsheet2tbl</a></span>(
 <span class='st'>"https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381"</span>
 )
-<span class='fu'>table_of_journals</span>(<span class='no'>rrpp</span>)</div><div class='output co'>#&gt; 
-#&gt; --------------------------------------
-#&gt;            Journal              Count 
-#&gt; ------------------------------ -------
-#&gt;  Australasian Plant Pathology     4   
-#&gt; 
-#&gt;   Canadian Journal of Plant       7   
-#&gt;           Pathology                   
-#&gt; 
-#&gt;        Crop Protection            9   
-#&gt; 
-#&gt;   European Journal of Plant       8   
-#&gt;           Pathology                   
-#&gt; 
-#&gt;        Forest Pathology           9   
-#&gt; 
-#&gt;    Journal of General Plant      12   
-#&gt;           Pathology                   
-#&gt; 
-#&gt;   Journal of Phytopathology       7   
-#&gt; 
-#&gt;   Journal of Plant Pathology     11   
-#&gt; 
-#&gt;   Molecular Plant Pathology      15   
-#&gt; 
-#&gt;    Molecular Plant-Microbe       10   
-#&gt;          Interactions                 
-#&gt; 
-#&gt;           Nematology              7   
-#&gt; 
-#&gt;  Physiological and Molecular     11   
-#&gt;        Plant Pathology                
-#&gt; 
-#&gt;        Phytoparasitica           13   
-#&gt; 
-#&gt;  Phytopathologia Mediterranea     7   
-#&gt; 
-#&gt;         Phytopathology           13   
-#&gt; 
-#&gt;         Plant Disease            12   
-#&gt; 
-#&gt;     Plant Health Progress         6   
-#&gt; 
-#&gt;        Plant Pathology           14   
-#&gt; 
-#&gt;      Revista Mexicana de          8   
-#&gt;         Fitopatología                 
-#&gt; 
-#&gt;    Tropical Plant Pathology       6   
-#&gt; 
-#&gt;    Virology Journal (Plant       11   
-#&gt;        Viruses Section)               
-#&gt; --------------------------------------
-#&gt; </div><div class='input'>
+<span class='fu'>table_of_journals</span>(<span class='no'>rrpp</span>)</div><div class='output co'>#&gt; <span class='error'>Error in .f(.x[[i]], ...): object 'reproducibility_score' not found</span></div><div class='input'>
+</div><div class='input'><span class='no'>rrpp</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>gsheet</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/gsheet/topics/gsheet2tbl'>gsheet2tbl</a></span>(
+<span class='st'>"https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381"</span>
+)
+<span class='fu'>table_of_scores</span>(<span class='no'>rrpp</span>)</div><div class='output co'>#&gt; <span class='error'>Error in table_of_scores(rrpp): could not find function "table_of_scores"</span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

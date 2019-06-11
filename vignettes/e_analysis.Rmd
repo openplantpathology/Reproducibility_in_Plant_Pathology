@@ -18,6 +18,23 @@ comment = "#>"
 
 This analysis is a simple visualisation and tabulation of the data gathered from surveying 21 journals and 200 articles in the field of plant pathology for their openness and reproducibility.
 
+# Setup Workspace
+
+Setup workspace by loading libraries used and setting the ggplot2 theme for the document.
+
+```{r load-libraries}
+library(dplyr)
+library(ggplot2)
+library(hrbrthemes)
+library(janitor)
+library(magrittr)
+library(pander)
+library(Reproducibility.in.Plant.Pathology)
+library(tidyr)
+
+theme_set(theme_ipsum_rc())
+```
+
 # Import article evaluations
 
 ```{r}
@@ -26,18 +43,11 @@ rrpp <- gsheet::gsheet2tbl(
 )
 ```
 
-## Table of Journals Surveyed
-
-```{r}
-library(Reproducibility.in.Plant.Pathology)
-table_of_journals(rrpp)
-```
-
 ## Prepare the data
 
-```{r}
-library(dplyr)
+Calculate the reproducibility score, dropping any rows (in this case two) that have `NA` for the full score and convert fields to factors and the tibble to a data.frame.
 
+```{r}
 rrpp <-
   rrpp %>%
   mutate(
@@ -54,17 +64,27 @@ rrpp <-
         
         missing = as.integer(0)
       )
-  )
+  ) %>%
+  mutate(IF_5year =
+           if_else(
+             condition = is.na(IF_5year),
+             true = 0,
+             false = IF_5year
+           )) %>%
+  mutate(art_class = as.factor(art_class)) %>%
+  mutate(repro_inst = as.factor(repro_inst)) %>%
+  mutate(open = as.factor(open)) %>%
+  mutate(abbreviation = as.factor(abbreviation)) %>%
+  mutate(assignee = as.factor(assignee)) %>%
+  filter(!is.na(reproducibility_score)) %>%
+  as.data.frame()
 ```
-
 
 Create a tidy data frame of the data by unnesting software used as in many cases
 multiple software packages were used, so will end up with multiple rows for same
 article, one for each software.
 
 ```{r}
-library(magrittr)
-library(tidyr)
 rrpp_software <- 
   rrpp %>%
   unnest(software_used = strsplit(software_used, ", "))
@@ -77,12 +97,9 @@ rrpp_software <-
 What class did the articles fall into, "Applied, 
 
 ```{r}
-library(ggplot2)
-
 ggplot(rrpp, aes(x = art_class)) +
   geom_bar(stat = "count") +
   xlab("Class(es)") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   ggtitle("Article Classification") +
   coord_flip()
 ```
@@ -187,8 +204,7 @@ ggplot(rrpp, aes(y = reproducibility_score,
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = abbreviation)) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_jitter(width = 0.25, alpha = 0.5) +
+  geom_count() +
   ggtitle("Journal Effect") +
   xlab("Journal") +
   ylab("Score") +
@@ -200,8 +216,7 @@ ggplot(rrpp, aes(y = reproducibility_score,
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = assignee)) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_jitter(width = 0.25, alpha = 0.5) +
+  geom_count() +
   ggtitle("Evaluator Effect") +
   xlab("Evaluator") +
   ylab("Score") +
@@ -212,8 +227,8 @@ ggplot(rrpp, aes(y = reproducibility_score,
 
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
-                 x = as.factor(round(IF_5year, 1)))) +
-  geom_boxplot(outlier.shape = NA) +
+                 x = IF_5year)) +
+  geom_count() +
   ggtitle("Five Year IF Effect") +
   xlab("Impact Factor") +
   ylab("Score") +
@@ -225,10 +240,9 @@ ggplot(rrpp, aes(y = reproducibility_score,
 ```{r}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = open)) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_jitter(width = 0.25, alpha = 0.5) +
+   geom_count() +
   ggtitle("Open Access Effect") +
-  xlab("Impact Factor") +
+  xlab("Open Access Classification") +
   ylab("Score") +
   coord_flip()
 ```
@@ -245,3 +259,23 @@ ggplot(rrpp, aes(y = reproducibility_score,
   ylab("Score") +
   coord_flip()
 ```
+
+## Tables
+
+### Table of Journals Surveyed
+
+```{r journals}
+rrpp_journals <- tabyl(rrpp, journal)[, -3]
+names(rrpp_journals) <- c("Journal", "n")
+pander(rrpp_journals)
+```
+
+### Table of Article Scores
+
+```{r table_scores}
+article_scores <- tabyl(rrpp, reproducibility_score)
+names(article_scores) <- c("Score", "n", "Percent")
+article_scores$Percent <- round(article_scores$Percent * 100, 1)
+pander(article_scores)
+```
+

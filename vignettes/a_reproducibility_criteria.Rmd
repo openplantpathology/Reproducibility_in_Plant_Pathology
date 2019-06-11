@@ -221,7 +221,7 @@ other proper archiving system)
 #### "reproducibility_score"
 
 Sum of the prior scores that are scored on a `0` - `3` scale. A score of `0` is
-not reproducible a score of `21` is perfectly reproducible based on the
+not reproducible a score of `12` is perfectly reproducible based on the
 criteria agreed upon for this article.
 
 ## Bibliography fields

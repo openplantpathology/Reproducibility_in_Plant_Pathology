@@ -48,8 +48,6 @@ Suggests:
     stringr,
     testthat,
     tibble
-Remotes:
-    ropensci/bib2df
 RoxygenNote: 6.1.1
 Encoding: UTF-8
 NeedsCompilation: no

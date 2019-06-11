@@ -1,40 +1,21 @@
 ---
-title: "Assigning Articles to Evaluators"
+title: "Second Round of Assigning Articles to Evaluators"
 author: "Adam H Sparks"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{assigning_articles}
+  %\VignetteIndexEntry{assigning_articles_second_round}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
 ## Creating a sample of articles
 
-Twenty one journals in the discipline of plant pathology were selected by the authors
-as being the primary choice for most plant pathologists when publishing manuscripts.
+As a second round to bring the analysis up-to-date, we elected to sample 100 articles
+from the same 21 journals for 2017-2018.
 
-Using the assumption that journals publish an average 10 articles per issue, for
-a population of ~1000 articles, using a confidence level of 95% and confidence
-interval of 10% we need 88 samples. In
-[Issue #3](https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/issues/3),
-we decided to select 200 articles to have a large sample of the population.
-
-There are three distinct steps involved:
-
-1. Set up the journals, years, and page numbers and evaluators and assign
-randomly. Create a tibble that holds these data along with empty fields
-for the evaluation of the articles. Create a Google Sheets object to serve as a
-template for the second step.
-
-2. Look up the articles and check that the selected journal, year, page number
-actually are appropriate and enter the DOI and other comments regarding
-article selection in Google Sheets. Which is used in the third step.
-
-3. Import article notes and DOIs from Google Sheets back to R, retrieve as many
-bib entries as possible using the DOI. Merge the bib entries with the notes
-and DOI values. Create a new tab in the Google Sheets object for the evaluators
-to carry out evaluations.
+Aside from the different years, the journals remain the same and process as
+described previously.
 
 ## Step 1
 
@@ -48,7 +29,7 @@ library(googlesheets)
 library(stringr)
 library(Reproducibility.in.Plant.Pathology)
 
-set.seed(1)
+set.seed(23)
 
 # For printing tibble in total
 options(tibble.print_max = 21, tibble.print_min = 21)
@@ -87,15 +68,15 @@ journal_list <- tibble(
 names(journal_list) <- c("number", "journal")
 ```
 
-### Create list of evaluators
+### Create list of evaluators for second round of reviews
 
-From the four authors of this paper, in this step, we will create a list for us
-to use that will randomly assign articles for us to evaluate for this
-manuscript.
+These articles were added at a later date to look for any possible trends in
+the plant pathology literature being published. The same journal titles were
+sampled for 2017-2018 using the same protocols as the original set of 200
+articles for 100 articles over two years.
 
-```{r assignee}
-assignee <- rep(c("Adam", "Emerson", "Zach", "Nik"), 50)
-
+```{r new_assignees}
+assignees <- rep(c("Emerson", "Kaique"), 50)
 ```
 
 ### Create randomised list
@@ -106,7 +87,7 @@ the four authors for this paper.
 #### Create a randomised list of the journals
 
 ```{r journal_sample}
-journals <- tibble(sample(1:21, 200, replace = TRUE))
+journals <- tibble(sample(1:21, 100, replace = TRUE))
 
 names(journals) <- "number"
 
@@ -123,14 +104,13 @@ temporal effect, _i.e._, the time of year an article is published does not
 affect whether or not it is reproducible.
 
 ```{r years_and_articles}
-year <- sample(2012:2016, 200, replace = TRUE)
+year <- sample(2017:2018, 100, replace = TRUE)
 
-contains_page <- sample.int(150, 200, replace = TRUE)
+contains_page <- sample.int(150, 100, replace = TRUE)
 
-journals <- cbind(journals[, -1], year, contains_page, assignee)
+journals <- cbind(journals[, -1], year, contains_page, assignees)
 
-journals <- arrange(.data = journals, assignee, journal, year, contains_page)
-
+journals <- arrange(.data = journals, assignees, journal, year, contains_page)
 ```
 
 #### Check the number of articles per journal
@@ -176,7 +156,7 @@ to_record <- c(
   
   journals <- 
     journals %>%
-    group_by(assignee) %>%
+    group_by(assignees) %>%
     as_tibble()
 ```
 
@@ -198,7 +178,7 @@ gs_auth()
 
 # create Google Sheet for concurrent edits, first sheet: article notes template
 gs_new(
-  "article_notes",
+  "article_notes_2017-2018",
   ws_title = "template",
   input = journals,
   trim = TRUE,
@@ -211,7 +191,7 @@ gs_new(
 ### Add article DOI's
 
 This step is completed in gsheets, Adam looked up articles and added notes and
-DOIs to a gsheet, "article_notes" which will be imported to R in the next step.
+DOIs to a gsheet, "article_notes_2017-2018" which will be imported to R in the next step.
 
 ## Step 3
 
@@ -223,7 +203,7 @@ DOI, so we'll have to manually generate those entries, or fetch them from the
 journals' website later.
 
 ```{r join_files, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
-article_notes <- gs_title("article_notes")
+article_notes <- gs_title("article_notes_2017-2018")
 
 notes <- 
   article_notes %>% 
@@ -283,7 +263,6 @@ clean_articles_pm <- function(x) {
 # apply function and clean the bib entries
 cleaned_pm <- unlist(lapply(bib_clean_pm, clean_articles_pm))
 bib <- bib[-clean_pm]
-  
 ```
 
 The larger list of bib objects has some items that are supposedly invalid DOIs.
@@ -306,13 +285,18 @@ prompted to regarding the cite keys.
 
 ```{r export_import_bib, eval=FALSE}
 # clean up any existing files since we're appending
-unlink("~/tmp/bib_article_notes.bib")
+unlink("~/tmp/bib_new_article_notes.bib")
 
 # write files to a local directory and clean up with JabRef
-lapply(unlist(bib), write, "~/tmp/bib_article_notes.bib", append = TRUE)
-lapply(unlist(cleaned_pp), write, "~/tmp/bib_article_notes.bib", append = TRUE)
-lapply(unlist(cleaned_pm), write, "~/tmp/bib_article_notes.bib", append = TRUE)
-
+lapply(unlist(bib),
+       write, "~/tmp/bib_new_article_notes.bib",
+       append = TRUE)
+lapply(unlist(cleaned_pp),
+       write, "~/tmp/bib_new_article_notes.bib",
+       append = TRUE)
+lapply(unlist(cleaned_pm),
+       write, "~/tmp/bib_new_article_notes.bib",
+       append = TRUE)
 ```
 
 *Important* Open resulting files in `~/tmp` directory in JabRef, create new
@@ -327,22 +311,22 @@ Google Sheets for collaborative edits.
 ```{r google, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
 
 # import both the Journal of Plant Pathology (cleaned_bib) and article_notes.bib
-bib <- bib2df("~/tmp/bib_article_notes.bib")
+bib <- bib2df("~/tmp/bib_new_article_notes.bib")
 names(bib) <- tolower(names(bib))
 
 # join notes with bibliographic data
 bib_df <- left_join(notes, bib)
-bib_df <- arrange(bib_df, assignee)
+bib_df <- arrange(bib_df, new_assignees)
 
 # create Google Sheet for concurrent edits
-article_notes <-
-  article_notes %>%
-    gs_ws_new(
-    ws_title = "article_evaluations",
+new_article_notes <-
+  new_article_notes %>%
+  gs_ws_new(
+    ws_title = "new_article_evaluations",
     input = bib_df,
     trim = TRUE,
     verbose = FALSE
-    )
+  )
 
 # clean up files to build R package properly with no NOTES
 unlink(".httr-oauth")
@@ -351,7 +335,7 @@ unlink(".httr-oauth")
 ### Last steps
 
 The last few steps are completed outside of R in Google Docs, manually adding
-the missing information to the spreadsheet and the assignees adding their
+the missing information to the spreadsheet and the new_assigneess adding their
 evaluations of their respective articles.
 
 The Google Sheets can be found here:
