@@ -5,11 +5,11 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Assigning Articles to Evaluators • Reproducibility in Plant Pathology</title>
+<title>Second Round of Assigning Articles to Evaluators • Reproducibility in Plant Pathology</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Assigning Articles to Evaluators">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Second Round of Assigning Articles to Evaluators">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -56,7 +56,10 @@
       <a href="../articles/a_reproducibility_criteria.html">Criteria for Evaluating Reproducibility</a>
     </li>
     <li>
-      <a href="../articles/b_assigning_articles.html">Assigning Articles to Evaluators</a>
+      <a href="../articles/b1_assigning_articles.html">Original Round of Assigning Articles to Evaluators</a>
+    </li>
+    <li>
+      <a href="../articles/b2_assigning_articles.html">Second Round of Assigning Articles to Evaluators</a>
     </li>
     <li>
       <a href="../articles/c_retrieving_references.html">Retrieving References Using DOI</a>
@@ -89,13 +92,13 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Assigning Articles to Evaluators</h1>
+      <h1>Second Round of Assigning Articles to Evaluators</h1>
                         <h4 class="author">Adam H Sparks</h4>
             
-            <h4 class="date">2019-06-04</h4>
+            <h4 class="date">2019-06-11</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/master/vignettes/b_assigning_articles.Rmd"><code>vignettes/b_assigning_articles.Rmd</code></a></small>
-      <div class="hidden name"><code>b_assigning_articles.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/master/vignettes/b2_assigning_articles.Rmd"><code>vignettes/b2_assigning_articles.Rmd</code></a></small>
+      <div class="hidden name"><code>b2_assigning_articles.Rmd</code></div>
 
     </div>
 
@@ -104,14 +107,8 @@
 <div id="creating-a-sample-of-articles" class="section level2">
 <h2 class="hasAnchor">
 <a href="#creating-a-sample-of-articles" class="anchor"></a>Creating a sample of articles</h2>
-<p>Twenty one journals in the discipline of plant pathology were selected by the authors as being the primary choice for most plant pathologists when publishing manuscripts.</p>
-<p>Using the assumption that journals publish an average 10 articles per issue, for a population of ~1000 articles, using a confidence level of 95% and confidence interval of 10% we need 88 samples. In <a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/issues/3">Issue #3</a>, we decided to select 200 articles to have a large sample of the population.</p>
-<p>There are three distinct steps involved:</p>
-<ol style="list-style-type: decimal">
-<li><p>Set up the journals, years, and page numbers and evaluators and assign randomly. Create a tibble that holds these data along with empty fields for the evaluation of the articles. Create a Google Sheets object to serve as a template for the second step.</p></li>
-<li><p>Look up the articles and check that the selected journal, year, page number actually are appropriate and enter the DOI and other comments regarding article selection in Google Sheets. Which is used in the third step.</p></li>
-<li><p>Import article notes and DOIs from Google Sheets back to R, retrieve as many bib entries as possible using the DOI. Merge the bib entries with the notes and DOI values. Create a new tab in the Google Sheets object for the evaluators to carry out evaluations.</p></li>
-</ol>
+<p>As a second round to bring the analysis up-to-date, we elected to sample 100 articles from the same 21 journals for 2017-2018.</p>
+<p>Aside from the different years, the journals remain the same and process as described previously.</p>
 </div>
 <div id="step-1" class="section level2">
 <h2 class="hasAnchor">
@@ -126,7 +123,7 @@
 <a class="sourceLine" id="cb1-5" title="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(stringr)</a>
 <a class="sourceLine" id="cb1-6" title="6"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(Reproducibility.in.Plant.Pathology)</a>
 <a class="sourceLine" id="cb1-7" title="7"></a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Random">set.seed</a></span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Random">set.seed</a></span>(<span class="dv">23</span>)</a>
 <a class="sourceLine" id="cb1-9" title="9"></a>
 <a class="sourceLine" id="cb1-10" title="10"><span class="co"># For printing tibble in total</span></a>
 <a class="sourceLine" id="cb1-11" title="11"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/options">options</a></span>(<span class="dt">tibble.print_max =</span> <span class="dv">21</span>, <span class="dt">tibble.print_min =</span> <span class="dv">21</span>)</a></code></pre></div>
@@ -161,11 +158,11 @@
 <a class="sourceLine" id="cb2-24" title="24"></a>
 <a class="sourceLine" id="cb2-25" title="25"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(journal_list) &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"number"</span>, <span class="st">"journal"</span>)</a></code></pre></div>
 </div>
-<div id="create-list-of-evaluators" class="section level3">
+<div id="create-list-of-evaluators-for-second-round-of-reviews" class="section level3">
 <h3 class="hasAnchor">
-<a href="#create-list-of-evaluators" class="anchor"></a>Create list of evaluators</h3>
-<p>From the four authors of this paper, in this step, we will create a list for us to use that will randomly assign articles for us to evaluate for this manuscript.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">assignee &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Adam"</span>, <span class="st">"Emerson"</span>, <span class="st">"Zach"</span>, <span class="st">"Nik"</span>), <span class="dv">50</span>)</a></code></pre></div>
+<a href="#create-list-of-evaluators-for-second-round-of-reviews" class="anchor"></a>Create list of evaluators for second round of reviews</h3>
+<p>These articles were added at a later date to look for any possible trends in the plant pathology literature being published. The same journal titles were sampled for 2017-2018 using the same protocols as the original set of 200 articles for 100 articles over two years.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">assignees &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Emerson"</span>, <span class="st">"Kaique"</span>), <span class="dv">50</span>)</a></code></pre></div>
 </div>
 <div id="create-randomised-list" class="section level3">
 <h3 class="hasAnchor">
@@ -174,7 +171,7 @@
 <div id="create-a-randomised-list-of-the-journals" class="section level4">
 <h4 class="hasAnchor">
 <a href="#create-a-randomised-list-of-the-journals" class="anchor"></a>Create a randomised list of the journals</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">journals &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">21</span>, <span class="dv">200</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">journals &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">21</span>, <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
 <a class="sourceLine" id="cb4-2" title="2"></a>
 <a class="sourceLine" id="cb4-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(journals) &lt;-<span class="st"> "number"</span></a>
 <a class="sourceLine" id="cb4-4" title="4"></a>
@@ -184,13 +181,13 @@
 <h4 class="hasAnchor">
 <a href="#randomly-select-articles" class="anchor"></a>Randomly select articles</h4>
 <p>Generate a random list of years between 2012 and 2016 and a random list of start pages between 1 and 150 since some journals start numbering at 1 with every issue. Then bind the columns of the randomised list of journals with the randomised years and page start numbers. This then assumes that there is no temporal effect, <em>i.e.</em>, the time of year an article is published does not affect whether or not it is reproducible.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">year &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(<span class="dv">2012</span><span class="op">:</span><span class="dv">2016</span>, <span class="dv">200</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</a>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">year &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(<span class="dv">2017</span><span class="op">:</span><span class="dv">2018</span>, <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb5-2" title="2"></a>
-<a class="sourceLine" id="cb5-3" title="3">contains_page &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sample">sample.int</a></span>(<span class="dv">150</span>, <span class="dv">200</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb5-3" title="3">contains_page &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sample">sample.int</a></span>(<span class="dv">150</span>, <span class="dv">100</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb5-4" title="4"></a>
-<a class="sourceLine" id="cb5-5" title="5">journals &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/cbind">cbind</a></span>(journals[, <span class="dv">-1</span>], year, contains_page, assignee)</a>
+<a class="sourceLine" id="cb5-5" title="5">journals &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/cbind">cbind</a></span>(journals[, <span class="dv">-1</span>], year, contains_page, assignees)</a>
 <a class="sourceLine" id="cb5-6" title="6"></a>
-<a class="sourceLine" id="cb5-7" title="7">journals &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="dt">.data =</span> journals, assignee, journal, year, contains_page)</a></code></pre></div>
+<a class="sourceLine" id="cb5-7" title="7">journals &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="dt">.data =</span> journals, assignees, journal, year, contains_page)</a></code></pre></div>
 </div>
 <div id="check-the-number-of-articles-per-journal" class="section level4">
 <h4 class="hasAnchor">
@@ -201,27 +198,27 @@
 <pre><code>## # A tibble: 21 x 2
 ##    journal                                         n
 ##    &lt;chr&gt;                                       &lt;int&gt;
-##  1 Journal of General Plant Pathology             13
-##  2 Phytoparasitica                                13
-##  3 Journal of Phytopathology                      12
-##  4 Molecular Plant-Microbe Interactions           12
-##  5 Plant Pathology                                12
-##  6 Tropical Plant Pathology                       12
-##  7 Australasian Plant Pathology                   11
-##  8 Canadian Journal of Plant Pathology            10
-##  9 Nematology                                     10
-## 10 Revista Mexicana de Fitopatología              10
-## 11 Virology Journal (Plant Viruses Section)       10
-## 12 Journal of Plant Pathology                      9
-## 13 Phytopathology                                  9
-## 14 Crop Protection                                 8
-## 15 Forest Pathology                                8
-## 16 Phytopathologia Mediterranea                    8
-## 17 Plant Disease                                   8
-## 18 Molecular Plant Pathology                       7
-## 19 Plant Health Progress                           7
-## 20 Physiological and Molecular Plant Pathology     6
-## 21 European Journal of Plant Pathology             5</code></pre>
+##  1 Plant Pathology                                10
+##  2 Journal of Phytopathology                       7
+##  3 Physiological and Molecular Plant Pathology     7
+##  4 Canadian Journal of Plant Pathology             6
+##  5 Molecular Plant-Microbe Interactions            6
+##  6 Phytoparasitica                                 6
+##  7 Plant Disease                                   6
+##  8 Crop Protection                                 5
+##  9 Forest Pathology                                5
+## 10 Journal of General Plant Pathology              5
+## 11 Virology Journal (Plant Viruses Section)        5
+## 12 Australasian Plant Pathology                    4
+## 13 Journal of Plant Pathology                      4
+## 14 Nematology                                      4
+## 15 Plant Health Progress                           4
+## 16 European Journal of Plant Pathology             3
+## 17 Molecular Plant Pathology                       3
+## 18 Phytopathology                                  3
+## 19 Tropical Plant Pathology                        3
+## 20 Phytopathologia Mediterranea                    2
+## 21 Revista Mexicana de Fitopatología               2</code></pre>
 <p>Once this is done, the articles are manually examined for suitability. Reference articles or off-topic articles are not included. Notes are provided regarding these cases in <code>assigned_article_notes</code>. If the selected page number/article was not suitable, the next sequential article was selected manually.</p>
 </div>
 </div>
@@ -251,7 +248,7 @@
 <a class="sourceLine" id="cb8-20" title="20">  </a>
 <a class="sourceLine" id="cb8-21" title="21">  journals &lt;-<span class="st"> </span></a>
 <a class="sourceLine" id="cb8-22" title="22"><span class="st">    </span>journals <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb8-23" title="23"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(assignee) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb8-23" title="23"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(assignees) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb8-24" title="24"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>()</a></code></pre></div>
 </div>
 <div id="write-to-google-sheets" class="section level3">
@@ -264,7 +261,7 @@
 <a class="sourceLine" id="cb9-3" title="3"></a>
 <a class="sourceLine" id="cb9-4" title="4"><span class="co"># create Google Sheet for concurrent edits, first sheet: article notes template</span></a>
 <a class="sourceLine" id="cb9-5" title="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/googlesheets/topics/gs_new">gs_new</a></span>(</a>
-<a class="sourceLine" id="cb9-6" title="6">  <span class="st">"article_notes"</span>,</a>
+<a class="sourceLine" id="cb9-6" title="6">  <span class="st">"article_notes_2017-2018"</span>,</a>
 <a class="sourceLine" id="cb9-7" title="7">  <span class="dt">ws_title =</span> <span class="st">"template"</span>,</a>
 <a class="sourceLine" id="cb9-8" title="8">  <span class="dt">input =</span> journals,</a>
 <a class="sourceLine" id="cb9-9" title="9">  <span class="dt">trim =</span> <span class="ot">TRUE</span>,</a>
@@ -278,7 +275,7 @@
 <div id="add-article-dois" class="section level3">
 <h3 class="hasAnchor">
 <a href="#add-article-dois" class="anchor"></a>Add article DOI’s</h3>
-<p>This step is completed in gsheets, Adam looked up articles and added notes and DOIs to a gsheet, “article_notes” which will be imported to R in the next step.</p>
+<p>This step is completed in gsheets, Adam looked up articles and added notes and DOIs to a gsheet, “article_notes_2017-2018” which will be imported to R in the next step.</p>
 </div>
 </div>
 <div id="step-3" class="section level2">
@@ -288,7 +285,7 @@
 <h3 class="hasAnchor">
 <a href="#generate-a-bibliography-file-to-use-with-the-paper" class="anchor"></a>Generate a bibliography file to use with the paper</h3>
 <p>Using the DOIs in this file, we can retrieve the BibTex citations for those articles that provide a DOI. Note that not all of the selected articles have a DOI, so we’ll have to manually generate those entries, or fetch them from the journals’ website later.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">article_notes &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/googlesheets/topics/googlesheet">gs_title</a></span>(<span class="st">"article_notes"</span>)</a>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">article_notes &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/googlesheets/topics/googlesheet">gs_title</a></span>(<span class="st">"article_notes_2017-2018"</span>)</a>
 <a class="sourceLine" id="cb10-2" title="2"></a>
 <a class="sourceLine" id="cb10-3" title="3">notes &lt;-<span class="st"> </span></a>
 <a class="sourceLine" id="cb10-4" title="4"><span class="st">  </span>article_notes <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -343,12 +340,18 @@
 <a class="sourceLine" id="cb13-3" title="3">bib &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unique">unique</a></span>(bib)</a></code></pre></div>
 <p>Next export the items as files to disk as .bib files to be cleaned using JabRef. This will automatically assign unique cite keys and fix some issues with characters in the bib file. Open the file in JabRef and click “yes” when prompted to regarding the cite keys.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="co"># clean up any existing files since we're appending</span></a>
-<a class="sourceLine" id="cb14-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlink">unlink</a></span>(<span class="st">"~/tmp/bib_article_notes.bib"</span>)</a>
+<a class="sourceLine" id="cb14-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlink">unlink</a></span>(<span class="st">"~/tmp/bib_new_article_notes.bib"</span>)</a>
 <a class="sourceLine" id="cb14-3" title="3"></a>
 <a class="sourceLine" id="cb14-4" title="4"><span class="co"># write files to a local directory and clean up with JabRef</span></a>
-<a class="sourceLine" id="cb14-5" title="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">lapply</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlist">unlist</a></span>(bib), write, <span class="st">"~/tmp/bib_article_notes.bib"</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb14-6" title="6"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">lapply</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlist">unlist</a></span>(cleaned_pp), write, <span class="st">"~/tmp/bib_article_notes.bib"</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb14-7" title="7"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">lapply</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlist">unlist</a></span>(cleaned_pm), write, <span class="st">"~/tmp/bib_article_notes.bib"</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb14-5" title="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">lapply</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlist">unlist</a></span>(bib),</a>
+<a class="sourceLine" id="cb14-6" title="6">       write, <span class="st">"~/tmp/bib_new_article_notes.bib"</span>,</a>
+<a class="sourceLine" id="cb14-7" title="7">       <span class="dt">append =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb14-8" title="8"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">lapply</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlist">unlist</a></span>(cleaned_pp),</a>
+<a class="sourceLine" id="cb14-9" title="9">       write, <span class="st">"~/tmp/bib_new_article_notes.bib"</span>,</a>
+<a class="sourceLine" id="cb14-10" title="10">       <span class="dt">append =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb14-11" title="11"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">lapply</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlist">unlist</a></span>(cleaned_pm),</a>
+<a class="sourceLine" id="cb14-12" title="12">       write, <span class="st">"~/tmp/bib_new_article_notes.bib"</span>,</a>
+<a class="sourceLine" id="cb14-13" title="13">       <span class="dt">append =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><em>Important</em> Open resulting files in <code>~/tmp</code> directory in JabRef, create new keys and resave. JabRef will generate unique keys and fix any inconsistencies that may exist from the DOI search.</p>
 </div>
 <div id="export-google-sheets" class="section level3">
@@ -356,22 +359,22 @@
 <a href="#export-google-sheets" class="anchor"></a>Export Google Sheets</h3>
 <p>In this last bit, import the BibTeX file back into R and export to a tab in the Google Sheets for collaborative edits.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="co"># import both the Journal of Plant Pathology (cleaned_bib) and article_notes.bib</span></a>
-<a class="sourceLine" id="cb15-2" title="2">bib &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/bib2df/topics/bib2df">bib2df</a></span>(<span class="st">"~/tmp/bib_article_notes.bib"</span>)</a>
+<a class="sourceLine" id="cb15-2" title="2">bib &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/bib2df/topics/bib2df">bib2df</a></span>(<span class="st">"~/tmp/bib_new_article_notes.bib"</span>)</a>
 <a class="sourceLine" id="cb15-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(bib) &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/chartr">tolower</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(bib))</a>
 <a class="sourceLine" id="cb15-4" title="4"></a>
 <a class="sourceLine" id="cb15-5" title="5"><span class="co"># join notes with bibliographic data</span></a>
 <a class="sourceLine" id="cb15-6" title="6">bib_df &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(notes, bib)</a>
-<a class="sourceLine" id="cb15-7" title="7">bib_df &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(bib_df, assignee)</a>
+<a class="sourceLine" id="cb15-7" title="7">bib_df &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(bib_df, new_assignees)</a>
 <a class="sourceLine" id="cb15-8" title="8"></a>
 <a class="sourceLine" id="cb15-9" title="9"><span class="co"># create Google Sheet for concurrent edits</span></a>
-<a class="sourceLine" id="cb15-10" title="10">article_notes &lt;-</a>
-<a class="sourceLine" id="cb15-11" title="11"><span class="st">  </span>article_notes <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb15-12" title="12"><span class="st">    </span><span class="kw"><a href="https://www.rdocumentation.org/packages/googlesheets/topics/gs_ws_new">gs_ws_new</a></span>(</a>
-<a class="sourceLine" id="cb15-13" title="13">    <span class="dt">ws_title =</span> <span class="st">"article_evaluations"</span>,</a>
+<a class="sourceLine" id="cb15-10" title="10">new_article_notes &lt;-</a>
+<a class="sourceLine" id="cb15-11" title="11"><span class="st">  </span>new_article_notes <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb15-12" title="12"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/googlesheets/topics/gs_ws_new">gs_ws_new</a></span>(</a>
+<a class="sourceLine" id="cb15-13" title="13">    <span class="dt">ws_title =</span> <span class="st">"new_article_evaluations"</span>,</a>
 <a class="sourceLine" id="cb15-14" title="14">    <span class="dt">input =</span> bib_df,</a>
 <a class="sourceLine" id="cb15-15" title="15">    <span class="dt">trim =</span> <span class="ot">TRUE</span>,</a>
 <a class="sourceLine" id="cb15-16" title="16">    <span class="dt">verbose =</span> <span class="ot">FALSE</span></a>
-<a class="sourceLine" id="cb15-17" title="17">    )</a>
+<a class="sourceLine" id="cb15-17" title="17">  )</a>
 <a class="sourceLine" id="cb15-18" title="18"></a>
 <a class="sourceLine" id="cb15-19" title="19"><span class="co"># clean up files to build R package properly with no NOTES</span></a>
 <a class="sourceLine" id="cb15-20" title="20"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlink">unlink</a></span>(<span class="st">".httr-oauth"</span>)</a></code></pre></div>
@@ -379,7 +382,7 @@
 <div id="last-steps" class="section level3">
 <h3 class="hasAnchor">
 <a href="#last-steps" class="anchor"></a>Last steps</h3>
-<p>The last few steps are completed outside of R in Google Docs, manually adding the missing information to the spreadsheet and the assignees adding their evaluations of their respective articles.</p>
+<p>The last few steps are completed outside of R in Google Docs, manually adding the missing information to the spreadsheet and the new_assigneess adding their evaluations of their respective articles.</p>
 <p>The Google Sheets can be found here: <a href="https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381" class="uri">https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381</a>.</p>
 </div>
 </div>
