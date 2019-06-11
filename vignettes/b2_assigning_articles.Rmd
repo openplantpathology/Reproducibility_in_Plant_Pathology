@@ -11,30 +11,11 @@ vignette: >
 
 ## Creating a sample of articles
 
-Twenty one journals in the discipline of plant pathology were selected by the authors
-as being the primary choice for most plant pathologists when publishing manuscripts.
+As a second round to bring the analysis up-to-date, we elected to sample 100 articles
+from the same 21 journals for 2017-2018.
 
-Using the assumption that journals publish an average 10 articles per issue, for
-a population of ~1000 articles, using a confidence level of 95% and confidence
-interval of 10% we need 88 samples. In
-[Issue #3](https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/issues/3),
-we decided to select 200 articles to have a large sample of the population.
-
-There are three distinct steps involved:
-
-1. Set up the journals, years, and page numbers and evaluators and assign
-randomly. Create a tibble that holds these data along with empty fields
-for the evaluation of the articles. Create a Google Sheets object to serve as a
-template for the second step.
-
-2. Look up the articles and check that the selected journal, year, page number
-actually are appropriate and enter the DOI and other comments regarding
-article selection in Google Sheets. Which is used in the third step.
-
-3. Import article notes and DOIs from Google Sheets back to R, retrieve as many
-bib entries as possible using the DOI. Merge the bib entries with the notes
-and DOI values. Create a new tab in the Google Sheets object for the evaluators
-to carry out evaluations.
+Aside from the different years, the journals remain the same and process as
+described previously.
 
 ## Step 1
 
@@ -48,7 +29,7 @@ library(googlesheets)
 library(stringr)
 library(Reproducibility.in.Plant.Pathology)
 
-set.seed(1)
+set.seed(23)
 
 # For printing tibble in total
 options(tibble.print_max = 21, tibble.print_min = 21)
@@ -95,7 +76,7 @@ sampled for 2017-2018 using the same protocols as the original set of 200
 articles for 100 articles over two years.
 
 ```{r new_assignees}
-org_new_assigneess <- rep(c("Emerson", "Kaique"), 50)
+assignees <- rep(c("Emerson", "Kaique"), 50)
 ```
 
 ### Create randomised list
@@ -125,12 +106,11 @@ affect whether or not it is reproducible.
 ```{r years_and_articles}
 year <- sample(2017:2018, 100, replace = TRUE)
 
-contains_page <- sample.int(150, 200, replace = TRUE)
+contains_page <- sample.int(150, 100, replace = TRUE)
 
-journals <- cbind(journals[, -1], year, contains_page, new_assignees)
+journals <- cbind(journals[, -1], year, contains_page, assignees)
 
-journals <- arrange(.data = journals, new_assignees, journal, year, contains_page)
-
+journals <- arrange(.data = journals, assignees, journal, year, contains_page)
 ```
 
 #### Check the number of articles per journal
@@ -176,7 +156,7 @@ to_record <- c(
   
   journals <- 
     journals %>%
-    group_by(new_assignees) %>%
+    group_by(assignees) %>%
     as_tibble()
 ```
 
@@ -198,7 +178,7 @@ gs_auth()
 
 # create Google Sheet for concurrent edits, first sheet: article notes template
 gs_new(
-  "article_notes",
+  "article_notes_2017-2018",
   ws_title = "template",
   input = journals,
   trim = TRUE,
@@ -211,7 +191,7 @@ gs_new(
 ### Add article DOI's
 
 This step is completed in gsheets, Adam looked up articles and added notes and
-DOIs to a gsheet, "article_notes" which will be imported to R in the next step.
+DOIs to a gsheet, "article_notes_2017-2018" which will be imported to R in the next step.
 
 ## Step 3
 
@@ -223,11 +203,11 @@ DOI, so we'll have to manually generate those entries, or fetch them from the
 journals' website later.
 
 ```{r join_files, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
-article_notes <- gs_title("new_article_notes")
+article_notes <- gs_title("article_notes_2017-2018")
 
 notes <- 
   article_notes %>% 
-    gs_read(ws = "new_article_notes")
+    gs_read(ws = "article_notes")
   
 # format DOIs to all be uniform, lower-case
 notes$doi <- tolower(notes$doi)
