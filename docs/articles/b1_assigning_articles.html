@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Original Round of Assigning Articles to Evaluators • Reproducibility in Plant Pathology</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="Original Round of Assigning Articles to Evaluators">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
@@ -38,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -76,7 +77,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -89,13 +90,14 @@
 <!--/.navbar -->
 
       
-      </header><div class="row">
+
+      </header><script src="b1_assigning_articles_files/header-attrs-2.1/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>Original Round of Assigning Articles to Evaluators</h1>
                         <h4 class="author">Adam H Sparks</h4>
             
-            <h4 class="date">2019-06-11</h4>
+            <h4 class="date">2020-02-29</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/master/vignettes/b1_assigning_articles.Rmd"><code>vignettes/b1_assigning_articles.Rmd</code></a></small>
       <div class="hidden name"><code>b1_assigning_articles.Rmd</code></div>
@@ -122,47 +124,47 @@
 <div id="r-setup" class="section level3">
 <h3 class="hasAnchor">
 <a href="#r-setup" class="anchor"></a>R setup</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dplyr)</a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(readr)</a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(bib2df)</a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(googlesheets)</a>
-<a class="sourceLine" id="cb1-5" title="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(stringr)</a>
-<a class="sourceLine" id="cb1-6" title="6"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(Reproducibility.in.Plant.Pathology)</a>
-<a class="sourceLine" id="cb1-7" title="7"></a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Random">set.seed</a></span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb1-9" title="9"></a>
-<a class="sourceLine" id="cb1-10" title="10"><span class="co"># For printing tibble in total</span></a>
-<a class="sourceLine" id="cb1-11" title="11"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/options">options</a></span>(<span class="dt">tibble.print_max =</span> <span class="dv">21</span>, <span class="dt">tibble.print_min =</span> <span class="dv">21</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(bib2df)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(googlesheets)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(stringr)</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(Reproducibility.in.Plant.Pathology)</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="kw"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="dv">1</span>)</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co"># For printing tibble in total</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="kw"><a href="https://rdrr.io/r/base/options.html">options</a></span>(<span class="dt">tibble.print_max =</span> <span class="dv">21</span>, <span class="dt">tibble.print_min =</span> <span class="dv">21</span>)</span></code></pre></div>
 </div>
 <div id="create-list-of-journals" class="section level3">
 <h3 class="hasAnchor">
 <a href="#create-list-of-journals" class="anchor"></a>Create list of journals</h3>
 <p>We hand-picked a list of 21 journals that we felt represented plant pathology research. In this step, we will create a <code>tibble</code> in R of these journals, assigning them a number so that we can randomise them.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">journal_list &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(</a>
-<a class="sourceLine" id="cb2-2" title="2">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/seq">seq</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">21</span>),</a>
-<a class="sourceLine" id="cb2-3" title="3">  <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Australasian Plant Pathology"</span>,</a>
-<a class="sourceLine" id="cb2-4" title="4">    <span class="st">"Canadian Journal of Plant Pathology"</span>,</a>
-<a class="sourceLine" id="cb2-5" title="5">    <span class="st">"Crop Protection"</span>,</a>
-<a class="sourceLine" id="cb2-6" title="6">    <span class="st">"European Journal of Plant Pathology"</span>,</a>
-<a class="sourceLine" id="cb2-7" title="7">    <span class="st">"Forest Pathology"</span>,</a>
-<a class="sourceLine" id="cb2-8" title="8">    <span class="st">"Journal of General Plant Pathology"</span>,</a>
-<a class="sourceLine" id="cb2-9" title="9">    <span class="st">"Journal of Phytopathology"</span>,</a>
-<a class="sourceLine" id="cb2-10" title="10">    <span class="st">"Journal of Plant Pathology"</span>,</a>
-<a class="sourceLine" id="cb2-11" title="11">    <span class="st">"Virology Journal (Plant Viruses Section)"</span>,</a>
-<a class="sourceLine" id="cb2-12" title="12">    <span class="st">"Molecular Plant-Microbe Interactions"</span>,</a>
-<a class="sourceLine" id="cb2-13" title="13">    <span class="st">"Molecular Plant Pathology"</span>,</a>
-<a class="sourceLine" id="cb2-14" title="14">    <span class="st">"Nematology"</span>,</a>
-<a class="sourceLine" id="cb2-15" title="15">    <span class="st">"Physiological and Molecular Plant Pathology"</span>,</a>
-<a class="sourceLine" id="cb2-16" title="16">    <span class="st">"Phytoparasitica"</span>,</a>
-<a class="sourceLine" id="cb2-17" title="17">    <span class="st">"Phytopathologia Mediterranea"</span>,</a>
-<a class="sourceLine" id="cb2-18" title="18">    <span class="st">"Phytopathology"</span>,</a>
-<a class="sourceLine" id="cb2-19" title="19">    <span class="st">"Plant Disease"</span>,</a>
-<a class="sourceLine" id="cb2-20" title="20">    <span class="st">"Plant Health Progress"</span>,</a>
-<a class="sourceLine" id="cb2-21" title="21">    <span class="st">"Plant Pathology"</span>,</a>
-<a class="sourceLine" id="cb2-22" title="22">    <span class="st">"Revista Mexicana de Fitopatología"</span>,</a>
-<a class="sourceLine" id="cb2-23" title="23">    <span class="st">"Tropical Plant Pathology"</span>))</a>
-<a class="sourceLine" id="cb2-24" title="24"></a>
-<a class="sourceLine" id="cb2-25" title="25"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(journal_list) &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"number"</span>, <span class="st">"journal"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>journal_list &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="kw"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">21</span>),</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Australasian Plant Pathology"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    <span class="st">"Canadian Journal of Plant Pathology"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="st">"Crop Protection"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6"></a>    <span class="st">"European Journal of Plant Pathology"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7"></a>    <span class="st">"Forest Pathology"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8"></a>    <span class="st">"Journal of General Plant Pathology"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9"></a>    <span class="st">"Journal of Phytopathology"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    <span class="st">"Journal of Plant Pathology"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11"></a>    <span class="st">"Virology Journal (Plant Viruses Section)"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12"></a>    <span class="st">"Molecular Plant-Microbe Interactions"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13"></a>    <span class="st">"Molecular Plant Pathology"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14"></a>    <span class="st">"Nematology"</span>,</span>
+<span id="cb2-15"><a href="#cb2-15"></a>    <span class="st">"Physiological and Molecular Plant Pathology"</span>,</span>
+<span id="cb2-16"><a href="#cb2-16"></a>    <span class="st">"Phytoparasitica"</span>,</span>
+<span id="cb2-17"><a href="#cb2-17"></a>    <span class="st">"Phytopathologia Mediterranea"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18"></a>    <span class="st">"Phytopathology"</span>,</span>
+<span id="cb2-19"><a href="#cb2-19"></a>    <span class="st">"Plant Disease"</span>,</span>
+<span id="cb2-20"><a href="#cb2-20"></a>    <span class="st">"Plant Health Progress"</span>,</span>
+<span id="cb2-21"><a href="#cb2-21"></a>    <span class="st">"Plant Pathology"</span>,</span>
+<span id="cb2-22"><a href="#cb2-22"></a>    <span class="st">"Revista Mexicana de Fitopatología"</span>,</span>
+<span id="cb2-23"><a href="#cb2-23"></a>    <span class="st">"Tropical Plant Pathology"</span>))</span>
+<span id="cb2-24"><a href="#cb2-24"></a></span>
+<span id="cb2-25"><a href="#cb2-25"></a><span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(journal_list) &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"number"</span>, <span class="st">"journal"</span>)</span></code></pre></div>
 </div>
 <div id="create-list-of-evaluators" class="section level3">
 <h3 class="hasAnchor">
@@ -172,7 +174,7 @@
 <a href="#first-round-of-reviews" class="anchor"></a>First round of reviews</h4>
 <p>Initially, when we started this work we had four authors working together on it. For the four original authors of the paper we created a list for us to use that will randomly assign articles for us to evaluate for this manuscript.</p>
 <p>Later we decided to add more authors and more articles. That work is detailed in this <a href="b2_assigning_articles">second document</a>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">assignees &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Adam"</span>, <span class="st">"Emerson"</span>, <span class="st">"Zach"</span>, <span class="st">"Nik"</span>), <span class="dv">50</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>assignees &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/rep.html">rep</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Adam"</span>, <span class="st">"Emerson"</span>, <span class="st">"Zach"</span>, <span class="st">"Nik"</span>), <span class="dv">50</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="create-randomised-list" class="section level3">
@@ -182,30 +184,30 @@
 <div id="create-a-randomised-list-of-the-journals" class="section level4">
 <h4 class="hasAnchor">
 <a href="#create-a-randomised-list-of-the-journals" class="anchor"></a>Create a randomised list of the journals</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">journals &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">21</span>, <span class="dv">200</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
-<a class="sourceLine" id="cb4-2" title="2"></a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(journals) &lt;-<span class="st"> "number"</span></a>
-<a class="sourceLine" id="cb4-4" title="4"></a>
-<a class="sourceLine" id="cb4-5" title="5">journals &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(journals, journal_list, <span class="st">"number"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>journals &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">21</span>, <span class="dv">200</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</span>
+<span id="cb4-2"><a href="#cb4-2"></a></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(journals) &lt;-<span class="st"> "number"</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a>journals &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(journals, journal_list, <span class="st">"number"</span>)</span></code></pre></div>
 </div>
 <div id="randomly-select-articles" class="section level4">
 <h4 class="hasAnchor">
 <a href="#randomly-select-articles" class="anchor"></a>Randomly select articles</h4>
 <p>Generate a random list of years between 2012 and 2016 and a random list of start pages between 1 and 150 since some journals start numbering at 1 with every issue. Then bind the columns of the randomised list of journals with the randomised years and page start numbers. This then assumes that there is no temporal effect, <em>i.e.</em>, the time of year an article is published does not affect whether or not it is reproducible.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">year &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(<span class="dv">2012</span><span class="op">:</span><span class="dv">2016</span>, <span class="dv">200</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb5-2" title="2"></a>
-<a class="sourceLine" id="cb5-3" title="3">contains_page &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sample">sample.int</a></span>(<span class="dv">150</span>, <span class="dv">200</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb5-4" title="4"></a>
-<a class="sourceLine" id="cb5-5" title="5">journals &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/cbind">cbind</a></span>(journals[, <span class="dv">-1</span>], year, contains_page, assignees)</a>
-<a class="sourceLine" id="cb5-6" title="6"></a>
-<a class="sourceLine" id="cb5-7" title="7">journals &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="dt">.data =</span> journals, assignees, journal, year, contains_page)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>year &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(<span class="dv">2012</span><span class="op">:</span><span class="dv">2016</span>, <span class="dv">200</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a>contains_page &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample.int</a></span>(<span class="dv">150</span>, <span class="dv">200</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a>journals &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span>(journals[, <span class="dv">-1</span>], year, contains_page, assignees)</span>
+<span id="cb5-6"><a href="#cb5-6"></a></span>
+<span id="cb5-7"><a href="#cb5-7"></a>journals &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="dt">.data =</span> journals, assignees, journal, year, contains_page)</span></code></pre></div>
 </div>
 <div id="check-the-number-of-articles-per-journal" class="section level4">
 <h4 class="hasAnchor">
 <a href="#check-the-number-of-articles-per-journal" class="anchor"></a>Check the number of articles per journal</h4>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">journals <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb6-2" title="2"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(journal) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb6-3" title="3"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/tally.html">tally</a></span>(<span class="dt">sort =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>journals <span class="op">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(journal) <span class="op">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/tally.html">tally</a></span>(<span class="dt">sort =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 21 x 2
 ##    journal                                         n
 ##    &lt;chr&gt;                                       &lt;int&gt;
@@ -237,47 +239,47 @@
 <h3 class="hasAnchor">
 <a href="#add-empty-columns-for-evaluations" class="anchor"></a>Add empty columns for evaluations</h3>
 <p>A variety of information will be collected with each article to be used in the analysis later. It is easiest to enter this using a spreadsheet application, so we will add on the columns for what information we want to collect and save the table as a csv for manual editing.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">to_record &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(</a>
-<a class="sourceLine" id="cb8-2" title="2">  <span class="st">"doi"</span>,</a>
-<a class="sourceLine" id="cb8-3" title="3">  <span class="st">"IF_5year"</span>,</a>
-<a class="sourceLine" id="cb8-4" title="4">  <span class="st">"country"</span>,</a>
-<a class="sourceLine" id="cb8-5" title="5">  <span class="st">"open"</span>,</a>
-<a class="sourceLine" id="cb8-6" title="6">  <span class="st">"repro_inst"</span>,</a>
-<a class="sourceLine" id="cb8-7" title="7">  <span class="st">"iss_per_year"</span>,</a>
-<a class="sourceLine" id="cb8-8" title="8">  <span class="st">"art_class"</span>,</a>
-<a class="sourceLine" id="cb8-9" title="9">  <span class="st">"supl_mats"</span>,</a>
-<a class="sourceLine" id="cb8-10" title="10">  <span class="st">"comp_mthds_avail"</span>,</a>
-<a class="sourceLine" id="cb8-11" title="11">  <span class="st">"software_avail"</span>,</a>
-<a class="sourceLine" id="cb8-12" title="12">  <span class="st">"software_cite"</span>,</a>
-<a class="sourceLine" id="cb8-13" title="13">  <span class="st">"analysis_auto"</span>,</a>
-<a class="sourceLine" id="cb8-14" title="14">  <span class="st">"data_avail"</span>,</a>
-<a class="sourceLine" id="cb8-15" title="15">  <span class="st">"data_annot"</span>,</a>
-<a class="sourceLine" id="cb8-16" title="16">  <span class="st">"data_tidy"</span>,</a>
-<a class="sourceLine" id="cb8-17" title="17">  <span class="st">"reproducibility_score"</span></a>
-<a class="sourceLine" id="cb8-18" title="18">  )</a>
-<a class="sourceLine" id="cb8-19" title="19">  journals[to_record] &lt;-<span class="st"> ""</span></a>
-<a class="sourceLine" id="cb8-20" title="20">  </a>
-<a class="sourceLine" id="cb8-21" title="21">  journals &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb8-22" title="22"><span class="st">    </span>journals <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb8-23" title="23"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(assignees) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb8-24" title="24"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>to_record &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="st">"doi"</span>,</span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="st">"IF_5year"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="st">"country"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="st">"open"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6"></a>  <span class="st">"repro_inst"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7"></a>  <span class="st">"iss_per_year"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8"></a>  <span class="st">"art_class"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9"></a>  <span class="st">"supl_mats"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10"></a>  <span class="st">"comp_mthds_avail"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11"></a>  <span class="st">"software_avail"</span>,</span>
+<span id="cb8-12"><a href="#cb8-12"></a>  <span class="st">"software_cite"</span>,</span>
+<span id="cb8-13"><a href="#cb8-13"></a>  <span class="st">"analysis_auto"</span>,</span>
+<span id="cb8-14"><a href="#cb8-14"></a>  <span class="st">"data_avail"</span>,</span>
+<span id="cb8-15"><a href="#cb8-15"></a>  <span class="st">"data_annot"</span>,</span>
+<span id="cb8-16"><a href="#cb8-16"></a>  <span class="st">"data_tidy"</span>,</span>
+<span id="cb8-17"><a href="#cb8-17"></a>  <span class="st">"reproducibility_score"</span></span>
+<span id="cb8-18"><a href="#cb8-18"></a>  )</span>
+<span id="cb8-19"><a href="#cb8-19"></a>  journals[to_record] &lt;-<span class="st"> ""</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a>  </span>
+<span id="cb8-21"><a href="#cb8-21"></a>  journals &lt;-<span class="st"> </span></span>
+<span id="cb8-22"><a href="#cb8-22"></a><span class="st">    </span>journals <span class="op">%&gt;%</span></span>
+<span id="cb8-23"><a href="#cb8-23"></a><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(assignees) <span class="op">%&gt;%</span></span>
+<span id="cb8-24"><a href="#cb8-24"></a><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">as_tibble</a></span>()</span></code></pre></div>
 </div>
 <div id="write-to-google-sheets" class="section level3">
 <h3 class="hasAnchor">
 <a href="#write-to-google-sheets" class="anchor"></a>Write to Google Sheets</h3>
-<p>We decided to use Google Sheets so that we could concurrently edit the file more easily. Once we’re done filling in our evaluations, we will import the data back to R. Jenny Bryan has created a handy package, <em>googlesheets</em> that we use here. <em>Note that this must be run interactively for <code><a href="https://www.rdocumentation.org/packages/googlesheets/topics/gs_new">gs_new()</a></code> to work. Knitting this .Rmd file will not generate any gsheets, it must be done in an interactive R session.</em></p>
+<p>We decided to use Google Sheets so that we could concurrently edit the file more easily. Once we’re done filling in our evaluations, we will import the data back to R. Jenny Bryan has created a handy package, <em>googlesheets</em> that we use here. <em>Note that this must be run interactively for <code><a href="https://rdrr.io/pkg/googlesheets/man/gs_new.html">gs_new()</a></code> to work. Knitting this .Rmd file will not generate any gsheets, it must be done in an interactive R session.</em></p>
 <p>Create a Google Sheets workbook to hold worksheets for this project. This first sheet will serve as a template and is thus named “template”.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="co"># Give googlesheets permission to access spreadsheets and Google Drive</span></a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/googlesheets/topics/gs_auth">gs_auth</a></span>()</a>
-<a class="sourceLine" id="cb9-3" title="3"></a>
-<a class="sourceLine" id="cb9-4" title="4"><span class="co"># create Google Sheet for concurrent edits, first sheet: article notes template</span></a>
-<a class="sourceLine" id="cb9-5" title="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/googlesheets/topics/gs_new">gs_new</a></span>(</a>
-<a class="sourceLine" id="cb9-6" title="6">  <span class="st">"article_notes"</span>,</a>
-<a class="sourceLine" id="cb9-7" title="7">  <span class="dt">ws_title =</span> <span class="st">"template"</span>,</a>
-<a class="sourceLine" id="cb9-8" title="8">  <span class="dt">input =</span> journals,</a>
-<a class="sourceLine" id="cb9-9" title="9">  <span class="dt">trim =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb9-10" title="10">  <span class="dt">verbose =</span> <span class="ot">FALSE</span></a>
-<a class="sourceLine" id="cb9-11" title="11">  )</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Give googlesheets permission to access spreadsheets and Google Drive</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="kw"><a href="https://rdrr.io/pkg/googlesheets/man/gs_auth.html">gs_auth</a></span>()</span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co"># create Google Sheet for concurrent edits, first sheet: article notes template</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="kw"><a href="https://rdrr.io/pkg/googlesheets/man/gs_new.html">gs_new</a></span>(</span>
+<span id="cb9-6"><a href="#cb9-6"></a>  <span class="st">"article_notes"</span>,</span>
+<span id="cb9-7"><a href="#cb9-7"></a>  <span class="dt">ws_title =</span> <span class="st">"template"</span>,</span>
+<span id="cb9-8"><a href="#cb9-8"></a>  <span class="dt">input =</span> journals,</span>
+<span id="cb9-9"><a href="#cb9-9"></a>  <span class="dt">trim =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb9-10"><a href="#cb9-10"></a>  <span class="dt">verbose =</span> <span class="ot">FALSE</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a>  )</span></code></pre></div>
 </div>
 </div>
 <div id="step-2" class="section level2">
@@ -296,93 +298,93 @@
 <h3 class="hasAnchor">
 <a href="#generate-a-bibliography-file-to-use-with-the-paper" class="anchor"></a>Generate a bibliography file to use with the paper</h3>
 <p>Using the DOIs in this file, we can retrieve the BibTex citations for those articles that provide a DOI. Note that not all of the selected articles have a DOI, so we’ll have to manually generate those entries, or fetch them from the journals’ website later.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">article_notes &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/googlesheets/topics/googlesheet">gs_title</a></span>(<span class="st">"article_notes"</span>)</a>
-<a class="sourceLine" id="cb10-2" title="2"></a>
-<a class="sourceLine" id="cb10-3" title="3">notes &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb10-4" title="4"><span class="st">  </span>article_notes <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-5" title="5"><span class="st">    </span><span class="kw"><a href="https://www.rdocumentation.org/packages/googlesheets/topics/gs_read">gs_read</a></span>(<span class="dt">ws =</span> <span class="st">"article_notes"</span>)</a>
-<a class="sourceLine" id="cb10-6" title="6">  </a>
-<a class="sourceLine" id="cb10-7" title="7"><span class="co"># format DOIs to all be uniform, lower-case</span></a>
-<a class="sourceLine" id="cb10-8" title="8">notes<span class="op">$</span>doi &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/chartr">tolower</a></span>(notes<span class="op">$</span>doi)</a>
-<a class="sourceLine" id="cb10-9" title="9"></a>
-<a class="sourceLine" id="cb10-10" title="10"><span class="co"># convert encodings for text with accents</span></a>
-<a class="sourceLine" id="cb10-11" title="11">notes<span class="op">$</span>journal &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/iconv">iconv</a></span>(notes<span class="op">$</span>journal, <span class="st">"latin1"</span>, <span class="st">"UTF-8"</span>) </a>
-<a class="sourceLine" id="cb10-12" title="12"></a>
-<a class="sourceLine" id="cb10-13" title="13"><span class="co"># get bib references from the DOI (that exist)</span></a>
-<a class="sourceLine" id="cb10-14" title="14">bib &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlist">unlist</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">lapply</a></span>(notes<span class="op">$</span>doi, doi2bib))</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>article_notes &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/googlesheets/man/googlesheet.html">gs_title</a></span>(<span class="st">"article_notes"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a>notes &lt;-<span class="st"> </span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="st">  </span>article_notes <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="st">    </span><span class="kw"><a href="https://rdrr.io/pkg/googlesheets/man/gs_read.html">gs_read</a></span>(<span class="dt">ws =</span> <span class="st">"article_notes"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6"></a>  </span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co"># format DOIs to all be uniform, lower-case</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a>notes<span class="op">$</span>doi &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/chartr.html">tolower</a></span>(notes<span class="op">$</span>doi)</span>
+<span id="cb10-9"><a href="#cb10-9"></a></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="co"># convert encodings for text with accents</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a>notes<span class="op">$</span>journal &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/iconv.html">iconv</a></span>(notes<span class="op">$</span>journal, <span class="st">"latin1"</span>, <span class="st">"UTF-8"</span>) </span>
+<span id="cb10-12"><a href="#cb10-12"></a></span>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="co"># get bib references from the DOI (that exist)</span></span>
+<span id="cb10-14"><a href="#cb10-14"></a>bib &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(notes<span class="op">$</span>doi, doi2bib))</span></code></pre></div>
 <p>The <em>Journal of Plant Pathology</em> does not supply valid bib entries via the DOI. So we need to clean them up.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="co"># locations of Journal of "Plant Pathology"" entries in bib object</span></a>
-<a class="sourceLine" id="cb11-2" title="2">clean_pp &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">grep</a></span>(<span class="st">"journal=</span><span class="ch">\\</span><span class="st">{Journal of Plant Pathology</span><span class="ch">\\</span><span class="st">}"</span>, bib)</a>
-<a class="sourceLine" id="cb11-3" title="3"></a>
-<a class="sourceLine" id="cb11-4" title="4"><span class="co"># create a dataset of just those bib entries</span></a>
-<a class="sourceLine" id="cb11-5" title="5">bib_clean_pp &lt;-<span class="st"> </span>bib[clean_pp]</a>
-<a class="sourceLine" id="cb11-6" title="6"></a>
-<a class="sourceLine" id="cb11-7" title="7"><span class="co"># function to clean the entries</span></a>
-<a class="sourceLine" id="cb11-8" title="8">clean_articles_pp &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb11-9" title="9">  title_loc &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlist">unlist</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gregexpr</a></span>(<span class="dt">pattern =</span> <span class="st">"title"</span>, x))</a>
-<a class="sourceLine" id="cb11-10" title="10">  y &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/substr">substr</a></span>(x, <span class="dt">start =</span> title_loc[<span class="dv">1</span>], <span class="dt">stop =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/nchar">nchar</a></span>(x))</a>
-<a class="sourceLine" id="cb11-11" title="11">  y &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste0</a></span>(<span class="st">"@article{jpp,</span><span class="ch">\n\t</span><span class="st">"</span> , y)</a>
-<a class="sourceLine" id="cb11-12" title="12">  y &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gsub</a></span>(<span class="st">"}, "</span>, <span class="st">"},</span><span class="ch">\n\t</span><span class="st">"</span>, y)</a>
-<a class="sourceLine" id="cb11-13" title="13">  y &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gsub</a></span>(<span class="st">"="</span>, <span class="st">" = "</span>, y)</a>
-<a class="sourceLine" id="cb11-14" title="14">  y &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gsub</a></span>(<span class="st">"}}</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">"}</span><span class="ch">\n</span><span class="st">}"</span>, y)</a>
-<a class="sourceLine" id="cb11-15" title="15">}</a>
-<a class="sourceLine" id="cb11-16" title="16"></a>
-<a class="sourceLine" id="cb11-17" title="17"><span class="co"># apply function and clean the bib entries</span></a>
-<a class="sourceLine" id="cb11-18" title="18">cleaned_pp &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlist">unlist</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">lapply</a></span>(bib_clean_pp, clean_articles_pp))</a>
-<a class="sourceLine" id="cb11-19" title="19"></a>
-<a class="sourceLine" id="cb11-20" title="20"><span class="co"># remove the incorrect entries for Journal of Plant Pathology</span></a>
-<a class="sourceLine" id="cb11-21" title="21">bib &lt;-<span class="st"> </span>bib[<span class="op">-</span>clean_pp]</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># locations of Journal of "Plant Pathology"" entries in bib object</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>clean_pp &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/grep.html">grep</a></span>(<span class="st">"journal=</span><span class="ch">\\</span><span class="st">{Journal of Plant Pathology</span><span class="ch">\\</span><span class="st">}"</span>, bib)</span>
+<span id="cb11-3"><a href="#cb11-3"></a></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co"># create a dataset of just those bib entries</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a>bib_clean_pp &lt;-<span class="st"> </span>bib[clean_pp]</span>
+<span id="cb11-6"><a href="#cb11-6"></a></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="co"># function to clean the entries</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a>clean_articles_pp &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb11-9"><a href="#cb11-9"></a>  title_loc &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/grep.html">gregexpr</a></span>(<span class="dt">pattern =</span> <span class="st">"title"</span>, x))</span>
+<span id="cb11-10"><a href="#cb11-10"></a>  y &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/substr.html">substr</a></span>(x, <span class="dt">start =</span> title_loc[<span class="dv">1</span>], <span class="dt">stop =</span> <span class="kw"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span>(x))</span>
+<span id="cb11-11"><a href="#cb11-11"></a>  y &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="st">"@article{jpp,</span><span class="ch">\n\t</span><span class="st">"</span> , y)</span>
+<span id="cb11-12"><a href="#cb11-12"></a>  y &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span>(<span class="st">"}, "</span>, <span class="st">"},</span><span class="ch">\n\t</span><span class="st">"</span>, y)</span>
+<span id="cb11-13"><a href="#cb11-13"></a>  y &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span>(<span class="st">"="</span>, <span class="st">" = "</span>, y)</span>
+<span id="cb11-14"><a href="#cb11-14"></a>  y &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span>(<span class="st">"}}</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">"}</span><span class="ch">\n</span><span class="st">}"</span>, y)</span>
+<span id="cb11-15"><a href="#cb11-15"></a>}</span>
+<span id="cb11-16"><a href="#cb11-16"></a></span>
+<span id="cb11-17"><a href="#cb11-17"></a><span class="co"># apply function and clean the bib entries</span></span>
+<span id="cb11-18"><a href="#cb11-18"></a>cleaned_pp &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(bib_clean_pp, clean_articles_pp))</span>
+<span id="cb11-19"><a href="#cb11-19"></a></span>
+<span id="cb11-20"><a href="#cb11-20"></a><span class="co"># remove the incorrect entries for Journal of Plant Pathology</span></span>
+<span id="cb11-21"><a href="#cb11-21"></a>bib &lt;-<span class="st"> </span>bib[<span class="op">-</span>clean_pp]</span></code></pre></div>
 <p><em>Phytopathologia Mediterranea</em> also provides some malformed bib entries. The cite entries are malformed and <code>&lt;em&gt; &lt;/em&gt;</code> is used rather than the proper <code>\textit{}</code> for a BibTeX file.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">clean_pm &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">grep</a></span>(<span class="st">"journal=</span><span class="ch">\\</span><span class="st">{Phytopathologia Mediterranea</span><span class="ch">\\</span><span class="st">}"</span>, bib)</a>
-<a class="sourceLine" id="cb12-2" title="2">bib_clean_pm &lt;-<span class="st"> </span>bib[clean_pm]</a>
-<a class="sourceLine" id="cb12-3" title="3">clean_articles_pm &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb12-4" title="4">  x &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gsub</a></span>(<span class="st">" @article</span><span class="ch">\\</span><span class="st">{[[:print:]]+, title=</span><span class="ch">\\</span><span class="st">{"</span>, <span class="st">"@article</span><span class="ch">\\</span><span class="st">{PM, title = </span><span class="ch">\\</span><span class="st">{"</span>, x)</a>
-<a class="sourceLine" id="cb12-5" title="5">  x &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gsub</a></span>(<span class="st">"&lt;em&gt;"</span>, <span class="st">"</span><span class="ch">\\\t</span><span class="st">extit</span><span class="ch">\\</span><span class="st">{"</span>, x)</a>
-<a class="sourceLine" id="cb12-6" title="6">  x &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gsub</a></span>(<span class="st">"&lt;/em&gt;"</span>, <span class="st">"}"</span>, x)</a>
-<a class="sourceLine" id="cb12-7" title="7">  }</a>
-<a class="sourceLine" id="cb12-8" title="8"></a>
-<a class="sourceLine" id="cb12-9" title="9"><span class="co"># apply function and clean the bib entries</span></a>
-<a class="sourceLine" id="cb12-10" title="10">cleaned_pm &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlist">unlist</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">lapply</a></span>(bib_clean_pm, clean_articles_pm))</a>
-<a class="sourceLine" id="cb12-11" title="11">bib &lt;-<span class="st"> </span>bib[<span class="op">-</span>clean_pm]</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>clean_pm &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/grep.html">grep</a></span>(<span class="st">"journal=</span><span class="ch">\\</span><span class="st">{Phytopathologia Mediterranea</span><span class="ch">\\</span><span class="st">}"</span>, bib)</span>
+<span id="cb12-2"><a href="#cb12-2"></a>bib_clean_pm &lt;-<span class="st"> </span>bib[clean_pm]</span>
+<span id="cb12-3"><a href="#cb12-3"></a>clean_articles_pm &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb12-4"><a href="#cb12-4"></a>  x &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span>(<span class="st">" @article</span><span class="ch">\\</span><span class="st">{[[:print:]]+, title=</span><span class="ch">\\</span><span class="st">{"</span>, <span class="st">"@article</span><span class="ch">\\</span><span class="st">{PM, title = </span><span class="ch">\\</span><span class="st">{"</span>, x)</span>
+<span id="cb12-5"><a href="#cb12-5"></a>  x &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span>(<span class="st">"&lt;em&gt;"</span>, <span class="st">"</span><span class="ch">\\\t</span><span class="st">extit</span><span class="ch">\\</span><span class="st">{"</span>, x)</span>
+<span id="cb12-6"><a href="#cb12-6"></a>  x &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span>(<span class="st">"&lt;/em&gt;"</span>, <span class="st">"}"</span>, x)</span>
+<span id="cb12-7"><a href="#cb12-7"></a>  }</span>
+<span id="cb12-8"><a href="#cb12-8"></a></span>
+<span id="cb12-9"><a href="#cb12-9"></a><span class="co"># apply function and clean the bib entries</span></span>
+<span id="cb12-10"><a href="#cb12-10"></a>cleaned_pm &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(bib_clean_pm, clean_articles_pm))</span>
+<span id="cb12-11"><a href="#cb12-11"></a>bib &lt;-<span class="st"> </span>bib[<span class="op">-</span>clean_pm]</span></code></pre></div>
 <p>The larger list of bib objects has some items that are supposedly invalid DOIs. In this step we remove them and clean up the list. They’ll be added back to the database when we merge the notes at the end.</p>
-<p>Also there are duplicates in the list somehow. Use <code><a href="https://www.rdocumentation.org/packages/base/topics/unique">unique()</a></code> to clean the list up.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">bib &lt;-<span class="st"> </span>bib[bib <span class="op">!=</span><span class="st"> "Invalid DOI"</span>]</a>
-<a class="sourceLine" id="cb13-2" title="2"></a>
-<a class="sourceLine" id="cb13-3" title="3">bib &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unique">unique</a></span>(bib)</a></code></pre></div>
+<p>Also there are duplicates in the list somehow. Use <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code> to clean the list up.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>bib &lt;-<span class="st"> </span>bib[bib <span class="op">!=</span><span class="st"> "Invalid DOI"</span>]</span>
+<span id="cb13-2"><a href="#cb13-2"></a></span>
+<span id="cb13-3"><a href="#cb13-3"></a>bib &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/unique.html">unique</a></span>(bib)</span></code></pre></div>
 <p>Next export the items as files to disk as .bib files to be cleaned using JabRef. This will automatically assign unique cite keys and fix some issues with characters in the bib file. Open the file in JabRef and click “yes” when prompted to regarding the cite keys.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="co"># clean up any existing files since we're appending</span></a>
-<a class="sourceLine" id="cb14-2" title="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlink">unlink</a></span>(<span class="st">"~/tmp/bib_article_notes.bib"</span>)</a>
-<a class="sourceLine" id="cb14-3" title="3"></a>
-<a class="sourceLine" id="cb14-4" title="4"><span class="co"># write files to a local directory and clean up with JabRef</span></a>
-<a class="sourceLine" id="cb14-5" title="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">lapply</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlist">unlist</a></span>(bib), write, <span class="st">"~/tmp/bib_article_notes.bib"</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb14-6" title="6"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">lapply</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlist">unlist</a></span>(cleaned_pp), write, <span class="st">"~/tmp/bib_article_notes.bib"</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb14-7" title="7"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/lapply">lapply</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlist">unlist</a></span>(cleaned_pm), write, <span class="st">"~/tmp/bib_article_notes.bib"</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># clean up any existing files since we're appending</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="kw"><a href="https://rdrr.io/r/base/unlink.html">unlink</a></span>(<span class="st">"~/tmp/bib_article_notes.bib"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3"></a></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="co"># write files to a local directory and clean up with JabRef</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="kw"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span>(bib), write, <span class="st">"~/tmp/bib_article_notes.bib"</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="kw"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span>(cleaned_pp), write, <span class="st">"~/tmp/bib_article_notes.bib"</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="kw"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span>(cleaned_pm), write, <span class="st">"~/tmp/bib_article_notes.bib"</span>, <span class="dt">append =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p><em>Important</em> Open resulting files in <code>~/tmp</code> directory in JabRef, create new keys and resave. JabRef will generate unique keys and fix any inconsistencies that may exist from the DOI search.</p>
 </div>
 <div id="export-google-sheets" class="section level3">
 <h3 class="hasAnchor">
 <a href="#export-google-sheets" class="anchor"></a>Export Google Sheets</h3>
 <p>In this last bit, import the BibTeX file back into R and export to a tab in the Google Sheets for collaborative edits.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="co"># import both the Journal of Plant Pathology (cleaned_bib) and article_notes.bib</span></a>
-<a class="sourceLine" id="cb15-2" title="2">bib &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/bib2df/topics/bib2df">bib2df</a></span>(<span class="st">"~/tmp/bib_article_notes.bib"</span>)</a>
-<a class="sourceLine" id="cb15-3" title="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(bib) &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/chartr">tolower</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/names">names</a></span>(bib))</a>
-<a class="sourceLine" id="cb15-4" title="4"></a>
-<a class="sourceLine" id="cb15-5" title="5"><span class="co"># join notes with bibliographic data</span></a>
-<a class="sourceLine" id="cb15-6" title="6">bib_df &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(notes, bib)</a>
-<a class="sourceLine" id="cb15-7" title="7">bib_df &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(bib_df, assignees)</a>
-<a class="sourceLine" id="cb15-8" title="8"></a>
-<a class="sourceLine" id="cb15-9" title="9"><span class="co"># create Google Sheet for concurrent edits</span></a>
-<a class="sourceLine" id="cb15-10" title="10">article_notes &lt;-</a>
-<a class="sourceLine" id="cb15-11" title="11"><span class="st">  </span>article_notes <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb15-12" title="12"><span class="st">    </span><span class="kw"><a href="https://www.rdocumentation.org/packages/googlesheets/topics/gs_ws_new">gs_ws_new</a></span>(</a>
-<a class="sourceLine" id="cb15-13" title="13">    <span class="dt">ws_title =</span> <span class="st">"article_evaluations"</span>,</a>
-<a class="sourceLine" id="cb15-14" title="14">    <span class="dt">input =</span> bib_df,</a>
-<a class="sourceLine" id="cb15-15" title="15">    <span class="dt">trim =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb15-16" title="16">    <span class="dt">verbose =</span> <span class="ot">FALSE</span></a>
-<a class="sourceLine" id="cb15-17" title="17">    )</a>
-<a class="sourceLine" id="cb15-18" title="18"></a>
-<a class="sourceLine" id="cb15-19" title="19"><span class="co"># clean up files to build R package properly with no NOTES</span></a>
-<a class="sourceLine" id="cb15-20" title="20"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/unlink">unlink</a></span>(<span class="st">".httr-oauth"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># import both the Journal of Plant Pathology (cleaned_bib) and article_notes.bib</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>bib &lt;-<span class="st"> </span><span class="kw"><a href="https://docs.ropensci.org/bib2df/reference/bib2df.html">bib2df</a></span>(<span class="st">"~/tmp/bib_article_notes.bib"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(bib) &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/chartr.html">tolower</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(bib))</span>
+<span id="cb15-4"><a href="#cb15-4"></a></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="co"># join notes with bibliographic data</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>bib_df &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(notes, bib)</span>
+<span id="cb15-7"><a href="#cb15-7"></a>bib_df &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(bib_df, assignees)</span>
+<span id="cb15-8"><a href="#cb15-8"></a></span>
+<span id="cb15-9"><a href="#cb15-9"></a><span class="co"># create Google Sheet for concurrent edits</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a>article_notes &lt;-</span>
+<span id="cb15-11"><a href="#cb15-11"></a><span class="st">  </span>article_notes <span class="op">%&gt;%</span></span>
+<span id="cb15-12"><a href="#cb15-12"></a><span class="st">    </span><span class="kw"><a href="https://rdrr.io/pkg/googlesheets/man/gs_ws_new.html">gs_ws_new</a></span>(</span>
+<span id="cb15-13"><a href="#cb15-13"></a>    <span class="dt">ws_title =</span> <span class="st">"article_evaluations"</span>,</span>
+<span id="cb15-14"><a href="#cb15-14"></a>    <span class="dt">input =</span> bib_df,</span>
+<span id="cb15-15"><a href="#cb15-15"></a>    <span class="dt">trim =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb15-16"><a href="#cb15-16"></a>    <span class="dt">verbose =</span> <span class="ot">FALSE</span></span>
+<span id="cb15-17"><a href="#cb15-17"></a>    )</span>
+<span id="cb15-18"><a href="#cb15-18"></a></span>
+<span id="cb15-19"><a href="#cb15-19"></a><span class="co"># clean up files to build R package properly with no NOTES</span></span>
+<span id="cb15-20"><a href="#cb15-20"></a><span class="kw"><a href="https://rdrr.io/r/base/unlink.html">unlink</a></span>(<span class="st">".httr-oauth"</span>)</span></code></pre></div>
 </div>
 <div id="last-steps" class="section level3">
 <h3 class="hasAnchor">
@@ -394,6 +396,7 @@
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+
         <div id="tocnav">
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
@@ -409,17 +412,20 @@
 </div>
 
 
+
       <footer><div class="copyright">
   <p>Developed by Adam H. Sparks, Emerson M. Del Ponte, Sydney Everhart, Zachary S. L. Foster, Niklaus J. Grünwald.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>
