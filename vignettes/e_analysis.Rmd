@@ -80,9 +80,7 @@ rrpp <-
   as.data.frame()
 ```
 
-Create a tidy data frame of the data by unnesting software used as in many cases
-multiple software packages were used, so will end up with multiple rows for same
-article, one for each software.
+Create a tidy data frame of the data by unnesting software used as in many cases multiple software packages were used, so will end up with multiple rows for same article, one for each software.
 
 ```{r}
 rrpp_software <- 
@@ -154,8 +152,7 @@ ggplot(rrpp, aes(x = software_cite)) +
 
 ## Software used (cited)
 
-Count and sort top 10 software packages cited. There are likely others that are
-used, but they have not been properly identified by the authors.
+Count and sort top 10 software packages cited. There are likely others that are used, but they have not been properly identified by the authors.
 
 ```{r}
 tab <- table(rrpp_software$software_used)
@@ -175,8 +172,7 @@ ggplot(top_software, aes(x = software_used)) +
 
 ## Reproducibility score
 
-The reproducibility score was calculated as the sum of the scores for computational
-method availability, 
+The reproducibility score was calculated as the sum of the scores for computational method availability, 
 
 ```{r}
 ggplot(rrpp, aes(x = reproducibility_score)) +
