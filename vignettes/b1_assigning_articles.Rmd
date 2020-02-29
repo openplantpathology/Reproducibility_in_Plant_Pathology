@@ -11,30 +11,23 @@ vignette: >
 
 ## Creating a sample of articles
 
-Twenty one journals in the discipline of plant pathology were selected by the authors
-as being the primary choice for most plant pathologists when publishing manuscripts.
+Twenty one journals in the discipline of plant pathology were selected by the authors as being the primary choice for most plant pathologists when publishing manuscripts.
 
-Using the assumption that journals publish an average 10 articles per issue, for
-a population of ~1000 articles, using a confidence level of 95% and confidence
-interval of 10% we need 88 samples. In
-[Issue #3](https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/issues/3),
-we decided to select 200 articles to have a large sample of the population.
+Using the assumption that journals publish an average 10 articles per issue, for a population of ~1000 articles, using a confidence level of 95% and confidence interval of 10% we need 88 samples.
+In [Issue #3](https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/issues/3), we decided to select 200 articles to have a large sample of the population.
 
 There are three distinct steps involved:
 
-1. Set up the journals, years, and page numbers and evaluators and assign
-randomly. Create a tibble that holds these data along with empty fields
-for the evaluation of the articles. Create a Google Sheets object to serve as a
-template for the second step.
+1. Set up the journals, years, and page numbers and evaluators and assign randomly.
+Create a `tibble` that holds these data along with empty fields for the evaluation of the articles.
+Create a Google Sheets object to serve as a template for the second step.
 
-2. Look up the articles and check that the selected journal, year, page number
-actually are appropriate and enter the DOI and other comments regarding
-article selection in Google Sheets. Which is used in the third step.
+2. Look up the articles and check that the selected journal, year, page number actually are appropriate and enter the DOI and other comments regarding article selection in Google Sheets.
+Which is used in the third step.
 
-3. Import article notes and DOIs from Google Sheets back to R, retrieve as many
-bib entries as possible using the DOI. Merge the bib entries with the notes
-and DOI values. Create a new tab in the Google Sheets object for the evaluators
-to carry out evaluations.
+3. Import article notes and DOIs from Google Sheets back to R, retrieve as many bib entries as possible using the DOI.
+Merge the bib entries with the notes and DOI values.
+Create a new tab in the Google Sheets object for the evaluators to carry out evaluations.
 
 ## Step 1
 
@@ -55,9 +48,8 @@ options(tibble.print_max = 21, tibble.print_min = 21)
 ```
 ### Create list of journals
 
-We hand-picked a list of 21 journals that we felt represented plant pathology
-research. In this step, we will create a `tibble` in R of these journals,
-assigning them a number so that we can randomise them.
+We hand-picked a list of 21 journals that we felt represented plant pathology research.
+In this step, we will create a `tibble` in R of these journals, assigning them a number so that we can randomise them.
 
 ```{r journal_list}
 journal_list <- tibble(
@@ -92,12 +84,10 @@ names(journal_list) <- c("number", "journal")
 #### First round of reviews
 
 Initially, when we started this work we had four authors working together on it.
-For the four original authors of the paper we created a list for us
-to use that will randomly assign articles for us to evaluate for this
-manuscript.
+For the four original authors of the paper we created a list for us to use that will randomly assign articles for us to evaluate for this manuscript.
 
-Later we decided to add more authors and more articles. That work is detailed
-in this [second document](b2_assigning_articles).
+Later we decided to add more authors and more articles.
+That work is detailed in this [second document](b2_assigning_articles).
 
 ```{r assignees}
 assignees <- rep(c("Adam", "Emerson", "Zach", "Nik"), 50)
@@ -106,8 +96,7 @@ assignees <- rep(c("Adam", "Emerson", "Zach", "Nik"), 50)
 
 ### Create randomised list
 
-Now we will create a randomised list of journal articles to assign to each of
-the four authors for this paper.
+Now we will create a randomised list of journal articles to assign to each of the four authors for this paper.
 
 #### Create a randomised list of the journals
 
@@ -121,12 +110,9 @@ journals <- left_join(journals, journal_list, "number")
 
 #### Randomly select articles
 
-Generate a random list of years between 2012 and 2016 and a random list of start
-pages between 1 and 150 since some journals start numbering at 1 with every
-issue. Then bind the columns of the randomised list of journals with the
-randomised years and page start numbers. This then assumes that there is no
-temporal effect, _i.e._, the time of year an article is published does not
-affect whether or not it is reproducible.
+Generate a random list of years between 2012 and 2016 and a random list of start pages between 1 and 150 since some journals start numbering at 1 with every issue.
+Then bind the columns of the randomised list of journals with the randomised years and page start numbers.
+This then assumes that there is no temporal effect, _i.e._, the time of year an article is published does not affect whether or not it is reproducible.
 
 ```{r years_and_articles}
 year <- sample(2012:2016, 200, replace = TRUE)
@@ -146,17 +132,15 @@ journals %>%
   tally(sort = TRUE)
 ```
 
-Once this is done, the articles are manually examined for suitability. Reference
-articles or off-topic articles are not included. Notes are provided regarding
-these cases in `assigned_article_notes`. If the selected page number/article was
-not suitable, the next sequential article was selected manually.
+Once this is done, the articles are manually examined for suitability.
+Reference articles or off-topic articles are not included.
+Notes are provided regarding these cases in `assigned_article_notes`.
+If the selected page number/article was not suitable, the next sequential article was selected manually.
 
 ### Add empty columns for evaluations
 
-A variety of information will be collected with each article to be used in the
-analysis later. It is easiest to enter this using a spreadsheet application, so
-we will add on the columns for what information we want to collect and save the
-table as a csv for manual editing.
+A variety of information will be collected with each article to be used in the analysis later.
+It is easiest to enter this using a spreadsheet application, so we will add on the columns for what information we want to collect and save the table as a csv for manual editing.
 
 ```{r}
 to_record <- c(
@@ -187,15 +171,14 @@ to_record <- c(
 
 ### Write to Google Sheets
 
-We decided to use Google Sheets so that we could concurrently edit the file
-more easily. Once we're done filling in our evaluations, we will import the
-data back to R. Jenny Bryan has created a handy package, _googlesheets_ that we
-use here. _Note that this must be run interactively for `gs_new()` to work.
-Knitting this .Rmd file will not generate any gsheets, it must be done in an
-interactive R session._
+We decided to use Google Sheets so that we could concurrently edit the file more easily.
+Once we're done filling in our evaluations, we will import the data back to R.
+Jenny Bryan has created a handy package, _googlesheets_ that we use here.
+_Note that this must be run interactively for `gs_new()` to work.
+Knitting this .Rmd file will not generate any gsheets, it must be done in an interactive R session._
 
-Create a Google Sheets workbook to hold worksheets for this project. This first
-sheet will serve as a template and is thus named "template".
+Create a Google Sheets workbook to hold worksheets for this project.
+This first sheet will serve as a template and is thus named "template".
 
 ```{r setup_gs, eval=FALSE}
 # Give googlesheets permission to access spreadsheets and Google Drive
@@ -215,17 +198,14 @@ gs_new(
 
 ### Add article DOI's
 
-This step is completed in gsheets, Adam looked up articles and added notes and
-DOIs to a gsheet, "article_notes" which will be imported to R in the next step.
+This step is completed in gsheets, Adam looked up articles and added notes and DOIs to a gsheet, "article_notes" which will be imported to R in the next step.
 
 ## Step 3
 
 ### Generate a bibliography file to use with the paper
 
-Using the DOIs in this file, we can retrieve the BibTex citations for those
-articles that provide a DOI. Note that not all of the selected articles have a
-DOI, so we'll have to manually generate those entries, or fetch them from the
-journals' website later.
+Using the DOIs in this file, we can retrieve the BibTex citations for those articles that provide a DOI.
+Note that not all of the selected articles have a DOI, so we'll have to manually generate those entries, or fetch them from the journals' website later.
 
 ```{r join_files, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
 article_notes <- gs_title("article_notes")
@@ -272,9 +252,8 @@ cleaned_pp <- unlist(lapply(bib_clean_pp, clean_articles_pp))
 bib <- bib[-clean_pp]
 ```
 
-_Phytopathologia Mediterranea_ also provides some malformed bib entries. The
-cite entries are malformed and `<em> </em>` is used rather than the proper
-`\textit{}` for a BibTeX file.
+_Phytopathologia Mediterranea_ also provides some malformed bib entries.
+The cite entries are malformed and `<em> </em>` is used rather than the proper `\textit{}` for a BibTeX file.
 
 ```{r second_bib_cleaning, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
 clean_pm <- grep("journal=\\{Phytopathologia Mediterranea\\}", bib)
@@ -292,11 +271,9 @@ bib <- bib[-clean_pm]
 ```
 
 The larger list of bib objects has some items that are supposedly invalid DOIs.
-In this step we remove them and clean up the list. They'll be added back to the
-database when we merge the notes at the end.
+In this step we remove them and clean up the list. They'll be added back to the database when we merge the notes at the end.
 
-Also there are duplicates in the list somehow. Use `unique()` to clean the list
-up.
+Also there are duplicates in the list somehow. Use `unique()` to clean the list up.
 
 ```{r, clean_bib, eval=FALSE}
 bib <- bib[bib != "Invalid DOI"]
@@ -304,10 +281,8 @@ bib <- bib[bib != "Invalid DOI"]
 bib <- unique(bib)
 ```
 
-Next export the items as files to disk as .bib files to be cleaned using
-JabRef. This will automatically assign unique cite keys and fix some issues with
-characters in the bib file. Open the file in JabRef and click "yes" when
-prompted to regarding the cite keys.
+Next export the items as files to disk as .bib files to be cleaned using JabRef. This will automatically assign unique cite keys and fix some issues with characters in the bib file.
+Open the file in JabRef and click "yes" when prompted to regarding the cite keys.
 
 ```{r export_import_bib, eval=FALSE}
 # clean up any existing files since we're appending
@@ -320,14 +295,12 @@ lapply(unlist(cleaned_pm), write, "~/tmp/bib_article_notes.bib", append = TRUE)
 
 ```
 
-*Important* Open resulting files in `~/tmp` directory in JabRef, create new
-keys and resave. JabRef will generate unique keys and fix any inconsistencies
-that may exist from the DOI search.
+*Important* Open resulting files in `~/tmp` directory in JabRef, create new keys and resave.
+JabRef will generate unique keys and fix any inconsistencies that may exist from the DOI search.
 
 ### Export Google Sheets
 
-In this last bit, import the BibTeX file back into R and export to a tab in the
-Google Sheets for collaborative edits.
+In this last bit, import the BibTeX file back into R and export to a tab in the Google Sheets for collaborative edits.
 
 ```{r google, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
 
@@ -355,9 +328,6 @@ unlink(".httr-oauth")
 
 ### Last steps
 
-The last few steps are completed outside of R in Google Docs, manually adding
-the missing information to the spreadsheet and the assigneess adding their
-evaluations of their respective articles.
+The last few steps are completed outside of R in Google Docs, manually adding the missing information to the spreadsheet evaluations of their respective articles.
 
-The Google Sheets can be found here:
-https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381.
+The Google Sheets can be found here: https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381.
