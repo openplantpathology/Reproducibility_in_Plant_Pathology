@@ -37,7 +37,7 @@ Imports:
     pander
 Suggests:
     ggplot2,
-    googlesheets,
+    googlesheets4,
     gsheet,
     knitr,
     pkgdown,
