@@ -18,17 +18,17 @@ This repository contains the data and code for our paper:
 
 Our pre-print is online here:
 
-> Authors, (YYYY). *Title of paper*. Name of journal/book, Accessed 20
-> May 2019. Online at <https://doi.org/xxx/xxx>
+> Authors, (YYYY). *Title of paper*. Name of journal/book, Accessed 29
+> Feb 2020. Online at <https://doi.org/xxx/xxx>
 
 ### How to cite
 
 Please cite this compendium as:
 
 > Sparks, A.H., Del Ponte, E.M., Everhart, S., Foster, Z.S.L., Grünwald,
-> N. (2019). *Compendium of R code and data for ‘Status and Best
-> Practices for Reproducible Research In Plant Pathology’*. Accessed 20
-> May 2019. Online at <https://doi.org/10.5281/zenodo.1250665>
+> N. (2020). *Compendium of R code and data for ‘Status and Best
+> Practices for Reproducible Research In Plant Pathology’*. Accessed 29
+> Feb 2020. Online at <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
 
@@ -60,7 +60,7 @@ with the package and compendium files.
 
 ## Meta
 
-Code: [MIT](http://opensource.org/licenses/MIT) year: 2019, copyright
+Code: [MIT](http://opensource.org/licenses/MIT) year: 2020, copyright
 holder: Adam H Sparks
 
 Data: [CC-0](http://creativecommons.org/publicdomain/zero/1.0/)
