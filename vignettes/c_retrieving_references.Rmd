@@ -30,7 +30,6 @@ for (i in 1:192) {
   cat(cr_cn(doi$DOI[i]))
 }
 sink()
-
 ```
 
 
