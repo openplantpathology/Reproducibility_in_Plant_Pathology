@@ -214,7 +214,7 @@ Entered as character string, _e.g._ Springer or Wiley-Blackwell or Scientific So
 
 ### "month"
 
-Month in which the article was published
+Month in which the article was published`
 
 Entered as character string, _e.g._ jan, feb, mar...
 
