@@ -9,34 +9,39 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-## Creating a sample of articles
-
 ## Load the DOIs
 
-```{r message=FALSE, warning=FALSE}
+Load DOIs from the gsheet template used to create the notes file.
+The DOIs were recorded when the initial articles were assigned.
+
+```{r get-sheet, message=FALSE, warning=FALSE}
 doi <-
   gsheet::gsheet2tbl(
-    "https://docs.google.com/spreadsheets/d/1WGbblaDD8eIEBvkxWNBwIi1HL0FTo6-HsLDwMVrfZbI/edit?usp=sharing"
+    "docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M#gid=1579463541"
   )
 ```
 
-## Get the bibtex entry
+## Some journals do not provide a DOI!
 
-```{r message=FALSE, warning=FALSE, include=FALSE, paged.print=TRUE}
-library(rcrossref)
+For some reason, even now, some journals are not minting DOIs. Those journals will be removed from the automated search for references.
+They will be manually added later.
 
+```{r remove-na, message=FALSE, warning=FALSE, include=FALSE}
+doi <- na.omit(doi$doi)
+```
+
+## Get the bibtex entries
+
+```{r get-bib-entry, message=FALSE, warning=FALSE, include=FALSE}
 sink("references.bib")
-for (i in 1:192) {
-  cat(cr_cn(doi$DOI[i]))
-}
+bib <- sapply(doi, rcrossref::cr_cn)
 sink()
 ```
 
+## Print the references.
 
-
-```{r message=FALSE, warning=FALSE}
-library(bib2df)
+```{r write-bib-file, message=FALSE, warning=FALSE}
 file <- "references.bib"
-df_references <- bib2df(file)
+df_references <- bib2df::bib2df(file)
 df_references
 ```
