@@ -12,14 +12,14 @@ vignette: >
 # Generate Final .bib File of References Reviewed
 
 This file generates a .bib file of the references that were reviewed.
-Unfortunately not all references have a DOI and not DOIs resolve properly, so some manual intervention will be required after the creation of the file.
+Unfortunately not all references have a DOI and not DOIs resolve properly, so some manual intervention was required after the creation of the file.
 
 Some of the original references were not suitable when we began to review them, so we selected new references.
-Therefore, we will download the notes from Google Drive and look up the DOIs from them.
+Therefore, for this work, we will download the notes from Google Drive and use the DOIs from them.
 
 ```{r import}
 ref <- gsheet::gsheet2tbl(
-    "https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381"
+    "docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/#gid=1699540381"
   )
 ```
 
@@ -27,7 +27,7 @@ There are eight articles that do not have a DOI, remove them.
 They will be added manually to the resulting "references_reviewed_for_check.bib" file.
 
 ```{r drop_na}
-# remove the 8 articles with no DOI
+# remove the 15 articles with no DOI
 ref <- ref[!is.na(ref$doi), ]
 ```
 
@@ -39,8 +39,7 @@ bib <- sapply(ref$doi, rcrossref::cr_cn)
 Save the resulting .bib file for checking and completion.
 
 ```{r write_file}
-bib_con <- file(file.path("../inst/extdata/references_reviewed_for_check.bib"))
-writeLines(text = bib,
-           con = bib_con)
-close(bib_con)
+sink(file = file.path("inst/extdata/references_reviewed_for_check.bib"))
+writeLines(unlist(lapply(bib, paste, collapse = " ")))
+sink()
 ```
