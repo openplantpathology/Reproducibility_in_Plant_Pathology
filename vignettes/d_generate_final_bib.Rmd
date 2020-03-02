@@ -36,7 +36,7 @@ Using `sapply()`, fetch the DOIs using `crossref::cr_cn()` and generate a .bib o
 bib <- sapply(ref$doi, rcrossref::cr_cn)
 ```
 
-Save the resulting .bib file for checking and completion.
+Save the resulting .bib file for checking using JabRef and completion, filling in the entries for journals that do not provide DOIs.
 
 ```{r write_file}
 sink(file = file.path("inst/extdata/references_reviewed_for_check.bib"))
