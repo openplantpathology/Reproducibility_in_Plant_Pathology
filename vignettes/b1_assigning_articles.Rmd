@@ -37,7 +37,7 @@ Create a new tab in the Google Sheets object for the evaluators to carry out eva
 library(dplyr)
 library(readr)
 library(bib2df)
-library(googlesheets)
+library(googlesheets4)
 library(stringr)
 library(Reproducibility.in.Plant.Pathology)
 
