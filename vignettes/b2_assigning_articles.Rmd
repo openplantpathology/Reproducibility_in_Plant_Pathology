@@ -23,7 +23,7 @@ Aside from the different years, the journals remain the same and process as desc
 library(dplyr)
 library(readr)
 library(bib2df)
-library(googlesheets)
+library(googlesheets4)
 library(stringr)
 library(Reproducibility.in.Plant.Pathology)
 
