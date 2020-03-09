@@ -23,16 +23,16 @@ This analysis is a simple visualisation and tabulation of the data gathered from
 Setup workspace by loading libraries used and setting the ggplot2 theme for the document.
 
 ```{r load-libraries}
-library(dplyr)
-library(ggplot2)
-library(hrbrthemes)
-library(janitor)
-library(magrittr)
-library(pander)
-library(Reproducibility.in.Plant.Pathology)
-library(tidyr)
+library("dplyr")
+library("ggplot2")
+library("ggpubr")
+library("janitor")
+library("magrittr")
+library("pander")
+library("Reproducibility.in.Plant.Pathology")
+library("tidyr")
 
-theme_set(theme_ipsum_rc())
+theme_set(theme_pubclean())
 ```
 
 # Import article evaluations

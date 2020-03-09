@@ -40,6 +40,7 @@ Imports:
     pander
 Suggests:
     ggplot2,
+    ggpubr,
     googlesheets4,
     gsheet,
     knitr,

@@ -17,7 +17,7 @@ Unfortunately not all references have a DOI and not DOIs resolve properly, so so
 Some of the original references were not suitable when we began to review them, so we selected new references.
 Therefore, for this work, we will download the notes from Google Drive and use the DOIs from them.
 
-```{r import}
+```{r import, eval=FALSE}
 ref <- gsheet::gsheet2tbl(
     "docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/#gid=1699540381"
   )
@@ -26,19 +26,19 @@ ref <- gsheet::gsheet2tbl(
 There are eight articles that do not have a DOI, remove them.
 They will be added manually to the resulting "references_reviewed_for_check.bib" file.
 
-```{r drop_na}
+```{r drop_na, eval=FALSE}
 # remove the 15 articles with no DOI
 ref <- ref[!is.na(ref$doi), ]
 ```
 
 Using `sapply()`, fetch the DOIs using `crossref::cr_cn()` and generate a .bib object in R.
-```{r fetch_bib}
+```{r fetch_bib, eval=FALSE}
 bib <- sapply(ref$doi, rcrossref::cr_cn)
 ```
 
 Save the resulting .bib file for checking using JabRef and completion, filling in the entries for journals that do not provide DOIs.
 
-```{r write_file}
+```{r write_file, eval=FALSE}
 sink(file = file.path("inst/extdata/references_reviewed_for_check.bib"))
 writeLines(unlist(lapply(bib, paste, collapse = " ")))
 sink()
