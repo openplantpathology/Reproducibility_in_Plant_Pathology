@@ -2,7 +2,7 @@
 
 env:
   global:
-  - REPO=$DOCKER_USER/Reproducibility_in_Plant_Pathology
+  - REPO=$DOCKER_USER/reproducibility_in_plant_pathology
 cache: packages
 
 sudo: required
