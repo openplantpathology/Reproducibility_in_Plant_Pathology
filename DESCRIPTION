@@ -43,6 +43,7 @@ Suggests:
     ggpubr,
     googlesheets4,
     gsheet,
+    janitor,
     knitr,
     pkgdown,
     rcrossref,
