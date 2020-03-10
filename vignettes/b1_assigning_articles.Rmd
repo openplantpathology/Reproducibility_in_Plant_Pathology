@@ -173,7 +173,7 @@ to_record <- c(
 
 We decided to use Google Sheets so that we could concurrently edit the file more easily.
 Once we're done filling in our evaluations, we will import the data back to R.
-Jenny Bryan has created a handy package, _googlesheets_ that we use here.
+Jenny Bryan has created a handy package, _googlesheets4_ that we use here.
 _Note that this must be run interactively for `gs_new()` to work.
 Knitting this .Rmd file will not generate any gsheets, it must be done in an interactive R session._
 
@@ -181,7 +181,7 @@ Create a Google Sheets workbook to hold worksheets for this project.
 This first sheet will serve as a template and is thus named "template".
 
 ```{r setup_gs, eval=FALSE}
-# Give googlesheets permission to access spreadsheets and Google Drive
+# Give googlesheets4 permission to access spreadsheets and Google Drive
 gs_auth()
 
 # create Google Sheet for concurrent edits, first sheet: article notes template
