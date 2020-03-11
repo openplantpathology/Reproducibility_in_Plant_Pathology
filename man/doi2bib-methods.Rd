@@ -23,12 +23,12 @@ the web service <http://www.doi2bib.org>.
 \note{
 Original script from William Keith Morris,
 <https://gist.github.com/wkmor1/ae2cc96acad472d49c35>.  Documented for use
-in an R package by Adam H Sparks
+in an R package by Adam H. Sparks
 }
 \examples{
 doi2bib("10.4454/jpp.fa.2012.002")
 
 }
 \author{
-William Keith Morris <wkmor1@gmail.com> and Adam H Sparks
+William Keith Morris <wkmor1@gmail.com> adapted by Adam H. Sparks
 }
