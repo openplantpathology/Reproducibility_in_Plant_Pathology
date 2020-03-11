@@ -12,9 +12,9 @@
 #' @note
 #' Original script from William Keith Morris,
 #' <https://gist.github.com/wkmor1/ae2cc96acad472d49c35>.  Documented for use
-#' in an R package by Adam H Sparks
+#' in an R package by Adam H. Sparks
 #'
-#' @author William Keith Morris <wkmor1@gmail.com> and Adam H Sparks
+#' @author William Keith Morris <wkmor1@@gmail.com> adapted by Adam H. Sparks
 #'
 #' @name doi2bib
 #' @rdname doi2bib-methods
