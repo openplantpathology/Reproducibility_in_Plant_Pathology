@@ -7,3 +7,5 @@ inst/doc
 vignettes/.httr-oauth
 .httr-oauth
 *.bib.bak
+
+inst/extdata/references.bib.sav
