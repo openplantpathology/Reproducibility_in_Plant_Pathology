@@ -14,9 +14,10 @@ knitr::opts_chunk$set(
 collapse = TRUE,
 comment = "#>"
 )
+knitr::opts_chunk$set(fig.width = 6.4, fig.height = 6.4)
 ```
 
-This analysis is a simple visualisation and tabulation of the data gathered from surveying 21 journals and 200 articles in the field of plant pathology for their openness and reproducibility.
+This analysis is a simple visualisation and tabulation of the data gathered from surveying 21 journals and 300 articles in the field of plant pathology for their openness and reproducibility.
 
 # Setup Workspace
 
