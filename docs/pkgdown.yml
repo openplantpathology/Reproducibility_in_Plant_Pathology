@@ -1,8 +1,0 @@
-pandoc: 2.9.2
-pkgdown: 1.4.1
-pkgdown_sha: ~
-articles: []
-urls:
-  reference: https://openplantpathology.github.io/Reproducible.Plant.Pathology//reference
-  article: https://openplantpathology.github.io/Reproducible.Plant.Pathology//articles
-

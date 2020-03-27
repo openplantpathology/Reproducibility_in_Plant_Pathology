@@ -9,3 +9,5 @@ vignettes/.httr-oauth
 *.bib.bak
 
 inst/extdata/references.bib.sav
+
+docs/
