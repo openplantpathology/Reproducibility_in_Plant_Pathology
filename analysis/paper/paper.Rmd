@@ -1,25 +1,37 @@
 ---
 title: "Open Science, Open Plant Pathology"
 author:
-  - Adam H. Sparks
-  - Emerson Del Ponte
-  - Sydney Everhart
+  - Adam H. Sparks:
+      email: Adam.Sparks@usq.edu.au
+      institute: USQ
+      correspondence: true
+      equal_contributor: true
+  - Emerson Del Ponte:
+      institute: UFV
+      equal_contributor: true
   - Zachary Foster
-  - Kaique dos Santos Alves
+  - Kaique dos Santos Alves:
+      institute: UFV
   - Niklaus J Grünwald
+institute:
+  - USQ: University of Southern Queensland, Centre for Crop Health, Toowoomba, Queensland 4350, Australia
+  - UFV: Departmento de Fitopatologia, Universidade Federal de Viçosa, Brazil
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
     bookdown::word_document2:
       fig_caption: yes
       reference_docx: "../templates/template.docx" # Insert path for the DOCX file
+      pandoc_args:
+        - '--lua-filter=scholarly-metadata.lua'
+        - '--lua-filter=author-info-blocks.lua'
 bibliography: references.bib
 csl: "../templates/phytopathology.csl" # Insert path for the bib-style
 abstract: |
-  Open research practices have been highlighted extensively during the last ten years in many fields of study as essential standards needed to promote transparency and reproducibility of scientific results. In fact, scientific claims can only be evaluated based on how protocols, materials, equipment and methods were described; data were collected and prepared; and analyses conducted. Openly sharing protocols, data and computational code are central for current scholarly dissemination and communication, but in many fields, including plant pathology, adoption of these practices has been slow. We randomly selected 200 articles published from 2012 to 2016 across 21 journals representative of the pathology discipline, and assigned them scores reflecting their openness and reproducibility. We found that most of the articles were not very open, failing to share data or code in a meaningful way. We propose that using open source tools for producing open and reproducible work and analysis is advantageous, benefiting not just readers, but the authors as well and provide ideas and tools to promote open, reproducible research practices among plant pathologists.
+  Open research practices have been highlighted extensively during the last ten years in many fields of study as essential standards needed to promote transparency and reproducibility of scientific results. In fact, scientific claims can only be evaluated based on how protocols, materials, equipment and methods were described; data were collected and prepared; and analyses conducted. Openly sharing protocols, data and computational code are central for current scholarly dissemination and communication, but in many fields, including plant pathology, adoption of these practices has been slow. We randomly selected 300 articles published from 2012 to 2018 across 21 journals representative of the pathology discipline, and assigned them scores reflecting their openness and reproducibility. We found that most of the articles were not very open, failing to share data or code in a meaningful way. We propose that using open source tools for producing open and reproducible work and analysis is advantageous, benefiting not just readers, but the authors as well and provide ideas and tools to promote open, reproducible research practices among plant pathologists.
 keywords: |
   open science; open data; reproducible research; FAIR data
 highlights: |
-  Open research practices are highlighted extensively in the broader scientific community. Our survey of 200 randomly selected articles from 2012 to 2016 indicates that we have work to do in this area as plant pathologists with most articles scoring low in openness and reproducibility.
+  Open research practices are highlighted extensively in the broader scientific community. Our survey of 300 randomly selected articles from 2012 to 2018 indicates that we have work to do in this area as plant pathologists with most articles scoring low in openness and reproducibility.
 ---
 
 ```{r, setup, echo = FALSE}
