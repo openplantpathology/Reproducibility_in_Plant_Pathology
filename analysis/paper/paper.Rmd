@@ -5,6 +5,7 @@ author:
   - Emerson Del Ponte
   - Sydney Everhart
   - Zachary Foster
+  - Kaique dos Santos Alves
   - Niklaus J Grünwald
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
