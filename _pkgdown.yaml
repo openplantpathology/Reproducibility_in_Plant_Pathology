@@ -2,4 +2,4 @@ title: Reproducibility in Plant Pathology
 url: https://openplantpathology.github.io/Reproducible.Plant.Pathology/
 template:
   params:
-    bootswatch: flatly
+    bootswatch: journal
