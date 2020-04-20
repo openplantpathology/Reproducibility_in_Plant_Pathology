@@ -9,10 +9,10 @@ author:
   - Emerson Del Ponte:
       institute: UFV
       equal_contributor: true
-  - Zachary Foster
   - Kaique dos Santos Alves:
       institute: UFV
-  - Niklaus J Grünwald
+  - Zachary Foster:
+  - Niklaus J Grünwald:
 institute:
   - USQ: University of Southern Queensland, Centre for Crop Health, Toowoomba, Queensland 4350, Australia
   - UFV: Departmento de Fitopatologia, Universidade Federal de Viçosa, Brazil
@@ -76,7 +76,7 @@ Therefore we will follow Peng's [-@Peng2009] definition that provides clear guid
 
 ### Open Science
 
-Open science has become highlighted lately with many donors expecting data to be available [@vannoorden2017; @ARC2018] and other scientists interested in sharing and collaborating more widely [@Wald2010].
+Open science has become highlighted lately with many donors expecting data to be available [@government_of_canada_2016; @vannoorden2017; @ARC2018] and other scientists interested in sharing and collaborating more widely [@Wald2010].
 
 # A General Workflow
 
