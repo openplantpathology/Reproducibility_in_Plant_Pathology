@@ -11,11 +11,12 @@ author:
       equal_contributor: true
   - Kaique dos Santos Alves:
       institute: UFV
-  - Zachary Foster: OSU
+  - Zachary Foster: 
+      institute: OSU
   - Niklaus J Grünwald: 
       institute: ARS
 institute:
-  - USQ: University of Southern Queensland, Centre for Crop Health, Toowoomba, Queensland 4350, Australia
+  - USQ: University of Southern Queensland, Centre for Crop Health, Toowoomba, Queensland, Australia
   - UFV: Departmento de Fitopatologia, Universidade Federal de Viçosa, Brazil
   - OSU: Department of Botany and Plant Pathology, Oregon State University, Corvallis, OR, USA
   - ARS: Horticultural Crops Research Unit, USDA Agricultural Research Service, Corvallis, OR, USA
