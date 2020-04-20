@@ -18,7 +18,7 @@ institute:
   - USQ: University of Southern Queensland, Centre for Crop Health, Toowoomba, Queensland 4350, Australia
   - UFV: Departmento de Fitopatologia, Universidade Federal de Viçosa, Brazil
   - OSU: Department of Botany and Plant Pathology, Oregon State University, Corvallis, OR, USA
-  - ARS: Horticulural Crops Research Unit, USDA Agriocultural Research Service, Corvallis, OR, USA
+  - ARS: Horticultural Crops Research Unit, USDA Agricultural Research Service, Corvallis, OR, USA
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
     bookdown::word_document2:
