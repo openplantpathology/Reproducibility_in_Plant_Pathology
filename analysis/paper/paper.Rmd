@@ -52,8 +52,8 @@ library(Reproducibility.in.Plant.Pathology)
 Modern plant pathological research has many facets given the array of disciplines and sub-disciplines currently involved.
 Collectively, they contribute to increase our basic and applied knowledge on several aspects of pathogen biology and disease development to ultimately improve plant disease management.
 Scientific research in the field varies from the purely observational or descriptive nature to inferential based on experimental or simulation-derived data sets.
-Whatever the case, research findings are verifiable based on how much of the research materials, processes and outcomes are made available beyond what is reported in the scientific article.
-These include biological materials (strains), nucleic/protein sequences, experimental and simulated raw data annotations, drawings and photographs and statistical analysis code among other materials and data.
+Whatever the case, research findings are verifiable based on how much of the research materials, processes and outcomes are made available beyond what is reported in the scientific article and the ability of others to make use of your methods and results.
+These research findings include biological materials (isolates or strains), nucleic/protein sequences, experimental and simulated raw data annotations, drawings and photographs and statistical analysis code among other materials and data generated as a course of conducting research.
 That is, open science leads to reproducibility and replicability.
 
 ## Definitions
@@ -83,7 +83,7 @@ Open science has become highlighted lately with many donors expecting data to be
 A general workflow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, and writing the manuscript.
 Here we defined three levels of reproducibility which are also related with the evolution of computational methods and reproducible practices \@ref(fig:workflow-dia).
 
-A first level of reproducibility involves openly available research materials such as strains and/or nucleic acid sequences in public collections and citations for methods used.
+A first level of reproducibility involves openly available research materials such as isolates or strains and/or nucleic acid sequences in public collections and citations for methods used.
 A second level involves providing raw data and code as binary files (PDF or other non-text file) in supplemental materials, which do not allow prompt access to the data and running the code because of use of expensive commercial software or a pay-wall.
 The highest level includes efforts to annotate structured raw data (FAIR -- Findable, Accessible, Interoperable and Re-usable) and fully document the analysis using open source code which are deposited in public repositories and can be run by anyone following download of data and code.
 The first level, as reported, is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations.
@@ -91,16 +91,15 @@ In the next section we present standards and tools that can be used to ensure re
 
 ### Methods
 
-When making your science more open and reproducible, methods, software used (including things like R packages), etc. should be cited properly.
+When making your science more open and reproducible, methods, software used, this includes items such as R or Python packages that were directly used in the analysis or production of the paper, etc. should be cited properly.
+Deposit and annotate biological materials with an herbarium or other repository.
+Provide a full description of all equipment used, _e.g._ a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one hour intervals.
 This allows end users to identify what was used and identify the methods used more accurately.
 Just as importantly, this acknowledges the contributions of others whose works were instrumental in your research.
 This also helps ensure that you as a researcher are able to reconstruct what you have done since you will have good notes and documentation and be able to identify if something changes, _e.g._ a package version, what effect it had on your research.
 
-- deposit and annotate biological materials
-
-- provide full description for equipments, etc.
-
-- rOpenSci Reproducible Research: http://ropensci.github.io/reproducibility-guide/sections/introduction/
+The use of programming or scripting languages such as R, SAS or Python enable you as a scientist to keep very detailed records of what was computationally performed.
+This is as opposed to using software such as Microsoft's spreadsheet program Excel, which can be used for simple statistical analyses (but should not be) or other point-and-click software packages that do not enable you to keep an accurate record of the steps taken to import, format, visualise and analyse data.
 
 ### Data
 
