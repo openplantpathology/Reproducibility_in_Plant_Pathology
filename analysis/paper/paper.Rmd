@@ -99,13 +99,25 @@ Just as importantly, this acknowledges the contributions of others whose works w
 This also helps ensure that you as a researcher are able to reconstruct what you have done since you will have good notes and documentation and be able to identify if something changes, _e.g._ a package version, what effect it had on your research.
 
 The use of programming or scripting languages such as R, SAS or Python enable you as a scientist to keep very detailed records of what was computationally performed.
-This is as opposed to using software such as Microsoft's spreadsheet program Excel, which can be used for simple statistical analyses (but should not be) or other point-and-click software packages that do not enable you to keep an accurate record of the steps taken to import, format, visualise and analyse data.
+This is as opposed to using software such as spreadsheet programs like Excel, gsheets, Numbers, Calc or others which can be used for simple statistical analyses and visualization (but should not be) or other point-and-click software packages that do not enable you to keep an accurate record of the steps taken to import, format, visualise and analyse data.
 
 ### Data
 
-- Data formatting (flat files; use Comma Chameleon, Table Tool, others?)
-- Data annotation
-- Data storage (don't edit raw data files; use file permissions to prevent changes to raw data files, use data bases where possible and appropriate; etc.)
+In many cases, data sets are small enough and curated in spreadsheets, which if saved as a plain text file, _e.g._ comma separated (CSV) files, allows for additions or updates to the data can be tracked through a version control system such as Git, Mercurial among others.
+Ideally, once the data are complete, best practices for keeping your data as you perform your work include treating the raw data as read-only, using file permissions to prevent changes to the raw data files or possibly where appropriate using a data base to store the data that have been collected.
+Saving files in proprietary formats such as .xls(x) can also lead to issues in the future when opening using newer (or older) software versions.
+Unexpected changes to values in the data [@Ziemann2016] may also occur when using proprietary formats.
+
+If steps are followed to make the data FAIR (Findable, Accessible, Interoptable and Reusable) then it will be readable by humans and machines alike this will help support new discoveries and support further research.
+In turn sharing data will lead to new citations for your work as other discover and use it.
+
+To make your data the most widely useable, ensure that it has a persistent identifier.
+A digital object identifier (DOI) is the most common (<https://www.doi.org/>) but handle is also an option (<https://handle.net/>).
+There are different options for generating a DOI for your data and other materials.
+FigShare, Zenodo and OSF all offer long-term archival along with a service to generate a DOI for your materials.
+The use of a persistent identifier works to ensure that even if the data are moved, they can still be located using that unique identifier.
+
+For more on FAIR data, visit Go-Fair <https://www.go-fair.org/fair-principles/>.
 
 ### Source Code
 
@@ -143,7 +155,7 @@ In cases where an article was not suitable, _e.g._, a review or otherwise not re
 The pages list was numbered from page one and went to 150.
 This was done since some journals restart their numbering with each issue and also ensures that the journal is more likely to have a page number corresponding to the randomly generated value.
 This also assumes that there is no effect or bias on reproducibility based on the time of year that an article was published, since most journals start with page number one at the beginning of the year.
-The list of journals was saved as a comma separated value (CSV) file and imported into R [@R2020]. 
+The list of journals was saved as a comma separated value (CSV) file and imported into R [@RCT2020]. 
 
 # Discussion
 
