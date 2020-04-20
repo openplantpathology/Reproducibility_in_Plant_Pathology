@@ -10,7 +10,7 @@
 #'
 
 workflow_dia <- function() {
-  p <- DiagrameRsvg::export_svg(
+  p <- DiagrammeRsvg::export_svg(
     DiagrammeR::grViz(
       "digraph Fig1 {
     graph [fontsize = 8, nodesep=0.5]

@@ -33,6 +33,8 @@ License: MIT + file LICENSE
 Imports:
     bib2df,
     dplyr,
+    DiagrammeR,
+    DiagrammeRsvg,
     httr,
     methods,
     pander
