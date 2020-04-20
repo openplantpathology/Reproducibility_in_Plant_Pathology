@@ -30,6 +30,7 @@ library("ggpubr")
 library("janitor")
 library("magrittr")
 library("pander")
+library("readODS")
 library("Reproducibility.in.Plant.Pathology")
 library("tidyr")
 
@@ -39,9 +40,11 @@ theme_set(theme_pubclean())
 # Import article evaluations
 
 ```{r}
-rrpp <- gsheet::gsheet2tbl(
-  "https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381"
-)
+rrpp <-
+  read_ods(
+    system.file("extdata", "article_notes.ods", package = "Reproducibility.in.Plant.Pathology"),
+    na = "NA", sheet = 3
+  )
 ```
 
 ## Prepare the data
@@ -55,14 +58,11 @@ rrpp <-
     reproducibility_score =
       if_else(
         condition = data_avail > 0,
-        
         true = as.integer(comp_mthds_avail) +
           as.integer(software_avail) +
           as.integer(software_cite) +
           as.integer(data_avail),
-        
         false = as.integer(data_avail),
-        
         missing = as.integer(0)
       )
   ) %>%
@@ -77,16 +77,17 @@ rrpp <-
   mutate(open = as.factor(open)) %>%
   mutate(abbreviation = as.factor(abbreviation)) %>%
   mutate(assignee = as.factor(assignee)) %>%
-  filter(!is.na(reproducibility_score)) %>%
-  as.data.frame()
+  filter(!is.na(reproducibility_score))
 ```
 
 Create a tidy data frame of the data by unnesting software used as in many cases multiple software packages were used, so will end up with multiple rows for same article, one for each software.
 
 ```{r}
-rrpp_software <- 
+rrpp_software <-
   rrpp %>%
-  unnest(software_used = strsplit(software_used, ", "))
+  transform(software_used = strsplit(software_used, ",")) %>%
+  unnest(software_used) %>% 
+  mutate(software_used = trimws(software_used))
 ```
 
 # Visualise evaluations
@@ -96,23 +97,21 @@ rrpp_software <-
 What class did the articles fall into, "Applied, 
 
 ```{r}
-ggplot(rrpp, aes(x = art_class)) +
+ggplot(rrpp, aes(y = art_class)) +
   geom_bar(stat = "count") +
   xlab("Class(es)") +
-  ggtitle("Article Classification") +
-  coord_flip()
+  ggtitle("Article Classification")
 ```
 
 ## Computational methods available
 
-Were the computational methods, scripts, source code, etc. made available?
+Were the computational methods, scripts, source code, _etc._, made available?
 
 ```{r}
-ggplot(rrpp, aes(x = comp_mthds_avail)) +
+ggplot(rrpp, aes(y = comp_mthds_avail)) +
   geom_bar() +
   ggtitle("Computational Methods Availability") +
-  xlab("Score") +
-  coord_flip()
+  xlab("Score")
 ```
 
 ## Software availability
@@ -120,23 +119,10 @@ ggplot(rrpp, aes(x = comp_mthds_avail)) +
 Were the software used readily available and preferably open-source?
 
 ```{r}
-ggplot(rrpp, aes(x = software_avail)) +
+ggplot(rrpp, aes(y = software_avail)) +
   geom_bar() +
   ggtitle("Software Availability") +
-  xlab("Score") +
-  coord_flip()
-```
-
-## Data availability
-
-Were the data made available?
-
-```{r}
-ggplot(rrpp, aes(x = data_avail)) +
-  geom_bar() +
-  ggtitle("Data Availability") +
-  xlab("Score") +
-  coord_flip()
+  xlab("Score")
 ```
 
 ## Software citations
@@ -144,11 +130,10 @@ ggplot(rrpp, aes(x = data_avail)) +
 Were the software that was used properly cited?
 
 ```{r}
-ggplot(rrpp, aes(x = software_cite)) +
+ggplot(rrpp, aes(y = software_cite)) +
   geom_bar() +
   ggtitle("Software Cited") +
-  xlab("Score") +
-  coord_flip()
+  xlab("Score")
 ```
 
 ## Software used (cited)
@@ -163,12 +148,22 @@ top_software <- subset(rrpp_software, software_used %in% top10)
 top_software$software_used <- factor(top_software$software_used,
                                      levels = rev(top10))
 
-ggplot(top_software, aes(x = software_used)) +
+ggplot(top_software, aes(y = software_used)) +
   geom_bar() +
   ggtitle("Top 10 Software Used") +
   xlab("Software") +
-  ylab("Count") +
-  coord_flip()
+  ylab("Count")
+```
+
+## Data availability
+
+Were the data made readily available?
+
+```{r}
+ggplot(rrpp, aes(y = data_avail)) +
+  geom_bar() +
+  ggtitle("Data Availability") +
+  xlab("Score")
 ```
 
 ## Reproducibility score
@@ -176,85 +171,78 @@ ggplot(top_software, aes(x = software_used)) +
 The reproducibility score was calculated as the sum of the scores for computational method availability, 
 
 ```{r}
-ggplot(rrpp, aes(x = reproducibility_score)) +
+ggplot(rrpp, aes(y = reproducibility_score)) +
   geom_bar() +
   ggtitle("Combined Reproducibility Score") +
-  xlab("Score") +
-  coord_flip()
+  xlab("Score")
 ```
 
 ## Article class effect on reproducibility score
 
 ```{r}
-ggplot(rrpp, aes(y = reproducibility_score,
-                 x = art_class)) +
+ggplot(rrpp, aes(x = reproducibility_score,
+                 y = art_class)) +
   geom_boxplot(outlier.shape = NA) +
   geom_jitter(width = 0.25, alpha = 0.5) +
   ggtitle("Article Class Effect") +
   xlab("Class(es)") +
-  ylab("Score") +
-  coord_flip()
+  ylab("Score")
 ```
 
 ## Journal effect on reproducibility score
 
 ```{r}
-ggplot(rrpp, aes(y = reproducibility_score,
-                 x = abbreviation)) +
+ggplot(rrpp, aes(x = reproducibility_score,
+                 y = abbreviation)) +
   geom_count() +
   ggtitle("Journal Effect") +
   xlab("Journal") +
-  ylab("Score") +
-  coord_flip()
+  ylab("Score")
 ```
 
 ## Evaluator effect on reproducibility score
 
 ```{r}
-ggplot(rrpp, aes(y = reproducibility_score,
-                 x = assignee)) +
+ggplot(rrpp, aes(x = reproducibility_score,
+                 y = assignee)) +
   geom_count() +
   ggtitle("Evaluator Effect") +
   xlab("Evaluator") +
-  ylab("Score") +
-  coord_flip()
+  ylab("Score")
 ```
 
 ## Five year impact factor effect on reproducibility score
 
 ```{r}
-ggplot(rrpp, aes(y = reproducibility_score,
-                 x = IF_5year)) +
+ggplot(rrpp, aes(x = reproducibility_score,
+                 y = IF_5year)) +
   geom_count() +
   ggtitle("Five Year IF Effect") +
   xlab("Impact Factor") +
-  ylab("Score") +
-  coord_flip()
+  ylab("Score")
 ```
 
 ## Journal open access effect on reproducibility score
 
 ```{r}
-ggplot(rrpp, aes(y = reproducibility_score,
-                 x = open)) +
-   geom_count() +
+ggplot(rrpp, aes(x = reproducibility_score,
+                 y = open)) +
+  geom_count() +
   ggtitle("Open Access Effect") +
   xlab("Open Access Classification") +
-  ylab("Score") +
-  coord_flip()
+  ylab("Score")
 ```
 
 ## Journal reproducibility instructions effect on reproducibility score
 
 ```{r}
-ggplot(rrpp, aes(y = reproducibility_score,
-                 x = as.factor(repro_inst))) +
+ggplot(rrpp, aes(x = reproducibility_score,
+                 y = as.factor(repro_inst))) +
   geom_boxplot(outlier.shape = NA) +
   geom_jitter(width = 0.25, alpha = 0.5) +
   ggtitle("Reproducibility Instructions Effect") +
   xlab("Reproducibility Instructions Score") +
-  ylab("Score") +
-  coord_flip()
+  ylab("Score")
 ```
 
 ## Tables
