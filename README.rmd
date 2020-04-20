@@ -36,11 +36,8 @@ Please cite this compendium as:
 
 #### The R package
 
-This repository is organized as an R package. There is one R function,
-`doi2bib()`, that is used in this repository, along with a bibliography file of
-the articles that were examined that are located in `inst/extdata` directory. We
-have used the R package structure to help manage dependencies, to take advantage
-of continuous integration for automated code testing and for file organisation.
+This repository is organized as an R package. There are custom R functions, `doi2bib()`, `table_of_journals()` and `workflow_dia()` that are used in this repository, along with a bibliography file of the articles that were examined and the notes that are located in `inst/extdata` directory.
+We have used the R package structure to help manage dependencies, to take advantage of continuous integration for automated code testing and for file organisation.
 
 You can download the compendium as a zip from from this URL: <https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/archive/master.zip>
 
@@ -52,9 +49,7 @@ remotes::install_github("openplantpathology/Reproducibility_in_Plant_Pathology"
 )
 ```
 
-Once the download is complete, open the
-`Reproducibility_in_Plant_Pathology.Rproj` in RStudio to begin working with the
-package and compendium files.
+Once the download is complete, open the `Reproducibility_in_Plant_Pathology.Rproj` in RStudio to begin working with the package and compendium files.
 
 ## Meta
 

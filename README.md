@@ -16,7 +16,7 @@ This repository contains the data and code for our paper:
 
 Our pre-print is online here:
 
-> Authors, (YYYY). *Title of paper*. Name of journal/book, Accessed 09
+> Authors, (YYYY). *Title of paper*. Name of journal/book, Accessed 20
 > Apr 2020. Online at <https://doi.org/xxx/xxx>
 
 ### How to cite
@@ -26,16 +26,17 @@ Please cite this compendium as:
 > Sparks, A.H., Del Ponte, E.M., dos Santos Alves, K., Foster, Z.,
 > Grünwald, N. (2020). *Compendium of R code and data for ‘Status and
 > Best Practices for Reproducible Research In Plant Pathology’*.
-> Accessed 09 Apr 2020. Online at
+> Accessed 20 Apr 2020. Online at
 > <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
 
 #### The R package
 
-This repository is organized as an R package. There is one R function,
-`doi2bib()`, that is used in this repository, along with a bibliography
-file of the articles that were examined that are located in
+This repository is organized as an R package. There are custom R
+functions, `doi2bib()`, `table_of_journals()` and `workflow_dia()` that
+are used in this repository, along with a bibliography file of the
+articles that were examined and the notes that are located in
 `inst/extdata` directory. We have used the R package structure to help
 manage dependencies, to take advantage of continuous integration for
 automated code testing and for file organisation.
