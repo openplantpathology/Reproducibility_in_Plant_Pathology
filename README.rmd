@@ -57,12 +57,6 @@ Code: [MIT](http://opensource.org/licenses/MIT) year: `r format(Sys.Date(), "%Y"
 
 Data: [CC-0](http://creativecommons.org/publicdomain/zero/1.0/) attribution requested in reuse
 
-### Licenses
-
-**Code :** See the [DESCRIPTION](DESCRIPTION) file
-
-**Data :** [CC-0](http://creativecommons.org/publicdomain/zero/1.0/) attribution requested in reuse
-
 Adam H Sparks, Associate Professor, Centre for Crop Health  
 University of Southern Queensland  
 Toowoomba, Queensland 4350
