@@ -108,7 +108,7 @@ Ideally, once the data are complete, best practices for keeping your data as you
 Saving files in proprietary formats such as .xls(x) can also lead to issues in the future when opening using newer (or older) software versions.
 Unexpected changes to values in the data [@Ziemann2016] may also occur when using proprietary formats.
 
-If steps are followed to make the data FAIR (Findable, Accessible, Interoptable and Reusable) then it will be readable by humans and machines alike this will help support new discoveries and support further research.
+If steps are followed to make the data FAIR (Findable, Accessible, Interoptable and Reusable) [@Wilkinson2016] then it will be readable by humans and machines alike this will help support new discoveries and support further research.
 In turn sharing data will lead to new citations for your work as other discover and use it.
 
 To make your data the most widely useable, ensure that it has a persistent identifier.
