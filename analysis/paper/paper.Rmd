@@ -131,14 +131,6 @@ The use of a persistent identifier works to ensure that even if the data are mov
 
 For more on FAIR data, visit Go-Fair <https://www.go-fair.org/fair-principles/>.
 
-### Source Code
-
-
-- The problem of commercial software and mouse-based routines
-- Why to avoid binary files as supplements?
-- Writing and documenting using open source software
-- Availability in public repositories
-
 ### Repository
 
 - Using GitHub, Gitlab, Bitbucket for code (and small data?)
