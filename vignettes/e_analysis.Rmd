@@ -36,7 +36,7 @@ theme_set(theme_pubclean())
 ## Import the data and calculate the reproducibility score
 
 ```{r}
-rrpp <- import_rrpp()
+rrpp <- import_notes()
 ```
 
 Create a tidy data frame of the data by unnesting software used as in many cases multiple software packages were used, so will end up with multiple rows for same article, one for each software.

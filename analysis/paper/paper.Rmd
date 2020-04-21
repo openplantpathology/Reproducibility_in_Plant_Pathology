@@ -236,7 +236,7 @@ Most articles did not make any computational methods available in any fashion wi
 
 More articles did a good job of using software that was reasonably available to anyone with 206 scoring "2" or "3" (Table \@ref(tab:sa)).
 
-A custom R function, `Reproducibility.in.Plant.Pathology::import_rrpp()`, was written to import the data, format the columns properly and calculate the overall reproducibility score in R [@RCT2020].
+A custom R function, `Reproducibility.in.Plant.Pathology::import_notes()`, was written to import the data, format the columns properly and calculate the overall reproducibility score in R [@RCT2020].
 
 The majority of articles scored very low in our reproducibility assessment, 82.6&nbsp;% scored 0 out of 12, which was not reproducible at all (Table \@ref(tab:reproducibility)).
 The highest scoring article recieved an 11 out of 12.
@@ -275,7 +275,7 @@ library("janitor")
 library("flextable")
 library("officer")
 
-import_rrpp() %>%
+import_notes() %>%
   tabyl(journal) %>%
   select(-percent) %>%
   flextable() %>%
@@ -289,7 +289,7 @@ import_rrpp() %>%
 ##### pagebreak
 
 ```{r software_avail, echo=FALSE, message=FALSE, warning=FALSE}
-import_rrpp() %>%
+import_notes() %>%
   tabyl(software_avail) %>%
   select(-percent) %>% 
   rename(`software availability` = software_avail,
@@ -305,7 +305,7 @@ import_rrpp() %>%
 ##### pagebreak
 
 ```{r reproducibility_score, echo=FALSE, message=FALSE, warning=FALSE}
-import_rrpp() %>% 
+import_notes() %>% 
   tabyl(reproducibility_score) %>% 
   adorn_pct_formatting() %>% 
   rename(score = reproducibility_score) %>% 

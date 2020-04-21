@@ -2,31 +2,45 @@
 #' Import Reproducibility Score Notes
 #'
 #' Imports, formats data into proper types and calculates the final
-#'  reproducibility score
+#'  reproducibility score. Also adds the 2 and 5 year impact factor values from
+#'  InCites Journal Citation Reports for 2018.
 #'
 #' @return A `tibble` object of reproducibility score notes formatted for use in
 #'  analysis and manuscript preparation
-#' @export import_rrpp
+#' @export import_notes
 #'
 #' @examples
-#' rrpp <- import_rrpp()
-#' pander::pander(head(rrpp))
+#' notes <- import_notes()
+#' pander::pander(head(notes))
 #'
 #' @importFrom magrittr "%>%"
 #'
-import_rrpp <- function() {
-
+import_notes <- function() {
   # CRAN Note Avoidance
-  data_avail <- comp_mthds_avail <- software_avail <- software_cite <-
-    IF_5year <- art_class <- repro_inst <- abbreviation <- assignee <-
+  data_avail <-
+    comp_mthds_avail <- software_avail <- software_cite <-
+    IF_5year <-
+    art_class <- repro_inst <- abbreviation <- assignee <-
     reproducibility_score <- NULL
 
-  readr::read_csv(
+  notes <- readr::read_csv(
     system.file("extdata",
                 "article_notes.csv",
                 package = "Reproducibility.in.Plant.Pathology"),
     na = "NA"
-  ) %>%
+  )
+
+  IF_5year <- readr::read_csv(
+    system.file("extdata",
+                "2018_5-year_IF.csv",
+                package = "Reproducibility.in.Plant.Pathology"),
+    na = "NA"
+  )
+
+  notes <- dplyr::left_join(notes, IF_5year, by = c("journal" = "Journal"))
+
+  notes <-
+    notes %>%
     dplyr::mutate(
       reproducibility_score =
         dplyr::if_else(
@@ -51,4 +65,6 @@ import_rrpp <- function() {
     dplyr::mutate(abbreviation = as.factor(abbreviation)) %>%
     dplyr::mutate(assignee = as.factor(assignee)) %>%
     dplyr::filter(!is.na(reproducibility_score))
+
+  return(notes)
 }
