@@ -1,5 +1,8 @@
 {
-  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@context": [
+    "https://doi.org/10.5063/schema/codemeta-2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "Reproducibility.in.Plant.Pathology",
   "description": "A research compendium for the paper, \"xxxxxx\", published in \"xxxxxx\".",
@@ -269,6 +272,12 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "doi2bib",
+      "name": "doi2bib",
+      "sameAs": "https://github.com/wkmor1/doi2bib"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "bib2df",
       "name": "bib2df",
       "provider": {
@@ -346,9 +355,16 @@
     }
   ],
   "readme": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/master/README.md",
-  "fileSize": "90.715KB",
+  "fileSize": "88.975KB",
   "developmentStatus": "http://www.repostatus.org/#active",
-  "keywords": ["plant-pathology", "reproducible-research", "reproducible-science", "open-science", "r", "rstats"],
+  "keywords": [
+    "plant-pathology",
+    "reproducible-research",
+    "reproducible-science",
+    "open-science",
+    "r",
+    "rstats"
+  ],
   "citation": [
     {
       "@type": "SoftwareSourceCode",

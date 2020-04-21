@@ -5,7 +5,6 @@
 ^README\.Rmd$
 ^README-.*\.png$
 ^inst/paper/
-^docs$
 ^\.travis\.yml$
 ^codecov\.yml$
 ^appveyor\.yml$
@@ -15,3 +14,4 @@ analysis
 ^CONDUCT\.md$
 ^CONTRIBUTING\.md$
 ^codemeta\.json$
+^.github$

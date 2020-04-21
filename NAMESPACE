@@ -3,4 +3,3 @@
 export(import_rrpp)
 export(table_of_journals)
 export(workflow_dia)
-exportMethods(doi2bib)

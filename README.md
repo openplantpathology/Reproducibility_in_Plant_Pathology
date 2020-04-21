@@ -34,7 +34,7 @@ Please cite this compendium as:
 #### The R package
 
 This repository is organized as an R package. There are custom R
-functions, `doi2bib()`, `table_of_journals()` and `workflow_dia()` that
+functions, `table_of_journals()` and `workflow_dia()` that
 are used in this repository, along with a bibliography file of the
 articles that were examined and the notes that are located in
 `inst/extdata` directory. We have used the R package structure to help

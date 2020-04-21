@@ -31,6 +31,7 @@ Depends:
     R (>= 3.2.0)
 License: MIT + file LICENSE
 Imports:
+    doi2bib,
     bib2df,
     dplyr,
     DiagrammeR,
@@ -55,6 +56,8 @@ Suggests:
     testthat,
     tibble,
     tidyverse
+Remotes:
+    wkmor1/doi2bib
 RoxygenNote: 7.1.0
 Encoding: UTF-8
 NeedsCompilation: no

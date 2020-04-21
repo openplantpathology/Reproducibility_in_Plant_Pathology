@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 ```
 
 # Reproducibility in Plant Pathology
-
+![Publish Docker](https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/workflows/Publish%20Docker/badge.svg)
 [![DOI](https://zenodo.org/badge/62676177.svg)](https://zenodo.org/badge/latestdoi/62676177)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
@@ -36,7 +36,8 @@ Please cite this compendium as:
 
 #### The R package
 
-This repository is organized as an R package. There are custom R functions, `doi2bib()`, `table_of_journals()` and `workflow_dia()` that are used in this repository, along with a bibliography file of the articles that were examined and the notes that are located in `inst/extdata` directory.
+This repository is organized as an R package. There are custom R functions, 
+`table_of_journals()` and `workflow_dia()` that are used in this repository, along with a bibliography file of the articles that were examined and the notes that are located in `inst/extdata` directory.
 We have used the R package structure to help manage dependencies, to take advantage of continuous integration for automated code testing and for file organisation.
 
 You can download the compendium as a zip from from this URL: <https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/archive/master.zip>
