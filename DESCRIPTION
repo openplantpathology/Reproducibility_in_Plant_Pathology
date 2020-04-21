@@ -53,7 +53,8 @@ Suggests:
     roxygen2 (>= 6.0.1),
     stringr,
     testthat,
-    tibble
+    tibble,
+    tidyverse
 RoxygenNote: 7.1.0
 Encoding: UTF-8
 NeedsCompilation: no
