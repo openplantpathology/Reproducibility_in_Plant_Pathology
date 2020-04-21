@@ -107,8 +107,16 @@ This is as opposed to using software such as spreadsheet programs like Excel, gs
 
 ### Data
 
+Prefer text files for saving small sets of data.
+Data that are saved in binary formats such as PDF files are difficult to reuse because they are not easily machine readable.
 In many cases, data sets are small enough and curated in spreadsheets, which if saved as a plain text file, _e.g._ comma separated (CSV) files, allows for additions or updates to the data can be tracked through a version control system such as Git, Mercurial among others.
-Ideally, once the data are complete, best practices for keeping your data as you perform your work include treating the raw data as read-only, using file permissions to prevent changes to the raw data files or possibly where appropriate using a data base to store the data that have been collected.
+This also helps ensure that the data are reusable.
+
+Larger data sets may warrant the use of a proper database like MariaDB or PostgreSQL which provide users with several benefits but two important ones to mention here are data redundancy, no duplicated records; and data consistency, all of your records are sure to be recorded in the same way for every observation.
+While databases may offer many advantages, the trade-off is that they are more complex to set up and administer, especially for a small data set that might be only a few rows and columns in a database.
+
+Ideally, once the data are complete, best practices for keeping your data as you perform your work include treating the raw data as read-only and using file permissions to prevent changes to the raw data files.
+It should be noted, that the use of a database management system also allows for both of these at the expense of added complexity.
 Saving files in proprietary formats such as .xls(x) can also lead to issues in the future when opening using newer (or older) software versions.
 Unexpected changes to values in the data [@Ziemann2016] may also occur when using proprietary formats.
 
@@ -125,12 +133,14 @@ For more on FAIR data, visit Go-Fair <https://www.go-fair.org/fair-principles/>.
 
 ### Source Code
 
+
 - The problem of commercial software and mouse-based routines
 - Why to avoid binary files as supplements?
 - Writing and documenting using open source software
 - Availability in public repositories
 
 ### Repository
+
 - Using GitHub, Gitlab, Bitbucket for code (and small data?)
 - Using Figshare, Dataverse or some other data repository for large data
 - Zenodo or OSF to generate DOIs
