@@ -24,60 +24,19 @@ This analysis is a simple visualisation and tabulation of the data gathered from
 Letup workspace by loading libraries used and setting the ggplot2 theme for the document.
 
 ```{r load-libraries}
-library("dplyr")
-library("ggplot2")
+library("tidyverse")
 library("ggpubr")
 library("janitor")
-library("magrittr")
 library("pander")
-library("readODS")
 library("Reproducibility.in.Plant.Pathology")
-library("tidyr")
 
 theme_set(theme_pubclean())
 ```
 
-# Import article evaluations
+## Import the data and calculate the reproducibility score
 
 ```{r}
-rrpp <-
-  read_ods(
-    system.file("extdata", "article_notes.ods", package = "Reproducibility.in.Plant.Pathology"),
-    na = "NA", sheet = 3
-  )
-```
-
-## Prepare the data
-
-Calculate the reproducibility score, dropping any rows that have `NA` (two) for the full score and convert fields to factors and the tibble to a data.frame.
-
-```{r}
-rrpp <-
-  rrpp %>%
-  mutate(
-    reproducibility_score =
-      if_else(
-        condition = data_avail > 0,
-        true = as.integer(comp_mthds_avail) +
-          as.integer(software_avail) +
-          as.integer(software_cite) +
-          as.integer(data_avail),
-        false = as.integer(data_avail),
-        missing = as.integer(0)
-      )
-  ) %>%
-  mutate(IF_5year =
-           if_else(
-             condition = is.na(IF_5year),
-             true = 0,
-             false = IF_5year
-           )) %>%
-  mutate(art_class = as.factor(art_class)) %>%
-  mutate(repro_inst = as.factor(repro_inst)) %>%
-  mutate(open = as.factor(open)) %>%
-  mutate(abbreviation = as.factor(abbreviation)) %>%
-  mutate(assignee = as.factor(assignee)) %>%
-  filter(!is.na(reproducibility_score))
+rrpp <- import_rrpp()
 ```
 
 Create a tidy data frame of the data by unnesting software used as in many cases multiple software packages were used, so will end up with multiple rows for same article, one for each software.
@@ -99,7 +58,7 @@ What class did the articles fall into, "Applied,
 ```{r}
 ggplot(rrpp, aes(y = art_class)) +
   geom_bar(stat = "count") +
-  xlab("Class(es)") +
+  ylab("Class") +
   ggtitle("Article Classification")
 ```
 
@@ -111,7 +70,7 @@ Were the computational methods, scripts, source code, _etc._, made available?
 ggplot(rrpp, aes(y = comp_mthds_avail)) +
   geom_bar() +
   ggtitle("Computational Methods Availability") +
-  xlab("Score")
+  ylab("Score")
 ```
 
 ## Software availability
@@ -122,7 +81,7 @@ Were the software used readily available and preferably open-source?
 ggplot(rrpp, aes(y = software_avail)) +
   geom_bar() +
   ggtitle("Software Availability") +
-  xlab("Score")
+  ylab("Score")
 ```
 
 ## Software citations
@@ -133,7 +92,7 @@ Were the software that was used properly cited?
 ggplot(rrpp, aes(y = software_cite)) +
   geom_bar() +
   ggtitle("Software Cited") +
-  xlab("Score")
+  ylab("Score")
 ```
 
 ## Software used (cited)
@@ -164,7 +123,7 @@ Were the data made readily available?
 ggplot(rrpp, aes(y = data_avail)) +
   geom_bar() +
   ggtitle("Data Availability") +
-  xlab("Score")
+  ylab("Score")
 ```
 
 ## Reproducibility score
@@ -175,7 +134,7 @@ The reproducibility score was calculated as the sum of the scores for computatio
 ggplot(rrpp, aes(y = reproducibility_score)) +
   geom_bar() +
   ggtitle("Combined Reproducibility Score") +
-  xlab("Score")
+  ylab("Score")
 ```
 
 ## Article class effect on reproducibility score
@@ -186,9 +145,13 @@ ggplot(rrpp, aes(x = reproducibility_score,
   geom_boxplot(outlier.shape = NA) +
   geom_jitter(width = 0.25, alpha = 0.5) +
   ggtitle("Article Class Effect") +
-  xlab("Class(es)") +
-  ylab("Score")
+  ylab("Class") +
+  xlab("Score")
+
+wilcox.test(reproducibility_score ~ art_class, data = rrpp)
 ```
+
+The Mann-Whitney U test indicates that the article class does not affect the assigned reproducibility score.
 
 ## Journal effect on reproducibility score
 
@@ -197,9 +160,13 @@ ggplot(rrpp, aes(x = reproducibility_score,
                  y = abbreviation)) +
   geom_count() +
   ggtitle("Journal Effect") +
-  xlab("Journal") +
-  ylab("Score")
+  ylab("Journal") +
+  xlab("Score")
+
+kruskal.test(reproducibility_score ~ as.factor(abbreviation), data = rrpp)
 ```
+
+The Kruskal-Wallis test indicates that the journal title does not appear to have an effect on the assigned reproducibility score.
 
 ## Evaluator effect on reproducibility score
 
@@ -208,9 +175,13 @@ ggplot(rrpp, aes(x = reproducibility_score,
                  y = assignee)) +
   geom_count() +
   ggtitle("Evaluator Effect") +
-  xlab("Evaluator") +
-  ylab("Score")
+  ylab("Evaluator") +
+  xlab("Score")
+
+kruskal.test(reproducibility_score ~ assignee, data = rrpp)
 ```
+
+The Kruskal-Wallis test indicates that the assigned reviewer does not have an effect on the reproducibility scores assigned.
 
 ## Five year impact factor effect on reproducibility score
 
@@ -219,9 +190,13 @@ ggplot(rrpp, aes(x = reproducibility_score,
                  y = IF_5year)) +
   geom_count() +
   ggtitle("Five Year IF Effect") +
-  xlab("Impact Factor") +
-  ylab("Score")
+  ylab("Impact Factor") +
+  xlab("Score")
+
+kruskal.test(reproducibility_score ~ IF_5year, data = rrpp)
 ```
+
+Impact factor does appear to have an effect on the reproducibility score.
 
 ## Journal open access effect on reproducibility score
 
@@ -230,9 +205,13 @@ ggplot(rrpp, aes(x = reproducibility_score,
                  y = open)) +
   geom_count() +
   ggtitle("Open Access Effect") +
-  xlab("Open Access Classification") +
-  ylab("Score")
+  ylab("Open Access Classification") +
+  xlab("Score")
+
+wilcox.test(reproducibility_score ~ open, data = rrpp)
 ```
+
+The Mann–Whitney U test indicates that the journal's open access status does not affect the reproducibility score.
 
 ## Journal reproducibility instructions effect on reproducibility score
 
@@ -242,9 +221,13 @@ ggplot(rrpp, aes(x = reproducibility_score,
   geom_boxplot(outlier.shape = NA) +
   geom_jitter(width = 0.25, alpha = 0.5) +
   ggtitle("Reproducibility Instructions Effect") +
-  xlab("Reproducibility Instructions Score") +
-  ylab("Score")
+  ylab("Reproducibility Instructions Score") +
+  xlab("Score")
+
+kruskal.test(reproducibility_score ~ as.factor(repro_inst), data = rrpp)
 ```
+
+The Kruskal-Wallis test indicates that the journals' instructions for authors concerning sharing data and reproducibility have no effect on the score assigned.
 
 ## Tables
 
