@@ -15,6 +15,7 @@ Imports, formats data into proper types and calculates the final
  reproducibility score
 }
 \examples{
-import_rrpp()
+rrpp <- import_rrpp()
 pander::pander(head(rrpp))
+
 }

@@ -9,9 +9,18 @@
 #' @export import_rrpp
 #'
 #' @examples
-#' import_rrpp()
+#' rrpp <- import_rrpp()
 #' pander::pander(head(rrpp))
+#'
+#' @importFrom magrittr "%>%"
+#'
 import_rrpp <- function() {
+
+  # CRAN Note Avoidance
+  data_avail <- comp_mthds_avail <- software_avail <- software_cite <-
+    IF_5year <- art_class <- repro_inst <- abbreviation <- assignee <-
+    reproducibility_score <- NULL
+
   readr::read_csv(
     system.file("extdata",
                 "article_notes.csv",

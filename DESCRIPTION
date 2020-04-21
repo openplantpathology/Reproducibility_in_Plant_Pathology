@@ -37,8 +37,10 @@ Imports:
     DiagrammeR,
     DiagrammeRsvg,
     httr,
+    magrittr,
     methods,
-    pander
+    pander,
+    rsvg
 Suggests:
     ggplot2 (>= 3.3.0),
     ggpubr,
