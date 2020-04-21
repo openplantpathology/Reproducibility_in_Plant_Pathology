@@ -39,7 +39,7 @@ Imports:
     methods,
     pander
 Suggests:
-    ggplot2,
+    ggplot2 (>= 3.3.0),
     ggpubr,
     googlesheets4,
     gsheet,
