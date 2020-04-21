@@ -57,7 +57,7 @@ What class did the articles fall into, "Applied,
 
 ```{r}
 ggplot(rrpp, aes(y = art_class)) +
-  geom_bar(stat = "count") +
+  geom_bar() +
   ylab("Class") +
   ggtitle("Article Classification")
 ```
