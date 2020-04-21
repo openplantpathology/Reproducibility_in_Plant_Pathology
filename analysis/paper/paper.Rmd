@@ -89,7 +89,7 @@ Here we defined three levels of reproducibility which are also related with the 
 
 A first level of reproducibility involves openly available research materials such as isolates or strains and/or nucleic acid sequences in public collections and citations for methods used.
 A second level involves providing raw data and code as binary files (PDF or other non-text file) in supplemental materials, which do not allow prompt access to the data and running the code because of use of expensive commercial software or a pay-wall.
-The highest level includes efforts to annotate structured raw data (FAIR -- Findable, Accessible, Interoperable and Re-usable) and fully document the analysis using open source code which are deposited in public repositories and can be run by anyone following download of data and code.
+The highest level includes efforts to annotate structured raw data (FAIR -- Findable, Accessible, Interoperable and Re-usable) [@Wilkinson2016] and fully document the analysis using open source code which are deposited in public repositories and can be run by anyone following download of data and code.
 The first level, as reported, is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations.
 In the next section we present standards and tools that can be used to ensure reproducibility.
 
@@ -109,10 +109,8 @@ This is as opposed to using software such as spreadsheet programs like Excel, gs
 
 Prefer text files for saving small sets of data.
 Data that are saved in binary formats such as PDF files are difficult to reuse because they are not easily machine readable.
-In many cases, data sets are small enough and curated in spreadsheets, which if saved as a plain text file, _e.g._ comma separated (CSV) files, allows for additions or updates to the data can be tracked through a version control system such as Git, Mercurial among others.
-This also helps ensure that the data are reusable.
-
-Larger data sets may warrant the use of a proper database like MariaDB or PostgreSQL which provide users with several benefits but two important ones to mention here are data redundancy, no duplicated records; and data consistency, all of your records are sure to be recorded in the same way for every observation.
+In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, _e.g._ comma separated (CSV) files.
+This also helps ensure that the data are reusable.Larger data sets may warrant the use of a proper database like MariaDB or PostgreSQL which provide users with several benefits but two important ones to mention here are data redundancy, no duplicated records; and data consistency, all of your records are sure to be recorded in the same way for every observation.
 While databases may offer many advantages, the trade-off is that they are more complex to set up and administer, especially for a small data set that might be only a few rows and columns in a database.
 
 Ideally, once the data are complete, best practices for keeping your data as you perform your work include treating the raw data as read-only and using file permissions to prevent changes to the raw data files.
@@ -120,7 +118,7 @@ It should be noted, that the use of a database management system also allows for
 Saving files in proprietary formats such as .xls(x) can also lead to issues in the future when opening using newer (or older) software versions.
 Unexpected changes to values in the data [@Ziemann2016] may also occur when using proprietary formats.
 
-If steps are followed to make the data FAIR (Findable, Accessible, Interoptable and Reusable) [@Wilkinson2016] then it will be readable by humans and machines alike this will help support new discoveries and support further research.
+If steps are followed to make the data FAIR then it will be readable by humans and machines alike this will help support new discoveries and support further research.
 In turn sharing data will lead to new citations for your work as other discover and use it.
 
 To make your data the most widely useable, ensure that it has a persistent identifier.
@@ -131,14 +129,24 @@ The use of a persistent identifier works to ensure that even if the data are mov
 
 For more on FAIR data, visit Go-Fair <https://www.go-fair.org/fair-principles/>.
 
-### Repository
+### Sharing Your Research
 
-- Using GitHub, Gitlab, Bitbucket for code (and small data?)
-- Using Figshare, Dataverse or some other data repository for large data
-- Zenodo or OSF to generate DOIs
-- Why not use a lab website (DOIs, other reasons)
-- Most ideally, deposit in university library or other proper long-term data archival service
+Once you have determined how to best manage your source code for analysis and the data sets the next step is to consider how to share your data.
+Providers such as FigShare, Dataverse, OSF.io and Zenodo allow for you to deposit your data and generate a DOI for sharing your project once you are finished with it.
 
+Other providers exist that allow for you to not only track changes but also to share the data openly, these include GitHub, Gitlab and Bitbucket.
+GitHub is arguably the most popular and widely used software development platform currently.
+Data that is encoded in CSV or other plain text formats can easily be deposited in a repository along with code for analysis to enable changes to be tracked and other users to download and replicate the work.
+
+We would advise against the practice of depositing data on a laboratory website or a site such as GitHub only though.
+Doing either of these leaves the work in an unstable state where future users may be unable to access the work.
+It is a best practice to always ensure that you have deposited the data with a provider such as Zenodo, FigShare or OSF and generated a DOI for the materials to help ensure continued accessability.
+Many of these providers provide rather easy ways to link the project with a software development repository to help ensure that the data are available in perpetuity.
+
+Readers should also consult with their local librarians about local resources.
+Most universities provide a facility for staff to deposit papers and other academic materials, but this may extend to software development respositories in some cases up as well.
+
+Readers are encouraged to avoid using lab websites and other personal pages for sharing projects over the longer term as they are fraught with link-rot and are not an optimal way to share your projects.
 
 # Status in Plant Pathology
 
