@@ -121,7 +121,7 @@ Unexpected changes to values in the data [@Ziemann2016] may also occur when usin
 If steps are followed to make the data FAIR then it will be readable by humans and machines alike this will help support new discoveries and support further research.
 In turn sharing data will lead to new citations for your work as other discover and use it.
 
-To make your data the most widely useable, ensure that it has a persistent identifier.
+To make your data the most widely usable, ensure that it has a persistent identifier.
 A digital object identifier (DOI) is the most common (<https://www.doi.org/>) but handle is also an option (<https://handle.net/>).
 There are different options for generating a DOI for your data and other materials.
 FigShare, Zenodo and OSF all offer long-term archival along with a service to generate a DOI for your materials.
@@ -140,11 +140,11 @@ Data that is encoded in CSV or other plain text formats can easily be deposited 
 
 We would advise against the practice of depositing data on a laboratory website or a site such as GitHub only though.
 Doing either of these leaves the work in an unstable state where future users may be unable to access the work.
-It is a best practice to always ensure that you have deposited the data with a provider such as Zenodo, FigShare or OSF and generated a DOI for the materials to help ensure continued accessability.
+It is a best practice to always ensure that you have deposited the data with a provider such as Zenodo, FigShare or OSF and generated a DOI for the materials to help ensure continued accessibility.
 Many of these providers provide rather easy ways to link the project with a software development repository to help ensure that the data are available in perpetuity.
 
 Readers should also consult with their local librarians about local resources.
-Most universities provide a facility for staff to deposit papers and other academic materials, but this may extend to software development respositories in some cases up as well.
+Most universities provide a facility for staff to deposit papers and other academic materials, but this may extend to software development repositories in some cases up as well.
 
 Readers are encouraged to avoid using lab websites and other personal pages for sharing projects over the longer term as they are fraught with link-rot and are not an optimal way to share your projects.
 
@@ -167,8 +167,8 @@ The list of journals was saved from Google's gsheets as a comma separated value 
 
 Four individuals were assigned to rate a randomised list of journal articles.
 
-Journals were provided a score for whether they were completely open (TRUE), behind a paywall (FALSE) or a combination (BOTH).
-The five-year impact factor for 2018 for each journal was retreived from InCites Journal Citation Reports, Clarivate Analytics and entered in a separate sheet in the Google sheets file.
+Journals were provided a score for whether they were completely open (TRUE), behind a pay wall (FALSE) or a combination (BOTH).
+The five-year impact factor for 2018 for each journal was retrieved from InCites Journal Citation Reports, Clarivate Analytics and entered in a separate sheet in the Google sheets file.
 This was downloaded, saved as a .csv file and is left-joined with the article notes using `dplyr::left_join()` for analysis when the `import_notes()` command is executed.
 
 Articles were provided classifications, whether they were fundamental or applied and a note was made whether the article's primary focus was molecular (TRUE/FALSE).
@@ -240,7 +240,7 @@ More articles did a good job of using software that was reasonably available to 
 A custom R function, `Reproducibility.in.Plant.Pathology::import_notes()`, was written to import the data, format the columns properly and calculate the overall reproducibility score in R [@RCT2020].
 
 The majority of articles scored very low in our reproducibility assessment, 82.6&nbsp;% scored 0 out of 12, which was not reproducible at all (Table \@ref(tab:reproducibility)).
-The highest scoring article recieved an 11 out of 12.
+The highest scoring article received an 11 out of 12.
 
 * Madden et al. [-@Madden2015] supply an *e-**X**tra*\* with reproducible examples
 for readers.
@@ -311,7 +311,7 @@ import_notes() %>%
   adorn_pct_formatting() %>% 
   rename(score = reproducibility_score) %>% 
   flextable() %>% 
-  set_caption("Table: (\\#tab:reproducibility) Tally of reproducibility scores where 0 is not reproducible and 12 is fully reproducible, _e.g._ all software cited, software used are freely available to anyone, computational methods (statistcal analysis or other computational code) are freely available for download and use, and raw data are available for download and use.") %>% 
+  set_caption("Table: (\\#tab:reproducibility) Tally of reproducibility scores where 0 is not reproducible and 12 is fully reproducible, _e.g._ all software cited, software used are freely available to anyone, computational methods (statistical analysis or other computational code) are freely available for download and use, and raw data are available for download and use.") %>% 
     autofit()
 
 ```
