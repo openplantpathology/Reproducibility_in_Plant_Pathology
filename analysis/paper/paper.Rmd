@@ -172,6 +172,9 @@ The five-year impact factor for 2018 for each journal was retrieved from InCites
 This was downloaded, saved as a .csv file and is left-joined with the article notes using `dplyr::left_join()` for analysis when the `import_notes()` command is executed.
 
 Articles were provided classifications, whether they were fundamental or applied and a note was made whether the article's primary focus was molecular (TRUE/FALSE).
+This classification was based on the evaluator's own judgement of the article.
+
+Further classification as to whether the articles focused on using or developing molecular techniques was included.
 
 Where possible the software used was recorded in the notes if it was cited or otherwise specified in the article text.
 
@@ -227,17 +230,17 @@ Articles were scored in four areas for reproducibility on a scale of 0 to 3:
     * 3 - Freely available online to anonymous users for foreseeable future (_e.g._, archived using Zenodo, 
     dataverse or university library or some other proper archiving system)
 
+A custom R function, `Reproducibility.in.Plant.Pathology::import_notes()`, was written to import the data, format the columns properly and calculate the overall reproducibility score in R [@RCT2020].
+
 ## Results
 
 No journals were completely closed, all offered at least an option for open access but some were completely open.
 
-The majority of the articles were classed as fundamental, 160, with 138 classed as applied.
+The majority of the articles were classed as fundamental, 160, with 138 classed as applied, nearly an even distribution between the types of article.
 
 Most articles did not make any computational methods available in any fashion with two classing as "3" (0.007&nbsp;%), which was the highest score available, 287 were classed as "0" (96&nbsp;%) and 9 articles (0.03&nbsp;%) appeared to not use any computational methods.
 
 More articles did a good job of using software that was reasonably available to anyone with 206 scoring "2" or "3" (Table \@ref(tab:sa)).
-
-A custom R function, `Reproducibility.in.Plant.Pathology::import_notes()`, was written to import the data, format the columns properly and calculate the overall reproducibility score in R [@RCT2020].
 
 The majority of articles scored very low in our reproducibility assessment, 82.6&nbsp;% scored 0 out of 12, which was not reproducible at all (Table \@ref(tab:reproducibility)).
 The highest scoring article received an 11 out of 12.
