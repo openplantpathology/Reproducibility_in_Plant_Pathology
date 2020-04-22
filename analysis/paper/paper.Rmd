@@ -230,17 +230,24 @@ Articles were scored in four areas for reproducibility on a scale of 0 to 3:
     * 3 - Freely available online to anonymous users for foreseeable future (_e.g._, archived using Zenodo, 
     dataverse or university library or some other proper archiving system)
 
+Values for software packages were checked for spelling consistency and corrections were made manually where necessary.
+When working with these data in R, all strings of software character values were converted to fully uppercase to standardise the capitalisation and alleviate any issues with capitalisation used between evaluators.
 A custom R function, `Reproducibility.in.Plant.Pathology::import_notes()`, was written to import the data, format the columns properly and calculate the overall reproducibility score in R [@RCT2020].
 
 ## Results
 
 No journals were completely closed, all offered at least an option for open access but some were completely open.
 
-The majority of the articles were classed as fundamental, 160, with 138 classed as applied, nearly an even distribution between the types of article.
+The majority of the articles were classed as fundamental, 160, with 138 classed as applied.
 
 Most articles did not make any computational methods available in any fashion with two classing as "3" (0.007&nbsp;%), which was the highest score available, 287 were classed as "0" (96&nbsp;%) and 9 articles (0.03&nbsp;%) appeared to not use any computational methods.
 
 More articles did a good job of using software that was reasonably available to anyone with 206 scoring "2" or "3" (Table \@ref(tab:sa)).
+
+Software citations were also reasonably well reported in the literature with 120 scoring "2" where the main software was cited with version numbers and 57 scoring "3" where full citations including R packages or the SAS PROC used were cited where appropriate (Table \@ref(tab:sc)).
+
+The most frequently cited software was SAS.
+The remainder were mostly specialised softwares with the exception of Microsoft Excel, tied for 8th.
 
 The majority of articles scored very low in our reproducibility assessment, 82.6&nbsp;% scored 0 out of 12, which was not reproducible at all (Table \@ref(tab:reproducibility)).
 The highest scoring article received an 11 out of 12.
@@ -301,6 +308,49 @@ import_notes() %>%
   flextable() %>%
   set_caption(
     "Table: (\\#tab:sa) Article ratings for software availability where '0', not available or not mentioned in publication to '3', preferably open source and freely available."
+  ) %>% 
+  autofit()
+```
+
+<!-- The following line inserts a page break when the output is MS Word. For page breaks in PDF, use \newpage on its own line.  -->
+##### pagebreak
+
+```{r software_cite, echo=FALSE, message=FALSE, warning=FALSE}
+import_notes() %>%
+  tabyl(software_cite) %>%
+  select(-percent) %>% 
+  rename(`software citation` = software_cite,
+         percent = valid_percent) %>% 
+  flextable() %>%
+  set_caption(
+    "Table: (\\#tab:sc) Article ratings for software citations where '0', not specified or mentioned in publication to '3', fully cited with proper version numbers and all procedures detailed."
+  ) %>% 
+  autofit()
+```
+
+<!-- The following line inserts a page break when the output is MS Word. For page breaks in PDF, use \newpage on its own line.  -->
+##### pagebreak
+
+```{r software_used, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyr)
+
+rrpp_software <-
+  import_notes() %>%
+  transform(software_used = strsplit(software_used, ",")) %>%
+  unnest(software_used) %>% 
+  mutate(software_used = trimws(software_used)) %>% 
+  mutate(software_used = toupper(software_used)) # convert all to uppercase to standardise
+
+rrpp_software %>% 
+  tabyl(software_used) %>%
+  select(c(-percent, -valid_percent)) %>% 
+  rename(`software used` = software_used) %>% 
+  arrange(-n) %>% 
+  slice(seq_len(14)) %>% 
+  drop_na() %>% 
+  flextable() %>%
+  set_caption(
+    "Table: (\\#tab:su) Top 10 softwares cited in all articles. Software used is any software package mentioned by name or properly cited in the evaluated articles, n is the number of times it was mentioned. All software names were converted to fully upper-case letters to avoid any inter-evaluator data entry issues."
   ) %>% 
   autofit()
 ```
