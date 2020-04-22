@@ -196,7 +196,7 @@ ggplot(rrpp, aes(x = reproducibility_score,
 kruskal.test(reproducibility_score ~ IF_5year, data = rrpp)
 ```
 
-Impact factor does appear to have an effect on the reproducibility score.
+The Mann-Whitney U Test suggests that impact factor does not appear to have an effect on the reproducibility score.
 
 ## Journal open access effect on reproducibility score
 
