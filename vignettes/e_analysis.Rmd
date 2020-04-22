@@ -21,7 +21,7 @@ This analysis is a simple visualisation and tabulation of the data gathered from
 
 # Set-up Workspace
 
-Letup workspace by loading libraries used and setting the ggplot2 theme for the document.
+Set up workspace by loading libraries used and setting the ggplot2 theme for the document.
 
 ```{r load-libraries}
 library("tidyverse")
