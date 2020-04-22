@@ -1,4 +1,5 @@
 
+
 #' Import Reproducibility Score Notes
 #'
 #' Imports, formats data into proper types and calculates the final
@@ -21,7 +22,7 @@ import_notes <- function() {
     comp_mthds_avail <- software_avail <- software_cite <-
     IF_5year <-
     art_class <- repro_inst <- abbreviation <- assignee <-
-    reproducibility_score <- NULL
+    reproducibility_score <- journal <- NULL
 
   notes <- readr::read_csv(
     system.file("extdata",
@@ -37,7 +38,8 @@ import_notes <- function() {
     na = "NA"
   )
 
-  notes <- dplyr::left_join(notes, IF_5year, by = c("journal" = "Journal"))
+  notes <-
+    dplyr::left_join(notes, IF_5year, by = c("journal" = "Journal"))
 
   notes <-
     notes %>%
@@ -59,6 +61,7 @@ import_notes <- function() {
                       true = 0,
                       false = IF_5year
                     )) %>%
+    dplyr::mutate(journal = as.factor(journal)) %>%
     dplyr::mutate(art_class = as.factor(art_class)) %>%
     dplyr::mutate(repro_inst = as.factor(repro_inst)) %>%
     dplyr::mutate(open = as.factor(open)) %>%
