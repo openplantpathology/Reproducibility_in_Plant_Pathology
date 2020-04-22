@@ -168,7 +168,8 @@ The list of journals was saved from Google's gsheets as a comma separated value 
 Four individuals were assigned to rate a randomised list of journal articles.
 
 Journals were provided a score for whether they were completely open (TRUE), behind a paywall (FALSE) or a combination (BOTH).
-The five-year impact factor for each journal was retreived from (XXXXX) and entered in the notes.
+The five-year impact factor for 2018 for each journal was retreived from InCites Journal Citation Reports, Clarivate Analytics and entered in a separate sheet in the Google sheets file.
+This was downloaded, saved as a .csv file and is left-joined with the article notes using `dplyr::left_join()` for analysis when the `import_notes()` command is executed.
 
 Articles were provided classifications, whether they were fundamental or applied and a note was made whether the article's primary focus was molecular (TRUE/FALSE).
 
