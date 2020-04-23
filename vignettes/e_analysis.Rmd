@@ -39,6 +39,31 @@ theme_set(theme_pubclean())
 rrpp <- import_notes()
 ```
 
+## Reproducibility score
+
+The reproducibility score was calculated as the sum of the scores for computational method availability for the total available scores. That is, if a paper did not require specialised software but deposited and reported all data the score was 100%, the same as for another article that cited and used all open source software and deposited code and data.
+
+```{r}
+ggplot(rrpp, aes(x = reproducibility_score)) +
+  geom_density() +
+  ggtitle("Reproducibility Score") +
+  xlab("Score (%)")
+```
+
+## Evaluator effect on reproducibility score
+
+Have a look at whether evaluators had an effect on the scores assigned.
+
+```{r}
+ggplot(rrpp, aes(x = reproducibility_score,
+                 y = assignee)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(width = 0.25, alpha = 0.5) +
+  ggtitle("Evaluator Effect") +
+  ylab("Evaluator") +
+  xlab("Score")
+```
+
 Create a tidy data frame of the data by unnesting software used as in many cases multiple software packages were used, so will end up with multiple rows for same article, one for each software.
 
 ```{r}
@@ -54,7 +79,7 @@ rrpp_software <-
 
 ## Article classes
 
-What class did the articles fall into, "Applied, 
+What class did the articles fall into, "Applied" or "Fundamental".
 
 ```{r}
 ggplot(rrpp, aes(y = art_class)) +
@@ -127,17 +152,6 @@ ggplot(rrpp, aes(y = data_avail)) +
   ylab("Score")
 ```
 
-## Reproducibility score
-
-The reproducibility score was calculated as the sum of the scores for computational method availability, 
-
-```{r}
-ggplot(rrpp, aes(y = reproducibility_score)) +
-  geom_bar() +
-  ggtitle("Combined Reproducibility Score") +
-  ylab("Score")
-```
-
 ## Article class effect on reproducibility score
 
 ```{r}
@@ -148,11 +162,8 @@ ggplot(rrpp, aes(x = reproducibility_score,
   ggtitle("Article Class Effect") +
   ylab("Class") +
   xlab("Score")
-
-wilcox.test(reproducibility_score ~ art_class, data = rrpp)
 ```
 
-The Mann-Whitney U test indicates that the article class does not affect the assigned reproducibility score.
 
 ## Journal effect on reproducibility score
 
@@ -163,26 +174,8 @@ ggplot(rrpp, aes(x = reproducibility_score,
   ggtitle("Journal Effect") +
   ylab("Journal") +
   xlab("Score")
-
-kruskal.test(reproducibility_score ~ as.factor(abbreviation), data = rrpp)
 ```
 
-The Kruskal-Wallis test indicates that the journal title does not appear to have an effect on the assigned reproducibility score.
-
-## Evaluator effect on reproducibility score
-
-```{r}
-ggplot(rrpp, aes(x = reproducibility_score,
-                 y = assignee)) +
-  geom_count() +
-  ggtitle("Evaluator Effect") +
-  ylab("Evaluator") +
-  xlab("Score")
-
-kruskal.test(reproducibility_score ~ assignee, data = rrpp)
-```
-
-The Kruskal-Wallis test indicates that the assigned reviewer does not have an effect on the reproducibility scores assigned.
 
 ## Five year impact factor effect on reproducibility score
 
@@ -193,26 +186,21 @@ ggplot(rrpp, aes(x = reproducibility_score,
   ggtitle("Five Year IF Effect") +
   ylab("Impact Factor") +
   xlab("Score")
-
-kruskal.test(reproducibility_score ~ IF_5year, data = rrpp)
 ```
-
-The Mann-Whitney U Test suggests that impact factor does not appear to have an effect on the reproducibility score.
 
 ## Journal open access effect on reproducibility score
 
 ```{r}
 ggplot(rrpp, aes(x = reproducibility_score,
                  y = open)) +
-  geom_count() +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(width = 0.25, alpha = 0.5) +
   ggtitle("Open Access Effect") +
   ylab("Open Access Classification") +
   xlab("Score")
-
-wilcox.test(reproducibility_score ~ open, data = rrpp)
 ```
 
-The Mann–Whitney U test indicates that the journal's open access status does not affect the reproducibility score.
+The t.test indicates that the journal's open access status does not affect the reproducibility score.
 
 ## Journal reproducibility instructions effect on reproducibility score
 
@@ -224,11 +212,9 @@ ggplot(rrpp, aes(x = reproducibility_score,
   ggtitle("Reproducibility Instructions Effect") +
   ylab("Reproducibility Instructions Score") +
   xlab("Score")
-
-kruskal.test(reproducibility_score ~ as.factor(repro_inst), data = rrpp)
 ```
 
-The Kruskal-Wallis test indicates that the journals' instructions for authors concerning sharing data and reproducibility have no effect on the score assigned.
+The ANOVA indicates that the journals' instructions for authors concerning sharing data and reproducibility have no effect on the score assigned.
 
 ## Tables
 
@@ -248,4 +234,3 @@ names(article_scores) <- c("Score", "n", "Percent")
 article_scores$Percent <- round(article_scores$Percent * 100, 1)
 pander(article_scores)
 ```
-
