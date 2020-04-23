@@ -1,5 +1,6 @@
 
 
+
 #' Import Reproducibility Score Notes
 #'
 #' Imports, formats data into proper types and calculates the final
@@ -39,22 +40,8 @@ import_notes <- function() {
   )
 
   notes <-
-    dplyr::left_join(notes, IF_5year, by = c("journal" = "Journal"))
-
-  notes <-
     notes %>%
-    dplyr::mutate(
-      reproducibility_score =
-        dplyr::if_else(
-          condition = data_avail > 0,
-          true = as.integer(comp_mthds_avail) +
-            as.integer(software_avail) +
-            as.integer(software_cite) +
-            as.integer(data_avail),
-          false = as.integer(data_avail),
-          missing = as.integer(0)
-        )
-    ) %>%
+    dplyr::left_join(x = notes, y = IF_5year, by = c("journal" = "journal")) %>%
     dplyr::mutate(IF_5year =
                     dplyr::if_else(
                       condition = is.na(IF_5year),
@@ -66,8 +53,32 @@ import_notes <- function() {
     dplyr::mutate(repro_inst = as.factor(repro_inst)) %>%
     dplyr::mutate(open = as.factor(open)) %>%
     dplyr::mutate(abbreviation = as.factor(abbreviation)) %>%
-    dplyr::mutate(assignee = as.factor(assignee)) %>%
-    dplyr::filter(!is.na(reproducibility_score))
+    dplyr::mutate(assignee = as.factor(assignee))
+
+  # add reproducibility score as a percent of total possible
+  #
+  # calcuate total possible score for a paper
+  total_possible <-
+    notes %>%
+    dplyr::select(comp_mthds_avail, software_avail, software_cite, data_avail) %>%
+    dplyr::mutate(total_possible = rowSums(!is.na(.)) * 3) %>%
+    dplyr::select(total_possible)
+
+  # calculate reproducibility score
+  notes <-
+    notes %>%
+    tibble::add_column(total_possible) %>%
+    dplyr::rowwise() %>%
+    dplyr::mutate(reproducibility_score =
+                    (
+                      sum(
+                        comp_mthds_avail,
+                        software_avail,
+                        software_cite,
+                        data_avail,
+                        na.rm = TRUE
+                      ) / total_possible
+                    ) * 100)
 
   return(notes)
 }
