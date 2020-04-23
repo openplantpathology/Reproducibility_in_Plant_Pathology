@@ -64,17 +64,6 @@ ggplot(rrpp, aes(x = reproducibility_score,
   xlab("Score")
 ```
 
-Create a tidy data frame of the data by unnesting software used as in many cases multiple software packages were used, so will end up with multiple rows for same article, one for each software.
-
-```{r}
-rrpp_software <-
-  rrpp %>%
-  transform(software_used = strsplit(software_used, ",")) %>%
-  unnest(software_used) %>% 
-  mutate(software_used = trimws(software_used)) %>% 
-  mutate(software_used = toupper(software_used)) # convert all to uppercase to standardise
-```
-
 # Visualise evaluations
 
 ## Article classes
@@ -125,6 +114,19 @@ ggplot(rrpp, aes(y = software_cite)) +
 
 Count and sort top 10 software packages cited.
 There are likely others that are used, but they have not been properly cited or listed by the authors.
+
+First create a tidy data frame of the data by unnesting software used as in many cases multiple software packages were used, so will end up with multiple rows for same article, one for each software.
+
+```{r}
+rrpp_software <-
+  rrpp %>%
+  transform(software_used = strsplit(software_used, ",")) %>%
+  unnest(software_used) %>% 
+  mutate(software_used = trimws(software_used)) %>% 
+  mutate(software_used = toupper(software_used)) # convert all to uppercase to standardise
+```
+
+Now graph the top ten softwares.
 
 ```{r}
 tab <- table(rrpp_software$software_used)
