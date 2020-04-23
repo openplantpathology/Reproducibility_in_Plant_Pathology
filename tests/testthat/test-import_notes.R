@@ -5,7 +5,7 @@ context("import_notes()")
 test_that("import_notes returns expected results", {
   notes <- import_notes()
   expect_true(tibble::is_tibble(notes))
-  expect_equal(ncol(notes), 47)
+  expect_equal(ncol(notes), 48)
   expect_equal(class(notes$journal), "factor")
   expect_equal(class(notes$art_class), "factor")
   expect_equal(class(notes$art_class), "factor")
