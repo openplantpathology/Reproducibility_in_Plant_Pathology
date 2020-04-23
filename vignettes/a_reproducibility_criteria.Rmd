@@ -1,6 +1,6 @@
 ---
 title: "Criteria for Evaluating Reproducibility"
-author: "Adam H Sparks and Emerson M Del Ponte and Zachary S L Foster and Niklaus J. Grünwald"
+author: "Adam H. Sparks and Emerson M. Del Ponte and Zachary S. L. Foster and Niklaus J. Grünwald"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >

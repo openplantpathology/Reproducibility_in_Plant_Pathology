@@ -1,6 +1,6 @@
 ---
 title: "Generate Final .bib File of References Reviewed"
-author: "Adam H Sparks"
+author: "Adam H. Sparks"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
