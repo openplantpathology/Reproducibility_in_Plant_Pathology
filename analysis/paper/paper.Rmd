@@ -85,7 +85,7 @@ Open science has become highlighted lately with many donors expecting data to be
 # A General Workflow
 
 A general workflow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, and writing the manuscript.
-Here we defined three levels of reproducibility which are also related with the evolution of computational methods and reproducible practices \@ref(fig:workflow-dia).
+Here we defined three levels of reproducibility which are also related with the evolution of computational methods and reproducible practices (Figure \@ref(fig:workflow-dia)).
 
 A first level of reproducibility involves openly available research materials such as isolates or strains and/or nucleic acid sequences in public collections and citations for methods used.
 A second level involves providing raw data and code as binary files (PDF or other non-text file) in supplemental materials, which do not allow prompt access to the data and running the code because of use of expensive commercial software or a pay-wall.
@@ -152,31 +152,29 @@ Readers are encouraged to avoid using lab websites and other personal pages for 
 
 ## Article Selection
 
-In order for us to determine where we are as a discipline with regards to openly and reproducibly sharing data, we randomly selected 300 articles published from 2012 to 2018 across 21 journals (Table \@ref(tab:journals)) representative of the pathology discipline, and assigned them scores reflecting their openness and reproducibility.
-Among the journals, both fundamental and/or applied as well as journals covering specific group of pathogens/plants or broad areas were included.
+In order for us to determine where we are as a discipline with regards to sharing openly and reproducible papers and data, we randomly selected 300 articles published from 2012 to 2018 across 21 journals (Table \@ref(tab:journals)) representative of the pathology discipline, and assigned them scores reflecting their openness and reproducibility.
+The journals represented both fundamental and applied areas as well as pathogen or other group specific publications.
 Three hundred articles were randomly selected from issues published from 2012 to 2018.
-A list of randomly selected pages was assigned to a randomized list of the 21 journals [@Sparks2017] where the page number fell within an article for the given journal.
+A list of randomly selected pages was assigned to a randomized list of the 21 journals where the page number fell within an article for the given journal.
 In cases where an article was not suitable, _e.g._, a review or otherwise not related to plant pathology, the next article was selected until a suitable article was found.
 Notes regarding the selection of articles can be found in the file, XXXX, available in this paper's repository.
-The pages list was numbered from page one and went to 150.
+The pages list was numbered from page one and went to page 150.
 This was done since some journals restart their numbering with each issue and also ensures that the journal is more likely to have a page number corresponding to the randomly generated value.
 This also assumes that there is no effect or bias on reproducibility based on the time of year that an article was published, since most journals start with page number one at the beginning of the year.
-The list of journals was saved from Google's gsheets as a comma separated value (CSV) file for later use and distribution.
+The list of journals was saved from Google's gsheets as a comma separated value (CSV) file for later use and distribution in a research compendium.
 
 ## Scoring criteria
 
 Four individuals were assigned to rate a randomised list of journal articles.
 
-Journals were provided a score for whether they were completely open (TRUE), behind a pay wall (FALSE) or a combination (BOTH).
+Each journals was classified as to  whether they were completely open (TRUE), behind a pay wall (FALSE) or a combination (BOTH).
 The five-year impact factor for 2018 for each journal was retrieved from InCites Journal Citation Reports, Clarivate Analytics and entered in a separate sheet in the Google sheets file.
-This was downloaded, saved as a .csv file and is left-joined with the article notes using `dplyr::left_join()` for analysis when the `import_notes()` command is executed.
+This was downloaded, saved as a CSV file and is left-joined with the article notes using `dplyr::left_join()` for analysis when the `import_notes()` command is executed.
 
-Articles were provided classifications, whether they were fundamental or applied and a note was made whether the article's primary focus was molecular (TRUE/FALSE).
+Articles were classified as fundamental or applied and a note was made whether the article's primary focus was using or developing molecular techniques (TRUE/FALSE).
 This classification was based on the evaluator's own judgement of the article.
 
-Further classification as to whether the articles focused on using or developing molecular techniques was included.
-
-Where possible the software used was recorded in the notes if it was cited or otherwise specified in the article text.
+Where possible, the software used in the preparation of the publication was recorded in the notes if it was cited or otherwise specified in the article text.
 
 Articles were scored in four areas for reproducibility on a scale of 0 to 3:
 
@@ -198,9 +196,9 @@ Articles were scored in four areas for reproducibility on a scale of 0 to 3:
     * 0 - Not available or not mentioned in the publication
 
     * 1 - Uses expensive proprietary software that only institutions would typically purchase (_i.e._, 
-    ArcGIS standard is $7000)
+    ArcGIS standard is $7000US)
 
-    * 2 - Uses proprietary software that most individuals can afford (_e.g._, Excel, Matlab? ($500))
+    * 2 - Uses proprietary software that most individuals can afford (_e.g._, Excel) or SAS that is now available free for use with a univerisity login
 
     * 3 - Uses entirely open source and free software (_e.g._, R, Python).
 
@@ -214,7 +212,7 @@ Articles were scored in four areas for reproducibility on a scale of 0 to 3:
 
     * 2 - Software cited with version number
 
-    * 3 - All software components (SAS PROCs, R or Python packages) etc. cited
+    * 3 - All software components (SAS PROCs, R or Python packages) etc., cited
 
     * NA - No software was used in the research that can be determined as the article is written.
     
@@ -224,21 +222,22 @@ Articles were scored in four areas for reproducibility on a scale of 0 to 3:
 
     * 1 - Available upon request to author
   
-    * 2 - Online, but inconvenient or non-permanent (_e.g._, login needed, pay wall, FTP server, personal 
-    lab website that may disappear, or may have already disappeared)
+    * 2 - Online, but inconvenient or non-permanent (_e.g._, login needed, pay wall, FTP server, personal lab website that may disappear, or may have already disappeared)
     
-    * 3 - Freely available online to anonymous users for foreseeable future (_e.g._, archived using Zenodo, 
-    dataverse or university library or some other proper archiving system)
+    * 3 - Freely available online to anonymous users for foreseeable future (_e.g._, archived using Zenodo, dataverse or university library or some other proper archiving system)
 
 Values for software packages were checked for spelling consistency and corrections were made manually where necessary.
 When working with these data in R, all strings of software character values were converted to fully uppercase to standardise the capitalisation and alleviate any issues with capitalisation used between evaluators.
 A custom R function, `Reproducibility.in.Plant.Pathology::import_notes()`, was written to import the data, format the columns properly and calculate the overall reproducibility score in R [@RCT2020].
 
+A total reproducibility score was calculated as the percent of total possible for a given paper,
+_e.g._ some papers did not use specialized software therefore they were not scored for this category.
+
 ## Results
 
 No journals were completely closed, all offered at least an option for open access but some were completely open.
 
-The majority of the articles were classed as fundamental, 160, with 138 classed as applied.
+The majority of the articles were classed as fundamental, 160, with the remaining 138 classed as applied.
 
 Most articles did not make any computational methods available in any fashion with two classing as "3" (0.007&nbsp;%), which was the highest score available, 287 were classed as "0" (96&nbsp;%) and 9 articles (0.03&nbsp;%) appeared to not use any computational methods.
 
@@ -249,8 +248,9 @@ Software citations were also reasonably well reported in the literature with 120
 The most frequently cited software was SAS.
 The remainder were mostly specialised softwares with the exception of Microsoft Excel, tied for 8th.
 
-The majority of articles scored very low in our reproducibility assessment, 82.6&nbsp;% scored 0 out of 12, which was not reproducible at all (Table \@ref(tab:reproducibility)).
-The highest scoring article received an 11 out of 12.
+Forty-eight articles scored 0&nbsp;% out of a possible 100&nbsp;% for reproducibility.
+The mean value was 31.2&nbsp;% and the median value was 33.3&nbsp;%.
+One article scored 100&nbsp;%, or was classed as fully reproducible.
 
 * Madden et al. [-@Madden2015] supply an *e-**X**tra*\* with reproducible examples
 for readers.
