@@ -202,8 +202,6 @@ ggplot(rrpp, aes(x = reproducibility_score,
   xlab("Score")
 ```
 
-The t.test indicates that the journal's open access status does not affect the reproducibility score.
-
 ## Journal reproducibility instructions effect on reproducibility score
 
 ```{r}
@@ -215,8 +213,6 @@ ggplot(rrpp, aes(x = reproducibility_score,
   ylab("Reproducibility Instructions Score") +
   xlab("Score")
 ```
-
-The ANOVA indicates that the journals' instructions for authors concerning sharing data and reproducibility have no effect on the score assigned.
 
 ## Tables
 
