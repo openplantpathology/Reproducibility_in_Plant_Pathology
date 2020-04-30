@@ -246,7 +246,7 @@ More articles did a good job of using software that was reasonably available to 
 Software citations were also reasonably well reported in the literature with 120 scoring "2" where the main software was cited with version numbers and 57 scoring "3" where full citations including R packages or the SAS PROC used were cited where appropriate (Table \@ref(tab:sc)).
 
 The most frequently cited software was SAS.
-The remainder were mostly specialised softwares with the exception of Microsoft Excel, tied for 8th.
+The remainder were mostly specialised softwares with the exception of Microsoft Excel, tied for 9th.
 
 Forty-eight articles scored 0&nbsp;% out of a possible 100&nbsp;% for reproducibility.
 The mean value was 31.2&nbsp;% and the median value was 33.3&nbsp;%.
