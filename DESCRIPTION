@@ -51,7 +51,6 @@ Suggests:
     pkgdown,
     rcrossref,
     readr,
-    readODS,
     rmarkdown,
     roxygen2 (>= 6.0.1),
     stringr,
