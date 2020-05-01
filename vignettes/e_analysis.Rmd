@@ -214,6 +214,18 @@ ggplot(rrpp, aes(x = reproducibility_score,
   xlab("Score")
 ```
 
+## Reproducibility score by year
+
+```{r}
+ggplot(rrpp, aes(x = reproducibility_score,
+                 y = as.factor(year))) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(width = 0.25, alpha = 0.5) +
+  ggtitle("Reproducibility Score by Year") +
+  ylab("Score (%)") +
+  xlab("Year")
+```
+
 ## Tables
 
 ### Table of Journals Surveyed
