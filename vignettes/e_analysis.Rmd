@@ -134,7 +134,7 @@ rrpp_software <-
   mutate(software_used = toupper(software_used)) # convert all to uppercase to standardise
 ```
 
-Now graph the top ten softwares.
+Now graph the top ten software packages used.
 
 ```{r}
 tab <- table(rrpp_software$software_used)
@@ -247,7 +247,7 @@ ggplot(rrpp, aes(y = reproducibility_score,
 
 ## Scores by year
 
-## Full reproducibilty score
+## Full reproducibility score
 
 ```{r, message=FALSE}
 ggplot(rrpp, aes(y = reproducibility_score,
