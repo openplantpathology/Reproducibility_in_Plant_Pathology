@@ -59,7 +59,7 @@ Suggests:
     tibble,
     tidyverse
 Remotes:
-    wkmor1/doi2bib
+    openplantpathology/doi2bib
 RoxygenNote: 7.1.0
 Encoding: UTF-8
 NeedsCompilation: no

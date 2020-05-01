@@ -14,10 +14,10 @@
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.6.3",
+    "version": "4.0.0",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.3 (2020-02-29)",
+  "runtimePlatform": "R version 4.0.0 (2020-04-24)",
   "author": [
     {
       "@type": "Person",
@@ -274,7 +274,7 @@
       "@type": "SoftwareApplication",
       "identifier": "doi2bib",
       "name": "doi2bib",
-      "sameAs": "https://github.com/wkmor1/doi2bib"
+      "sameAs": "https://github.com/openplantpathology/doi2bib"
     },
     {
       "@type": "SoftwareApplication",
@@ -379,7 +379,7 @@
     }
   ],
   "readme": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/master/README.md",
-  "fileSize": "89.107KB",
+  "fileSize": "89.595KB",
   "developmentStatus": "http://www.repostatus.org/#active",
   "keywords": [
     "plant-pathology",
