@@ -323,9 +323,9 @@ ggplot(rrpp, aes(y = data_avail,
   labs(caption = "Crossbar indicates median score value.")
 ```
 
-## Tables
+# Tables
 
-### Table of journals surveyed
+## Table of journals surveyed
 
 ```{r journals}
 rrpp_journals <- tabyl(rrpp, journal)[, -3]
@@ -333,7 +333,7 @@ names(rrpp_journals) <- c("Journal", "n")
 pander(rrpp_journals)
 ```
 
-### Table of article scores
+## Table of article scores
 
 ```{r table_scores}
 article_scores <- tabyl(rrpp, reproducibility_score)
