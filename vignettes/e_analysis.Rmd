@@ -55,13 +55,20 @@ ggplot(rrpp, aes(x = reproducibility_score)) +
 Have a look at whether evaluators had an effect on the scores assigned.
 
 ```{r}
-ggplot(rrpp, aes(x = reproducibility_score,
-                 y = assignee)) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_jitter(width = 0.25, alpha = 0.5) +
+ggplot(rrpp, aes(y = reproducibility_score,
+                 x = assignee)) +
+  geom_count() +
+  stat_summary(
+    fun = median,
+    fun.min = median,
+    fun.max = median,
+    geom = "crossbar",
+    width = 0.5
+  ) +
   ggtitle("Evaluator Effect") +
-  ylab("Evaluator") +
-  xlab("Score")
+  ylab("Reproducibility Score (%)") +
+  xlab("Evaluator") +
+  labs(caption = "Crossbar indicates median reproducibility score value.")
 ```
 
 # Visualise evaluations
@@ -86,7 +93,7 @@ ggplot(rrpp, aes(y = as.factor(comp_mthds_avail))) +
   geom_bar() +
   ggtitle("Computational Methods Availability") +
   ylab("Score") +
-  labs(caption = "NA means that no computational methods were used to generate the data,\ne.g. only PCR results reported with no statistical analsyis")
+  labs(caption = "NA means that no computational methods were used to generate the data,\ne.g. only PCR results reported with no statistical analysis")
 ```
 
 ## Software availability
@@ -122,8 +129,8 @@ First create a tidy data frame of the data by unnesting software used as in many
 rrpp_software <-
   rrpp %>%
   transform(software_used = strsplit(software_used, ",")) %>%
-  unnest(software_used) %>% 
-  mutate(software_used = trimws(software_used)) %>% 
+  unnest(software_used) %>%
+  mutate(software_used = trimws(software_used)) %>%
   mutate(software_used = toupper(software_used)) # convert all to uppercase to standardise
 ```
 
@@ -132,7 +139,8 @@ Now graph the top ten softwares.
 ```{r}
 tab <- table(rrpp_software$software_used)
 tab_s <- sort(tab)
-top10 <- tail(names(tab_s), 14) # checking the table, there are several ties
+top10 <-
+  tail(names(tab_s), 14) # checking the table, there are several ties
 top_software <- subset(rrpp_software, software_used %in% top10)
 top_software$software_used <- factor(top_software$software_used,
                                      levels = rev(top10))
@@ -158,13 +166,20 @@ ggplot(rrpp, aes(y = data_avail)) +
 ## Article class effect on reproducibility score
 
 ```{r}
-ggplot(rrpp, aes(x = reproducibility_score,
-                 y = art_class)) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_jitter(width = 0.25, alpha = 0.5) +
+ggplot(rrpp, aes(y = reproducibility_score,
+                 x = art_class)) +
+  geom_count() +
+  stat_summary(
+    fun = median,
+    fun.min = median,
+    fun.max = median,
+    geom = "crossbar",
+    width = 0.5
+  ) +
   ggtitle("Article Class Effect") +
-  ylab("Class") +
-  xlab("Score")
+  ylab("Reproducibility Score (%)") +
+  xlab("Class") +
+  labs(caption = "Crossbar indicates median reproducibility score value.")
 ```
 
 
@@ -182,54 +197,135 @@ ggplot(rrpp, aes(x = reproducibility_score,
 
 ## Five year impact factor effect on reproducibility score
 
-```{r}
-ggplot(rrpp, aes(x = reproducibility_score,
-                 y = IF_5year)) +
+```{r, message=FALSE}
+ggplot(rrpp, aes(y = reproducibility_score,
+                 x = IF_5year)) +
   geom_count() +
+  geom_smooth() +
   ggtitle("Five Year IF Effect") +
-  ylab("Impact Factor") +
-  xlab("Score")
+  ylab("Score") +
+  xlab("Impact Factor")
 ```
 
 ## Journal open access effect on reproducibility score
 
 ```{r}
-ggplot(rrpp, aes(x = reproducibility_score,
-                 y = as.factor(open))) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_jitter(width = 0.25, alpha = 0.5) +
-  ggtitle("Open Access Effect") +
-  ylab("Open Access Classification") +
-  xlab("Score")
+ggplot(rrpp, aes(y = reproducibility_score,
+                 x = as.factor(open))) +
+  geom_count() +
+  stat_summary(
+    fun = median,
+    fun.min = median,
+    fun.max = median,
+    geom = "crossbar",
+    width = 0.5
+  ) +
+  ggtitle("Journal Open Access Classification Effect") +
+  ylab("Score") +
+  xlab("Open Access Classification") +
+  labs(caption = "Crossbar indicates median score value.")
 ```
 
 ## Journal reproducibility instructions effect on reproducibility score
 
 ```{r}
-ggplot(rrpp, aes(x = reproducibility_score,
-                 y = as.factor(repro_inst))) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_jitter(width = 0.25, alpha = 0.5) +
+ggplot(rrpp, aes(y = reproducibility_score,
+                 x = as.factor(repro_inst))) +
+  geom_count() +
+  stat_summary(
+    fun = median,
+    fun.min = median,
+    fun.max = median,
+    geom = "crossbar",
+    width = 0.5
+  ) +
   ggtitle("Reproducibility Instructions Effect") +
-  ylab("Reproducibility Instructions Score") +
-  xlab("Score")
+  ylab("Reproducibility Score (%)") +
+  xlab("Reproducibility Instructions Score") +
+  labs(caption = "Crossbar indicates median score value.")
 ```
 
-## Reproducibility score by year
+## Scores by year
 
-```{r}
-ggplot(rrpp, aes(x = reproducibility_score,
-                 y = as.factor(year))) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_jitter(width = 0.25, alpha = 0.5) +
-  ggtitle("Reproducibility Score by Year") +
-  ylab("Score (%)") +
-  xlab("Year")
+## Full reproducibilty score
+
+```{r, message=FALSE}
+ggplot(rrpp, aes(y = reproducibility_score,
+                 x = year)) +
+  geom_count() +
+  geom_smooth() +
+  stat_summary(
+    fun = median,
+    fun.min = median,
+    fun.max = median,
+    geom = "crossbar",
+    width = 0.5
+  ) +
+  ylab("Reproducibility Score (%)") +
+  xlab("Year") +
+  labs(caption = "Crossbar indicates median score value.")
+```
+
+## Computational methods score
+
+```{r, message=FALSE}
+ggplot(rrpp, aes(y = comp_mthds_avail,
+                 x = year)) +
+  geom_count() +
+  geom_smooth() +
+  stat_summary(
+    fun = median,
+    fun.min = median,
+    fun.max = median,
+    geom = "crossbar",
+    width = 0.5
+  ) +
+  ylab("Computational Methods Availability") +
+  xlab("Year") +
+  labs(caption = "Crossbar indicates median score value.")
+```
+
+## Software availability
+
+```{r, message=FALSE}
+ggplot(rrpp, aes(y = software_avail,
+                 x = year)) +
+  geom_count() +
+  geom_smooth() +
+  stat_summary(
+    fun = median,
+    fun.min = median,
+    fun.max = median,
+    geom = "crossbar",
+    width = 0.5
+  ) +
+  ylab("Software Availability") +
+  xlab("Year") +
+  labs(caption = "Crossbar indicates median score value.")
+```
+
+## Data availability
+
+```{r, message=FALSE}
+ggplot(rrpp, aes(y = data_avail,
+                 x = year)) +
+  geom_count() +
+  geom_smooth() +
+  stat_summary(
+    fun = median,
+    fun.min = median,
+    fun.max = median,
+    geom = "crossbar",
+    width = 0.5
+  ) +
+  ylab("Data Availability") +
+  xlab("Year") +
+  labs(caption = "Crossbar indicates median score value.")
 ```
 
 ## Tables
 
-### Table of Journals Surveyed
+### Table of journals surveyed
 
 ```{r journals}
 rrpp_journals <- tabyl(rrpp, journal)[, -3]
@@ -237,7 +333,7 @@ names(rrpp_journals) <- c("Journal", "n")
 pander(rrpp_journals)
 ```
 
-### Table of Article Scores
+### Table of article scores
 
 ```{r table_scores}
 article_scores <- tabyl(rrpp, reproducibility_score)
