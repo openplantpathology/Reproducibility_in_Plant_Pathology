@@ -143,18 +143,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "pkgdown",
-      "name": "pkgdown",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=pkgdown"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "rcrossref",
       "name": "rcrossref",
       "provider": {
@@ -367,7 +355,7 @@
     }
   ],
   "readme": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/master/README.md",
-  "fileSize": "89.587KB",
+  "fileSize": "89.579KB",
   "developmentStatus": "http://www.repostatus.org/#active",
   "keywords": [
     "plant-pathology",

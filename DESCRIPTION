@@ -48,7 +48,6 @@ Suggests:
     gsheet,
     janitor,
     knitr,
-    pkgdown,
     rcrossref,
     readr,
     rmarkdown,
