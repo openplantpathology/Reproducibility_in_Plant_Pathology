@@ -82,10 +82,11 @@ ggplot(rrpp, aes(y = art_class)) +
 Were the computational methods, scripts, source code, _etc._, made available?
 
 ```{r}
-ggplot(rrpp, aes(y = comp_mthds_avail)) +
+ggplot(rrpp, aes(y = as.factor(comp_mthds_avail))) +
   geom_bar() +
   ggtitle("Computational Methods Availability") +
-  ylab("Score")
+  ylab("Score") +
+  labs(caption = "NA means that no computational methods were used to generate the data,\ne.g. only PCR results reported with no statistical analsyis")
 ```
 
 ## Software availability
@@ -194,7 +195,7 @@ ggplot(rrpp, aes(x = reproducibility_score,
 
 ```{r}
 ggplot(rrpp, aes(x = reproducibility_score,
-                 y = open)) +
+                 y = as.factor(open))) +
   geom_boxplot(outlier.shape = NA) +
   geom_jitter(width = 0.25, alpha = 0.5) +
   ggtitle("Open Access Effect") +
