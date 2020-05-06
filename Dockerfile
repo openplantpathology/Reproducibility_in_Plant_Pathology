@@ -10,8 +10,4 @@ COPY --chown=rstudio . /home/rstudio/Reproducibility_in_Plant_Pathology
 RUN . /etc/environment \
   \
  # build this compendium package
-  && R -e "devtools::install('home/rstudio/Reproducibility_in_Plant_Pathology', dep=TRUE)" \
-  \
- # build static documentation of pkgdown site
-  \
-  && R -e "pkgdown::build_site('/home/rstudio/Reproducibility_in_Plant_Pathology')"
+  && R -e "devtools::install('home/rstudio/Reproducibility_in_Plant_Pathology', dep=TRUE)"

@@ -29,7 +29,7 @@ library("ggpubr")
 library("janitor")
 library("pander")
 library("Reproducibility.in.Plant.Pathology")
-
+ger()
 theme_set(theme_pubclean())
 ```
 
