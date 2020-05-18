@@ -103,7 +103,7 @@ Just as importantly, this acknowledges the contributions of others whose works w
 This also helps ensure that you as a researcher are able to reconstruct what you have done since you will have good notes and documentation and be able to identify if something changes, _e.g._ a package version, what effect it had on your research.
 
 The use of programming or scripting languages such as R, SAS or Python enable you as a scientist to keep very detailed records of what was computationally performed.
-This is as opposed to using software such as spreadsheet programs like Excel, Google sheets, Numbers, Calc or others which can be used for simple statistical analyses and visualization (but should not be) or other point-and-click software packages that do not enable you to keep an accurate record of the steps taken to import, format, visualise and analyse data.
+This is as opposed to using software such as spreadsheet programs like Excel, Google Sheets, Numbers, Calc or others which can be used for simple statistical analyses and visualization (but should not be) or other point-and-click software packages that do not enable you to keep an accurate record of the steps taken to import, format, visualise and analyse data.
 
 ### Data
 
@@ -233,6 +233,12 @@ A custom R function, `Reproducibility.in.Plant.Pathology::import_notes()`, was w
 A total reproducibility score was calculated as the percent of total possible for a given paper,
 _e.g._ some papers did not use specialized software therefore they were not scored for this category.
 
+We recognise that the scoring methods were developed by the auhors specifically for this exercise and are not entirely subjective.
+We have based our scoring decisions on our own experiences in the field of plant pathology.
+While many software packages may be widely used or "freely" available if one has an institutional licence, these types of software often hinder partners and interested parties that do not have these luxuries.
+Thus, emphasis was given to using open source alternatives where possible over paid software packages.
+The view of the authors is one that this is something to be encouraged as it allows the broadest possible audience to benefit from the work at the least cost.
+
 ## Results
 
 No journals were completely closed, all offered at least an option for open access but some were completely open.
@@ -254,11 +260,17 @@ One article scored 100&nbsp;%, or was classed as fully reproducible.
 
 * Madden et al. [-@Madden2015] supply an *e-**X**tra*\* with reproducible examples
 for readers.
+
 * Duku et al. [-@Duku2016] provide models, data and code, (http://adamhsparks.github.io/MICCORDEA/) necessary to
 replicate the entire study modelling the effects of climate change on rice bacterial blight and rice leaf blast in Tanzania.
+
 * Sparks et al. [-@Sparks2011; -@Sparks2014] provide models, data and code, (http://adamhsparks.github.io/Global-Late-Blight-MetaModelling/)
 necessary to replicate model development and the subsequent the study on the effects of climate change on potato late blight.
-* Del Ponte provides data and a reproducible report that explain in details all steps of the analysis and the R codes for conducting a meta-analysis for assessing heterogeneity in relationship between white mold incidence and soybean yield and between incidence and soybean tied.
+
+* Lehner et al. [-@Lehner2017] provides data and a reproducible report that explain in details all steps of the analysis and the R codes for conducting a meta-analysis for assessing heterogeneity in relationship between white mold incidence and soybean yield and between incidence and soybean tied (https://emdelponte.github.io/paper-white-mold-meta-analysis/).
+
+* Khaliq et al. [] offer a full research compendium with a Docker instance and DOI that enable readers to fully replicate the analysis using the data collected and step through other points where weather data were investigated and various models were fit before deciding on the best fit.
+
 * Example from Grünwald lab: 
   - paper http://apsjournals.apsnet.org/doi/full/10.1094/PHYTO-12-14-0350-FI
   - github repo https://github.com/grunwaldlab/Sudden_Oak_Death_in_Oregon_Forests
