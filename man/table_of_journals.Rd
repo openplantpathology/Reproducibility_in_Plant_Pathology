@@ -17,7 +17,7 @@ Create Table of Journals Surveyed
 }
 \examples{
 \donttest{
-rrpp <- gsheet::gsheet2tbl(
+rrpp <- googlesheets4::read_sheet(
 "https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381"
 )
 table_of_journals(rrpp)

@@ -103,7 +103,7 @@ Just as importantly, this acknowledges the contributions of others whose works w
 This also helps ensure that you as a researcher are able to reconstruct what you have done since you will have good notes and documentation and be able to identify if something changes, _e.g._ a package version, what effect it had on your research.
 
 The use of programming or scripting languages such as R, SAS or Python enable you as a scientist to keep very detailed records of what was computationally performed.
-This is as opposed to using software such as spreadsheet programs like Excel, gsheets, Numbers, Calc or others which can be used for simple statistical analyses and visualization (but should not be) or other point-and-click software packages that do not enable you to keep an accurate record of the steps taken to import, format, visualise and analyse data.
+This is as opposed to using software such as spreadsheet programs like Excel, Google sheets, Numbers, Calc or others which can be used for simple statistical analyses and visualization (but should not be) or other point-and-click software packages that do not enable you to keep an accurate record of the steps taken to import, format, visualise and analyse data.
 
 ### Data
 
@@ -161,7 +161,7 @@ Notes regarding the selection of articles can be found in the file, XXXX, availa
 The pages list was numbered from page one and went to page 150.
 This was done since some journals restart their numbering with each issue and also ensures that the journal is more likely to have a page number corresponding to the randomly generated value.
 This also assumes that there is no effect or bias on reproducibility based on the time of year that an article was published, since most journals start with page number one at the beginning of the year.
-The list of journals was saved from Google's gsheets as a comma separated value (CSV) file for later use and distribution in a research compendium.
+The list of journals was saved from Google's sheets as a comma separated value (CSV) file for later use and distribution in a research compendium.
 
 ## Scoring criteria
 

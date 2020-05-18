@@ -175,7 +175,7 @@ We decided to use Google Sheets so that we could concurrently edit the file more
 Once we're done filling in our evaluations, we will import the data back to R.
 Jenny Bryan has created a handy package, _googlesheets4_ that we use here.
 _Note that this must be run interactively for `gs_new()` to work.
-Knitting this .Rmd file will not generate any gsheets, it must be done in an interactive R session._
+Knitting this .Rmd file will not generate any Google sheets, it must be done in an interactive R session._
 
 Create a Google Sheets workbook to hold worksheets for this project.
 This first sheet will serve as a template and is thus named "template".
@@ -198,7 +198,7 @@ gs_new(
 
 ### Add article DOI's
 
-This step is completed in gsheets, Adam looked up articles and added notes and DOIs to a gsheet, "article_notes" which will be imported to R in the next step.
+This step is completed in Google sheets, Adam looked up articles and added notes and DOIs to a Google sheet, "article_notes" which will be imported to R in the next step.
 
 ## Step 3
 

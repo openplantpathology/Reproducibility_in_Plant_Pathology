@@ -18,8 +18,8 @@ Some of the original references were not suitable when we began to review them, 
 Therefore, for this work, we will download the notes from Google Drive and use the DOIs from them.
 
 ```{r import, eval=FALSE}
-ref <- gsheet::gsheet2tbl(
-    "docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/#gid=1699540381"
+ref <- googlesheets4::read_sheet(
+    "https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/#gid=1699540381"
   )
 ```
 

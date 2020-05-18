@@ -16,8 +16,8 @@ The DOIs were recorded when the initial articles were assigned.
 
 ```{r get-sheet, message=FALSE, warning=FALSE, eval=FALSE}
 doi <-
-  gsheet::gsheet2tbl(
-    "docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M#gid=1579463541"
+  googlesheets4::read_sheet(
+    "https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1579463541"
   )
 ```
 

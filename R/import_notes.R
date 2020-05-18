@@ -1,6 +1,4 @@
 
-
-
 #' Import Reproducibility Score Notes
 #'
 #' Imports, formats data into proper types and calculates the final

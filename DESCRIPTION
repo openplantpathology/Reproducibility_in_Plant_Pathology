@@ -45,7 +45,6 @@ Suggests:
     ggplot2 (>= 3.3.0),
     ggpubr,
     googlesheets4,
-    gsheet,
     janitor,
     knitr,
     rcrossref,
