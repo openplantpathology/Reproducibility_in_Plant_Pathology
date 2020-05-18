@@ -40,7 +40,8 @@ rrpp <- import_notes()
 
 ## Reproducibility score
 
-The reproducibility score was calculated as the sum of the scores for computational method availability for the total available scores. That is, if a paper did not require specialised software but deposited and reported all data the score was 100%, the same as for another article that cited and used all open source software and deposited code and data.
+The reproducibility score was calculated as the sum of the scores for computational method availability for the total available scores.
+That is, if a paper did not require specialised software but deposited and reported all data the score was 100%, the same as for another article that cited and used all open source software and deposited code and data.
 
 ```{r}
 ggplot(rrpp, aes(x = reproducibility_score)) +

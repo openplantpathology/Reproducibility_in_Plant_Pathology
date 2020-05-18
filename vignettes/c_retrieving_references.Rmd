@@ -23,7 +23,8 @@ doi <-
 
 ## Some journals do not provide a DOI!
 
-For some reason, even now, some journals are not minting DOIs. Those journals will be removed from the automated search for references.
+For some reason, even now, some journals are not minting DOIs.
+Those journals will be removed from the automated search for references.
 They will be manually added later.
 
 ```{r remove-na, message=FALSE, eval=FALSE}

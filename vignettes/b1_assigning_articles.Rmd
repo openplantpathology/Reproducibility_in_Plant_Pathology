@@ -175,7 +175,7 @@ We decided to use Google Sheets so that we could concurrently edit the file more
 Once we're done filling in our evaluations, we will import the data back to R.
 Jenny Bryan has created a handy package, _googlesheets4_ that we use here.
 _Note that this must be run interactively for `gs_new()` to work.
-Knitting this .Rmd file will not generate any Google sheets, it must be done in an interactive R session._
+Knitting this .Rmd file will not generate any Google Sheets, it must be done in an interactive R session._
 
 Create a Google Sheets workbook to hold worksheets for this project.
 This first sheet will serve as a template and is thus named "template".
@@ -198,7 +198,7 @@ gs_new(
 
 ### Add article DOI's
 
-This step is completed in Google sheets, Adam looked up articles and added notes and DOIs to a Google sheet, "article_notes" which will be imported to R in the next step.
+This step is completed in Google Sheets, Adam looked up articles and added notes and DOIs to a Google Sheet, "article_notes" which will be imported to R in the next step.
 
 ## Step 3
 
@@ -268,11 +268,11 @@ clean_articles_pm <- function(x) {
 # apply function and clean the bib entries
 cleaned_pm <- unlist(lapply(bib_clean_pm, clean_articles_pm))
 bib <- bib[-clean_pm]
-  
 ```
 
 The larger list of bib objects has some items that are supposedly invalid DOIs.
-In this step we remove them and clean up the list. They'll be added back to the database when we merge the notes at the end.
+In this step we remove them and clean up the list.
+They'll be added back to the database when we merge the notes at the end.
 
 Also there are duplicates in the list somehow. Use `unique()` to clean the list up.
 
@@ -282,7 +282,8 @@ bib <- bib[bib != "Invalid DOI"]
 bib <- unique(bib)
 ```
 
-Next export the items as files to disk as .bib files to be cleaned using JabRef. This will automatically assign unique cite keys and fix some issues with characters in the bib file.
+Next export the items as files to disk as .bib files to be cleaned using JabRef.
+This will automatically assign unique cite keys and fix some issues with characters in the bib file.
 Open the file in JabRef and click "yes" when prompted to regarding the cite keys.
 
 ```{r export_import_bib, eval=FALSE}
@@ -329,6 +330,6 @@ unlink(".httr-oauth")
 
 ### Last steps
 
-The last few steps are completed outside of R in Google Docs, manually adding the missing information to the spreadsheet evaluations of their respective articles.
+The last few steps are completed outside of R in Google Sheets, manually adding the missing information to the spreadsheet evaluations of their respective articles.
 
-The Google Sheets can be found here: https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381.
+The Google Sheets file can be found here: https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381.

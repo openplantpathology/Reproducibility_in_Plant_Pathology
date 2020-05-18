@@ -179,7 +179,7 @@ gs_new(
 
 ### Add article DOI's
 
-This step is completed in Google's online sheets app, Adam looked up articles and added notes and DOIs to a ssheet, "article_notes_2017-2018" which will be imported to R in the next step.
+This step is completed in Google's online Sheets app, Adam looked up articles and added notes and DOIs to a sheet, "article_notes_2017-2018" which will be imported to R in the next step.
 
 ## Step 3
 
@@ -287,8 +287,7 @@ JabRef will generate unique keys and fix any inconsistencies that may exist from
 
 ### Export Google Sheets
 
-In this last bit, import the BibTeX file back into R and export to a tab in the
-Google Sheets for collaborative edits.
+In this last bit, import the BibTeX file back into R and export to a tab in the Google Sheets for collaborative edits.
 
 ```{r google, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
 
@@ -316,7 +315,7 @@ unlink(".httr-oauth")
 
 ### Last steps
 
-The last few steps are completed outside of R in Google Docs, manually adding the missing information to the spreadsheet and the new_assigneess adding their evaluations of their respective articles.
+The last few steps are completed outside of R in Google Sheets, manually adding the missing information to the spreadsheet and the new_assigneess adding their evaluations of their respective articles.
 
-The Google Sheets can be found here:
+The Google Sheets file can be found here:
 https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381.
