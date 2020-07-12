@@ -57,7 +57,7 @@ Suggests:
     tidyverse
 Remotes:
     openplantpathology/doi2bib
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Encoding: UTF-8
 NeedsCompilation: no
 LazyData: TRUE

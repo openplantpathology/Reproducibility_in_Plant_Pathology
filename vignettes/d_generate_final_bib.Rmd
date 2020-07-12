@@ -4,7 +4,7 @@ author: "Adam H. Sparks"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{generate_final_bib}
+  %\VignetteIndexEntry{Generate Final .bib File of References Reviewed}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

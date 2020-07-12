@@ -15,13 +15,14 @@
 #'
 #' @importFrom magrittr "%>%"
 #'
+
 import_notes <- function() {
   # CRAN Note Avoidance
   data_avail <-
     comp_mthds_avail <- software_avail <- software_cite <-
     IF_5year <-
     art_class <- repro_inst <- abbreviation <- assignee <-
-    reproducibility_score <- journal <- NULL
+    reproducibility_score <- journal <- . <- NULL
 
   notes <- readr::read_csv(
     system.file("extdata",
@@ -55,7 +56,7 @@ import_notes <- function() {
 
   # add reproducibility score as a percent of total possible
   #
-  # calcuate total possible score for a paper
+  # calculate total possible score for a paper
   total_possible <-
     notes %>%
     dplyr::select(comp_mthds_avail, software_avail, software_cite, data_avail) %>%
