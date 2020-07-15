@@ -48,6 +48,7 @@ import_notes <- function() {
                       false = IF_5year
                     )) %>%
     dplyr::mutate(journal = as.factor(journal)) %>%
+    dplyr::mutate(year = as.factor(year)) %>%
     dplyr::mutate(art_class = as.factor(art_class)) %>%
     dplyr::mutate(repro_inst = as.factor(repro_inst)) %>%
     dplyr::mutate(open = as.factor(open)) %>%
