@@ -22,7 +22,7 @@ import_notes <- function() {
     comp_mthds_avail <- software_avail <- software_cite <-
     IF_5year <-
     art_class <- repro_inst <- abbreviation <- assignee <-
-    reproducibility_score <- journal <- . <- NULL
+    reproducibility_score <- journal <- year <- . <- NULL
 
   notes <- readr::read_csv(
     system.file("extdata",
