@@ -235,6 +235,42 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "bayesplot",
+      "name": "bayesplot",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=bayesplot"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "bayestestR",
+      "name": "bayestestR",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=bayestestR"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "brms",
+      "name": "brms",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=brms"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "doi2bib",
       "name": "doi2bib",
       "sameAs": "https://github.com/openplantpathology/doi2bib"
@@ -342,7 +378,7 @@
     }
   ],
   "readme": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/master/README.md",
-  "fileSize": "343.031KB",
+  "fileSize": "351.405KB",
   "developmentStatus": "http://www.repostatus.org/#active",
   "keywords": [
     "plant-pathology",
