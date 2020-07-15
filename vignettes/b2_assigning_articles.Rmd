@@ -4,7 +4,7 @@ author: "Adam H. Sparks"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{econd Round of Assigning Articles to Evaluators}
+  %\VignetteIndexEntry{Second Round of Assigning Articles to Evaluators}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
