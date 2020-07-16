@@ -1,0 +1,86 @@
+---
+title: "Analysis"
+author: "Adam H. Sparks"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+knitr::opts_chunk$set(fig.width = 6.4, fig.height = 6.4)
+```
+
+This vignette documents a simple visualisation and tabulation of the data gathered from surveying 21 journals and 300 articles in the field of plant pathology for their openness and reproducibility.
+
+# Set-up Workspace
+
+Load libraries used and setting the ggplot2 theme for the document.
+
+```{r load-libraries}
+library("brms")
+library("bayestestR")
+library("bayesplot")
+library("ggplot2")
+library("ggpubr")
+library("pander")
+library("Reproducibility.in.Plant.Pathology")
+
+options(mc.cores = parallel::detectCores())
+theme_set(theme_pubclean())
+```
+
+## Import Data
+
+Data are imported and the base level is set to Molecular Plant Pathology, the journal with the highest five-year impact factor that will be used as the intercept in the following models.
+
+```{r}
+rrpp <- import_notes()
+```
+
+## Notes
+
+All models are using the same priors. Because of the amount of zero values in the `reproducibility_score` a `hurdle_gamma()` family is used for all models as well.
+
+### Priors
+
+The priors are fairly flat.
+
+```{r priors}
+priors <- prior_string("normal(0, 10)")
+```
+
+## Journal Open Access Policy Model
+
+Test the effect that journal's open access policy had on the reproducibility score.
+Here, `open` is a fixed effect, `year` and `assignee` are assigned as random effects.
+
+```{r open-access}
+m5 <-
+  brm(
+    formula = reproducibility_score ~  open + (1 | year) + (1 | assignee),
+    data = rrpp,
+    seed = 27,
+    prior = priors,
+    family = hurdle_gamma(),
+    control = list(adapt_delta = 0.999),
+    iter = 3000,
+    chains = 4
+  )
+
+summary(m5)
+
+plot(m5)
+
+pp_check(m5)
+
+plot(pd(m5))
+
+pander(equivalence_test(m5))
+```
