@@ -18,8 +18,8 @@ This repository contains the data and code for our paper:
 
 Our pre-print is online here:
 
-> Authors, (YYYY). *Title of paper*. Name of journal/book, Accessed 21
-> Apr 2020. Online at <https://doi.org/xxx/xxx>
+> Authors, (YYYY). *Title of paper*. Name of journal/book, Accessed 17
+> Jul 2020. Online at <https://doi.org/xxx/xxx>
 
 ### How to cite
 
@@ -28,7 +28,7 @@ Please cite this compendium as:
 > Sparks, A.H., Del Ponte, E.M., dos Santos Alves, K., Foster, Z.,
 > Grünwald, N. (2020). *Compendium of R code and data for ‘Status and
 > Best Practices for Reproducible Research In Plant Pathology’*.
-> Accessed 21 Apr 2020. Online at
+> Accessed 17 Jul 2020. Online at
 > <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
@@ -72,6 +72,6 @@ Adam H Sparks, Associate Professor, Centre for Crop Health
 University of Southern Queensland  
 Toowoomba, Queensland 4350
 
-\+61 (7) 4831 1948 <adam.sparks@usq.edu.au>
+\+61 (7) 4631 1948 <adam.sparks@usq.edu.au>
 
 <https://adamhsparks.com/>
