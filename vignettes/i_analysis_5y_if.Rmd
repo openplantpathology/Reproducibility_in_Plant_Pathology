@@ -1,10 +1,10 @@
 ---
-title: "Analysis"
+title: "Analysis of Five Year Impact Factor"
 author: "Adam H. Sparks"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Analysis}
+  %\VignetteIndexEntry{nalysis of Five Year Impact Factor}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
