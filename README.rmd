@@ -52,6 +52,20 @@ remotes::install_github("openplantpathology/Reproducibility_in_Plant_Pathology"
 
 Once the download is complete, open the `Reproducibility_in_Plant_Pathology.Rproj` in RStudio to begin working with the package and compendium files.
 
+#### The Docker Instance
+
+Get the latest instance from Dockerhub, launch it and go to `localhost:8787` in your browser.
+Login with `rstudio`, password is `rstudio`.
+
+```
+docker pull adamhsparks/reproducibility_in_plant_pathology
+docker run -d -p 8787:8787
+```
+
+#### The Paper
+
+A script, `knit_paper.R` is located in `analysis/paper/knit_paper.R` that will knit the Word document
+
 ## Meta
 
 Code: [MIT](http://opensource.org/licenses/MIT) year: `r format(Sys.Date(), "%Y")`, copyright holder: Adam H Sparks
