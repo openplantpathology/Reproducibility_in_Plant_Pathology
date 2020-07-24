@@ -5,10 +5,8 @@ author:
       email: Adam.Sparks@usq.edu.au
       institute: USQ
       correspondence: true
-      equal_contributor: true
   - Emerson Del Ponte:
       institute: UFV
-      equal_contributor: true
   - Kaique dos Santos Alves:
       institute: UFV
   - Zachary Foster: 

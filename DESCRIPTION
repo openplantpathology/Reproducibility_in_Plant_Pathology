@@ -45,15 +45,18 @@ Imports:
     pander,
     rsvg
 Suggests:
+    flextable,
     ggplot2 (>= 3.3.0),
     ggpubr,
     googlesheets4,
+    here,
     janitor,
     knitr,
     rcrossref,
     readr,
     rmarkdown,
     roxygen2 (>= 6.0.1),
+    officer,
     stringr,
     testthat,
     tibble,
