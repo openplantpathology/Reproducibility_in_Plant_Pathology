@@ -241,7 +241,7 @@ The view of the authors is one that this is something to be encouraged as it all
 
 ## Analysis
 
-Bayesian mixed effect models were fit using the contributed package brms [@Burkner2018] in the R environment  [@RCT2020] to evaluate the fixed effects of the publication (journal title), article class, molecular focus, five year journal impact factor, journal open access policy on the reproducibility index and year to test for changes over time in the reproducibility index.
+Bayesian mixed effect models were fit using the contributed package 'brms' [@Burkner2018] in the R environment  [@RCT2020] to evaluate the fixed effects of the publication (journal title), article class, molecular focus, five year journal impact factor, journal open access policy on the reproducibility index and year to test for changes over time in the reproducibility index.
 
 Relatively flat priors were selected with a mean 0 and a standard deviation 10 for the fixed effects.
 
@@ -253,28 +253,31 @@ Each model was run for 3000 iterations in four chains.
 
 The `adapt_delta()` and `max_treedepth()` values were adjusted as necessary on a case-by-case basis for each of the models to ensure that the chains mixed well.
 
-Model finesses were evaluated using model summaries and diagnostic plots from brms [@Burkner2018] and posterior fits using `pp_check()` from the contributed R package bayesplot [@Gabry2019].
+Model finesses were evaluated using model summaries and diagnostic plots from 'brms' [@Burkner2018] and posterior fits using `pp_check()` from the contributed R package 'bayesplot' [@Gabry2019].
 
-Probability of direction or maximum probability of effect was plotted, `pd()`, and a test for practical equivalence, `equivalence_test()`, was performed for each model using the contributed R package bayestestR [@Makowski2019].
+Probability of direction or maximum probability of effect was plotted, `pd()`, and a test for practical equivalence, `equivalence_test()`, was performed for each model using the contributed R package 'bayestestR' [@Makowski2019].
 
 ## Results
 
-No journals were completely closed, all offered at least an option for open access but some were completely open.
+Forty-eight articles scored 0&nbsp;% out of a possible 100&nbsp;% for reproducibility.
+The mean value was 31.2&nbsp;% and the median value was 33.3&nbsp;%.
+One article scored 100&nbsp;%, or was classed as fully reproducible.
+
+No journals surveyed were completely closed, all offered at least an option for open access but some were completely open.
 
 The majority of the articles were classed as fundamental, 160, with the remaining 138 classed as applied.
 
-Most articles did not make any computational methods available in any fashion with two classing as "3" (0.007&nbsp;%), which was the highest score available, 287 were classed as "0" (96&nbsp;%) and 9 articles (0.03&nbsp;%) appeared to not use any computational methods.
+Most articles did not make any computational methods available in any fashion with two, 0.007&nbsp;%, classing as "3", which was the highest score available.
+Two hundred eighty seven, 96&nbsp;%, were classed as "0" and 9 articles, 0.03&nbsp;%, appeared to not use any computational methods.
 
 More articles did a good job of using software that was reasonably available to anyone with 206 scoring "2" or "3" (Table \@ref(tab:sa)).
 
 Software citations were also reasonably well reported in the literature with 120 scoring "2" where the main software was cited with version numbers and 57 scoring "3" where full citations including R packages or the SAS PROC used were cited where appropriate (Table \@ref(tab:sc)).
 
 The most frequently cited software was SAS.
-The remainder were mostly specialised softwares with the exception of Microsoft Excel, tied for 9th.
+The remainder were mostly specialised software with the exception of Microsoft Excel, tied for 9th (Table \@ref(tab:su)).
 
-Forty-eight articles scored 0&nbsp;% out of a possible 100&nbsp;% for reproducibility.
-The mean value was 31.2&nbsp;% and the median value was 33.3&nbsp;%.
-One article scored 100&nbsp;%, or was classed as fully reproducible.
+# Discussion
 
 * Madden et al. [-@Madden2015] supply an *e-**X**tra*\* with reproducible examples
 for readers.
@@ -293,8 +296,6 @@ necessary to replicate model development and the subsequent the study on the eff
   - paper http://apsjournals.apsnet.org/doi/full/10.1094/PHYTO-12-14-0350-FI
   - github repo https://github.com/grunwaldlab/Sudden_Oak_Death_in_Oregon_Forests
 * Other examples from plant pathology providing e-Xtras or supplemental material
-
-# Discussion
 
 # Acknowledgements
 
@@ -362,7 +363,7 @@ import_notes() %>%
 ##### pagebreak
 
 ```{r software_used, echo=FALSE, message=FALSE, warning=FALSE}
-library(tidyr)
+library("tidyr")
 
 rrpp_software <-
   import_notes() %>%
@@ -405,9 +406,9 @@ import_notes() %>%
 # Figures
 
 ```{r workflow-dia, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='An open and reproducible research workflow.', cache=FALSE, fig.env='figure'}
-library(DiagrammeR)
-library(DiagrammeRsvg)
-library(rsvg)
+library("DiagrammeR")
+library("DiagrammeRsvg")
+library("rsvg")
 
 p <- export_svg(
   grViz(
