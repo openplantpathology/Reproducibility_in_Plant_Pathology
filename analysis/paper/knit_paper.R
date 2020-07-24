@@ -2,15 +2,17 @@
 #  "Table: Table ..." with "Table: ..."
 #  Saves updated docx file
 
-library("knitr")
+library("rmarkdown")
 library("officer")
 library("here")
 
 # Step 1. Knit Rmd file
-knit(input = here("analysis/paper/paper.Rmd"))
+render(input = "/home/rstudio/Reproducibility_in_Plant_Pathology/analysis/paper/paper.Rmd",
+       output_file = "/home/rstudio/Reproducibility_in_Plant_Pathology/analysis/paper/paper.docx")
 
 # Step 2: Import .docx file
-paper <- read_docx(path = here("analysis/paper/paper.docx"))
+paper <-
+  read_docx(path = "/home/rstudio/Reproducibility_in_Plant_Pathology/analysis/paper/paper.docx")
 
 # Step 3: Replace "Table: Table ..." with "Table ..."
 paper <-
@@ -19,5 +21,4 @@ paper <-
                         new_value = "Table ")
 
 # Step 4: Replace .docx file with updated version
-print(x = paper,
-      target = here("analysis/paper/paper.docx"))
+print(x = paper, target = "/home/rstudio/Reproducibility_in_Plant_Pathology/analysis/paper/paper.docx")
