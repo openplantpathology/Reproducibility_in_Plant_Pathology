@@ -95,17 +95,6 @@ Therefore we will follow Peng's [-@Peng2009] definition that provides clear guid
 
 Open science has become highlighted lately with many donors expecting data to be available [@government_of_canada_2016; @vannoorden2017; @ARC2018] and other scientists interested in sharing and collaborating more widely [@Wald2010].
 
-# A General Workflow
-
-A general workflow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, and writing the manuscript.
-Here we defined three levels of reproducibility which are also related with the evolution of computational methods and reproducible practices (Figure \@ref(fig:workflow-dia)).
-
-A first level of reproducibility involves openly available research materials such as isolates or strains and/or nucleic acid sequences in public collections and citations for methods used.
-A second level involves providing raw data and code as binary files (PDF or other non-text file) in supplemental materials, which do not allow prompt access to the data and running the code because of use of expensive commercial software or a pay-wall.
-The highest level includes efforts to annotate structured raw data (FAIR -- Findable, Accessible, Interoperable and Re-usable) [@Wilkinson2016] and fully document the analysis using open source code which are deposited in public repositories and can be run by anyone following download of data and code.
-The first level, as reported, is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations.
-In the next section we present standards and tools that can be used to ensure reproducibility.
-
 ### Methods
 
 When making your science more open and reproducible, methods, software used, this includes items such as R or Python packages that were directly used in the analysis or production of the paper, etc. should be cited properly.
@@ -123,7 +112,8 @@ This is as opposed to using software such as spreadsheet programs like Excel, Go
 Prefer text files for saving small sets of data.
 Data that are saved in binary formats such as PDF files are difficult to reuse because they are not easily machine readable.
 In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, _e.g._ comma separated (CSV) files.
-This also helps ensure that the data are reusable.Larger data sets may warrant the use of a proper database like MariaDB or PostgreSQL which provide users with several benefits but two important ones to mention here are data redundancy, no duplicated records; and data consistency, all of your records are sure to be recorded in the same way for every observation.
+This also helps ensure that the data are reusable.
+Larger data sets may warrant the use of a proper database like MariaDB or PostgreSQL which provide users with several benefits but two important ones to mention here are data redundancy, no duplicated records; and data consistency, all of your records are sure to be recorded in the same way for every observation.
 While databases may offer many advantages, the trade-off is that they are more complex to set up and administer, especially for a small data set that might be only a few rows and columns in a database.
 
 Ideally, once the data are complete, best practices for keeping your data as you perform your work include treating the raw data as read-only and using file permissions to prevent changes to the raw data files.
@@ -145,7 +135,7 @@ For more on FAIR data, visit Go-Fair <https://www.go-fair.org/fair-principles/>.
 ### Sharing Your Research
 
 Once you have determined how to best manage your source code for analysis and the data sets the next step is to consider how to share your data.
-Providers such as FigShare, Dataverse, OSF.io and Zenodo allow for you to deposit your data and generate a DOI for sharing your project once you are finished with it.
+Providers such as FigShare, Dataverse, OSF.io (the Open Science Framework) and Zenodo allow for you to deposit your data and generate a DOI for sharing your project once you are finished with it.
 
 Other providers exist that allow for you to not only track changes but also to share the data openly, these include GitHub, Gitlab and Bitbucket.
 GitHub is arguably the most popular and widely used software development platform currently.
@@ -157,7 +147,7 @@ It is a best practice to always ensure that you have deposited the data with a p
 Many of these providers provide rather easy ways to link the project with a software development repository to help ensure that the data are available in perpetuity.
 
 Readers should also consult with their local librarians about local resources.
-Most universities provide a facility for staff to deposit papers and other academic materials, but this may extend to software development repositories in some cases up as well.
+Most universities provide a facility for staff to deposit papers and other academic materials, but this may extend to software development repositories as well.
 
 Readers are encouraged to avoid using lab websites and other personal pages for sharing projects over the longer term as they are fraught with link-rot and are not an optimal way to share your projects.
 
@@ -310,8 +300,18 @@ necessary to replicate model development and the subsequent the study on the eff
   - github repo https://github.com/grunwaldlab/Sudden_Oak_Death_in_Oregon_Forests
 * Other examples from plant pathology providing e-Xtras or supplemental material
 
-# Acknowledgements
+# A General Workflow
 
+A general workflow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, and writing the manuscript.
+Here we defined three levels of reproducibility which are also related with the evolution of computational methods and reproducible practices (Figure \@ref(fig:workflow-dia)).
+
+A first level of reproducibility involves openly available research materials such as isolates or strains and/or nucleic acid sequences in public collections and citations for methods used.
+A second level involves providing raw data and code as binary files (PDF or other non-text file) in supplemental materials, which do not allow prompt access to the data and running the code because of use of expensive commercial software or a pay-wall.
+The highest level includes efforts to annotate structured raw data (FAIR -- Findable, Accessible, Interoperable and Re-usable) [@Wilkinson2016] and fully document the analysis using open source code which are deposited in public repositories and can be run by anyone following download of data and code.
+The first level, as reported, is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations.
+In the next section we present standards and tools that can be used to ensure reproducibility.
+
+# Acknowledgements
 
 \newpage
 
