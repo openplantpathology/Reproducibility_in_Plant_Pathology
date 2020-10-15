@@ -1,5 +1,5 @@
 ---
-title: "Open Science, Open Plant Pathology"
+title: "How Can We Open Plant Pathology?"
 author:
   - Adam H. Sparks:
       email: Adam.Sparks@usq.edu.au
@@ -20,12 +20,27 @@ institute:
   - ARS: Horticultural Crops Research Unit, USDA Agricultural Research Service, Corvallis, OR, USA
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
-    bookdown::word_document2:
+  officedown::rdocx_document:
       fig_caption: yes
       reference_docx: "../templates/template.docx" # Insert path for the DOCX file
       pandoc_args:
         - '--lua-filter=scholarly-metadata.lua'
         - '--lua-filter=author-info-blocks.lua'
+        - '--lua-filter=pagebreak.lua'
+      tables:
+        layout: autofit
+        width: 1.0
+        caption:
+          style: Table Caption
+          pre: 'Table '
+          sep: ': '
+        conditional:
+          first_row: true
+          first_column: false
+          last_row: false
+          last_column: false
+          no_hband: false
+          no_vband: true
 bibliography: references.bib
 csl: "../templates/phytopathology.csl" # Insert path for the bib-style
 abstract: |
@@ -297,19 +312,18 @@ necessary to replicate model development and the subsequent the study on the eff
 
 # Acknowledgements
 
-<!-- The following line inserts a page break when the output is MS Word. For page breaks in PDF, use \newpage on its own line.  -->
-##### pagebreak
+
+\newpage
 
 # References 
 <!-- The following line ensures the references appear here for the MS Word or HTML output files, rather than right at the end of the document (this will not work for PDF files):  -->
 <div id="refs"></div>
 
-<!-- The following line inserts a page break when the output is MS Word. For page breaks in PDF, use \newpage on its own line.  -->
-##### pagebreak
+\newpage
 
 # Tables
 
-```{r journals, echo=FALSE, message=FALSE, warning=FALSE}
+```{r journals, tab.id="journals", tab.cap="Journal titles selected for inclusion and the number (n) of articles from each journal that were evaluated.", echo=FALSE, message=FALSE, warning=FALSE}
 library("dplyr")
 library("janitor")
 library("flextable")
@@ -319,48 +333,40 @@ import_notes() %>%
   tabyl(journal) %>%
   select(-percent) %>%
   flextable() %>%
-  set_caption(
-    "Table: (\\#tab:journals) Journal titles selected for inclusion and the number (n) of articles from each journal that were evaluated."
-  ) %>% 
   autofit()
 ```
 
-<!-- The following line inserts a page break when the output is MS Word. For page breaks in PDF, use \newpage on its own line.  -->
-##### pagebreak
 
-```{r software_avail, echo=FALSE, message=FALSE, warning=FALSE}
+\newpage
+
+```{r software_avail, tab.id="sa", tab.cap="Article ratings for software availability where '0', not available or not mentioned in publication to '3', preferably open source and freely available.", echo=FALSE, message=FALSE, warning=FALSE}
 import_notes() %>%
   tabyl(software_avail) %>%
+  adorn_pct_formatting() %>% 
   select(-percent) %>% 
   rename(`software availability` = software_avail,
          percent = valid_percent) %>% 
   flextable() %>%
-  set_caption(
-    "Table: (\\#tab:sa) Article ratings for software availability where '0', not available or not mentioned in publication to '3', preferably open source and freely available."
-  ) %>% 
   autofit()
 ```
 
-<!-- The following line inserts a page break when the output is MS Word. For page breaks in PDF, use \newpage on its own line.  -->
-##### pagebreak
 
-```{r software_cite, echo=FALSE, message=FALSE, warning=FALSE}
+\newpage
+
+```{r software_cite, tab.id="sc", tab.cap="Article ratings for software citations where '0', not specified or mentioned in publication to '3', fully cited with proper version numbers and all procedures detailed.", echo=FALSE, message=FALSE, warning=FALSE}
 import_notes() %>%
   tabyl(software_cite) %>%
+  adorn_pct_formatting() %>% 
   select(-percent) %>% 
   rename(`software citation` = software_cite,
          percent = valid_percent) %>% 
   flextable() %>%
-  set_caption(
-    "Table: (\\#tab:sc) Article ratings for software citations where '0', not specified or mentioned in publication to '3', fully cited with proper version numbers and all procedures detailed."
-  ) %>% 
   autofit()
 ```
 
-<!-- The following line inserts a page break when the output is MS Word. For page breaks in PDF, use \newpage on its own line.  -->
-##### pagebreak
+\newpage
 
-```{r software_used, echo=FALSE, message=FALSE, warning=FALSE}
+```{r software_used, tab.id="su", tab.cap="ally of reproducibility scores where 0 is not reproducible and 12 is fully reproducible, _e.g._ all software cited, software used are freely available to anyone, computational methods (statistical analysis or other computational code) are freely available for download and use, and raw data are available for download and use.", echo=FALSE, message=FALSE, warning=FALSE}
 library("tidyr")
 
 rrpp_software <-
@@ -372,34 +378,28 @@ rrpp_software <-
 
 rrpp_software %>% 
   tabyl(software_used) %>%
+  adorn_pct_formatting() %>% 
   select(c(-percent, -valid_percent)) %>% 
   rename(`software used` = software_used) %>% 
   arrange(-n) %>% 
   slice(seq_len(14)) %>% 
   drop_na() %>% 
   flextable() %>%
-  set_caption(
-    "Table: (\\#tab:su) Top 10 softwares cited in all articles. Software used is any software package mentioned by name or properly cited in the evaluated articles, n is the number of times it was mentioned. All software names were converted to fully upper-case letters to avoid any inter-evaluator data entry issues."
-  ) %>% 
   autofit()
 ```
 
-<!-- The following line inserts a page break when the output is MS Word. For page breaks in PDF, use \newpage on its own line.  -->
-##### pagebreak
+\newpage
 
-```{r reproducibility_score, echo=FALSE, message=FALSE, warning=FALSE}
-import_notes() %>% 
-  tabyl(reproducibility_score) %>% 
-  adorn_pct_formatting() %>% 
-  rename(score = reproducibility_score) %>% 
-  flextable() %>% 
-  set_caption("Table: (\\#tab:reproducibility) Tally of reproducibility scores where 0 is not reproducible and 12 is fully reproducible, _e.g._ all software cited, software used are freely available to anyone, computational methods (statistical analysis or other computational code) are freely available for download and use, and raw data are available for download and use.") %>% 
-    autofit()
-
+```{r reproducibility_score, tab.id="reproducibility", tab.cap="Tally of reproducibility scores where 0 is not reproducible and 12 is fully reproducible, _e.g._ all software cited, software used are freely available to anyone, computational methods (statistical analysis or other computational code) are freely available for download and use, and raw data are available for download and use.", echo=FALSE, message=FALSE, warning=FALSE}
+import_notes() %>%
+  tabyl(reproducibility_score) %>%
+  adorn_pct_formatting() %>%
+  rename(score = reproducibility_score) %>%
+  flextable() %>%
+  autofit()
 ```
 
-<!-- The following line inserts a page break when the output is MS Word. For page breaks in PDF, use \newpage on its own line.  -->
-##### pagebreak
+\newpage
 
 # Figures
 
@@ -444,8 +444,8 @@ rsvg_pdf(charToRaw(p), "Figure 1.pdf")
 knitr::include_graphics("Figure 1.pdf")
 ```
 
-<!-- The following line inserts a page break when the output is MS Word. For page breaks in PDF, use \newpage on its own line.  -->
-##### pagebreak
+
+\newpage
 
 # Colophon
 
