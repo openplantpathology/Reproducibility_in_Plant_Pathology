@@ -67,10 +67,15 @@ library(Reproducibility.in.Plant.Pathology)
 # Introduction
 
 Modern plant pathological research has many facets given the array of disciplines and sub-disciplines currently involved.
-Collectively, they contribute to increase our basic and applied knowledge on several aspects of pathogen biology and disease development to ultimately improve plant disease management.
-Scientific research in the field varies from the purely observational or descriptive nature to inferential based on experimental or simulation-derived data sets.
-Whatever the case, research findings are verifiable based on how much of the research materials, processes and outcomes are made available beyond what is reported in the scientific article and the ability of others to make use of your methods and results.
+Collectively, they contribute to increase our basic and applied knowledge of several aspects in pathogen biology and disease development to ultimately improve plant disease management.
+Scientific research in the field varies from the purely observational or descriptive nature to inferential, based on experimental or simulation-derived data sets.
+Whatever the case, research findings are verifiable based on how much of the research materials, processes and outcomes are made available beyond what is reported in the scientific article and the ability of others to make use of the methods and results.
 These research findings include biological materials (isolates or strains), nucleic/protein sequences, experimental and simulated raw data annotations, drawings and photographs and statistical analysis code among other materials and data generated as a course of conducting research.
+
+Recently, open science has been highlighted with many donors expecting data to be available [@government_of_canada_2016; @vannoorden2017; @ARC2018], journals in the field promoting the sharing of data [@TPP2020], and other scientists interested in sharing and collaborating more widely [@Wald2010].
+
+While open science and reproducibility are not the same, they are linked.
+By proactively practising open science, the work becomes more reproducible through the availability of data and code.
 That is, open science leads to reproducibility and replicability.
 
 ## Definitions
@@ -93,18 +98,12 @@ Therefore we will follow Peng's [-@Peng2009] definition that provides clear guid
 
 Therefore our definition of reproducibility will be that the computer code and data are made freely available to others for verification and conducting alternate analyses or for use in instructional purposes and that software used are also easily obtainable and preferably open source to avoid licensing or other issues related to accessibility for end-users related to costs or non-standard file formats, etc.
 
-## On Open Science and Reproducibility
+# Materials and methods
 
-Open science has become highlighted lately with many donors expecting data to be available [@government_of_canada_2016; @vannoorden2017; @ARC2018] and other scientists interested in sharing and collaborating more widely [@Wald2010].
-While open science and reproducibility are not the same, they are linked.
-By proactively practising open science, the work becomes more reproducible through the availability of data and code.
-
-# Methods
+## Article Selection
 
 We conducted a survey of a broad selection of articles to represent a broad swathe of publications in our discipline to evaluate the status of reproducibility and open science in our field.
 The journals represented both fundamental and applied areas as well as pathogen or other group specific publications.
-
-## Article Selection
 
 We randomly selected 300 articles published from 2012 to 2018 across 21 journals (Table \@ref(tab:journals)) and assigned them scores reflecting their openness and reproducibility.
 A list of randomly selected pages was assigned to a randomized list of the 21 journals where the page number fell within an article for the given journal.
