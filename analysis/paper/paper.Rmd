@@ -18,7 +18,6 @@ institute:
   - UFV: Departmento de Fitopatologia, Universidade Federal de Viçosa, Brazil
   - OSU: Department of Botany and Plant Pathology, Oregon State University, Corvallis, OR, USA
   - ARS: Horticultural Crops Research Unit, USDA Agricultural Research Service, Corvallis, OR, USA
-date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
   officedown::rdocx_document:
       fig_caption: yes
