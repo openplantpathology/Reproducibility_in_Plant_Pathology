@@ -220,6 +220,9 @@ The majority of the articles were classed as fundamental, 160, with the remainin
 Most articles did not make any computational methods available in any fashion with two, 0.007%, classing as "3", which was the highest score available.
 Two hundred eighty-seven articles, 96%, were classed as "0" and nine articles, 0.03%, appeared to not use any computational methods.
 
+Likewise, data availability was mostly not available with 243 or 81.5% scoring "0" where the data was not available or mentioned in the article.
+However, more articles, 29 or 9.7%, scored "3" than "1" or "2" combined, with two articles not producing shareable data (Table \@ref(tab:da)).
+
 More articles did a good job of using software that was reasonably available to anyone with 206 scoring "2" or "3" (Table \@ref(tab:sa)).
 
 Software citations were also reasonably well reported in the literature with 120 scoring "2" where the main software was cited with version numbers and 57 scoring "3" where full citations including R packages or the SAS PROC used were cited where appropriate (Table \@ref(tab:sc)).
@@ -373,6 +376,19 @@ import_notes() %>%
   adorn_pct_formatting() %>% 
   select(-percent) %>% 
   rename(`software citation` = software_cite,
+         percent = valid_percent) %>% 
+  flextable() %>%
+  autofit()
+```
+
+\newpage
+
+```{r data_available, tab.id="da", tab.cap="Article ratings for data availability where '0', not specified or mentioned in publication to '3', Freely available online to anonymous users for foreseeable future (_e.g._ archived using Zenodo, dataverse or university library or some other proper archiving system).", echo=FALSE, message=FALSE, warning=FALSE}
+import_notes() %>%
+  tabyl(data_avail) %>%
+  adorn_pct_formatting() %>% 
+  select(-percent) %>% 
+  rename(`data availability` = data_avail,
          percent = valid_percent) %>% 
   flextable() %>%
   autofit()
