@@ -190,7 +190,7 @@ While many software packages may be widely used or "freely" available if one has
 Thus, emphasis was given to using open source alternatives where possible over paid software packages.
 The view of the authors is one that this is something to be encouraged as it allows the broadest possible audience to benefit from the work at the least cost.
 
-## Analysis
+## Statistical analysis
 
 Bayesian mixed effect models were fit using the contributed package 'brms' [@Burkner2018] in the R environment  [@RCT2020] to evaluate the fixed effects of the publication (journal title), article class, molecular focus, five year journal impact factor, journal open access policy on the reproducibility index and year to test for changes over time in the reproducibility index.
 
@@ -208,7 +208,7 @@ Model finesses were evaluated using model summaries and diagnostic plots from 'b
 
 Probability of direction or maximum probability of effect was plotted, `pd()`, and a test for practical equivalence, `equivalence_test()`, was performed for each model using the contributed R package 'bayestestR' [@Makowski2019].
 
-## Results
+# Results
 
 Forty-eight articles scored 0% out of a possible 100% for reproducibility.
 The mean value was 31.2% and the median value was 33.3%.
@@ -248,7 +248,7 @@ necessary to replicate model development and the subsequent the study on the eff
   - github repo https://github.com/grunwaldlab/Sudden_Oak_Death_in_Oregon_Forests
 * Other examples from plant pathology providing e-Xtras or supplemental material
 
-# A General Workflow
+## A General Workflow
 
 A general work flow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, and writing the manuscript.
 Here we defined three levels of reproducibility which are also related with the evolution of computational methods and reproducible practices (Figure \@ref(fig:workflow-dia)).
@@ -314,6 +314,9 @@ Most universities provide a facility for staff to deposit papers and other acade
 
 Readers are encouraged to avoid using lab websites and other personal pages for sharing projects over the longer term as they are fraught with link-rot and are not an optimal way to share your projects.
 
+# Authors' contributions
+
+# Data availability statement
 
 # Acknowledgements
 
