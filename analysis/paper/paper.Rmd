@@ -137,7 +137,7 @@ Articles were scored in four areas for reproducibility on a scale of 0 to 3:
 
     * 2 - Uses proprietary software that most individuals can afford (_e.g._, Excel, Matlab? ($500))
 
-    * 3 - Uses entirely open source and free software (_e.g._, R, Python)
+    * 3 - Uses entirely open source and free software (_e.g._, R, Julia, Python)
 
     * NA - No software was used in the research that can be determined as the article is written
 
@@ -150,7 +150,7 @@ Articles were scored in four areas for reproducibility on a scale of 0 to 3:
 
     * 2 - Uses proprietary software that most individuals can afford (_e.g._, Excel) or SAS that is now available free for use with a university login
 
-    * 3 - Uses entirely open source and free software (_e.g._, R, Python).
+    * 3 - Uses entirely open source and free software (_e.g._, R, Julia, Python).
 
     * NA - No software was used in the research that can be determined as the article is written
 
@@ -162,7 +162,7 @@ Articles were scored in four areas for reproducibility on a scale of 0 to 3:
 
     * 2 - Software cited with version number
 
-    * 3 - All software components (SAS PROCs, R or Python packages) etc., cited
+    * 3 - All software components (SAS PROCs, R, Julia or Python packages) etc., cited
 
     * NA - No software was used in the research that can be determined as the article is written.
     
@@ -259,14 +259,14 @@ The first level, as reported, is an essential step that is not substituted by th
 In the next section we present standards and tools that can be used to ensure reproducibility.
 
 
-When making your science more open and reproducible, methods, software used, this includes items such as R or Python packages that were directly used in the analysis or production of the paper, etc. should be cited properly.
+When making your science more open and reproducible, methods, software used, this includes items such as R, Julia or Python packages that were directly used in the analysis or production of the paper, etc. should be cited properly.
 Deposit and annotate biological materials with an herbarium or other repository.
 Provide a full description of all equipment used, _e.g._ a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals.
 This allows end-users to identify what was used and identify the methods used more accurately.
 Just as importantly, this acknowledges the contributions of others whose works were instrumental in your research.
 This also helps ensure that you as a researcher can reconstruct what you have done since you will have good notes and documentation and be able to identify if something changes, _e.g._ a package version, what effect it had on your research.
 
-The use of programming or scripting languages such as R, SAS or Python enables you as a scientist to keep very detailed records of what was computationally performed.
+The use of programming or scripting languages such as R, Julia, SAS or Python enables you as a scientist to keep very detailed records of what was computationally performed.
 This is as opposed to using software such as spreadsheet programs like Excel, Google Sheets, Numbers, Calc or others which can be used for simple statistical analyses and visualization (but should not be) or other point-and-click software packages that do not enable you to keep an accurate record of the steps taken to import, format, visualise and analyse data.
 
 ### Data
@@ -449,7 +449,6 @@ rsvg_pdf(charToRaw(p), "Figure 1.pdf")
 
 knitr::include_graphics("Figure 1.pdf")
 ```
-
 
 \newpage
 
