@@ -187,11 +187,11 @@ We recognise that the scoring methods were developed by the authors specifically
 We have based our scoring decisions on our own experiences in the field of plant pathology.
 While many software packages may be widely used or "freely" available if one has an institutional licence, these types of software often hinder partners and interested parties that do not have these luxuries.
 Thus, the emphasis was given to using open source alternatives where possible over commercially available, non-free software packages.
-The view of the authors is one that this is something to be encouraged as it allows the broadest possible audience to benefit from the work at the least cost.
+The view of the authors is one that this is something to be encouraged as it allows the broadest possible audience to benefit from the work at the lowest possible cost.
 
 ## Statistical analysis
 
-Bayesian mixed-effect models were fit using the contributed package 'brms' [@Burkner2018] in the R environment  [@RCT2020] to evaluate the fixed effects of the publication (journal title), article class, molecular focus, five-year journal impact factor, journal open access policy on the reproducibility index and year to test for changes over time in the reproducibility index.
+Bayesian mixed-effect models were fit using the contributed package 'brms' [@Burkner2018] in the R environment [@RCT2020] to evaluate the fixed effects of the publication (journal title), article class, molecular focus, five-year journal impact factor, journal open access policy on the reproducibility index and year to test for changes over time in the reproducibility index.
 
 Relatively flat priors were selected with a mean 0 and a standard deviation 10 for the fixed effects.
 
