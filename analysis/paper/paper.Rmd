@@ -80,22 +80,27 @@ That is, open science leads to reproducibility and replicability.
 ## Definitions
 
 For us to easily discuss the topic, we first must define what we mean so that we may clearly communicate.
-Many of the terms used in this area have varying definitions that may or may not agree with each other. For instance, reproducible research is recently highlighted by many authors [@Baker2016a; @Iqbal2016; @Nature2016; @Patil2016; @Weissgerber2016; @Brunsdon2015; @Sweedler2015; @Fitzjohn2014; @Ioannidis2014; @Fidler2013; @Stodden2013] as an important issue.
-The International Union of Pure and Applied Chemistry provides
-definitions of repeatability in the "Compendium of Chemical Terminology -- Gold Book" as:
+Many of the terms used in this area have varying definitions that may or may not agree with each other.
+For instance, reproducible research is recently highlighted by many authors [@Baker2016a; @Iqbal2016; @Nature2016; @Patil2016; @Weissgerber2016; @Brunsdon2015; @Sweedler2015; @Fitzjohn2014; @Ioannidis2014; @Fidler2013; @Stodden2013] as an important issue.
+The International Union of Pure and Applied Chemistry provides definitions of repeatability in the "Compendium of Chemical Terminology -- Gold Book" as:
 
-> "The closeness of agreement between independent results obtained with the same method on identical test material, under the same conditions (same operator, same apparatus, same laboratory and after short intervals of time). The measure of repeatability is the standard deviation qualified with the term: `repeatability' as repeatability standard deviation. In some contexts repeatability may be defined as the value below which the absolute difference between two single test results obtained under the above conditions, may be expected to lie with a specified probability", [@McNaught1997].
+> "The closeness of agreement between independent results obtained with the same method on identical test material, under the same conditions (same operator, same apparatus, same laboratory and after short intervals of time). The measure of repeatability is the standard deviation qualified with the term: \`repeatability' as repeatability standard deviation. In some contexts repeatability may be defined as the value below which the absolute difference between two single test results obtained under the above conditions, may be expected to lie with a specified probability", [@McNaught1997].
 
 and reproducibility is defined as:
 
 > "The closeness of agreement between independent results obtained with the same method on identical test material but under different conditions (different operators, different apparatus, different laboratories and/or after different intervals of time). The measure of reproducibility is the standard deviation qualified with the term 'reproducibility' as reproducibility standard deviation. In some contexts reproducibility may be defined as the value below which the absolute difference between two single test results on identical material obtained under the above conditions, may be expected to lie with a specified probability. Note that a complete statement of reproducibility requires specification of the experimental conditions which differ", [@McNaught1997].
 
-However, while these definitions are clear and well accepted in physical sciences, in biological sciences it is not always possible to use identical test material or perhaps the the time or resources are not available for full reproduction, _e.g._, field trials that span years and locations or complex glasshouse experiments.
+However, while these definitions are clear and well accepted in physical sciences, in biological sciences it is not always possible to use identical test material or perhaps the the time or resources are not available for full reproduction, *e.g.*, field trials that span years and locations or complex glasshouse experiments.
 Therefore we will follow Peng's [-@Peng2009] definition that provides clear guidelines a minimum standard of "reproducible research":
 
-> "The replication of scientific findings using independent investigators, methods, data, equipment, and protocols has long been, and will continue to be, the standard by which scientific claims are evaluated. However, in many fields of study there are examples of scientific investigations that cannot be fully replicated because of a lack of time or resources. In such a situation, there is a need for a minimum standard that can fill the void between full replication and nothing. One candidate for this minimum standard is 'reproducible research', which requires that data sets and computer code be made available to others for verifying published results and conducting alternative analyses". Peng, R. [-@Peng2009]. _Reproducible research and Biostatistics_. Biostatistics, 10 (3): 405-408.
+> "The replication of scientific findings using independent investigators, methods, data, equipment, and protocols has long been, and will continue to be, the standard by which scientific claims are evaluated. However, in many fields of study there are examples of scientific investigations that cannot be fully replicated because of a lack of time or resources. In such a situation, there is a need for a minimum standard that can fill the void between full replication and nothing. One candidate for this minimum standard is 'reproducible research', which requires that data sets and computer code be made available to others for verifying published results and conducting alternative analyses".
+> Peng, R.
+> [-@Peng2009].
+> *Reproducible research and Biostatistics*.
+> Biostatistics, 10 (3): 405-408.
 
-Therefore our definition of reproducibility will be that the computer code and data are made freely available to others for verification and conducting alternate analyses or for use in instructional purposes. And that the software used are also easily obtained and preferably open source to avoid licensing or other issues related to accessibility for end-users related to costs or non-standard file formats, etc.
+Therefore our definition of reproducibility will be that the computer code and data are made freely available to others for verification and conducting alternate analyses or for use in instructional purposes.
+And that the software used are also easily obtained and preferably open source to avoid licensing or other issues related to accessibility for end-users related to costs or non-standard file formats, etc.
 
 In an effort to understand where as a discipline we stand as plant pathologists in regards to open science and reproducible research, we surveyed a broad selection of articles to represent a broad swathe of publications to evaluate our status.
 
@@ -106,7 +111,7 @@ In an effort to understand where as a discipline we stand as plant pathologists 
 We randomly selected 300 articles published from 2012 to 2018 across 21 journals (Table \@ref(tab:journals)) and assigned them scores reflecting their openness and reproducibility.
 The journals represented both fundamental and applied areas as well as pathogen or other group-specific publications.
 A list of randomly selected pages was assigned to a randomized list of the 21 journals where the page number fell within an article for the given journal.
-In cases where an article was not suitable, _e.g._, a review or otherwise not related to plant pathology, the next article was selected until a suitable article was found.
+In cases where an article was not suitable, *e.g.*, a review or otherwise not related to plant pathology, the next article was selected until a suitable article was found.
 Notes regarding the selection of articles can be found in the file, XXXX, available in this paper's repository.
 The pages list was numbered from page one and went to page 150.
 This was done since some journals restart their numbering with each issue and also ensures that the journal is more likely to have a page number corresponding to the randomly generated value.
@@ -117,7 +122,7 @@ The list of journals was saved from Google's sheets as a comma-separated-value (
 
 Four individuals were assigned to rate a randomised list of journal articles.
 
-Each journal was classified as to  whether they were completely open (TRUE), behind a paywall (FALSE) or a combination (BOTH).
+Each journal was classified as to whether they were completely open (TRUE), behind a paywall (FALSE) or a combination (BOTH).
 The five-year impact factor for 2018 for each journal was retrieved from InCites Journal Citation Reports, Clarivate Analytics and entered in a separate sheet in the Google sheets file.
 This was downloaded, saved as a CSV file and is left-joined with the article notes using a `left_join()` from the 'dplyr' package [@Wickham2020] for analysis when the `import_notes()` command is executed.
 
@@ -128,60 +133,57 @@ Where possible, the software used in the preparation of the publication was reco
 
 Articles were scored in four areas for reproducibility on a scale of 0 to 3:
 
-  * **computational methods available**
+-   **computational methods available**
 
-    * 0 - Not available or not mentioned in the publication
+    -   0 - Not available or not mentioned in the publication
 
-    * 1 - Uses expensive proprietary software that only institutions would typically purchase (_i.e._, 
-    ArcGIS standard is $7000)
+    -   1 - Uses expensive proprietary software that only institutions would typically purchase (*i.e.*, ArcGIS standard is \$7000)
 
-    * 2 - Uses proprietary software that most individuals can afford (_e.g._, Excel, Matlab? ($500))
+    -   2 - Uses proprietary software that most individuals can afford (*e.g.*, Excel, Matlab? (\$500))
 
-    * 3 - Uses entirely open source and free software (_e.g._, R, Julia, Python)
+    -   3 - Uses entirely open source and free software (*e.g.*, R, Julia, Python)
 
-    * NA - No software was used in the research that can be determined as the article is written
+    -   NA - No software was used in the research that can be determined as the article is written
 
-  * **software available**
+-   **software available**
 
-    * 0 - Not available or not mentioned in the publication
+    -   0 - Not available or not mentioned in the publication
 
-    * 1 - Uses expensive proprietary software that only institutions would typically purchase (_i.e._, 
-    ArcGIS standard is $7000US)
+    -   1 - Uses expensive proprietary software that only institutions would typically purchase (*i.e.*, ArcGIS standard is \$7000US)
 
-    * 2 - Uses proprietary software that most individuals can afford (_e.g._, Excel) or SAS that is now available free for use with a university login
+    -   2 - Uses proprietary software that most individuals can afford (*e.g.*, Excel) or SAS that is now available free for use with a university login
 
-    * 3 - Uses entirely open source and free software (_e.g._, R, Julia, Python).
+    -   3 - Uses entirely open source and free software (*e.g.*, R, Julia, Python).
 
-    * NA - No software was used in the research that can be determined as the article is written
+    -   NA - No software was used in the research that can be determined as the article is written
 
-  * **software cited**
+-   **software cited**
 
-    * 0 - not mentioned
+    -   0 - not mentioned
 
-    * 1 - Software mentioned by name only
+    -   1 - Software mentioned by name only
 
-    * 2 - Software cited with version number
+    -   2 - Software cited with version number
 
-    * 3 - All software components (SAS PROCs, R, Julia or Python packages) etc., cited
+    -   3 - All software components (SAS PROCs, R, Julia or Python packages) etc., cited
 
-    * NA - No software was used in the research that can be determined as the article is written.
-    
-  * **data available**
+    -   NA - No software was used in the research that can be determined as the article is written.
 
-    * 0 - Not available or not mentioned in the publication
+-   **data available**
 
-    * 1 - Available upon request to the author
-  
-    * 2 - Online, but inconvenient or non-permanent (_e.g._, login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)
-    
-    * 3 - Freely available online to anonymous users for foreseeable future (_e.g._, archived using Zenodo, dataverse or university library or some other proper archiving system)
+    -   0 - Not available or not mentioned in the publication
+
+    -   1 - Available upon request to the author
+
+    -   2 - Online, but inconvenient or non-permanent (*e.g.*, login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)
+
+    -   3 - Freely available online to anonymous users for foreseeable future (*e.g.*, archived using Zenodo, dataverse or university library or some other proper archiving system)
 
 Values for software packages were checked for spelling consistency and corrections were made manually where necessary.
 When working with these data in R, all strings of software character values were converted to fully uppercase to standardise the capitalisation and alleviate any issues with capitalisation used between evaluators.
 A custom R function, `Reproducibility.in.Plant.Pathology::import_notes()`, was written to import the data, format the columns properly and calculate the overall reproducibility score in R [@RCT2020].
 
-A total reproducibility score was calculated as the per cent of total possible for a given paper,
-_e.g._ some papers did not use specialized software therefore they were not scored for this category.
+A total reproducibility score was calculated as the per cent of total possible for a given paper, *e.g.* some papers did not use specialized software therefore they were not scored for this category.
 
 We recognise that the scoring methods were developed by the authors specifically for this exercise and are not entirely subjective.
 We have based our scoring decisions on our own experiences in the field of plant pathology.
@@ -246,19 +248,22 @@ The first level is including tables of raw data or code with the paper as a supp
 This is suitable for studies that may have a small data set or simple analysis or for demonstrations purposes as Madden et al. [-@Madden2015] demonstrate in their discussion regarding the use of $P$ values in statistical analyses where they supply an *e-**X**tra*\* with reproducible examples for readers to refer to.
 This allows the reader to quickly view the extra materials and a DOI is assigned as a part of the article itself.
 
-At the second level, Lehner et al. [-@Lehner2017] used GitHub to host a code repository of their research compendium website with data and a reproducible report that explains in detail all steps of the analysis and the R code for conducting a meta-analysis for assessing heterogeneity in the relationship between white mold incidence and soybean yield and between incidence and soybean tied (https://emdelponte.github.io/paper-white-mold-meta-analysis/).
+At the second level, Lehner et al. [-@Lehner2017] used GitHub to host a code repository of their research compendium website with data and a reproducible report that explains in detail all steps of the analysis and the R code for conducting a meta-analysis for assessing heterogeneity in the relationship between white mold incidence and soybean yield and between incidence and soybean tied (<https://emdelponte.github.io/paper-white-mold-meta-analysis/>).
 The website clearly demonstrates the analysis for readers and uses R so that anyone can easily replicate the work.
-Likewise, Duku et al. [-@Duku2016] provide scripts for models, data and code for graphs, via a website hosted by GitHub, http://adamhsparks.github.io/MICCORDEA/, that can be used to replicate their study modelling the effects of climate change on rice bacterial blight and rice leaf blast in Tanzania.
+Likewise, Duku et al. [-@Duku2016] provide scripts for models, data and code for graphs, via a website hosted by GitHub, <http://adamhsparks.github.io/MICCORDEA/>, that can be used to replicate their study modelling the effects of climate change on rice bacterial blight and rice leaf blast in Tanzania.
 
-The third level is the use of proper data repositories such as FigShare, Zenodo or OSF.io among others, allow for the deposition and updating of code, figures, data preprints or any other materials that support the article itself while providing a DOI and citation for a standalone citation. Sparks et al. [-@Sparks2011; -@Sparks2014] used FigShare to provide models, data and code, [@Sparks2016] necessary to replicate model development and the subsequent study on the effects of climate change on potato late blight.
+The third level is the use of proper data repositories such as FigShare, Zenodo or OSF.io among others, allow for the deposition and updating of code, figures, data preprints or any other materials that support the article itself while providing a DOI and citation for a standalone citation.
+Sparks et al. [-@Sparks2011; -@Sparks2014] used FigShare to provide models, data and code, [@Sparks2016] necessary to replicate model development and the subsequent study on the effects of climate change on potato late blight.
 
-The fourth level includes packaging the analysis as a software package, _e.g._ R Julia or Python package at a minimum, with the use of continuous integration and possibly a software container like Docker as Khaliq et al. [@Khaliq2020] have done. Their research compendium provides a Docker instance, DOI and full R package that enable readers to fully replicate their analysis of chickpea ascochyta conida dispersal using the data collected and stepping through other points where weather data were investigated and various models were fit before deciding on the best fit and recreate any figures as published in the article [@Khaliq2020a].
+The fourth level includes packaging the analysis as a software package, *e.g.* R Julia or Python package at a minimum, with the use of continuous integration and possibly a software container like Docker as Khaliq et al. [@Khaliq2020] have done.
+Their research compendium provides a Docker instance, DOI and full R package that enable readers to fully replicate their analysis of chickpea ascochyta conida dispersal using the data collected and stepping through other points where weather data were investigated and various models were fit before deciding on the best fit and recreate any figures as published in the article [@Khaliq2020a].
 
 [@Miorini2018, @Miorini2019]
 
-* Example from Grünwald lab: 
-  - paper http://apsjournals.apsnet.org/doi/full/10.1094/PHYTO-12-14-0350-FI
-  - github repo https://github.com/grunwaldlab/Sudden_Oak_Death_in_Oregon_Forests
+-   Example from Grünwald lab:
+
+    -   paper <http://apsjournals.apsnet.org/doi/full/10.1094/PHYTO-12-14-0350-FI>
+    -   github repo <https://github.com/grunwaldlab/Sudden_Oak_Death_in_Oregon_Forests>
 
 ## A general workflow
 
@@ -273,10 +278,10 @@ In the next section we present standards and tools that can be used to ensure re
 
 When making your science more open and reproducible, methods, software used, this includes items such as R, Julia or Python packages that were directly used in the analysis or production of the paper, etc. should be cited properly.
 Deposit and annotate biological materials with an herbarium or other repository.
-Provide a full description of all equipment used, _e.g._ a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals.
+Provide a full description of all equipment used, *e.g.* a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals.
 This allows end-users to identify what was used and identify the methods used more accurately.
 Just as importantly, this acknowledges the contributions of others whose works were instrumental in your research.
-This also helps ensure that you as a researcher can reconstruct what you have done since you will have good notes and documentation and be able to identify if something changes, _e.g._ a package version, what effect it had on your research.
+This also helps ensure that you as a researcher can reconstruct what you have done since you will have good notes and documentation and be able to identify if something changes, *e.g.* a package version, what effect it had on your research.
 
 The use of programming or scripting languages such as R, Julia, SAS or Python enables you as a scientist to keep very detailed records of what was computationally performed.
 This is as opposed to using software such as spreadsheet programs like Excel, Google Sheets, Numbers, Calc or others which can be used for simple statistical analyses and visualization (but should not be) or other point-and-click software packages that do not enable you to keep an accurate record of the steps taken to import, format, visualise and analyse data.
@@ -285,7 +290,7 @@ This is as opposed to using software such as spreadsheet programs like Excel, Go
 
 Prefer text files for saving small sets of data.
 Data that are saved in binary formats such as PDF files are difficult to reuse because they are not easily machine readable.
-In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, _e.g._ comma separated (CSV) files.
+In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, *e.g.* comma separated (CSV) files.
 This also helps ensure that the data are reusable.
 Larger data sets may warrant the use of a proper database like MariaDB or PostgreSQL which provide users with several benefits but two important ones to mention here are data redundancy, no duplicated records; and data consistency, all of your records are sure to be recorded in the same way for every observation.
 While databases may offer many advantages, the trade-off is that they are more complex to set up and administer, especially for a small data set that might be only a few rows and columns in a database.
@@ -332,9 +337,12 @@ Readers are encouraged to avoid using lab websites and other personal pages for 
 
 \newpage
 
-# References 
+# References
+
 <!-- The following line ensures the references appear here for the MS Word or HTML output files, rather than right at the end of the document (this will not work for PDF files):  -->
-<div id="refs"></div>
+
+::: {#refs}
+:::
 
 \newpage
 
@@ -353,7 +361,6 @@ import_notes() %>%
   autofit()
 ```
 
-
 \newpage
 
 ```{r software_avail, tab.id="sa", tab.cap="Article ratings for software availability where '0', not available or not mentioned in publication to '3', preferably open source and freely available.", echo=FALSE, message=FALSE, warning=FALSE}
@@ -366,7 +373,6 @@ import_notes() %>%
   flextable() %>%
   autofit()
 ```
-
 
 \newpage
 
@@ -396,7 +402,7 @@ import_notes() %>%
 
 \newpage
 
-```{r software_used, tab.id="su", tab.cap="ally of reproducibility scores where 0 is not reproducible and 12 is fully reproducible, _e.g._ all software cited, software used are freely available to anyone, computational methods (statistical analysis or other computational code) are freely available for download and use, and raw data are available for download and use.", echo=FALSE, message=FALSE, warning=FALSE}
+```{r software_used, tab.id="su", tab.cap="Tally of reproducibility scores where 0 is not reproducible and 12 is fully reproducible, _e.g._ all software cited, software used are freely available to anyone, computational methods (statistical analysis or other computational code) are freely available for download and use, and raw data are available for download and use.", echo=FALSE, message=FALSE, warning=FALSE}
 library("tidyr")
 
 rrpp_software <-
@@ -478,7 +484,7 @@ knitr::include_graphics("Figure 1.pdf")
 
 # Colophon
 
-This report was generated on `r Sys.time()` using the following computational environment and dependencies: 
+This report was generated on `r Sys.time()` using the following computational environment and dependencies:
 
 ```{r colophon, cache = FALSE}
 # which R packages and versions?
@@ -492,3 +498,4 @@ The current Git commit details are:
 # if your Rmd is not in analysis/paper/
 git2r::repository("../..")
 ```
+
