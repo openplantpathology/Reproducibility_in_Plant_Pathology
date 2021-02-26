@@ -139,7 +139,7 @@ Articles were scored in four areas for reproducibility on a scale of 0 to 3:
 
     -   1 - Uses expensive proprietary software that only institutions would typically purchase (*i.e.*, ArcGIS standard is \$7000)
 
-    -   2 - Uses proprietary software that most individuals can afford (*e.g.*, Excel, Matlab? (\$500))
+    -   2 - Uses proprietary software that most individuals can afford (*e.g.*, Excel, Matlab (\$500))
 
     -   3 - Uses entirely open source and free software (*e.g.*, R, Julia, Python)
 
@@ -149,7 +149,7 @@ Articles were scored in four areas for reproducibility on a scale of 0 to 3:
 
     -   0 - Not available or not mentioned in the publication
 
-    -   1 - Uses expensive proprietary software that only institutions would typically purchase (*i.e.*, ArcGIS standard is \$7000US)
+    -   1 - Uses expensive proprietary software that only institutions would typically purchase (*e.g.*, ArcGIS standard is \$7000US)
 
     -   2 - Uses proprietary software that most individuals can afford (*e.g.*, Excel) or SAS that is now available free for use with a university login
 
@@ -255,23 +255,18 @@ Likewise, Duku et al. [-@Duku2016] provide scripts for models, data and code for
 The third level is the use of proper data repositories such as FigShare, Zenodo or OSF.io among others, allow for the deposition and updating of code, figures, data preprints or any other materials that support the article itself while providing a DOI and citation for a standalone citation.
 Sparks et al. [-@Sparks2011; -@Sparks2014] used FigShare to provide models, data and code, [@Sparks2016] necessary to replicate model development and the subsequent study on the effects of climate change on potato late blight.
 
-The fourth level includes packaging the analysis as a software package, *e.g.* R Julia or Python package at a minimum, with the use of continuous integration and possibly a software container like Docker as Khaliq et al. [@Khaliq2020] have done.
-Their research compendium provides a Docker instance, DOI and full R package that enable readers to fully replicate their analysis of chickpea ascochyta conida dispersal using the data collected and stepping through other points where weather data were investigated and various models were fit before deciding on the best fit and recreate any figures as published in the article [@Khaliq2020a].
+The fourth level includes packaging the analysis as a software package, *e.g.* R Julia or Python package at a minimum, with the use of continuous integration and possibly a software container like Docker as Khaliq et al. [@Khaliq2020] have done. Their research compendium provides a Docker instance, DOI and full R package that enable readers to fully replicate their analysis of *Ascochyta rabiei* conida dispersal in chickpea using the data collected and stepping through other points where weather data were investigated and various models were fit before deciding on the best fit and recreate any figures as published in the article [@Khaliq2020a]. When this level is employed, tools such as Binder,<https://mybinder.org> can be used that allow readers and reviewers to launch an interactive session in their web browser and interact with the data and rerun the analysis in an RStudio instance or Jupyter notebooks as Mioroni et al. used [-@Miorini2018, -@Miorini2019].
 
-[@Miorini2018, @Miorini2019]
-
--   Example from Grünwald lab:
+-   Example from Grünwald lab/Zhian:
 
     -   paper <http://apsjournals.apsnet.org/doi/full/10.1094/PHYTO-12-14-0350-FI>
-    -   github repo <https://github.com/grunwaldlab/Sudden_Oak_Death_in_Oregon_Forests>
-
-## A general workflow
+    -   github repo <https://github.com/grunwaldlab/Sudden_Oak_Death_in_Oregon_Forests>/<https://github.com/zkamvar/Sudden_Oak_Death_in_Oregon_Forests>
 
 A general work flow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, and writing the manuscript.
 Here we defined three levels of reproducibility which are also related to the evolution of computational methods and reproducible practices (Figure \@ref(fig:workflow-dia)).
 
 The first level of reproducibility involves openly available research materials such as isolates or strains and/or nucleic acid sequences in public collections and citations for methods used.
-A second level involves providing raw data and code as binary files (PDF or other non-text files) in supplemental materials, which do not allow prompt access to the data and running the code because of use of expensive commercial software or a pay-wall.
+A second level involves providing raw data and code as binary files (PDF or other non-text files) in supplemental materials, which do not allow prompt access to the data and running the code because of use of expensive commercial software or a paywall.
 The highest level includes efforts to annotate structured raw data (FAIR -- Findable, Accessible, Interoperable and Re-usable) [@Wilkinson2016] and fully document the analysis using open source code which are deposited in public repositories and can be run by anyone following the download of data and code.
 The first level, as reported, is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations.
 In the next section we present standards and tools that can be used to ensure reproducibility.
@@ -285,8 +280,6 @@ This also helps ensure that you as a researcher can reconstruct what you have do
 
 The use of programming or scripting languages such as R, Julia, SAS or Python enables you as a scientist to keep very detailed records of what was computationally performed.
 This is as opposed to using software such as spreadsheet programs like Excel, Google Sheets, Numbers, Calc or others which can be used for simple statistical analyses and visualization (but should not be) or other point-and-click software packages that do not enable you to keep an accurate record of the steps taken to import, format, visualise and analyse data.
-
-### Data
 
 Prefer text files for saving small sets of data.
 Data that are saved in binary formats such as PDF files are difficult to reuse because they are not easily machine readable.
@@ -310,8 +303,6 @@ FigShare, Zenodo and OSF all offer long-term archival along with a service to ge
 The use of a persistent identifier works to ensure that even if the data are moved, they can still be located using that unique identifier.
 For more on FAIR data, visit Go-Fair <https://www.go-fair.org/fair-principles/>.
 
-### Sharing your research
-
 Once you have determined how to best manage your source code for analysis and the data sets the next step is to consider how to share your data.
 Providers such as FigShare, Dataverse, OSF.io (the Open Science Framework) and Zenodo allow for you to deposit your data and generate a DOI for sharing your project once you are finished with it.
 
@@ -328,6 +319,8 @@ Readers should also consult with their local librarians about local resources.
 Most universities provide a facility for staff to deposit papers and other academic materials, but this may extend to software development repositories as well.
 
 Readers are encouraged to avoid using lab websites and other personal pages for sharing projects over the longer term as they are fraught with link-rot and are not an optimal way to share your projects.
+
+***Need a good closing statement here.***
 
 # Authors' contributions
 
