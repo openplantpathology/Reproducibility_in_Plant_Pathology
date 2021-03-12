@@ -2,8 +2,8 @@
 title: "Insights Into Computational Reproducibility in Plant Pathology and a Way Forward"
 author:
   - Adam H. Sparks:
-      email: Adam.Sparks@usq.edu.au
-      institute: USQ
+      email: Adam.Sparks@dpird.wa.gov.au
+      institute: DPIRD, USQ
       correspondence: true
   - Emerson Del Ponte:
       institute: UFV
@@ -14,6 +14,7 @@ author:
   - Niklaus J Grünwald: 
       institute: ARS
 institute:
+  - DPIRD: Department of Primary Industries and Regional Development, East Perth, Western Australia, Australia
   - USQ: University of Southern Queensland, Centre for Crop Health, Toowoomba, Queensland, Australia
   - UFV: Departmento de Fitopatologia, Universidade Federal de Viçosa, Brazil
   - OSU: Department of Botany and Plant Pathology, Oregon State University, Corvallis, OR, USA
