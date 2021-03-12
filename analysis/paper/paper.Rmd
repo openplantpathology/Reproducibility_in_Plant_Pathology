@@ -184,7 +184,7 @@ Values for software packages were checked for spelling consistency and correctio
 When working with these data in R, all strings of software character values were converted to fully uppercase to standardise the capitalisation and alleviate any issues with capitalisation used between evaluators.
 A custom R function, `Reproducibility.in.Plant.Pathology::import_notes()`, was written to import the data, format the columns properly and calculate the overall reproducibility score in R [@RCT2020].
 
-A total reproducibility score was calculated as the per cent of total possible for a given paper, *e.g.* some papers did not use specialized software therefore they were not scored for this category.
+A total reproducibility score was calculated as the per cent of total possible for a given paper. However, some papers did not use specialized software therefore they were not scored for this category.
 
 We recognise that the scoring methods were developed by the authors specifically for this exercise and are not entirely subjective.
 We have based our scoring decisions on our own experiences in the field of plant pathology.
@@ -273,17 +273,17 @@ In the next section we present standards and tools that can be used to ensure re
 
 When making your science more open and reproducible, methods, software used, this includes items such as R, Julia or Python packages that were directly used in the analysis or production of the paper, etc. should be cited properly.
 Deposit and annotate biological materials with an herbarium or other repository.
-Provide a full description of all equipment used, *e.g.* a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals.
+Provide a full description of all equipment used, *e.g.*, a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals.
 This allows end-users to identify what was used and identify the methods used more accurately.
 Just as importantly, this acknowledges the contributions of others whose works were instrumental in your research.
-This also helps ensure that you as a researcher can reconstruct what you have done since you will have good notes and documentation and be able to identify if something changes, *e.g.* a package version, what effect it had on your research.
+This also helps ensure that you as a researcher can reconstruct what you have done since you will have good notes and documentation and be able to identify if something changes, *e.g.*, a package version, what effect it had on your research.
 
 The use of programming or scripting languages such as R, Julia, SAS or Python enables you as a scientist to keep very detailed records of what was computationally performed.
 This is as opposed to using software such as spreadsheet programs like Excel, Google Sheets, Numbers, Calc or others which can be used for simple statistical analyses and visualization (but should not be) or other point-and-click software packages that do not enable you to keep an accurate record of the steps taken to import, format, visualise and analyse data.
 
 Prefer text files for saving small sets of data.
 Data that are saved in binary formats such as PDF files are difficult to reuse because they are not easily machine readable.
-In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, *e.g.* comma separated (CSV) files.
+In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, *e.g.*, comma separated (CSV) files.
 This also helps ensure that the data are reusable.
 Larger data sets may warrant the use of a proper database like MariaDB or PostgreSQL which provide users with several benefits but two important ones to mention here are data redundancy, no duplicated records; and data consistency, all of your records are sure to be recorded in the same way for every observation.
 While databases may offer many advantages, the trade-off is that they are more complex to set up and administer, especially for a small data set that might be only a few rows and columns in a database.
@@ -310,15 +310,17 @@ Other providers exist that allow for you to not only track changes but also to s
 GitHub is arguably the most popular and widely used software development platform currently.
 Data that is encoded in CSV or other plain text formats can easily be deposited in a repository along with code for analysis to enable changes to be tracked and other users to download and replicate the work.
 
-We would advise against the practice of depositing data on a laboratory website or a site such as GitHub only though.
-Doing either of these leaves the work in an unstable state where future users may be unable to access the work.
+We would advise against the practice of depositing data on a laboratory website or a site such as GitHub only are not an optimal way to preserve and share your work over the long term.
+Doing either of these leaves the work in an unstable state where future users may be unable to access the work as they are fraught with link-rot and other issues.
 It is a best practice to always ensure that you have deposited the data with a provider such as Zenodo, FigShare or OSF and generated a DOI for the materials to help ensure continued accessibility.
 Many of these providers provide rather easy ways to link the project with a software development repository to help ensure that the data are available in perpetuity.
+If readers are uncertain, we suggest to also consult with local librarians about possible resources.
+Most universities some other research-focused workplaces provide a facility for staff to deposit papers and other academic materials, but this may extend to software development repositories as well.
 
-Readers should also consult with their local librarians about local resources.
-Most universities provide a facility for staff to deposit papers and other academic materials, but this may extend to software development repositories as well.
+In this work we have evaluated the state of reproducibility in the plant pathology literature and presented suggestions for areas of improvement.
+One of the most important messages that we would like to share is that there is more to the work than just the paper.
+Sharing materials detailing the analysis that was performed and documenting the data provide citable products and enhance the manuscript providing the reader with a richer set of information with which to understand the work that was performed.
 
-Readers are encouraged to avoid using lab websites and other personal pages for sharing projects over the longer term as they are fraught with link-rot and are not an optimal way to share your projects.
 
 ***Need a good closing statement here.***
 
@@ -382,7 +384,7 @@ import_notes() %>%
 
 \newpage
 
-```{r data_available, tab.id="da", tab.cap="Article ratings for data availability where '0', not specified or mentioned in publication to '3', Freely available online to anonymous users for foreseeable future (_e.g._ archived using Zenodo, dataverse or university library or some other proper archiving system).", echo=FALSE, message=FALSE, warning=FALSE}
+```{r data_available, tab.id="da", tab.cap="Article ratings for data availability where '0', not specified or mentioned in publication to '3', Freely available online to anonymous users for foreseeable future (*e.g.*, archived using Zenodo, dataverse or university library or some other proper archiving system).", echo=FALSE, message=FALSE, warning=FALSE}
 import_notes() %>%
   tabyl(data_avail) %>%
   adorn_pct_formatting() %>% 
@@ -395,7 +397,7 @@ import_notes() %>%
 
 \newpage
 
-```{r software_used, tab.id="su", tab.cap="Tally of reproducibility scores where 0 is not reproducible and 12 is fully reproducible, _e.g._ all software cited, software used are freely available to anyone, computational methods (statistical analysis or other computational code) are freely available for download and use, and raw data are available for download and use.", echo=FALSE, message=FALSE, warning=FALSE}
+```{r software_used, tab.id="su", tab.cap="Tally of reproducibility scores where 0 is not reproducible and 12 is fully reproducible, *e.g.*, all software cited, software used are freely available to anyone, computational methods (statistical analysis or other computational code) are freely available for download and use, and raw data are available for download and use.", echo=FALSE, message=FALSE, warning=FALSE}
 library("tidyr")
 
 rrpp_software <-
@@ -419,7 +421,7 @@ rrpp_software %>%
 
 \newpage
 
-```{r reproducibility_score, tab.id="reproducibility", tab.cap="Tally of reproducibility scores where 0 is not reproducible and 12 is fully reproducible, _e.g._ all software cited, software used are freely available to anyone, computational methods (statistical analysis or other computational code) are freely available for download and use, and raw data are available for download and use.", echo=FALSE, message=FALSE, warning=FALSE}
+```{r reproducibility_score, tab.id="reproducibility", tab.cap="Tally of reproducibility scores where 0 is not reproducible and 12 is fully reproducible, *e.g.*, all software cited, software used are freely available to anyone, computational methods (statistical analysis or other computational code) are freely available for download and use, and raw data are available for download and use.", echo=FALSE, message=FALSE, warning=FALSE}
 import_notes() %>%
   tabyl(reproducibility_score) %>%
   adorn_pct_formatting() %>%
