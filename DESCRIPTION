@@ -31,27 +31,27 @@ Depends:
     R (>= 3.2.0)
 License: MIT + file LICENSE
 Imports:
+    dplyr,
+    DiagrammeR,
+    DiagrammeRsvg,
+    magrittr,
+    pander,
+    rsvg
+Suggests:
+    bib2df,
     bayesplot,
     bayestestR,
     brms,
     doi2bib,
-    bib2df,
-    dplyr,
-    DiagrammeR,
-    DiagrammeRsvg,
-    httr,
-    magrittr,
-    methods,
-    pander,
-    rsvg
-Suggests:
     flextable,
     ggplot2 (>= 3.3.0),
     ggpubr,
     googlesheets4,
     here,
+    httr,
     janitor,
     knitr,
+    methods,
     rcrossref,
     readr,
     rmarkdown,

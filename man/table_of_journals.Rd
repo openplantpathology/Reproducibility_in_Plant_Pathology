@@ -10,13 +10,14 @@ table_of_journals(rrpp)
 \item{rrpp}{`data.frame` of article evaluations}
 }
 \value{
-\pkg{pander} table of journals surveyed
+\CRANpkg{pander} table of journals surveyed
 }
 \description{
 Create Table of Journals Surveyed
 }
 \examples{
 \donttest{
+googlesheets4::gs4_deauth()
 rrpp <- googlesheets4::read_sheet(
 "https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M"
 )
