@@ -40,7 +40,7 @@ This repository is organized as an R package. There are custom R functions,
 `table_of_journals()` and `workflow_dia()` that are used in this repository, along with a bibliography file of the articles that were examined and the notes that are located in `inst/extdata` directory.
 We have used the R package structure to help manage dependencies, to take advantage of continuous integration for automated code testing and for file organisation.
 
-You can download the compendium as a zip from from this URL: <https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/archive/master.zip>
+You can download the compendium as a zip from from this URL: <https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/archive/main.zip>
 
 Or you can install this compendium as an R package, Reproducibility.in.Plant.Pathology, from GitHub with:
 ```{r gh-installation, eval = FALSE}
@@ -64,6 +64,9 @@ docker run -d -p 8787:8787
 
 #### The Paper
 
+The file structure follows a normal R package with one exception.
+The top-level "/analysis" directory contains the directories and files necessary to reknit the MS Word document of the paper from an Rmd file, "/analysis/paper/paper.Rmd".
+
 A script, `knit_paper.R` is located in `analysis/paper/knit_paper.R` that will knit the Word document
 
 ## Meta
@@ -72,10 +75,11 @@ Code: [MIT](http://opensource.org/licenses/MIT) year: `r format(Sys.Date(), "%Y"
 
 Data: [CC-0](http://creativecommons.org/publicdomain/zero/1.0/) attribution requested in reuse
 
-Adam H Sparks, Associate Professor, Centre for Crop Health  
-University of Southern Queensland  
-Toowoomba, Queensland 4350
-
-+61 (7) 4631 1948   <adam.sparks@usq.edu.au>
+Adam H Sparks
+Senior Research Scientist
+Farming Systems Innovation
+Primary Industries Development
+Department of Primary Industries and Regional Development
+Level 5, 1 Nash St Perth WA 6000
 
 <https://adamhsparks.com/>

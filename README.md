@@ -18,17 +18,17 @@ This repository contains the data and code for our paper:
 
 Our pre-print is online here:
 
-> Authors, (YYYY). *Title of paper*. Name of journal/book, Accessed 17
-> Jul 2020. Online at <https://doi.org/xxx/xxx>
+> Authors, (YYYY). *Title of paper*. Name of journal/book, Accessed 02
+> Jun 2021. Online at <https://doi.org/xxx/xxx>
 
 ### How to cite
 
 Please cite this compendium as:
 
 > Sparks, A.H., Del Ponte, E.M., dos Santos Alves, K., Foster, Z.,
-> Grünwald, N. (2020). *Compendium of R code and data for ‘Status and
+> Grünwald, N. (2021). *Compendium of R code and data for ‘Status and
 > Best Practices for Reproducible Research In Plant Pathology’*.
-> Accessed 17 Jul 2020. Online at
+> Accessed 02 Jun 2021. Online at
 > <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
@@ -44,7 +44,7 @@ dependencies, to take advantage of continuous integration for automated
 code testing and for file organisation.
 
 You can download the compendium as a zip from from this URL:
-<https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/archive/master.zip>
+<https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/archive/main.zip>
 
 Or you can install this compendium as an R package,
 Reproducibility.in.Plant.Pathology, from GitHub with:
@@ -60,18 +60,35 @@ Once the download is complete, open the
 `Reproducibility_in_Plant_Pathology.Rproj` in RStudio to begin working
 with the package and compendium files.
 
+#### The Docker Instance
+
+Get the latest instance from Dockerhub, launch it and go to
+`localhost:8787` in your browser. Login with `rstudio`, password is
+`rstudio`.
+
+    docker pull adamhsparks/reproducibility_in_plant_pathology
+    docker run -d -p 8787:8787
+
+#### The Paper
+
+The file structure follows a normal R package with one exception. The
+top-level “/analysis” directory contains the directories and files
+necessary to reknit the MS Word document of the paper from an Rmd file,
+“/analysis/paper/paper.Rmd”.
+
+A script, `knit_paper.R` is located in `analysis/paper/knit_paper.R`
+that will knit the Word document
+
 ## Meta
 
-Code: [MIT](http://opensource.org/licenses/MIT) year: 2020, copyright
+Code: [MIT](http://opensource.org/licenses/MIT) year: 2021, copyright
 holder: Adam H Sparks
 
 Data: [CC-0](http://creativecommons.org/publicdomain/zero/1.0/)
 attribution requested in reuse
 
-Adam H Sparks, Associate Professor, Centre for Crop Health  
-University of Southern Queensland  
-Toowoomba, Queensland 4350
-
-\+61 (7) 4631 1948 <adam.sparks@usq.edu.au>
+Adam H Sparks Senior Research Scientist Farming Systems Innovation
+Primary Industries Development Department of Primary Industries and
+Regional Development Level 5, 1 Nash St Perth WA 6000
 
 <https://adamhsparks.com/>
