@@ -14,8 +14,8 @@ author:
   - Niklaus J Grünwald: 
       institute: ARS
 institute:
-  - DPIRD: Department of Primary Industries and Regional Development, Perth, Western Australia, Australia
-  - USQ: University of Southern Queensland, Centre for Crop Health, Toowoomba, Queensland, Australia
+  - DPIRD: Department of Primary Industries and Regional Development, Perth, WA, Australia
+  - USQ: University of Southern Queensland, Centre for Crop Health, Toowoomba, Qld, Australia
   - UFV: Departmento de Fitopatologia, Universidade Federal de Viçosa, Brazil
   - OSU: Department of Botany and Plant Pathology, Oregon State University, Corvallis, OR, USA
   - ARS: Horticultural Crops Research Unit, USDA Agricultural Research Service, Corvallis, OR, USA
