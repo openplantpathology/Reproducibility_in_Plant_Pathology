@@ -78,11 +78,17 @@ While open science and reproducibility are not the same, they are linked.
 By proactively practising open science, the work becomes more reproducible through the availability of data and code.
 That is, open science leads to reproducibility and replicability.
 
+<!--# not sure we need a separate section for definitions, but presence continuously in the text -->
+
 ## Definitions
 
 For us to easily discuss the topic, we first must define what we mean so that we may clearly communicate.
 Many of the terms used in this area have varying definitions that may or may not agree with each other.
-For instance, reproducible research is recently highlighted by many authors [@Baker2016a; @Iqbal2016; @Nature2016; @Patil2016; @Weissgerber2016; @Brunsdon2015; @Sweedler2015; @Fitzjohn2014; @Ioannidis2014; @Fidler2013; @Stodden2013] as an important issue.
+For instance, reproducible research is recently highlighted by many authors [@Baker2016a; @Iqbal2016; @Nature2016; @Patil2016; @Weissgerber2016; @Brunsdon2015; @Sweedler2015; @Fitzjohn2014; @Ioannidis2014; @Fidler2013; @Stodden2013; ]
+
+<!--# These references above are all prior 2017. We may want to update the list? -->
+
+as an important issue.
 The International Union of Pure and Applied Chemistry provides definitions of repeatability in the "Compendium of Chemical Terminology -- Gold Book" as:
 
 > "The closeness of agreement between independent results obtained with the same method on identical test material, under the same conditions (same operator, same apparatus, same laboratory and after short intervals of time). The measure of repeatability is the standard deviation qualified with the term: \`repeatability' as repeatability standard deviation. In some contexts repeatability may be defined as the value below which the absolute difference between two single test results obtained under the above conditions, may be expected to lie with a specified probability", [@McNaught1997].
@@ -90,6 +96,8 @@ The International Union of Pure and Applied Chemistry provides definitions of re
 and reproducibility is defined as:
 
 > "The closeness of agreement between independent results obtained with the same method on identical test material but under different conditions (different operators, different apparatus, different laboratories and/or after different intervals of time). The measure of reproducibility is the standard deviation qualified with the term 'reproducibility' as reproducibility standard deviation. In some contexts reproducibility may be defined as the value below which the absolute difference between two single test results on identical material obtained under the above conditions, may be expected to lie with a specified probability. Note that a complete statement of reproducibility requires specification of the experimental conditions which differ", [@McNaught1997].
+
+<!--# I would simplify and just mention the Peng's definition as most appropriate for our context -->
 
 However, while these definitions are clear and well accepted in physical sciences, in biological sciences it is not always possible to use identical test material or perhaps the the time or resources are not available for full reproduction, *e.g.*, field trials that span years and locations or complex glasshouse experiments.
 Therefore we will follow Peng's [-@Peng2009] definition that provides clear guidelines a minimum standard of "reproducible research":
@@ -104,6 +112,8 @@ Therefore our definition of reproducibility will be that the computer code and d
 And that the software used are also easily obtained and preferably open source to avoid licensing or other issues related to accessibility for end-users related to costs or non-standard file formats, etc.
 
 In an effort to understand where as a discipline we stand as plant pathologists in regards to open science and reproducible research, we surveyed a broad selection of articles to represent a broad swathe of publications to evaluate our status.
+
+<!--# I am leaning towards a sytle that shows the methods at the end in a separate section? -->
 
 # Materials and methods
 
@@ -184,11 +194,12 @@ Values for software packages were checked for spelling consistency and correctio
 When working with these data in R, all strings of software character values were converted to fully uppercase to standardise the capitalisation and alleviate any issues with capitalisation used between evaluators.
 A custom R function, `Reproducibility.in.Plant.Pathology::import_notes()`, was written to import the data, format the columns properly and calculate the overall reproducibility score in R [@RCT2020].
 
-A total reproducibility score was calculated as the per cent of total possible for a given paper. However, some papers did not use specialized software therefore they were not scored for this category.
+A total reproducibility score was calculated as the per cent of total possible for a given paper.
+However, some papers did not use specialized software therefore they were not scored for this category.
 
 We recognise that the scoring methods were developed by the authors specifically for this exercise and are not entirely subjective.
 We have based our scoring decisions on our own experiences in the field of plant pathology.
-While many software packages may be widely used or "freely" available if one has an institutional licence, these types of software often hinder partners and interested parties that do not have these luxuries.
+While many software packages may be widely used or "freely" available if one has an institutional license, these types of software often hinder partners and interested parties that do not have these luxuries.
 Thus, the emphasis was given to using open source alternatives where possible over commercially available, non-free software packages.
 The view of the authors is one that this is something to be encouraged as it allows the broadest possible audience to benefit from the work at the lowest possible cost.
 
@@ -258,7 +269,7 @@ Sparks et al. [-@Sparks2011; -@Sparks2014] used FigShare to provide models, data
 
 The fourth level includes packaging the analysis as a software package, *e.g.*, R Julia or Python package at a minimum, with the use of continuous integration and possibly a software container like Docker as Khaliq et al. [@Khaliq2020] have done.
 Their research compendium provides a Docker instance, DOI and full R package that enable readers to fully replicate their analysis of *Ascochyta rabiei* conida dispersal in chickpea using the data collected and stepping through other points where weather data were investigated and various models were fit before deciding on the best fit and recreate any figures as published in the article [@Khaliq2020a].
-When this level is employed, tools such as Binder, <https://mybinder.org>, can be used that allow readers and reviewers to launch an interactive session in their web browser and interact with the data and rerun the analysis in an RStudio instance or Jupyter notebooks as Mioroni et al. used [-@Miorini2018, -@Miorini2019].
+When this level is employed, tools such as Binder, <https://mybinder.org>, can be used that allow readers and reviewers to launch an interactive session in their web browser and interact with the data and rerun the analysis in an RStudio instance or Jupyter notebooks as Mioroni et al. used [-@Miorini2018, [-@Miorini2019]].
 Kamvar et al. [-@Kamvar2015] took a slightly different approach by including all files necessary for the analysis and most ouptut files in a repository [@Kamvar2014] that also included an installable R package that was used for the original analysis.
 While there are many other methods, these two approaches illustrate some of the best-practices where the data and other files were deposited in repositories with DOIs and reproducibility issues were addressed by using R packages to handle dependencies and other versioning issues making the work more portable.
 
@@ -320,7 +331,6 @@ Most universities some other research-focused workplaces provide a facility for 
 In this work we have evaluated the state of reproducibility in the plant pathology literature and presented suggestions for areas of improvement.
 One of the most important messages that we would like to share is that there is more to the work than just the paper.
 Sharing materials detailing the analysis that was performed and documenting the data provide citable products and enhance the manuscript providing the reader with a richer set of information with which to understand the work that was performed.
-
 
 ***Need a good closing statement here.***
 
