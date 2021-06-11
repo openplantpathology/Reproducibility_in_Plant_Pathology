@@ -57,9 +57,9 @@ Once the download is complete, open the `Reproducibility_in_Plant_Pathology.Rpro
 Get the latest instance from Dockerhub, launch it and go to `localhost:8787` in your browser.
 Login with `rstudio`, password is `rstudio`.
 
-```
+```bash
 docker pull adamhsparks/reproducibility_in_plant_pathology
-docker run -d -p 8787:8787
+docker run -d -p 8787:8787 adamhsparks/reproducibility_in_plant_pathology
 ```
 
 #### The Paper

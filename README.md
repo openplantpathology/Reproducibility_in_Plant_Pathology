@@ -18,7 +18,7 @@ This repository contains the data and code for our paper:
 
 Our pre-print is online here:
 
-> Authors, (YYYY). *Title of paper*. Name of journal/book, Accessed 02
+> Authors, (YYYY). *Title of paper*. Name of journal/book, Accessed 11
 > Jun 2021. Online at <https://doi.org/xxx/xxx>
 
 ### How to cite
@@ -28,7 +28,7 @@ Please cite this compendium as:
 > Sparks, A.H., Del Ponte, E.M., dos Santos Alves, K., Foster, Z.,
 > Grünwald, N. (2021). *Compendium of R code and data for ‘Status and
 > Best Practices for Reproducible Research In Plant Pathology’*.
-> Accessed 02 Jun 2021. Online at
+> Accessed 11 Jun 2021. Online at
 > <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
@@ -66,8 +66,10 @@ Get the latest instance from Dockerhub, launch it and go to
 `localhost:8787` in your browser. Login with `rstudio`, password is
 `rstudio`.
 
-    docker pull adamhsparks/reproducibility_in_plant_pathology
-    docker run -d -p 8787:8787
+``` bash
+docker pull adamhsparks/reproducibility_in_plant_pathology
+docker run -d -p 8787:8787 adamhsparks/reproducibility_in_plant_pathology
+```
 
 #### The Paper
 
