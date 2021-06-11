@@ -448,6 +448,40 @@ knitr::include_graphics("Figure 1.pdf")
 
 \newpage
 
+```{r article_scores, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='Aggregated article scores for each of the four categories. In subfigure `a`, `NA` indicates that no computational methods were used to generate the data, _e.g._ only PCR results were reported with no statistical analysis performed.', cache=FALSE, fig.env='figure'}
+library("ggplot2")
+library("patchwork")
+rrpp <- import_notes()
+theme_set(theme_classic())
+a <- ggplot(rrpp, aes(y = as.factor(comp_mthds_avail))) +
+  geom_bar() +
+  ggtitle("Computational Methods Availability") +
+  ylab("Score") +
+  xlab(NULL)
+
+b <- ggplot(rrpp, aes(y = software_avail)) +
+  geom_bar() +
+  ggtitle("Software Availability") +
+  xlab(NULL) +
+  ylab(NULL)
+
+c <- ggplot(rrpp, aes(y = software_cite)) +
+  geom_bar() +
+  ggtitle("Software Cited") +
+  ylab("Score")
+
+d <- ggplot(rrpp, aes(y = data_avail)) +
+  geom_bar() +
+  ggtitle("Data Availability") +
+  ylab(NULL)
+
+# put them all together
+p <- (a | b) / (c | d)
+p + plot_annotation(tag_levels = "a")
+```
+
+\newpage
+
 # Colophon
 
 This report was generated on `r Sys.time()` using the following computational environment and dependencies:
