@@ -247,58 +247,6 @@ This classification was based on the evaluator's judgement of the article.
 
 Where possible, the software used in the preparation of the publication was recorded in the notes if it was cited or otherwise specified in the article text.
 
-<!--# I would prefer a table for the scores, but if this is to be shown in a appendix, it could stay as it is -->
-
-Articles were scored in four areas for reproducibility on a scale of 0 to 3:
-
--   **computational methods available**
-
-    -   0 - Not available or not mentioned in the publication
-
-    -   1 - Uses <!--# should we use past tense or just "expensive .." --> expensive proprietary software that only institutions would typically purchase
-
-    -   <!--# suggest to remove the average prices -->
-
-    -   2 - Proprietary software that most individuals can afford (*e.g.*, Excel)
-
-    -   3 - Entirely open source and free software (*e.g.*, R, Julia, Python)
-
-    -   NA - No software was used in the research that can be determined
-
--   **software available**
-
-    -   0 - Not available or not mentioned in the publication
-
-    -   1 - Expensive proprietary software that only institutions would typically purchase
-
-    -   2 - Uses proprietary software that most individuals can afford (*e.g.*, Excel) or SAS that is now available free for use with a university login
-
-    -   3 - Uses entirely open source and free software (*e.g.*, R, Julia, Python).
-
-    -   NA - No software was used in the research that can be determined
-
--   **software cited**
-
-    -   0 - not mentioned
-
-    -   1 - Software mentioned by name only
-
-    -   2 - Software cited with version number
-
-    -   3 - All software components (SAS PROCs, R, Julia or Python packages) etc., cited
-
-    -   NA - No software was used in the research that can be determined as the article is written.
-
--   **data available**
-
-    -   0 - Not available or not mentioned in the publication
-
-    -   1 - Available upon request to the author
-
-    -   2 - Online, but inconvenient or non-permanent (*e.g.*, login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)
-
-    -   3 - Freely available online to anonymous users for foreseeable future (*e.g.*, archived using Zenodo, dataverse or University library or some other proper archiving system)
-
 Values for software packages were checked for spelling consistency and corrections were made manually where necessary.
 When working with these data in R, all strings of software character values were converted to fully uppercase to standardise the capitalisation and alleviate any issues with capitalisation used between evaluators.
 A custom R function, `Reproducibility.in.Plant.Pathology::import_notes()`, was written to import the data, format the columns properly and calculate the overall reproducibility score in R [@RCT2020].
