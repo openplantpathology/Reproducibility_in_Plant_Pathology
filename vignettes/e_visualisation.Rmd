@@ -28,7 +28,7 @@ library("tidyverse")
 library("janitor")
 library("pander")
 library("Reproducibility.in.Plant.Pathology")
-library("ggplot")
+library("ggplot2")
 theme_set(theme_classic())
 ```
 
