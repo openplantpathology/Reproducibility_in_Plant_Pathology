@@ -358,9 +358,9 @@ import_notes() %>%
 import_notes() %>%
   tabyl(data_avail) %>%
   adorn_pct_formatting() %>% 
-  select(-percent) %>% 
+  select(-valid_percent) %>% 
   rename(`Data availability` = data_avail,
-         Percent = valid_percent) %>% 
+         Percent = percent) %>% 
   flextable() %>%
   colformat_num(na_str = "NA") %>% 
   autofit()
@@ -382,7 +382,7 @@ rrpp_software %>%
   tabyl(software_used) %>%
   adorn_pct_formatting() %>% 
   select(c(-percent, -valid_percent)) %>% 
-  rename(`software used` = software_used) %>% 
+  rename(`Software Used` = software_used) %>% 
   arrange(-n) %>% 
   slice(seq_len(14)) %>% 
   drop_na() %>% 
@@ -395,8 +395,8 @@ rrpp_software %>%
 ```{r reproducibility_score, tab.id="reproducibility", tab.cap="Tally of reproducibility scores where 0 is not reproducible and 12 is fully reproducible, _e.g._, all software cited, software used are freely available to anyone, computational methods (statistical analysis or other computational code) are freely available for download and use, and raw data are available for download and use.", echo=FALSE, message=FALSE, warning=FALSE}
 import_notes() %>%
   tabyl(reproducibility_score) %>%
-  adorn_pct_formatting() %>%
-  rename(score = reproducibility_score) %>%
+  adorn_pct_formatting(digits = 1) %>%
+  rename(Score = reproducibility_score, Percent = percent) %>%
   flextable() %>%
   autofit()
 ```
