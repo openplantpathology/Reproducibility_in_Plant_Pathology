@@ -65,7 +65,7 @@ m2 <-
   brm(
     formula = reproducibility_score ~  art_class + (1 | year) + (1 | assignee),
     data = rrpp,
-    seed = 27,
+    seed = 25,
     prior = priors,
     family = hurdle_gamma(),
     control = list(adapt_delta = 0.99999,
