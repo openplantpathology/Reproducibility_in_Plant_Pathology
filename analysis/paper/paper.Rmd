@@ -308,8 +308,20 @@ library("officer")
 import_notes() %>%
   tabyl(journal) %>%
   select(-percent) %>%
+  rename(Journal = journal) %>% 
   flextable() %>%
+  colformat_num(na_str = "NA") %>% 
   autofit()
+```
+
+\newpage
+
+```{r scoring, tab.id="scoring", tab.cap ="Articles were scored in four areas for reproducibility on a scale of 0 to 3 by four independent assessors.", echo=FALSE, message=FALSE, warning=FALSE}
+scoring_criteria %>% 
+  rename(`Index Value` = Index.Value) %>% 
+  flextable() %>% 
+  colformat_num(na_str = "NA") %>% 
+  set_table_properties(layout = "autofit")
 ```
 
 \newpage
@@ -318,10 +330,11 @@ import_notes() %>%
 import_notes() %>%
   tabyl(software_avail) %>%
   adorn_pct_formatting() %>% 
-  select(-percent) %>% 
-  rename(`software availability` = software_avail,
-         percent = valid_percent) %>% 
+  select(-valid_percent) %>% 
+  rename(`Software Availability` = software_avail,
+         Percent = percent) %>% 
   flextable() %>%
+  colformat_num(na_str = "NA") %>% 
   autofit()
 ```
 
@@ -331,29 +344,31 @@ import_notes() %>%
 import_notes() %>%
   tabyl(software_cite) %>%
   adorn_pct_formatting() %>% 
-  select(-percent) %>% 
-  rename(`software citation` = software_cite,
-         percent = valid_percent) %>% 
+  select(-valid_percent) %>% 
+  rename(`Software citation` = software_cite,
+         Percent = percent) %>% 
   flextable() %>%
+  colformat_num(na_str = "NA") %>% 
   autofit()
 ```
 
 \newpage
 
-```{r data_available, tab.id="da", tab.cap="Article ratings for data availability where '0', not specified or mentioned in publication to '3', Freely available online to anonymous users for foreseeable future (*e.g.*, archived using Zenodo, dataverse or university library or some other proper archiving system).", echo=FALSE, message=FALSE, warning=FALSE}
+```{r data_available, tab.id="da", tab.cap="Article ratings for data availability where '0', not specified or mentioned in publication to '3', Freely available online to anonymous users for foreseeable future (_e.g._, archived using Zenodo, dataverse or university library or some other proper archiving system).", echo=FALSE, message=FALSE, warning=FALSE}
 import_notes() %>%
   tabyl(data_avail) %>%
   adorn_pct_formatting() %>% 
   select(-percent) %>% 
-  rename(`data availability` = data_avail,
-         percent = valid_percent) %>% 
+  rename(`Data availability` = data_avail,
+         Percent = valid_percent) %>% 
   flextable() %>%
+  colformat_num(na_str = "NA") %>% 
   autofit()
 ```
 
 \newpage
 
-```{r software_used, tab.id="su", tab.cap="Tally of reproducibility scores where 0 is not reproducible and 12 is fully reproducible, *e.g.*, all software cited, software used are freely available to anyone, computational methods (statistical analysis or other computational code) are freely available for download and use, and raw data are available for download and use.", echo=FALSE, message=FALSE, warning=FALSE}
+```{r software_used, tab.id="su", tab.cap="Tally of reproducibility scores where 0 is not reproducible and 12 is fully reproducible, _e.g._, all software cited, software used are freely available to anyone, computational methods (statistical analysis or other computational code) are freely available for download and use, and raw data are available for download and use.", echo=FALSE, message=FALSE, warning=FALSE}
 library("tidyr")
 
 rrpp_software <-
@@ -377,7 +392,7 @@ rrpp_software %>%
 
 \newpage
 
-```{r reproducibility_score, tab.id="reproducibility", tab.cap="Tally of reproducibility scores where 0 is not reproducible and 12 is fully reproducible, *e.g.*, all software cited, software used are freely available to anyone, computational methods (statistical analysis or other computational code) are freely available for download and use, and raw data are available for download and use.", echo=FALSE, message=FALSE, warning=FALSE}
+```{r reproducibility_score, tab.id="reproducibility", tab.cap="Tally of reproducibility scores where 0 is not reproducible and 12 is fully reproducible, _e.g._, all software cited, software used are freely available to anyone, computational methods (statistical analysis or other computational code) are freely available for download and use, and raw data are available for download and use.", echo=FALSE, message=FALSE, warning=FALSE}
 import_notes() %>%
   tabyl(reproducibility_score) %>%
   adorn_pct_formatting() %>%
