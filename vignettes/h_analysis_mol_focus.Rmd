@@ -75,13 +75,13 @@ m4 <-
     chains = 4
   )
 
-summary(m4)
+summary(m3)
 
-plot(m4)
+plot(m3)
 
-pp_check(m4)
+pp_check(m3)
 
-plot(pd(m4))
+plot(pd(m3))
 
-pander(equivalence_test(m4))
+pander(equivalence_test(m3))
 ```

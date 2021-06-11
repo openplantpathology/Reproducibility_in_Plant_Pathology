@@ -67,7 +67,7 @@ m3 <-
   brm(
     formula = reproducibility_score ~  IF_5year + (1 | year) + (1 | assignee),
     data = rrpp,
-    seed = 25,
+    seed = 27,
     prior = priors,
     family = hurdle_gamma(),
     control = list(adapt_delta = 0.999),
@@ -75,13 +75,13 @@ m3 <-
     chains = 4
   )
 
-summary(m3)
+summary(m4)
 
-plot(m3)
+plot(m4)
 
-pp_check(m3)
+pp_check(m4)
 
-plot(pd(m3))
+plot(pd(m4))
 
-pander(equivalence_test(m3))
+pander(equivalence_test(m4))
 ```
