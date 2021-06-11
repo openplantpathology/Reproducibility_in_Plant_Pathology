@@ -25,11 +25,11 @@ Load libraries used and setting the _ggplot2_ theme for the document.
 
 ```{r load-libraries}
 library("tidyverse")
-library("ggpubr")
 library("janitor")
 library("pander")
 library("Reproducibility.in.Plant.Pathology")
-theme_set(theme_pubclean())
+library("ggplot")
+theme_set(theme_classic())
 ```
 
 ## Import the data and calculate the reproducibility score
