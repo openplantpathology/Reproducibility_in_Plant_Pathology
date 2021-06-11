@@ -21,7 +21,7 @@ This vignette documents a simple visualisation and tabulation of the data gather
 
 # Set-up Workspace
 
-Load libraries used and setting the ggplot2 theme for the document.
+Load libraries used and setting the _ggplot2_ theme for the document.
 
 ```{r load-libraries}
 library("tidyverse")
