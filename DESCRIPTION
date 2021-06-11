@@ -62,6 +62,7 @@ Suggests:
     testthat,
     tibble,
     tidyverse
+LazyData: TRUE
 RoxygenNote: 7.1.1
 Encoding: UTF-8
 NeedsCompilation: no
