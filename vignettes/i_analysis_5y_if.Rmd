@@ -63,7 +63,7 @@ Here, `IF_5year` is a fixed effect, `year` and `assignee` are assigned as random
 
 
 ```{r IF_5year}
-m3 <-
+m4 <-
   brm(
     formula = reproducibility_score ~  IF_5year + (1 | year) + (1 | assignee),
     data = rrpp,

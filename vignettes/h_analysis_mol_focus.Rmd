@@ -62,7 +62,7 @@ Test the effect that the article's focus, molecular `TRUE`/`FALSE` had on the re
 Here, `molecular` is a fixed effect, `year` and `assignee` are assigned as random effects.
 
 ```{r molecular}
-m4 <-
+m3 <-
   brm(
     formula = reproducibility_score ~  molecular + (1 | year) + (1 | assignee),
     data = rrpp,
