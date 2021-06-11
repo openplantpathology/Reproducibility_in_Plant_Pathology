@@ -61,7 +61,6 @@ priors <- prior_string("normal(0, 10)")
 Test the effect that the article's focus, molecular `TRUE`/`FALSE` had on the reproducibility score.
 Here, `molecular` is a fixed effect, `year` and `assignee` are assigned as random effects.
 
-
 ```{r molecular}
 m4 <-
   brm(
@@ -70,7 +69,8 @@ m4 <-
     seed = 27,
     prior = priors,
     family = hurdle_gamma(),
-    control = list(adapt_delta = 0.99999),
+    control = list(adapt_delta = 0.999,
+                   max_treedepth = 15),
     iter = 3000,
     chains = 4
   )
