@@ -63,9 +63,11 @@ Suggests:
     stringr,
     testthat,
     tibble,
-    tidyverse
+    tidyverse,
+    spelling
 LazyData: TRUE
 RoxygenNote: 7.1.1
 Encoding: UTF-8
 NeedsCompilation: no
 VignetteBuilder: knitr
+Language: en-US
