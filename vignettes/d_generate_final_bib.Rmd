@@ -43,3 +43,8 @@ sink(file = file.path("inst/extdata/references_reviewed_for_check.bib"))
 writeLines(unlist(lapply(bib, paste, collapse = " ")))
 sink()
 ```
+
+# Colophon
+```{r sessioninfo}
+sessioninfo::session_info()
+```

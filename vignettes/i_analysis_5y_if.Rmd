@@ -61,7 +61,6 @@ priors <- prior_string("normal(0, 10)")
 Test the effect that journal's five year impact factor had on the reproducibility score.
 Here, `IF_5year` is a fixed effect, `year` and `assignee` are assigned as random effects.
 
-
 ```{r IF_5year}
 m4 <-
   brm(
@@ -84,4 +83,9 @@ pp_check(m4)
 plot(pd(m4))
 
 pander(equivalence_test(m4))
+```
+
+# Colophon
+```{r sessioninfo}
+sessioninfo::session_info()
 ```

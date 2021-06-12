@@ -84,3 +84,8 @@ plot(pd(m6))
 
 pander(equivalence_test(m6))
 ```
+
+# Colophon
+```{r sessioninfo}
+sessioninfo::session_info()
+```

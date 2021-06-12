@@ -45,7 +45,8 @@ rrpp <- import_notes()
 
 ## Notes
 
-All models are using the same priors. Because of the amount of zero values in the `reproducibility_score` a `hurdle_gamma()` family is used for all models as well.
+All models are using the same priors.
+Because of the amount of zero values in the `reproducibility_score` a `hurdle_gamma()` family is used for all models as well.
 
 ### Priors
 
@@ -83,4 +84,9 @@ pp_check(m2)
 plot(pd(m2))
 
 pander(equivalence_test(m2))
+```
+
+# Colophon
+```{r sessioninfo}
+sessioninfo::session_info()
 ```

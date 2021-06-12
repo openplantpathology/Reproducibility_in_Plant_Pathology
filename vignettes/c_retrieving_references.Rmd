@@ -46,3 +46,8 @@ file <- "references.bib"
 df_references <- bib2df::bib2df(file)
 df_references
 ```
+
+# Colophon
+```{r sessioninfo}
+sessioninfo::session_info()
+```

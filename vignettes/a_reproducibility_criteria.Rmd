@@ -275,3 +275,8 @@ Entered as an integer
 ### "url"
 
 ### "x.article.pm..title"
+
+# Colophon
+```{r sessioninfo}
+sessioninfo::session_info()
+```

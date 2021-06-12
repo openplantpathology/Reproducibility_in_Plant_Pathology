@@ -332,4 +332,9 @@ unlink(".httr-oauth")
 
 The last few steps are completed outside of R in Google Sheets, manually adding the missing information to the spreadsheet evaluations of their respective articles.
 
-The Google Sheets file can be found here: https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381.
+The Google Sheets file can be found here: <https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381>.
+
+# Colophon
+```{r sessioninfo}
+sessioninfo::session_info()
+```

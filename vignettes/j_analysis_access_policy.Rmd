@@ -45,7 +45,8 @@ rrpp <- import_notes()
 
 ## Notes
 
-All models are using the same priors. Because of the amount of zero values in the `reproducibility_score` a `hurdle_gamma()` family is used for all models as well.
+All models are using the same priors.
+Because of the amount of zero values in the `reproducibility_score` a `hurdle_gamma()` family is used for all models as well.
 
 ### Priors
 
@@ -65,10 +66,10 @@ m5 <-
   brm(
     formula = reproducibility_score ~  open + (1 | year) + (1 | assignee),
     data = rrpp,
-    seed = 25,
+    seed = 27,
     prior = priors,
     family = hurdle_gamma(),
-    control = list(adapt_delta = 0.999),
+    control = list(adapt_delta = 0.999999),
     iter = 3000,
     chains = 4
   )
@@ -82,4 +83,9 @@ pp_check(m5)
 plot(pd(m5))
 
 pander(equivalence_test(m5))
+```
+
+# Colophon
+```{r sessioninfo}
+sessioninfo::session_info()
 ```
