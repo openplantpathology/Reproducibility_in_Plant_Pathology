@@ -147,6 +147,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "git2r",
+      "name": "git2r",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=git2r"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "googlesheets4",
       "name": "googlesheets4",
       "provider": {
@@ -437,7 +449,7 @@
     }
   ],
   "readme": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/main/README.md",
-  "fileSize": "1677.843KB",
+  "fileSize": "1677.854KB",
   "developmentStatus": "http://www.repostatus.org/#active",
   "keywords": [
     "plant-pathology",

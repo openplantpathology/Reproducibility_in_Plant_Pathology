@@ -45,6 +45,7 @@ Suggests:
     doi2bib,
     flextable,
     ggplot2 (>= 3.3.0),
+    git2r,
     googlesheets4,
     here,
     httr,
