@@ -10,13 +10,13 @@
   "codeRepository": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology",
   "issueTracker": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.1.1",
+  "version": "0.0.1.2",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.0.2 (2020-06-22)",
+  "runtimePlatform": "R version 4.1.0 (2021-05-18)",
   "author": [
     {
       "@type": "Person",
@@ -69,6 +69,59 @@
   "softwareSuggestions": [
     {
       "@type": "SoftwareApplication",
+      "identifier": "bib2df",
+      "name": "bib2df",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=bib2df"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "bayesplot",
+      "name": "bayesplot",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=bayesplot"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "bayestestR",
+      "name": "bayestestR",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=bayestestR"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "brms",
+      "name": "brms",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=brms"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "doi2bib",
+      "name": "doi2bib"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "flextable",
       "name": "flextable",
       "provider": {
@@ -91,18 +144,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=ggplot2"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "ggpubr",
-      "name": "ggpubr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=ggpubr"
     },
     {
       "@type": "SoftwareApplication",
@@ -130,6 +171,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "httr",
+      "name": "httr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=httr"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "janitor",
       "name": "janitor",
       "provider": {
@@ -151,6 +204,11 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=knitr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "methods",
+      "name": "methods"
     },
     {
       "@type": "SoftwareApplication",
@@ -203,6 +261,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "officedown",
+      "name": "officedown",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=officedown"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "officer",
       "name": "officer",
       "provider": {
@@ -212,6 +282,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=officer"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "sessioninfo",
+      "name": "sessioninfo",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=sessioninfo"
     },
     {
       "@type": "SoftwareApplication",
@@ -271,60 +353,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "bayesplot",
-      "name": "bayesplot",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=bayesplot"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "bayestestR",
-      "name": "bayestestR",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=bayestestR"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "brms",
-      "name": "brms",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=brms"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "doi2bib",
-      "name": "doi2bib",
-      "sameAs": "https://github.com/openplantpathology/doi2bib"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "bib2df",
-      "name": "bib2df",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=bib2df"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "dplyr",
       "name": "dplyr",
       "provider": {
@@ -361,18 +389,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "httr",
-      "name": "httr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=httr"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
       "provider": {
@@ -382,11 +398,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "methods",
-      "name": "methods"
     },
     {
       "@type": "SoftwareApplication",
@@ -414,7 +425,7 @@
     }
   ],
   "readme": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/main/README.md",
-  "fileSize": "352.685KB",
+  "fileSize": "1677.828KB",
   "developmentStatus": "http://www.repostatus.org/#active",
   "keywords": [
     "plant-pathology",
