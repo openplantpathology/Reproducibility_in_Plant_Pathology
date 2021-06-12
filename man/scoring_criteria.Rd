@@ -8,7 +8,7 @@
 A data frame with 19 rows and three variables:
 \describe{
   \item{Category}{Scoring criterion category}
-  \item{Index Value}{The index score assigned}
+  \item{Index.Value}{The index score assigned}
   \item{Definition}{Definition of the criteria used to assign an index value
    score for an article in each category}
 }
