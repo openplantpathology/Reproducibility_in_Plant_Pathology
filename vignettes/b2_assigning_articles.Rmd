@@ -315,7 +315,7 @@ unlink(".httr-oauth")
 
 ### Last steps
 
-The last few steps are completed outside of R in Google Sheets, manually adding the missing information to the spreadsheet and the new_assigneess adding their evaluations of their respective articles.
+The last few steps are completed outside of R in Google Sheets, manually adding the missing information to the spreadsheet and the new assignees adding their evaluations of their respective articles.
 
 The Google Sheets file can be found here:
 <https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381>.

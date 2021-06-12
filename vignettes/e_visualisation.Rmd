@@ -43,7 +43,7 @@ rrpp <- import_notes()
 The reproducibility score was calculated as the sum of the scores for computational method availability for the total available scores.
 That is, if a paper did not require specialised software but deposited and reported all data the score was 100%, the same as for another article that cited and used all open source software and deposited code and data.
 
-```{r}
+```{r repro_score}
 ggplot(rrpp, aes(x = reproducibility_score)) +
   geom_density() +
   ggtitle("Reproducibility Score") +
@@ -54,7 +54,7 @@ ggplot(rrpp, aes(x = reproducibility_score)) +
 
 Have a look at whether evaluators had an effect on the scores assigned.
 
-```{r}
+```{r evaluator}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = assignee)) +
   geom_count() +
@@ -77,7 +77,7 @@ ggplot(rrpp, aes(y = reproducibility_score,
 
 What class did the articles fall into, "Applied" or "Fundamental".
 
-```{r}
+```{r class}
 ggplot(rrpp, aes(y = art_class)) +
   geom_bar() +
   ylab("Class") +
@@ -88,7 +88,7 @@ ggplot(rrpp, aes(y = art_class)) +
 
 Were the computational methods, scripts, source code, _etc._, made available?
 
-```{r}
+```{r comp_methods}
 ggplot(rrpp, aes(y = as.factor(comp_mthds_avail))) +
   geom_bar() +
   ggtitle("Computational Methods Availability") +
@@ -100,7 +100,7 @@ ggplot(rrpp, aes(y = as.factor(comp_mthds_avail))) +
 
 Were the software used readily available and preferably open-source?
 
-```{r}
+```{r software_avail}
 ggplot(rrpp, aes(y = software_avail)) +
   geom_bar() +
   ggtitle("Software Availability") +
@@ -111,7 +111,7 @@ ggplot(rrpp, aes(y = software_avail)) +
 
 Were the software that was used properly cited?
 
-```{r}
+```{r software_cite}
 ggplot(rrpp, aes(y = software_cite)) +
   geom_bar() +
   ggtitle("Software Cited") +
@@ -125,7 +125,7 @@ There are likely others that are used, but they have not been properly cited or 
 
 First create a tidy data frame of the data by unnesting software used as in many cases multiple software packages were used, so will end up with multiple rows for same article, one for each software.
 
-```{r}
+```{r software_used}
 rrpp_software <-
   rrpp %>%
   transform(software_used = strsplit(software_used, ",")) %>%
@@ -136,7 +136,7 @@ rrpp_software <-
 
 Now graph the top ten software packages used.
 
-```{r}
+```{r top_10}
 tab <- table(rrpp_software$software_used)
 tab_s <- sort(tab)
 top10 <-
@@ -156,7 +156,7 @@ ggplot(top_software, aes(y = software_used)) +
 
 Were the data made readily available?
 
-```{r}
+```{r data_avail1}
 ggplot(rrpp, aes(y = data_avail)) +
   geom_bar() +
   ggtitle("Data Availability") +
@@ -165,7 +165,7 @@ ggplot(rrpp, aes(y = data_avail)) +
 
 ## Article class effect on reproducibility score
 
-```{r}
+```{r art_class}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = art_class)) +
   geom_count() +
@@ -185,7 +185,7 @@ ggplot(rrpp, aes(y = reproducibility_score,
 
 ## Journal effect on reproducibility score
 
-```{r}
+```{r journal}
 ggplot(rrpp, aes(x = reproducibility_score,
                  y = abbreviation)) +
   geom_count() +
@@ -197,7 +197,7 @@ ggplot(rrpp, aes(x = reproducibility_score,
 
 ## Five year impact factor effect on reproducibility score
 
-```{r, message=FALSE}
+```{r IF, message=FALSE}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = IF_5year)) +
   geom_count() +
@@ -209,7 +209,7 @@ ggplot(rrpp, aes(y = reproducibility_score,
 
 ## Journal open access effect on reproducibility score
 
-```{r}
+```{r open_access}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = as.factor(open))) +
   geom_count() +
@@ -228,7 +228,7 @@ ggplot(rrpp, aes(y = reproducibility_score,
 
 ## Journal reproducibility instructions effect on reproducibility score
 
-```{r}
+```{r repro_inst}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = as.factor(repro_inst))) +
   geom_count() +
@@ -249,7 +249,7 @@ ggplot(rrpp, aes(y = reproducibility_score,
 
 ## Full reproducibility score
 
-```{r, message=FALSE}
+```{r full_score, message=FALSE}
 ggplot(rrpp, aes(y = reproducibility_score,
                  x = year)) +
   geom_count() +
@@ -268,7 +268,7 @@ ggplot(rrpp, aes(y = reproducibility_score,
 
 ## Computational methods score
 
-```{r, message=FALSE}
+```{r comp_methods_score, message=FALSE}
 ggplot(rrpp, aes(y = comp_mthds_avail,
                  x = year)) +
   geom_count() +
@@ -287,7 +287,7 @@ ggplot(rrpp, aes(y = comp_mthds_avail,
 
 ## Software availability
 
-```{r, message=FALSE}
+```{r software_avail2, message=FALSE}
 ggplot(rrpp, aes(y = software_avail,
                  x = year)) +
   geom_count() +
@@ -306,7 +306,7 @@ ggplot(rrpp, aes(y = software_avail,
 
 ## Data availability
 
-```{r, message=FALSE}
+```{r data_avail, message=FALSE}
 ggplot(rrpp, aes(y = data_avail,
                  x = year)) +
   geom_count() +
