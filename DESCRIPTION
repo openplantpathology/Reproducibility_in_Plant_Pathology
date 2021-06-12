@@ -51,6 +51,7 @@ Suggests:
     janitor,
     knitr,
     methods,
+    patchwork,
     rcrossref,
     readr,
     rmarkdown,
