@@ -57,6 +57,7 @@ Suggests:
     roxygen2 (>= 6.0.1),
     officedown,
     officer,
+    sessioninfo,
     stringr,
     testthat,
     tibble,
