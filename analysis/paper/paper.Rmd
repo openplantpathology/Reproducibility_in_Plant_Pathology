@@ -61,7 +61,7 @@ knitr::opts_chunk$set(
   fig.path = "../figures/"
 )
 
-library(Reproducibility.in.Plant.Pathology)
+library("Reproducibility.in.Plant.Pathology")
 ```
 
 Modern plant pathological research has many facets given the array of disciplines and sub-disciplines currently involved.
