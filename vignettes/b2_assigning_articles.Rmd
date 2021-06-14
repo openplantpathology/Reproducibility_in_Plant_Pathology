@@ -20,12 +20,12 @@ Aside from the different years, the journals remain the same and process as desc
 ### R setup
 
 ```{r library, message=FALSE}
-library(dplyr)
-library(readr)
-library(bib2df)
-library(googlesheets4)
-library(stringr)
-library(Reproducibility.in.Plant.Pathology)
+library("dplyr")
+library("readr")
+library("bib2df")
+library("googlesheets4")
+library("stringr")
+library("Reproducibility.in.Plant.Pathology")
 
 set.seed(23)
 
