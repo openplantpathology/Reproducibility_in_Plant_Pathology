@@ -289,7 +289,7 @@ The raw data for this work are documented and available from DOI [https://doi.or
 # Code availability statement
 
 All code used in the analyses and data visualization and associated materials have been made available as research compendium available from DOI [https://doi.org/10.5281/zenodo.1250664](10.5281/zenodo.1250664).
-A browsable webpage version of the compendium is available from <https://openplantpathology.github.io/Reproducibility_in_Plant_Pathology/>.
+A webpage version of the compendium is available from <https://openplantpathology.github.io/Reproducibility_in_Plant_Pathology/>.
 
 # Acknowledgements
 
