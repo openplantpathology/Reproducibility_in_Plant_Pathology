@@ -218,7 +218,7 @@ We randomly selected 300 articles published from 2012 to 2018 across 21 journals
 The journals represented both fundamental and applied areas as well as pathogen or other group-specific publications.
 A list of randomly selected pages was assigned to a randomized list of the 21 journals where the page number fell within an article for the given journal.
 In cases where an article was not suitable, _e.g._, a review or otherwise not related to plant pathology, the next article was selected until a suitable article was found.
-Notes regarding the selection of articles can be found in the file, XXXX, available in this paper's repository.
+Notes regarding the selection of articles can be found in the file, "Reproducibility_in_plant_pathology_notes.ods", available in this paper's repository in `/inst/extdata'.
 The pages list was numbered from page one and went to page 150.
 This was done since some journals restart their numbering with each issue and also ensures that the journal is more likely to have a page number corresponding to the randomly generated value.
 This also assumes that there is no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year.
