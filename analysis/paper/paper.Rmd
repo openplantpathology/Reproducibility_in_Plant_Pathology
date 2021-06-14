@@ -238,7 +238,7 @@ Where possible, the software used in the preparation of the publication was reco
 
 Values for software packages were checked for spelling consistency and corrections were made manually where necessary.
 When working with these data in R, all strings of software character values were converted to fully upper-case to standardise the capitalisation and alleviate any issues with capitalisation used between evaluators.
-A custom R function, `Reproducibility.in.Plant.Pathology::import_notes()`, was written to import the data, format the columns properly and calculate the overall reproducibility score in R [@RCT2021].
+A custom R function, `import_notes()`, was written to import the data, format the columns properly and calculate the overall reproducibility score in R [@RCT2021].
 
 A total reproducibility score was calculated as the per cent of total possible for a given paper.
 However, some papers did not use specialized software therefore they were not scored for this category.
