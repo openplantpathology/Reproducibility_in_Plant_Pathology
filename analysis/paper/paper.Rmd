@@ -222,7 +222,6 @@ Notes regarding the selection of articles can be found in the file, "Reproducibi
 The pages list was numbered from page one and went to page 150.
 This was done since some journals restart their numbering with each issue and also ensures that the journal is more likely to have a page number corresponding to the randomly generated value.
 This also assumes that there is no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year.
-The list of journals was saved from Google's 'Sheets' as a comma-separated-value (CSV) file for later use and distribution in a research compendium.
 
 ## Scoring criteria
 
