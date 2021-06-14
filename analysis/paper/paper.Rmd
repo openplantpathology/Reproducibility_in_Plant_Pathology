@@ -279,11 +279,16 @@ Model finesses were evaluated using model summaries and diagnostic plots from 'b
 
 Probability of direction or maximum probability of effect was plotted, `pd()`, and a test for practical equivalence, `equivalence_test()`, was performed for each model using the contributed R package 'bayestestR' [@Makowski2019].
 
-***Need a good closing statement here.***
-
 # Authors' contributions
 
 # Data availability statement
+
+The raw data for this work are documented and available from DOI [https://doi.org/10.5281/zenodo.4941722](10.5281/zenodo.4941722).
+
+# Code availability statement
+
+All code used in the analyses and data visualization and associated materials have been made available as research compendium available from DOI [https://doi.org/10.5281/zenodo.1250664](10.5281/zenodo.1250664).
+A browsable webpage version of the compendium is available from <https://openplantpathology.github.io/Reproducibility_in_Plant_Pathology/>.
 
 # Acknowledgements
 
