@@ -218,7 +218,8 @@ Most universities some other research-focused workplaces provide a facility for 
 
 In this work we have evaluated the state of reproducibility in the plant pathology literature and presented suggestions for areas of improvement.
 One of the most important messages that we would like to share is that there is more to the work than just the paper.
-Sharing materials detailing the analysis that was performed and documenting the data provide citable products and enhance the manuscript providing the reader with a richer set of information with which to understand the work that was performed.
+Sharing materials detailing the analysis that was performed and documenting the data provide citable products and enhance the manuscript providing the reader with a richer set of information with which to understand the work that was performed and often leads to greater impact than for works that do not share data and or code.
+With mandates for openly sharing data becoming more common with funding agencies, we can and should embrace this and move the discipline forward and have a greater impact with our work.
 
 # Appendix
 
