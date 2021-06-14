@@ -115,7 +115,7 @@
       <h1 data-toc-skip>Original Round of Assigning Articles to Evaluators</h1>
                         <h4 class="author">Adam H. Sparks</h4>
             
-            <h4 class="date">2021-06-12</h4>
+            <h4 class="date">2021-06-14</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/master/vignettes/b1_assigning_articles.Rmd"><code>vignettes/b1_assigning_articles.Rmd</code></a></small>
       <div class="hidden name"><code>b1_assigning_articles.Rmd</code></div>
@@ -143,12 +143,12 @@
 <h3 class="hasAnchor">
 <a href="#r-setup" class="anchor"></a>R setup</h3>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/bib2df">bib2df</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidyverse/googlesheets4">googlesheets4</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://stringr.tidyverse.org">stringr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology">Reproducibility.in.Plant.Pathology</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://dplyr.tidyverse.org">"dplyr"</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://readr.tidyverse.org">"readr"</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://docs.ropensci.org/bib2df">"bib2df"</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/tidyverse/googlesheets4">"googlesheets4"</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="http://stringr.tidyverse.org">"stringr"</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology">"Reproducibility.in.Plant.Pathology"</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>
 
@@ -441,70 +441,131 @@
 ##  collate  en_AU.UTF-8                 
 ##  ctype    en_AU.UTF-8                 
 ##  tz       Australia/Perth             
-##  date     2021-06-12                  
+##  date     2021-06-14                  
 ## 
 ## ─ Packages ───────────────────────────────────────────────────────────────────
-##  package                            * version date       lib source        
-##  assertthat                           0.2.1   2019-03-21 [2] CRAN (R 4.1.0)
-##  bib2df                             * 1.1.1   2019-05-22 [2] CRAN (R 4.1.0)
-##  bslib                                0.2.5.1 2021-05-18 [2] CRAN (R 4.1.0)
-##  cachem                               1.0.5   2021-05-15 [2] CRAN (R 4.1.0)
-##  cellranger                           1.1.0   2016-07-27 [2] CRAN (R 4.1.0)
-##  cli                                  2.5.0   2021-04-26 [2] CRAN (R 4.1.0)
-##  crayon                               1.4.1   2021-02-08 [2] CRAN (R 4.1.0)
-##  DBI                                  1.1.1   2021-01-15 [2] CRAN (R 4.1.0)
-##  desc                                 1.3.0   2021-03-05 [2] CRAN (R 4.1.0)
-##  digest                               0.6.27  2020-10-24 [2] CRAN (R 4.1.0)
-##  dplyr                              * 1.0.6   2021-05-05 [2] CRAN (R 4.1.0)
-##  ellipsis                             0.3.2   2021-04-29 [2] CRAN (R 4.1.0)
-##  evaluate                             0.14    2019-05-28 [2] CRAN (R 4.1.0)
-##  fansi                                0.5.0   2021-05-25 [2] CRAN (R 4.1.0)
-##  fastmap                              1.1.0   2021-01-25 [2] CRAN (R 4.1.0)
-##  fs                                   1.5.0   2020-07-31 [2] CRAN (R 4.1.0)
-##  gargle                               1.1.0   2021-04-02 [2] CRAN (R 4.1.0)
-##  generics                             0.1.0   2020-10-31 [2] CRAN (R 4.1.0)
-##  glue                                 1.4.2   2020-08-27 [2] CRAN (R 4.1.0)
-##  googledrive                          1.0.1   2020-05-05 [2] CRAN (R 4.1.0)
-##  googlesheets4                      * 0.3.0   2021-03-04 [2] CRAN (R 4.1.0)
-##  hms                                  1.1.0   2021-05-17 [2] CRAN (R 4.1.0)
-##  htmltools                            0.5.1.1 2021-01-22 [2] CRAN (R 4.1.0)
-##  httr                                 1.4.2   2020-07-20 [2] CRAN (R 4.1.0)
-##  humaniformat                         0.6.0   2016-04-24 [2] CRAN (R 4.1.0)
-##  jquerylib                            0.1.4   2021-04-26 [2] CRAN (R 4.1.0)
-##  jsonlite                             1.7.2   2020-12-09 [2] CRAN (R 4.1.0)
-##  knitr                                1.33    2021-04-24 [2] CRAN (R 4.1.0)
-##  lifecycle                            1.0.0   2021-02-15 [2] CRAN (R 4.1.0)
-##  magrittr                             2.0.1   2020-11-17 [2] CRAN (R 4.1.0)
-##  memoise                              2.0.0   2021-01-26 [2] CRAN (R 4.1.0)
-##  pillar                               1.6.1   2021-05-16 [2] CRAN (R 4.1.0)
-##  pkgconfig                            2.0.3   2019-09-22 [2] CRAN (R 4.1.0)
-##  pkgdown                              1.6.1   2020-09-12 [2] CRAN (R 4.1.0)
-##  purrr                                0.3.4   2020-04-17 [2] CRAN (R 4.1.0)
-##  R6                                   2.5.0   2020-10-28 [2] CRAN (R 4.1.0)
-##  ragg                                 1.1.2   2021-03-17 [2] CRAN (R 4.1.0)
-##  Rcpp                                 1.0.6   2021-01-15 [2] CRAN (R 4.1.0)
-##  readr                              * 1.4.0   2020-10-05 [2] CRAN (R 4.1.0)
-##  Reproducibility.in.Plant.Pathology * 0.0.1-2 2021-06-12 [1] local         
-##  rlang                                0.4.11  2021-04-30 [2] CRAN (R 4.1.0)
-##  rmarkdown                            2.8     2021-05-07 [2] CRAN (R 4.1.0)
-##  rprojroot                            2.0.2   2020-11-15 [2] CRAN (R 4.1.0)
-##  rstudioapi                           0.13    2020-11-12 [2] CRAN (R 4.1.0)
-##  sass                                 0.4.0   2021-05-12 [2] CRAN (R 4.1.0)
-##  sessioninfo                          1.1.1   2018-11-05 [2] CRAN (R 4.1.0)
-##  stringi                              1.6.2   2021-05-17 [2] CRAN (R 4.1.0)
-##  stringr                            * 1.4.0   2019-02-10 [2] CRAN (R 4.1.0)
-##  systemfonts                          1.0.2   2021-05-11 [2] CRAN (R 4.1.0)
-##  textshaping                          0.3.4   2021-05-11 [2] CRAN (R 4.1.0)
-##  tibble                               3.1.2   2021-05-16 [2] CRAN (R 4.1.0)
-##  tidyselect                           1.1.1   2021-04-30 [2] CRAN (R 4.1.0)
-##  utf8                                 1.2.1   2021-03-12 [2] CRAN (R 4.1.0)
-##  vctrs                                0.3.8   2021-04-29 [2] CRAN (R 4.1.0)
-##  withr                                2.4.2   2021-04-18 [2] CRAN (R 4.1.0)
-##  xfun                                 0.23    2021-05-15 [2] CRAN (R 4.1.0)
-##  yaml                                 2.2.1   2020-02-01 [2] CRAN (R 4.1.0)
+##  package                            * version    date       lib
+##  assertthat                           0.2.1      2019-03-21 [2]
+##  bib2df                             * 1.1.1      2019-05-22 [2]
+##  bslib                                0.2.5.1    2021-05-18 [2]
+##  cachem                               1.0.5      2021-05-15 [2]
+##  cellranger                           1.1.0      2016-07-27 [2]
+##  cli                                  2.5.0      2021-04-26 [2]
+##  crayon                               1.4.1      2021-02-08 [2]
+##  DBI                                  1.1.1      2021-01-15 [2]
+##  desc                                 1.3.0      2021-03-05 [2]
+##  digest                               0.6.27     2020-10-24 [2]
+##  dplyr                              * 1.0.6      2021-05-05 [2]
+##  ellipsis                             0.3.2      2021-04-29 [2]
+##  evaluate                             0.14       2019-05-28 [2]
+##  fansi                                0.5.0      2021-05-25 [2]
+##  fastmap                              1.1.0      2021-01-25 [2]
+##  fs                                   1.5.0      2020-07-31 [2]
+##  gargle                               1.1.0      2021-04-02 [2]
+##  generics                             0.1.0      2020-10-31 [2]
+##  glue                                 1.4.2      2020-08-27 [2]
+##  googledrive                          1.0.1      2020-05-05 [2]
+##  googlesheets4                      * 0.3.0      2021-03-04 [2]
+##  hms                                  1.1.0      2021-05-17 [2]
+##  htmltools                            0.5.1.1    2021-01-22 [2]
+##  httr                                 1.4.2      2020-07-20 [2]
+##  humaniformat                         0.6.0      2016-04-24 [2]
+##  jquerylib                            0.1.4      2021-04-26 [2]
+##  jsonlite                             1.7.2      2020-12-09 [2]
+##  knitr                                1.33       2021-04-24 [2]
+##  lifecycle                            1.0.0      2021-02-15 [2]
+##  magrittr                             2.0.1      2020-11-17 [2]
+##  memoise                              2.0.0      2021-01-26 [2]
+##  pillar                               1.6.1      2021-05-16 [2]
+##  pkgconfig                            2.0.3      2019-09-22 [2]
+##  pkgdown                              1.6.1      2020-09-12 [2]
+##  purrr                                0.3.4      2020-04-17 [2]
+##  R6                                   2.5.0      2020-10-28 [2]
+##  ragg                                 1.1.2      2021-03-17 [2]
+##  Rcpp                                 1.0.6      2021-01-15 [2]
+##  readr                              * 1.4.0      2020-10-05 [2]
+##  Reproducibility.in.Plant.Pathology * 0.0.1-2    2021-06-14 [1]
+##  rlang                                0.4.11     2021-04-30 [2]
+##  rmarkdown                            2.8        2021-05-07 [2]
+##  rprojroot                            2.0.2      2020-11-15 [2]
+##  rstudioapi                           0.13       2020-11-12 [2]
+##  sass                                 0.4.0.9000 2021-05-27 [2]
+##  sessioninfo                          1.1.1      2018-11-05 [2]
+##  sodium                               1.1        2017-03-30 [2]
+##  stringi                              1.6.2      2021-05-17 [2]
+##  stringr                            * 1.4.0      2019-02-10 [2]
+##  systemfonts                          1.0.2      2021-05-11 [2]
+##  textshaping                          0.3.4      2021-05-11 [2]
+##  tibble                               3.1.2      2021-05-16 [2]
+##  tidyselect                           1.1.1      2021-04-30 [2]
+##  utf8                                 1.2.1      2021-03-12 [2]
+##  vctrs                                0.3.8      2021-04-29 [2]
+##  withr                                2.4.2      2021-04-18 [2]
+##  xfun                                 0.23       2021-05-15 [2]
+##  yaml                                 2.2.1      2020-02-01 [2]
+##  source                       
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  local                        
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  Github (rstudio/sass@f148415)
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
+##  CRAN (R 4.1.0)               
 ## 
-## [1] /private/var/folders/tr/fwv720l96bz2btcr0jr_gs840000gn/T/RtmpL1L0Kl/temp_libpathcc3aaea3335
-## [2] /Library/Frameworks/R.framework/Versions/4.1-arm64/Resources/library</code></pre>
+## [1] /private/var/folders/hc/tft3s5bn48gb81cs99mycyf00000gn/T/RtmpH2Go0I/temp_libpathe9ab73671a31
+## [2] /Users/adamsparks/Library/R/4.1/library
+## [3] /Library/Frameworks/R.framework/Versions/4.1-arm64/Resources/library</code></pre>
 </div>
   </div>
 

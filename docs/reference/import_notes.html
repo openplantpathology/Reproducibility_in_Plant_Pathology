@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Import Reproducibility Score Notes — import_notes • Reproducibility in Plant Pathology</title>
+<title>Import reproducibility score notes — import_notes • Reproducibility in Plant Pathology</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,10 @@
 
 
 
-<meta property="og:title" content="Import Reproducibility Score Notes — import_notes" />
+<meta property="og:title" content="Import reproducibility score notes — import_notes" />
 <meta property="og:description" content="Imports, formats data into proper types and calculates the final
- reproducibility score. Also adds the 2 and 5 year impact factor values from
- InCites Journal Citation Reports for 2018." />
+reproducibility score. Also adds the 2 and 5 year impact factor values from
+InCites Journal Citation Reports for 2018." />
 
 
 
@@ -155,15 +155,15 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Import Reproducibility Score Notes</h1>
+    <h1>Import reproducibility score notes</h1>
     <small class="dont-index">Source: <a href='https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/master/R/import_notes.R'><code>R/import_notes.R</code></a></small>
     <div class="hidden name"><code>import_notes.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>Imports, formats data into proper types and calculates the final
- reproducibility score. Also adds the 2 and 5 year impact factor values from
- InCites Journal Citation Reports for 2018.</p>
+reproducibility score. Also adds the 2 and 5 year impact factor values from
+InCites Journal Citation Reports for 2018.</p>
     </div>
 
     <pre class="usage"><span class='fu'>import_notes</span><span class='op'>(</span><span class='op'>)</span></pre>
@@ -172,59 +172,26 @@
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A `tibble` object of reproducibility score notes formatted for use in
- analysis and manuscript preparation</p>
+analysis and manuscript preparation</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='va'>notes</span> <span class='op'>&lt;-</span> <span class='fu'>import_notes</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'><span style='color: #00BBBB;'>──</span> <span style='font-weight: bold;'>Column specification</span> <span style='color: #00BBBB;'>────────────────────────────────────────────────────────</span></span>
-#&gt; <span class='message'>cols(</span>
-#&gt; <span class='message'>  .default = col_character(),</span>
-#&gt; <span class='message'>  year = <span style='color: #00BB00;'>col_double()</span>,</span>
-#&gt; <span class='message'>  contains_page = <span style='color: #00BB00;'>col_double()</span>,</span>
-#&gt; <span class='message'>  repro_inst = <span style='color: #00BB00;'>col_double()</span>,</span>
-#&gt; <span class='message'>  molecular = <span style='color: #BBBB00;'>col_logical()</span>,</span>
-#&gt; <span class='message'>  software_cite = <span style='color: #00BB00;'>col_double()</span>,</span>
-#&gt; <span class='message'>  software_avail = <span style='color: #00BB00;'>col_double()</span>,</span>
-#&gt; <span class='message'>  comp_mthds_avail = <span style='color: #00BB00;'>col_double()</span>,</span>
-#&gt; <span class='message'>  data_avail = <span style='color: #00BB00;'>col_double()</span>,</span>
-#&gt; <span class='message'>  address = <span style='color: #BBBB00;'>col_logical()</span>,</span>
-#&gt; <span class='message'>  annote = <span style='color: #BBBB00;'>col_logical()</span>,</span>
-#&gt; <span class='message'>  booktitle = <span style='color: #BBBB00;'>col_logical()</span>,</span>
-#&gt; <span class='message'>  chapter = <span style='color: #BBBB00;'>col_logical()</span>,</span>
-#&gt; <span class='message'>  crossref = <span style='color: #BBBB00;'>col_logical()</span>,</span>
-#&gt; <span class='message'>  edition = <span style='color: #BBBB00;'>col_logical()</span>,</span>
-#&gt; <span class='message'>  howpublished = <span style='color: #BBBB00;'>col_logical()</span>,</span>
-#&gt; <span class='message'>  institution = <span style='color: #BBBB00;'>col_logical()</span>,</span>
-#&gt; <span class='message'>  key = <span style='color: #BBBB00;'>col_logical()</span>,</span>
-#&gt; <span class='message'>  note = <span style='color: #BBBB00;'>col_logical()</span>,</span>
-#&gt; <span class='message'>  number = <span style='color: #00BB00;'>col_double()</span>,</span>
-#&gt; <span class='message'>  organization = <span style='color: #BBBB00;'>col_logical()</span></span>
-#&gt; <span class='message'>  # ... with 5 more columns</span>
-#&gt; <span class='message'>)</span>
-#&gt; <span class='message'><span style='color: #00BBBB;'>ℹ</span> Use <span style='color: #262626; background-color: #DADADA;'>`spec()`</span> for the full column specifications.</span></div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'><span style='color: #00BBBB;'>──</span> <span style='font-weight: bold;'>Column specification</span> <span style='color: #00BBBB;'>────────────────────────────────────────────────────────</span></span>
-#&gt; <span class='message'>cols(</span>
-#&gt; <span class='message'>  journal = <span style='color: #BB0000;'>col_character()</span>,</span>
-#&gt; <span class='message'>  IF_2year = <span style='color: #00BB00;'>col_double()</span>,</span>
-#&gt; <span class='message'>  IF_5year = <span style='color: #00BB00;'>col_double()</span>,</span>
-#&gt; <span class='message'>  `Source: InCites Journal Citation Reports, Clarivate Analytics, 2018` = <span style='color: #BBBB00;'>col_logical()</span></span>
-#&gt; <span class='message'>)</span></div><div class='input'><span class='fu'>pander</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/pander/man/pander.html'>pander</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>notes</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>pander</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/pander/man/pander.html'>pander</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>notes</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt; ----------------------------------------------------------------------------
 #&gt;            journal                  abbreviation       year   contains_page 
 #&gt; ------------------------------ ---------------------- ------ ---------------
-#&gt;  Australasian Plant Pathology   Australas Plant Path   2013        13       
-#&gt; 
 #&gt;  Australasian Plant Pathology   Australas Plant Path   2013        51       
 #&gt; 
 #&gt;  Australasian Plant Pathology   Australas Plant Path   2014        29       
 #&gt; 
-#&gt;  Australasian Plant Pathology   Australas Plant Path   2014        55       
+#&gt;  Australasian Plant Pathology   Australas Plant Path   2018        11       
+#&gt; 
+#&gt;  Australasian Plant Pathology   Australas Plant Path   2017        16       
 #&gt; 
 #&gt;  Australasian Plant Pathology   Australas Plant Path   2017        75       
 #&gt; 
-#&gt;  Australasian Plant Pathology   Australas Plant Path   2018        11       
+#&gt;  Australasian Plant Pathology   Australas Plant Path   2017        40       
 #&gt; ----------------------------------------------------------------------------
 #&gt; 
 #&gt; Table: Table continues below
@@ -233,15 +200,6 @@
 #&gt; ------------------------------------------------------------------------------
 #&gt;  assignee              doi                         comments              open 
 #&gt; ---------- --------------------------- -------------------------------- ------
-#&gt;    Zach     10.1007/s13313-012-0157-z   The journal has guidelines for   BOTH 
-#&gt;                                          data availability, but does          
-#&gt;                                          not mention reproducibility          
-#&gt;                                           exactly. I am not sure how          
-#&gt;                                          this effects the "repo_inst"         
-#&gt;                                          value. For the "country", I          
-#&gt;                                          put the country of where the         
-#&gt;                                                authors worked.                
-#&gt; 
 #&gt;    Adam     10.1007/s13313-012-0178-7   When the article was published   BOTH 
 #&gt;                                          I'm not sure that MaxEnt was         
 #&gt;                                           freely available, however,          
@@ -250,38 +208,36 @@
 #&gt; 
 #&gt;    Adam     10.1007/s13313-013-0228-9                 NA                 BOTH 
 #&gt; 
-#&gt;    Zach     10.1007/s13313-013-0240-0   The journal has guidelines for   BOTH 
-#&gt;                                          data availability, but does          
-#&gt;                                          not mention reproducibility          
-#&gt;                                           exactly. I am not sure how          
-#&gt;                                          this effects the "repo_inst"         
-#&gt;                                          value. For the "country", I          
-#&gt;                                          put the country of where the         
-#&gt;                                                authors worked.                
+#&gt;   Kaique    10.1007/s13313-017-0532-x                 NA                 BOTH 
+#&gt; 
+#&gt;   Kaique    10.1007/s13313-016-0461-0    Original random page number     TRUE 
+#&gt;                                         not applicable, selected first        
+#&gt;                                           following plant pathology           
+#&gt;                                                    article                    
 #&gt; 
 #&gt;   Kaique    10.1007/s13313-017-0465-4                 NA                 BOTH 
 #&gt; 
-#&gt;   Kaique    10.1007/s13313-017-0532-x                 NA                 BOTH 
+#&gt;   Kaique    10.1007/s13313-016-0458-8                 NA                 BOTH 
 #&gt; ------------------------------------------------------------------------------
 #&gt; 
 #&gt; Table: Table continues below
 #&gt; 
 #&gt;  
-#&gt; ---------------------------------------------------------------------
-#&gt;  repro_inst   art_class   molecular   software_cite   software_avail 
-#&gt; ------------ ----------- ----------- --------------- ----------------
-#&gt;      2         Applied      FALSE           0               0        
+#&gt; -----------------------------------------------------------------------
+#&gt;  repro_inst    art_class    molecular   software_cite   software_avail 
+#&gt; ------------ ------------- ----------- --------------- ----------------
+#&gt;      2          Applied       FALSE           3               3        
 #&gt; 
-#&gt;      2         Applied      FALSE           3               3        
+#&gt;      2          Applied       FALSE           3               2        
 #&gt; 
-#&gt;      2         Applied      FALSE           3               2        
+#&gt;      2          Applied       TRUE            2               3        
 #&gt; 
-#&gt;      2         Applied      FALSE           0               0        
+#&gt;      2        Fundamental     TRUE            1               3        
 #&gt; 
-#&gt;      2         Applied      FALSE           0               0        
+#&gt;      2          Applied       FALSE           0               0        
 #&gt; 
-#&gt;      2         Applied      TRUE            2               3        
-#&gt; ---------------------------------------------------------------------
+#&gt;      2        Fundamental     TRUE            1               3        
+#&gt; -----------------------------------------------------------------------
 #&gt; 
 #&gt; Table: Table continues below
 #&gt; 
@@ -289,18 +245,18 @@
 #&gt; ---------------------------------------------------------------------------
 #&gt;  comp_mthds_avail   data_avail           software_used            category 
 #&gt; ------------------ ------------ -------------------------------- ----------
-#&gt;         0               0                      NA                    NA    
-#&gt; 
 #&gt;         0               2                    MaxEnt               ARTICLE  
 #&gt; 
 #&gt;         0               0                   GenStat                  NA    
 #&gt; 
-#&gt;         0               0                      NA                    NA    
-#&gt; 
-#&gt;         0               0                      NA                    NA    
-#&gt; 
 #&gt;         0               3        Sequence Scanner, MEGA, MAFFT,      NA    
 #&gt;                                    MrModeltest, MrBayes, PAUP              
+#&gt; 
+#&gt;         0               3        iPhyClassifier, BioEdit, MEGA       NA    
+#&gt; 
+#&gt;         0               0                      NA                    NA    
+#&gt; 
+#&gt;         0               0               POPGENE, GenAlEx             NA    
 #&gt; ---------------------------------------------------------------------------
 #&gt; 
 #&gt; Table: Table continues below
@@ -309,14 +265,14 @@
 #&gt; --------------------------------------------------------------------------
 #&gt;  bibtexkey   address   annote              author               booktitle 
 #&gt; ----------- --------- -------- ------------------------------- -----------
-#&gt;     NA         NA        NA                 NULL                   NA     
-#&gt; 
 #&gt;     NA         NA        NA     J Elith, J Simpson, M Hirsch,      NA     
 #&gt;                                          M A Burgman                      
 #&gt; 
 #&gt;     NA         NA        NA      R. Billones-Baaijens, E. E.       NA     
 #&gt;                                  Jones, H. J. Ridgway, M. V.              
 #&gt;                                            Jaspers                        
+#&gt; 
+#&gt;     NA         NA        NA                 NULL                   NA     
 #&gt; 
 #&gt;     NA         NA        NA                 NULL                   NA     
 #&gt; 
@@ -335,9 +291,9 @@
 #&gt; 
 #&gt;    NA         NA        NA       NULL         NA            NA        NA  
 #&gt; 
-#&gt;    NA         NA        NA       NULL         NA            NA        NA  
+#&gt;    NA         NA        NA        NA          NA            NA        NA  
 #&gt; 
-#&gt;    NA         NA        NA       NULL         NA            NA        NA  
+#&gt;    NA         NA        NA        NA          NA            NA        NA  
 #&gt; 
 #&gt;    NA         NA        NA        NA          NA            NA        NA  
 #&gt; 
@@ -350,13 +306,13 @@
 #&gt; -----------------------------------------------------------------------------
 #&gt;  month   note   number   organization   pages    publisher   school   series 
 #&gt; ------- ------ -------- -------------- -------- ----------- -------- --------
-#&gt;   jan     NA      1           NA          NA        NA         NA       NA   
-#&gt; 
 #&gt;   jan     NA      1           NA        43--51      NA         NA       NA   
 #&gt; 
 #&gt;   may     NA      1           NA        25--31      NA         NA       NA   
 #&gt; 
-#&gt;   jul     NA      1           NA        53--60      NA         NA       NA   
+#&gt;   NA      NA      NA          NA          NA        NA         NA       NA   
+#&gt; 
+#&gt;   NA      NA      NA          NA          NA        NA         NA       NA   
 #&gt; 
 #&gt;   NA      NA      NA          NA          NA        NA         NA       NA   
 #&gt; 
@@ -369,13 +325,6 @@
 #&gt; ------------------------------------------------------------
 #&gt;              title               type   volume   url   issn 
 #&gt; ------------------------------- ------ -------- ----- ------
-#&gt;  On–farm waste-based composts     NA      42     NA     NA  
-#&gt;           in managing                                       
-#&gt;      \textit{{Macrophomina                                  
-#&gt;  phaseolina}} induced dry root                              
-#&gt;     rot of guar in an arid                                  
-#&gt;           environment                                       
-#&gt; 
 #&gt;    Taxonomic uncertainty and      NA      42     NA     NA  
 #&gt;       decision making for                                   
 #&gt;   biosecurity: spatial models                               
@@ -387,12 +336,9 @@
 #&gt;  \textit{{Botryosphaeriaceae}}                              
 #&gt;             species                                         
 #&gt; 
-#&gt;  An improved culture solution     NA      43     NA     NA  
-#&gt;          technique for                                      
-#&gt;     \textit{{Plasmodiophora                                 
-#&gt;  brassicae}} infection and the                              
-#&gt;  dynamic infection in the root                              
-#&gt;              hair                                           
+#&gt;               NA                  NA      NA     NA     NA  
+#&gt; 
+#&gt;               NA                  NA      NA     NA     NA  
 #&gt; 
 #&gt;               NA                  NA      NA     NA     NA  
 #&gt; 
@@ -426,17 +372,17 @@
 #&gt; ----------------------------------------
 #&gt;  total_possible   reproducibility_score 
 #&gt; ---------------- -----------------------
-#&gt;        12                   0           
-#&gt; 
 #&gt;        12                 66.67         
 #&gt; 
 #&gt;        12                 41.67         
 #&gt; 
-#&gt;        12                   0           
-#&gt; 
-#&gt;        12                   0           
-#&gt; 
 #&gt;        12                 66.67         
+#&gt; 
+#&gt;        12                 58.33         
+#&gt; 
+#&gt;        12                   0           
+#&gt; 
+#&gt;        12                 33.33         
 #&gt; ----------------------------------------
 #&gt; </div><div class='input'>
 </div></pre>

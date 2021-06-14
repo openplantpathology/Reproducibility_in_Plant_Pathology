@@ -115,7 +115,7 @@
       <h1 data-toc-skip>Data Visualisation</h1>
                         <h4 class="author">Adam H. Sparks</h4>
             
-            <h4 class="date">2021-06-12</h4>
+            <h4 class="date">2021-06-14</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/master/vignettes/e_visualisation.Rmd"><code>vignettes/e_visualisation.Rmd</code></a></small>
       <div class="hidden name"><code>e_visualisation.Rmd</code></div>
@@ -153,42 +153,7 @@
 <h2 class="hasAnchor">
 <a href="#import-the-data-and-calculate-the-reproducibility-score" class="anchor"></a>Import the data and calculate the reproducibility score</h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">rrpp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/import_notes.html">import_notes</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span>
-<span class="co">#&gt; cols(</span>
-<span class="co">#&gt;   .default = col_character(),</span>
-<span class="co">#&gt;   year = col_double(),</span>
-<span class="co">#&gt;   contains_page = col_double(),</span>
-<span class="co">#&gt;   repro_inst = col_double(),</span>
-<span class="co">#&gt;   molecular = col_logical(),</span>
-<span class="co">#&gt;   software_cite = col_double(),</span>
-<span class="co">#&gt;   software_avail = col_double(),</span>
-<span class="co">#&gt;   comp_mthds_avail = col_double(),</span>
-<span class="co">#&gt;   data_avail = col_double(),</span>
-<span class="co">#&gt;   address = col_logical(),</span>
-<span class="co">#&gt;   annote = col_logical(),</span>
-<span class="co">#&gt;   booktitle = col_logical(),</span>
-<span class="co">#&gt;   chapter = col_logical(),</span>
-<span class="co">#&gt;   crossref = col_logical(),</span>
-<span class="co">#&gt;   edition = col_logical(),</span>
-<span class="co">#&gt;   howpublished = col_logical(),</span>
-<span class="co">#&gt;   institution = col_logical(),</span>
-<span class="co">#&gt;   key = col_logical(),</span>
-<span class="co">#&gt;   note = col_logical(),</span>
-<span class="co">#&gt;   number = col_double(),</span>
-<span class="co">#&gt;   organization = col_logical()</span>
-<span class="co">#&gt;   # ... with 5 more columns</span>
-<span class="co">#&gt; )</span>
-<span class="co">#&gt; ℹ Use `spec()` for the full column specifications.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ── Column specification ────────────────────────────────────────────────────────</span>
-<span class="co">#&gt; cols(</span>
-<span class="co">#&gt;   journal = col_character(),</span>
-<span class="co">#&gt;   IF_2year = col_double(),</span>
-<span class="co">#&gt;   IF_5year = col_double(),</span>
-<span class="co">#&gt;   `Source: InCites Journal Citation Reports, Clarivate Analytics, 2018` = col_logical()</span>
-<span class="co">#&gt; )</span></code></pre></div>
+<code class="sourceCode R"><span class="va">rrpp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/import_notes.html">import_notes</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="reproducibility-score" class="section level2">
 <h2 class="hasAnchor">
