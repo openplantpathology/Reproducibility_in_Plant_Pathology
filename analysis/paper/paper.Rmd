@@ -9,9 +9,9 @@ author:
       institute: UFV
   - Kaique dos Santos Alves:
       institute: UFV
-  - Zachary Foster: 
+  - Zachary Foster:
       institute: OSU
-  - Niklaus J. Grünwald: 
+  - Niklaus J. Grünwald:
       institute: ARS
 institute:
   - DPIRD: Department of Primary Industries and Regional Development, Perth, WA, Australia
