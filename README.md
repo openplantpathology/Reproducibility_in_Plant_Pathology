@@ -18,7 +18,7 @@ This repository contains the data and code for our paper:
 
 Our pre-print is online here:
 
-> Authors, (YYYY). *Title of paper*. Name of journal/book, Accessed 11
+> Authors, (YYYY). *Title of paper*. Name of journal/book, Accessed 14
 > Jun 2021. Online at <https://doi.org/xxx/xxx>
 
 ### How to cite
@@ -28,7 +28,7 @@ Please cite this compendium as:
 > Sparks, A.H., Del Ponte, E.M., dos Santos Alves, K., Foster, Z.,
 > Grünwald, N. (2021). *Compendium of R code and data for ‘Status and
 > Best Practices for Reproducible Research In Plant Pathology’*.
-> Accessed 11 Jun 2021. Online at
+> Accessed 14 Jun 2021. Online at
 > <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
@@ -75,11 +75,11 @@ docker run -d -p 8787:8787 adamhsparks/reproducibility_in_plant_pathology
 
 The file structure follows a normal R package with one exception. The
 top-level “/analysis” directory contains the directories and files
-necessary to reknit the MS Word document of the paper from an Rmd file,
+necessary to re-knit the MS Word document of the paper from an Rmd file,
 “/analysis/paper/paper.Rmd”.
 
-A script, `knit_paper.R` is located in `analysis/paper/knit_paper.R`
-that will knit the Word document
+A script, `knit_paper.R`, is located in `analysis/paper/knit_paper.R`
+that will knit the Word document.
 
 ## Meta
 
