@@ -98,8 +98,6 @@ Therefore we will follow Peng's [-@Peng2009] definition that provides clear guid
 Therefore our definition of reproducibility will be that the computer code and data are made freely available to others for verification and conducting alternate analyses or for use in instructional purposes.
 And that the software used are also easily obtained and preferably open source to avoid licensing or other issues related to accessibility for end-users related to costs or non-standard file formats, etc.
 
-<!--# I am leaning towards a style that shows the methods at the end in a separate section? -->
-
 ## Where do we stand in regards to reproducibility?
 
 In an effort to understand where as a discipline we stand as plant pathologists in regards to open science and reproducible research, we surveyed a broad selection of articles to represent a broad swathe of publications to evaluate our status.
