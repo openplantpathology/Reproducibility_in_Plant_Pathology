@@ -82,22 +82,11 @@ That is, open science leads to reproducibility and replicability.
 
 For us to easily discuss the topic, we first must define what we mean so that we may clearly communicate.
 Many of the terms used in this area have varying definitions that may or may not agree with each other.
-For instance, reproducible research is recently highlighted by many authors [@preeyanon2018; @Wallach2018; @Baker2016a; @Iqbal2016; @Nature2016; @Patil2016; @Weissgerber2016; @Brunsdon2015; @Sweedler2015; @Fitzjohn2014; @Ioannidis2014; @Fidler2013; @Stodden2013; ]
+For instance, reproducible research is recently highlighted by many authors [@preeyanon2018; @Wallach2018; @Baker2016a; @Iqbal2016; @Nature2016; @Patil2016; @Weissgerber2016; @Brunsdon2015; @Sweedler2015; @Fitzjohn2014; @Ioannidis2014; @Fidler2013; @Stodden2013;] as an important issue.
 
 <!--# These references above are all prior 2017. We may want to update the list? I've added two using insert citation tool of the visual editor rmarkdown -->
 
-as an important issue.
-The International Union of Pure and Applied Chemistry provides definitions of repeatability in the "Compendium of Chemical Terminology -- Gold Book" as:
-
-> "The closeness of agreement between independent results obtained with the same method on identical test material, under the same conditions (same operator, same apparatus, same laboratory and after short intervals of time). The measure of repeatability is the standard deviation qualified with the term: \`repeatability' as repeatability standard deviation. In some contexts repeatability may be defined as the value below which the absolute difference between two single test results obtained under the above conditions, may be expected to lie with a specified probability", [@McNaught1997].
-
-and reproducibility is defined as:
-
-> "The closeness of agreement between independent results obtained with the same method on identical test material but under different conditions (different operators, different apparatus, different laboratories and/or after different intervals of time). The measure of reproducibility is the standard deviation qualified with the term 'reproducibility' as reproducibility standard deviation. In some contexts reproducibility may be defined as the value below which the absolute difference between two single test results on identical material obtained under the above conditions, may be expected to lie with a specified probability. Note that a complete statement of reproducibility requires specification of the experimental conditions which differ", [@McNaught1997].
-
-<!--# I would simplify and just mention the Peng's definition as most appropriate for our context -->
-
-However, while these definitions are clear and well accepted in physical sciences, in biological sciences it is not always possible to use identical test material or perhaps the the time or resources are not available for full reproduction, _e.g._, field trials that span years and locations or complex glasshouse experiments.
+In biological sciences it is not always possible to use identical test material or perhaps the the time or resources are not available for full reproduction, _e.g._, field trials that span years and locations or complex glasshouse experiments.
 Therefore we will follow Peng's [-@Peng2009] definition that provides clear guidelines a minimum standard of "reproducible research":
 
 > "The replication of scientific findings using independent investigators, methods, data, equipment, and protocols has long been, and will continue to be, the standard by which scientific claims are evaluated. However, in many fields of study there are examples of scientific investigations that cannot be fully replicated because of a lack of time or resources. In such a situation, there is a need for a minimum standard that can fill the void between full replication and nothing. One candidate for this minimum standard is 'reproducible research', which requires that data sets and computer code be made available to others for verifying published results and conducting alternative analyses".
