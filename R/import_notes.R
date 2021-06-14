@@ -24,18 +24,20 @@ import_notes <- function() {
     art_class <- repro_inst <- abbreviation <- assignee <-
     reproducibility_score <- journal <- year <- . <- NULL
 
-  notes <- readr::read_csv(
+  notes <- readODS::read_ods(
     system.file("extdata",
-                "article_notes.csv",
+                "Reproducibility_in_plant_pathology_notes.ods",
                 package = "Reproducibility.in.Plant.Pathology"),
-    na = "NA"
+    na = "NA",
+    sheet = "article_evaluations"
   )
 
-  IF_5year <- readr::read_csv(
+  IF_5year <- readODS::read_ods(
     system.file("extdata",
-                "2018_5-year_IF.csv",
+                "Reproducibility_in_plant_pathology_notes.ods",
                 package = "Reproducibility.in.Plant.Pathology"),
-    na = "NA"
+    na = "NA",
+    sheet = 4
   )
 
   notes <-

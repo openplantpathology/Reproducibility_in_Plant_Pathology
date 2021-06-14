@@ -36,6 +36,7 @@ Imports:
     DiagrammeRsvg,
     magrittr,
     pander,
+    readODS,
     rsvg
 Suggests:
     bib2df,
