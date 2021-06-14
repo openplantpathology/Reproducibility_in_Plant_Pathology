@@ -281,12 +281,13 @@ Model finesses were evaluated using model summaries and diagnostic plots from 'b
 Probability of direction or maximum probability of effect was plotted, `pd()`, and a test for practical equivalence, `equivalence_test()`, was performed for each model using the contributed R package 'bayestestR' [@Makowski2019].
 
 # Authors' contributions
+
 A.H.S, E.DP, Z.F. and N.J.G. conceived of the presented idea and scoring system.
 N.J.G. provided five-year impact factors.
 A.H.S, E.DP, Z.F. and K.dSA evaluated articles for scoring.
 A.H.S. designed the computational framework with feedback from E.DP and Z.F.
 A.H.S wrote the manuscript in consultation with E.DP.
-All authors provided critical feedback and helped contribute to the final version of the manuscript.
+<!-- All authors provided critical feedback and helped contribute to the final version of the manuscript. -->
 
 # Data availability statement
 
