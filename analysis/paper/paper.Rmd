@@ -266,7 +266,7 @@ The view of the authors is one that this is something to be encouraged as it all
 The statistical analysis was performed using R version 4.1.0 [@RCT2021] on an Apple MacBook Air (M1, 2020).
 Bayesian mixed-effect models were fit using the contributed package 'brms' [@Burkner2018] to evaluate the fixed effects of the publication (journal title), article class, molecular focus, five-year journal impact factor, journal open access policy on the reproducibility index and year to test for changes over time in the reproducibility index.
 
-Relatively flat priors were selected with a mean 0 and a standard deviation 10 for the fixed effects.
+Relatively flat priors were selected with a mean of 0 and a standard deviation of 10 for the fixed effects.
 
 The random effects were year and assignee for all models excepting the model which tested for year effects.
 In this model, the random effects were the publication title and assignee.
