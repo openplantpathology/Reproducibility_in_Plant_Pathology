@@ -1,12 +1,12 @@
 
-#' Import Reproducibility Score Notes
+#' Import reproducibility score notes
 #'
 #' Imports, formats data into proper types and calculates the final
-#'  reproducibility score. Also adds the 2 and 5 year impact factor values from
-#'  InCites Journal Citation Reports for 2018.
+#' reproducibility score. Also adds the 2 and 5 year impact factor values from
+#' InCites Journal Citation Reports for 2018.
 #'
 #' @return A `tibble` object of reproducibility score notes formatted for use in
-#'  analysis and manuscript preparation
+#' analysis and manuscript preparation
 #' @export import_notes
 #'
 #' @examples

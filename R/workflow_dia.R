@@ -1,5 +1,7 @@
 
-#' Create Workflow Diagram Figure
+#' Create workflow diagram figure
+#'
+#' Custom function to create a workflow diagram figure, 'Figure 1'.
 #'
 #' @return PDF of workflow diagram
 #' @export workflow_dia
@@ -38,8 +40,9 @@ workflow_dia <- function() {
     Analysis->'Source Code'->'Public Repository'
     Data->'Binary File'->Supplement
   }",
-      width = 1000,
-      height = 750
-    ))
+  width = 1000,
+  height = 750
+    )
+  )
   return(rsvg::rsvg_pdf(charToRaw(p)))
 }

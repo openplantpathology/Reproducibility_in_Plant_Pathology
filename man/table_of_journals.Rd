@@ -2,7 +2,7 @@
 % Please edit documentation in R/table_of_journals.R
 \name{table_of_journals}
 \alias{table_of_journals}
-\title{Create Table of Journals Surveyed}
+\title{Create table of journals surveyed}
 \usage{
 table_of_journals(rrpp)
 }
@@ -13,7 +13,7 @@ table_of_journals(rrpp)
 \CRANpkg{pander} table of journals surveyed
 }
 \description{
-Create Table of Journals Surveyed
+Create table of journals surveyed
 }
 \examples{
 \donttest{

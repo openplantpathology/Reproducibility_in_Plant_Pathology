@@ -1,5 +1,5 @@
 
-#' Create Table of Journals Surveyed
+#' Create table of journals surveyed
 #' @param rrpp `data.frame` of article evaluations
 #' @return \CRANpkg{pander} table of journals surveyed
 #' @export table_of_journals

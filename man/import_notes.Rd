@@ -2,18 +2,18 @@
 % Please edit documentation in R/import_notes.R
 \name{import_notes}
 \alias{import_notes}
-\title{Import Reproducibility Score Notes}
+\title{Import reproducibility score notes}
 \usage{
 import_notes()
 }
 \value{
 A `tibble` object of reproducibility score notes formatted for use in
- analysis and manuscript preparation
+analysis and manuscript preparation
 }
 \description{
 Imports, formats data into proper types and calculates the final
- reproducibility score. Also adds the 2 and 5 year impact factor values from
- InCites Journal Citation Reports for 2018.
+reproducibility score. Also adds the 2 and 5 year impact factor values from
+InCites Journal Citation Reports for 2018.
 }
 \examples{
 notes <- import_notes()

@@ -2,7 +2,7 @@
 % Please edit documentation in R/workflow_dia.R
 \name{workflow_dia}
 \alias{workflow_dia}
-\title{Create Workflow Diagram Figure}
+\title{Create workflow diagram figure}
 \usage{
 workflow_dia()
 }
@@ -10,7 +10,7 @@ workflow_dia()
 PDF of workflow diagram
 }
 \description{
-Create Workflow Diagram Figure
+Custom function to create a workflow diagram figure, 'Figure 1'.
 }
 \examples{
 
