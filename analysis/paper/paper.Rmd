@@ -186,9 +186,8 @@ Unexpected changes to values in the data [@Ziemann2016] may also occur when usin
 
 If steps are followed to make the data FAIR then it will be readable by humans and machines alike this will help support discoveries and support further research.
 In turn, sharing data will lead to new citations for your work as others discover and use it.
-
-To make your data the most widely usable, ensure that it has a persistent identifier.
-A digital object identifier (DOI) is the most common ([https://www.doi.org/](https://www.doi.org/)) but handle is also an option ([https://handle.net/](https://handle.net/)).
+To make your data the most widely discoverable and usable, ensure that it has a persistent identifier.
+A digital object identifier (DOI) is the most common ([https://www.doi.org/](https://www.doi.org/)) but the Handle.Net Registry (HNR) ([https://handle.net/](https://handle.net/)) is also an option.
 There are different options for generating a DOI for your data and other materials.
 FigShare, Zenodo and OSF all offer long-term archival along with a service to generate a DOI for your materials.
 The use of a persistent identifier works to ensure that even if the data are moved, they can still be located using that unique identifier.
