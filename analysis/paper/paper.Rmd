@@ -1,5 +1,5 @@
 ---
-title: "Insights Into Computational Reproducibility in Plant Pathology and a Way Forward"
+title: "Reproducibility and plant pathology: where do we stand and a way forward"
 author:
   - Adam H. Sparks:
       email: Adam.Sparks@dpird.wa.gov.au
