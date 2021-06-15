@@ -72,8 +72,6 @@ These research findings include biological materials (host and pathogen genotype
 
 Recently, open science has been highlighted with many donors expecting data to be available [@government_of_canada_2016; @vannoorden2017; @ARC2018], journals in the field promoting the sharing of data [@DelPonte2020], and other scientists interested in sharing and collaborating more widely [@Wald2010].
 
-## What is reproducibility?
-
 Reproducibility is one component under the umbrella of open science.
 By proactively practising open science, the work increases the chance to become more reproducible through the availability of data and code.
 That is, open science leads to reproducibility and replicability.
