@@ -320,16 +320,6 @@ import_notes() %>%
 
 \newpage
 
-```{r scoring, tab.id="scoring", tab.cap ="Articles were scored in four areas for reproducibility on a scale of '0' to '3' by four independent assessors to rank articles in each of four areas, 'Computational methods availability', 'Data availability', 'Software availability' and 'Software citation'.", echo=FALSE, message=FALSE, warning=FALSE}
-scoring_criteria %>% 
-  rename(`Index Value` = Index.Value) %>% 
-  flextable() %>% 
-  colformat_num(na_str = "NA") %>% 
-  set_table_properties(layout = "autofit")
-```
-
-\newpage
-
 ```{r software_used, tab.id="su", tab.cap="The top ten sofware programs that were found to be used in the papers that were surveyed.", echo=FALSE, message=FALSE, warning=FALSE}
 library("tidyr")
 
@@ -350,6 +340,16 @@ rrpp_software %>%
   drop_na() %>% 
   flextable() %>%
   autofit()
+```
+
+\newpage
+
+```{r scoring, tab.id="scoring", tab.cap ="Articles were scored in four areas for reproducibility on a scale of '0' to '3' by four independent assessors to rank articles in each of four areas, 'Computational methods availability', 'Data availability', 'Software availability' and 'Software citation'.", echo=FALSE, message=FALSE, warning=FALSE}
+scoring_criteria %>% 
+  rename(`Index Value` = Index.Value) %>% 
+  flextable() %>% 
+  colformat_num(na_str = "NA") %>% 
+  set_table_properties(layout = "autofit")
 ```
 
 \newpage
