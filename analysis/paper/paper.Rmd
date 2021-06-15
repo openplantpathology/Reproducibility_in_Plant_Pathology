@@ -384,7 +384,7 @@ scoring_criteria %>%
 
 \newpage
 
-```{r reproducibility_score, tab.id="reproducibility", tab.cap="Tally of reproducibility scores where '0' is not reproducible and '12' is fully reproducible, _e.g._, all software cited, software used are freely available to anyone, computational methods (statistical analysis or other computational code) are freely available for download and use, and raw data are available for download and use.", echo=FALSE, message=FALSE, warning=FALSE}
+```{r reproducibility_score, tab.id="reproducibility", tab.cap="Tally of reproducibility scores where '0' is not reproducible and '12' is fully reproducible, e.g., all software cited, software used are freely available to anyone, computational methods (statistical analysis or other computational code) are freely available for download and use, and raw data are available for download and use.", echo=FALSE, message=FALSE, warning=FALSE}
 import_notes() %>%
   tabyl(reproducibility_score) %>%
   adorn_pct_formatting(digits = 1) %>%
@@ -479,7 +479,7 @@ p + plot_annotation(tag_levels = "i")
 
 # Colophon
 
-This report was generated on `r Sys.time()` using the following computational environment and dependencies:
+This report was generated on $`r Sys.time()`$ using the following computational environment and dependencies:
 
 ```{r colophon, cache = FALSE}
 # which R packages and versions?
