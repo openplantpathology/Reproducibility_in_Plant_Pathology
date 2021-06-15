@@ -42,7 +42,7 @@ output:
           no_hband: false
           no_vband: true
 bibliography: references.bib
-csl: "../templates/TPP.csl" # Insert path for the bib-style
+csl: "../templates/american-phytopathological-society.csl" # Insert path for the bib-style
 abstract: |
   Open research practices have been highlighted extensively during the last ten years in many fields of study as essential standards needed to promote transparency and reproducibility of scientific results. Scientific claims can only be evaluated based on how protocols, materials, equipment and methods were described; data were collected and prepared, and; analyses conducted. Openly sharing protocols, data and computational code is central for current scholarly dissemination and communication, but in many fields, including plant pathology, adoption of these practices has been slow. We randomly selected 300 articles published from 2012 to 2018 across 21 journals representative of the pathology discipline and assigned them scores reflecting their openness and reproducibility. We found that most of the articles were not very open, failing to share data or code in a meaningful way. We propose that using open source tools for producing open and reproducible work and analysis is advantageous, benefiting not just readers, but the authors as well and provide ideas and tools to promote open, reproducible research practices among plant pathologists.
 keywords: |
