@@ -227,7 +227,7 @@ This also assumes that there is no effect or bias on reproducibility based on th
 
 ## Scoring criteria
 
-Four individuals were assigned to rate a randomised list of journal articles using scoring criteria devised for the purposes of this research (Table @\ref(tab:scoring)).
+Four individuals were assigned to rate a randomised list of journal articles using scoring criteria devised for the purposes of this research (Table \@ref(tab:scoring)).
 
 Each journal was classified as to whether they were completely open (TRUE), behind a paywall (FALSE) or a combination (BOTH).
 The five-year impact factor for 2018 for each journal was retrieved from InCites Journal Citation Reports, Clarivate Analytics and entered in a separate sheet in the Google sheets file.
