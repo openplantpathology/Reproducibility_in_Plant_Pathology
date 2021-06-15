@@ -107,15 +107,15 @@ The mean value was 31.2% and the median value was 33.3%.
 One article scored 100% or was classed as fully reproducible.
 No journals surveyed were completely closed, all offered at least an option for open access but some were completely open.The majority of the articles were classed as fundamental, 160, with the remaining 138 classed as applied.
 
-Most articles did not make any computational methods available in any fashion with two, 0.007%, classing as "3", which was the highest score available (Figure \@ref(fig:article-scores)a).
+Most articles did not make any computational methods available in any fashion with two, 0.007%, classing as "3", which was the highest score available (Figure \@ref(fig:article-scores)i).
 Two hundred eighty-seven articles, 96%, were classed as "0" and nine articles, 0.03%, appeared to not use any computational methods.
 
-More articles did a good job of using software that was reasonably available to anyone with 206 scoring "2" or "3" (Figure  \@ref(fig:article-scores)b).
+More articles did a good job of using software that was reasonably available to anyone with 206 scoring "2" or "3" (Figure  \@ref(fig:article-scores)ii).
 
-Software citations were also reasonably well reported in the literature with 120 scoring "2" where the main software was cited with version numbers and 57 scoring "3" where full citations including R packages or the SAS PROC used were cited where appropriate (Figure \@ref(fig:article-scores)c).
+Software citations were also reasonably well reported in the literature with 120 scoring "2" where the main software was cited with version numbers and 57 scoring "3" where full citations including R packages or the SAS PROC used were cited where appropriate (Figure \@ref(fig:article-scores)iii).
 
 However, data availability was mostly not available with 243 or 81.5% scoring "0" where the data was not available or mentioned in the article.
-However, more articles, 29 or 9.7%, scored "3" than "1" or "2" combined, with two articles not producing shareable data (Figure  \@ref(fig:article-scores)d).
+However, more articles, 29 or 9.7%, scored "3" than "1" or "2" combined, with two articles not producing shareable data (Figure  \@ref(fig:article-scores)iv).
 
 The most frequently cited software was SAS.
 The remainder were mostly specialised software except for Microsoft Excel, tied for 9th (Table \@ref(tab:su)).
@@ -411,36 +411,36 @@ knitr::include_graphics("Figure 1.pdf")
 
 \newpage
 
-```{r article-scores, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Aggregated article scores for each of the four categories, a), computational methods availability 0 - not available or not mentioned to 3 - freely available online to anonymous users. b) Shows 'Software availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Expensive proprietary software that only institutions would typically purchase'; '2' was 'Used proprietary software that most individuals can afford (e.g., Excel) or SAS that is now available free for use with a university login'; and '3' was 'Used entirely open source and free software (e.g., R, Julia, Python)'; 'NA' indicates that no specialised software was necessary or used. c) Displays 'Software citated', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Software mentioned by name only'; '2' was 'Software cited with version number'; and '3' was 'All software components (SAS PROCs, R, Julia or Python packages, etc.) cited'; 'NA' indicates that no specialised software was necessary or used. d) Shows 'Data availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no data were generated, _e.g._ a methods paper.", cache=FALSE, fig.env='figure'}
+```{r article-scores, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Aggregated article scores for each of the four categories, (i), computational methods availability 0 - not available or not mentioned to 3 - freely available online to anonymous users. (ii) Shows 'Software availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Expensive proprietary software that only institutions would typically purchase'; '2' was 'Used proprietary software that most individuals can afford (e.g., Excel) or SAS that is now available free for use with a university login'; and '3' was 'Used entirely open source and free software (e.g., R, Julia, Python)'; 'NA' indicates that no specialised software was necessary or used. (iii) Displays 'Software citated', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Software mentioned by name only'; '2' was 'Software cited with version number'; and '3' was 'All software components (SAS PROCs, R, Julia or Python packages, etc.) cited'; 'NA' indicates that no specialised software was necessary or used. (iv) Shows 'Data availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no data were generated, _e.g._ a methods paper.", cache=FALSE, fig.env='figure'}
 library("ggplot2")
 library("patchwork")
 rrpp <- import_notes()
 theme_set(theme_classic())
-a <- ggplot(rrpp, aes(y = as.factor(comp_mthds_avail))) +
+i <- ggplot(rrpp, aes(y = as.factor(comp_mthds_avail))) +
   geom_bar() +
   ggtitle("Computational Methods Availability") +
   ylab("Score") +
   xlab(NULL)
 
-b <- ggplot(rrpp, aes(y = software_avail)) +
+ii <- ggplot(rrpp, aes(y = software_avail)) +
   geom_bar() +
   ggtitle("Software Availability") +
   xlab(NULL) +
   ylab(NULL)
 
-c <- ggplot(rrpp, aes(y = software_cite)) +
+iii <- ggplot(rrpp, aes(y = software_cite)) +
   geom_bar() +
   ggtitle("Software Cited") +
   ylab("Score")
 
-d <- ggplot(rrpp, aes(y = data_avail)) +
+iv <- ggplot(rrpp, aes(y = data_avail)) +
   geom_bar() +
   ggtitle("Data Availability") +
   ylab(NULL)
 
 # put them all together
-p <- (a | b) / (c | d)
-p + plot_annotation(tag_levels = "a")
+p <- (i | ii) / (iii | iv)
+p + plot_annotation(tag_levels = "i")
 ```
 
 \newpage
