@@ -98,7 +98,7 @@ For instance, reproducible research is recently highlighted by many authors [@pr
 <!--# These references above are all prior 2017. We may want to update the list? I've added two using insert citation tool of the visual editor rmarkdown -->
 
 In biological sciences it is not always possible to use identical test material or perhaps the the time or resources are not available for full reproduction, _e.g._, field trials that span years and locations or complex glasshouse experiments.
-Therefore we will follow Peng's [-@Peng2009] definition that provides clear guidelines a minimum standard of "reproducible research":
+Therefore, we will follow Peng's [-@Peng2009] definition that provides clear guidelines a minimum standard of "reproducible research":
 
 > "The replication of scientific findings using independent investigators, methods, data, equipment, and protocols has long been, and will continue to be, the standard by which scientific claims are evaluated. However, in many fields of study there are examples of scientific investigations that cannot be fully replicated because of a lack of time or resources. In such a situation, there is a need for a minimum standard that can fill the void between full replication and nothing. One candidate for this minimum standard is 'reproducible research', which requires that data sets and computer code be made available to others for verifying published results and conducting alternative analyses".
 > Peng, R.
