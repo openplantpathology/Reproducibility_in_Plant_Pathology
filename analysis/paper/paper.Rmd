@@ -28,8 +28,6 @@ output:
        - '--lua-filter=scholarly-metadata.lua'
        - '--lua-filter=author-info-blocks.lua'
        - '--lua-filter=pagebreak.lua'
-classoption: letterpaper
-fontsize: 12pt
 bibliography: references.bib
 link-citations: no
 csl: "../templates/american-phytopathological-society.csl" # Insert path for the bib-style
