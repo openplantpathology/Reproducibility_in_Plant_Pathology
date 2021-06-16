@@ -17,57 +17,37 @@ institute:
   - DPIRD: Department of Primary Industries and Regional Development, Farming Systems Innovation, Perth WA 6000, Australia
   - USQ: University of Southern Queensland, Centre for Crop Health, Toowoomba Qld 4350, Australia
   - UFV: Departmento de Fitopatologia, Universidade Federal de Viçosa, Brazil
-  - OSU: Department of Botany and Plant Pathology, Oregon State University, Corvallis, OR, USA
-  - ARS: Horticultural Crops Research Unit, USDA Agricultural Research Service, Corvallis, OR, USA
+  - OSU: Department of Botany and Plant Pathology, Oregon State University, Corvallis OR 97331, USA
+  - ARS: Horticultural Crops Research Unit, USDA Agricultural Research Service, Corvallis OR 97331, USA
 output: 
-# Uncomment from line 25 to 45 and comment 46 to line 54 for Word output
-# Comment from line 25 to 45 and uncomment 46 to line 54 for LaTeX output
-#  officedown::rdocx_document:
-#      fig_caption: yes
-#      reference_docx: "../templates/template.docx" # Insert path for the DOCX file
-#      pandoc_args:
-#        - '--lua-filter=scholarly-metadata.lua'
-#        - '--lua-filter=author-info-blocks.lua'
-#        - '--lua-filter=pagebreak.lua'
-#      tables:
-#        layout: autofit
-#        width: 1.0
-#        caption:
-#          style: Table Caption
-#          pre: 'Table '
-#          sep: ': '
-#        conditional:
-#          first_row: true
-#          first_column: false
-#          last_row: false
-#          last_column: false
-#          no_hband: false
-#          no_vband: true
-    pdf_document:
-        keep_tex: true
-        latex_engine: xelatex
-        pandoc_args:
-          - '--lua-filter=scholarly-metadata.lua'
-          - '--lua-filter=author-info-blocks.lua'
-          - '--lua-filter=pagebreak.lua'
-documentclass: article
+  bookdown::word_document2:
+     fig_caption: yes
+     number_sections: FALSE
+     reference_docx: "../templates/template.docx" # Insert path for the DOCX file
+     pandoc_args:
+       - '--lua-filter=scholarly-metadata.lua'
+       - '--lua-filter=author-info-blocks.lua'
+       - '--lua-filter=pagebreak.lua'
 classoption: letterpaper
 fontsize: 12pt
-header-includes:
-   - \usepackage{lineno}
-   - \linenumbers
-   - \usepackage[T1]{fontenc}
-   - \usepackage{helvet}
-   - \renewcommand{\familydefault}{\sfdefault}
 bibliography: references.bib
+link-citations: no
 csl: "../templates/american-phytopathological-society.csl" # Insert path for the bib-style
-keywords: |
-  open science; open data; reproducible research; FAIR data
-highlights: |
-  Open research practices are highlighted extensively in the broader scientific community. Our survey of 300 randomly selected articles from 2012 to 2018 indicates that we have work to do in this area as plant pathologists with most articles scoring low in openness and reproducibility.
 ---
 
-```{r, setup, echo = FALSE}
+```{r, setup, echo = FALSE, message=FALSE}
+library("officer")
+library("dplyr")
+library("janitor")
+library("flextable")
+library("Reproducibility.in.Plant.Pathology")
+library("tidyr")
+library("DiagrammeR")
+library("DiagrammeRsvg")
+library("rsvg")
+library("ggplot2")
+library("patchwork")
+
 knitr::opts_chunk$set(
   collapse = TRUE,
   warning = FALSE,
@@ -80,21 +60,22 @@ knitr::opts_chunk$set(
   out.width = "100%",
   dpi = 300,
   comment = "#>",
-  dev = "cairo_pdf"
+  dev = "cairo_pdf",
+  cache = TRUE
 )
-
-library("Reproducibility.in.Plant.Pathology")
 ```
 
- \newpage
- 
-# Abstract
+**Keywords: open science, open data, reproducible research, FAIR data**
+
+\newpage
+
+# Abstract {-#abstract}
 
 Open research practices have been highlighted extensively during the last ten years in many fields of study as essential standards needed to promote transparency and reproducibility of scientific results. Scientific claims can only be evaluated based on how protocols, materials, equipment and methods were described; data were collected and prepared, and; analyses conducted. Openly sharing protocols, data and computational code is central for current scholarly dissemination and communication, but in many fields, including plant pathology, adoption of these practices has been slow. We randomly selected 300 articles published from 2012 to 2018 across 21 journals representative of the pathology discipline and assigned them scores reflecting their openness and reproducibility. We found that most of the articles were not very open, failing to share data or code in a meaningful way. We propose that using open source tools for producing open and reproducible work and analysis is advantageous, benefiting not just readers, but the authors as well and provide ideas and tools to promote open, reproducible research practices among plant pathologists.
 
 \newpage
 
-# Introdution
+# Introduction
 
 Modern plant pathological research has many facets given the array of disciplines and sub-disciplines currently involved.
 Collectively, they contribute to increasing our basic and applied knowledge of several aspects of pathogen biology and disease development to ultimately improve plant disease management.
