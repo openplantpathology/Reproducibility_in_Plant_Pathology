@@ -436,6 +436,11 @@ p <- export_svg(
   height = 750
 ))
 rsvg_ps(svg = charToRaw(p), file = "../figures/Sparks et al Figure 1.eps")
+extrafont::embed_fonts(
+   file = ("../figures/Sparks et al Figure 1.eps"),
+   outfile = ("figures/Sparks et al Figure 1.eps"),
+   options = "-dEPSCrop"
+)
 knitr::include_graphics(path = "../figures/Sparks et al Figure 1.eps")
 ```
 
