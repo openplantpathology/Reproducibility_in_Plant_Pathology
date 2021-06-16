@@ -23,7 +23,7 @@ local default_marks
 local default_marks = {
   corresponding_author = FORMAT == 'latex'
     and {pandoc.RawInline('latex', '*')}
-    or {pandoc.Str '✉'},
+    or {pandoc.Str '*'},
   equal_contributor = FORMAT == 'latex'
     and {pandoc.RawInline('latex', '$\\dagger{}$')}
     or {pandoc.Str '*'},
