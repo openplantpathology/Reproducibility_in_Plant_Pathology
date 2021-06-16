@@ -123,7 +123,7 @@ local function create_correspondence_blocks(authors, mark)
   local correspondence = List:new{
     pandoc.Superscript(mark'corresponding_author'),
     pandoc.Space(),
-    pandoc.Str'Correspondence:',
+    pandoc.Str'Corresponding author:',
     pandoc.Space()
   }
   local sep = List:new{pandoc.Str',',  pandoc.Space()}
