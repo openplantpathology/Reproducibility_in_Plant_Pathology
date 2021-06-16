@@ -435,42 +435,46 @@ p <- export_svg(
   width = 1000,
   height = 750
 ))
-rsvg_pdf(charToRaw(p), "Figure 1.pdf")
-
-knitr::include_graphics("Figure 1.pdf")
+rsvg_ps(svg = charToRaw(p), file = "../figures/Sparks et al Figure 1.eps")
+knitr::include_graphics(path = "../figures/Sparks et al Figure 1.eps")
 ```
 
 \newpage
 
-```{r articleScores, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Aggregated article scores for each of the four categories, (i) shows computational methods availability 0 - not available or not mentioned to 3 - freely available online to anonymous users. (ii) presents 'Software availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Expensive proprietary software that only institutions would typically purchase'; '2' was 'Used proprietary software that most individuals can afford (e.g., Excel) or SAS that is now available free for use with a university login'; and '3' was 'Used entirely open source and free software (e.g., R, Julia, Python)'; 'NA' indicates that no specialised software was necessary or used. (iii) displays 'Software citated', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Software mentioned by name only'; '2' was 'Software cited with version number'; and '3' was 'All software components (SAS PROCs, R, Julia or Python packages, etc.) cited'; 'NA' indicates that no specialised software was necessary or used. (iv) shows 'Data availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no data were generated, e.g. a methods paper.", cache=FALSE, fig.env='figure'}
+```{r articleScores, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Aggregated article scores for each of the four categories, (i) shows computational methods availability 0 - not available or not mentioned to 3 - freely available online to anonymous users. (ii) presents 'Software availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Expensive proprietary software that only institutions would typically purchase'; '2' was 'Used proprietary software that most individuals can afford (e.g., Excel) or SAS that is now available free for use with a university login'; and '3' was 'Used entirely open source and free software (e.g., R, Julia, Python)'; 'NA' indicates that no specialised software was necessary or used. (iii) displays 'Software citated', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Software mentioned by name only'; '2' was 'Software cited with version number'; and '3' was 'All software components (SAS PROCs, R, Julia or Python packages, etc.) cited'; 'NA' indicates that no specialised software was necessary or used. (iv) shows 'Data availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no data were generated, e.g. a methods paper.", cache=FALSE, fig.env='figure', out.width=0, out.height=0}
 
 rrpp <- import_notes()
 theme_set(theme_classic())
 i <- ggplot(rrpp, aes(y = as.factor(comp_mthds_avail))) +
   geom_bar() +
-  ggtitle("Computational Methods Availability") +
   ylab("Score") +
   xlab(NULL)
 
 ii <- ggplot(rrpp, aes(y = software_avail)) +
   geom_bar() +
-  ggtitle("Software Availability") +
   xlab(NULL) +
   ylab(NULL)
 
 iii <- ggplot(rrpp, aes(y = software_cite)) +
   geom_bar() +
-  ggtitle("Software Cited") +
   ylab("Score")
 
 iv <- ggplot(rrpp, aes(y = data_avail)) +
   geom_bar() +
-  ggtitle("Data Availability") +
   ylab(NULL)
 
 # put them all together
 p <- (i | ii) / (iii | iv)
-p + plot_annotation(tag_levels = "i")
+p <- p + plot_annotation(tag_levels = "i")
+ggsave(filename = "../figures/Sparks et al Figure 2.eps",
+       plot = p,
+       device = "eps")
+extrafont::embed_fonts(
+   file = ("../figures/Sparks et al Figure 2.eps"),
+   outfile = ("figures/Sparks et al Figure 2.eps"),
+   options = "-dEPSCrop"
+)
+knitr::include_graphics(path = "../figures/Sparks et al Figure 2.eps")
 ```
 
 \newpage
