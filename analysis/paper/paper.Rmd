@@ -364,24 +364,9 @@ scoring_criteria %>%
 
 \newpage
 
-```{r reproducibility_score, echo=FALSE, message=FALSE, warning=FALSE}
-import_notes() %>%
-  tabyl(reproducibility_score) %>%
-  adorn_pct_formatting(digits = 1) %>%
-  rename(Score = reproducibility_score, Percent = percent) %>%
-  mutate(Score = round(Score, digits = 1)) %>%
-  flextable() %>%
-  autofit() %>%
-  set_caption(
-    "Tally of reproducibility scores where '0' is not reproducible and '12' is fully reproducible, e.g., all software cited, software used are freely available to anyone, computational methods (statistical analysis or other computational code) are freely available for download and use, and raw data are available for download and use."
-  )
-```
-
-\newpage
-
 # Figures
 
-```{r workflow-dia, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='An example open and reproducible research workflow. Starting with the question, determine the methodology, describe it, make it available and cite it. Data are used in analysis and any binary files or code are made available as supplements to the manuscript. Source code and raw data are made available in a public repository, preferably with version control for tracking changes through time and a DOI for final released products.', cache=FALSE, fig.env='figure'}
+```{r workflow-dia, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='An example open and reproducible research workflow. Starting with the question, determine the methodology, describe it, make it available and cite it. Data are used in analysis and any binary files or code are made available as supplements to the manuscript. Source code and raw data are made available in a public repository, preferably with version control for tracking changes through time and a DOI for final released products.', cache=FALSE, fig.env='figure', out.width=0, out.height=0}
 
 p <- export_svg(
   grViz(
