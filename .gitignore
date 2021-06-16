@@ -8,3 +8,4 @@ vignettes/.httr-oauth
 .httr-oauth
 *.bib.bak
 inst/extdata/references.bib.sav
+analysis/paper/paper_cache
