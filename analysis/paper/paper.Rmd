@@ -225,7 +225,7 @@ With mandates for openly sharing data becoming more common with funding agencies
 
 # Appendix
 
-## Article Selection
+## Article selection
 
 We randomly selected 300 articles published from 2012 to 2018 across 21 journals (Table \@ref(tab:journals)) and assigned them scores reflecting their openness and reproducibility.
 The journals represented both fundamental and applied areas as well as pathogen or other group-specific publications.
