@@ -51,7 +51,6 @@ knitr::opts_chunk$set(
   warning = FALSE,
   message = FALSE,
   echo = FALSE,
-  fig.path = "../figures/",
   dev = c("postscript"),
   fig.width = 3.31,
   fig.height = 3.31,
