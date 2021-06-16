@@ -62,6 +62,43 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{r fonts, include=FALSE, message=FALSE, eval=FALSE}
+# Note 1: This chunk only needs to be run once on a computer to import fonts for
+# use in R. This chunk makes .ttf fonts available to R for use and embedding in
+# .eps figure outputs.
+#
+# Note 2: GhostScript needs to be installed at the system level for the PS files
+# to be generated.  MacOS users can use `brew install ghostscript`.  Windows
+# users should download and install. Linux users can use their package manager.
+#
+# Note 3: You may need to tell R where to find GhostScript's 'gs' executable.
+# Set `R_GSCMD="/opt/homebrew/bin/gs"` in .Renviron for MacOS users using
+# homebrew to install on a Mac M1.
+# 
+# Windows users can follow these directions:
+# 1.	Go to the GhostScript website
+#  (https://www.ghostscript.com/download/gsdnld.html)
+# 2.	Download the windows installer suitable for your machine
+# 3.	Run the installer file which you downloaded and follow the prompts
+# 4.	After running the installer click the windows "Start" button and type
+# "Edit environment variables for your account" and open
+# 5.	In the tab 'Advanced' click the button at the bottom
+# 'Environment Variables...'
+# 6.	Under 'System variables' find the variable 'Path', select 'Path' and click
+# the 'Edit' button
+# 7. 	Select a new line and copy the Ghostscript 'bin' folder location into the
+# field.
+## 7.1	If you installed ghostscript to the default folder location; then the
+# folder location will likely be "C:\Program Files\gs\gs9.52\bin", the version
+# number (9.52) may differ.
+# 8.	Save and exit the environmental variables window
+# This chunk is then run only if knitting on new computer that the files have
+# not been generated
+
+library("extrafont")
+font_import()
+```
+
 **Keywords: open science, open data, reproducible research, FAIR data**
 
 \newpage
