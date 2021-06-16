@@ -270,7 +270,7 @@ Relatively flat priors were selected with a mean of 0 and a standard deviation o
 The random effects were year and assignee for all models excepting the model which tested for year effects.
 In this model, the random effects were the publication title and assignee.
 
-Models were fit using the `hurdle_gamma()` family function due to zero-inflated continuous data.
+Models were fit using the `hurdle_gamma()` family function due to zero-inflated continuous data and the assumption that a zero value would only come from one process, the scoring.
 Each model was run for 3000 iterations in four chains.
 
 The `adapt_delta()` and `max_treedepth()` values were adjusted as necessary on a case-by-case basis for each of the models to ensure that the chains mixed well.
