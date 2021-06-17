@@ -44,6 +44,7 @@ Suggests:
     bayestestR,
     brms,
     doi2bib,
+    extrafont,
     flextable,
     ggplot2 (>= 3.3.0),
     git2r,
