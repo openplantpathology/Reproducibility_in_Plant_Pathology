@@ -122,6 +122,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "extrafont",
+      "name": "extrafont",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=extrafont"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "flextable",
       "name": "flextable",
       "provider": {
@@ -366,6 +378,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=tidyverse"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "spelling",
+      "name": "spelling",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=spelling"
     }
   ],
   "softwareRequirements": [
@@ -437,6 +461,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "readODS",
+      "name": "readODS",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=readODS"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "rsvg",
       "name": "rsvg",
       "provider": {
@@ -449,7 +485,7 @@
     }
   ],
   "readme": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/main/README.md",
-  "fileSize": "1677.854KB",
+  "fileSize": "346.154KB",
   "developmentStatus": "http://www.repostatus.org/#active",
   "keywords": [
     "plant-pathology",
