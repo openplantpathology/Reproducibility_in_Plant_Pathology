@@ -77,21 +77,22 @@ knitr::opts_chunk$set(
 # 
 # Windows users can follow these directions:
 # 1.	Go to the GhostScript website
-#  (https://www.ghostscript.com/download/gsdnld.html)
+#     <https://www.ghostscript.com/download/gsdnld.html>.
 # 2.	Download the windows installer suitable for your machine
 # 3.	Run the installer file which you downloaded and follow the prompts
 # 4.	After running the installer click the windows "Start" button and type
-# "Edit environment variables for your account" and open
+#     "Edit environment variables for your account" and open
 # 5.	In the tab 'Advanced' click the button at the bottom
-# 'Environment Variables...'
+#     'Environment Variables...'
 # 6.	Under 'System variables' find the variable 'Path', select 'Path' and click
-# the 'Edit' button
+#     the 'Edit' button
 # 7. 	Select a new line and copy the Ghostscript 'bin' folder location into the
-# field.
-## 7.1	If you installed ghostscript to the default folder location; then the
-# folder location will likely be "C:\Program Files\gs\gs9.52\bin", the version
-# number (9.52) may differ.
+#     field.
+## 7.1	If you installed Ghostscript to the default folder location; then the
+#     folder location will likely be "C:\Program Files\gs\gs9.52\bin", the
+#     version number (9.52) may differ.
 # 8.	Save and exit the environmental variables window
+#
 # This chunk is then run only if knitting on new computer that the files have
 # not been generated
 
@@ -122,8 +123,6 @@ Recently, open science has been highlighted with many donors expecting data to b
 Reproducibility is one component under the umbrella of open science.
 By proactively practising open science, the work increases the chance to become more reproducible through the availability of data and code.
 That is, open science leads to reproducibility and replicability.
-
-<!--# not sure we need a separate section for definitions, but present continuously in the text -->
 
 For us to easily discuss the topic, we first must define what we mean so that we may clearly communicate.
 Many of the terms used in this area have varying definitions that may or may not agree with each other.
