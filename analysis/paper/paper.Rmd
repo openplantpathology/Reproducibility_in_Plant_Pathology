@@ -148,7 +148,7 @@ It goes without saying that plant pathologists already provide information on pr
 
 In an effort to understand where as a discipline we stand as plant pathologists in regards to open science and reproducible research, we surveyed a broad selection of articles to represent a broad swathe of publications to evaluate our status.
 We randomly selected 300 articles published from 2012 to 2018 across 21 journals (Table \@ref(tab:journals)) and assigned them scores reflecting their openness and reproducibility.
-The journals represented both fundamental and applied areas as well as pathogen or other group-specific publications (See appendix for details on the methodology).
+The journals represented both fundamental and applied areas as well as pathogen or other group-specific publications (see appendix for details on the methodology).
 
 Forty-eight articles scored 0% out of a possible 100% for reproducibility.
 The mean value was 31.2% and the median value was 33.3%.
