@@ -106,7 +106,13 @@ font_import()
 
 # Abstract {-#abstract}
 
-Open research practices have been highlighted extensively during the last ten years in many fields of scientific study as essential standards needed to promote transparency and reproducibility of scientific results. Scientific claims can only be evaluated based on how protocols, materials, equipment and methods were described; data were collected and prepared; and, analyses were conducted. Openly sharing protocols, data and computational code is central for current scholarly dissemination and communication, but in many fields, including plant pathology, adoption of these practices has been slow. We randomly selected 300 articles published from 2012 to 2018 across 21 journals representative of the plant pathology discipline and assigned them scores reflecting their openness and reproducibility. We found that most of the articles were not following protocols for open science, and were failing to share data or code in a reproducible way. We also propose that use of open-source tools facilitates reproducible work and analyses benefitting not just readers, but the authors as well.  We also provide ideas and tools to promote open, reproducible research practices among plant pathologists.
+Open research practices have been highlighted extensively during the last ten years in many fields of scientific study as essential standards needed to promote transparency and reproducibility of scientific results. 
+Scientific claims can only be evaluated based on how protocols, materials, equipment and methods were described; data were collected and prepared; and, analyses were conducted. 
+Openly sharing protocols, data and computational code is central for current scholarly dissemination and communication, but in many fields, including plant pathology, adoption of these practices has been slow. 
+We randomly selected 300 articles published from 2012 to 2018 across 21 journals representative of the plant pathology discipline and assigned them scores reflecting their openness and reproducibility. 
+We found that most of the articles were not following protocols for open science, and were failing to share data or code in a reproducible way. 
+We also propose that use of open-source tools facilitates reproducible work and analyses benefitting not just readers, but the authors as well.  
+Finally, we also provide ideas and tools to promote open, reproducible research practices among plant pathologists.
 
 \newpage
 
@@ -142,7 +148,9 @@ Therefore, we will follow Peng's [-@Peng2009] definition that provides clear gui
 Therefore our definition of reproducibility will be that the computer code and data are made freely available to others for verification and conducting alternate analyses or for use in instructional purposes.
 And that the software used are also easily obtained and preferably open source to avoid licensing or other issues related to accessibility for end-users related to costs or non-standard file formats, etc.
 
-It goes without saying that plant pathologists already provide information on protocols and chemicals allowing for reproducibility. However, very often biological specimens such as strains, cultures or cultivars are often not available. These cases of a lack of reproducibility will not be covered here.
+It goes without saying that plant pathologists already provide information on protocols and chemicals allowing for reproducibility. 
+However, very often biological specimens such as strains, cultures or cultivars are often not available. 
+These cases of a lack of reproducibility will not be covered here.
 
 ## Where do we stand in regards to reproducibility?
 
@@ -210,9 +218,9 @@ The highest level includes efforts to annotate structured raw data (FAIR -- Find
 The first level, as reported, is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations.
 In the next section we present standards and tools that can be used to ensure reproducibility.
 
-When making your science more open and reproducible, methods, software used, this includes items such as R, Julia or Python packages that were directly used in the analysis or production of the paper, etc. should be cited properly.
+When making your science more open and reproducible, methods, software used (this includes items such as R, Julia or Python packages that were directly used in the analysis or production of the paper, etc.) should be cited properly. 
 Deposit and annotate biological materials with an herbarium or other repository.
-Provide a full description of all equipment used, _e.g._, a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals.
+Provide a full description of all equipment used, _e.g._, 'a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals.'
 This allows end-users to identify what was used and identify the methods used more accurately.
 Just as importantly, this acknowledges the contributions of others whose works were instrumental in your research.
 This also helps ensure that you as a researcher can reconstruct what you have done since you will have good notes and documentation and be able to identify if something changes, _e.g._, a package version, what effect it had on your research.
@@ -220,44 +228,47 @@ This also helps ensure that you as a researcher can reconstruct what you have do
 The use of programming or scripting languages such as R, Julia, SAS or Python enables you as a scientist to keep very detailed records of what was computationally performed.
 This is as opposed to using software such as spreadsheet programs like Excel, Google Sheets, Numbers, Calc or others which can be used for simple statistical analyses and visualization (but should not be) or other point-and-click software packages that do not enable you to keep an accurate record of the steps taken to import, format, visualise and analyse data.
 
-Prefer text files for saving small sets of data.
+Text files for saving small sets of data are preferable. 
 Data that are saved in binary formats such as PDF files are difficult to reuse because they are not easily machine readable.
-In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, _e.g._, comma separated (CSV) files.
+In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, _e.g._, comma separated (CSV) or tab separated (TSV) files.
 This also helps ensure that the data are reusable.
-Larger data sets may warrant the use of a proper database like MariaDB or PostgreSQL which provide users with several benefits but two important ones to mention here are data redundancy, no duplicated records; and data consistency, all of your records are sure to be recorded in the same way for every observation.
-While databases may offer many advantages, the trade-off is that they are more complex to set up and administer, especially for a small data set that might be only a few rows and columns in a database.
+Larger data sets may warrant the use of a proper database like GenGank, MariaDB or PostgreSQL which provide users with several benefits but two important benefits to mention here are (1) data redundancy, ensuring no records are duplicated and (2) data consistency, ensuring that all records in a data set are recorded in the same fromat for every observation.
+While personal databases may offer many advantages, the trade-off is that they are more complex to set up and administer, especially for a small data set. 
+Databases such a Genbank are preferable for molecular data ensuring data integrity and machine readability. 
 
 Ideally, once the data are complete, best practices for keeping your data as you perform your work include treating the raw data as read-only and using file permissions to prevent changes to the raw data files.
 It should be noted, that the use of a database management system also allows for both of these at the expense of added complexity.
 Saving files in proprietary formats such as .xls(x) can also lead to issues in the future when opening using newer (or older) software versions.
 Unexpected changes to values in the data [@Ziemann2016] may also occur when using proprietary formats.
 
-If steps are followed to make the data FAIR then it will be readable by humans and machines alike this will help support discoveries and support further research.
+If steps are followed to make the data FAIR then it will be readable by humans and machines alike and this will help support discoveries and support further research. 
 In turn, sharing data will lead to new citations for your work as others discover and use it.
 To make your data the most widely discoverable and usable, ensure that it has a persistent identifier.
 A digital object identifier (DOI) is the most common ([https://www.doi.org/](https://www.doi.org/)) but the Handle.Net Registry (HNR) ([https://handle.net/](https://handle.net/)) is also an option.
 There are different options for generating a DOI for your data and other materials.
-FigShare, Zenodo and OSF all offer long-term archival along with a service to generate a DOI for your materials.
+FigShare, Zenodo and OSF all offer persistent archives along with a services to generate a DOI for your materials. 
 The use of a persistent identifier works to ensure that even if the data are moved, they can still be located using that unique identifier.
 For more on FAIR data, visit Go-Fair [https://www.go-fair.org/fair-principles/](https://www.go-fair.org/fair-principles/).
 
-Once you have determined how to best manage your source code for analysis and the data sets the next step is to consider how to share your data.
+Once you have determined how to best manage your source code and the data sets for analysis the next step is to consider how to share your data.
 Providers such as FigShare, Dataverse, OSF.io (the Open Science Framework) and Zenodo allow for you to deposit your data and generate a DOI for sharing your project once you are finished with it.
 
 Other providers exist that allow for you to not only track changes but also to share the data openly, these include GitHub, Gitlab and Bitbucket.
 GitHub is arguably the most popular and widely used software development platform currently.
-Data that is encoded in CSV or other plain text formats can easily be deposited in a repository along with code for analysis to enable changes to be tracked and other users to download and replicate the work.
+Data that is encoded in CSV or other plain text formats can easily be deposited in a repository along with code for analysis to enable tracking of changes and other users to download and replicate the work.
 
-We would advise against the practice of depositing data on a laboratory website or a site such as GitHub only are not an optimal way to preserve and share your work over the long term.
+We would advise against the practice of depositing data on a laboratory website or a site such as GitHub only as these are not an optimal way to preserve and share your work over the long term. 
 Doing either of these leaves the work in an unstable state where future users may be unable to access the work as they are fraught with link-rot and other issues.
-It is a best practice to always ensure that you have deposited the data with a provider such as Zenodo, FigShare or OSF and generated a DOI for the materials to help ensure continued accessibility.
+It is a best practice to always ensure that you have deposited the data with a provider such as Genbank, Zenodo, FigShare or OSF and generated a DOI for the materials to help ensure continued accessibility.
 Many of these providers provide rather easy ways to link the project with a software development repository to help ensure that the data are available in perpetuity.
 If readers are uncertain, we suggest to also consult with local librarians about possible resources.
-Most universities some other research-focused workplaces provide a facility for staff to deposit papers and other academic materials, but this may extend to software development repositories as well.
+Most universities and other research-focused workplaces provide a facility for staff to deposit papers and other academic materials, but this may extend to software development repositories as well.
+The importnat aspect is that data once deposited cannot be modified anymore. 
 
 In this work we have evaluated the state of reproducibility in the plant pathology literature and presented suggestions for areas of improvement.
 One of the most important messages that we would like to share is that there is more to the work than just the paper.
-Sharing materials detailing the analysis that was performed and documenting the data provide citable products and enhance the manuscript providing the reader with a richer set of information with which to understand the work that was performed and often leads to greater impact than for works that do not share data and or code.
+Sharing materials detailing the analysis that was performed and documenting the data provide citable products and enhance the manuscript providing the reader with a richer set of information with which to understand the work that was performed.
+This open sharing of code and data often leads to greater impact as work is cited if resources such as code or data are reused.
 With mandates for openly sharing data becoming more common with funding agencies, we can and should embrace this and move the discipline forward and have a greater impact with our work.
 
 # Appendix
@@ -405,7 +416,7 @@ scoring_criteria %>%
 
 # Figures
 
-```{r workflow-dia, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='An example open and reproducible research workflow. Starting with the question, determine the methodology, describe it, make it available and cite it. Data are used in analysis and any binary files or code are made available as supplements to the manuscript. Source code and raw data are made available in a public repository, preferably with version control for tracking changes through time and a DOI for final released products.', cache=FALSE, fig.env='figure', out.width=0, out.height=0}
+```{r workflow-dia, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='An example of an open and reproducible research workflow. Starting with the question, determine the methodology, describe it, make it available and cite it. Data are used in analysis and any binary files or code are made available as supplements to the manuscript. Source code and raw data are made available in a public repository, preferably with version control for tracking changes through time, and a DOI for final released products.', cache=FALSE, fig.env='figure', out.width=0, out.height=0}
 
 p <- export_svg(
   grViz(
