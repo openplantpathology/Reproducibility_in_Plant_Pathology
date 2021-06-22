@@ -132,7 +132,7 @@ That is, open science leads to reproducibility and replicability.
 
 For us to easily discuss the topic, we first must define what we mean so that we may clearly communicate.
 Many of the terms used in this area have varying definitions that may or may not agree with each other.
-For instance, reproducible research was recently highlighted by many authors [@preeyanon2018; @Wallach2018; @Baker2016a; @Iqbal2016; @Nature2016; @Patil2016; @Weissgerber2016; @Brunsdon2015; @Sweedler2015; @Fitzjohn2014; @Ioannidis2014; @Fidler2013; @Stodden2013] as an important issue.
+For instance, reproducible research was recently highlighted by many authors [@Tiwari_2021; @preeyanon2018; @Wallach2018; @Baker2016a; @Iqbal2016; @Nature2016; @Patil2016; @Weissgerber2016; @Brunsdon2015; @Sweedler2015; @Fitzjohn2014; @Ioannidis2014; @Fidler2013; @Stodden2013] as an important issue.
 
 <!--# These references above are all prior 2017. We may want to update the list? I've added two using insert citation tool of the visual editor rmarkdown -->
 
