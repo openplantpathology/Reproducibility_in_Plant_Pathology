@@ -171,7 +171,7 @@ More articles did a good job of using software that was reasonably available to 
 Software citations were also reasonably well reported in the literature with 120 scoring '2' where the main software was cited with version numbers and 57 scoring '3' where full citations including R packages or the SAS PROC used were cited where appropriate (Figure \@ref(fig:articleScores)iii).
 
 However, data availability was mostly not available with 243 or 81.5% scoring 0' where the data was not available or mentioned in the article.
-However, more articles, 29 or 9.7%, scored "3" than "1" or "2" combined, with two articles not producing shareable data (Figure \@ref(fig:articleScores)iv).
+However, more articles, 29 or 9.7%, scored '3' than "1' or '2' combined, with two articles not producing shareable data (Figure \@ref(fig:articleScores)iv).
 
 The most frequently cited software was SAS.
 The remainder were mostly specialised software except for Microsoft Excel, tied for 9th (Table \@ref(tab:software-used)).
@@ -232,9 +232,9 @@ Text files for saving small sets of data are preferable.
 Data that are saved in binary formats such as PDF files are difficult to reuse because they are not easily machine readable.
 In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, _e.g._, comma separated (CSV) or tab separated (TSV) files.
 This also helps ensure that the data are reusable.
-Larger data sets may warrant the use of a proper database like GenGank, MariaDB or PostgreSQL which provide users with several benefits but two important benefits to mention here are (1) data redundancy, ensuring no records are duplicated and (2) data consistency, ensuring that all records in a data set are recorded in the same fromat for every observation.
+Larger data sets may warrant the use of a proper database like GenBank, MariaDB or PostgreSQL which provide users with several benefits but two important benefits to mention here are (1) data redundancy, ensuring no records are duplicated and (2) data consistency, ensuring that all records in a data set are recorded in the same format for every observation.
 While personal databases may offer many advantages, the trade-off is that they are more complex to set up and administer, especially for a small data set. 
-Databases such a Genbank are preferable for molecular data ensuring data integrity and machine readability. 
+Databases such a GenBank are preferable for molecular data ensuring data integrity and machine readability. 
 
 Ideally, once the data are complete, best practices for keeping your data as you perform your work include treating the raw data as read-only and using file permissions to prevent changes to the raw data files.
 It should be noted, that the use of a database management system also allows for both of these at the expense of added complexity.
@@ -259,11 +259,11 @@ Data that is encoded in CSV or other plain text formats can easily be deposited 
 
 We would advise against the practice of depositing data on a laboratory website or a site such as GitHub only as these are not an optimal way to preserve and share your work over the long term. 
 Doing either of these leaves the work in an unstable state where future users may be unable to access the work as they are fraught with link-rot and other issues.
-It is a best practice to always ensure that you have deposited the data with a provider such as Genbank, Zenodo, FigShare or OSF and generated a DOI for the materials to help ensure continued accessibility.
+It is a best practice to always ensure that you have deposited the data with a provider such as GenBank, Zenodo, FigShare or OSF and generated a DOI for the materials to help ensure continued accessibility.
 Many of these providers provide rather easy ways to link the project with a software development repository to help ensure that the data are available in perpetuity.
 If readers are uncertain, we suggest to also consult with local librarians about possible resources.
 Most universities and other research-focused workplaces provide a facility for staff to deposit papers and other academic materials, but this may extend to software development repositories as well.
-The importnat aspect is that data once deposited cannot be modified anymore. 
+The important aspect is that data once deposited cannot be modified any more. 
 
 In this work we have evaluated the state of reproducibility in the plant pathology literature and presented suggestions for areas of improvement.
 One of the most important messages that we would like to share is that there is more to the work than just the paper.
