@@ -150,7 +150,7 @@ And that the software used are also easily obtained and preferably open source t
 
 It goes without saying that plant pathologists already provide information on protocols and chemicals allowing for reproducibility. 
 However, very often biological specimens such as strains, cultures or cultivars are often not available. 
-These cases constitute a lack of a lack of reproducibility but will not be covered here.
+These cases do constitute a lack of reproducibility but will not be covered here.
 
 ## Where do we stand in regards to reproducibility?
 
