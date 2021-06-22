@@ -5,7 +5,7 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "Reproducibility.in.Plant.Pathology",
-  "description": "A research compendium for the paper, \"xxxxxx\", published in \"xxxxxx\".",
+  "description": "A research compendium for the letter to the editor,\n    \"Reproducibility in plant pathology: where do we stand and a way forward\",\n    published in \"xxxxxx\".",
   "name": "Reproducibility.in.Plant.Pathology: A Systematic Quantitative Review of Articles Providing a Basis for Identifying Reproducible Research Efforts the Field of Plant Pathology",
   "codeRepository": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology",
   "issueTracker": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/issues",
@@ -34,8 +34,8 @@
     },
     {
       "@type": "Person",
-      "givenName": "Kaique",
-      "familyName": "dos Santos Alves",
+      "givenName": "Kaique S.",
+      "familyName": "Alves",
       "email": "kaiquedsalves@gmail.com",
       "@id": "https://orcid.org/0000-0001-9187-0252"
     },
@@ -485,7 +485,7 @@
     }
   ],
   "readme": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/main/README.md",
-  "fileSize": "346.154KB",
+  "fileSize": "346.506KB",
   "developmentStatus": "http://www.repostatus.org/#active",
   "keywords": [
     "plant-pathology",
@@ -511,8 +511,8 @@
         },
         {
           "@type": "Person",
-          "givenName": "Kaique",
-          "familyName": "dos Santos Alves"
+          "givenName": "Kaique S.",
+          "familyName": "Alves"
         },
         {
           "@type": "Person",

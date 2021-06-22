@@ -11,7 +11,7 @@ Authors@R: c(
     role = "aut",
     email = "edelponte@gmail.com",
     comment = c(ORCID = "0000-0003-4398-409X")),
-    person(given = "Kaique", family = "dos Santos Alves",
+    person(given = "Kaique S.", family = "Alves",
     role = "aut",
     email = "kaiquedsalves@gmail.com",
     comment = c(ORCID = "https://orcid.org/0000-0001-9187-0252")),

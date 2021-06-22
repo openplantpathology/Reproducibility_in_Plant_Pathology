@@ -109,7 +109,7 @@
 
       
 
-      </header><script src="f_analysis_journal_files/header-attrs-2.9/header-attrs.js"></script><div class="row">
+      </header><script src="f_analysis_journal_files/header-attrs-2.8/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Analysis of Journal Effect</h1>
@@ -142,13 +142,13 @@
 <span class="co">#&gt;     ar</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://easystats.github.io/bayestestR/">"bayestestR"</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://mc-stan.org/bayesplot/">"bayesplot"</a></span><span class="op">)</span>
-<span class="co">#&gt; This is bayesplot version 1.8.1</span>
+<span class="co">#&gt; This is bayesplot version 1.8.0</span>
 <span class="co">#&gt; - Online documentation and vignettes at mc-stan.org/bayesplot</span>
 <span class="co">#&gt; - bayesplot theme set to bayesplot::theme_default()</span>
 <span class="co">#&gt;    * Does _not_ affect other ggplot2 plots</span>
 <span class="co">#&gt;    * See ?bayesplot_theme_set for details on theme setting</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://ggplot2.tidyverse.org">"ggplot2"</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://rapporter.github.io/pander/">"pander"</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="http://rapporter.github.io/pander">"pander"</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology">"Reproducibility.in.Plant.Pathology"</a></span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>mc.cores <span class="op">=</span> <span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/detectCores.html">detectCores</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
@@ -740,9 +740,9 @@
 <span class="co">#&gt;  assertthat                           0.2.1      2019-03-21 [2]</span>
 <span class="co">#&gt;  backports                            1.2.1      2020-12-09 [2]</span>
 <span class="co">#&gt;  base64enc                            0.1-3      2015-07-28 [2]</span>
-<span class="co">#&gt;  bayesplot                          * 1.8.1      2021-06-14 [2]</span>
+<span class="co">#&gt;  bayesplot                          * 1.8.0      2021-01-10 [2]</span>
 <span class="co">#&gt;  bayestestR                         * 0.10.0     2021-05-31 [2]</span>
-<span class="co">#&gt;  boot                                 1.3-28     2021-05-03 [3]</span>
+<span class="co">#&gt;  boot                                 1.3-28     2021-05-03 [2]</span>
 <span class="co">#&gt;  bridgesampling                       1.1-2      2021-04-16 [2]</span>
 <span class="co">#&gt;  brms                               * 2.15.0     2021-03-14 [2]</span>
 <span class="co">#&gt;  Brobdingnag                          1.2-6      2018-08-13 [2]</span>
@@ -751,7 +751,7 @@
 <span class="co">#&gt;  callr                                3.7.0      2021-04-20 [2]</span>
 <span class="co">#&gt;  cli                                  2.5.0      2021-04-26 [2]</span>
 <span class="co">#&gt;  coda                                 0.19-4     2020-09-30 [2]</span>
-<span class="co">#&gt;  codetools                            0.2-18     2020-11-04 [3]</span>
+<span class="co">#&gt;  codetools                            0.2-18     2020-11-04 [2]</span>
 <span class="co">#&gt;  colorspace                           2.0-1      2021-05-04 [2]</span>
 <span class="co">#&gt;  colourpicker                         1.1.0      2020-09-14 [2]</span>
 <span class="co">#&gt;  crayon                               1.4.1      2021-02-08 [2]</span>
@@ -760,7 +760,7 @@
 <span class="co">#&gt;  DBI                                  1.1.1      2021-01-15 [2]</span>
 <span class="co">#&gt;  desc                                 1.3.0      2021-03-05 [2]</span>
 <span class="co">#&gt;  digest                               0.6.27     2020-10-24 [2]</span>
-<span class="co">#&gt;  dplyr                                1.0.7      2021-06-18 [2]</span>
+<span class="co">#&gt;  dplyr                                1.0.6      2021-05-05 [2]</span>
 <span class="co">#&gt;  DT                                   0.18       2021-04-14 [2]</span>
 <span class="co">#&gt;  dygraphs                             1.1.1.6    2018-07-11 [2]</span>
 <span class="co">#&gt;  effectsize                           0.4.5      2021-05-25 [2]</span>
@@ -774,12 +774,12 @@
 <span class="co">#&gt;  fs                                   1.5.0      2020-07-31 [2]</span>
 <span class="co">#&gt;  gamm4                                0.2-6      2020-04-03 [2]</span>
 <span class="co">#&gt;  generics                             0.1.0      2020-10-31 [2]</span>
-<span class="co">#&gt;  ggplot2                            * 3.3.4      2021-06-16 [2]</span>
+<span class="co">#&gt;  ggplot2                            * 3.3.3      2020-12-30 [2]</span>
 <span class="co">#&gt;  ggridges                             0.5.3      2021-01-08 [2]</span>
 <span class="co">#&gt;  glue                                 1.4.2      2020-08-27 [2]</span>
 <span class="co">#&gt;  gridExtra                            2.3        2017-09-09 [2]</span>
 <span class="co">#&gt;  gtable                               0.3.0      2019-03-25 [2]</span>
-<span class="co">#&gt;  gtools                               3.9.2      2021-06-06 [2]</span>
+<span class="co">#&gt;  gtools                               3.8.2      2020-03-31 [2]</span>
 <span class="co">#&gt;  highr                                0.9        2021-04-16 [2]</span>
 <span class="co">#&gt;  hms                                  1.1.0      2021-05-17 [2]</span>
 <span class="co">#&gt;  htmltools                            0.5.1.1    2021-01-22 [2]</span>
@@ -793,26 +793,25 @@
 <span class="co">#&gt;  knitr                                1.33       2021-04-24 [2]</span>
 <span class="co">#&gt;  labeling                             0.4.2      2020-10-20 [2]</span>
 <span class="co">#&gt;  later                                1.2.0      2021-04-23 [2]</span>
-<span class="co">#&gt;  lattice                              0.20-44    2021-05-02 [3]</span>
+<span class="co">#&gt;  lattice                              0.20-44    2021-05-02 [2]</span>
 <span class="co">#&gt;  lifecycle                            1.0.0      2021-02-15 [2]</span>
 <span class="co">#&gt;  lme4                                 1.1-27     2021-05-15 [2]</span>
 <span class="co">#&gt;  loo                                  2.4.1      2020-12-09 [2]</span>
 <span class="co">#&gt;  magrittr                             2.0.1      2020-11-17 [2]</span>
 <span class="co">#&gt;  markdown                             1.1        2019-08-07 [2]</span>
-<span class="co">#&gt;  MASS                                 7.3-54     2021-05-03 [3]</span>
-<span class="co">#&gt;  Matrix                               1.3-3      2021-05-04 [3]</span>
+<span class="co">#&gt;  MASS                                 7.3-54     2021-05-03 [2]</span>
+<span class="co">#&gt;  Matrix                               1.3-3      2021-05-04 [2]</span>
 <span class="co">#&gt;  matrixStats                          0.59.0     2021-06-01 [2]</span>
 <span class="co">#&gt;  memoise                              2.0.0      2021-01-26 [2]</span>
-<span class="co">#&gt;  mgcv                                 1.8-35     2021-04-18 [3]</span>
+<span class="co">#&gt;  mgcv                                 1.8-35     2021-04-18 [2]</span>
 <span class="co">#&gt;  mime                                 0.10       2021-02-13 [2]</span>
 <span class="co">#&gt;  miniUI                               0.1.1.1    2018-05-18 [2]</span>
 <span class="co">#&gt;  minqa                                1.2.4      2014-10-09 [2]</span>
-<span class="co">#&gt;  multcomp                             1.4-17     2021-04-29 [3]</span>
 <span class="co">#&gt;  munsell                              0.5.0      2018-06-12 [2]</span>
-<span class="co">#&gt;  mvtnorm                              1.1-2      2021-06-07 [2]</span>
-<span class="co">#&gt;  nlme                                 3.1-152    2021-02-04 [3]</span>
+<span class="co">#&gt;  mvtnorm                              1.1-1      2020-06-09 [2]</span>
+<span class="co">#&gt;  nlme                                 3.1-152    2021-02-04 [2]</span>
 <span class="co">#&gt;  nloptr                               1.2.2.2    2020-07-02 [2]</span>
-<span class="co">#&gt;  pander                             * 0.6.4      2021-06-13 [2]</span>
+<span class="co">#&gt;  pander                             * 0.6.3      2018-11-06 [2]</span>
 <span class="co">#&gt;  parameters                           0.14.0     2021-05-29 [2]</span>
 <span class="co">#&gt;  pillar                               1.6.1      2021-05-16 [2]</span>
 <span class="co">#&gt;  pkgbuild                             1.2.0      2020-12-15 [2]</span>
@@ -826,7 +825,7 @@
 <span class="co">#&gt;  ps                                   1.6.0      2021-02-28 [2]</span>
 <span class="co">#&gt;  purrr                                0.3.4      2020-04-17 [2]</span>
 <span class="co">#&gt;  R6                                   2.5.0      2020-10-28 [2]</span>
-<span class="co">#&gt;  ragg                                 1.1.3      2021-06-09 [2]</span>
+<span class="co">#&gt;  ragg                                 1.1.2      2021-03-17 [2]</span>
 <span class="co">#&gt;  Rcpp                               * 1.0.6      2021-01-15 [2]</span>
 <span class="co">#&gt;  RcppParallel                         5.1.4      2021-05-04 [2]</span>
 <span class="co">#&gt;  readODS                              1.7.0      2020-07-10 [2]</span>
@@ -834,14 +833,13 @@
 <span class="co">#&gt;  Reproducibility.in.Plant.Pathology * 0.0.1-2    2021-06-22 [1]</span>
 <span class="co">#&gt;  reshape2                             1.4.4      2020-04-09 [2]</span>
 <span class="co">#&gt;  rlang                                0.4.11     2021-04-30 [2]</span>
-<span class="co">#&gt;  rmarkdown                            2.9        2021-06-15 [2]</span>
+<span class="co">#&gt;  rmarkdown                            2.8        2021-05-07 [2]</span>
 <span class="co">#&gt;  rprojroot                            2.0.2      2020-11-15 [2]</span>
 <span class="co">#&gt;  rsconnect                            0.8.18     2021-05-24 [2]</span>
 <span class="co">#&gt;  rstan                                2.21.2     2020-07-27 [2]</span>
 <span class="co">#&gt;  rstantools                           2.1.1      2020-07-06 [2]</span>
 <span class="co">#&gt;  rstudioapi                           0.13       2020-11-12 [2]</span>
-<span class="co">#&gt;  sandwich                             3.0-1      2021-05-18 [3]</span>
-<span class="co">#&gt;  sass                                 0.4.0.9000 2021-05-27 [2]</span>
+<span class="co">#&gt;  sass                                 0.4.0.9000 2021-06-16 [2]</span>
 <span class="co">#&gt;  scales                               1.1.1      2020-05-11 [2]</span>
 <span class="co">#&gt;  see                                  0.6.4      2021-05-29 [2]</span>
 <span class="co">#&gt;  sessioninfo                          1.1.1      2018-11-05 [2]</span>
@@ -852,10 +850,8 @@
 <span class="co">#&gt;  StanHeaders                          2.21.0-7   2020-12-17 [2]</span>
 <span class="co">#&gt;  stringi                              1.6.2      2021-05-17 [2]</span>
 <span class="co">#&gt;  stringr                              1.4.0      2019-02-10 [2]</span>
-<span class="co">#&gt;  survival                             3.2-11     2021-04-26 [3]</span>
 <span class="co">#&gt;  systemfonts                          1.0.2      2021-05-11 [2]</span>
-<span class="co">#&gt;  textshaping                          0.3.5      2021-06-09 [2]</span>
-<span class="co">#&gt;  TH.data                              1.0-10     2019-01-21 [3]</span>
+<span class="co">#&gt;  textshaping                          0.3.4      2021-05-11 [2]</span>
 <span class="co">#&gt;  threejs                              0.3.3      2020-01-21 [2]</span>
 <span class="co">#&gt;  tibble                               3.1.2      2021-05-16 [2]</span>
 <span class="co">#&gt;  tidyselect                           1.1.1      2021-04-30 [2]</span>
@@ -863,14 +859,13 @@
 <span class="co">#&gt;  V8                                   3.4.2      2021-05-01 [2]</span>
 <span class="co">#&gt;  vctrs                                0.3.8      2021-04-29 [2]</span>
 <span class="co">#&gt;  withr                                2.4.2      2021-04-18 [2]</span>
-<span class="co">#&gt;  xfun                                 0.24       2021-06-15 [2]</span>
+<span class="co">#&gt;  xfun                                 0.23       2021-05-15 [2]</span>
 <span class="co">#&gt;  xml2                                 1.3.2      2020-04-23 [2]</span>
 <span class="co">#&gt;  xtable                               1.8-4      2019-04-21 [2]</span>
 <span class="co">#&gt;  xts                                  0.12.1     2020-09-09 [2]</span>
 <span class="co">#&gt;  yaml                                 2.2.1      2020-02-01 [2]</span>
 <span class="co">#&gt;  zoo                                  1.8-9      2021-03-09 [2]</span>
 <span class="co">#&gt;  source                       </span>
-<span class="co">#&gt;  CRAN (R 4.1.0)               </span>
 <span class="co">#&gt;  CRAN (R 4.1.0)               </span>
 <span class="co">#&gt;  CRAN (R 4.1.0)               </span>
 <span class="co">#&gt;  CRAN (R 4.1.0)               </span>
@@ -974,7 +969,6 @@
 <span class="co">#&gt;  CRAN (R 4.1.0)               </span>
 <span class="co">#&gt;  CRAN (R 4.1.0)               </span>
 <span class="co">#&gt;  CRAN (R 4.1.0)               </span>
-<span class="co">#&gt;  CRAN (R 4.1.0)               </span>
 <span class="co">#&gt;  Github (rstudio/sass@f148415)</span>
 <span class="co">#&gt;  CRAN (R 4.1.0)               </span>
 <span class="co">#&gt;  CRAN (R 4.1.0)               </span>
@@ -1001,12 +995,9 @@
 <span class="co">#&gt;  CRAN (R 4.1.0)               </span>
 <span class="co">#&gt;  CRAN (R 4.1.0)               </span>
 <span class="co">#&gt;  CRAN (R 4.1.0)               </span>
-<span class="co">#&gt;  CRAN (R 4.1.0)               </span>
-<span class="co">#&gt;  CRAN (R 4.1.0)               </span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; [1] /private/var/folders/hc/tft3s5bn48gb81cs99mycyf00000gn/T/RtmpveS9nz/temp_libpath5734182452dd</span>
-<span class="co">#&gt; [2] /Users/adamsparks/Library/R/4.1/library</span>
-<span class="co">#&gt; [3] /Library/Frameworks/R.framework/Versions/4.1-arm64/Resources/library</span></code></pre></div>
+<span class="co">#&gt; [1] /private/var/folders/tr/fwv720l96bz2btcr0jr_gs840000gn/T/RtmpYsjTBC/temp_libpathdb1756632ea7</span>
+<span class="co">#&gt; [2] /Library/Frameworks/R.framework/Versions/4.1-arm64/Resources/library</span></code></pre></div>
 </div>
   </div>
 
@@ -1021,7 +1012,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Adam H. Sparks, Emerson M. Del Ponte, Kaique dos Santos Alves, Zachary S. L. Foster, Niklaus J. Grünwald.</p>
+  <p>Developed by Adam H. Sparks, Emerson M. Del Ponte, Kaique S. Alves, Zachary S. L. Foster, Niklaus J. Grünwald.</p>
 </div>
 
 <div class="pkgdown">

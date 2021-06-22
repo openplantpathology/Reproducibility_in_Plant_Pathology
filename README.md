@@ -12,24 +12,24 @@ developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repo
 
 This repository contains the data and code for our paper:
 
-> Sparks, A.H., Del Ponte, E.M., dos Santos Alves, K., Foster, Z.,
-> Grünwald, N.J. (YYYY). *Reproducibility in plant pathology: where do we stand and a way forward*. Name of journal/book
-> <https://doi.org/xxx/xxx>
+> Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
+> J. (YYYY). *Reproducibility in plant pathology: where do we stand and
+> a way forward*. Name of journal/book <https://doi.org/xxx/xxx>
 
 Our pre-print is online here:
 
-> Authors, (YYYY). *Reproducibility in plant pathology: where do we stand and a way forward*. Name of journal/book, Accessed 14
-> Jun 2021. Online at <https://doi.org/xxx/xxx>
+> Authors, (YYYY). *Reproducibility in plant pathology: where do we
+> stand and a way forward*. Name of journal/book, Accessed 22 Jun 2021.
+> Online at <https://doi.org/xxx/xxx>
 
 ### How to cite
 
 Please cite this compendium as:
 
-> Sparks, A.H., Del Ponte, E.M., dos Santos Alves, K., Foster, Z.,
-> Grünwald, N.J. (2021). *Compendium of R code and data for ‘Status and
-> Best Practices for Reproducible Research In Plant Pathology’*.
-> Accessed 14 Jun 2021. Online at
-> <https://doi.org/10.5281/zenodo.1250665>
+> Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
+> J. (2021). *Compendium of R code and data for ‘Status and Best
+> Practices for Reproducible Research In Plant Pathology’*. Accessed 22
+> Jun 2021. Online at <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
 

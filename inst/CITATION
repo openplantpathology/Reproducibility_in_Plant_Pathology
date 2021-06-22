@@ -5,7 +5,7 @@ bibentry(bibtype = "Manual",
          title = "{Reproducibility.in.Plant.Pathology}: A Systematic Quantitative Review of Articles Providing a Basis for Identifying Reproducible Research Efforts the Field of Plant Pathology",
          author = c(person("Adam H.", "Sparks"),
                     person("Emerson M.", "Del Ponte"),
-                    person("Kaique", "dos Santos Alves"),
+                    person("Kaique S.", "Alves"),
                     person("Zachary S. L.", "Foster"),
                     person("Niklaus J.", "Grünwald")),
          year = year,
@@ -14,7 +14,7 @@ bibentry(bibtype = "Manual",
          DOI = "10.5281/zenodo.1250664")
 
 textVersion =
-  paste0("Adam H. Sparks, Emerson M. Del Ponte, Kaique dos Santos Alves, Zachary Foster and Niklaus J. Grünwald (",
+  paste0("Adam H. Sparks, Emerson M. Del Ponte, Kaique S. Alves, Zachary Foster and Niklaus J. Grünwald (",
          year,
          "). Reproducibility.in.Plant.Pathology: A Systematic Quantitative Review of Articles Providing a Basis for Identifying Reproducible Research Efforts the Field of Plant Pathology",
          note, ". DOI: 10.5281/zenodo.1250664")

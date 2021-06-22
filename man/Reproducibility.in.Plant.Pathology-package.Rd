@@ -24,7 +24,7 @@ Useful links:
 Authors:
 \itemize{
   \item Emerson M. Del Ponte \email{edelponte@gmail.com} (\href{https://orcid.org/0000-0003-4398-409X}{ORCID})
-  \item Kaique dos Santos Alves \email{kaiquedsalves@gmail.com} (\href{https://orcid.org/0000-0001-9187-0252}{ORCID})
+  \item Kaique S. Alves \email{kaiquedsalves@gmail.com} (\href{https://orcid.org/0000-0001-9187-0252}{ORCID})
   \item Zachary S. L. Foster \email{zacharyfoster1989@gmail.com} (\href{https://orcid.org/0000-0002-5075-0948}{ORCID})
   \item Niklaus J. Grünwald \email{grunwaln@science.oregonstate.edu} (\href{https://orcid.org/0000-0003-1656-7602}{ORCID})
 }

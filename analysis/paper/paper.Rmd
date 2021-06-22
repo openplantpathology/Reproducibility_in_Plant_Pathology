@@ -7,7 +7,7 @@ author:
       correspondence: true
   - Emerson Del Ponte:
       institute: UFV
-  - Kaique dos Santos Alves:
+  - Kaique S. Alves:
       institute: UFV
   - Zachary S. L. Foster:
       institute: OSU
