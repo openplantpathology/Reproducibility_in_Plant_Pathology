@@ -266,22 +266,21 @@ Most universities and other research-focused workplaces provide a facility for s
 The important aspect is that data once deposited cannot be modified any more.
 
 In this work we have evaluated the state of reproducibility in the plant pathology literature and presented suggestions for areas of improvement.
-One of the most important messages that we would like to share is that there is more to the work than just the paper.
-Sharing materials detailing the analysis that was performed and documenting the data provide citable products and enhance the manuscript providing the reader with a richer set of information with which to understand the work that was performed.
-This open sharing of code and data often leads to greater impact as work is cited if resources such as code or data are reused.
-With mandates for openly sharing data becoming more common with funding agencies, we can and should embrace this and move the discipline forward and have a greater impact with our work.
-
 As we prepared this letter, we became more aware of the urgent need to spread and establish an open science attitude and culture among plant pathologists.
 To assist in fostering this sort of change in our discipline, Open Plant Pathology (OPP), <https://www.openplantpathology.org>, an institution-independent and non-funded initiative, was founded in January 2018 by two of this letter's co-authors, Del Ponte and Sparks, in 2018 with the following vision: “foster a diverse community culture that values openness, transparency and reproducibility of scientific research data and methods in our field”.
 We started OPP with a minimal infrastructure and support from other enthusiastic colleagues that allows members to interact sharing and gathering ideas on how we can improve the openness and reproducibility in our discipline.
 
 We  believe that adopting an attitude of open and collaborative science and using the best reproducibility practices in our daily work, directly benefits us as researchers.
-
-<!-- need to edit this portion
 For example, between complicated analyses, reviews and revisions and questions years later about the data that was collected or analysis that was conducted, it is extremely beneficial to be able to easily reproduce your work quickly and easily.
-Second, it is beneficial to the reviewer in understanding and providing suggestions for improvements when reviewing and the end-user or reader to be able to verify the validity of the methods used and recreate the analysis which helps with knowledge transfer.
-Lastly, sharing work openly and making it discoverable can lead to new collaborations. 
-end edit portion -->
+This letter was drafted over the course of several years as the authors had time to devote to it.
+Having everything in a reproducible framework made it easy to resume work and set-aside as necessary without losing information and having everything well-documented made it more simple to do this.
+Second, it benefits the reviewer by aiding their understanding of the work done and gives them more materials to use to make suggestions for improvements when reviewing and the end-user or reader is better able to verify the validity of the methods used and recreate the analysis.
+Perhaps more importantly, sharing these details help with knowledge transfer by showing other interested parties how something was done rather than simply describing it.
+Lastly, openly sharing your work and making it discoverable can lead to new collaborations and synergistic ideas.
+One of the most important messages that we would like to share is that there is more to the work than just the paper.
+Sharing materials detailing the analysis that was performed and documenting the data provide citable products and enhance the manuscript providing the reader with a richer set of information with which to understand the work that was performed.
+This open sharing of code and data often leads to greater impact as work is cited if resources such as code or data are reused.
+With mandates for openly sharing data becoming more common with funding agencies, we can and should embrace this and move the discipline forward and have a greater impact with our work.
 
 # Appendix
 
