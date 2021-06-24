@@ -19,7 +19,7 @@ This repository contains the data and code for our paper:
 Our pre-print is online here:
 
 > Authors, (YYYY). *Reproducibility in plant pathology: where do we
-> stand and a way forward*. Name of journal/book, Accessed 22 Jun 2021.
+> stand and a way forward*. Name of journal/book, Accessed 24 Jun 2021.
 > Online at <https://doi.org/xxx/xxx>
 
 ### How to cite
@@ -28,7 +28,7 @@ Please cite this compendium as:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
 > J. (2021). *Compendium of R code and data for ‘Status and Best
-> Practices for Reproducible Research In Plant Pathology’*. Accessed 22
+> Practices for Reproducible Research In Plant Pathology’*. Accessed 24
 > Jun 2021. Online at <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
@@ -79,7 +79,7 @@ necessary to re-knit the MS Word document of the paper from an Rmd file,
 “/analysis/paper/paper.Rmd”.
 
 A script, `knit_paper.R`, is located in `analysis/paper/knit_paper.R`
-that will knit the Word document.
+that will knit the Word document in a Docker session.
 
 ## Meta
 
