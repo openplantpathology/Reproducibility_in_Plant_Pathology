@@ -5,8 +5,8 @@
 #' reproducibility score. Also adds the 2 and 5 year impact factor values from
 #' InCites Journal Citation Reports for 2018.
 #'
-#' @return A `tibble` object of reproducibility score notes formatted for use in
-#' analysis and manuscript preparation
+#' @return A [tibble::tibble()] object of reproducibility score notes formatted
+#' for use in analysis and manuscript preparation
 #' @export import_notes
 #'
 #' @examplesIf interactive()

@@ -7,8 +7,8 @@
 import_notes()
 }
 \value{
-A `tibble` object of reproducibility score notes formatted for use in
-analysis and manuscript preparation
+A [tibble::tibble()] object of reproducibility score notes formatted
+for use in analysis and manuscript preparation
 }
 \description{
 Imports, formats data into proper types and calculates the final
