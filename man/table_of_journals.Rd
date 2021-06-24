@@ -15,13 +15,3 @@ table_of_journals(rrpp)
 \description{
 Create table of journals surveyed
 }
-\examples{
-\donttest{
-googlesheets4::gs4_deauth()
-rrpp <- googlesheets4::read_sheet(
-"https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M"
-)
-table_of_journals(rrpp)
-}
-
-}
