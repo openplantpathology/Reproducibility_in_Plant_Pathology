@@ -6,8 +6,7 @@
 #' @return PDF of workflow diagram
 #' @export workflow_dia
 #'
-#' @examples
-#'
+#' @examplesIf interactive()
 #' workflow_dia()
 #'
 

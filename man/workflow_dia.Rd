@@ -13,7 +13,7 @@ PDF of workflow diagram
 Custom function to create a workflow diagram figure, 'Figure 1'.
 }
 \examples{
-
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 workflow_dia()
-
+\dontshow{\}) # examplesIf}
 }
