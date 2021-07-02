@@ -458,7 +458,7 @@ ggsave(filename = "../figures/Sparks et al Figure 1.eps",
        units = "in")
 extrafont::embed_fonts(
    file = ("../figures/Sparks et al Figure 1.eps"),
-   outfile = ("figures/Sparks et al Figure 1.eps"),
+   outfile = ("../figures/Sparks et al Figure 1.eps"),
    options = "-dEPSCrop"
 )
 knitr::include_graphics(path = "../figures/Sparks et al Figure 1.eps")
@@ -502,7 +502,7 @@ p <- export_svg(
 rsvg_ps(svg = charToRaw(p), file = "../figures/Sparks et al Figure 2.eps")
 extrafont::embed_fonts(
    file = ("../figures/Sparks et al Figure 2.eps"),
-   outfile = ("figures/Sparks et al Figure 2eps"),
+   outfile = ("../figures/Sparks et al Figure 2.eps"),
    options = "-dEPSCrop"
 )
 knitr::include_graphics(path = "../figures/Sparks et al Figure 2.eps")
