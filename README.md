@@ -19,7 +19,7 @@ This repository contains the data and code for our paper:
 Our pre-print is online here:
 
 > Authors, (YYYY). *Reproducibility in plant pathology: where do we
-> stand and a way forward*. Name of journal/book, Accessed 24 Jun 2021.
+> stand and a way forward*. Name of journal/book, Accessed 21 Jul 2021.
 > Online at <https://doi.org/xxx/xxx>
 
 ### How to cite
@@ -28,8 +28,8 @@ Please cite this compendium as:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
 > J. (2021). *Compendium of R code and data for ‘Status and Best
-> Practices for Reproducible Research In Plant Pathology’*. Accessed 24
-> Jun 2021. Online at <https://doi.org/10.5281/zenodo.1250665>
+> Practices for Reproducible Research In Plant Pathology’*. Accessed 21
+> Jul 2021. Online at <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
 
@@ -79,18 +79,19 @@ necessary to re-knit the MS Word document of the paper from an Rmd file,
 “/analysis/paper/paper.Rmd”.
 
 A script, `knit_paper.R`, is located in `analysis/paper/knit_paper.R`
-that will knit the Word document in a Docker session.
+that will knit the [Word document](analysis/paper/paper.docx) in a
+Docker session.
 
 ## Meta
 
 Code: [MIT](http://opensource.org/licenses/MIT) year: 2021, copyright
-holder: Adam H Sparks
+holder: Adam H. Sparks
 
 Data: [CC-0](http://creativecommons.org/publicdomain/zero/1.0/)
 attribution requested in reuse
 
 Adam H Sparks Senior Research Scientist Farming Systems Innovation
 Primary Industries Development Department of Primary Industries and
-Regional Development Level 5, 1 Nash St Perth WA 6000
+Regional Development Level 6, 1 Nash St., Perth WA 6000
 
 <https://adamhsparks.com/>

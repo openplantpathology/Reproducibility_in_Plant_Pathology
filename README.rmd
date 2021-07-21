@@ -67,11 +67,11 @@ docker run -d -p 8787:8787 adamhsparks/reproducibility_in_plant_pathology
 The file structure follows a normal R package with one exception.
 The top-level "/analysis" directory contains the directories and files necessary to re-knit the MS Word document of the paper from an Rmd file, "/analysis/paper/paper.Rmd".
 
-A script, `knit_paper.R`, is located in `analysis/paper/knit_paper.R` that will knit the Word document in a Docker session.
+A script, `knit_paper.R`, is located in `analysis/paper/knit_paper.R` that will knit the [Word document](analysis/paper/paper.docx) in a Docker session.
 
 ## Meta
 
-Code: [MIT](http://opensource.org/licenses/MIT) year: `r format(Sys.Date(), "%Y")`, copyright holder: Adam H Sparks
+Code: [MIT](http://opensource.org/licenses/MIT) year: `r format(Sys.Date(), "%Y")`, copyright holder: Adam H. Sparks
 
 Data: [CC-0](http://creativecommons.org/publicdomain/zero/1.0/) attribution requested in reuse
 
@@ -80,6 +80,6 @@ Senior Research Scientist
 Farming Systems Innovation
 Primary Industries Development
 Department of Primary Industries and Regional Development
-Level 5, 1 Nash St Perth WA 6000
+Level 6, 1 Nash St., Perth WA 6000
 
 <https://adamhsparks.com/>
