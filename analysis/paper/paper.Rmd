@@ -358,6 +358,8 @@ A webpage version of the compendium is available from <https://openplantpatholog
 
 # Acknowledgements
 
+The authors are grateful for insightful comments from Dr. David Ferris on the final manuscript.
+
 \newpage
 
 # References
