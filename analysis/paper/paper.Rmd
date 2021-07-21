@@ -313,7 +313,7 @@ A custom R function, `import_notes()`, was written to import the data, format th
 A total reproducibility score was calculated as the per cent of total possible for a given paper.
 However, some papers did not use specialized software therefore they were not scored for this category.
 
-We recognise that the scoring methods were developed by the authors specifically for this exercise and are not entirely subjective.
+We recognise that the scoring methods were developed by the authors specifically for this exercise and are not entirely objective.
 We have based our scoring decisions on our own experiences in the field of plant pathology.
 While many software packages may be widely used or "freely" available if one has an institutional license, these types of software often hinder partners and interested parties that do not have these luxuries.
 Thus, the emphasis was given to using open source alternatives where possible over commercially available, non-free software packages.
