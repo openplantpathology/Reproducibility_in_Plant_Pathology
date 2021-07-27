@@ -73,7 +73,8 @@ m1 <-
     seed = 27,
     prior = priors,
     family = "hurdle_gamma",
-    control = list(adapt_delta = 0.999),
+    control = list(adapt_delta = 0.999,
+                   max_treedepth = 15),
     iter = 3000,
     chains = 4
   )
