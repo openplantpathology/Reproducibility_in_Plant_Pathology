@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • Reproducibility in Plant Pathology</title>
+<title>Convert DOI to Bibtex — doi2bib • Reproducibility in Plant Pathology</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,9 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Convert DOI to Bibtex — doi2bib" />
+<meta property="og:description" content="Convert a digital object identifier (DOI) string into a bibtex
+entry using the web service http://www.doi2bib.org." />
 
 
 
@@ -58,7 +60,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -150,66 +152,109 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Convert DOI to Bibtex</h1>
+    <small class="dont-index">Source: <a href='https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/master/R/doi2bib.R'><code>R/doi2bib.R</code></a></small>
+    <div class="hidden name"><code>doi2bib.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Convert a digital object identifier (<acronym>DOI</acronym>) string into a bibtex
+entry using the web service <a href='http://www.doi2bib.org'>http://www.doi2bib.org</a>.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>doi2bib</span><span class='op'>(</span><span class='va'>...</span>, <span class='va'>file</span>, append <span class='op'>=</span> <span class='cn'>TRUE</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="doi2bib.html">doi2bib()</a></code> </p>
-        </td>
-        <td><p>Convert DOI to Bibtex</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="import_notes.html">import_notes()</a></code> </p>
-        </td>
-        <td><p>Import reproducibility score notes</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="scoring_criteria.html">scoring_criteria</a></code> </p>
-        </td>
-        <td><p>Scoring criteria</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="table_of_journals.html">table_of_journals()</a></code> </p>
-        </td>
-        <td><p>Create table of journals surveyed</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="workflow_dia.html">workflow_dia()</a></code> </p>
-        </td>
-        <td><p>Create workflow diagram figure</p></td>
-      </tr>
-    </tbody>
+<span class='co'># S4 method for character</span>
+<span class='fu'>doi2bib</span><span class='op'>(</span><span class='va'>...</span>, <span class='va'>file</span>, append <span class='op'>=</span> <span class='cn'>TRUE</span>, quiet <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>...</th>
+      <td><p>One or more <acronym>DOI</acronym>s, as <code>character</code> strings. If
+arguments are named, names will replace default citekeys.</p></td>
+    </tr>
+    <tr>
+      <th>file</th>
+      <td><p>an optional <code>character</code> string. If used, the bibtex
+references are sent to <code>file</code> rather than being returned.</p></td>
+    </tr>
+    <tr>
+      <th>append</th>
+      <td><p><code>logical</code>. Append results to file?</p></td>
+    </tr>
+    <tr>
+      <th>quiet</th>
+      <td><p><code>logical</code>. By default, bibtex references are printed to the
+console. By setting <code>quiet</code> to <code>TRUE</code>, this behaviour will be
+prevented.</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>a <code>list</code>, returned invisibly, of bibtex references as
+  <code>character</code> strings, as well as writing to file if <code>file</code> is
+  specified.</p>
+    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
+
+    
+<ul>
+<li><p><code>doi2bib,character-method</code>: Convert DOI to bibtex</p></li>
+</ul>
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p>This function is take from the unrelased (on CRAN) <span style="R">R</span> package,
+ <span class="pkg">doi2bib</span> by William Keith Morris available from GitHub under the MIT
+ Licence.</p>
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p><a href='https://github.com/wkmor1/doi2bib'>https://github.com/wkmor1/doi2bib</a></p>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>William Keith Morris, <a href='mailto:wkmor1@gmail.com'>wkmor1@gmail.com</a></p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>doi2bib</span><span class='op'>(</span>Margules2000 <span class='op'>=</span> <span class='st'>"10.1038/35012251"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>&lt;!DOCTYPE html&gt;</span>
+#&gt; <span class='message'>&lt;html lang="en"&gt;</span>
+#&gt; <span class='message'>&lt;head&gt;</span>
+#&gt; <span class='message'>&lt;meta charset="utf-8"&gt;</span>
+#&gt; <span class='message'>&lt;title&gt;Error&lt;/title&gt;</span>
+#&gt; <span class='message'>&lt;/head&gt;</span>
+#&gt; <span class='message'>&lt;body&gt;</span>
+#&gt; <span class='message'>&lt;pre&gt;Cannot GET /doi2bib&lt;/pre&gt;</span>
+#&gt; <span class='message'>&lt;/body&gt;</span>
+#&gt; <span class='message'>&lt;/html&gt;</span></div><div class='input'><span class='fu'>doi2bib</span><span class='op'>(</span>Margules2000 <span class='op'>=</span> <span class='st'>"10.1038/35012251"</span>,
+        Myers2000    <span class='op'>=</span> <span class='st'>"10.1038/35002501"</span>,
+        Moilanen     <span class='op'>=</span> <span class='st'>"978-0199547777"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>&lt;!DOCTYPE html&gt;</span>
+#&gt; <span class='message'>&lt;html lang="en"&gt;</span>
+#&gt; <span class='message'>&lt;head&gt;</span>
+#&gt; <span class='message'>&lt;meta charset="utf-8"&gt;</span>
+#&gt; <span class='message'>&lt;title&gt;Error&lt;/title&gt;</span>
+#&gt; <span class='message'>&lt;/head&gt;</span>
+#&gt; <span class='message'>&lt;body&gt;</span>
+#&gt; <span class='message'>&lt;pre&gt;Cannot GET /doi2bib&lt;/pre&gt;</span>
+#&gt; <span class='message'>&lt;/body&gt;</span>
+#&gt; <span class='message'>&lt;/html&gt;</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>&lt;!DOCTYPE html&gt;</span>
+#&gt; <span class='message'>&lt;html lang="en"&gt;</span>
+#&gt; <span class='message'>&lt;head&gt;</span>
+#&gt; <span class='message'>&lt;meta charset="utf-8"&gt;</span>
+#&gt; <span class='message'>&lt;title&gt;Error&lt;/title&gt;</span>
+#&gt; <span class='message'>&lt;/head&gt;</span>
+#&gt; <span class='message'>&lt;body&gt;</span>
+#&gt; <span class='message'>&lt;pre&gt;Cannot GET /doi2bib&lt;/pre&gt;</span>
+#&gt; <span class='message'>&lt;/body&gt;</span>
+#&gt; <span class='message'>&lt;/html&gt;</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>NA</span></div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
