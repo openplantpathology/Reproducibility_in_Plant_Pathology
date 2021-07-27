@@ -16,8 +16,7 @@ reproducibility score. Also adds the 2 and 5 year impact factor values from
 InCites Journal Citation Reports for 2018.
 }
 \examples{
-\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 notes <- import_notes()
 pander::pander(head(notes))
-\dontshow{\}) # examplesIf}
+
 }
