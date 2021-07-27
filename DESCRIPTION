@@ -36,26 +36,27 @@ Imports:
     dplyr,
     DiagrammeR,
     DiagrammeRsvg,
+    httr,
     magrittr,
+    methods,
     pander,
     readODS,
-    rsvg
+    rsvg,
+    stats,
+    xml2
 Suggests:
     bib2df,
     bayesplot,
     bayestestR,
     brms,
-    doi2bib,
     extrafont,
     flextable,
     ggplot2 (>= 3.3.0),
     git2r,
     googlesheets4,
     here,
-    httr,
     janitor,
     knitr,
-    methods,
     patchwork,
     rcrossref,
     readr,
@@ -70,7 +71,7 @@ Suggests:
     tidyverse,
     spelling
 LazyData: TRUE
-RoxygenNote: 7.1.1.9001
+RoxygenNote: 7.1.1
 Encoding: UTF-8
 NeedsCompilation: no
 VignetteBuilder: knitr
