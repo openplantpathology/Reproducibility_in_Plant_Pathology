@@ -4,7 +4,7 @@
 #' @return \CRANpkg{pander} table of journals surveyed
 #' @export table_of_journals
 #'
-#' @examplesIf interactive()
+#' @examples
 #' googlesheets4::gs4_deauth()
 #' rrpp <- googlesheets4::read_sheet(
 #'"https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M"

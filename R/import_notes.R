@@ -9,7 +9,7 @@
 #' for use in analysis and manuscript preparation
 #' @export import_notes
 #'
-#' @examplesIf interactive()
+#' @examples
 #' notes <- import_notes()
 #' pander::pander(head(notes))
 #'
