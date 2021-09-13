@@ -77,12 +77,12 @@ Code: [MIT](http://opensource.org/licenses/MIT) year: `r format(Sys.Date(), "%Y"
 
 Data: [CC-0](http://creativecommons.org/publicdomain/zero/1.0/) attribution requested in reuse
 
-Adam H Sparks
+Adam H. Sparks
 Senior Research Scientist
 Farming Systems Innovation
 Primary Industries Development
 Department of Primary Industries and Regional Development
-Level 6, 1 Nash St., Perth WA 6000
+Level 6.35, 1 Nash St., Perth WA 6000
 
 <https://adamhsparks.com/>
 

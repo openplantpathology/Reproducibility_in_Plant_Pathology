@@ -1,4 +1,4 @@
-pandoc: 2.14.0.1
+pandoc: 2.14.0.3
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
@@ -14,7 +14,7 @@ articles:
   i_analysis_5y_if: i_analysis_5y_if.html
   j_analysis_access_policy: j_analysis_access_policy.html
   k_analysis_year: k_analysis_year.html
-last_built: 2021-07-27T12:56Z
+last_built: 2021-09-13T01:03Z
 urls:
   reference: https://openplantpathology.github.io/Reproducible.Plant.Pathology//reference
   article: https://openplantpathology.github.io/Reproducible.Plant.Pathology//articles
