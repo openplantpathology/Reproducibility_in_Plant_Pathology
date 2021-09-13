@@ -10,8 +10,8 @@
 ^_pkgdown\.yaml$
 ^Dockerfile$
 analysis
-^CONDUCT\.md$
 ^CONTRIBUTING\.md$
 ^codemeta\.json$
 ^.github$
 ^docs/
+^CODE_OF_CONDUCT\.md$
