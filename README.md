@@ -19,7 +19,7 @@ This repository contains the data and code for our paper:
 Our pre-print is online here:
 
 > Authors, (YYYY). *Reproducibility in plant pathology: where do we
-> stand and a way forward*. Name of journal/book, Accessed 21 Jul 2021.
+> stand and a way forward*. Name of journal/book, Accessed 13 Sep 2021.
 > Online at <https://doi.org/xxx/xxx>
 
 ### How to cite
@@ -28,8 +28,8 @@ Please cite this compendium as:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
 > J. (2021). *Compendium of R code and data for ‘Status and Best
-> Practices for Reproducible Research In Plant Pathology’*. Accessed 21
-> Jul 2021. Online at <https://doi.org/10.5281/zenodo.1250665>
+> Practices for Reproducible Research In Plant Pathology’*. Accessed 13
+> Sep 2021. Online at <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
 
@@ -84,6 +84,8 @@ Docker session.
 
 ## Meta
 
+### Licensing
+
 Code: [MIT](http://opensource.org/licenses/MIT) year: 2021, copyright
 holder: Adam H. Sparks
 
@@ -95,3 +97,10 @@ Primary Industries Development Department of Primary Industries and
 Regional Development Level 6, 1 Nash St., Perth WA 6000
 
 <https://adamhsparks.com/>
+
+### Code of Conduct
+
+Please note that the Reproducibility.in.Plant.Pathology project is
+released with a [Contributor Code of
+Conduct](https://openplantpathology.github.io/Reproducible.Plant.Pathology/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.

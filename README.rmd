@@ -71,6 +71,8 @@ A script, `knit_paper.R`, is located in `analysis/paper/knit_paper.R` that will 
 
 ## Meta
 
+### Licensing
+
 Code: [MIT](http://opensource.org/licenses/MIT) year: `r format(Sys.Date(), "%Y")`, copyright holder: Adam H. Sparks
 
 Data: [CC-0](http://creativecommons.org/publicdomain/zero/1.0/) attribution requested in reuse
@@ -83,3 +85,8 @@ Department of Primary Industries and Regional Development
 Level 6, 1 Nash St., Perth WA 6000
 
 <https://adamhsparks.com/>
+
+### Code of Conduct
+
+Please note that the Reproducibility.in.Plant.Pathology project is released with a [Contributor Code of Conduct](https://openplantpathology.github.io/Reproducible.Plant.Pathology/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
