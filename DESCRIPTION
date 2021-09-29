@@ -71,7 +71,7 @@ Suggests:
     tidyverse,
     spelling
 LazyData: TRUE
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Encoding: UTF-8
 NeedsCompilation: no
 VignetteBuilder: knitr
