@@ -22,7 +22,11 @@ Authors@R: c(
     person(given = "Niklaus J.", family = "Grünwald",
     role = "aut",
     email = "grunwaln@science.oregonstate.edu",
-    comment = c(ORCID = "0000-0003-1656-7602"))
+    comment = c(ORCID = "0000-0003-1656-7602")),
+    person(given = "William Keith", family = "Morris",
+    role = "ctb",
+    email = "wkmor1@gmail.com",
+    comment = "Wrote the doi2bib() used in our analysis and included in /R.")
   )
 URL: https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology
 BugReports: https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/issues
