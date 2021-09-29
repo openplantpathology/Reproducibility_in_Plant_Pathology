@@ -68,7 +68,8 @@ rrpp <-
 
 m1 <-
   brm(
-    formula = reproducibility_score ~  abbreviation + (1 | year) + (1 | assignee),
+    formula = reproducibility_score ~  abbreviation + (1 | year) +
+      (1 | assignee),
     data = rrpp,
     seed = 27,
     prior = priors,
