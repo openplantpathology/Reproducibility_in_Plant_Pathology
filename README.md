@@ -7,7 +7,6 @@
 
 ![Publish
 Docker](https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/workflows/Publish%20Docker/badge.svg)
-[![tic](https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/workflows/tic/badge.svg?branch=main)](https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/actions)
 [![DOI](https://zenodo.org/badge/62676177.svg)](https://zenodo.org/badge/latestdoi/62676177)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
