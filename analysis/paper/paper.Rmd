@@ -23,14 +23,14 @@ output:
   bookdown::word_document2:
      fig_caption: yes
      number_sections: FALSE
-     reference_docx: "../templates/template.docx" # Insert path for the DOCX file
+     reference_docx: "../templates/preprint-template.docx"
      pandoc_args:
        - '--lua-filter=scholarly-metadata.lua'
        - '--lua-filter=author-info-blocks.lua'
        - '--lua-filter=pagebreak.lua'
 bibliography: references.bib
 link-citations: no
-csl: "../templates/american-phytopathological-society.csl" # Insert path for the bib-style
+csl: "../templates/american-phytopathological-society.csl"
 ---
 
 ```{r, setup, echo = FALSE, message=FALSE}
