@@ -13,11 +13,14 @@ knitr::opts_chunk$set(
 ```
 
 # Reproducibility in Plant Pathology
+<!-- badges: start -->
 ![Publish Docker](https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/workflows/Publish%20Docker/badge.svg)
+[![tic](https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/workflows/tic/badge.svg?branch=main)](https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/actions)
 [![DOI](https://zenodo.org/badge/62676177.svg)](https://zenodo.org/badge/latestdoi/62676177)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+<!-- badges: end -->
 
-This repository contains the data and code for our letter:
+This repository contains the data and code for our letter to the editor:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N. J. (YYYY). _Reproducibility in plant pathology: where do we stand and a way forward_. Name of journal/book <https://doi.org/xxx/xxx>
 
