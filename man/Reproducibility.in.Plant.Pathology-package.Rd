@@ -6,9 +6,7 @@
 \alias{Reproducibility.in.Plant.Pathology-package}
 \title{Reproducibility.in.Plant.Pathology: A Systematic Quantitative Review of Articles Providing a Basis for Identifying Reproducible Research Efforts the Field of Plant Pathology}
 \description{
-A research compendium for the letter to the editor,
-    "Reproducibility in plant pathology: where do we stand and a way forward",
-    published in "xxxxxx".
+A research compendium for the letter to the editor, "Reproducibility in plant pathology: where do we stand and a way forward", published in "xxxxxx".
 }
 \seealso{
 Useful links:
