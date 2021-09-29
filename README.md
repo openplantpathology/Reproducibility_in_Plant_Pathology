@@ -10,7 +10,7 @@ Docker](https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology
 state and is being actively
 developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 
-This repository contains the data and code for our paper:
+This repository contains the data and code for our letter:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
 > J. (YYYY). *Reproducibility in plant pathology: where do we stand and
@@ -19,7 +19,7 @@ This repository contains the data and code for our paper:
 Our pre-print is online here:
 
 > Authors, (YYYY). *Reproducibility in plant pathology: where do we
-> stand and a way forward*. Name of journal/book, Accessed 13 Sep 2021.
+> stand and a way forward*. Name of journal/book, Accessed 29 Sep 2021.
 > Online at <https://doi.org/xxx/xxx>
 
 ### How to cite
@@ -28,7 +28,7 @@ Please cite this compendium as:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
 > J. (2021). *Compendium of R code and data for ‘Status and Best
-> Practices for Reproducible Research In Plant Pathology’*. Accessed 13
+> Practices for Reproducible Research In Plant Pathology’*. Accessed 29
 > Sep 2021. Online at <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
@@ -92,9 +92,9 @@ holder: Adam H. Sparks
 Data: [CC-0](http://creativecommons.org/publicdomain/zero/1.0/)
 attribution requested in reuse
 
-Adam H Sparks Senior Research Scientist Farming Systems Innovation
+Adam H. Sparks Senior Research Scientist Farming Systems Innovation
 Primary Industries Development Department of Primary Industries and
-Regional Development Level 6, 1 Nash St., Perth WA 6000
+Regional Development Level 6.35, 1 Nash St., Perth WA 6000
 
 <https://adamhsparks.com/>
 
