@@ -15,3 +15,6 @@ analysis
 ^.github$
 ^docs/
 ^CODE_OF_CONDUCT\.md$
+^\.ccache$
+^\.github$
+^tic\.R$
