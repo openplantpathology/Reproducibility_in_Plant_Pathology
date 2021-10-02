@@ -5,7 +5,7 @@ author:
       email: Adam.Sparks@dpird.wa.gov.au
       institute: DPIRD, USQ
       correspondence: true
-  - Emerson Del Ponte:
+  - Emerson M. Del Ponte:
       institute: UFV
   - Kaique S. Alves:
       institute: UFV
