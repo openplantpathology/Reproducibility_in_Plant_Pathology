@@ -21,9 +21,10 @@ This repository contains the data and code for our letter to the editor:
 
 Our pre-print is online here:
 
-> Authors, (YYYY). *Reproducibility in plant pathology: where do we
-> stand and a way forward*. Name of journal/book, Accessed 29 Sep 2021.
-> Online at <https://doi.org/xxx/xxx>
+> Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
+> J. (2021). *Reproducibility in plant pathology: where do we stand and
+> a way forward*. agriRxiv, Accessed 02 Oct 2021. Online at
+> <https://doi.org/10.31220/agriRxiv.2021.00082>
 
 ### How to cite
 
@@ -31,8 +32,8 @@ Please cite this compendium as:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
 > J. (2021). *Compendium of R code and data for ‘Status and Best
-> Practices for Reproducible Research In Plant Pathology’*. Accessed 29
-> Sep 2021. Online at <https://doi.org/10.5281/zenodo.1250665>
+> Practices for Reproducible Research In Plant Pathology’*. Accessed 02
+> Oct 2021. Online at <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
 
