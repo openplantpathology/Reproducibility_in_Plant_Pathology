@@ -23,7 +23,7 @@ output:
   bookdown::word_document2:
      fig_caption: yes
      number_sections: FALSE
-     reference_docx: "../templates/preprint-template.docx"
+     reference_docx: "../templates/phytopath_template.docx"
      pandoc_args:
        - '--lua-filter=scholarly-metadata.lua'
        - '--lua-filter=author-info-blocks.lua'
