@@ -435,21 +435,21 @@ scoring_criteria %>%
 rrpp <- import_notes()
 theme_set(theme_classic())
 A <- ggplot(rrpp, aes(y = as.factor(comp_mthds_avail))) +
-  geom_bar() +
+  geom_bar(fill = "black") +
   ylab("Score") +
   xlab(NULL)
 
 B <- ggplot(rrpp, aes(y = software_avail)) +
-  geom_bar() +
+  geom_bar(fill = "black") +
   xlab(NULL) +
   ylab(NULL)
 
 C <- ggplot(rrpp, aes(y = software_cite)) +
-  geom_bar() +
+  geom_bar(fill = "black") +
   ylab("Score")
 
 D <- ggplot(rrpp, aes(y = data_avail)) +
-  geom_bar() +
+  geom_bar(fill = "black") +
   ylab(NULL)
 
 # put them all together
