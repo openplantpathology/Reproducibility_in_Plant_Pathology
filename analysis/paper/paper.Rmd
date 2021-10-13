@@ -150,9 +150,9 @@ It goes without saying that plant pathologists already provide information on pr
 However, very often biological specimens such as strains, cultures or cultivars are often not available.
 These cases do constitute a lack of reproducibility but will not be covered here.
 
-# Where do we stand in regards to reproducibility?
+# Materials and Methods
 
-## Article selection
+## Article Selection
 
 In an effort to understand where as a discipline we stand as plant pathologists in regards to open science and reproducible research, we surveyed a broad selection of articles to represent a broad swathe of publications to evaluate our status.
 We randomly selected 300 articles published from 2012 to 2018 across 21 journals (Table \@ref(tab:journals)) and assigned them scores reflecting their openness and reproducibility.
@@ -164,7 +164,7 @@ The pages list was numbered from page one and went to page 150.
 This was done since some journals restart their numbering with each issue and also ensures that the journal is more likely to have a page number corresponding to the randomly generated value.
 This also assumes that there is no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year.
 
-## Scoring criteria
+## Scoring Criteria
 
 Four individuals were assigned to rate a randomised list of journal articles using scoring criteria devised for the purposes of this research (Table \@ref(tab:scoring)).
 
@@ -190,7 +190,7 @@ While many software packages may be widely used or "freely" available if one has
 Thus, the emphasis was given to using open source alternatives where possible over commercially available, non-free software packages.
 The view of the authors is one that this is something to be encouraged as it allows the broadest possible audience to benefit from the work at the lowest possible cost.
 
-## Statistical analysis
+## Statistical Analysis
 
 The statistical analysis was performed using R version 4.1.0 [@RCT2021] on an Apple MacBook Air (M1, 2020).
 Bayesian mixed-effect models were fit using the contributed package 'brms' (version 2.15.0) [@Burkner2018] to evaluate the fixed effects of the publication (journal title), article class, molecular focus, five-year journal impact factor, journal open access policy on the reproducibility index and year to test for changes over time in the reproducibility index.
@@ -211,7 +211,7 @@ Probability of direction or maximum probability of effect was plotted, `pd()`, a
 
 Data were visualised using 'ggplot2' (version 3.3.5) [@Wickham2016], 'ggpubr' (version 0.4.0) [@Kassambara2020] and patchwork (version 1.1.1) [@Pedersen2020].
 
-## Findings
+# Results
 
 Forty-eight articles scored 0% out of a possible 100% for reproducibility.
 The mean value was 31.2% and the median value was 33.3%.
@@ -238,7 +238,9 @@ The software availability score was better as was the citing of software and ver
 SAS remains firmly entrenched in the discipline as the choice of software for statistical analysis followed by SPSS.
 It is interesting to note however, that with the popularity of Python that it does not even appear in our survey results whereas R was the fourth most commonly used software.
 
-# Are there good examples in plant pathology?
+# Discussion
+
+## Are There Good Examples?
 
 While the articles that were surveyed did not score well, we are aware of and would like to highlight that there are several good examples from the plant pathology discipline that can be used as exemplars.
 
@@ -262,7 +264,7 @@ When this level is employed, tools such as Binder, [https://mybinder.org](https:
 Kamvar _et al._ [-@Kamvar2015] took a slightly different approach by including all files necessary for the analysis and most output files in a repository [@Kamvar2014] that also included an installable R package that was used for the original analysis.
 While there are many other methods, these two approaches illustrate some of the best-practices where the data and other files were deposited in repositories with DOIs and reproducibility issues were addressed by using R packages to handle dependencies and other versioning issues making the work more portable.
 
-# Best practices to enhance reproducible research
+## Best Practices to Enhance Reproducible Research
 
 A general work flow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, and writing the manuscript.
 Here we defined three levels of reproducibility which are also related to the evolution of computational methods and reproducible practices (Figure \@ref(fig:workflow-dia)).
@@ -346,11 +348,13 @@ A.H.S. designed the computational framework for analysis and created the researc
 A.H.S. wrote the manuscript in consultation with E.DP.
 All authors provided critical feedback and helped contribute to the final version of the manuscript.
 
-# Data availability statement
+# Author Recommended Internet Resources 
+
+## Data
 
 The raw data for this work are documented and available from DOI [https://doi.org/10.5281/zenodo.4941722](10.5281/zenodo.4941722).
 
-# Code availability statement
+## Code
 
 All code used in the analyses and data visualization and associated materials have been made available as research compendium available from DOI [https://doi.org/10.5281/zenodo.1250664](10.5281/zenodo.1250664).
 A webpage version of the compendium is available from <https://openplantpathology.github.io/Reproducibility_in_Plant_Pathology/>.
@@ -361,7 +365,7 @@ The authors are grateful for insightful comments from Dr. David Ferris and the U
 
 \newpage
 
-# References
+# Literature Cited
 
 <!-- The following line ensures the references appear here for the MS Word or HTML output files, rather than right at the end of the document (this will not work for PDF files):  -->
 
