@@ -19,14 +19,18 @@ knitr::opts_chunk$set(
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 <!-- badges: end -->
 
-This repository contains the data and code for our letter to the editor:
+This repository contains the data and code for our article:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N. J. (YYYY). _Reproducibility in plant pathology: where do we stand and a way forward_. Name of journal/book <https://doi.org/xxx/xxx>
 
-Our pre-print is online here:
+Our pre-print is online on the agriRxiv preprint server:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N. J. (2021). _Reproducibility in plant pathology: where do we stand and a way forward_. agriRxiv, Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/10.31220/agriRxiv.2021.00082>
 
+The paper is a systematic and quantitative review of articles published in 20 plant pathology journals that spans five years of publications.
+It provides a basis for identifying what has been done so far in the discipline of plant pathology's published research to ensure computational reproducibility.
+The results show that as a discipline, plant pathologists are not widely sharing data or code openly, making the works largely unreproducible.
+Based on these results and our own experiences, we offer suggestions as to how we can further improve reproducibility in the discipline of plant pathology, but which are not unique to the discipline, that would allow reviewers to make better suggestions, readers to learn more from the work and earns author more citations for their work.
 
 ### How to cite
 
