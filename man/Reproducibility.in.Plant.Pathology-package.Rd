@@ -27,5 +27,10 @@ Authors:
   \item Niklaus J. Grünwald \email{grunwaln@science.oregonstate.edu} (\href{https://orcid.org/0000-0003-1656-7602}{ORCID})
 }
 
+Other contributors:
+\itemize{
+  \item William Keith Morris \email{wkmor1@gmail.com} (Wrote the doi2bib() used in our analysis and included in /R.) [contributor]
+}
+
 }
 \keyword{internal}
