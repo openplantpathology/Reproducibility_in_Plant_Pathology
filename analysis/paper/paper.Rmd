@@ -289,7 +289,7 @@ Text files for saving small sets of data are preferable.
 Data that are saved in binary formats such as PDF files are difficult to reuse because they are not easily machine readable.
 In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, _e.g._, comma separated (CSV) or tab separated (TSV) files.
 This also helps ensure that the data are reusable.
-Larger data sets may warrant the use of a proper database like GenBank, MariaDB or PostgreSQL which provide users with several benefits but two important benefits to mention here are (1) data redundancy, ensuring no records are duplicated and (2) data consistency, ensuring that all records in a data set are recorded in the same format for every observation.
+Larger data sets may warrant the use of a proper database like GenBank, MariaDB or PostgreSQL which provide users with several benefits but two important benefits to mention here are (i) data redundancy, ensuring no records are duplicated and (ii) data consistency, ensuring that all records in a data set are recorded in the same format for every observation.
 While personal databases may offer many advantages, the trade-off is that they are more complex to set up and administer, especially for a small data set.
 Databases such a GenBank are preferable for molecular data ensuring data integrity and machine readability.
 
