@@ -55,7 +55,7 @@ The priors are fairly flat.
 ```{r priors}
 priors <- prior_string("normal(0, 10)")
 ```
-'
+
 ## Year Effect Model
 
 Test the effect that year of publication had on the reproducibility score.
