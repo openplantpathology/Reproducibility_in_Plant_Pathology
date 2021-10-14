@@ -203,7 +203,7 @@ In this model, the random effects were the publication title and assignee.
 Models were fit using the `hurdle_gamma()` family function due to zero-inflated continuous data and the assumption that a zero value would only come from one process, the scoring.
 Each model was run for 3000 iterations in four chains.
 
-The `adapt_delta()` and `max_treedepth()` values were adjusted as necessary on a case-by-case basis for each of the models to ensure that the chains mixed well.
+The `adapt_delta()` and `max_treedepth()` values were adjusted as necessary on a case-by-case basis for each of the models to ensure a good model fit to the data and that the chains mixed well.
 
 Model finesses were evaluated using model summaries and diagnostic plots from 'brms' (version 2.15.0) [@Burkner2018] and posterior fits using `pp_check()` from the contributed R package 'bayesplot' (version 1.8.1) [@Gabry2019].
 
