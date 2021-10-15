@@ -37,6 +37,7 @@ csl: "../templates/american-phytopathological-society.csl"
 library("officer")
 library("dplyr")
 library("janitor")
+library("here")
 library("flextable")
 library("Reproducibility.in.Plant.Pathology")
 library("tidyr")
@@ -44,6 +45,7 @@ library("DiagrammeR")
 library("DiagrammeRsvg")
 library("rsvg")
 library("ggplot2")
+library("bayesplot")
 library("patchwork")
 
 knitr::opts_chunk$set(
