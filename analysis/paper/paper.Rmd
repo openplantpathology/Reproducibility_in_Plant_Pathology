@@ -207,13 +207,15 @@ Each model was run for 3000 iterations in four chains.
 
 The `adapt_delta()` and `max_treedepth()` values were adjusted as necessary on a case-by-case basis for each of the models to ensure a good model fit to the data and that the chains mixed well.
 
-Model finesses were evaluated using model summaries and diagnostic plots from 'brms' (version 2.15.0) [@Burkner2018] and posterior fits using `pp_check()` from the contributed R package 'bayesplot' (version 1.8.1) [@Gabry2019].
+Model finesses were evaluated using model summaries and diagnostic plots from 'brms' (version 2.15.0) [@Burkner2018] and posterior fits using `pp_check()`  (Figure \@ref(fig:posteriors)) from the contributed R package 'bayesplot' (version 1.8.1) [@Gabry2019].
 
 Probability of direction or maximum probability of effect was plotted, `pd()`, and a test for practical equivalence, `equivalence_test()`, was performed for each model using the contributed R package 'bayestestR' (version 0.10.0) [@Makowski2019].
 
 Data were visualised using 'ggplot2' (version 3.3.5) [@Wickham2016], 'ggpubr' (version 0.4.0) [@Kassambara2020] and patchwork (version 1.1.1) [@Pedersen2020].
 
 # Results
+
+None of the factors that were tested for had an effect on the reproducibility score.
 
 Forty-eight articles scored 0% out of a possible 100% for reproducibility.
 The mean value was 31.2% and the median value was 33.3%.
@@ -432,7 +434,39 @@ scoring_criteria %>%
 
 # Figures
 
-```{r articleScores, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Aggregated article scores for each of the four categories, (i) shows computational methods availability 0 - not available or not mentioned to 3 - freely available online to anonymous users. (ii) presents 'Software availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Expensive proprietary software that only institutions would typically purchase'; '2' was 'Used proprietary software that most individuals can afford (e.g., Excel) or SAS that is now available free for use with a university login'; and '3' was 'Used entirely open source and free software (e.g., R, Julia, Python)'; 'NA' indicates that no specialised software was necessary or used. (iii) displays 'Software citated', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Software mentioned by name only'; '2' was 'Software cited with version number'; and '3' was 'All software components (SAS PROCs, R, Julia or Python packages, etc.) cited'; 'NA' indicates that no specialised software was necessary or used. (iv) shows 'Data availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no data were generated, e.g. a methods paper.", cache=FALSE, fig.env='figure', out.width=0, out.height=0}
+```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualisations for each of six models fitted to scoring data that were used to evaluate the effects of factors affecting the reproducibility of papers published in 20 plant pathology journals or plant pathology focused articles from other specialised journals. Six factors were evaluated, (A) Publication (Journal Title), (B) Article Class, (C) Molecular Focus, (D) Five Year Impact Factor of Journal, (E) Journal Open Access Policy and (F) Year of Publication where y is the data's density and y~rep~ are ten random posterior draws. Model fitnesses were found to be good for all models and no effects of any of the factors were observed on the reproducibility score.", cache=FALSE, fig.env='figure', out.width=0, out.height=0}
+
+theme_set(theme_classic())
+color_scheme_set(scheme = "gray")
+
+m1 <- pp_check(readRDS(here("data/m1.Rds")))
+m2 <- pp_check(readRDS(here("data/m2.Rds")))
+m3 <- pp_check(readRDS(here("data/m3.Rds")))
+m4 <- pp_check(readRDS(here("data/m4.Rds")))
+m5 <- pp_check(readRDS(here("data/m5.Rds")))
+m6 <- pp_check(readRDS(here("data/m6.Rds")))
+
+# put them all together
+p <- (m1 | m2) / (m3 | m4) / (m5 | m6)
+
+p <- p + plot_annotation(tag_levels = "A")
+ggsave(filename = "../figures/Sparks et al Figure 1.eps",
+       plot = p,
+       width = 6,
+       height = 6,
+       units = "in",
+       device = cairo_ps)
+extrafont::embed_fonts(
+   file = ("../figures/Sparks et al Figure 1.eps"),
+   outfile = ("../figures/Sparks et al Figure 1.eps"),
+   options = "-dEPSCrop"
+)
+knitr::include_graphics(path = "../figures/Sparks et al Figure 1.eps")
+```
+
+\newpage
+
+```{r articleScores, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Aggregated article scores for each of the four categories, (A) shows computational methods availability 0 - not available or not mentioned to 3 - freely available online to anonymous users. (B) presents 'Software availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Expensive proprietary software that only institutions would typically purchase'; '2' was 'Used proprietary software that most individuals can afford (e.g., Excel) or SAS that is now available free for use with a university login'; and '3' was 'Used entirely open source and free software (e.g., R, Julia, Python)'; 'NA' indicates that no specialised software was necessary or used. (C) displays 'Software citated', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Software mentioned by name only'; '2' was 'Software cited with version number'; and '3' was 'All software components (SAS PROCs, R, Julia or Python packages, etc.) cited'; 'NA' indicates that no specialised software was necessary or used. (D) shows 'Data availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no data were generated, e.g. a methods paper.", cache=FALSE, fig.env='figure', out.width=0, out.height=0}
 
 rrpp <- import_notes()
 theme_set(theme_classic())
