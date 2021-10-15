@@ -491,18 +491,18 @@ D <- ggplot(rrpp, aes(y = data_avail)) +
 # put them all together
 p <- (A | B) / (C | D)
 p <- p + plot_annotation(tag_levels = "A")
-ggsave(filename = "../figures/Sparks et al Figure 1.eps",
+ggsave(filename = "../figures/Sparks et al Figure 2.eps",
        plot = p,
-       device = "eps",
        width = 6,
        height = 6,
-       units = "in")
+       units = "in",
+       device = cairo_ps)
 extrafont::embed_fonts(
-   file = ("../figures/Sparks et al Figure 1.eps"),
-   outfile = ("../figures/Sparks et al Figure 1.eps"),
+   file = ("../figures/Sparks et al Figure 2.eps"),
+   outfile = ("../figures/Sparks et al Figure 2.eps"),
    options = "-dEPSCrop"
 )
-knitr::include_graphics(path = "../figures/Sparks et al Figure 1.eps")
+knitr::include_graphics(path = "../figures/Sparks et al Figure 2.eps")
 ```
 
 \newpage
@@ -511,7 +511,7 @@ knitr::include_graphics(path = "../figures/Sparks et al Figure 1.eps")
 
 p <- export_svg(
   grViz(
-    "digraph Fig1 {
+    "digraph Fig3 {
     graph [fontsize = 8, nodesep=0.5]
   
     node [shape = box, style = filled, fillcolor = grey99, width = 1.2,fontname = Helvetica]
@@ -540,13 +540,13 @@ p <- export_svg(
   width = 1000,
   height = 750
 ))
-rsvg_ps(svg = charToRaw(p), file = "../figures/Sparks et al Figure 2.eps")
+rsvg_ps(svg = charToRaw(p), file = "../figures/Sparks et al Figure 3.eps")
 extrafont::embed_fonts(
-   file = ("../figures/Sparks et al Figure 2.eps"),
-   outfile = ("../figures/Sparks et al Figure 2.eps"),
+   file = ("../figures/Sparks et al Figure 3.eps"),
+   outfile = ("../figures/Sparks et al Figure 3.eps"),
    options = "-dEPSCrop"
 )
-knitr::include_graphics(path = "../figures/Sparks et al Figure 2.eps")
+knitr::include_graphics(path = "../figures/Sparks et al Figure 3.eps")
 ```
 
 \newpage
