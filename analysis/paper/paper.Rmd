@@ -102,7 +102,7 @@ library("extrafont")
 font_import()
 ```
 
-**Keywords: open science, open data, reproducible research, FAIR data**
+**Keywords: Data Science, Computational Biology, Techniques**
 
 \newpage
 
