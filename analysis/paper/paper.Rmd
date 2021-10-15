@@ -548,22 +548,3 @@ extrafont::embed_fonts(
 )
 knitr::include_graphics(path = "../figures/Sparks et al Figure 3.eps")
 ```
-
-\newpage
-
-# Colophon
-
-This report was generated on $`r Sys.time()`$ using the following computational environment and dependencies:
-
-```{r colophon, cache = FALSE}
-# which R packages and versions?
-sessioninfo::session_info()
-```
-
-The current Git commit details are:
-
-```{r}
-# what commit is this file at? You may need to change the path value
-# if your Rmd is not in analysis/paper/
-git2r::repository("../..")
-```
