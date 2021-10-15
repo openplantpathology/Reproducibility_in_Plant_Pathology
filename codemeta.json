@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology",
   "issueTracker": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -504,7 +504,7 @@
     }
   ],
   "readme": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/main/README.md",
-  "fileSize": "355.69KB",
+  "fileSize": "23842.47KB",
   "developmentStatus": "http://www.repostatus.org/#active",
   "keywords": [
     "plant-pathology",
