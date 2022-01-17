@@ -34,6 +34,12 @@ Create a new tab in the Google Sheets object for the evaluators to carry out eva
 ### R setup
 
 ```{r library, message=FALSE}
+if (!require("doi2bib"))
+if (!require("remotes"))
+  install.packages("remotes")
+
+remotes::install_github("openplantpathology/doi2bib")
+
 library("dplyr")
 library("readr")
 library("bib2df")
@@ -46,6 +52,7 @@ set.seed(1)
 # For printing tibble in total
 options(tibble.print_max = 21, tibble.print_min = 21)
 ```
+
 ### Create list of journals
 
 We hand-picked a list of 21 journals that we felt represented plant pathology research.
@@ -117,7 +124,7 @@ This then assumes that there is no temporal effect, _i.e._, the time of year an 
 ```{r years_and_articles}
 year <- sample(2012:2016, 200, replace = TRUE)
 
-contains_page <- sample.int(150, 200, replace = TRUE)
+contains_page <- sample.int(n = 150, size = 200, replace = TRUE)
 
 journals <- cbind(journals[, -1], year, contains_page, assignees)
 
@@ -163,7 +170,7 @@ to_record <- c(
   )
   journals[to_record] <- ""
   
-  journals <- 
+  template <- 
     journals %>%
     group_by(assignees) %>%
     as_tibble()
@@ -182,15 +189,12 @@ This first sheet will serve as a template and is thus named "template".
 
 ```{r setup_gs, eval=FALSE}
 # Give googlesheets4 permission to access spreadsheets and Google Drive
-gs_auth()
+gs4_auth()
 
 # create Google Sheet for concurrent edits, first sheet: article notes template
-gs_new(
+gs4_create(
   "article_notes",
-  ws_title = "template",
-  input = journals,
-  trim = TRUE,
-  verbose = FALSE
+  sheets = template
   )
 ```
 
@@ -335,6 +339,7 @@ The last few steps are completed outside of R in Google Sheets, manually adding 
 The Google Sheets file can be found here: <https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381>.
 
 # Colophon
+
 ```{r sessioninfo}
 sessioninfo::session_info()
 ```
