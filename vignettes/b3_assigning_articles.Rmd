@@ -80,12 +80,11 @@ That work is detailed in this [second document](b2_assigning_articles).
 
 ```{r assignees}
 assignees <- rep(c("Adam", "Emerson", "Kaique", "Zach", "Nik"), 30)
-
 ```
 
 ### Create randomised list
 
-Now we will create a randomised list of journal articles to assign to each of the four authors for this paper.
+Now we will create a randomised list of journal articles to assign to each of the five authors for this paper.
 
 #### Create a randomised list of the journals
 
