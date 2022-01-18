@@ -122,7 +122,7 @@ If the selected page number/article was not suitable, the next sequential articl
 ### Add empty columns for evaluations
 
 A variety of information will be collected with each article to be used in the analysis later.
-It is easiest to enter this using a spreadsheet application, so we will add on the columns for what information we want to collect and save the table as a CSV for manual editing.
+It is easiest to enter this using a spreadsheet application, so we will add on the columns for what information we want to collect and save the table as a Google Sheet for manual editing.
 
 ```{r}
 to_record <- c(
