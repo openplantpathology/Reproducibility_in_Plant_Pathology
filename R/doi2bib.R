@@ -14,7 +14,8 @@
 #'
 #' @note This function is take from the unrelased (on CRAN) \R package,
 #'  \pkg{doi2bib} by William Keith Morris available from GitHub under the MIT
-#'  Licence.
+#'  Licence.  The full package has been forked to Open Plant Pathology's
+#'  GitHub account \url{https://github.com/openplantpathology/doi2bib}.
 #'
 #' @return a \code{list}, returned invisibly, of bibtex references as
 #'   \code{character} strings, as well as writing to file if \code{file} is

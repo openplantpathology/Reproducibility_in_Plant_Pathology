@@ -39,7 +39,8 @@ entry using the web service \url{http://www.doi2bib.org}.
 \note{
 This function is take from the unrelased (on CRAN) \R package,
  \pkg{doi2bib} by William Keith Morris available from GitHub under the MIT
- Licence.
+ Licence.  The full package has been forked to Open Plant Pathology's
+ GitHub account \url{https://github.com/openplantpathology/doi2bib}.
 }
 \examples{
 doi2bib(Margules2000 = "10.1038/35012251")
