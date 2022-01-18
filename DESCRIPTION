@@ -1,7 +1,7 @@
 Package: Reproducibility.in.Plant.Pathology
 Type: Package
 Title: A Systematic Quantitative Review of Articles Providing a Basis for Identifying Reproducible Research Efforts the Field of Plant Pathology
-Version: 0.0.5
+Version: 0.0.6
 Authors@R: c(
     person(given = "Adam H.", family = "Sparks",
     role = c("aut", "cre"),
@@ -34,7 +34,7 @@ Description: A research compendium for the letter to the editor,
     "Reproducibility in plant pathology: where do we stand and a way forward",
     published in "xxxxxx".
 Depends:
-    R (>= 3.2.0)
+    R (>= 3.5.0)
 License: MIT + file LICENSE
 Imports:
     dplyr,
