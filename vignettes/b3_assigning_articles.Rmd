@@ -184,7 +184,7 @@ gs4_create(
 
 ### Add article DOI's
 
-This step is completed in Google Sheets, Adam looked up articles and added notes and DOIs to a Google Sheet, "article_notes" which will be imported to R in the next step.
+This step is completed in Google Sheets, each assigned individual looked up their assigned articles as provided via the year and page number columns for a journal and added notes and DOIs to a Google Sheet, "article_notes_2019-2021", which will be imported to R in the next step.
 
 ## Step 3
 
