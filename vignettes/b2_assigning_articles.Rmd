@@ -156,7 +156,7 @@ to_record <- c(
 We decided to use Google Sheets so that we could concurrently edit the file more easily.
 Once we're done filling in our evaluations, we will import the data back to R.
 Jenny Bryan has created a handy package, _googlesheets4_ that we use here.
-_Note that this must be run interactively for `gs_new()` to work.
+_Note that this must be run interactively for `gs4_create()` to work.
 Knitting this .Rmd file will not generate any Google sheets, it must be done in an interactive R session._
 
 Create a Google Sheets workbook to hold worksheets for this project.
@@ -177,7 +177,7 @@ gs4_create(
 
 ### Add article DOI's
 
-This step is completed in Google's online Sheets app, Adam looked up articles and added notes and DOIs to a sheet, "article_notes_2017-2018" which will be imported to R in the next step.
+This step is completed in Google's online Sheets app, Adam looked up articles and added notes and DOIs to a sheet, "article_notes_2017-2018", which will be imported to R in the next step.
 
 ## Step 3
 
