@@ -22,12 +22,6 @@ As before with the second round of reviews after the initial set, aside from the
 ### R setup
 
 ```{r library, message=FALSE}
-if (!require("doi2bib"))
-if (!require("remotes"))
-  install.packages("remotes")
-
-remotes::install_github("openplantpathology/doi2bib")
-
 library("dplyr")
 library("readr")
 library("bib2df")
