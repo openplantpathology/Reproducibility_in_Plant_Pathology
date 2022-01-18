@@ -187,12 +187,8 @@ Using the DOIs in this file, we can retrieve the BibTex citations for those arti
 Note that not all of the selected articles have a DOI, so we'll have to manually generate those entries, or fetch them from the journals' websites later.
 
 ```{r join_files, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
-library("doi2bib")
-article_notes <- gs_title("article_notes_2017-2018")
-
-notes <- 
-  article_notes %>% 
-    gs_read(ws = "article_notes")
+notes <- drive_get("article_notes_2017-2018") %>%
+  read_sheet()
   
 # format DOIs to all be uniform, lower-case
 notes$doi <- tolower(notes$doi)
