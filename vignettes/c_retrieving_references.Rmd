@@ -35,7 +35,7 @@ doi <- dplyr::pull(na.omit(doi[, "doi"]))
 
 ## Write DOI values to text file
 
-The DOI values were written to a text file and Zotero was used to fetch the refernence for the DOIs using the "Add Items by Identifier" by copy-pasting the string of DOIs from the text file into the search field.
+The DOI values were written to a text file and Zotero was used to fetch the reference for the DOIs using the "Add Items by Identifier" by copy-pasting the string of DOIs from the text file into the search field.
 The resulting library was exported from Zotero and checked for integrity and cleaned using JabRef.
 Entries that had invalid or missing DOI values were manually added to the resulting .bib file.
 This resulting file is saved as `inst/references.bib`.
