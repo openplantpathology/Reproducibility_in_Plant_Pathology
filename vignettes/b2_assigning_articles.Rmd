@@ -309,6 +309,8 @@ unlink(".httr-oauth")
 
 ### Last steps
 
+The DOIs were checked for errors, duplications and corrected.
+
 The last few steps are completed outside of R in Google Sheets, manually adding the missing information to the spreadsheet and the new assignees adding their evaluations of their respective articles.
 
 The Google Sheets file can be found here:
