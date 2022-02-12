@@ -49,7 +49,7 @@ Imports:
     stats,
     xml2
 Suggests:
-    bib2df,
+    bibtex,
     bayesplot,
     bayestestR,
     brms,
