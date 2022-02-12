@@ -1,13 +1,19 @@
 ---
-title: "Retrieving References Using DOI"
+title: "Retrieving References Using DOI and Generate Database"
 author: "Adam H. Sparks"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Retrieving References Using DOI}
+  %\VignetteIndexEntry{Retrieving References Using DOI and Generate Database}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{bibtex}
+  %\VignetteDepends{googlesheets4}
 ---
+
+```{r, echo=FALSE, message=FALSE}
+library(Reproducibility.in.Plant.Pathology)
+```
 
 ## Load the DOIs
 
@@ -42,7 +48,7 @@ This resulting file is saved as `inst/references.bib`.
 
 ## Print the references.
 
-```{r write-bib-file, message=FALSE, eval=FALSE}
+```{r write-bib-file, message=FALSE, eval=TRUE}
 bib <-
    bibtex::read.bib(
       system.file(
@@ -53,8 +59,7 @@ bib <-
       )
    )
 
-df_references <- bib2df::bib2df(file)
-df_references
+bib
 ```
 
 # Colophon
