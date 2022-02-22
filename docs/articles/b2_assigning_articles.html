@@ -62,31 +62,28 @@
       <a href="../articles/b3_assigning_articles.html">Original Round of Assigning Articles to Evaluators</a>
     </li>
     <li>
-      <a href="../articles/c_retrieving_references.html">Retrieving References Using DOI</a>
+      <a href="../articles/c_retrieving_references.html">Retrieving References Using DOI and Generate Database</a>
     </li>
     <li>
-      <a href="../articles/d_generate_final_bib.html">Generate Final .bib File of References Reviewed</a>
+      <a href="../articles/d_visualisation.html">Data Visualisation</a>
     </li>
     <li>
-      <a href="../articles/e_visualisation.html">Data Visualisation</a>
+      <a href="../articles/e_analysis_journal.html">Analysis of Journal Effect</a>
     </li>
     <li>
-      <a href="../articles/f_analysis_journal.html">Analysis of Journal Effect</a>
+      <a href="../articles/f_analysis_art_class.html">Analysis of Article Class Effect</a>
     </li>
     <li>
-      <a href="../articles/g_analysis_art_class.html">Analysis of Article Class Effect</a>
+      <a href="../articles/g_analysis_mol_focus.html">Analysis of Molecular Focus Effect</a>
     </li>
     <li>
-      <a href="../articles/h_analysis_mol_focus.html">Analysis of Molecular Focus Effect</a>
+      <a href="../articles/h_analysis_5y_if.html">Analysis of Five Year Impact Factor</a>
     </li>
     <li>
-      <a href="../articles/i_analysis_5y_if.html">Analysis of Five Year Impact Factor</a>
+      <a href="../articles/i_analysis_access_policy.html">Analysis of Open Access Policy</a>
     </li>
     <li>
-      <a href="../articles/j_analysis_access_policy.html">Analysis of Open Access Policy</a>
-    </li>
-    <li>
-      <a href="../articles/k_analysis_year.html">Analysis of Publication Year Effect</a>
+      <a href="../articles/j_analysis_year.html">Analysis of Publication Year Effect</a>
     </li>
   </ul>
 </li>
@@ -114,7 +111,7 @@
       <h1 data-toc-skip>Second Round of Assigning Articles to Evaluators</h1>
                         <h4 data-toc-skip class="author">Adam H. Sparks</h4>
             
-            <h4 data-toc-skip class="date">2022-02-10</h4>
+            <h4 data-toc-skip class="date">2022-02-12</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/HEAD/vignettes/b2_assigning_articles.Rmd" class="external-link"><code>vignettes/b2_assigning_articles.Rmd</code></a></small>
       <div class="hidden name"><code>b2_assigning_articles.Rmd</code></div>
@@ -300,149 +297,38 @@
 <h4 id="add-article-dois">Add article DOI’s<a class="anchor" aria-label="anchor" href="#add-article-dois"></a>
 </h4>
 <p>This step is completed in Google’s online Sheets app, Adam looked up articles and added notes and DOIs to a sheet, “article_notes_2017-2018”, which will be imported to R in the next step.</p>
-</div>
-</div>
-<div class="section level3">
-<h3 id="step-3">Step 3<a class="anchor" aria-label="anchor" href="#step-3"></a>
-</h3>
-<div class="section level4">
-<h4 id="generate-a-bibliography-file-to-use-with-the-paper">Generate a bibliography file to use with the paper<a class="anchor" aria-label="anchor" href="#generate-a-bibliography-file-to-use-with-the-paper"></a>
-</h4>
-<p>Using the DOIs in this file, we can retrieve the BibTex citations for those articles that provide a DOI. Note that not all of the selected articles have a DOI, so we’ll have to manually generate those entries, or fetch them from the journals’ websites later.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">notes</span> <span class="op">&lt;-</span> <span class="fu">drive_get</span><span class="op">(</span><span class="st">"article_notes_2017-2018"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://googlesheets4.tidyverse.org/reference/range_read.html" class="external-link">read_sheet</a></span><span class="op">(</span><span class="op">)</span>
-  
-<span class="co"># format DOIs to all be uniform, lower-case</span>
-<span class="va">notes</span><span class="op">$</span><span class="va">doi</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/chartr.html" class="external-link">tolower</a></span><span class="op">(</span><span class="va">notes</span><span class="op">$</span><span class="va">doi</span><span class="op">)</span>
-
-<span class="co"># convert encodings for text with accents</span>
-<span class="va">notes</span><span class="op">$</span><span class="va">journal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/iconv.html" class="external-link">iconv</a></span><span class="op">(</span><span class="va">notes</span><span class="op">$</span><span class="va">journal</span>, <span class="st">"latin1"</span>, <span class="st">"UTF-8"</span><span class="op">)</span> 
-
-<span class="co"># get bib references from the DOI (that exist)</span>
-<span class="va">bib</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">notes</span><span class="op">$</span><span class="va">doi</span>, <span class="va">doi2bib</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p>The <em>Journal of Plant Pathology</em> does not supply valid bib entries via the DOI. So we need to clean them up.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># locations of Journal of "Plant Pathology"" entries in bib object</span>
-<span class="va">clean_pp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grep</a></span><span class="op">(</span><span class="st">"journal=\\{Journal of Plant Pathology\\}"</span>, <span class="va">bib</span><span class="op">)</span>
-
-<span class="co"># create a dataset of just those bib entries</span>
-<span class="va">bib_clean_pp</span> <span class="op">&lt;-</span> <span class="va">bib</span><span class="op">[</span><span class="va">clean_pp</span><span class="op">]</span>
-
-<span class="co"># function to clean the entries</span>
-<span class="va">clean_articles_pp</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">title_loc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gregexpr</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"title"</span>, <span class="va">x</span><span class="op">)</span><span class="op">)</span>
-  <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/substr.html" class="external-link">substr</a></span><span class="op">(</span><span class="va">x</span>, start <span class="op">=</span> <span class="va">title_loc</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, stop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>
-  <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"@article{jpp,\n\t"</span> , <span class="va">y</span><span class="op">)</span>
-  <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"}, "</span>, <span class="st">"},\n\t"</span>, <span class="va">y</span><span class="op">)</span>
-  <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"="</span>, <span class="st">" = "</span>, <span class="va">y</span><span class="op">)</span>
-  <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"}}\n"</span>, <span class="st">"}\n}"</span>, <span class="va">y</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="co"># apply function and clean the bib entries</span>
-<span class="va">cleaned_pp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">bib_clean_pp</span>, <span class="va">clean_articles_pp</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co"># remove the incorrect entries for Journal of Plant Pathology</span>
-<span class="va">bib</span> <span class="op">&lt;-</span> <span class="va">bib</span><span class="op">[</span><span class="op">-</span><span class="va">clean_pp</span><span class="op">]</span></code></pre></div>
-<p><em>Phytopathologia Mediterranea</em> also provides some malformed bib entries. The cite entries are malformed and <code>&lt;em&gt; &lt;/em&gt;</code> is used rather than the proper <code>\textit{}</code> for a BibTeX file.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">clean_pm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">grep</a></span><span class="op">(</span><span class="st">"journal=\\{Phytopathologia Mediterranea\\}"</span>, <span class="va">bib</span><span class="op">)</span>
-<span class="va">bib_clean_pm</span> <span class="op">&lt;-</span> <span class="va">bib</span><span class="op">[</span><span class="va">clean_pm</span><span class="op">]</span>
-<span class="va">clean_articles_pm</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">" @article\\{[[:print:]]+, title=\\{"</span>, <span class="st">"@article\\{PM, title = \\{"</span>, <span class="va">x</span><span class="op">)</span>
-  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"&lt;em&gt;"</span>, <span class="st">"\\\textit\\{"</span>, <span class="va">x</span><span class="op">)</span>
-  <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"&lt;/em&gt;"</span>, <span class="st">"}"</span>, <span class="va">x</span><span class="op">)</span>
-  <span class="op">}</span>
-
-<span class="co"># apply function and clean the bib entries</span>
-<span class="va">cleaned_pm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">bib_clean_pm</span>, <span class="va">clean_articles_pm</span><span class="op">)</span><span class="op">)</span>
-<span class="va">bib</span> <span class="op">&lt;-</span> <span class="va">bib</span><span class="op">[</span><span class="op">-</span><span class="va">clean_pm</span><span class="op">]</span></code></pre></div>
-<p>The larger list of bib objects has some items that are supposedly invalid DOIs. In this step we remove them and clean up the list. They’ll be added back to the database when we merge the notes at the end.</p>
-<p>Also there are duplicates in the list somehow. Use <code><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique()</a></code> to clean the list up.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">bib</span> <span class="op">&lt;-</span> <span class="va">bib</span><span class="op">[</span><span class="va">bib</span> <span class="op">!=</span> <span class="st">"Invalid DOI"</span><span class="op">]</span>
-
-<span class="va">bib</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">bib</span><span class="op">)</span></code></pre></div>
-<p>Next export the items as files to disk as .bib files to be cleaned using JabRef. This will automatically assign unique cite keys and fix some issues with characters in the bib file. Open the file in JabRef and click “yes” when prompted to regarding the cite keys.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># clean up any existing files since we're appending</span>
-<span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="st">"~/tmp/bib_new_article_notes.bib"</span><span class="op">)</span>
-
-<span class="co"># write files to a local directory and clean up with JabRef</span>
-<span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">bib</span><span class="op">)</span>,
-       <span class="va">write</span>, <span class="st">"~/tmp/bib_new_article_notes.bib"</span>,
-       append <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">cleaned_pp</span><span class="op">)</span>,
-       <span class="va">write</span>, <span class="st">"~/tmp/bib_new_article_notes.bib"</span>,
-       append <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">cleaned_pm</span><span class="op">)</span>,
-       <span class="va">write</span>, <span class="st">"~/tmp/bib_new_article_notes.bib"</span>,
-       append <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<p><em>Important</em> Open resulting files in <code>~/tmp</code> directory in JabRef, create new keys and resave. JabRef will generate unique keys and fix any inconsistencies that may exist from the DOI search.</p>
-</div>
-<div class="section level4">
-<h4 id="export-google-sheets">Export Google Sheets<a class="anchor" aria-label="anchor" href="#export-google-sheets"></a>
-</h4>
-<p>In this last bit, import the BibTeX file back into R and export to a tab in the Google Sheets for collaborative edits.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># import both the Journal of Plant Pathology (cleaned_bib) and article_notes.bib</span>
-<span class="va">bib</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/bib2df/reference/bib2df.html" class="external-link">bib2df</a></span><span class="op">(</span><span class="st">"~/tmp/bib_new_article_notes.bib"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">bib</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/chartr.html" class="external-link">tolower</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">bib</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co"># join notes with bibliographic data</span>
-<span class="va">bib_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">notes</span>, <span class="va">bib</span><span class="op">)</span>
-<span class="va">bib_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">bib_df</span>, <span class="va">new_assignees</span><span class="op">)</span>
-
-<span class="co"># create Google Sheet for concurrent edits</span>
-<span class="va">new_article_notes</span> <span class="op">&lt;-</span>
-  <span class="va">new_article_notes</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu">gs_ws_new</span><span class="op">(</span>
-    ws_title <span class="op">=</span> <span class="st">"new_article_evaluations"</span>,
-    input <span class="op">=</span> <span class="va">bib_df</span>,
-    trim <span class="op">=</span> <span class="cn">TRUE</span>,
-    verbose <span class="op">=</span> <span class="cn">FALSE</span>
-  <span class="op">)</span>
-
-<span class="co"># clean up files to build R package properly with no NOTES</span>
-<span class="fu"><a href="https://rdrr.io/r/base/unlink.html" class="external-link">unlink</a></span><span class="op">(</span><span class="st">".httr-oauth"</span><span class="op">)</span></code></pre></div>
-</div>
-<div class="section level4">
-<h4 id="last-steps">Last steps<a class="anchor" aria-label="anchor" href="#last-steps"></a>
-</h4>
-<p>The DOIs were checked for errors, duplications and corrected.</p>
-<p>The last few steps are completed outside of R in Google Sheets, manually adding the missing information to the spreadsheet and the new assignees adding their evaluations of their respective articles.</p>
 <p>The Google Sheets file can be found here: <a href="https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381" class="external-link uri">https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381</a>.</p>
 </div>
 </div>
 <div class="section level2">
 <h2 id="colophon">Colophon<a class="anchor" aria-label="anchor" href="#colophon"></a>
 </h2>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://r-lib.github.io/sessioninfo/reference/session_info.html" class="external-link">session_info</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <pre><code><span class="co">## <span style="color: #00BBBB; font-weight: bold;">─ Session info ───────────────────────────────────────────────────────────────</span></span>
 <span class="co">##  <span style="color: #555555; font-style: italic;">setting </span> <span style="color: #555555; font-style: italic;">value</span></span>
 <span class="co">##  version  R version 4.1.2 (2021-11-01)</span>
-<span class="co">##  os       macOS Monterey 12.2</span>
+<span class="co">##  os       macOS Monterey 12.2.1</span>
 <span class="co">##  system   aarch64, darwin20</span>
 <span class="co">##  ui       X11</span>
 <span class="co">##  language en</span>
 <span class="co">##  collate  en_AU.UTF-8</span>
 <span class="co">##  ctype    en_AU.UTF-8</span>
 <span class="co">##  tz       Australia/Perth</span>
-<span class="co">##  date     2022-02-10</span>
+<span class="co">##  date     2022-02-12</span>
 <span class="co">##  pandoc   2.14.0.3 @ /Applications/RStudio.app/Contents/MacOS/pandoc/ (via rmarkdown)</span>
 <span class="co">## </span>
 <span class="co">## <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────</span></span>
 <span class="co">##  <span style="color: #555555; font-style: italic;">package                           </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version   </span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span>
 <span class="co">##  assertthat                           0.2.1      <span style="color: #555555;">2019-03-21</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">##  bib2df                             * 1.1.1      <span style="color: #555555;">2019-05-22</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">##  bib2df                             * 1.1.1      <span style="color: #555555;">2019-05-22</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
 <span class="co">##  bslib                                0.3.1      <span style="color: #555555;">2021-10-06</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
 <span class="co">##  cachem                               1.0.6      <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
 <span class="co">##  cellranger                           1.1.0      <span style="color: #555555;">2016-07-27</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">##  cli                                  3.1.1      <span style="color: #555555;">2022-01-20</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">##  cli                                  <span style="color: #BB00BB; font-weight: bold;">3.1.1.9000</span> <span style="color: #555555;">2022-02-11</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">Github (r-lib/cli@e6df6ca)</span></span>
 <span class="co">##  crayon                               1.4.2      <span style="color: #555555;">2021-10-29</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
 <span class="co">##  curl                                 4.3.2      <span style="color: #555555;">2021-06-23</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">##  DBI                                  1.1.2      <span style="color: #555555;">2021-12-20</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
+<span class="co">##  DBI                                  1.1.2      <span style="color: #555555;">2021-12-20</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">##  desc                                 1.4.0      <span style="color: #555555;">2021-09-28</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
 <span class="co">##  digest                               0.6.29     <span style="color: #555555;">2021-12-01</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">##  dplyr                              * 1.0.8      <span style="color: #555555;">2022-02-08</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
@@ -450,7 +336,7 @@
 <span class="co">##  evaluate                             0.14       <span style="color: #555555;">2019-05-28</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">##  fansi                                1.0.2      <span style="color: #555555;">2022-01-14</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
 <span class="co">##  fastmap                              1.1.0      <span style="color: #555555;">2021-01-25</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">##  fs                                   1.5.2      <span style="color: #555555;">2021-12-08</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
+<span class="co">##  fs                                   1.5.2      <span style="color: #555555;">2021-12-08</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
 <span class="co">##  gargle                               1.2.0      <span style="color: #555555;">2021-07-02</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">##  generics                             0.1.2      <span style="color: #555555;">2022-01-31</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
 <span class="co">##  glue                                 1.6.1      <span style="color: #555555;">2022-01-22</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
@@ -464,26 +350,25 @@
 <span class="co">##  jsonlite                             1.7.3      <span style="color: #555555;">2022-01-17</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">##  knitr                                1.37       <span style="color: #555555;">2021-12-16</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
 <span class="co">##  lifecycle                            1.0.1      <span style="color: #555555;">2021-09-24</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
-<span class="co">##  magrittr                             2.0.2      <span style="color: #555555;">2022-01-26</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
-<span class="co">##  memoise                              2.0.1      <span style="color: #555555;">2021-11-26</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
+<span class="co">##  magrittr                             2.0.2      <span style="color: #555555;">2022-01-26</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
+<span class="co">##  memoise                              2.0.1      <span style="color: #555555;">2021-11-26</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">##  pillar                               1.7.0      <span style="color: #555555;">2022-02-01</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
 <span class="co">##  pkgconfig                            2.0.3      <span style="color: #555555;">2019-09-22</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">##  pkgdown                              2.0.2      <span style="color: #555555;">2022-01-13</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
-<span class="co">##  purrr                                0.3.4      <span style="color: #555555;">2020-04-17</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">##  purrr                                0.3.4      <span style="color: #555555;">2020-04-17</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">##  R6                                   2.5.1      <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
 <span class="co">##  ragg                                 1.2.1      <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
 <span class="co">##  Rcpp                                 1.0.8      <span style="color: #555555;">2022-01-13</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
-<span class="co">##  readr                              * 2.1.2      <span style="color: #555555;">2022-01-30</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
-<span class="co">##  Reproducibility.in.Plant.Pathology * 0.0.6      <span style="color: #555555;">2022-02-10</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
+<span class="co">##  readr                              * 2.1.2      <span style="color: #555555;">2022-01-30</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
+<span class="co">##  Reproducibility.in.Plant.Pathology * 0.0.6      <span style="color: #555555;">2022-02-12</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span>
 <span class="co">##  rlang                                1.0.1      <span style="color: #555555;">2022-02-03</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
 <span class="co">##  rmarkdown                            2.11       <span style="color: #555555;">2021-09-14</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
 <span class="co">##  rprojroot                            2.0.2      <span style="color: #555555;">2020-11-15</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
 <span class="co">##  rstudioapi                           0.13       <span style="color: #555555;">2020-11-12</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
-<span class="co">##  sass                                 <span style="color: #BB00BB; font-weight: bold;">0.4.0.9000</span> <span style="color: #555555;">2021-12-18</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">Github (rstudio/sass@f7a9540)</span></span>
+<span class="co">##  sass                                 <span style="color: #BB00BB; font-weight: bold;">0.4.0.9000</span> <span style="color: #555555;">2021-12-05</span> <span style="color: #555555;">[2]</span> <span style="color: #BB00BB; font-weight: bold;">Github (rstudio/sass@f7a9540)</span></span>
 <span class="co">##  sessioninfo                          1.2.2      <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
-<span class="co">##  sodium                               1.2.0      <span style="color: #555555;">2021-10-21</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
 <span class="co">##  stringi                              1.7.6      <span style="color: #555555;">2021-11-29</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
-<span class="co">##  stringr                            * 1.4.0      <span style="color: #555555;">2019-02-10</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.0)</span></span>
+<span class="co">##  stringr                            * 1.4.0      <span style="color: #555555;">2019-02-10</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
 <span class="co">##  systemfonts                          1.0.3      <span style="color: #555555;">2021-10-13</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
 <span class="co">##  textshaping                          0.3.6      <span style="color: #555555;">2021-10-13</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
 <span class="co">##  tibble                               3.1.6      <span style="color: #555555;">2021-11-07</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
@@ -494,7 +379,7 @@
 <span class="co">##  xfun                                 0.29       <span style="color: #555555;">2021-12-14</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.1)</span></span>
 <span class="co">##  yaml                                 2.2.2      <span style="color: #555555;">2022-01-25</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.1.2)</span></span>
 <span class="co">## </span>
-<span class="co">## <span style="color: #555555;"> [1] /private/var/folders/hc/tft3s5bn48gb81cs99mycyf00000gn/T/RtmpIuo9pw/temp_libpath85546b257a07</span></span>
+<span class="co">## <span style="color: #555555;"> [1] /private/var/folders/tr/fwv720l96bz2btcr0jr_gs840000gn/T/RtmpflB7W2/temp_libpath2e5c4235de3b</span></span>
 <span class="co">## <span style="color: #555555;"> [2] /Library/Frameworks/R.framework/Versions/4.1-arm64/Resources/library</span></span>
 <span class="co">## </span>
 <span class="co">## <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────</span></span></code></pre>
