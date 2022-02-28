@@ -37,7 +37,7 @@ import_notes <- function() {
                 "Reproducibility_in_plant_pathology_notes.ods",
                 package = "Reproducibility.in.Plant.Pathology"),
     na = "NA",
-    sheet = 4
+    sheet = "5yr IF"
   )
 
   notes <-
