@@ -1,13 +1,19 @@
 ---
-title: "Retrieving References Using DOI"
+title: "Retrieving References Using DOI and Generate Database"
 author: "Adam H. Sparks"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Retrieving References Using DOI}
+  %\VignetteIndexEntry{Retrieving References Using DOI and Generate Database}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{bibtex}
+  %\VignetteDepends{googlesheets4}
 ---
+
+```{r, echo=FALSE, message=FALSE}
+library(Reproducibility.in.Plant.Pathology)
+```
 
 ## Load the DOIs
 
@@ -17,7 +23,9 @@ The DOIs were recorded when the initial articles were assigned.
 ```{r get-sheet, message=FALSE, warning=FALSE, eval=FALSE}
 doi <-
   googlesheets4::read_sheet(
-    "https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1579463541"
+    "https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1579463541",
+    sheet = 2,
+    na = "NA"
   )
 ```
 
@@ -28,23 +36,30 @@ Those journals will be removed from the automated search for references.
 They will be manually added later.
 
 ```{r remove-na, message=FALSE, eval=FALSE}
-doi <- na.omit(doi$doi)
+doi <- dplyr::pull(na.omit(doi[, "doi"]))
 ```
 
-## Get the bibtex entries
+## Write DOI values to text file
 
-```{r get-bib-entry, message=FALSE, eval=FALSE}
-sink("references.bib")
-bib <- sapply(doi, rcrossref::cr_cn)
-sink()
-```
+The DOI values were written to a text file and Zotero was used to fetch the reference for the DOIs using the "Add Items by Identifier" by copy-pasting the string of DOIs from the text file into the search field.
+The resulting library was exported from Zotero and checked for integrity and cleaned using JabRef.
+Entries that had invalid or missing DOI values were manually added to the resulting .bib file.
+This resulting file is saved as `inst/references.bib`.
 
 ## Print the references.
 
-```{r write-bib-file, message=FALSE, eval=FALSE}
-file <- "references.bib"
-df_references <- bib2df::bib2df(file)
-df_references
+```{r write-bib-file, message=FALSE, eval=TRUE}
+bib <-
+   bibtex::read.bib(
+      system.file(
+         "extdata",
+         "references.bib",
+         package = "Reproducibility.in.Plant.Pathology",
+         mustWork = TRUE
+      )
+   )
+
+bib
 ```
 
 # Colophon

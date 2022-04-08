@@ -1,22 +1,19 @@
 {
-  "@context": [
-    "https://doi.org/10.5063/schema/codemeta-2.0",
-    "http://schema.org"
-  ],
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "Reproducibility.in.Plant.Pathology",
-  "description": "A research compendium for the letter to the editor,\n    \"Reproducibility in plant pathology: where do we stand and a way forward\",\n    published in \"xxxxxx\".",
+  "description": "A research compendium for the letter to the editor, \"Reproducibility in plant pathology: where do we stand and a way forward\", published in \"xxxxxx\".",
   "name": "Reproducibility.in.Plant.Pathology: A Systematic Quantitative Review of Articles Providing a Basis for Identifying Reproducible Research Efforts the Field of Plant Pathology",
   "codeRepository": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology",
   "issueTracker": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.1.1 (2021-08-10)",
+  "runtimePlatform": "R version 4.1.2 (2021-11-01)",
   "author": [
     {
       "@type": "Person",
@@ -62,8 +59,6 @@
       "email": "wkmor1@gmail.com"
     }
   ],
-  "copyrightHolder": {},
-  "funder": {},
   "maintainer": [
     {
       "@type": "Person",
@@ -377,14 +372,14 @@
       "sameAs": "https://CRAN.R-project.org/package=spelling"
     }
   ],
-  "softwareRequirements": [
-    {
+  "softwareRequirements": {
+    "1": {
       "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
-      "version": ">= 3.2.0"
+      "version": ">= 3.5.0"
     },
-    {
+    "2": {
       "@type": "SoftwareApplication",
       "identifier": "dplyr",
       "name": "dplyr",
@@ -396,7 +391,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=dplyr"
     },
-    {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "DiagrammeR",
       "name": "DiagrammeR",
@@ -408,7 +403,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=DiagrammeR"
     },
-    {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "DiagrammeRsvg",
       "name": "DiagrammeRsvg",
@@ -420,7 +415,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=DiagrammeRsvg"
     },
-    {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "httr",
       "name": "httr",
@@ -432,7 +427,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=httr"
     },
-    {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
@@ -444,12 +439,12 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
-    {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "methods",
       "name": "methods"
     },
-    {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "pander",
       "name": "pander",
@@ -461,7 +456,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=pander"
     },
-    {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "readODS",
       "name": "readODS",
@@ -473,7 +468,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=readODS"
     },
-    {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "rsvg",
       "name": "rsvg",
@@ -485,12 +480,12 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rsvg"
     },
-    {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "stats",
       "name": "stats"
     },
-    {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "xml2",
       "name": "xml2",
@@ -501,20 +496,10 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=xml2"
-    }
-  ],
-  "readme": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/main/README.md",
-  "fileSize": "23842.47KB",
-  "developmentStatus": "http://www.repostatus.org/#active",
-  "keywords": [
-    "plant-pathology",
-    "reproducible-research",
-    "reproducible-science",
-    "open-science",
-    "r",
-    "rstats",
-    "research-compendium"
-  ],
+    },
+    "SystemRequirements": null
+  },
+  "fileSize": "23853.408KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -548,8 +533,12 @@
       "name": "{Reproducibility.in.Plant.Pathology}: A Systematic Quantitative Review of Articles Providing a Basis for Identifying Reproducible Research Efforts the Field of Plant Pathology",
       "identifier": "10.5281/zenodo.1250664",
       "url": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology",
+      "description": "R package version 0.0.6",
       "@id": "https://doi.org/10.5281/zenodo.1250664",
       "sameAs": "https://doi.org/10.5281/zenodo.1250664"
     }
-  ]
+  ],
+  "readme": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/main/README.md",
+  "developmentStatus": "http://www.repostatus.org/#active",
+  "keywords": ["plant-pathology", "reproducible-research", "reproducible-science", "open-science", "r", "rstats", "research-compendium"]
 }

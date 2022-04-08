@@ -23,7 +23,7 @@ Our pre-print is online on the agriRxiv preprint server:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
 > J. (2021). *Reproducibility in plant pathology: where do we stand and
-> a way forward*. agriRxiv, Accessed 13 Oct 2021. Online at
+> a way forward*. agriRxiv, Accessed 01 Mar 2022. Online at
 > <https://doi.org/10.31220/agriRxiv.2021.00082>
 
 The paper is a systematic and quantitative review of articles published
@@ -44,9 +44,9 @@ citations for their work.
 Please cite this compendium as:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
-> J. (2021). *Compendium of R code and data for ‘Status and Best
-> Practices for Reproducible Research In Plant Pathology’*. Accessed 13
-> Oct 2021. Online at <https://doi.org/10.5281/zenodo.1250665>
+> J. (2022). *Compendium of R code and data for ‘Status and Best
+> Practices for Reproducible Research In Plant Pathology’*. Accessed 01
+> Mar 2022. Online at <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
 
@@ -103,7 +103,7 @@ Docker session.
 
 ### Licensing
 
-Code: [MIT](http://opensource.org/licenses/MIT) year: 2021, copyright
+Code: [MIT](http://opensource.org/licenses/MIT) year: 2022, copyright
 holder: Adam H. Sparks
 
 Data: [CC-0](http://creativecommons.org/publicdomain/zero/1.0/)
@@ -113,7 +113,7 @@ Adam H. Sparks Senior Research Scientist Farming Systems Innovation
 Primary Industries Development Department of Primary Industries and
 Regional Development Level 6.35, 1 Nash St., Perth WA 6000
 
-<https://adamhsparks.com/>
+<https://adamhsparks.netlify.app>
 
 ### Code of Conduct
 

@@ -7,6 +7,7 @@ vignette: >
   %\VignetteIndexEntry{Original Round of Assigning Articles to Evaluators}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{googlesheets4}
 ---
 
 ## Creating a sample of articles
@@ -46,6 +47,7 @@ set.seed(1)
 # For printing tibble in total
 options(tibble.print_max = 21, tibble.print_min = 21)
 ```
+
 ### Create list of journals
 
 We hand-picked a list of 21 journals that we felt represented plant pathology research.
@@ -117,7 +119,7 @@ This then assumes that there is no temporal effect, _i.e._, the time of year an 
 ```{r years_and_articles}
 year <- sample(2012:2016, 200, replace = TRUE)
 
-contains_page <- sample.int(150, 200, replace = TRUE)
+contains_page <- sample.int(n = 150, size = 200, replace = TRUE)
 
 journals <- cbind(journals[, -1], year, contains_page, assignees)
 
@@ -140,7 +142,7 @@ If the selected page number/article was not suitable, the next sequential articl
 ### Add empty columns for evaluations
 
 A variety of information will be collected with each article to be used in the analysis later.
-It is easiest to enter this using a spreadsheet application, so we will add on the columns for what information we want to collect and save the table as a csv for manual editing.
+It is easiest to enter this using a spreadsheet application, so we will add on the columns for what information we want to collect and save the table as a Google Sheet for manual editing.
 
 ```{r}
 to_record <- c(
@@ -163,7 +165,7 @@ to_record <- c(
   )
   journals[to_record] <- ""
   
-  journals <- 
+  template <- 
     journals %>%
     group_by(assignees) %>%
     as_tibble()
@@ -174,7 +176,7 @@ to_record <- c(
 We decided to use Google Sheets so that we could concurrently edit the file more easily.
 Once we're done filling in our evaluations, we will import the data back to R.
 Jenny Bryan has created a handy package, _googlesheets4_ that we use here.
-_Note that this must be run interactively for `gs_new()` to work.
+_Note that this must be run interactively for `gs4_create()` to work.
 Knitting this .Rmd file will not generate any Google Sheets, it must be done in an interactive R session._
 
 Create a Google Sheets workbook to hold worksheets for this project.
@@ -182,15 +184,12 @@ This first sheet will serve as a template and is thus named "template".
 
 ```{r setup_gs, eval=FALSE}
 # Give googlesheets4 permission to access spreadsheets and Google Drive
-gs_auth()
+gs4_auth()
 
 # create Google Sheet for concurrent edits, first sheet: article notes template
-gs_new(
+gs4_create(
   "article_notes",
-  ws_title = "template",
-  input = journals,
-  trim = TRUE,
-  verbose = FALSE
+  sheets = template
   )
 ```
 
@@ -198,143 +197,12 @@ gs_new(
 
 ### Add article DOI's
 
-This step is completed in Google Sheets, Adam looked up articles and added notes and DOIs to a Google Sheet, "article_notes" which will be imported to R in the next step.
-
-## Step 3
-
-### Generate a bibliography file to use with the paper
-
-Using the DOIs in this file, we can retrieve the BibTex citations for those articles that provide a DOI.
-Note that not all of the selected articles have a DOI, so we'll have to manually generate those entries, or fetch them from the journals' website later.
-
-```{r join_files, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
-library("doi2bib")
-article_notes <- gs_title("article_notes")
-
-notes <- 
-  article_notes %>% 
-    gs_read(ws = "article_notes")
-  
-# format DOIs to all be uniform, lower-case
-notes$doi <- tolower(notes$doi)
-
-# convert encodings for text with accents
-notes$journal <- iconv(notes$journal, "latin1", "UTF-8") 
-
-# get bib references from the DOI (that exist)
-bib <- unlist(lapply(notes$doi, doi2bib))
-```
-
-The _Journal of Plant Pathology_ does not supply valid bib entries via the DOI.
-So we need to clean them up.
-
-```{r first_bib_cleaning, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
-
-# locations of Journal of "Plant Pathology"" entries in bib object
-clean_pp <- grep("journal=\\{Journal of Plant Pathology\\}", bib)
-
-# create a dataset of just those bib entries
-bib_clean_pp <- bib[clean_pp]
-
-# function to clean the entries
-clean_articles_pp <- function(x) {
-  title_loc <- unlist(gregexpr(pattern = "title", x))
-  y <- substr(x, start = title_loc[1], stop = nchar(x))
-  y <- paste0("@article{jpp,\n\t" , y)
-  y <- gsub("}, ", "},\n\t", y)
-  y <- gsub("=", " = ", y)
-  y <- gsub("}}\n", "}\n}", y)
-}
-
-# apply function and clean the bib entries
-cleaned_pp <- unlist(lapply(bib_clean_pp, clean_articles_pp))
-
-# remove the incorrect entries for Journal of Plant Pathology
-bib <- bib[-clean_pp]
-```
-
-_Phytopathologia Mediterranea_ also provides some malformed bib entries.
-The cite entries are malformed and `<em> </em>` is used rather than the proper `\textit{}` for a BibTeX file.
-
-```{r second_bib_cleaning, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
-clean_pm <- grep("journal=\\{Phytopathologia Mediterranea\\}", bib)
-bib_clean_pm <- bib[clean_pm]
-clean_articles_pm <- function(x) {
-  x <- gsub(" @article\\{[[:print:]]+, title=\\{", "@article\\{PM, title = \\{", x)
-  x <- gsub("<em>", "\\\textit\\{", x)
-  x <- gsub("</em>", "}", x)
-  }
-
-# apply function and clean the bib entries
-cleaned_pm <- unlist(lapply(bib_clean_pm, clean_articles_pm))
-bib <- bib[-clean_pm]
-```
-
-The larger list of bib objects has some items that are supposedly invalid DOIs.
-In this step we remove them and clean up the list.
-They'll be added back to the database when we merge the notes at the end.
-
-Also there are duplicates in the list somehow. Use `unique()` to clean the list up.
-
-```{r, clean_bib, eval=FALSE}
-bib <- bib[bib != "Invalid DOI"]
-
-bib <- unique(bib)
-```
-
-Next export the items as files to disk as .bib files to be cleaned using JabRef.
-This will automatically assign unique cite keys and fix some issues with characters in the bib file.
-Open the file in JabRef and click "yes" when prompted to regarding the cite keys.
-
-```{r export_import_bib, eval=FALSE}
-# clean up any existing files since we're appending
-unlink("~/tmp/bib_article_notes.bib")
-
-# write files to a local directory and clean up with JabRef
-lapply(unlist(bib), write, "~/tmp/bib_article_notes.bib", append = TRUE)
-lapply(unlist(cleaned_pp), write, "~/tmp/bib_article_notes.bib", append = TRUE)
-lapply(unlist(cleaned_pm), write, "~/tmp/bib_article_notes.bib", append = TRUE)
-
-```
-
-*Important* Open resulting files in `~/tmp` directory in JabRef, create new keys and resave.
-JabRef will generate unique keys and fix any inconsistencies that may exist from the DOI search.
-
-### Export Google Sheets
-
-In this last bit, import the BibTeX file back into R and export to a tab in the Google Sheets for collaborative edits.
-
-```{r google, warning=FALSE, message=FALSE, results="hide", eval=FALSE}
-
-# import both the Journal of Plant Pathology (cleaned_bib) and article_notes.bib
-bib <- bib2df("~/tmp/bib_article_notes.bib")
-names(bib) <- tolower(names(bib))
-
-# join notes with bibliographic data
-bib_df <- left_join(notes, bib)
-bib_df <- arrange(bib_df, assignees)
-
-# create Google Sheet for concurrent edits
-article_notes <-
-  article_notes %>%
-    gs_ws_new(
-    ws_title = "article_evaluations",
-    input = bib_df,
-    trim = TRUE,
-    verbose = FALSE
-    )
-
-# clean up files to build R package properly with no NOTES
-unlink(".httr-oauth")
-```
-
-### Last steps
-
-The last few steps are completed outside of R in Google Sheets, manually adding the missing information to the spreadsheet evaluations of their respective articles.
+This step is completed in Google Sheets, Adam looked up articles and added notes and DOIs to a Google Sheet, "article_notes".
 
 The Google Sheets file can be found here: <https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381>.
 
 # Colophon
+
 ```{r sessioninfo}
 sessioninfo::session_info()
 ```

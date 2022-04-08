@@ -1,0 +1,21 @@
+pandoc: 2.14.0.3
+pkgdown: 2.0.2
+pkgdown_sha: ~
+articles:
+  a_reproducibility_criteria: a_reproducibility_criteria.html
+  b1_assigning_articles: b1_assigning_articles.html
+  b2_assigning_articles: b2_assigning_articles.html
+  b3_assigning_articles: b3_assigning_articles.html
+  c_retrieving_references: c_retrieving_references.html
+  d_visualisation: d_visualisation.html
+  e_analysis_journal: e_analysis_journal.html
+  f_analysis_art_class: f_analysis_art_class.html
+  g_analysis_mol_focus: g_analysis_mol_focus.html
+  h_analysis_5y_if: h_analysis_5y_if.html
+  i_analysis_access_policy: i_analysis_access_policy.html
+  j_analysis_year: j_analysis_year.html
+last_built: 2022-02-28T09:18Z
+urls:
+  reference: https://openplantpathology.github.io/Reproducible.Plant.Pathology/reference
+  article: https://openplantpathology.github.io/Reproducible.Plant.Pathology/articles
+

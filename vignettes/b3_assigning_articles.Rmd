@@ -1,0 +1,196 @@
+---
+title: "Original Round of Assigning Articles to Evaluators"
+author: "Adam H. Sparks"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Original Round of Assigning Articles to Evaluators}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{googlesheets4}
+---
+
+## Creating a sample of articles
+
+
+As a third round in response to reviewers' comments, we sampled XX articles from the same 21 journals to bring the coverage of articles up to 2021.
+That is, this round covers the years 2019-2021.
+
+As before with the second round of reviews after the initial set, aside from the different years, the journals remain the same and process as described previously.
+
+## Step 1
+
+### R setup
+
+```{r library, message=FALSE}
+library("dplyr")
+library("readr")
+library("bib2df")
+library("googlesheets4")
+library("stringr")
+library("Reproducibility.in.Plant.Pathology")
+
+set.seed(5) # note that `set.seed()` is different for all three rounds
+
+# For printing tibble in total
+options(tibble.print_max = 21, tibble.print_min = 21)
+```
+
+### Create list of journals
+
+We hand-picked a list of 21 journals that we felt represented plant pathology research.
+In this step, we will create a `tibble` in R of these journals, assigning them a number so that we can randomise them.
+
+```{r journal_list}
+journal_list <- tibble(
+  seq(1:21),
+  c("Australasian Plant Pathology",
+    "Canadian Journal of Plant Pathology",
+    "Crop Protection",
+    "European Journal of Plant Pathology",
+    "Forest Pathology",
+    "Journal of General Plant Pathology",
+    "Journal of Phytopathology",
+    "Journal of Plant Pathology",
+    "Virology Journal (Plant Viruses Section)",
+    "Molecular Plant-Microbe Interactions",
+    "Molecular Plant Pathology",
+    "Nematology",
+    "Physiological and Molecular Plant Pathology",
+    "Phytoparasitica",
+    "Phytopathologia Mediterranea",
+    "Phytopathology",
+    "Plant Disease",
+    "Plant Health Progress",
+    "Plant Pathology",
+    "Revista Mexicana de Fitopatología",
+    "Tropical Plant Pathology"))
+
+names(journal_list) <- c("number", "journal")
+```
+
+### Create list of evaluators
+
+#### First round of reviews
+
+Initially, when we started this work we had four authors working together on it.
+For the four original authors of the paper we created a list for us to use that will randomly assign articles for us to evaluate for this manuscript.
+
+Later we decided to add more authors and more articles.
+That work is detailed in this [second document](b2_assigning_articles).
+
+```{r assignees}
+assignees <- rep(c("Adam", "Emerson", "Kaique", "Zach", "Nik"), 30)
+```
+
+### Create randomised list
+
+Now we will create a randomised list of journal articles to assign to each of the five authors for this paper.
+
+#### Create a randomised list of the journals
+
+```{r journal_sample}
+journals <- tibble(sample(1:21, 150, replace = TRUE))
+
+names(journals) <- "number"
+
+journals <- left_join(journals, journal_list, "number")
+```
+
+#### Randomly select articles
+
+Generate a random list of years between 2019 and 2021 and a random list of start pages between 1 and 150 since some journals start numbering at 1 with every issue.
+Then bind the columns of the randomised list of journals with the randomised years and page start numbers.
+This then assumes that there is no temporal effect, _i.e._, the time of year an article is published does not affect whether or not it is reproducible.
+
+```{r years_and_articles}
+year <- sample(2019:2021, 150, replace = TRUE)
+
+contains_page <- sample.int(n = 150, size = 150, replace = TRUE)
+
+journals <- cbind(journals[, -1], year, contains_page, assignees)
+
+journals <- arrange(.data = journals, assignees, journal, year, contains_page)
+```
+
+#### Check the number of articles per journal
+
+```{r, count}
+journals %>%
+  group_by(journal) %>%
+  tally(sort = TRUE)
+```
+
+Once this is done, the articles are manually examined for suitability.
+Reference articles or off-topic articles are not included.
+Notes are provided regarding these cases in `assigned_article_notes`.
+If the selected page number/article was not suitable, the next sequential article was selected manually.
+
+### Add empty columns for evaluations
+
+A variety of information will be collected with each article to be used in the analysis later.
+It is easiest to enter this using a spreadsheet application, so we will add on the columns for what information we want to collect and save the table as a Google Sheet for manual editing.
+
+```{r}
+to_record <- c(
+  "doi",
+  "IF_5year",
+  "country",
+  "open",
+  "repro_inst",
+  "iss_per_year",
+  "art_class",
+  "supl_mats",
+  "comp_mthds_avail",
+  "software_avail",
+  "software_cite",
+  "analysis_auto",
+  "data_avail",
+  "data_annot",
+  "data_tidy",
+  "reproducibility_score"
+  )
+
+  journals[to_record] <- ""
+  
+  template <- 
+    journals %>%
+    group_by(assignees) %>%
+    as_tibble()
+```
+
+### Write to Google Sheets
+
+We decided to use Google Sheets so that we could concurrently edit the file more easily.
+Once we're done filling in our evaluations, we will import the data back to R.
+Jenny Bryan has created a handy package, _googlesheets4_ that we use here.
+_Note that this must be run interactively for `gs4_create()` to work.
+Knitting this .Rmd file will not generate any Google Sheets, it must be done in an interactive R session._
+
+Create a Google Sheets workbook to hold worksheets for this project.
+This first sheet will serve as a template and is thus named "template".
+
+```{r setup_gs, eval=FALSE}
+# Give googlesheets4 permission to access spreadsheets and Google Drive
+gs4_auth()
+
+# create Google Sheet for concurrent edits, first sheet: article notes template
+gs4_create(
+  name = "article_notes_2019-2021",
+  sheets = template
+  )
+```
+
+## Step 2
+
+### Add article DOI's
+
+This step is completed in Google Sheets, each assigned individual looked up their assigned articles as provided via the year and page number columns for a journal and added notes and DOIs to a Google Sheet, "article_notes_2019-2021", which will be imported to R in the next step.
+
+The Google Sheets file can be found here: <https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381>.
+
+# Colophon
+
+```{r sessioninfo}
+sessioninfo::session_info()
+```
