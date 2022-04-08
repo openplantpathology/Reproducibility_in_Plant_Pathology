@@ -484,20 +484,24 @@ theme_set(theme_classic())
 A <- ggplot(rrpp, aes(y = as.factor(comp_mthds_avail))) +
   geom_bar(fill = "black") +
   ylab("Score") +
-  xlab(NULL)
+  xlab(NULL) +
+  ggtitle(label = "Computational methods availability")
 
 B <- ggplot(rrpp, aes(y = software_avail)) +
   geom_bar(fill = "black") +
   xlab(NULL) +
-  ylab(NULL)
+  ylab(NULL) +
+  ggtitle(label = "Software availability")
 
 C <- ggplot(rrpp, aes(y = software_cite)) +
   geom_bar(fill = "black") +
-  ylab("Score")
+  ylab("Score") +
+  ggtitle(label = "Software citatations")
 
 D <- ggplot(rrpp, aes(y = data_avail)) +
   geom_bar(fill = "black") +
-  ylab(NULL)
+  ylab(NULL) +
+  ggtitle(label = "Data availability")
 
 # put them all together
 p <- (A | B) / (C | D)
