@@ -156,7 +156,7 @@ These cases do constitute a lack of reproducibility but will not be covered here
 
 ## Article Selection
 
-In an effort to understand where as a discipline we stand as plant pathologists in regards to open science and reproducible research, we surveyed a broad selection of articles to represent a broad swathe of publications to evaluate our status.
+In an effort to understand where as a discipline we stand as plant pathologists regarding open science and reproducible research, we surveyed a broad selection of articles to represent a broad swathe of publications to evaluate our status.
 We hand-picked 21 journals which we felt represented research publications in the field of plant pathology (Table \@ref(tab:journals)) that encompassed a range of subject matter foci, applied and fundamental work, country of origin and ranking metrics, _e.g._ quartile range or citation index, to represent the discipline.
 The aim was to gather as complete an overview of the status of reproducibility in plant pathology journals as possible and avoid bias in the findings by skewing towards high-impact journals that may have a greater influence.
 From those 21 journals we randomly selected 450 articles published from 2012 to 2021.
@@ -164,8 +164,8 @@ Using R [@RCT2022], two lists were created, the first was a list of the 21 journ
 Initially there were four evaluators, later a fifth was added and the list was recreated.
 There were three evaluation events that took place to increase the yearly coverage of the evaluations.
 Each evaluator was assigned 50 articles to evaluate during an evaluation event.
-A list of randomly generated page numbers from one to 150, sampled with replacement, was assigned to a randomized list of the 21 journals.
-This was done since some journals restart their numbering with each issue and also ensures that the journal is more likely to have a page number corresponding to the randomly generated value.
+A list of randomly generated numbers to represent page numbers from one to 150, sampled with replacement, was assigned to a randomized list of the 21 journals for .
+This was done because some journals restart their numbering with each issue and also ensures that the journal is more likely to have a page number corresponding to the randomly generated value.
 This also assumes that there is no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year.
 
 Articles were then manually selected by visiting the journals' websites and selecting the articles within which the randomly assigned page numbers fell, _i.e._, if the page number was 32, the article that started on page 28 and ended on page 35 was selected as it contained page 32.
