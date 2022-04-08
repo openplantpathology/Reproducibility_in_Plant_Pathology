@@ -2,5 +2,4 @@
 
 export(import_notes)
 export(table_of_journals)
-export(workflow_dia)
 importFrom(magrittr,"%>%")
