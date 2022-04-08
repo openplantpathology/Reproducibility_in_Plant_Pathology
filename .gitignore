@@ -11,3 +11,5 @@ inst/extdata/references.bib.sav
 analysis/paper/paper_cache
 analysis/paper/references.bib.sav
 docs/
+
+*.tmp
