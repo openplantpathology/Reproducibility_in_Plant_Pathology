@@ -157,14 +157,20 @@ These cases do constitute a lack of reproducibility but will not be covered here
 ## Article Selection
 
 In an effort to understand where as a discipline we stand as plant pathologists in regards to open science and reproducible research, we surveyed a broad selection of articles to represent a broad swathe of publications to evaluate our status.
-We randomly selected 300 articles published from 2012 to 2018 across 21 journals (Table \@ref(tab:journals)) and assigned them scores reflecting their openness and reproducibility.
-The journals represented both fundamental and applied areas as well as pathogen or other group-specific publications.
-A list of randomly selected pages was assigned to a randomized list of the 21 journals where the page number fell within an article for the given journal.
-In cases where an article was not suitable, _e.g._, a review or otherwise not related to plant pathology, the next article was selected until a suitable article was found.
-Notes regarding the selection of articles can be found in the file, "Reproducibility_in_plant_pathology_notes.ods", available in this paper's repository in `/inst/extdata'.
-The pages list was numbered from page one and went to page 150.
+We hand-picked 21 journals which we felt represented research publications in the field of plant pathology (Table \@ref(tab:journals)) that encompassed a range of subject matter foci, applied and fundamental work, country of origin and ranking metrics, _e.g._ quartile range or citation index, to represent the discipline.
+The aim was to gather as complete an overview of the status of reproducibility in plant pathology journals as possible and avoid bias in the findings by skewing towards high-impact journals that may have a greater influence.
+From those 21 journals we randomly selected 450 articles published from 2012 to 2021.
+Using R [@RCT2022], two lists were created, the first was a list of the 21 journals and the second was a list of the evaluators that were evaluating the articles for reproducibility.
+Initially there were four evaluators, later a fifth was added and the list was recreated.
+There were three evaluation events that took place to increase the yearly coverage of the evaluations.
+Each evaluator was assigned 50 articles to evaluate during an evaluation event.
+A list of randomly generated page numbers from one to 150, sampled with replacement, was assigned to a randomized list of the 21 journals.
 This was done since some journals restart their numbering with each issue and also ensures that the journal is more likely to have a page number corresponding to the randomly generated value.
 This also assumes that there is no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year.
+
+Articles were then manually selected by visiting the journals' websites and selecting the articles within which the randomly assigned page numbers fell, _i.e._, if the page number was 32, the article that started on page 28 and ended on page 35 was selected as it contained page 32.
+In cases where an article was not suitable, _e.g._, a review or otherwise not related to plant pathology or the randomly assigned numbers for that journal and year fell within the same article, the next article in that journal was selected until a suitable article was found.
+All methods are described in greater detail with the code necessary to reproduce the work in @Sparks2022.
 
 ## Scoring Criteria
 
