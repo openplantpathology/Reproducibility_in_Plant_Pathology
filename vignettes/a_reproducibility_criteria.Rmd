@@ -148,14 +148,13 @@ Entered as a number between `0` and `3`
 
 - `0` - Not available or not mentioned in the publication
 
-- `1` - Uses expensive proprietary software that only institutions would typically purchase (_i.e._, ArcGIS standard is $7000)
+- `1` - Uses expensive proprietary software that institutions typically purchase (_i.e._, ArcGIS standard is $7000)
 
 - `2` - Uses proprietary software that most individuals can afford (_e.g._, Excel, Matlab? ($500)) or freely available non-OSS software
 
 - `3` - Uses entirely open source and free software (_e.g._, R, Python)
 
-- `NA` - No software was used in the research that can be determined as the 
-article is written.
+- `NA` - No software was used in the research that can be determined as the article is written.
 
 #### "software_cite"
 
