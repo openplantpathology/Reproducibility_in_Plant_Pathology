@@ -442,7 +442,7 @@ scoring_criteria %>%
 
 # Figures
 
-```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualisations for each of six models fitted to scoring data that were used to evaluate the effects of factors affecting the reproducibility of papers published in 20 plant pathology journals or plant pathology focused articles from other specialised journals. Six factors were evaluated, (A) Publication (Journal Title), (B) Article Class, (C) Molecular Focus, (D) Five Year Impact Factor of Journal, (E) Journal Open Access Policy and (F) Year of Publication where y is the data's density and y~rep~ are ten random posterior draws. Model fitnesses were found to be good for all models and no effects of any of the factors were observed on the reproducibility score.", cache=FALSE, fig.env='figure', out.width=0, out.height=0}
+```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualisations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of papers published in 20 plant pathology journals or plant pathology focused articles from other specialised journals. Six factors were evaluated, (A) Publication (Journal Title), (B) Article Class, (C) Molecular Focus, (D) Five Year Impact Factor of Journal, (E) Journal Open Access Policy and (F) Year of Publication where y is the data's density and y~rep~ are ten random posterior draws. Model fitnesses were found to be good for all models and no effects of any of the factors were observed on the reproducibility score.", cache=FALSE, fig.env='figure', out.width=0, out.height=0}
 
 theme_set(theme_classic())
 color_scheme_set(scheme = "gray")
@@ -457,7 +457,10 @@ m6 <- pp_check(readRDS(here("data/m6.Rds")))
 # put them all together
 p <- (m1 | m2) / (m3 | m4) / (m5 | m6)
 
-p <- p + plot_annotation(tag_levels = "A")
+p <- p + plot_annotation(tag_levels = "A",
+                         title = "Bayesian posterior distributions of evaluation score models"
+                         )
+
 ggsave(filename = "../figures/Sparks et al Figure 1.eps",
        plot = p,
        width = 6,
