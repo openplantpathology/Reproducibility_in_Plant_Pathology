@@ -501,7 +501,8 @@ D <- ggplot(rrpp, aes(y = data_avail)) +
 
 # put them all together
 p <- (A | B) / (C | D)
-p <- p + plot_annotation(tag_levels = "A")
+p <- p + plot_annotation(tag_levels = "A",
+                         title = "Aggregated article scores")
 ggsave(filename = "../figures/Sparks et al Figure 2.eps",
        plot = p,
        width = 6,
