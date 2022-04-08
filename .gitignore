@@ -12,3 +12,5 @@ analysis/paper/paper_cache
 analysis/paper/references.bib.sav
 
 *.tmp
+
+inst/extdata/~$Reproducibility_in_plant_pathology_notes.ods
