@@ -200,7 +200,7 @@ The view of the authors is one that this is something to be encouraged as it all
 
 ## Statistical Analysis
 
-The statistical analysis was performed using R version 4.1.0 [@RCT2022] on an Apple MacBook Air (M1, 2020).
+The statistical analysis was performed using R version `r version$version.string` [@RCT2022] on an Apple MacBook Air (M1, 2020).
 Bayesian mixed-effect models were fit using the contributed package 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021] to evaluate the fixed effects of the publication (journal title), article class, molecular focus, five-year journal impact factor, journal open access policy on the reproducibility index and year to test for changes over time in the reproducibility index.
 
 Relatively flat priors were selected from a normal distribution with a mean of 0 and a standard deviation of 10 for all parameters.
@@ -213,11 +213,13 @@ Each model was run for 3000 iterations in four chains.
 
 The `adapt_delta()` and `max_treedepth()` values were adjusted as necessary on a case-by-case basis for each of the models to ensure a good model fit to the data and that the chains mixed well.
 
-Model finesses were evaluated using model summaries and diagnostic plots from 'brms' (version 2.15.0) [@Burkner2018] and posterior fits using `pp_check()`  (Figure \@ref(fig:posteriors)) from the contributed R package 'bayesplot' (version 1.8.1) [@Gabry2019].
+Model finesses were evaluated using model summaries and diagnostic plots from 'brms' 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021] and posterior fits using `pp_check()` (Figure \@ref(fig:posteriors)) from the contributed R package 'bayesplot' ((version `r packageVersion("bayesplot")`)) [@Gabry2019].
 
 Probability of direction or maximum probability of effect was plotted, `pd()`, and a test for practical equivalence, `equivalence_test()`, was performed for each model using the contributed R package 'bayestestR' (version 0.10.0) [@Makowski2019].
 
-Data were visualised using 'ggplot2' (version 3.3.5) [@Wickham2016], 'ggpubr' (version 0.4.0) [@Kassambara2020] and patchwork (version 1.1.1) [@Pedersen2020].
+Data were visualised using 'ggplot2' ((version `r packageVersion("ggplot2")`)) [@Wickham2016], 'ggpubr' ((version `r packageVersion("ggpubr")`)) [@Kassambara2020] and patchwork ((version `r packageVersion("patchwork")`)) [@Pedersen2020].
+
+All methods are described in greater detail with the code necessary to reproduce the work in @Sparks2022.
 
 # Results
 
