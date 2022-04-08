@@ -154,7 +154,7 @@ These cases do constitute a lack of reproducibility but will not be covered here
 
 # Materials and Methods
 
-## Article Selection
+## Article Selection and Evaluation Events
 
 In an effort to understand where as a discipline we stand as plant pathologists regarding open science and reproducible research, we surveyed a broad selection of articles to represent a broad swathe of publications to evaluate our status.
 We hand-picked 21 journals which we felt represented research publications in the field of plant pathology (Table \@ref(tab:journals)) that encompassed a range of subject matter foci, applied and fundamental work, country of origin and ranking metrics, _e.g._ quartile range or citation index, to represent the discipline.
@@ -170,15 +170,15 @@ This also assumes that there is no effect or bias on reproducibility based on th
 
 Articles were then manually selected by visiting the journals' websites and selecting the articles within which the randomly assigned page numbers fell, _i.e._, if the page number was 32, the article that started on page 28 and ended on page 35 was selected as it contained page 32.
 In cases where an article was not suitable, _e.g._, a review or otherwise not related to plant pathology or the randomly assigned numbers for that journal and year fell within the same article, the next article in that journal was selected until a suitable article was found.
-All methods are described in greater detail with the code necessary to reproduce the work in @Sparks2022.
+
+The each of the five authors were each assigned to rate a randomised list of journal articles using scoring criteria devised for the purposes of this research (Table \@ref(tab:scoring)) in three different scoring events as their time allowed for their participation.
+In the first event, three authors (AS, EDP, and ZF) evaluated 200 articles, in the second event two authors evaluated 100 articles (EDP, KA) and in the third round, five authors (AS, EDP, KA, ZF, NG) evaluated 150 articles for a total of 450 articles.
 
 ## Scoring Criteria
 
-Four individuals were assigned to rate a randomised list of journal articles using scoring criteria devised for the purposes of this research (Table \@ref(tab:scoring)).
-
 Each journal was classified as to whether they were completely open (TRUE), behind a paywall (FALSE) or a combination (BOTH).
-The five-year impact factor for 2018 for each journal was retrieved from InCites Journal Citation Reports, Clarivate Analytics and entered in a separate sheet in the Google sheets file.
-This was downloaded, saved as an Open Document Spreadsheet (ODS) file and is left-joined with the article notes using a `left_join()` from the 'dplyr' package [@Wickham2020] for analysis when the `import_notes()` command is executed.
+The five-year impact factor for 2022 for each journal was retrieved from InCites Journal Citation Reports, Clarivate Analytics and entered in a separate sheet in the Google sheets file.
+This was downloaded, saved as an Open Document Spreadsheet (ODS) file and is left-joined with the article notes using a `left_join()` from the 'dplyr' package [@Wickham2020] for analysis when a custom function for this analysis, `import_notes()`, was executed.
 
 Articles were classified as fundamental or applied and a note was made whether the article's primary focus was using or developing molecular techniques (TRUE/FALSE).
 This classification was based on the evaluator's judgement of the article.
