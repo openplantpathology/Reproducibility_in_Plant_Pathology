@@ -201,7 +201,7 @@ The view of the authors is one that this is something to be encouraged as it all
 ## Statistical Analysis
 
 The statistical analysis was performed using R version 4.1.0 [@RCT2022] on an Apple MacBook Air (M1, 2020).
-Bayesian mixed-effect models were fit using the contributed package 'brms' (version 2.16.3) [@Burkner2017; @Burkner2018; @Burkner2021] to evaluate the fixed effects of the publication (journal title), article class, molecular focus, five-year journal impact factor, journal open access policy on the reproducibility index and year to test for changes over time in the reproducibility index.
+Bayesian mixed-effect models were fit using the contributed package 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021] to evaluate the fixed effects of the publication (journal title), article class, molecular focus, five-year journal impact factor, journal open access policy on the reproducibility index and year to test for changes over time in the reproducibility index.
 
 Relatively flat priors were selected from a normal distribution with a mean of 0 and a standard deviation of 10 for all parameters.
 
