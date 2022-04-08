@@ -72,6 +72,9 @@ names(journal_list) <- c("number", "journal")
 These articles were added at a later date to look for any possible trends in the plant pathology literature being published.
 The same journal titles were sampled for 2017-2018 using the same protocols as the original set of 200 articles for 100 articles over two years.
 
+In response to reviewers, three more years of articles were added.
+That work is detailed in this [third document](https://openplantpathology.github.io/Reproducibility_in_Plant_Pathology/articles/b3_assigning_articles).
+
 ```{r new_assignees}
 assignees <- rep(c("Emerson", "Kaique"), 50)
 ```
