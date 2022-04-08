@@ -529,9 +529,12 @@ p <- export_svg(
     node[shape = plaintext, width = 1.2, fontname = Helvetica, fontsize = 20]
     'An open and reproducible workflow'
   
+    node [shape = oval, style = filled, fillcolor = grey99, width = 1.2, fontname = Helvetica]
+    Question
+    
     node [shape = box, style = filled, fillcolor = grey99, width = 1.2, fontname = Helvetica]
-    Question; Methodology; Data; Analysis; Manuscript;
-  
+    Methodology; Data; Analysis; Manuscript;
+    
     node [shape = box, style = filled, fillcolor = grey90, width = 1.2, fontname = Helvetica]
     Description; Availability; Citation
   
@@ -539,7 +542,7 @@ p <- export_svg(
     'Binary Code'; 'Binary File'; Supplement
   
     node [shape = box, style = filled, fillcolor = grey70, width = 1.2]
-    'Source Code'; 'Data File'; 'Public Repository';
+    'Source Code'; 'Data File'; Metadata; 'Public Repository';
     
     Question->Methodology->Data->Analysis
     Analysis->Manuscript
@@ -548,6 +551,7 @@ p <- export_svg(
     Methodology->Availability
     Manuscript->Supplement
     Data->'Data File'->'Public Repository'
+    Data->Metadata->'Public Repository'
     Analysis->'Binary Code'->Supplement
     Analysis->'Source Code'->'Public Repository'
     Data->'Binary File'->Supplement
