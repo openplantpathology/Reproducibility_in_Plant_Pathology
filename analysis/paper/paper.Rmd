@@ -354,8 +354,8 @@ With mandates for openly sharing data becoming more common with funding agencies
 # Authors' contributions
 
 A.H.S, E.DP., Z.F. and N.J.G. conceived of the presented idea and scoring system.
-N.J.G. provided five-year impact factors.
-A.H.S., E.DP., Z.F. and K.dSA. evaluated articles for scoring.
+E.DP. provided five-year impact factors.
+A.H.S., E.DP., Z.F. K.A. and N.G. evaluated articles for scoring.
 A.H.S. designed the computational framework for analysis and created the research compendium with feedback from E.DP. and Z.F.
 A.H.S. wrote the manuscript in consultation with E.DP.
 All authors provided critical feedback and helped contribute to the final version of the manuscript.
