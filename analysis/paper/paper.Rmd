@@ -213,7 +213,7 @@ Each model was run for 3000 iterations in four chains.
 
 The `adapt_delta()` and `max_treedepth()` values were adjusted as necessary on a case-by-case basis for each of the models to ensure a good model fit to the data and that the chains mixed well.
 
-Model finesses were evaluated using model summaries and diagnostic plots from 'brms' 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021] and posterior fits using `pp_check()` (Figure \@ref(fig:posteriors)) from the contributed R package 'bayesplot' ((version `r packageVersion("bayesplot")`)) [@Gabry2019].
+Model finesses were evaluated using model summaries and diagnostic plots from 'brms' 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021] and posterior fits using `pp_check()` (Figure \@ref(fig:posteriors)) from the contributed R package 'bayesplot' (version `r packageVersion("bayesplot")`) [@Gabry2019].
 
 Probability of direction or maximum probability of effect was plotted, `pd()`, and a test for practical equivalence, `equivalence_test()`, was performed for each model using the contributed R package 'bayestestR' (version 0.10.0) [@Makowski2019].
 
