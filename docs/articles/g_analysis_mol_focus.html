@@ -190,28 +190,28 @@ Here, <code>molecular</code> is a fixed effect, <code>year</code> and
 <span class="co">#&gt;  Family: hurdle_gamma </span>
 <span class="co">#&gt;   Links: mu = log; shape = identity; hu = identity </span>
 <span class="co">#&gt; Formula: reproducibility_score ~ molecular + (1 | year) + (1 | assignee) </span>
-<span class="co">#&gt;    Data: rrpp (Number of observations: 299) </span>
+<span class="co">#&gt;    Data: rrpp (Number of observations: 449) </span>
 <span class="co">#&gt;   Draws: 4 chains, each with iter = 3000; warmup = 1500; thin = 1;</span>
 <span class="co">#&gt;          total post-warmup draws = 6000</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Group-Level Effects: </span>
-<span class="co">#&gt; ~assignee (Number of levels: 4) </span>
+<span class="co">#&gt; ~assignee (Number of levels: 5) </span>
 <span class="co">#&gt;               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span>
-<span class="co">#&gt; sd(Intercept)     0.23      0.24     0.05     0.89 1.00     1351     1747</span>
+<span class="co">#&gt; sd(Intercept)     0.17      0.11     0.06     0.45 1.00     1835     2919</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; ~year (Number of levels: 7) </span>
+<span class="co">#&gt; ~year (Number of levels: 10) </span>
 <span class="co">#&gt;               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span>
-<span class="co">#&gt; sd(Intercept)     0.11      0.06     0.02     0.27 1.00     1353     1464</span>
+<span class="co">#&gt; sd(Intercept)     0.07      0.04     0.01     0.15 1.00     1669     2014</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Population-Level Effects: </span>
-<span class="co">#&gt;               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span>
-<span class="co">#&gt; Intercept         3.59      0.16     3.28     3.88 1.00     1821     1775</span>
-<span class="co">#&gt; molecularTRUE     0.08      0.05    -0.01     0.17 1.00     6607     4221</span>
+<span class="co">#&gt;           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span>
+<span class="co">#&gt; Intercept     3.55      0.10     3.37     3.74 1.00     2088     2518</span>
+<span class="co">#&gt; molecular     0.10      0.04     0.02     0.17 1.00     6660     3929</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Family Specific Parameters: </span>
 <span class="co">#&gt;       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span>
-<span class="co">#&gt; shape     7.91      0.72     6.57     9.39 1.00     7055     4321</span>
-<span class="co">#&gt; hu        0.18      0.02     0.14     0.22 1.00     7836     4458</span>
+<span class="co">#&gt; shape     7.76      0.56     6.70     8.89 1.00     6480     3946</span>
+<span class="co">#&gt; hu        0.14      0.02     0.11     0.17 1.00     6948     3785</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span>
 <span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span>
@@ -232,14 +232,15 @@ Here, <code>molecular</code> is a fixed effect, <code>year</code> and
 <code class="sourceCode R">
 <span class="fu"><a href="https://rdrr.io/pkg/pander/man/pander.html" class="external-link">pander</a></span><span class="op">(</span><span class="fu"><a href="https://easystats.github.io/bayestestR/reference/equivalence_test.html" class="external-link">equivalence_test</a></span><span class="op">(</span><span class="va">m3</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; Warning: Could not estimate a good default ROPE range. Using 'c(-0.1, 0.1)'.</span></code></pre></div>
-<table style="width:92%;" class="table">
+<table class="table">
 <caption>Table continues below</caption>
 <colgroup>
-<col width="25%">
-<col width="9%">
-<col width="15%">
-<col width="16%">
-<col width="25%">
+<col width="17%">
+<col width="8%">
+<col width="13%">
+<col width="14%">
+<col width="22%">
+<col width="23%">
 </colgroup>
 <thead><tr class="header">
 <th align="center">Parameter</th>
@@ -247,6 +248,7 @@ Here, <code>molecular</code> is a fixed effect, <code>year</code> and
 <th align="center">ROPE_low</th>
 <th align="center">ROPE_high</th>
 <th align="center">ROPE_Percentage</th>
+<th align="center">ROPE_Equivalence</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -255,26 +257,26 @@ Here, <code>molecular</code> is a fixed effect, <code>year</code> and
 <td align="center">-0.1</td>
 <td align="center">0.1</td>
 <td align="center">0</td>
+<td align="center">Rejected</td>
 </tr>
 <tr class="even">
-<td align="center">b_molecularTRUE</td>
+<td align="center">b_molecular</td>
 <td align="center">0.95</td>
 <td align="center">-0.1</td>
 <td align="center">0.1</td>
-<td align="center">0.6774</td>
+<td align="center">0.552</td>
+<td align="center">Undecided</td>
 </tr>
 </tbody>
 </table>
-<table style="width:90%;" class="table">
+<table style="width:62%;" class="table">
 <colgroup>
-<col width="26%">
-<col width="15%">
+<col width="13%">
 <col width="15%">
 <col width="13%">
 <col width="19%">
 </colgroup>
 <thead><tr class="header">
-<th align="center">ROPE_Equivalence</th>
 <th align="center">HDI_low</th>
 <th align="center">HDI_high</th>
 <th align="center">Effects</th>
@@ -282,16 +284,14 @@ Here, <code>molecular</code> is a fixed effect, <code>year</code> and
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="center">Rejected</td>
-<td align="center">3.277</td>
-<td align="center">3.874</td>
+<td align="center">3.365</td>
+<td align="center">3.738</td>
 <td align="center">fixed</td>
 <td align="center">conditional</td>
 </tr>
 <tr class="even">
-<td align="center">Undecided</td>
-<td align="center">-0.01242</td>
-<td align="center">0.1713</td>
+<td align="center">0.02337</td>
+<td align="center">0.1727</td>
 <td align="center">fixed</td>
 <td align="center">conditional</td>
 </tr>
@@ -440,7 +440,7 @@ Here, <code>molecular</code> is a fixed effect, <code>year</code> and
 <span class="co">#&gt;  yaml                                 2.3.5      <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
 <span class="co">#&gt;  zoo                                  1.8-10     <span style="color: #555555;">2022-04-15</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #555555;"> [1] /private/var/folders/tr/fwv720l96bz2btcr0jr_gs840000gn/T/RtmpuocnEY/temp_libpathe74b40c3d2</span></span>
+<span class="co">#&gt; <span style="color: #555555;"> [1] /private/var/folders/tr/fwv720l96bz2btcr0jr_gs840000gn/T/RtmpuocnEY/temp_libpathe745ea65d5d</span></span>
 <span class="co">#&gt; <span style="color: #555555;"> [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>

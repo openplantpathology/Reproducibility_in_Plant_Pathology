@@ -190,31 +190,31 @@ values in the <code>reproducibility_score</code> a
 <span class="co">#&gt;  Family: hurdle_gamma </span>
 <span class="co">#&gt;   Links: mu = log; shape = identity; hu = identity </span>
 <span class="co">#&gt; Formula: reproducibility_score ~ art_class + (1 | year) + (1 | assignee) </span>
-<span class="co">#&gt;    Data: rrpp (Number of observations: 300) </span>
+<span class="co">#&gt;    Data: rrpp (Number of observations: 450) </span>
 <span class="co">#&gt;   Draws: 4 chains, each with iter = 3000; warmup = 1500; thin = 1;</span>
 <span class="co">#&gt;          total post-warmup draws = 6000</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Group-Level Effects: </span>
-<span class="co">#&gt; ~assignee (Number of levels: 4) </span>
+<span class="co">#&gt; ~assignee (Number of levels: 5) </span>
 <span class="co">#&gt;               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span>
-<span class="co">#&gt; sd(Intercept)     0.21      0.21     0.04     0.76 1.00     1149     1538</span>
+<span class="co">#&gt; sd(Intercept)     0.18      0.14     0.05     0.52 1.00     1370     1229</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; ~year (Number of levels: 7) </span>
+<span class="co">#&gt; ~year (Number of levels: 10) </span>
 <span class="co">#&gt;               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span>
-<span class="co">#&gt; sd(Intercept)     0.11      0.06     0.03     0.27 1.00     1581     1873</span>
+<span class="co">#&gt; sd(Intercept)     0.07      0.04     0.01     0.15 1.00     1763     1701</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Population-Level Effects: </span>
 <span class="co">#&gt;                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS</span>
-<span class="co">#&gt; Intercept                3.65      0.15     3.37     3.94 1.00     1475</span>
-<span class="co">#&gt; art_classFundamental    -0.03      0.05    -0.12     0.06 1.00     5963</span>
+<span class="co">#&gt; Intercept                3.61      0.12     3.39     3.80 1.00     1518</span>
+<span class="co">#&gt; art_classFundamental    -0.00      0.04    -0.08     0.07 1.00     6541</span>
 <span class="co">#&gt;                      Tail_ESS</span>
-<span class="co">#&gt; Intercept                1584</span>
-<span class="co">#&gt; art_classFundamental     4482</span>
+<span class="co">#&gt; Intercept                1327</span>
+<span class="co">#&gt; art_classFundamental     4525</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Family Specific Parameters: </span>
 <span class="co">#&gt;       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span>
-<span class="co">#&gt; shape     7.84      0.70     6.52     9.26 1.00     5959     4309</span>
-<span class="co">#&gt; hu        0.18      0.02     0.14     0.22 1.00     5773     4280</span>
+<span class="co">#&gt; shape     7.64      0.55     6.59     8.73 1.00     5902     3906</span>
+<span class="co">#&gt; hu        0.14      0.02     0.11     0.17 1.00     6261     4370</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span>
 <span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span>
@@ -268,15 +268,15 @@ values in the <code>reproducibility_score</code> a
 </tr>
 </tbody>
 </table>
-<table class="table">
+<table style="width:100%;" class="table">
 <caption>Table continues below</caption>
 <colgroup>
 <col width="11%">
-<col width="23%">
+<col width="22%">
 <col width="24%">
-<col width="12%">
-<col width="14%">
-<col width="14%">
+<col width="13%">
+<col width="13%">
+<col width="13%">
 </colgroup>
 <thead><tr class="header">
 <th align="center"> </th>
@@ -291,16 +291,16 @@ values in the <code>reproducibility_score</code> a
 <td align="center"><strong>2</strong></td>
 <td align="center">0</td>
 <td align="center">Rejected</td>
-<td align="center">3.379</td>
-<td align="center">3.946</td>
+<td align="center">3.392</td>
+<td align="center">3.799</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="even">
 <td align="center"><strong>1</strong></td>
-<td align="center">0.9577</td>
-<td align="center">Undecided</td>
-<td align="center">-0.1201</td>
-<td align="center">0.05931</td>
+<td align="center">1</td>
+<td align="center">Accepted</td>
+<td align="center">-0.07338</td>
+<td align="center">0.07487</td>
 <td align="center">fixed</td>
 </tr>
 </tbody>
@@ -468,7 +468,7 @@ values in the <code>reproducibility_score</code> a
 <span class="co">#&gt;  yaml                                 2.3.5      <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
 <span class="co">#&gt;  zoo                                  1.8-10     <span style="color: #555555;">2022-04-15</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #555555;"> [1] /private/var/folders/tr/fwv720l96bz2btcr0jr_gs840000gn/T/RtmpuocnEY/temp_libpathe74b40c3d2</span></span>
+<span class="co">#&gt; <span style="color: #555555;"> [1] /private/var/folders/tr/fwv720l96bz2btcr0jr_gs840000gn/T/RtmpuocnEY/temp_libpathe745ea65d5d</span></span>
 <span class="co">#&gt; <span style="color: #555555;"> [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>

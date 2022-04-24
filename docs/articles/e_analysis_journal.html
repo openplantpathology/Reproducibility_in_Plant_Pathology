@@ -194,67 +194,67 @@ the intercept in the following model.</p>
 <span class="co">#&gt;  Family: hurdle_gamma </span>
 <span class="co">#&gt;   Links: mu = log; shape = identity; hu = identity </span>
 <span class="co">#&gt; Formula: reproducibility_score ~ abbreviation + (1 | year) + (1 | assignee) </span>
-<span class="co">#&gt;    Data: rrpp (Number of observations: 300) </span>
+<span class="co">#&gt;    Data: rrpp (Number of observations: 450) </span>
 <span class="co">#&gt;   Draws: 4 chains, each with iter = 3000; warmup = 1500; thin = 1;</span>
 <span class="co">#&gt;          total post-warmup draws = 6000</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Group-Level Effects: </span>
-<span class="co">#&gt; ~assignee (Number of levels: 4) </span>
+<span class="co">#&gt; ~assignee (Number of levels: 5) </span>
 <span class="co">#&gt;               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span>
-<span class="co">#&gt; sd(Intercept)     0.20      0.18     0.04     0.71 1.00     1387     1377</span>
+<span class="co">#&gt; sd(Intercept)     0.17      0.11     0.05     0.47 1.00     1496     2084</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; ~year (Number of levels: 7) </span>
+<span class="co">#&gt; ~year (Number of levels: 10) </span>
 <span class="co">#&gt;               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span>
-<span class="co">#&gt; sd(Intercept)     0.12      0.06     0.04     0.28 1.00     1848     1985</span>
+<span class="co">#&gt; sd(Intercept)     0.08      0.04     0.02     0.16 1.00     1658     1675</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Population-Level Effects: </span>
 <span class="co">#&gt;                                 Estimate Est.Error l-95% CI u-95% CI Rhat</span>
-<span class="co">#&gt; Intercept                           3.53      0.18     3.19     3.86 1.01</span>
-<span class="co">#&gt; abbreviationAustralasPlantPath      0.41      0.20     0.02     0.82 1.00</span>
-<span class="co">#&gt; abbreviationCanJPlantPathol         0.21      0.15    -0.08     0.51 1.00</span>
-<span class="co">#&gt; abbreviationCropProt               -0.08      0.14    -0.35     0.20 1.01</span>
-<span class="co">#&gt; abbreviationEurJPlantPathol         0.25      0.16    -0.05     0.56 1.01</span>
-<span class="co">#&gt; abbreviationForestPathol            0.06      0.15    -0.23     0.37 1.00</span>
-<span class="co">#&gt; abbreviationJPhytopathol            0.08      0.12    -0.16     0.32 1.01</span>
-<span class="co">#&gt; abbreviationJPlantPathol            0.38      0.15     0.09     0.67 1.01</span>
-<span class="co">#&gt; abbreviationMolPlantMicroIn        -0.09      0.14    -0.36     0.20 1.01</span>
-<span class="co">#&gt; abbreviationNematology              0.06      0.16    -0.24     0.37 1.01</span>
-<span class="co">#&gt; abbreviationPhysiolMolPlantP       -0.00      0.14    -0.26     0.27 1.01</span>
-<span class="co">#&gt; abbreviationPhytoparasitica         0.00      0.14    -0.26     0.27 1.01</span>
-<span class="co">#&gt; abbreviationPhytopatholMediterr     0.14      0.16    -0.18     0.47 1.00</span>
-<span class="co">#&gt; abbreviationPhytopathology          0.18      0.14    -0.08     0.45 1.01</span>
-<span class="co">#&gt; abbreviationPlantDis                0.03      0.15    -0.25     0.32 1.01</span>
-<span class="co">#&gt; abbreviationPlantHealthProgress    -0.05      0.16    -0.37     0.27 1.01</span>
-<span class="co">#&gt; abbreviationPlantPathol             0.10      0.13    -0.14     0.36 1.01</span>
-<span class="co">#&gt; abbreviationRevMexFitopatol         0.06      0.15    -0.23     0.37 1.00</span>
-<span class="co">#&gt; abbreviationTropPlantPathol         0.27      0.17    -0.05     0.60 1.00</span>
-<span class="co">#&gt; abbreviationVirolJ                  0.29      0.16    -0.02     0.59 1.01</span>
+<span class="co">#&gt; Intercept                           3.71      0.12     3.48     3.94 1.00</span>
+<span class="co">#&gt; abbreviationAustralasPlantPath      0.08      0.15    -0.22     0.37 1.00</span>
+<span class="co">#&gt; abbreviationCanJPlantPathol        -0.10      0.11    -0.33     0.13 1.00</span>
+<span class="co">#&gt; abbreviationCropProt               -0.27      0.11    -0.48    -0.06 1.00</span>
+<span class="co">#&gt; abbreviationEurJPlantPathol        -0.11      0.12    -0.34     0.11 1.00</span>
+<span class="co">#&gt; abbreviationForestPathol           -0.15      0.13    -0.40     0.10 1.00</span>
+<span class="co">#&gt; abbreviationJPhytopathol           -0.16      0.10    -0.35     0.03 1.00</span>
+<span class="co">#&gt; abbreviationJPlantPathol            0.13      0.12    -0.10     0.36 1.00</span>
+<span class="co">#&gt; abbreviationMolPlantMicroIn        -0.08      0.12    -0.31     0.15 1.00</span>
+<span class="co">#&gt; abbreviationNematology             -0.11      0.12    -0.34     0.13 1.00</span>
+<span class="co">#&gt; abbreviationPhysiolMolPlantP       -0.32      0.11    -0.53    -0.10 1.00</span>
+<span class="co">#&gt; abbreviationPhytoparasitica        -0.23      0.11    -0.45    -0.01 1.00</span>
+<span class="co">#&gt; abbreviationPhytopatholMediterr     0.07      0.11    -0.15     0.29 1.00</span>
+<span class="co">#&gt; abbreviationPhytopathology          0.02      0.11    -0.19     0.22 1.00</span>
+<span class="co">#&gt; abbreviationPlantDis               -0.14      0.11    -0.36     0.08 1.00</span>
+<span class="co">#&gt; abbreviationPlantHealthProgress    -0.16      0.13    -0.41     0.09 1.00</span>
+<span class="co">#&gt; abbreviationPlantPathol            -0.10      0.10    -0.31     0.10 1.00</span>
+<span class="co">#&gt; abbreviationRevMexFitopatol        -0.21      0.11    -0.43     0.00 1.00</span>
+<span class="co">#&gt; abbreviationTropPlantPathol         0.09      0.12    -0.15     0.32 1.00</span>
+<span class="co">#&gt; abbreviationVirolJ                 -0.09      0.11    -0.31     0.13 1.00</span>
 <span class="co">#&gt;                                 Bulk_ESS Tail_ESS</span>
-<span class="co">#&gt; Intercept                            665     1178</span>
-<span class="co">#&gt; abbreviationAustralasPlantPath      1623     2782</span>
-<span class="co">#&gt; abbreviationCanJPlantPathol         1048     2553</span>
-<span class="co">#&gt; abbreviationCropProt                 839     1751</span>
-<span class="co">#&gt; abbreviationEurJPlantPathol         1000     1920</span>
-<span class="co">#&gt; abbreviationForestPathol            1033     1533</span>
-<span class="co">#&gt; abbreviationJPhytopathol             760     2172</span>
-<span class="co">#&gt; abbreviationJPlantPathol            1026     2540</span>
-<span class="co">#&gt; abbreviationMolPlantMicroIn          943     1504</span>
-<span class="co">#&gt; abbreviationNematology              1028     2377</span>
-<span class="co">#&gt; abbreviationPhysiolMolPlantP         877     1286</span>
-<span class="co">#&gt; abbreviationPhytoparasitica          898     2258</span>
-<span class="co">#&gt; abbreviationPhytopatholMediterr     1215     2686</span>
-<span class="co">#&gt; abbreviationPhytopathology           833     1814</span>
-<span class="co">#&gt; abbreviationPlantDis                 992     2292</span>
-<span class="co">#&gt; abbreviationPlantHealthProgress     1267     2200</span>
-<span class="co">#&gt; abbreviationPlantPathol              828     1724</span>
-<span class="co">#&gt; abbreviationRevMexFitopatol         1085     2524</span>
-<span class="co">#&gt; abbreviationTropPlantPathol         1332     2786</span>
-<span class="co">#&gt; abbreviationVirolJ                  1148     2360</span>
+<span class="co">#&gt; Intercept                           1241     2164</span>
+<span class="co">#&gt; abbreviationAustralasPlantPath      2096     2983</span>
+<span class="co">#&gt; abbreviationCanJPlantPathol         1534     3178</span>
+<span class="co">#&gt; abbreviationCropProt                1479     2637</span>
+<span class="co">#&gt; abbreviationEurJPlantPathol         1689     2985</span>
+<span class="co">#&gt; abbreviationForestPathol            1816     3452</span>
+<span class="co">#&gt; abbreviationJPhytopathol            1186     2738</span>
+<span class="co">#&gt; abbreviationJPlantPathol            1798     3177</span>
+<span class="co">#&gt; abbreviationMolPlantMicroIn         1587     3086</span>
+<span class="co">#&gt; abbreviationNematology              1732     2812</span>
+<span class="co">#&gt; abbreviationPhysiolMolPlantP        1474     2944</span>
+<span class="co">#&gt; abbreviationPhytoparasitica         1514     2927</span>
+<span class="co">#&gt; abbreviationPhytopatholMediterr     1594     2724</span>
+<span class="co">#&gt; abbreviationPhytopathology          1451     2996</span>
+<span class="co">#&gt; abbreviationPlantDis                1474     3342</span>
+<span class="co">#&gt; abbreviationPlantHealthProgress     1804     3365</span>
+<span class="co">#&gt; abbreviationPlantPathol             1255     2325</span>
+<span class="co">#&gt; abbreviationRevMexFitopatol         1543     3176</span>
+<span class="co">#&gt; abbreviationTropPlantPathol         1677     2875</span>
+<span class="co">#&gt; abbreviationVirolJ                  1500     3064</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Family Specific Parameters: </span>
 <span class="co">#&gt;       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span>
-<span class="co">#&gt; shape     8.28      0.77     6.81     9.84 1.00     6429     4419</span>
-<span class="co">#&gt; hu        0.18      0.02     0.14     0.22 1.00     6940     4058</span>
+<span class="co">#&gt; shape     8.11      0.61     6.99     9.33 1.00     6970     3874</span>
+<span class="co">#&gt; hu        0.14      0.02     0.11     0.17 1.00     8375     3977</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span>
 <span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span>
@@ -434,15 +434,15 @@ the intercept in the following model.</p>
 </tr>
 </tbody>
 </table>
-<table style="width:100%;" class="table">
+<table class="table">
 <caption>Table continues below</caption>
 <colgroup>
 <col width="11%">
 <col width="22%">
 <col width="24%">
-<col width="13%">
-<col width="13%">
-<col width="13%">
+<col width="12%">
+<col width="16%">
+<col width="12%">
 </colgroup>
 <thead><tr class="header">
 <th align="center"> </th>
@@ -457,160 +457,160 @@ the intercept in the following model.</p>
 <td align="center"><strong>20</strong></td>
 <td align="center">0</td>
 <td align="center">Rejected</td>
-<td align="center">3.195</td>
-<td align="center">3.866</td>
+<td align="center">3.482</td>
+<td align="center">3.939</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="even">
 <td align="center"><strong>1</strong></td>
-<td align="center">0.03403</td>
+<td align="center">0.4615</td>
 <td align="center">Undecided</td>
-<td align="center">0.02268</td>
-<td align="center">0.8161</td>
+<td align="center">-0.2194</td>
+<td align="center">0.3671</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="odd">
 <td align="center"><strong>2</strong></td>
-<td align="center">0.2135</td>
+<td align="center">0.4925</td>
 <td align="center">Undecided</td>
-<td align="center">-0.06871</td>
-<td align="center">0.5114</td>
+<td align="center">-0.3127</td>
+<td align="center">0.1387</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="even">
 <td align="center"><strong>3</strong></td>
-<td align="center">0.4827</td>
+<td align="center">0.0314</td>
 <td align="center">Undecided</td>
-<td align="center">-0.3594</td>
-<td align="center">0.1888</td>
+<td align="center">-0.4859</td>
+<td align="center">-0.06154</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="odd">
 <td align="center"><strong>4</strong></td>
-<td align="center">0.1428</td>
+<td align="center">0.4452</td>
 <td align="center">Undecided</td>
-<td align="center">-0.04158</td>
-<td align="center">0.5618</td>
+<td align="center">-0.336</td>
+<td align="center">0.1102</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="even">
 <td align="center"><strong>5</strong></td>
-<td align="center">0.4754</td>
+<td align="center">0.3399</td>
 <td align="center">Undecided</td>
-<td align="center">-0.2296</td>
-<td align="center">0.3645</td>
+<td align="center">-0.4084</td>
+<td align="center">0.09079</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="odd">
 <td align="center"><strong>6</strong></td>
-<td align="center">0.5185</td>
+<td align="center">0.261</td>
 <td align="center">Undecided</td>
-<td align="center">-0.1653</td>
-<td align="center">0.3119</td>
+<td align="center">-0.3527</td>
+<td align="center">0.03072</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="even">
 <td align="center"><strong>7</strong></td>
-<td align="center">0.006665</td>
+<td align="center">0.4024</td>
 <td align="center">Undecided</td>
-<td align="center">0.08707</td>
-<td align="center">0.6717</td>
+<td align="center">-0.1135</td>
+<td align="center">0.3492</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="odd">
 <td align="center"><strong>8</strong></td>
-<td align="center">0.4715</td>
+<td align="center">0.5334</td>
 <td align="center">Undecided</td>
-<td align="center">-0.3763</td>
-<td align="center">0.1862</td>
+<td align="center">-0.314</td>
+<td align="center">0.1425</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="even">
 <td align="center"><strong>9</strong></td>
-<td align="center">0.4682</td>
+<td align="center">0.4426</td>
 <td align="center">Undecided</td>
-<td align="center">-0.2347</td>
-<td align="center">0.3767</td>
+<td align="center">-0.345</td>
+<td align="center">0.1206</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="odd">
 <td align="center"><strong>10</strong></td>
-<td align="center">0.5641</td>
-<td align="center">Undecided</td>
-<td align="center">-0.2649</td>
-<td align="center">0.267</td>
+<td align="center">0</td>
+<td align="center">Rejected</td>
+<td align="center">-0.5339</td>
+<td align="center">-0.1057</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="even">
 <td align="center"><strong>11</strong></td>
-<td align="center">0.5511</td>
+<td align="center">0.0963</td>
 <td align="center">Undecided</td>
-<td align="center">-0.2531</td>
-<td align="center">0.2735</td>
+<td align="center">-0.4552</td>
+<td align="center">-0.01577</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="odd">
 <td align="center"><strong>12</strong></td>
-<td align="center">0.3638</td>
+<td align="center">0.5457</td>
 <td align="center">Undecided</td>
-<td align="center">-0.1841</td>
-<td align="center">0.4574</td>
+<td align="center">-0.1412</td>
+<td align="center">0.2926</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="even">
 <td align="center"><strong>13</strong></td>
-<td align="center">0.264</td>
+<td align="center">0.6678</td>
 <td align="center">Undecided</td>
-<td align="center">-0.08572</td>
-<td align="center">0.445</td>
+<td align="center">-0.191</td>
+<td align="center">0.2173</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="odd">
 <td align="center"><strong>14</strong></td>
-<td align="center">0.5141</td>
+<td align="center">0.3534</td>
 <td align="center">Undecided</td>
-<td align="center">-0.2511</td>
-<td align="center">0.3151</td>
+<td align="center">-0.3608</td>
+<td align="center">0.07608</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="even">
 <td align="center"><strong>15</strong></td>
-<td align="center">0.4594</td>
+<td align="center">0.3003</td>
 <td align="center">Undecided</td>
-<td align="center">-0.3715</td>
-<td align="center">0.2673</td>
+<td align="center">-0.4148</td>
+<td align="center">0.07377</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="odd">
 <td align="center"><strong>16</strong></td>
-<td align="center">0.4559</td>
+<td align="center">0.498</td>
 <td align="center">Undecided</td>
-<td align="center">-0.1542</td>
-<td align="center">0.3471</td>
+<td align="center">-0.3147</td>
+<td align="center">0.09333</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="even">
 <td align="center"><strong>17</strong></td>
-<td align="center">0.4868</td>
+<td align="center">0.1372</td>
 <td align="center">Undecided</td>
-<td align="center">-0.2297</td>
-<td align="center">0.3683</td>
+<td align="center">-0.4299</td>
+<td align="center">-0.0005659</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="odd">
 <td align="center"><strong>18</strong></td>
-<td align="center">0.1387</td>
+<td align="center">0.5038</td>
 <td align="center">Undecided</td>
-<td align="center">-0.0595</td>
-<td align="center">0.5887</td>
+<td align="center">-0.1364</td>
+<td align="center">0.3258</td>
 <td align="center">fixed</td>
 </tr>
 <tr class="even">
 <td align="center"><strong>19</strong></td>
-<td align="center">0.1017</td>
+<td align="center">0.5318</td>
 <td align="center">Undecided</td>
-<td align="center">-0.02969</td>
-<td align="center">0.5807</td>
+<td align="center">-0.3065</td>
+<td align="center">0.136</td>
 <td align="center">fixed</td>
 </tr>
 </tbody>
@@ -850,7 +850,7 @@ the intercept in the following model.</p>
 <span class="co">#&gt;  yaml                                 2.3.5      <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
 <span class="co">#&gt;  zoo                                  1.8-10     <span style="color: #555555;">2022-04-15</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #555555;"> [1] /private/var/folders/tr/fwv720l96bz2btcr0jr_gs840000gn/T/RtmpuocnEY/temp_libpathe74b40c3d2</span></span>
+<span class="co">#&gt; <span style="color: #555555;"> [1] /private/var/folders/tr/fwv720l96bz2btcr0jr_gs840000gn/T/RtmpuocnEY/temp_libpathe745ea65d5d</span></span>
 <span class="co">#&gt; <span style="color: #555555;"> [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>

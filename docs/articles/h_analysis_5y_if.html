@@ -188,28 +188,28 @@ effects.</p>
 <span class="co">#&gt;  Family: hurdle_gamma </span>
 <span class="co">#&gt;   Links: mu = log; shape = identity; hu = identity </span>
 <span class="co">#&gt; Formula: reproducibility_score ~ IF_5year + (1 | year) + (1 | assignee) </span>
-<span class="co">#&gt;    Data: rrpp (Number of observations: 300) </span>
+<span class="co">#&gt;    Data: rrpp (Number of observations: 450) </span>
 <span class="co">#&gt;   Draws: 4 chains, each with iter = 3000; warmup = 1500; thin = 1;</span>
 <span class="co">#&gt;          total post-warmup draws = 6000</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Group-Level Effects: </span>
-<span class="co">#&gt; ~assignee (Number of levels: 4) </span>
+<span class="co">#&gt; ~assignee (Number of levels: 5) </span>
 <span class="co">#&gt;               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span>
-<span class="co">#&gt; sd(Intercept)     0.20      0.19     0.04     0.74 1.00     1452     1962</span>
+<span class="co">#&gt; sd(Intercept)     0.18      0.14     0.05     0.52 1.00     1424     1530</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; ~year (Number of levels: 7) </span>
+<span class="co">#&gt; ~year (Number of levels: 10) </span>
 <span class="co">#&gt;               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span>
-<span class="co">#&gt; sd(Intercept)     0.11      0.06     0.02     0.27 1.00     1497     1636</span>
+<span class="co">#&gt; sd(Intercept)     0.07      0.04     0.01     0.15 1.00     1747     1859</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Population-Level Effects: </span>
 <span class="co">#&gt;           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span>
-<span class="co">#&gt; Intercept     3.68      0.15     3.38     3.97 1.00     2494     2512</span>
-<span class="co">#&gt; IF_5year     -0.02      0.02    -0.06     0.01 1.00     7158     4094</span>
+<span class="co">#&gt; Intercept     3.57      0.11     3.36     3.79 1.00     1620     1527</span>
+<span class="co">#&gt; IF_5year      0.01      0.01    -0.01     0.04 1.00     8197     4197</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Family Specific Parameters: </span>
 <span class="co">#&gt;       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span>
-<span class="co">#&gt; shape     7.84      0.72     6.51     9.30 1.00     6526     4459</span>
-<span class="co">#&gt; hu        0.18      0.02     0.14     0.22 1.00     6576     4554</span>
+<span class="co">#&gt; shape     7.66      0.55     6.60     8.74 1.00     6840     4003</span>
+<span class="co">#&gt; hu        0.14      0.02     0.11     0.17 1.00     6875     4519</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span>
 <span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span>
@@ -271,7 +271,7 @@ effects.</p>
 <colgroup>
 <col width="12%">
 <col width="25%">
-<col width="14%">
+<col width="16%">
 <col width="14%">
 <col width="13%">
 <col width="18%">
@@ -288,16 +288,16 @@ effects.</p>
 <tr class="odd">
 <td align="center"><strong>2</strong></td>
 <td align="center">Rejected</td>
-<td align="center">3.377</td>
-<td align="center">3.963</td>
+<td align="center">3.348</td>
+<td align="center">3.765</td>
 <td align="center">fixed</td>
 <td align="center">conditional</td>
 </tr>
 <tr class="even">
 <td align="center"><strong>1</strong></td>
 <td align="center">Accepted</td>
-<td align="center">-0.05824</td>
-<td align="center">0.01495</td>
+<td align="center">-0.009712</td>
+<td align="center">0.0385</td>
 <td align="center">fixed</td>
 <td align="center">conditional</td>
 </tr>
@@ -446,7 +446,7 @@ effects.</p>
 <span class="co">#&gt;  yaml                                 2.3.5      <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
 <span class="co">#&gt;  zoo                                  1.8-10     <span style="color: #555555;">2022-04-15</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #555555;"> [1] /private/var/folders/tr/fwv720l96bz2btcr0jr_gs840000gn/T/RtmpuocnEY/temp_libpathe74b40c3d2</span></span>
+<span class="co">#&gt; <span style="color: #555555;"> [1] /private/var/folders/tr/fwv720l96bz2btcr0jr_gs840000gn/T/RtmpuocnEY/temp_libpathe745ea65d5d</span></span>
 <span class="co">#&gt; <span style="color: #555555;"> [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>

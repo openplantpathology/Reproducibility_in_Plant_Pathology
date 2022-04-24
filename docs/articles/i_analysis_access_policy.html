@@ -183,40 +183,33 @@ effects.</p>
   <span class="op">)</span>
 <span class="co">#&gt; Compiling Stan program...</span>
 <span class="co">#&gt; Start sampling</span>
-<span class="co">#&gt; Warning: There were 1 divergent transitions after warmup. See</span>
-<span class="co">#&gt; https://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</span>
-<span class="co">#&gt; to find out why this is a problem and how to eliminate them.</span>
-<span class="co">#&gt; Warning: Examine the pairs() plot to diagnose sampling problems</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">m5</span><span class="op">)</span>
-<span class="co">#&gt; Warning: There were 1 divergent transitions after warmup. Increasing adapt_delta</span>
-<span class="co">#&gt; above 0.999999 may help. See http://mc-stan.org/misc/warnings.html#divergent-</span>
-<span class="co">#&gt; transitions-after-warmup</span>
 <span class="co">#&gt;  Family: hurdle_gamma </span>
 <span class="co">#&gt;   Links: mu = log; shape = identity; hu = identity </span>
 <span class="co">#&gt; Formula: reproducibility_score ~ open + (1 | year) + (1 | assignee) </span>
-<span class="co">#&gt;    Data: rrpp (Number of observations: 300) </span>
+<span class="co">#&gt;    Data: rrpp (Number of observations: 450) </span>
 <span class="co">#&gt;   Draws: 4 chains, each with iter = 3000; warmup = 1500; thin = 1;</span>
 <span class="co">#&gt;          total post-warmup draws = 6000</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Group-Level Effects: </span>
-<span class="co">#&gt; ~assignee (Number of levels: 4) </span>
+<span class="co">#&gt; ~assignee (Number of levels: 5) </span>
 <span class="co">#&gt;               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span>
-<span class="co">#&gt; sd(Intercept)     0.20      0.20     0.04     0.71 1.00     1353     1604</span>
+<span class="co">#&gt; sd(Intercept)     0.17      0.14     0.05     0.55 1.00     1310     1134</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; ~year (Number of levels: 7) </span>
+<span class="co">#&gt; ~year (Number of levels: 10) </span>
 <span class="co">#&gt;               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span>
-<span class="co">#&gt; sd(Intercept)     0.11      0.06     0.02     0.26 1.00     1621     1653</span>
+<span class="co">#&gt; sd(Intercept)     0.07      0.04     0.01     0.15 1.00     1899     2121</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Population-Level Effects: </span>
 <span class="co">#&gt;           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span>
-<span class="co">#&gt; Intercept     3.62      0.15     3.33     3.90 1.00     1816     1788</span>
-<span class="co">#&gt; openTRUE      0.09      0.07    -0.05     0.23 1.00     6197     4196</span>
+<span class="co">#&gt; Intercept     3.63      0.12     3.41     3.83 1.00     1673     1580</span>
+<span class="co">#&gt; openBOTH     -0.03      0.05    -0.12     0.07 1.00     6185     4151</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Family Specific Parameters: </span>
 <span class="co">#&gt;       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span>
-<span class="co">#&gt; shape     7.84      0.72     6.53     9.34 1.00     5401     4359</span>
-<span class="co">#&gt; hu        0.18      0.02     0.14     0.22 1.00     5802     3922</span>
+<span class="co">#&gt; shape     7.65      0.56     6.59     8.77 1.00     5897     3921</span>
+<span class="co">#&gt; hu        0.14      0.02     0.11     0.17 1.00     6606     4352</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS</span>
 <span class="co">#&gt; and Tail_ESS are effective sample size measures, and Rhat is the potential</span>
@@ -265,18 +258,18 @@ effects.</p>
 <td align="center">Rejected</td>
 </tr>
 <tr class="even">
-<td align="center">b_openTRUE</td>
+<td align="center">b_openBOTH</td>
 <td align="center">0.95</td>
 <td align="center">-0.1</td>
 <td align="center">0.1</td>
-<td align="center">0.5611</td>
+<td align="center">0.956</td>
 <td align="center">Undecided</td>
 </tr>
 </tbody>
 </table>
-<table style="width:64%;" class="table">
+<table style="width:62%;" class="table">
 <colgroup>
-<col width="15%">
+<col width="13%">
 <col width="15%">
 <col width="13%">
 <col width="19%">
@@ -289,14 +282,14 @@ effects.</p>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="center">3.365</td>
-<td align="center">3.925</td>
+<td align="center">3.412</td>
+<td align="center">3.829</td>
 <td align="center">fixed</td>
 <td align="center">conditional</td>
 </tr>
 <tr class="even">
-<td align="center">-0.05459</td>
-<td align="center">0.2271</td>
+<td align="center">-0.1211</td>
+<td align="center">0.06895</td>
 <td align="center">fixed</td>
 <td align="center">conditional</td>
 </tr>
@@ -445,7 +438,7 @@ effects.</p>
 <span class="co">#&gt;  yaml                                 2.3.5      <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
 <span class="co">#&gt;  zoo                                  1.8-10     <span style="color: #555555;">2022-04-15</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; <span style="color: #555555;"> [1] /private/var/folders/tr/fwv720l96bz2btcr0jr_gs840000gn/T/RtmpuocnEY/temp_libpathe74b40c3d2</span></span>
+<span class="co">#&gt; <span style="color: #555555;"> [1] /private/var/folders/tr/fwv720l96bz2btcr0jr_gs840000gn/T/RtmpuocnEY/temp_libpathe745ea65d5d</span></span>
 <span class="co">#&gt; <span style="color: #555555;"> [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library</span></span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>

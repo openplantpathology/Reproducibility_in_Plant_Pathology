@@ -113,7 +113,7 @@ Adam H. Sparks Senior Research Scientist Farming Systems Innovation
 Primary Industries Development Department of Primary Industries and
 Regional Development Level 6.35, 1 Nash St., Perth WA 6000
 
-<https://adamhsparks.com/>
+<https://adamhsparks.netlify.app>
 
 ### Code of Conduct
 
