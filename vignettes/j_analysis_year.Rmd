@@ -29,7 +29,7 @@ This vignette documents a simple visualisation and tabulation of the data gather
 
 Load libraries used and setting the _ggplot2_ theme for the document.
 
-```{r load-libraries}
+```{r load-libraries, message=FALSE}
 library("brms")
 library("bayestestR")
 library("bayesplot")
