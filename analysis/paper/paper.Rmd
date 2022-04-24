@@ -434,20 +434,27 @@ scoring_criteria %>%
 
 # Figures
 
-```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualisations for each of six models fitted to scoring data that were used to evaluate the effects of factors affecting the reproducibility of papers published in 20 plant pathology journals or plant pathology focused articles from other specialised journals. Six factors were evaluated, (A) Publication (Journal Title), (B) Article Class, (C) Molecular Focus, (D) Five Year Impact Factor of Journal, (E) Journal Open Access Policy and (F) Year of Publication where y is the data's density and y~rep~ are ten random posterior draws. Model fitnesses were found to be good for all models and no effects of any of the factors were observed on the reproducibility score.", cache=FALSE, fig.env='figure', out.width=0, out.height=0}
+```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualisations for each of six models fitted to scoring data that were used to evaluate the effects of factors affecting the reproducibility of papers published in 20 plant pathology journals or plant pathology focused articles from other specialised journals. Six factors were evaluated, (A) Publication (Journal Title), (B) Article Class, (C) Molecular Focus, (D) Five Year Impact Factor of Journal, (E) Journal Open Access Policy and (F) Year of Publication where 'y' is the data's density and 'y~rep~' are ten random posterior draws. Model fitnesses were found to be good for all models and no effects of any of the factors were observed on the reproducibility score.", cache=FALSE, fig.env='figure', out.width=0, out.height=0}
 
 theme_set(theme_classic())
 color_scheme_set(scheme = "gray")
 
-m1 <- pp_check(readRDS(here("data/m1.Rds")))
-m2 <- pp_check(readRDS(here("data/m2.Rds")))
-m3 <- pp_check(readRDS(here("data/m3.Rds")))
-m4 <- pp_check(readRDS(here("data/m4.Rds")))
-m5 <- pp_check(readRDS(here("data/m5.Rds")))
-m6 <- pp_check(readRDS(here("data/m6.Rds")))
+load(file = here("data/m1.Rda"))
+load(file = here("data/m2.Rda"))
+load(file = here("data/m3.Rda"))
+load(file = here("data/m4.Rda"))
+load(file = here("data/m5.Rda"))
+load(file = here("data/m6.Rda"))
+
+pp_m1 <- pp_check(m1)
+pp_m2 <- pp_check(m2)
+pp_m3 <- pp_check(m3)
+pp_m4 <- pp_check(m4)
+pp_m5 <- pp_check(m5)
+pp_m6 <- pp_check(m6)
 
 # put them all together
-p <- (m1 | m2) / (m3 | m4) / (m5 | m6)
+p <- (pp_m1 | pp_m2) / (pp_m3 | pp_m4) / (pp_m5 | pp_m6)
 
 p <- p + plot_annotation(tag_levels = "A")
 ggsave(filename = "../figures/Sparks et al Figure 1.eps",
