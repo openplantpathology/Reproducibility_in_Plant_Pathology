@@ -1,10 +1,10 @@
 ---
-title: "Original Round of Assigning Articles to Evaluators"
+title: "Third Round of Assigning Articles to Evaluators"
 author: "Adam H. Sparks"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Original Round of Assigning Articles to Evaluators}
+  %\VignetteIndexEntry{Third Round of Assigning Articles to Evaluators}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
   %\VignetteDepends{googlesheets4}
