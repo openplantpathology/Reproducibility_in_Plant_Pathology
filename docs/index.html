@@ -45,7 +45,7 @@
   <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -116,19 +116,37 @@
 
 <p>This repository contains the data and code for our article:</p>
 <blockquote>
-<p>Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N. J. (YYYY). <em>Reproducibility in plant pathology: where do we stand and a way forward</em>. Name of journal/book <a href="https://doi.org/xxx/xxx" class="external-link uri">https://doi.org/xxx/xxx</a></p>
+<p>Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
+J. (YYYY). <em>Reproducibility in plant pathology: where do we stand and
+a way forward</em>. Name of journal/book <a href="https://doi.org/xxx/xxx" class="external-link uri">https://doi.org/xxx/xxx</a></p>
 </blockquote>
 <p>Our pre-print is online on the agriRxiv preprint server:</p>
 <blockquote>
-<p>Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N. J. (2021). <em>Reproducibility in plant pathology: where do we stand and a way forward</em>. agriRxiv, Accessed 13 Oct 2021. Online at <a href="https://doi.org/10.31220/agriRxiv.2021.00082" class="external-link uri">https://doi.org/10.31220/agriRxiv.2021.00082</a></p>
+<p>Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
+J. (2021). <em>Reproducibility in plant pathology: where do we stand and
+a way forward</em>. agriRxiv, Accessed 24 Apr 2022. Online at <a href="https://doi.org/10.31220/agriRxiv.2021.00082" class="external-link uri">https://doi.org/10.31220/agriRxiv.2021.00082</a></p>
 </blockquote>
-<p>The paper is a systematic and quantitative review of articles published in 20 plant pathology journals that spans five years of publications. It provides a basis for identifying what has been done so far in the discipline of plant pathology’s published research to ensure computational reproducibility. The results show that as a discipline, plant pathologists are not widely sharing data or code openly, making the works largely unreproducible. Based on these results and our own experiences, we offer suggestions as to how we can further improve reproducibility in the discipline of plant pathology, but which are not unique to the discipline, that would allow reviewers to make better suggestions, readers to learn more from the work and earns author more citations for their work.</p>
+<p>The paper is a systematic and quantitative review of articles
+published in 20 plant pathology journals that spans five years of
+publications. It provides a basis for identifying what has been done so
+far in the discipline of plant pathology’s published research to ensure
+computational reproducibility. The results show that as a discipline,
+plant pathologists are not widely sharing data or code openly, making
+the works largely unreproducible. Based on these results and our own
+experiences, we offer suggestions as to how we can further improve
+reproducibility in the discipline of plant pathology, but which are not
+unique to the discipline, that would allow reviewers to make better
+suggestions, readers to learn more from the work and earns author more
+citations for their work.</p>
 <div class="section level3">
 <h3 id="how-to-cite">How to cite<a class="anchor" aria-label="anchor" href="#how-to-cite"></a>
 </h3>
 <p>Please cite this compendium as:</p>
 <blockquote>
-<p>Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N. J. (2021). <em>Compendium of R code and data for ‘Status and Best Practices for Reproducible Research In Plant Pathology’</em>. Accessed 13 Oct 2021. Online at <a href="https://doi.org/10.5281/zenodo.1250665" class="external-link uri">https://doi.org/10.5281/zenodo.1250665</a></p>
+<p>Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
+J. (2022). <em>Compendium of R code and data for ‘Status and Best
+Practices for Reproducible Research In Plant Pathology’</em>. Accessed
+24 Apr 2022. Online at <a href="https://doi.org/10.5281/zenodo.1250665" class="external-link uri">https://doi.org/10.5281/zenodo.1250665</a></p>
 </blockquote>
 </div>
 <div class="section level3">
@@ -137,28 +155,45 @@
 <div class="section level4">
 <h4 id="the-r-package">The R package<a class="anchor" aria-label="anchor" href="#the-r-package"></a>
 </h4>
-<p>This repository is organized as an R package. There are custom R functions, <code><a href="reference/table_of_journals.html">table_of_journals()</a></code> and <code><a href="reference/workflow_dia.html">workflow_dia()</a></code> that are used in this repository, along with a bibliography file of the articles that were examined and the notes that are located in <code>inst/extdata</code> directory. We have used the R package structure to help manage dependencies, to take advantage of continuous integration for automated code testing and for file organisation.</p>
+<p>This repository is organized as an R package. There are custom R
+functions, <code><a href="reference/table_of_journals.html">table_of_journals()</a></code> and
+<code><a href="reference/workflow_dia.html">workflow_dia()</a></code> that are used in this repository, along with
+a bibliography file of the articles that were examined and the notes
+that are located in <code>inst/extdata</code> directory. We have used
+the R package structure to help manage dependencies, to take advantage
+of continuous integration for automated code testing and for file
+organisation.</p>
 <p>You can download the compendium as a zip from from this URL: <a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/archive/main.zip" class="external-link uri">https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/archive/main.zip</a></p>
-<p>Or you can install this compendium as an R package, Reproducibility.in.Plant.Pathology, from GitHub with:</p>
+<p>Or you can install this compendium as an R package,
+Reproducibility.in.Plant.Pathology, from GitHub with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st"><a href="https://remotes.r-lib.org" class="external-link">"remotes"</a></span><span class="op">)</span><span class="op">)</span>
   <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"openplantpathology/Reproducibility_in_Plant_Pathology"</span>
 <span class="op">)</span></code></pre></div>
-<p>Once the download is complete, open the <code>Reproducibility_in_Plant_Pathology.Rproj</code> in RStudio to begin working with the package and compendium files.</p>
+<p>Once the download is complete, open the
+<code>Reproducibility_in_Plant_Pathology.Rproj</code> in RStudio to
+begin working with the package and compendium files.</p>
 </div>
 <div class="section level4">
 <h4 id="the-docker-instance">The Docker Instance<a class="anchor" aria-label="anchor" href="#the-docker-instance"></a>
 </h4>
-<p>Get the latest instance from Dockerhub, launch it and go to <code>localhost:8787</code> in your browser. Login with <code>rstudio</code>, password is <code>rstudio</code>.</p>
+<p>Get the latest instance from Dockerhub, launch it and go to
+<code>localhost:8787</code> in your browser. Login with
+<code>rstudio</code>, password is <code>rstudio</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> pull adamhsparks/reproducibility_in_plant_pathology</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-d</span> <span class="at">-p</span> 8787:8787 adamhsparks/reproducibility_in_plant_pathology</span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="the-paper">The Paper<a class="anchor" aria-label="anchor" href="#the-paper"></a>
 </h4>
-<p>The file structure follows a normal R package with one exception. The top-level “/analysis” directory contains the directories and files necessary to re-knit the MS Word document of the paper from an Rmd file, “/analysis/paper/paper.Rmd”.</p>
-<p>A script, <code>knit_paper.R</code>, is located in <code>analysis/paper/knit_paper.R</code> that will knit the <a href="analysis/paper/paper.docx">Word document</a> in a Docker session.</p>
+<p>The file structure follows a normal R package with one exception. The
+top-level “/analysis” directory contains the directories and files
+necessary to re-knit the MS Word document of the paper from an Rmd file,
+“/analysis/paper/paper.Rmd”.</p>
+<p>A script, <code>knit_paper.R</code>, is located in
+<code>analysis/paper/knit_paper.R</code> that will knit the <a href="analysis/paper/paper.docx">Word document</a> in a Docker
+session.</p>
 </div>
 </div>
 <div class="section level2">
@@ -167,15 +202,22 @@
 <div class="section level3">
 <h3 id="licensing">Licensing<a class="anchor" aria-label="anchor" href="#licensing"></a>
 </h3>
-<p>Code: <a href="http://opensource.org/licenses/MIT" class="external-link">MIT</a> year: 2021, copyright holder: Adam H. Sparks</p>
-<p>Data: <a href="http://creativecommons.org/publicdomain/zero/1.0/" class="external-link">CC-0</a> attribution requested in reuse</p>
-<p>Adam H. Sparks Senior Research Scientist Farming Systems Innovation Primary Industries Development Department of Primary Industries and Regional Development Level 6.35, 1 Nash St., Perth WA 6000</p>
+<p>Code: <a href="http://opensource.org/licenses/MIT" class="external-link">MIT</a> year:
+2022, copyright holder: Adam H. Sparks</p>
+<p>Data: <a href="http://creativecommons.org/publicdomain/zero/1.0/" class="external-link">CC-0</a>
+attribution requested in reuse</p>
+<p>Adam H. Sparks Senior Research Scientist Farming Systems Innovation
+Primary Industries Development Department of Primary Industries and
+Regional Development Level 6.35, 1 Nash St., Perth WA 6000</p>
 <p><a href="https://adamhsparks.com/" class="external-link uri">https://adamhsparks.com/</a></p>
 </div>
 <div class="section level3">
 <h3 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
 </h3>
-<p>Please note that the Reproducibility.in.Plant.Pathology project is released with a <a href="https://openplantpathology.github.io/Reproducible.Plant.Pathology/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<p>Please note that the Reproducibility.in.Plant.Pathology project is
+released with a <a href="https://openplantpathology.github.io/Reproducible.Plant.Pathology/CODE_OF_CONDUCT.html">Contributor
+Code of Conduct</a>. By contributing to this project, you agree to abide
+by its terms.</p>
 </div>
 </div>
 </div>
@@ -240,12 +282,14 @@
 
       <footer><div class="copyright">
   <p></p>
-<p>Developed by Adam H. Sparks, Emerson M. Del Ponte, Kaique S. Alves, Zachary S. L. Foster, Niklaus J. Grünwald.</p>
+<p>Developed by Adam H. Sparks, Emerson M. Del Ponte, Kaique S. Alves,
+Zachary S. L. Foster, Niklaus J. Grünwald.</p>
 </div>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
+2.0.2.</p>
 </div>
 
       </footer>
