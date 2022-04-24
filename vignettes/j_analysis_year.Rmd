@@ -7,6 +7,12 @@ vignette: >
   %\VignetteIndexEntry{Analysis of Publication Year Effect}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{brms}
+  %\VignetteDepends{bayestestR}
+  %\VignetteDepends{bayesplot}
+  %\VignetteDepends{ggplot2}
+  %\VignetteDepends{pander}
+  %\VignetteDepends{sessioninfo}
 ---
 
 ```{r setup, include = FALSE}

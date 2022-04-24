@@ -7,6 +7,14 @@ vignette: >
   %\VignetteIndexEntry{Data Visualisation}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{janitor}
+  %\VignetteDepends{tidyverse}
+  %\VignetteDepends{pander}
+  %\VignetteDepends{janitor}
+  %\VignetteDepends{pander}
+  %\VignetteDepends{ggplot2}
+  %\VignetteDepends{tidyverse}
+  %\VignetteDepends{sessioninfo}
 ---
   
 ```{r setup, include = FALSE}
