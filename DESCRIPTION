@@ -40,15 +40,12 @@ Imports:
     dplyr,
     DiagrammeR,
     DiagrammeRsvg,
-    httr,
     magrittr,
-    methods,
     pander,
     readODS,
-    rsvg,
-    stats,
-    xml2
+    rsvg
 Suggests:
+    bib2df,
     bibtex,
     bayesplot,
     bayestestR,
