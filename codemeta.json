@@ -13,7 +13,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.1.2 (2021-11-01)",
+  "runtimePlatform": "R version 4.2.0 (2022-04-22)",
   "author": [
     {
       "@type": "Person",
@@ -80,6 +80,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=bib2df"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "bibtex",
+      "name": "bibtex",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=bibtex"
     },
     {
       "@type": "SoftwareApplication",
@@ -417,18 +429,6 @@
     },
     "5": {
       "@type": "SoftwareApplication",
-      "identifier": "httr",
-      "name": "httr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=httr"
-    },
-    "6": {
-      "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
       "provider": {
@@ -439,12 +439,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
-    "7": {
-      "@type": "SoftwareApplication",
-      "identifier": "methods",
-      "name": "methods"
-    },
-    "8": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "pander",
       "name": "pander",
@@ -456,7 +451,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=pander"
     },
-    "9": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "readODS",
       "name": "readODS",
@@ -468,7 +463,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=readODS"
     },
-    "10": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "rsvg",
       "name": "rsvg",
@@ -480,26 +475,9 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rsvg"
     },
-    "11": {
-      "@type": "SoftwareApplication",
-      "identifier": "stats",
-      "name": "stats"
-    },
-    "12": {
-      "@type": "SoftwareApplication",
-      "identifier": "xml2",
-      "name": "xml2",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=xml2"
-    },
     "SystemRequirements": null
   },
-  "fileSize": "23853.408KB",
+  "fileSize": "24996.723KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
