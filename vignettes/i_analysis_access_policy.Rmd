@@ -11,6 +11,7 @@ vignette: >
   %\VignetteDepends{bayestestR}
   %\VignetteDepends{bayesplot}
   %\VignetteDepends{ggplot2}
+  %\VignetteDepends{here}
   %\VignetteDepends{pander}
   %\VignetteDepends{sessioninfo}
 ---
@@ -34,6 +35,7 @@ library("brms")
 library("bayestestR")
 library("bayesplot")
 library("ggplot2")
+library("here")
 library("pander")
 library("Reproducibility.in.Plant.Pathology")
 
@@ -89,6 +91,9 @@ pp_check(m5)
 plot(pd(m5))
 
 pander(equivalence_test(m5))
+
+# save the model for figures in the paper
+save(m5, file = here("data/m5.Rda"))
 ```
 
 # Colophon
