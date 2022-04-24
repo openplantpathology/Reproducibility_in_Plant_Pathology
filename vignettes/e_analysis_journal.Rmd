@@ -65,7 +65,7 @@ priors <- prior_string("normal(0, 10)")
 ## Journal Effect Model
 
 Test the effect that the journal's effect on the reproducibility score.
-Set up a brms model with journal (`abbreviation`) as the fixed effect and `year` and `assignee` as random effects.
+Set up a _brms_ model with journal (`abbreviation`) as the fixed effect and `year` and `assignee` as random effects.
 Base level is set to Molecular Plant Pathology, the journal with the highest five-year impact factor that will be used as the intercept in the following model.
 
 ```{r journal}
