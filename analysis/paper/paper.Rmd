@@ -111,7 +111,7 @@ font_import()
 Open research practices have been highlighted extensively during the last ten years in many fields of scientific study as essential standards needed to promote transparency and reproducibility of scientific results.
 Scientific claims can only be evaluated based on how protocols, materials, equipment and methods were described; data were collected and prepared; and, analyses were conducted.
 Openly sharing protocols, data and computational code is central for current scholarly dissemination and communication, but in many fields, including plant pathology, adoption of these practices has been slow.
-We randomly selected 300 articles published from 2012 to 2018 across 21 journals representative of the plant pathology discipline and assigned them scores reflecting their openness and reproducibility.
+We randomly selected 450 articles published from 2012 to 2018 across 21 journals representative of the plant pathology discipline and assigned them scores reflecting their openness and reproducibility.
 We found that most of the articles were not following protocols for open science, and were failing to share data or code in a reproducible way.
 We also propose that use of open-source tools facilitates reproducible work and analyses benefitting not just readers, but the authors as well.
 Finally, we also provide ideas and tools to promote open, reproducible research practices among plant pathologists.
@@ -157,7 +157,7 @@ These cases do constitute a lack of reproducibility but will not be covered here
 ## Article Selection
 
 In an effort to understand where as a discipline we stand as plant pathologists in regards to open science and reproducible research, we surveyed a broad selection of articles to represent a broad swathe of publications to evaluate our status.
-We randomly selected 300 articles published from 2012 to 2018 across 21 journals (Table \@ref(tab:journals)) and assigned them scores reflecting their openness and reproducibility.
+We randomly selected 450 articles published from 2012 to 2018 across 21 journals (Table \@ref(tab:journals)) and assigned them scores reflecting their openness and reproducibility.
 The journals represented both fundamental and applied areas as well as pathogen or other group-specific publications.
 A list of randomly selected pages was assigned to a randomized list of the 21 journals where the page number fell within an article for the given journal.
 In cases where an article was not suitable, _e.g._, a review or otherwise not related to plant pathology, the next article was selected until a suitable article was found.
