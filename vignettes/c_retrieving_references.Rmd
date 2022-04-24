@@ -9,6 +9,9 @@ vignette: >
   %\VignetteEncoding{UTF-8}
   %\VignetteDepends{bibtex}
   %\VignetteDepends{googlesheets4}
+  %\VignetteDepends{dplyr}
+  %\VignetteDepends{bibtex}
+  %\VignetteDepends{sessioninfo}
 ---
 
 ```{r, echo=FALSE, message=FALSE}

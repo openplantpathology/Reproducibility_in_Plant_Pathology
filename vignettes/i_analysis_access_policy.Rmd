@@ -7,6 +7,13 @@ vignette: >
   %\VignetteIndexEntry{Analysis of Open Access Policy}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{brms}
+  %\VignetteDepends{bayestestR}
+  %\VignetteDepends{bayesplot}
+  %\VignetteDepends{ggplot2}
+  %\VignetteDepends{here}
+  %\VignetteDepends{pander}
+  %\VignetteDepends{sessioninfo}
 ---
 
 ```{r setup, include = FALSE}
@@ -17,17 +24,18 @@ knitr::opts_chunk$set(
 knitr::opts_chunk$set(fig.width = 6.4, fig.height = 6.4)
 ```
 
-This vignette documents a simple visualisation and tabulation of the data gathered from surveying 21 journals and 300 articles in the field of plant pathology for their openness and reproducibility.
+This vignette documents a simple visualisation and tabulation of the data gathered from surveying 21 journals and 450 articles in the field of plant pathology for their openness and reproducibility.
 
 # Set-up Workspace
 
 Load libraries used and setting the _ggplot2_ theme for the document.
 
-```{r load-libraries}
+```{r load-libraries, message=FALSE}
 library("brms")
 library("bayestestR")
 library("bayesplot")
 library("ggplot2")
+library("here")
 library("pander")
 library("Reproducibility.in.Plant.Pathology")
 
@@ -83,6 +91,9 @@ pp_check(m5)
 plot(pd(m5))
 
 pander(equivalence_test(m5))
+
+# save the model for figures in the paper
+save(m5, file = here("data/m5.Rda"))
 ```
 
 # Colophon

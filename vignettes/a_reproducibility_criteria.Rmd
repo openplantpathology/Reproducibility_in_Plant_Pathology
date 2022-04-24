@@ -7,6 +7,7 @@ vignette: >
   %\VignetteIndexEntry{Criteria for Evaluating Reproducibility}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{sessioninfo}
 ---
 
 ```{r setup, include=FALSE}

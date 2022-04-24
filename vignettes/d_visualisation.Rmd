@@ -7,6 +7,14 @@ vignette: >
   %\VignetteIndexEntry{Data Visualisation}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{janitor}
+  %\VignetteDepends{tidyverse}
+  %\VignetteDepends{pander}
+  %\VignetteDepends{janitor}
+  %\VignetteDepends{pander}
+  %\VignetteDepends{ggplot2}
+  %\VignetteDepends{tidyverse}
+  %\VignetteDepends{sessioninfo}
 ---
   
 ```{r setup, include = FALSE}
@@ -17,7 +25,7 @@ comment = "#>"
 knitr::opts_chunk$set(fig.width = 6.4, fig.height = 6.4)
 ```
 
-This vignette documents a simple visualisation and tabulation of the data gathered from surveying 21 journals and 300 articles in the field of plant pathology for their openness and reproducibility.
+This vignette documents a simple visualisation and tabulation of the data gathered from surveying 21 journals and 450 articles in the field of plant pathology for their openness and reproducibility.
 
 # Set-up Workspace
 

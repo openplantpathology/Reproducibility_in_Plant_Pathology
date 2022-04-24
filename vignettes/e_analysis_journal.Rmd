@@ -7,6 +7,13 @@ vignette: >
   %\VignetteIndexEntry{Analysis of Journal Effect}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{brms}
+  %\VignetteDepends{bayestestR}
+  %\VignetteDepends{bayesplot}
+  %\VignetteDepends{ggplot2}
+  %\VignetteDepends{here}
+  %\VignetteDepends{pander}
+  %\VignetteDepends{sessioninfo}
 ---
 
 ```{r setup, include = FALSE}
@@ -17,17 +24,18 @@ knitr::opts_chunk$set(
 knitr::opts_chunk$set(fig.width = 6.4, fig.height = 6.4)
 ```
 
-This vignette documents a simple visualisation and tabulation of the data gathered from surveying 21 journals and 300 articles in the field of plant pathology for their openness and reproducibility.
+This vignette documents a simple visualisation and tabulation of the data gathered from surveying 21 journals and 450 articles in the field of plant pathology for their openness and reproducibility.
 
 # Set-up Workspace
 
 Load libraries used and setting the _ggplot2_ theme for the document.
 
-```{r load-libraries}
+```{r load-libraries, message=FALSE}
 library("brms")
 library("bayestestR")
 library("bayesplot")
 library("ggplot2")
+library("here")
 library("pander")
 library("Reproducibility.in.Plant.Pathology")
 
@@ -57,7 +65,7 @@ priors <- prior_string("normal(0, 10)")
 ## Journal Effect Model
 
 Test the effect that the journal's effect on the reproducibility score.
-Set up a brms model with journal (`abbreviation`) as the fixed effect and `year` and `assignee` as random effects.
+Set up a _brms_ model with journal (`abbreviation`) as the fixed effect and `year` and `assignee` as random effects.
 Base level is set to Molecular Plant Pathology, the journal with the highest five-year impact factor that will be used as the intercept in the following model.
 
 ```{r journal}
@@ -89,6 +97,9 @@ pp_check(m1)
 plot(pd(m1))
 
 pander(equivalence_test(m1))
+
+# save the model for figures in the paper
+save(m1, file = here("data/m1.Rda"))
 ```
 
 # Colophon

@@ -4,16 +4,25 @@ author: "Adam H. Sparks"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Original Round of Assigning Articles to Evaluators}
+  %\VignetteIndexEntry{Third Round of Assigning Articles to Evaluators}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
   %\VignetteDepends{googlesheets4}
+  %\VignetteDepends{bib2df}
+  %\VignetteDepends{dplyr}
+  %\VignetteDepends{readr}
+  %\VignetteDepends{stringr}
+  %\VignetteDepends{sessioninfo}
 ---
 
 ## Creating a sample of articles
 
 
+<<<<<<< HEAD
 As a third round in response to reviewers' comments, we sampled 150 articles from the same 21 journals to bring the year coverage of articles up to 2021.
+=======
+As a third round in response to reviewers' comments, we sampled 150 additional articles from the same 21 journals to bring the coverage of articles up to 2021.
+>>>>>>> main
 That is, this round covers the years 2019-2021.
 
 As before with the second round of reviews after the initial set, aside from the different years, the journals remain the same and process as described previously.

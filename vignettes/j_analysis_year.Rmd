@@ -7,6 +7,13 @@ vignette: >
   %\VignetteIndexEntry{Analysis of Publication Year Effect}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{brms}
+  %\VignetteDepends{bayestestR}
+  %\VignetteDepends{bayesplot}
+  %\VignetteDepends{ggplot2}
+  %\VignetteDepends{here}
+  %\VignetteDepends{pander}
+  %\VignetteDepends{sessioninfo}
 ---
 
 ```{r setup, include = FALSE}
@@ -17,17 +24,18 @@ knitr::opts_chunk$set(
 knitr::opts_chunk$set(fig.width = 6.4, fig.height = 6.4)
 ```
 
-This vignette documents a simple visualisation and tabulation of the data gathered from surveying 21 journals and 300 articles in the field of plant pathology for their openness and reproducibility.
+This vignette documents a simple visualisation and tabulation of the data gathered from surveying 21 journals and 450 articles in the field of plant pathology for their openness and reproducibility.
 
 # Set-up Workspace
 
 Load libraries used and setting the _ggplot2_ theme for the document.
 
-```{r load-libraries}
+```{r load-libraries, message=FALSE}
 library("brms")
 library("bayestestR")
 library("bayesplot")
 library("ggplot2")
+library("here")
 library("pander")
 library("Reproducibility.in.Plant.Pathology")
 
@@ -37,7 +45,7 @@ theme_set(theme_classic())
 
 ## Import Data
 
-Data are imported and the base level is set to Molecular Plant Pathology, the journal with the highest five-year impact factor that will be used as the intercept in the following models.
+Data are imported and the base level is set to _Molecular Plant Pathology_, the journal with the highest five-year impact factor that will be used as the intercept in the following models.
 
 ```{r}
 rrpp <- import_notes()
@@ -83,6 +91,9 @@ pp_check(m6)
 plot(pd(m6))
 
 pander(equivalence_test(m6))
+
+# save the model for figures in the paper
+save(m6, file = here("data/m6.Rda"))
 ```
 
 # Colophon
