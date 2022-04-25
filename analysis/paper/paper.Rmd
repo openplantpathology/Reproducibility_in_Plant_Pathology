@@ -39,6 +39,7 @@ library("Reproducibility.in.Plant.Pathology")
 packages <- c(
   "extrafont",
   "egg",
+  "english",
   "officer",
   "dplyr",
   "ggpubr",
