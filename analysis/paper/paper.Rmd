@@ -37,8 +37,11 @@ csl: "../templates/american-phytopathological-society.csl"
 library("Reproducibility.in.Plant.Pathology")
 
 packages <- c(
+  "extrafont",
   "officer",
   "dplyr",
+  "ggpubr",
+  "ggplot2",
   "janitor",
   "here",
   "flextable",
