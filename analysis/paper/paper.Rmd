@@ -240,7 +240,8 @@ None of the factors that were tested for had an effect on the reproducibility sc
 Forty-eight articles scored 0% out of a possible 100% for reproducibility.
 The mean value was 31.2% and the median value was 33.3%.
 One article scored 100% or was classed as fully reproducible.
-No journals surveyed were completely closed, all offered at least an option for open access but some were completely open.The majority of the articles were classed as fundamental, 160, with the remaining 138 classed as applied.
+No journals surveyed were completely closed, all offered at least an option for open access but some were completely open.
+The majority of the articles were classed as fundamental, 160, with the remaining 138 classed as applied.
 
 Most articles did not make any computational methods available in any fashion with two, 0.007%, classing as '3', which was the highest score available (Figure \@ref(fig:articleScores)A).
 Two hundred eighty-seven articles, 96%, were classed as '0' and nine articles, 0.03%, appeared to not use any computational methods.
