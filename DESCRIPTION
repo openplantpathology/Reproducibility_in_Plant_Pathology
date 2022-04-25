@@ -38,12 +38,9 @@ Depends:
 License: MIT + file LICENSE
 Imports:
     dplyr,
-    DiagrammeR,
-    DiagrammeRsvg,
     magrittr,
     pander,
-    readODS,
-    rsvg
+    readODS
 Suggests:
     bib2df,
     bibtex,
