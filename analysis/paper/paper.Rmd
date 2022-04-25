@@ -196,7 +196,7 @@ In the first event, three authors (AS, EDP, and ZF) evaluated 200 articles, in t
 
 Each journal was classified as to whether they were completely open (TRUE), behind a paywall (FALSE) or a combination (BOTH).
 The five-year impact factor for 2022 for each journal was retrieved from InCites Journal Citation Reports, Clarivate Analytics and entered in a separate sheet in the Google sheets file.
-This was downloaded, saved as an Open Document Spreadsheet (ODS) file and is left-joined with the article notes using a `left_join()` from the 'dplyr' package [@Wickham2020] for analysis when a custom function for this analysis, `import_notes()`, was executed.
+This was downloaded, saved as an Open Document Spreadsheet (ODS) file and is left-joined with the article notes using a `left_join()` from the 'dplyr' package (version `r packageVersion("dplyr")`) [@Wickham2020] for analysis when a custom function for this analysis, `import_notes()`, was executed.
 
 Articles were classified as fundamental or applied and a note was made whether the article's primary focus was using or developing molecular techniques (TRUE/FALSE).
 This classification was based on the evaluator's judgement of the article.
