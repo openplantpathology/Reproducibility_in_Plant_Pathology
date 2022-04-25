@@ -23,7 +23,7 @@ Our pre-print is online on the agriRxiv preprint server:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
 > J. (2021). *Reproducibility in plant pathology: where do we stand and
-> a way forward*. agriRxiv, Accessed 24 Apr 2022. Online at
+> a way forward*. agriRxiv, Accessed 25 Apr 2022. Online at
 > <https://doi.org/10.31220/agriRxiv.2021.00082>
 
 The paper is a systematic and quantitative review of articles published
@@ -45,20 +45,22 @@ Please cite this compendium as:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
 > J. (2022). *Compendium of R code and data for ‘Status and Best
-> Practices for Reproducible Research In Plant Pathology’*. Accessed 24
+> Practices for Reproducible Research In Plant Pathology’*. Accessed 25
 > Apr 2022. Online at <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
 
 #### The R package
 
-This repository is organized as an R package. There are custom R
-functions, `table_of_journals()` and `workflow_dia()` that are used in
-this repository, along with a bibliography file of the articles that
-were examined and the notes that are located in `inst/extdata`
-directory. We have used the R package structure to help manage
-dependencies, to take advantage of continuous integration for automated
-code testing and for file organisation.
+This repository is organized as an R package. There is one R function,
+`import_notes()` that is used in the paper’s figure and table making
+when the file, `analysis/paper/paper.Rmd` is knit. Additionally, a
+bibliography file, “references.bib”, of the articles that were examined
+and the notes from the evaluation,
+“Reproducibility_in_plant_pathology_notes.ods” of the articles are both
+located in `inst/extdata` directory. We have used the R package
+structure to help manage dependencies, to take advantage of continuous
+integration for automated code testing and for file organisation.
 
 You can download the compendium as a zip from from this URL:
 <https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/archive/main.zip>
