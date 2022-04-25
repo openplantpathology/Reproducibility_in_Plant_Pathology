@@ -235,7 +235,7 @@ Model finesses were evaluated using model summaries and diagnostic plots from 'b
 
 Probability of direction or maximum probability of effect was plotted, `pd()`, and a test for practical equivalence, `equivalence_test()`, was performed for each model using the contributed R package 'bayestestR' (version 0.10.0) [@Makowski2019].
 
-Data were visualised using 'ggplot2' ((version `r packageVersion("ggplot2")`)) [@Wickham2016], 'ggpubr' ((version `r packageVersion("ggpubr")`)) [@Kassambara2020] and patchwork ((version `r packageVersion("patchwork")`)) [@Pedersen2020].
+Data were visualised using 'ggplot2' (version `r packageVersion("ggplot2")`) [@Wickham2016], 'ggpubr' (version `r packageVersion("ggpubr")`) [@Kassambara2020] and patchwork (version `r packageVersion("patchwork")`) [@Pedersen2020].
 
 All methods are described in greater detail with the code necessary to reproduce the work in @Sparks2022.
 
