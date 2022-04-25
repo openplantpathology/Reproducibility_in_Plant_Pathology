@@ -429,8 +429,6 @@ import_notes() %>%
 \newpage
 
 ```{r software-used, echo=FALSE, message=FALSE, warning=FALSE}
-rrpp <- import_notes()
-
 rrpp_software <-
   rrpp %>% 
   transform(software_used = strsplit(software_used, ",")) %>%
