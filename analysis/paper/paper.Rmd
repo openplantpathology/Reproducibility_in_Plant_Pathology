@@ -129,7 +129,7 @@ font_import()
 
 \newpage
 
-# Abstract {-#abstract}
+# Abstract {#abstract .unnumbered}
 
 Open research practices have been highlighted extensively during the last ten years in many fields of scientific study as essential standards needed to promote transparency and reproducibility of scientific results.
 Scientific claims can only be evaluated based on how protocols, materials, equipment and methods were described; data were collected and prepared; and, analyses were conducted.
@@ -159,7 +159,7 @@ For us to easily discuss the topic, we first must define what we mean so that we
 Many of the terms used in this area have varying definitions that may or may not agree with each other.
 For instance, reproducible research was recently highlighted by many authors [@Tiwari_2021; @Eckert2020; @Dienlin2020; @preeyanon2018; @Wallach2018; @Baker2016a; @Iqbal2016; @Nature2016; @Patil2016; @Weissgerber2016; @Brunsdon2015; @Sweedler2015; @Fitzjohn2014; @Ioannidis2014; @Fidler2013; @Stodden2013] as an important issue.
 
-In the biological sciences it is not always possible to use identical test material or perhaps the time or resources are not available for full reproducibility, _e.g._, field trials that span years and locations or complex glasshouse experiments.
+In the biological sciences it is not always possible to use identical test material or perhaps the time or resources are not available for full reproducibility, *e.g.*, field trials that span years and locations or complex glasshouse experiments.
 Therefore, we will follow Peng's [-@Peng2009] definition that provides clear guidelines for a minimum standard of "reproducible research":
 
 > "The replication of scientific findings using independent investigators, methods, data, equipment, and protocols has long been, and will continue to be, the standard by which scientific claims are evaluated. However, in many fields of study there are examples of scientific investigations that cannot be fully replicated because of a lack of time or resources. In such a situation, there is a need for a minimum standard that can fill the void between full replication and nothing. One candidate for this minimum standard is 'reproducible research', which requires that data sets and computer code be made available to others for verifying published results and conducting alternative analyses".
@@ -180,7 +180,7 @@ These cases do constitute a lack of reproducibility but will not be covered here
 ## Article Selection and Evaluation Events
 
 In an effort to understand where as a discipline we stand as plant pathologists regarding open science and reproducible research, we surveyed a broad selection of articles to represent a broad swathe of publications to evaluate our status.
-We hand-picked 21 journals which we felt represented research publications in the field of plant pathology (Table \@ref(tab:journals)) that encompassed a range of subject matter foci, applied and fundamental work, country of origin and ranking metrics, _e.g._ quartile range or citation index, to represent the discipline.
+We hand-picked 21 journals which we felt represented research publications in the field of plant pathology (Table \@ref(tab:journals)) that encompassed a range of subject matter foci, applied and fundamental work, country of origin and ranking metrics, *e.g.* quartile range or citation index, to represent the discipline.
 The aim was to gather as complete an overview of the status of reproducibility in plant pathology journals as possible and avoid bias in the findings by skewing towards high-impact journals that may have a greater influence.
 From those 21 journals we randomly selected 450 articles published from 2012 to 2021.
 Using R [@RCT2022], two lists were created, the first was a list of the 21 journals and the second was a list of the evaluators that were evaluating the articles for reproducibility.
@@ -191,8 +191,8 @@ A list of randomly generated numbers to represent page numbers from one to 150, 
 This was done because some journals restart their numbering with each issue and also ensures that the journal is more likely to have a page number corresponding to the randomly generated value.
 This also assumes that there is no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year.
 
-Articles were then manually selected by visiting the journals' websites and selecting the articles within which the randomly assigned page numbers fell, _i.e._, if the page number was 32, the article that started on page 28 and ended on page 35 was selected as it contained page 32.
-In cases where an article was not suitable, _e.g._, a review or otherwise not related to plant pathology or the randomly assigned numbers for that journal and year fell within the same article, the next article in that journal was selected until a suitable article was found.
+Articles were then manually selected by visiting the journals' websites and selecting the articles within which the randomly assigned page numbers fell, *i.e.*, if the page number was 32, the article that started on page 28 and ended on page 35 was selected as it contained page 32.
+In cases where an article was not suitable, *e.g.*, a review or otherwise not related to plant pathology or the randomly assigned numbers for that journal and year fell within the same article, the next article in that journal was selected until a suitable article was found.
 
 The each of the five authors were each assigned to rate a randomised list of journal articles using scoring criteria devised for the purposes of this research (Table \@ref(tab:scoring)) in three different scoring events as their time allowed for their participation.
 In the first event, three authors (AS, EDP, and ZF) evaluated 200 articles, in the second event two authors evaluated 100 articles (EDP, KA) and in the third round, five authors (AS, EDP, KA, ZF, NG) evaluated 150 articles for a total of 450 articles.
@@ -283,21 +283,20 @@ While the articles that were surveyed did not score well, we are aware of and wo
 
 There are different ways to make research more open and reproducible, which can be thought of as levels of reproducibility.
 The first level is including tables of raw data or code with the paper as a supplemental file.
-This is suitable for studies that may have a small data set or simple analysis or for demonstrations purposes as @Madden2015 demonstrate in their discussion regarding the use of $P$ values in statistical analyses where they supply an _e-**X**tra_\* with reproducible examples for readers to refer to.
+This is suitable for studies that may have a small data set or simple analysis or for demonstrations purposes as @Madden2015 demonstrate in their discussion regarding the use of $P$ values in statistical analyses where they supply an *e-**X**tra*\* with reproducible examples for readers to refer to.
 This allows the reader to quickly view the extra materials and a DOI is assigned as a part of the article itself.
 
-At the second level, -@Lehner2017 used GitHub to host a code repository of their research compendium website with data and a reproducible report that explains in detail all steps of the analysis and the R code for conducting a meta-analysis for assessing heterogeneity in the relationship between white mold incidence and soybean yield and between incidence and soybean yield ([https://emdelponte.github.io/paper-white-mold-meta-analysis/](https://emdelponte.github.io/paper-white-mold-meta-analysis/)).
+At the second level, -@Lehner2017 used GitHub to host a code repository of their research compendium website with data and a reproducible report that explains in detail all steps of the analysis and the R code for conducting a meta-analysis for assessing heterogeneity in the relationship between white mold incidence and soybean yield and between incidence and soybean yield (<https://emdelponte.github.io/paper-white-mold-meta-analysis/>).
 The website clearly demonstrates the analysis to readers and uses R so that anyone can easily replicate the work.
-Likewise, @Duku2016 provide scripts for models, data and code for graphs, via a website hosted by GitHub, [http://adamhsparks.github.io/MICCORDEA/](http://adamhsparks.github.io/MICCORDEA/), that can be used to replicate their study modelling the effects of climate change on rice bacterial blight and rice leaf blast in Tanzania.
-A final example is provided by @carleson2019population who hosted the code for reproducing a population genomic analysis of  _Phytophthora plurivora_ on GitHub, while providing all data on OSF.
+Likewise, @Duku2016 provide scripts for models, data and code for graphs, via a website hosted by GitHub, <http://adamhsparks.github.io/MICCORDEA/>, that can be used to replicate their study modelling the effects of climate change on rice bacterial blight and rice leaf blast in Tanzania.
+A final example is provided by @carleson2019population who hosted the code for reproducing a population genomic analysis of *Phytophthora plurivora* on GitHub, while providing all data on OSF.
 
 The third level is the use of proper data repositories such as GitHub, FigShare, Zenodo or OSF.io among others, allow for the deposition and updating of code, figures, data preprints or any other materials that support the article itself while providing a DOI and citation for a standalone citation.
-Sparks et al. [-@Sparks2011; -@Sparks2014] used FigShare to provide models, data and code, [@Sparks2016] necessary to replicate model development and the subsequent study on the effects of climate change on potato late blight.
-Similarly, @carleson2019population provided all data on OSF [@Carleson_Grünwald_2019].
+Sparks et al. [-@Sparks2011; -@Sparks2014] used FigShare to provide models, data and code, [@Sparks2016] necessary to replicate model development and the subsequent study on the effects of climate change on potato late blight. Similarly, @carleson2019population provided all data on OSF [@Carleson_Grünwald_2019].
 
-The fourth level includes packaging the analysis as a software package, _e.g._, R, Julia or Python package at a minimum, with the use of continuous integration and possibly a software container like Docker as @Khaliq2020 have done.
-Their research compendium provides a Docker instance, DOI and full R package that enable readers to fully replicate their analysis of _Ascochyta rabiei_ conidia dispersal in chickpea using the data collected and stepping through other points where weather data were investigated and various models were fit before deciding on the best fit and recreate any figures as published in the article [@Khaliq2020a].
-When this level is employed, tools such as Binder, [https://mybinder.org](https://mybinder.org), can be used that allow readers and reviewers to launch an interactive session in their web browser and interact with the data and rerun the analysis in an RStudio instance or Jupyter notebooks as Mioroni et al. used [-@Miorini2018, [-@Miorini2019]].
+The fourth level includes packaging the analysis as a software package, *e.g.*, R, Julia or Python package at a minimum, with the use of continuous integration and possibly a software container like Docker as @Khaliq2020 have done.
+Their research compendium provides a Docker instance, DOI and full R package that enable readers to fully replicate their analysis of *Ascochyta rabiei* conidia dispersal in chickpea using the data collected and stepping through other points where weather data were investigated and various models were fit before deciding on the best fit and recreate any figures as published in the article [@Khaliq2020a].
+When this level is employed, tools such as Binder, <https://mybinder.org>, can be used that allow readers and reviewers to launch an interactive session in their web browser and interact with the data and rerun the analysis in an RStudio instance or Jupyter notebooks as Mioroni et al. used [-@Miorini2018, [-@Miorini2019]].
 @Kamvar2015 took a slightly different approach by including all files necessary for the analysis and most output files in a repository [@Kamvar2014] that also included an installable R package that was used for the original analysis.
 While there are many other methods, these two approaches illustrate some of the best-practices where the data and other files were deposited in repositories with DOIs and reproducibility issues were addressed by using R packages to handle dependencies and other versioning issues making the work more portable.
 
@@ -314,17 +313,16 @@ In the next section we present standards and tools that can be used to ensure re
 
 When making your science more open and reproducible, methods, software used (this includes items such as R, Julia or Python packages that were directly used in the analysis or production of the paper, etc.) should be cited properly.
 Deposit and annotate biological materials with an herbarium or other repository.
-Provide a full description of all equipment used, _e.g._, 'a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals.'
-This allows end-users to identify what was used and identify the methods used more accurately.
+Provide a full description of all equipment used, *e.g.*, 'a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals.' This allows end-users to identify what was used and identify the methods used more accurately.
 Just as importantly, this acknowledges the contributions of others whose works were instrumental in your research.
-This also helps ensure that you as a researcher can reconstruct what you have done since you will have good notes and documentation and be able to identify if something changes, _e.g._, a package version, what effect it had on your research.
+This also helps ensure that you as a researcher can reconstruct what you have done since you will have good notes and documentation and be able to identify if something changes, *e.g.*, a package version, what effect it had on your research.
 
 The use of programming or scripting languages such as R, Julia, SAS or Python enables you as a scientist to keep very detailed records of what was computationally performed.
 This is as opposed to using software such as spreadsheet programs like Excel, Google Sheets, Numbers, Calc or others which can be used for simple statistical analyses and visualization or other point-and-click software packages that do not enable you to keep an accurate record of the steps taken to import, format, visualise and analyse data.
 
 Text files for saving small sets of data are preferable.
 Data that are saved in binary formats such as PDF files are difficult to reuse because they are not easily machine readable.
-In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, _e.g._, comma separated (CSV) or tab separated (TSV) files.
+In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, *e.g.*, comma separated (CSV) or tab separated (TSV) files.
 This also helps ensure that the data are reusable.
 Larger data sets may warrant the use of a proper database like GenBank, MariaDB or PostgreSQL which provide users with several benefits but two important benefits to mention here are (i) data redundancy, ensuring no records are duplicated and (ii) data consistency, ensuring that all records in a data set are recorded in the same format for every observation.
 While personal databases may offer many advantages, the trade-off is that they are more complex to set up and administer, especially for a small data set.
@@ -338,11 +336,11 @@ Unexpected changes to values in the data [@Ziemann2016] may also occur when usin
 If steps are followed to make the data FAIR then it will be readable by humans and machines alike and this will help support discoveries and support further research.
 In turn, sharing data will lead to new citations for your work as others discover and use it.
 To make your data the most widely discoverable and usable, ensure that it has a persistent identifier.
-A digital object identifier (DOI) is the most common ([https://www.doi.org/](https://www.doi.org/)) but the Handle.Net Registry (HNR) ([https://handle.net/](https://handle.net/)) is also an option.
+A digital object identifier (DOI) is the most common (<https://www.doi.org/>) but the Handle.Net Registry (HNR) (<https://handle.net/>) is also an option.
 There are different options for generating a DOI for your data and other materials.
 FigShare, Zenodo and OSF all offer persistent archives along with a services to generate a DOI for your materials.
 The use of a persistent identifier works to ensure that even if the data are moved, they can still be located using that unique identifier.
-For more on FAIR data, visit Go-Fair [https://www.go-fair.org/fair-principles/](https://www.go-fair.org/fair-principles/).
+For more on FAIR data, visit Go-Fair <https://www.go-fair.org/fair-principles/>.
 
 Once you have determined how to best manage your source code and the data sets for analysis the next step is to consider how to share your data.
 Providers such as FigShare, Dataverse, OSF.io (the Open Science Framework) and Zenodo allow for you to deposit your data and generate a DOI for sharing your project once you are finished with it.
@@ -361,10 +359,10 @@ The important aspect is that data once deposited cannot be modified any more.
 
 In this work we have evaluated the state of reproducibility in the plant pathology literature and presented suggestions for areas of improvement.
 As we prepared this letter, we became more aware of the urgent need to spread and establish an open science attitude and culture among plant pathologists.
-To assist in fostering this sort of change in our discipline, Open Plant Pathology (OPP), <https://www.openplantpathology.org>, an institution-independent and non-funded initiative, was founded in January 2018 by two of this letter's co-authors, Del Ponte and Sparks, in 2018 with the following vision: “foster a diverse community culture that values openness, transparency and reproducibility of scientific research data and methods in our field”.
+To assist in fostering this sort of change in our discipline, Open Plant Pathology (OPP), <https://www.openplantpathology.org>, an institution-independent and non-funded initiative, was founded in January 2018 by two of this letter's co-authors, Del Ponte and Sparks, in 2018 with the following vision: "foster a diverse community culture that values openness, transparency and reproducibility of scientific research data and methods in our field".
 We started OPP with a minimal infrastructure and support from other enthusiastic colleagues that allows members to interact sharing and gathering ideas on how we can improve the openness and reproducibility in our discipline.
 
-We  believe that adopting an attitude of open and collaborative science and using the best reproducibility practices in our daily work, directly benefits us as researchers.
+We believe that adopting an attitude of open and collaborative science and using the best reproducibility practices in our daily work, directly benefits us as researchers.
 For example, between complicated analyses, reviews and revisions and questions years later about the data that was collected or analysis that was conducted, it is extremely beneficial to be able to easily reproduce your work quickly and easily.
 This letter was drafted over the course of several years as the authors had time to devote to it.
 Having everything in a reproducible framework made it easy to resume work and set-aside as necessary without losing information and having everything well-documented made it more simple to do this.
@@ -531,7 +529,6 @@ extrafont::embed_fonts(
 )
 knitr::include_graphics(path = "../figures/Sparks et al Figure 2.eps")
 ```
-
 
 \newpage
 
