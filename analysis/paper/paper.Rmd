@@ -261,20 +261,18 @@ Most articles did not make any computational methods available in any fashion wi
 
 More articles did a good job of using software that was reasonably available to anyone with `r length(which(rrpp$software_avail >= 2))` (`r round(length(which(rrpp$software_avail >= 2))/nrow(rrpp), 2) * 100`%) scoring '2' or '3' (Figure \@ref(fig:articleScores)B) for software availability.
 
-Software citations were also reasonably well reported in the literature with 120 scoring '2' where the main software was cited with version numbers and 57 scoring '3' where full citations including R packages or the SAS PROC used were cited where appropriate (Figure \@ref(fig:articleScores)C).
+Software citations were also reasonably well reported in the literature with `r length(which(rrpp$software_cite == 2))` (`r round(length(which(rrpp$software_cite == 2))/nrow(rrpp), 2) * 100`%) scoring '2' where the main software was cited with version numbers and `r length(which(rrpp$software_cite == 3))` (`r round(length(which(rrpp$software_cite == 3))/nrow(rrpp), 2) * 100`%) scoring '3' where full citations including R packages or the SAS PROC used were cited where appropriate (Figure \@ref(fig:articleScores)C).
 
-However, data availability was mostly not available with 361, or 80.2%, scoring '0' where the data was not available or mentioned in the article.
-However, more articles, 44 or 9.8%, scored '3' than scored '1' or '2' combined, with two articles not producing shareable data (Figure \@ref(fig:articleScores)D).
+However, data availability was mostly not available with `r length(which(rrpp$data_avail == 0))` (`r round(length(which(rrpp$data_avail == 0))/nrow(rrpp), 2) * 100`%) scoring '0' where the data was not available or mentioned in the article.
+However, more articles, `r length(which(rrpp$data_avail == 3))` (`r round(length(which(rrpp$data_avail == 3))/nrow(rrpp), 2) * 100`%) scored '3' than scored '1' or '2' combined, `r length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))` (`r round(length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))/nrow(rrpp), 2) * 100`%) with `r as.character(english(length(which(is.na(rrpp$data_avail)))))` articles not producing shareable data (Figure \@ref(fig:articleScores)D).
 
-The most frequently cited software was SAS.
+The most frequently cited software was `r names(which.max(table(rrpp$software_used)))`.
+Other statistical software packages were frequently cited, SPSS (3rd) R (4th), GenStat and STATISTICA (7th).
 The remainder were mostly specialised software except for Microsoft Excel in a 3-way tie for 9th (Table \@ref(tab:software-used)).
 
-Most articles, , scored poorly for reproducibility or openness.
-Most journals in our discipline fail to mention the availability of the computational methods to support the article as published.
-
-The software availability score was better as was the citing of software and versions used.
-
 # Discussion
+
+Journals can encourage authors to deposit their data and code 
 
 We recognise that the scoring methods were developed by the authors specifically for this exercise and are not entirely objective.
 We have based our scoring decisions on our own experiences in the field of plant pathology.
