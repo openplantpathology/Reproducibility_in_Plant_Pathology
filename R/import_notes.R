@@ -25,24 +25,30 @@ import_notes <- function() {
     reproducibility_score <- journal <- year <- . <- NULL
 
   notes <- readODS::read_ods(
-    system.file("extdata",
-                "Reproducibility_in_plant_pathology_notes.ods",
-                package = "Reproducibility.in.Plant.Pathology"),
+    system.file(
+      "extdata",
+      "Reproducibility_in_plant_pathology_notes.ods",
+      package = "Reproducibility.in.Plant.Pathology"
+    ),
     na = "NA",
     sheet = "article_evaluations"
   )
 
   IF_5year <- readODS::read_ods(
-    system.file("extdata",
-                "Reproducibility_in_plant_pathology_notes.ods",
-                package = "Reproducibility.in.Plant.Pathology"),
+    system.file(
+      "extdata",
+      "Reproducibility_in_plant_pathology_notes.ods",
+      package = "Reproducibility.in.Plant.Pathology"
+    ),
     na = "NA",
     sheet = "5yr IF"
   )
 
   notes <-
     notes %>%
-    dplyr::left_join(x = notes, y = IF_5year, by = c("journal" = "journal")) %>%
+    dplyr::left_join(x = notes,
+                     y = IF_5year,
+                     by = c("journal" = "journal")) %>%
     dplyr::mutate(IF_5year =
                     dplyr::if_else(
                       condition = is.na(IF_5year),
@@ -62,7 +68,10 @@ import_notes <- function() {
   # calculate total possible score for a paper
   total_possible <-
     notes %>%
-    dplyr::select(comp_mthds_avail, software_avail, software_cite, data_avail) %>%
+    dplyr::select(comp_mthds_avail,
+                  software_avail,
+                  software_cite,
+                  data_avail) %>%
     dplyr::mutate(total_possible = rowSums(!is.na(.)) * 3) %>%
     dplyr::select(total_possible)
 
