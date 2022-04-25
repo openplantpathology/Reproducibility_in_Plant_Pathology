@@ -34,19 +34,24 @@ csl: "../templates/american-phytopathological-society.csl"
 ---
 
 ```{r, setup, echo = FALSE, message=FALSE}
-library("officer")
-library("dplyr")
-library("janitor")
-library("here")
-library("flextable")
 library("Reproducibility.in.Plant.Pathology")
-library("tidyr")
-library("DiagrammeR")
-library("DiagrammeRsvg")
-library("rsvg")
-library("ggplot2")
-library("bayesplot")
-library("patchwork")
+
+packages <- c(
+  "officer",
+  "dplyr",
+  "janitor",
+  "here",
+  "flextable",
+  "tidyr",
+  "DiagrammeR",
+  "DiagrammeRsvg",
+  "rsvg",
+  "ggplot2",
+  "bayesplot",
+  "patchwork"
+)
+
+install.packages(setdiff(packages, rownames(installed.packages())))  
 
 knitr::opts_chunk$set(
   collapse = TRUE,
