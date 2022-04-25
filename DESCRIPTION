@@ -39,7 +39,6 @@ License: MIT + file LICENSE
 Imports:
     dplyr,
     magrittr,
-    pander,
     readODS
 Suggests:
     bib2df,
@@ -62,6 +61,7 @@ Suggests:
     roxygen2 (>= 6.0.1),
     officedown,
     officer,
+    pander,
     sessioninfo,
     stringr,
     testthat,
