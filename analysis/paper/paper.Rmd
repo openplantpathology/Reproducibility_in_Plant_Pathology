@@ -242,7 +242,13 @@ All methods are described in greater detail with the code necessary to reproduce
 
 None of the factors that were tested for had an effect on the reproducibility score.
 
+Only `r as.character(english(length(which(rrpp$reproducibility_score == 100))))` scored '100' or fully reproducible.
+
 No journals surveyed were completely closed, all offered at least an option for open access but some were completely open.
+
+Most journals in our discipline fail to mention the availability of the computational methods to support the article as published.
+Only two journals, _Plant Pathology_ and _Tropical Plant Pathology_ have full instructions for authors regarding both data and code deposition in repositories for sharing with readers.
+Three had no instructions at all, _Forest Pathology_, _Phytopathologia Mediterranea_ and _Revista Mexicana de Fitopatología_, with the remaining 16 journals having varying levels of instruction for authors to deposit data but not code.
 
 Out of the `r nrow(rrpp)` articles that were evaluated, `r length(which(rrpp$reproducibility_score == 0))` articles scored 0% out of a possible 100% for reproducibility.
 The mean value was `r round(mean(rrpp$reproducibility_score), 1)`% and the median value was `r round(median(rrpp$reproducibility_score), 1)`%.
