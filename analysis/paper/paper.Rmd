@@ -38,6 +38,7 @@ library("Reproducibility.in.Plant.Pathology")
 
 packages <- c(
   "extrafont",
+  "egg",
   "officer",
   "dplyr",
   "ggpubr",
@@ -51,6 +52,7 @@ packages <- c(
   "rsvg",
   "ggplot2",
   "bayesplot",
+  "tidyr",
   "patchwork"
 )
 
