@@ -223,7 +223,7 @@ Bayesian mixed-effect models were fit using the contributed package 'brms' (vers
 Relatively flat priors were selected from a normal distribution with a mean of 0 and a standard deviation of 10 for all parameters.
 
 The random effects were year and assignee for all models excepting the model which tested for year effects.
-In this model, the random effects were the publication title and assignee.
+In all models, the random effects were the publication title and assigned evaluator.
 
 Models were fit using the `hurdle_gamma()` family function due to zero-inflated continuous data and the assumption that a zero value would only come from one process, the scoring.
 Each model was run for 3000 iterations in four chains.
