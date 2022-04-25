@@ -93,7 +93,7 @@ plot(pd(m5))
 pander(equivalence_test(m5))
 
 # save the model for figures in the paper
-save(m5, file = here("data/m5.Rda"))
+save(m5, file = here("inst/extdata/m5.Rda"))
 ```
 
 # Colophon

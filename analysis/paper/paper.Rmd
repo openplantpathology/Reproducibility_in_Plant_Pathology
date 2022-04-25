@@ -447,12 +447,12 @@ scoring_criteria %>%
 theme_set(theme_classic())
 color_scheme_set(scheme = "gray")
 
-load(file = here("data/m1.Rda"))
-load(file = here("data/m2.Rda"))
-load(file = here("data/m3.Rda"))
-load(file = here("data/m4.Rda"))
-load(file = here("data/m5.Rda"))
-load(file = here("data/m6.Rda"))
+load(file = here("inst/extdata/m1.Rda"))
+load(file = here("inst/extdata/m2.Rda"))
+load(file = here("inst/extdata/m3.Rda"))
+load(file = here("inst/extdata/m4.Rda"))
+load(file = here("inst/extdata/m5.Rda"))
+load(file = here("inst/extdata/m6.Rda"))
 
 pp_m1 <- pp_check(m1)
 pp_m2 <- pp_check(m2)
