@@ -54,9 +54,17 @@ packages <- c(
   "patchwork"
 )
 
-install.packages(setdiff(packages, rownames(installed.packages()))) 
+install.packages(setdiff(packages,
+                         rownames(installed.packages())),
+                 repos = "http://cran.us.r-project.org")
 
-invisible(lapply(packages, library, character.only = TRUE))
+invisible(
+  lapply(
+    packages,
+    library,
+    character.only = TRUE
+  )
+)
 
 knitr::opts_chunk$set(
   collapse = TRUE,
