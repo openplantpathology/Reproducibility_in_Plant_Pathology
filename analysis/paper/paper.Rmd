@@ -265,9 +265,27 @@ Software citations were also reasonably well reported in the literature with `r 
 However, data availability was mostly not available with `r length(which(rrpp$data_avail == 0))` (`r round(length(which(rrpp$data_avail == 0))/nrow(rrpp), 2) * 100`%) scoring '0' where the data was not available or mentioned in the article.
 However, more articles, `r length(which(rrpp$data_avail == 3))` (`r round(length(which(rrpp$data_avail == 3))/nrow(rrpp), 2) * 100`%) scored '3' than scored '1' or '2' combined, `r length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))` (`r round(length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))/nrow(rrpp), 2) * 100`%) with `r as.character(english(length(which(is.na(rrpp$data_avail)))))` articles not producing shareable data (Figure \@ref(fig:articleScores)D).
 
-The most frequently cited software was `r names(which.max(table(rrpp$software_used)))`.
-Other statistical software packages were frequently cited, SPSS (3rd) R (4th), GenStat and STATISTICA (7th).
-The remainder were mostly specialised software except for Microsoft Excel in a 3-way tie for 9th (Table \@ref(tab:software-used)).
+```{r softwareCited, echo=FALSE, include=FALSE}
+# tally up software used for the next paragraph
+rrpp_software <-
+  rrpp %>% 
+  transform(software_used = strsplit(software_used, ",")) %>%
+  unnest(software_used) %>%
+  mutate(software_used = trimws(software_used)) %>%
+  mutate(software_used = toupper(software_used))
+
+tab <- table(rrpp_software$software_used)
+tab_s <- as.data.frame(sort(tab))
+tab_s <-
+  tab_s %>%
+  arrange(desc(Freq)) %>%
+  filter(Freq %in% head(unique(Freq), 10)) %>% 
+  rename("Software" = "Var1", "Frequency" = "Freq")
+```
+
+The most frequently cited software was `r tab_s[1, 1]`, where different versions were not distinguished.
+The next three software packages were statistical software, `r tab_s[2, 1]`,  `r tab_s[3, 1]` and  `r tab_s[4, 1]` with two other statistical software packages frequently cited, GENSTAT and STATISTICA.
+The remainder were mostly specialised software except for Microsoft Excel (Table \@ref(tab:software-used)).
 
 # Discussion
 
@@ -432,26 +450,10 @@ import_notes() %>%
 \newpage
 
 ```{r software-used, echo=FALSE, message=FALSE, warning=FALSE}
-rrpp_software <-
-  rrpp %>% 
-  transform(software_used = strsplit(software_used, ",")) %>%
-  unnest(software_used) %>%
-  mutate(software_used = trimws(software_used)) %>%
-  mutate(software_used = toupper(software_used)) # convert all to uppercase to standardise
-
-rrpp_software %>%
-  tabyl(software_used) %>%
-  adorn_pct_formatting() %>%
-  select(c(-percent, -valid_percent)) %>%
-  rename(`Software Used` = software_used) %>%
-  arrange(-n) %>%
-  slice(seq_len(14)) %>%
-  drop_na() %>%
+tab_s %>%
   flextable() %>%
   autofit() %>%
-  set_caption(
-    "The top ten sofware programs that were found to be used in the papers that were surveyed."
-  )
+  set_caption("The top ten sofware programs that were found to be used in the papers that were surveyed.")
 ```
 
 \newpage
