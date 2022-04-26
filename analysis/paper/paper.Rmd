@@ -253,7 +253,8 @@ Articles published in journals with a larger five year impact factor were more l
 No journals surveyed were completely closed, all offered at least an option for open access but some were completely open.
 The analysis was unable to detect any differences in the effect of access policy on the openness and reproducibility of the evaluated articles, but in journals where the policy was to allow both open and pay-for-fee access, the articles were less likely to be open and reproducible when compared to journals that were completely open.
 
-We were unable to detect any observable differences in the years that publications were submitted. The year 2016 appears to be have a higher score than prior and following years, but the analysis was undecided on the effect of all years on the publications' openness and reproducibility.
+We were unable to detect any observable differences in the years that publications were submitted.
+The year 2016 appears to be have a higher score than prior and following years, but the analysis was undecided on the effect of all years on the publications' openness and reproducibility.
 
 Most journals in our discipline fail to mention the availability of the computational methods to support the article as published.
 Only two journals, _Plant Pathology_ and _Tropical Plant Pathology_ have full instructions for authors regarding both data and code deposition in repositories for sharing with readers.
