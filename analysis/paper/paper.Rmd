@@ -232,7 +232,7 @@ The `adapt_delta()` and `max_treedepth()` values were adjusted as necessary on a
 
 Model finesses were evaluated using model summaries and diagnostic plots from 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021] and posterior fits using `pp_check()` (Figure \@ref(fig:posteriors)) from the contributed R package 'bayesplot' (version `r packageVersion("bayesplot")`) [@Gabry2019].
 
-Probability of direction or maximum probability of effect was plotted, `pd()`, and a test for practical equivalence, `equivalence_test()`, was performed for each model using the contributed R package 'bayestestR' (version `r packageVersion("bayestestR")`) [@Makowski2019].
+Probability of direction or maximum probability of effect was plotted, `pd()`, and a test for practical equivalence, `equivalence_test()`, was performed for each model using the contributed R package 'bayestestR' (version `r packageVersion("bayestestR")`) [@Makowski2019] and the Region of Practical Equivalence (ROPE) was set to -0.1 to 0.1.
 
 Data were visualised using 'ggplot2' (version `r packageVersion("ggplot2")`) [@Wickham2016], 'ggpubr' (version `r packageVersion("ggpubr")`) [@Kassambara2020], 'egg' (version `r packageVersion("egg")`) [@Auguie2019] and patchwork (version `r packageVersion("patchwork")`) [@Pedersen2020].
 
@@ -240,10 +240,20 @@ All methods are described in greater detail with the code necessary to reproduce
 
 # Results
 
-None of the factors that were tested for had an effect on the reproducibility score.
 Only `r as.character(english(length(which(rrpp$reproducibility_score == 100))))` articles scored '100' or fully reproducible (Figure \@ref(fig:reproScore)).
 
+_Physiological and Molecular Plant Pathology_ was the only journal to show a negative effect on the reproducibility score, the analysis was unable to detect any effect of any other journal titles.
+
+There was no effect of article class found.
+
+Articles with a molecular focus tended to be more likely ranked high for reproducibility and openness but the difference was not strong enough to be detected with the analysis used.
+
+Articles published in journals with a larger five year impact factor were more likely to be more open and reproducible but the analysis was unable to detect any differences.
+
 No journals surveyed were completely closed, all offered at least an option for open access but some were completely open.
+The analysis was unable to detect any differences in the effect of access policy on the openness and reproducibility of the evaluated articles, but in journals where the policy was to allow both open and pay-for-fee access, the articles were less likely to be open and reproducible when compared to journals that were completely open.
+
+We were unable to detect any observable differences in the years that publications were submitted. The year 2016 appears to be have a higher score than prior and following years, but the analysis was undecided on the effect of all years on the publications' openness and reproducibility.
 
 Most journals in our discipline fail to mention the availability of the computational methods to support the article as published.
 Only two journals, _Plant Pathology_ and _Tropical Plant Pathology_ have full instructions for authors regarding both data and code deposition in repositories for sharing with readers.
