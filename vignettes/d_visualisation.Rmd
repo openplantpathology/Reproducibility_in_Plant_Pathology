@@ -146,15 +146,15 @@ Now graph the top ten software packages used.
 
 ```{r top_10}
 tab <- table(rrpp_software$software_used)
-tab_s <- sort(tab)
-top10 <-
-  tail(names(tab_s), 14) # checking the table, there are several ties
-top_software <- subset(rrpp_software, software_used %in% top10)
-top_software$software_used <- factor(top_software$software_used,
-                                     levels = rev(top10))
+tab_s <- as.data.frame(sort(tab))
+tab_s <-
+  tab_s %>%
+  arrange(desc(Freq)) %>%
+  filter(Freq %in% head(unique(Freq), 10)) %>% 
+  rename("Software" = "Var1", "Frequency" = "Freq")
 
-ggplot(top_software, aes(y = software_used)) +
-  geom_bar() +
+ggplot(tab_s, aes(y = Software, x = Frequency)) +
+  geom_bar(stat = "identity") +
   ggtitle("Top 10 Software Used") +
   xlab("Count") +
   ylab("Software")
