@@ -37,6 +37,7 @@ library("janitor")
 library("pander")
 library("Reproducibility.in.Plant.Pathology")
 library("ggplot2")
+library("tidyr")
 theme_set(theme_classic())
 ```
 
@@ -62,9 +63,11 @@ ggplot(rrpp, aes(x = reproducibility_score)) +
 
 Have a look at whether evaluators had an effect on the scores assigned.
 
+### Reproducibility score
+
 ```{r evaluator}
 ggplot(rrpp, aes(y = reproducibility_score,
-                 x = assignee)) +
+                  x = reorder(factor(assignee), mean_assignee))) +
   geom_count() +
   stat_summary(
     fun = median,
@@ -73,10 +76,30 @@ ggplot(rrpp, aes(y = reproducibility_score,
     geom = "crossbar",
     width = 0.5
   ) +
-  ggtitle("Evaluator Effect") +
+  ggtitle("Evaluator Scores Sorted by Their Respective Mean Scores") +
   ylab("Reproducibility Score (%)") +
   xlab("Evaluator") +
   labs(caption = "Crossbar indicates median reproducibility score value.")
+```
+
+### Individual Rating Scores
+
+```{r evaluator-ratings}
+rrpp_long <-
+  pivot_longer(rrpp,
+               cols = c(
+                 "comp_mthds_avail",
+                 "software_avail",
+                 "software_cite",
+                 "data_avail"
+               ))
+
+ggplot(rrpp_long, aes(x = as.factor(value))) +
+  geom_bar(fill = "black") +
+  ylab("Count") +
+  xlab("Article Score") +
+  ggtitle("Criteria scores by evaluator") +
+  facet_grid(name ~ assignee)
 ```
 
 # Visualise evaluations
