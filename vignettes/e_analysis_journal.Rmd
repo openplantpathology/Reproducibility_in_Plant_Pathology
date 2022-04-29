@@ -28,7 +28,7 @@ This vignette documents a simple visualisation and tabulation of the data gather
 
 # Set-up Workspace
 
-Load libraries used and setting the _ggplot2_ theme for the document.
+Load libraries used and setting the *ggplot2* theme for the document.
 
 ```{r load-libraries, message=FALSE}
 library("brms")
@@ -65,10 +65,12 @@ priors <- prior_string("normal(0, 10)")
 ## Journal Effect Model
 
 Test the effect that the journal's effect on the reproducibility score.
-Set up a _brms_ model with journal (`abbreviation`) as the fixed effect and `year` and `assignee` as random effects.
+Set up a *brms* model with journal (`abbreviation`) as the fixed effect and `year` and `assignee` as random effects.
 Base level is set to Molecular Plant Pathology, the journal with the highest five-year impact factor that will be used as the intercept in the following model.
 
-```{r journal}
+### Model with assignee as random effect
+
+```{r journal-evaluation-w-assignee}
 # relevel factors for analysis, use Mol Plant Pathol as basis for analysis, highest IF
 rrpp <-
   within(rrpp,
@@ -93,16 +95,60 @@ summary(m1)
 plot(m1)
 
 pp_check(m1)
+```
 
+### Model with out assignee as random effect
+
+```{r journal-evaluation-wo-assignee}
+m1.1 <-
+  brm(
+    formula = reproducibility_score ~  abbreviation + (1 | year),
+    data = rrpp,
+    seed = 27,
+    prior = priors,
+    family = "hurdle_gamma",
+    control = list(adapt_delta = 0.999,
+                   max_treedepth = 15),
+    iter = 3000,
+    chains = 4
+  )
+
+summary(m1.1)
+
+plot(m1.1)
+
+pp_check(m1.1)
+```
+
+## Evaluate models' fit
+
+```{r evaluate-fit}
+m1 <- add_criterion(m1, "loo")
+m1.1 <- add_criterion(m1.1, "loo")
+
+loo_compare(m1, m1.1)
+```
+
+The model, `m1`, demonstrates the better fit, having the evaluator as a random effect, therefore we will use this model for this analysis and include the assignee as a random effect in the following analyses.
+
+## Effect of Journal on Score
+
+```{r journal-effect}
 plot(pd(m1))
 
 pander(equivalence_test(m1))
+```
 
-# save the model for figures in the paper
+## Save model object
+
+Save the model object, `m1` for figures in the paper.
+
+```{r save-data}
 save(m1, file = here("inst/extdata/m1.Rda"))
 ```
 
 # Colophon
+
 ```{r sessioninfo}
 sessioninfo::session_info()
 ```
