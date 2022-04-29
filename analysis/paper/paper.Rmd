@@ -414,7 +414,7 @@ Sharing materials detailing the analysis that was performed and documenting the 
 This open sharing of code and data often leads to greater impact as work is cited if resources such as code or data are reused.
 With mandates for openly sharing data becoming more common with funding agencies, we can and should embrace this and move the discipline forward and have a greater impact with our work.
 
-# Authors' contributions
+# Authors' Contributions
 
 A.H.S, E.DP., Z.F. and N.J.G. conceived of the presented idea and scoring system.
 E.DP. provided five-year impact factors.
