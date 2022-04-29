@@ -24,11 +24,11 @@ knitr::opts_chunk$set(
 knitr::opts_chunk$set(fig.width = 6.4, fig.height = 6.4)
 ```
 
-This vignette documents a simple visualisation and tabulation of the data gathered from surveying 21 journals and 450 articles in the field of plant pathology for their openness and reproducibility.
+This vignette documents the analysis of the data gathered from surveying 21 journals and 450 articles in the field of plant pathology for their openness and reproducibility and the effect that the article's classification, *i.e.*, applied or fundamental, had on that score.
 
 # Set-up Workspace
 
-Load libraries used and setting the _ggplot2_ theme for the document.
+Load libraries used and setting the *ggplot2* theme for the document.
 
 ```{r load-libraries, message=FALSE}
 library("brms")
