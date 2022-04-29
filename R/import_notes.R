@@ -91,5 +91,15 @@ import_notes <- function() {
                       ) / total_possible
                     ) * 100)
 
+  # create mean assignee rating value
+  notes <-
+    notes %>%
+    dplyr::group_by(assignee) %>%
+    dplyr::summarise(mean_assignee = mean(reproducibility_score)) %>%
+    dplyr::full_join(notes, by = "assignee")
+
+  # add a unique identifier value to each article since not all have a DOI
+  notes$uid <- seq_along(1:nrow(notes))
+
   return(notes)
 }
