@@ -244,11 +244,9 @@ Only `r as.character(english(length(which(rrpp$reproducibility_score == 100))))`
 
 *Physiological and Molecular Plant Pathology* was the only journal to show a negative effect on the reproducibility score, the analysis was unable to detect any effect of any other journal titles.
 
-There was no effect of article class found.
+There was no effect of article class or impact factor found.
 
-Articles with a molecular focus tended to be more likely ranked high for reproducibility and openness but the difference was not strong enough to be detected with the analysis used.
-
-Articles published in journals with a larger five year impact factor were more likely to be more open and reproducible but the analysis was unable to detect any differences.
+Articles with a molecular focus skewed to a higher ranking reproducibility and openness but the difference was not strong enough to be detected with the analysis used.
 
 No journals surveyed were completely closed, all offered at least an option for open access but some were completely open.
 The analysis was unable to detect any differences in the effect of access policy on the openness and reproducibility of the evaluated articles, but in journals where the policy was to allow both open and pay-for-fee access, the articles were less likely to be open and reproducible when compared to journals that were completely open.
