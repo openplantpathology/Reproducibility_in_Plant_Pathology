@@ -47,13 +47,14 @@ theme_set(theme_classic())
 
 Data are imported and the base level is set to Molecular Plant Pathology, the journal with the highest five-year impact factor that will be used as the intercept in the following models.
 
-```{r}
+```{r import-notes}
 rrpp <- import_notes()
 ```
 
 ## Notes
 
 All models are using the same priors.
+
 Because of the amount of zero values in the `reproducibility_score` a `hurdle_gamma()` family is used for all models as well.
 
 ### Priors

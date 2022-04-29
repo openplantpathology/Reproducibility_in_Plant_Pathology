@@ -45,14 +45,17 @@ theme_set(theme_classic())
 
 ## Import Data
 
-```{r}
+```{r import-notes}
 rrpp <- import_notes()
 ```
 
 ## Notes
 
 All models are using the same priors.
+
 Because of the amount of zero values in the `reproducibility_score` a `hurdle_gamma()` family is used for all models as well.
+
+## Journal Effect Model
 
 ### Priors
 
