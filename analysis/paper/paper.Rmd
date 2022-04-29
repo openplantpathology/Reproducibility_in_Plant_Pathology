@@ -294,22 +294,26 @@ tab_s <-
   rename("Software" = "Var1", "Frequency" = "Freq")
 ```
 
-The most frequently cited software was `r tab_s[1, 1]`, where different versions were not distinguished.
-The next three software packages were statistical software, `r tab_s[2, 1]`,  `r tab_s[3, 1]` and  `r tab_s[4, 1]` with two other statistical software packages frequently cited, GENSTAT and STATISTICA.
-The remainder were mostly specialised software except for Microsoft Excel (Table \@ref(tab:software-used)).
+In the top ten most frequently cited software, the most frequently cited program was `r tab_s[1, 1]`, where different versions were not distinguished.
+The next three programs were statistical software, `r tab_s[2, 1]` (2nd),  `r tab_s[3, 1]` (3rd) and  `r tab_s[4, 1]` (4th) with two other statistical programs also frequently cited, GenStat and Statistica (tied 8th).
+The remainder of the top ten programs we found were related to sequence analysis, *i.e.*, Clustal (5th), BLAST(6th), and BioEdit (10th) or phylogenetic analysis MrBayes (7th).
+The most general-purpose software cited in the top 10 was Excel&reg; (9th)."
+The Python programming language was cited only twice, not appearing in the top ten.
 
 # Discussion
 
-Journals can encourage authors to deposit their data and code 
+MEGA was the most widely cited software in this evaluation reflecting the wide spread use of sequence analysis in the field of plant pathology.
+The second, third and fourth, and eighth most often cited software packages were all statistical programs.
+SAS remains firmly entrenched in the discipline as the choice of software for statistical analysis followed by SPSS but R is not far removed from SPSS in fourth place with Statistica and Genstat tied for eighth.
+The remainder of the top ten software packages we found were related to sequence analysis, *i.e.*, BLAST, Clustal and BioEdit, phylogenetic analysis MrBayes or the general-purpose spreadsheet program Excel&reg;.
+It is interesting to note however, that with the popularity of Python that it only appears in the survey twice and in 2020 in both articles, not enough times to be in the top 10 most-cited.
 
-We recognise that the scoring methods were developed by the authors specifically for this exercise and are not entirely objective.
-We have based our scoring decisions on our own experiences in the field of plant pathology.
-While many software packages may be widely used or "freely" available if one has an institutional license, these types of software often hinder partners and interested parties that do not have access to them.
+We recognise that the scoring methods were developed by the authors specifically for this evaluation and are not entirely objective and acknowledge that we have based our scoring decisions on our own experiences in the field of plant pathology.
+However, without assigning values, it is not possible to attempt to qualify or quantify where our discipline stands in regards to computational reproducibility.
+
+In the authors' view, while many software packages may be widely used or "freely" available if one has an institutional license, these types of software often hinder partners and interested parties that do not have access to them.
 Thus, the emphasis was given to using open source alternatives where possible over commercially available, non-free software packages.
-The view of the authors is one that this is something to be encouraged as it allows the broadest possible audience to benefit from the work at the lowest possible cost.
-
-SAS remains firmly entrenched in the discipline as the choice of software for statistical analysis followed by SPSS.
-It is interesting to note however, that with the popularity of Python that it does not even appear in our survey results whereas R was the fourth most commonly used software.
+The authors believe that this is something to be encouraged as it allows the broadest possible audience to benefit from the work at the lowest possible monetary cost.
 
 ## Are There Good Examples?
 
