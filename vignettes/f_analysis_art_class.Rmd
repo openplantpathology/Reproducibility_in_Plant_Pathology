@@ -67,8 +67,6 @@ The priors are fairly flat.
 priors <- prior_string("normal(0, 10)")
 ```
 
-## Article Class Model
-
 Test the effect that the article's class, `applied` or `fundamental` had on the reproducibility score.
 Here, `art_class` is a fixed effect, `year` and `assignee` are assigned as random effects.
 
@@ -102,6 +100,7 @@ save(m2, file = here("inst/extdata/m2.Rda"))
 ```
 
 # Colophon
+
 ```{r sessioninfo}
 sessioninfo::session_info()
 ```

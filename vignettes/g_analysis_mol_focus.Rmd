@@ -67,8 +67,6 @@ The priors are fairly flat.
 priors <- prior_string("normal(0, 10)")
 ```
 
-## Molecular Focus Paper Model
-
 Test the effect that the article's focus, molecular `TRUE`/`FALSE` had on the reproducibility score.
 Here, `molecular` is a fixed effect, `year` and `assignee` are assigned as random effects.
 
@@ -101,6 +99,7 @@ save(m3, file = here("inst/extdata/m3.Rda"))
 ```
 
 # Colophon
+
 ```{r sessioninfo}
 sessioninfo::session_info()
 ```
