@@ -172,7 +172,7 @@ Therefore our definition of reproducibility will be that the computer code and d
 And that the software used are also easily obtained and preferably open source to avoid licensing or other issues related to accessibility for end-users related to costs or non-standard file formats, etc.
 
 It goes without saying that plant pathologists already provide information on protocols and chemicals allowing for reproducibility.
-However, biological specimens such as strains, cultures or cultivars are not available.
+However, frequently biological specimens such as strains, cultures or cultivars are often not available.
 These cases do constitute a lack of reproducibility but will not be covered here.
 
 # Materials and Methods
