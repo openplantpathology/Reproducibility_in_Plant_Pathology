@@ -240,7 +240,7 @@ All methods are described in greater detail with the code necessary to reproduce
 
 # Results
 
-Only `r as.character(english(length(which(rrpp$reproducibility_score == 100))))` articles scored '100' or fully reproducible (Figure \@ref(fig:reproScore)).
+Only `r as.character(english(length(which(rrpp$reproducibility_score == 100))))` articles scored '100%' or fully reproducible (Figure \@ref(fig:reproScore)).
 
 *Physiological and Molecular Plant Pathology* was the only journal to show a negative effect on the reproducibility score, the analysis was unable to detect any effect of any other journal titles.
 
