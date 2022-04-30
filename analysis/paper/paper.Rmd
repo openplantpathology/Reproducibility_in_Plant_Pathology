@@ -301,7 +301,7 @@ The Python programming language was cited only twice, not appearing in the top t
 # Discussion
 
 MEGA was the most widely cited software in this evaluation reflecting the wide spread use of sequence analysis in the field of plant pathology.
-The second, third and fourth, and eighth most often cited software packages were all statistical programs.
+The second, third and fourth, and eighth most frequently cited software packages were all statistical programs.
 SAS remains firmly entrenched in the discipline as the choice of software for statistical analysis followed by SPSS but R is not far removed from SPSS in fourth place with Statistica and Genstat tied for eighth.
 The remainder of the top ten software packages we found were related to sequence analysis, *i.e.*, BLAST, Clustal and BioEdit, phylogenetic analysis MrBayes or the general-purpose spreadsheet program Excel&reg;.
 It is interesting to note however, that with the popularity of Python that it only appears in the survey twice and in 2020 in both articles, not enough times to be in the top 10 most-cited.
