@@ -409,7 +409,7 @@ Perhaps more importantly, sharing these details help with knowledge transfer by 
 Lastly, openly sharing your work and making it discoverable can lead to new collaborations and synergistic ideas.
 One of the most important messages that we would like to share is that there is more to the work than just the paper.
 Sharing materials detailing the analysis that was performed and documenting the data provide citable products and enhance the manuscript providing the reader with a richer set of information with which to understand the work that was performed.
-This open sharing of code and data often leads to greater impact as work is cited if resources such as code or data are reused.
+This open sharing of code and data leads to greater impact as work is cited if resources such as code or data are reused.
 With mandates for openly sharing data becoming more common with funding agencies, we can and should embrace this and move the discipline forward and have a greater impact with our work.
 
 # Authors' Contributions
