@@ -405,7 +405,7 @@ For example, between complicated analyses, reviews and revisions and questions y
 This letter was drafted over the course of several years as the authors had time to devote to it.
 Having everything in a reproducible framework made it easy to resume work and set-aside as necessary without losing information and having everything well-documented made it more simple to do this.
 Second, it benefits the reviewer by aiding their understanding of the work done and gives them more materials to use to make suggestions for improvements when reviewing and the end-user or reader is better able to verify the validity of the methods used and recreate the analysis.
-Perhaps more importantly, sharing these details help with knowledge transfer by showing other interested parties how something was done rather than simply describing it.
+Perhaps more importantly, sharing these details helps with knowledge transfer by showing other interested parties how something was done rather than simply describing it.
 Lastly, openly sharing your work and making it discoverable can lead to new collaborations and synergistic ideas.
 One of the most important messages that we would like to share is that there is more to the work than just the paper.
 Sharing materials detailing the analysis that was performed and documenting the data provide citable products and enhance the manuscript providing the reader with a richer set of information with which to understand the work that was performed.
