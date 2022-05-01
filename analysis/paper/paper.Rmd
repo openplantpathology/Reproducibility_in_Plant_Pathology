@@ -481,7 +481,7 @@ scoring_criteria %>%
   colformat_num(na_str = "NA") %>%
   set_table_properties(layout = "autofit") %>%
   set_caption(
-    "Articles were scored in four areas for reproducibility on a scale of '0' to '3' by four independent assessors to rank articles in each of four areas, 'Computational methods availability', 'Data availability', 'Software availability' and 'Software citation'.")
+    "Articles were scored in four areas for reproducibility on a scale of '0' to '3' by five independent evaluators to rank articles in each of four areas, 'Computational methods availability', 'Data availability', 'Software availability' and 'Software citation'.")
 ```
 
 \newpage
