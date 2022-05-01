@@ -37,24 +37,26 @@ csl: "../templates/american-phytopathological-society.csl"
 library("Reproducibility.in.Plant.Pathology")
 
 packages <- c(
-  "extrafont",
-  "egg",
-  "english",
-  "officer",
-  "dplyr",
-  "ggpubr",
-  "ggplot2",
-  "janitor",
-  "here",
-  "flextable",
-  "tidyr",
   "DiagrammeR",
   "DiagrammeRsvg",
-  "rsvg",
-  "ggplot2",
   "bayesplot",
+  "bayestestR",
+  "brms",
+  "dplyr",
+  "egg",
+  "english",
+  "extrafont",
+  "flextable",
+  "ggplot2",
+  "ggpubr",
+  "here",
+  "janitor",
+  "knitr",
+  "officer",
+  "patchwork",
+  "rsvg",
   "tidyr",
-  "patchwork"
+  "tools"
 )
 
 install.packages(setdiff(packages,
