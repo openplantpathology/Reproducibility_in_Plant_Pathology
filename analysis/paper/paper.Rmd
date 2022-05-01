@@ -396,7 +396,7 @@ If readers are uncertain, we suggest to also consult with local librarians about
 Most universities and other research-focused workplaces provide a facility for staff to deposit papers and other academic materials, but this may extend to software development repositories as well.
 The important aspect is that data once deposited cannot be modified any more.
 
-In this work we have evaluated the state of reproducibility in the plant pathology literature and presented suggestions for areas of improvement.
+In this work we have evaluated the state of computational reproducibility in the plant pathology literature and presented suggestions for areas of improvement.
 As we prepared this letter, we became more aware of the urgent need to spread and establish an open science attitude and culture among plant pathologists.
 To assist in fostering this sort of change in our discipline, Open Plant Pathology (OPP), <https://www.openplantpathology.org>, an institution-independent and non-funded initiative, was founded in January 2018 by two of this letter's co-authors, Del Ponte and Sparks, in 2018 with the following vision: "foster a diverse community culture that values openness, transparency and reproducibility of scientific research data and methods in our field".
 We started OPP with a minimal infrastructure and support from other enthusiastic colleagues that allows members to interact sharing and gathering ideas on how we can improve the openness and reproducibility in our discipline.
