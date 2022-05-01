@@ -241,11 +241,13 @@ All methods are described in greater detail with the code necessary to reproduce
 
 # Results
 
-Only `r as.character(english(length(which(rrpp$reproducibility_score == 100))))` articles scored '100%' or fully reproducible (Figure \@ref(fig:reproScore)).
+There were `r length(which(rrpp$reproducibility_score == 100))` (`r round(length(which(rrpp$reproducibility_score == 100))/nrow(rrpp), 2) * 100`%) articles that scored 100% or were classed as fully reproducible (Figure \@ref(fig:reproScore)).
+`r toTitleCase(as.character(english::english(length(which(rrpp$reproducibility_score == 0)))))` (`r round(length(which(rrpp$reproducibility_score == 0))/nrow(rrpp), 2) * 100`%) of articles were scored at 0% out of a possible 100% for reproducibility (Figure \@ref(fig:reproScore)).
+The mean value was `r round(mean(rrpp$reproducibility_score), 1)`% and the median value was `r round(median(rrpp$reproducibility_score), 1)`%.
 
-*Physiological and Molecular Plant Pathology* was the only journal to show a negative effect on the reproducibility score, the analysis was unable to detect any effect of any other journal titles.
+The analysis was unable to detect any effect of journal titles on reproducibility scores.
 
-There was no effect of article class or impact factor found.
+There was no effect of journal title, article class or impact factor found.
 
 Articles with a molecular focus skewed to a higher ranking reproducibility and openness but the difference was not strong enough to be detected with the analysis used.
 
