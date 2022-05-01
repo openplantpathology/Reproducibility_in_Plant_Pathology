@@ -259,10 +259,6 @@ Most journals in our discipline fail to mention the availability of the computat
 Only two journals, *Plant Pathology* and *Tropical Plant Pathology* have full instructions for authors regarding both data and code deposition in repositories for sharing with readers.
 Three had no instructions at all, *Forest Pathology*, *Phytopathologia Mediterranea* and *Revista Mexicana de Fitopatología*, with the remaining 16 journals having varying levels of instruction for authors to deposit data but not code.
 
-Out of the `r nrow(rrpp)` articles that were evaluated, `r length(which(rrpp$reproducibility_score == 0))` articles scored 0% out of a possible 100% for reproducibility.
-The mean value was `r round(mean(rrpp$reproducibility_score), 1)`% and the median value was `r round(median(rrpp$reproducibility_score), 1)`%.
-There were `r length(which(rrpp$reproducibility_score == 100))` (`r round(length(which(rrpp$reproducibility_score == 100))/nrow(rrpp), 2) * 100`%) articles that scored 100% or were classed as fully reproducible.
-
 The majority of the articles, `r length(which(rrpp$art_class == "Fundamental"))`, were classed as fundamental, with the remaining `r length(which(rrpp$art_class != "Fundamental"))` classed as applied.
 
 Most articles did not make any computational methods available in any fashion with `r length(which(rrpp$comp_mthds_avail == 3))` (`r round(length(which(rrpp$comp_mthds_avail == 3))/nrow(rrpp), 3)`%) classified as '3', which was the highest score available (Figure \@ref(fig:articleScores)A).
