@@ -97,7 +97,7 @@ rrpp_long <-
 ggplot(rrpp_long, aes(x = as.factor(value))) +
   geom_bar(fill = "black") +
   ylab("Count") +
-  xlab("Article Score") +
+  xlab("Criteria Score") +
   ggtitle("Criteria scores by evaluator") +
   facet_grid(name ~ assignee)
 ```
