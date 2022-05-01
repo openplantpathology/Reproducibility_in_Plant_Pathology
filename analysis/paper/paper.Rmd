@@ -574,7 +574,7 @@ p <- ggplot(rrpp_long, aes(x = as.factor(value))) +
   geom_bar(fill = "black") +
   ylab("Count") +
   xlab("Article Score") +
-  ggtitle("Reproducibility criteria ranks") +
+  ggtitle("Reproducibility criteria index values") +
   facet_wrap(name ~ .)
 p <- tag_facet(
   p = p,
