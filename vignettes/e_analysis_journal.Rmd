@@ -71,13 +71,13 @@ Base level is set to Molecular Plant Pathology, the journal with the highest fiv
 
 ### Model with assignee as random effect
 
-```{r journal-evaluation-w-assignee}
+```{r journal-evaluation}
 # relevel factors for analysis, use Mol Plant Pathol as basis for analysis, highest IF
 rrpp <-
   within(rrpp,
          abbreviation <- relevel(abbreviation, ref = "Mol Plant Pathol"))
 
-m1 <-
+m_e <-
   brm(
     formula = reproducibility_score ~  abbreviation + (1 | year) +
       (1 | assignee),
@@ -85,29 +85,29 @@ m1 <-
     seed = 27,
     prior = priors,
     family = "hurdle_gamma",
-    control = list(adapt_delta = 0.999,
+    control = list(adapt_delta = 0.9999,
                    max_treedepth = 15),
     iter = 3000,
     chains = 4
   )
 
-summary(m1)
+summary(m_e)
 
-plot(m1)
+plot(m_e)
 
-pp_check(m1)
+pp_check(m_e)
 
-plot(pd(m1))
+plot(pd(m_e))
 
-pander(equivalence_test(m1))
+pander(equivalence_test(m_e))
 ```
 
 ## Save model object
 
-Save the model object, `m1` for figures in the paper.
+Save the model object, `m_e` for figures in the paper.
 
 ```{r save-data}
-save(m1, file = here("inst/extdata/m1.Rda"))
+save(m_e, file = here("inst/extdata/m_e.Rda"))
 ```
 
 # Colophon

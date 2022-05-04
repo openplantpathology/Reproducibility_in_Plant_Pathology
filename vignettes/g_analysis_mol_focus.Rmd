@@ -45,8 +45,6 @@ theme_set(theme_classic())
 
 ## Import Data
 
-Data are imported and the base level is set to Molecular Plant Pathology, the journal with the highest five-year impact factor that will be used as the intercept in the following models.
-
 ```{r import-notes}
 rrpp <- import_notes()
 ```
@@ -71,9 +69,10 @@ Test the effect that the article's focus, molecular `TRUE`/`FALSE` had on the re
 Here, `molecular` is a fixed effect, `year` and `assignee` are assigned as random effects.
 
 ```{r molecular}
-m3 <-
+m_g <-
   brm(
-    formula = reproducibility_score ~  molecular + (1 | year) + (1 | assignee),
+    formula = reproducibility_score ~  molecular + (1 | year) + (1 | assignee) +
+      (1 | journal),
     data = rrpp,
     seed = 25,
     prior = priors,
@@ -84,18 +83,18 @@ m3 <-
     chains = 4
   )
 
-summary(m3)
+summary(m_g)
 
-plot(m3)
+plot(m_g)
 
-pp_check(m3)
+pp_check(m_g)
 
-plot(pd(m3))
+plot(pd(m_g))
 
-pander(equivalence_test(m3))
+pander(equivalence_test(m_g))
 
 # save the model for figures in the paper
-save(m3, file = here("inst/extdata/m3.Rda"))
+save(m_g, file = here("inst/extdata/m_g.Rda"))
 ```
 
 # Colophon
