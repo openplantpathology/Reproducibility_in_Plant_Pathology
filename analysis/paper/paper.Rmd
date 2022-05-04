@@ -258,6 +258,7 @@ The year 2016 appears to be have a higher score than prior and following years, 
 Most journals in our discipline fail to mention the availability of the computational methods to support the article as published.
 Only two journals, *Plant Pathology* and *Tropical Plant Pathology* have full instructions for authors regarding both data and code deposition in repositories for sharing with readers.
 Three had no instructions at all, *Forest Pathology*, *Phytopathologia Mediterranea* and *Revista Mexicana de Fitopatología*, with the remaining 16 journals having varying levels of instruction for authors to deposit data but not code.
+While the analysis did not detect an effect of the journals' instructions for sharing or depositing data and or code, the more detailed the instructions, the higher the article scored.
 
 The majority of the articles, `r length(which(rrpp$art_class == "Fundamental"))`, were classed as fundamental, with the remaining `r length(which(rrpp$art_class != "Fundamental"))` classed as applied.
 
