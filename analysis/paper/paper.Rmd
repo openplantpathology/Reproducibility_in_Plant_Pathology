@@ -489,28 +489,30 @@ scoring_criteria %>%
 
 # Figures
 
-```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualisations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialised journals. Six factors were evaluated, (A) Publication (Journal Title), (B) Article Class, (C) Molecular Focus, (D) Five Year Impact Factor of Journal, (E) Journal Open Access Policy and (F) Year of Publication where y is the data's density and y~rep~ are ten random posterior draws. Model fitnesses were found to be good for all models and no effects of any of the factors were observed on the reproducibility score.", cache=FALSE, fig.env='figure', out.width=0, out.height=0}
+```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualisations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialised journals. Six factors were evaluated, (A) Publication (Journal Title), (B) Article Class, (C) Molecular Focus, (D) Five Year Impact Factor of Journal, (E) Journal Open Access Policy, (F) Year of Publication and (G) the Journals' Reproducibility Instructions where y is the data's density and y~rep~ are ten random posterior draws. Model fitnesses were found to be good for all models and no effects of any of the factors were observed on the reproducibility score.", cache=FALSE, fig.env='figure', out.width=0, out.height=0}
 
 set.seed(23)
 theme_set(theme_classic())
 color_scheme_set(scheme = "gray")
 
-load(file = here("inst/extdata/m1.Rda"))
-load(file = here("inst/extdata/m2.Rda"))
-load(file = here("inst/extdata/m3.Rda"))
-load(file = here("inst/extdata/m4.Rda"))
-load(file = here("inst/extdata/m5.Rda"))
-load(file = here("inst/extdata/m6.Rda"))
+load(file = here("inst/extdata/m_e.Rda"))
+load(file = here("inst/extdata/m_f.Rda"))
+load(file = here("inst/extdata/m_g.Rda"))
+load(file = here("inst/extdata/m_h.Rda"))
+load(file = here("inst/extdata/m_i.Rda"))
+load(file = here("inst/extdata/m_j.Rda"))
+load(file = here("inst/extdata/m_k.Rda"))
 
-pp_m1 <- pp_check(m1)
-pp_m2 <- pp_check(m2)
-pp_m3 <- pp_check(m3)
-pp_m4 <- pp_check(m4)
-pp_m5 <- pp_check(m5)
-pp_m6 <- pp_check(m6)
+pp_m_e <- pp_check(m_e)
+pp_m_f <- pp_check(m_f)
+pp_m_g <- pp_check(m_g)
+pp_m_h <- pp_check(m_h)
+pp_m_i <- pp_check(m_i)
+pp_m_j <- pp_check(m_j)
+pp_m_k <- pp_check(m_k)
 
 # put them all together
-p <- (pp_m1 | pp_m2) / (pp_m3 | pp_m4) / (pp_m5 | pp_m6)
+p <- (pp_m_e | pp_m_f) / (pp_m_g | pp_m_h) / (pp_m_i | pp_m_j) / pp_m_k
 
 p <- p + plot_annotation(tag_levels = "A",
                          title = "Bayesian posterior distributions of evaluation score models")
