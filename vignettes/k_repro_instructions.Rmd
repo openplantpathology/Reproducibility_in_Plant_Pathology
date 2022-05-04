@@ -1,0 +1,102 @@
+---
+title: "Reproducibility Instructions Effect"
+author: "Adam H. Sparks"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Analysis of Publication Year Effect}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{brms}
+  %\VignetteDepends{bayestestR}
+  %\VignetteDepends{bayesplot}
+  %\VignetteDepends{ggplot2}
+  %\VignetteDepends{here}
+  %\VignetteDepends{pander}
+  %\VignetteDepends{sessioninfo}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+knitr::opts_chunk$set(fig.width = 6.4, fig.height = 6.4)
+```
+
+This vignette documents the analysis of the data gathered from surveying 21 journals and 450 articles in the field of plant pathology for their openness and reproducibility and the effect that the publication's reproducibility instructions had on that score.
+
+# Set-up Workspace
+
+Load libraries used and setting the _ggplot2_ theme for the document.
+
+```{r load-libraries, message=FALSE}
+library("brms")
+library("bayestestR")
+library("bayesplot")
+library("ggplot2")
+library("here")
+library("pander")
+library("Reproducibility.in.Plant.Pathology")
+
+options(mc.cores = parallel::detectCores())
+theme_set(theme_classic())
+```
+
+## Import Data
+
+```{r import-notes}
+rrpp <- import_notes()
+```
+
+## Notes
+
+All models are using the same priors.
+
+Because of the amount of zero values in the `reproducibility_score` a `hurdle_gamma()` family is used for all models as well.
+
+### Priors
+
+The priors are fairly flat.
+
+```{r priors}
+priors <- prior_string("normal(0, 10)")
+```
+
+## Year Effect Model
+
+Test the effect that year of publication had on the reproducibility score.
+Here, `repro_inst` is a fixed effect, `journal` and `assignee` are assigned as random effects.
+
+```{r year}
+m_k <-
+  brm(
+    formula = reproducibility_score ~ repro_inst + (1 | year) + (1 | journal) +
+      (1 | assignee),
+    data = rrpp,
+    seed = 25,
+    prior = priors,
+    family = "hurdle_gamma",
+    control = list(adapt_delta = 0.99),
+    iter = 3000,
+    chains = 4
+  )
+
+summary(m_k)
+
+plot(m_k)
+
+pp_check(m_k)
+
+plot(pd(m_k))
+
+pander(equivalence_test(m_k))
+
+# save the model for figures in the paper
+save(m_k, file = here("inst/extdata/m_k.Rda"))
+```
+
+# Colophon
+```{r sessioninfo}
+sessioninfo::session_info()
+```
