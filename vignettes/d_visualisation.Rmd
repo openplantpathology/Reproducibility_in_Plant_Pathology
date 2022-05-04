@@ -95,7 +95,7 @@ rrpp_long <-
                ))
 
 ggplot(rrpp_long, aes(x = as.factor(value))) +
-  geom_bar(fill = "black") +
+  geom_bar() +
   ylab("Count") +
   xlab("Criteria Score") +
   ggtitle("Criteria scores by evaluator") +
