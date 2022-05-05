@@ -33,7 +33,7 @@ library("googlesheets4")
 library("stringr")
 library("Reproducibility.in.Plant.Pathology")
 
-set.seed(23)
+set.seed(23) # note that `set.seed()` is different for all four rounds
 
 # For printing tibble in total
 options(tibble.print_max = 21, tibble.print_min = 21)
