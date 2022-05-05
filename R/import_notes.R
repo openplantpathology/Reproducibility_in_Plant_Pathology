@@ -34,6 +34,8 @@ import_notes <- function() {
     sheet = "article_evaluations"
   )
 
+  notes$open <- gsub("1", "TRUE", x = notes$open)
+
   IF_5year <- readODS::read_ods(
     system.file(
       "extdata",
