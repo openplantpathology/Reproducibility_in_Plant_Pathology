@@ -1,0 +1,67 @@
+---
+title: "Inter-rater Differences Between Evaluators"
+author: "Adam H. Sparks"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Inter-rater Differences Between Evaluators}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{dplyr}
+  %\VignetteDepends{pander}
+  %\VignetteDepends{sessioninfo}
+---
+
+## Creating a sample of articles
+
+In response to the reviewes, to evaluate differences between evaluators, we selected five articles that had been rated in the last round of ratings and assigned four of them to the other four evaluators that had not previously evaluated the articles.
+
+## Step 1
+
+### R setup
+
+```{r library, message=FALSE}
+library("dplyr")
+library("pander")
+library("Reproducibility.in.Plant.Pathology")
+
+set.seed(5) # note that `set.seed()` is different for all three rounds
+
+# For printing tibble in total
+options(tibble.print_max = 21, tibble.print_min = 21)
+```
+
+## Import Data
+
+```{r import-notes}
+rrpp <- import_notes()
+```
+
+## Subset Data
+
+```{r subset-data}
+set.seed(500)
+
+inter_rater_evals <-
+  rrpp %>%
+  mutate(year = as.character(year)) %>%
+  mutate(year = as.numeric(year)) %>%
+  filter(year >= 2019) %>%
+  group_by(assignee) %>%
+  slice_sample(n = 1)
+```
+
+These are the five articles that will be evaluated by all five evaluators.
+All five have previously been evaluated by one of the evaluators, now all five evaluators will evaluate them, so every evaluator will evaluate four more.
+
+```{r print-table}
+pander(inter_rater_evals[, c(1, 3, 5, 7)])
+```
+
+These articles were all scored indiviually and blindly, that is, none of the other evaluators saw the scores of the other evaluations until after all scores were completed and compiled.
+
+# Colophon
+
+```{r sessioninfo}
+sessioninfo::session_info()
+```
