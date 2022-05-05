@@ -25,7 +25,7 @@ library("dplyr")
 library("pander")
 library("Reproducibility.in.Plant.Pathology")
 
-set.seed(5) # note that `set.seed()` is different for all three rounds
+set.seed(500) # note that `set.seed()` is different for all four rounds
 
 # For printing tibble in total
 options(tibble.print_max = 21, tibble.print_min = 21)
@@ -40,8 +40,6 @@ rrpp <- import_notes()
 ## Subset Data
 
 ```{r subset-data}
-set.seed(500)
-
 inter_rater_evals <-
   rrpp %>%
   mutate(year = as.character(year)) %>%
