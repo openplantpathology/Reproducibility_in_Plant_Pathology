@@ -173,7 +173,7 @@ Entered as a number between `0` and `3`.
 
 -   `2` - Software cited with version number.
 
--   `3` - All software components (PROCs, packages) etc. cited.
+-   `3` - All software components, e.g. SAS PROCs, R, Julia or Python packages, etc. properly cited.
 
 -   `NA` - No software was used in the research that can be determined as the article is written.
 
