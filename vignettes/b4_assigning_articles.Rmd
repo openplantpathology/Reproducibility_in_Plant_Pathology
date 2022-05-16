@@ -56,7 +56,7 @@ All five have previously been evaluated by one of the evaluators, now all five e
 pander(inter_rater_evals[, c(1, 3, 5, 7)])
 ```
 
-These articles were all scored indiviually and blindly, that is, none of the other evaluators saw the scores of the other evaluations until after all scores were completed and compiled.
+These articles were all scored individually and blindly, that is, none of the other evaluators saw the scores of the other evaluations until after all scores were completed and compiled.
 
 # Colophon
 
