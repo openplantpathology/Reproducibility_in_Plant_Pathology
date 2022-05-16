@@ -164,16 +164,15 @@ In the biological sciences it is not always possible to use identical test mater
 Therefore, we will follow Peng's [-@Peng2009] definition that provides clear guidelines for a minimum standard of "reproducible research":
 
 > "The replication of scientific findings using independent investigators, methods, data, equipment, and protocols has long been, and will continue to be, the standard by which scientific claims are evaluated. However, in many fields of study there are examples of scientific investigations that cannot be fully replicated because of a lack of time or resources. In such a situation, there is a need for a minimum standard that can fill the void between full replication and nothing. One candidate for this minimum standard is 'reproducible research', which requires that data sets and computer code be made available to others for verifying published results and conducting alternative analyses".
-> Peng, R.
-> [-@Peng2009].
+> @Peng2009.
 > *Reproducible research and Biostatistics*.
 > Biostatistics, 10 (3): 405-408.
 
 Therefore our definition of reproducibility will be that the computer code and data are made freely available to others for verification and conducting alternate analyses or for use in instructional purposes.
 And that the software used are also easily obtained and preferably open source to avoid licensing or other issues related to accessibility for end-users related to costs or non-standard file formats, etc.
 
-It goes without saying that plant pathologists already provide information on protocols and chemicals allowing for reproducibility.
-However, frequently biological specimens such as strains, cultures or cultivars are not available.
+Plant pathologists routinely provide information on protocols and chemicals allowing for reproducibility.
+However, frequently biological specimens such as strains, cultures or cultivars are not available after publication.
 These cases do constitute a lack of reproducibility but will not be covered here.
 
 # Materials and Methods
