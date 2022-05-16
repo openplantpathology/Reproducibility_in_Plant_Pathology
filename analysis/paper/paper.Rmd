@@ -85,7 +85,7 @@ opts_chunk$set(
   dpi = 300,
   comment = "#>",
   dev = "cairo_pdf",
-  cache = TRUE
+  cache = FALSE
 )
 ```
 
