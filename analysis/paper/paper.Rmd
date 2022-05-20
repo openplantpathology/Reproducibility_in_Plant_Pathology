@@ -520,7 +520,7 @@ pp_m_g <- pp_check(m_g)
 pp_m_h <- pp_check(m_h)
 pp_m_i <- pp_check(m_i)
 pp_m_j <- pp_check(m_j)
-pp_m_j <- pp_check(m_k)
+pp_m_k <- pp_check(m_k)
 
 # put them all together
 p <- (pp_m_f | pp_m_g) / (pp_m_h | pp_m_i) / (pp_m_j | pp_m_k)
