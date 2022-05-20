@@ -543,7 +543,7 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_1.eps"))
 
 \newpage
 
-```{r reproScore, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Reproducibility scores of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialised journals. Where 0 was not reproducible in any fashion and a perfect score would be 100% as evaluated for four areas software citations, software availability, computational methods availability and data availability on a 0 to 3 scale and converted to a "}
+```{r reproScore, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Reproducibility scores of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialised journals. Where 0 was not reproducible in any fashion and a perfect score would be 100% as evaluated for four areas software citations, software availability, computational methods availability and data availability on a 0 to 3 scale and converted to a percent of total possible score value."}
 p <-
   ggplot(data = rrpp, aes(x = reproducibility_score)) +
   geom_histogram(binwidth = 10,
