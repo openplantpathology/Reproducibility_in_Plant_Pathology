@@ -54,36 +54,26 @@ pander(rrpp)
 Check differences between evaluators in classifying articles as having a molecular focus or fundamental or applied research.
 
 ```{r article-classifications}
-a <- ggplot(rrpp, aes(x = molecular,
-                      colour = molecular,
+a <- ggplot(rrpp, aes(y = doi,
                       fill = molecular)) +
-  geom_bar(position = "dodge") +
-  ylab("") +
-  xlab("") +
-  theme(
-    axis.text.x = element_blank(),
-    axis.ticks.x = element_blank(),
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank()  #remove y axis ticks
-  ) +
+  geom_bar() +
+  scale_fill_grey(name = "") +
+  ylab("DOI") +
+  xlab("Count") +
   ggtitle("Molecular Focus") +
-  facet_grid(doi ~ assignee) +
   theme(legend.position = "top")
 
-b <- ggplot(rrpp, aes(x = art_class,
-                      colour = art_class,
+b <- ggplot(rrpp, aes(y = doi,
                       fill = art_class)) +
-  geom_bar(position = "dodge") +
+  geom_bar() +
+  scale_fill_grey(name = "") +
+  xlab("Count") +
   ylab("") +
-  xlab("") +
   theme(
-    axis.text.x = element_blank(),
-    axis.ticks.x = element_blank(),
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank()
   ) +
   ggtitle("Article Class") +
-  facet_grid(doi ~ assignee) +
   theme(legend.position = "top")
 
 p <- (a | b)
@@ -98,12 +88,13 @@ Visualise differences between evaluators for the four criteria used to score rep
 c <- ggplot(rrpp,
             aes(y = doi,
                 x = software_cite)) +
+  ylab("DOI") +
   xlab("") +
   xlim(c(0, 3)) +
   theme(axis.text.x = element_blank(),
         axis.ticks.x = element_blank()) +
   geom_density_ridges() +
-  ggtitle("Software Citation")
+  ggtitle("Software Cited")
 
 d <- ggplot(rrpp,
             aes(y = doi,
@@ -118,24 +109,27 @@ d <- ggplot(rrpp,
     axis.ticks.y = element_blank()
   ) +
   xlim(c(0, 3)) +
-  ggtitle("Software Availability")
+  ggtitle("Software Available")
 
 e <- ggplot(rrpp,
             aes(y = doi,
                 x = comp_mthds_avail)) +
   geom_density_ridges() +
+  ylab("DOI") +
+  xlab("Score") +
   xlim(c(0, 3)) +
-  ggtitle("Computational Methods Availability")
+  ggtitle("Comp. Methods Available")
 
 f <- ggplot(rrpp,
             aes(y = doi,
                 x = data_avail)) +
   ylab("") +
+  xlab("Score") +
   theme(axis.text.y = element_blank(),
         axis.ticks.y = element_blank()) +
   xlim(c(0, 3)) +
   geom_density_ridges() +
-  ggtitle("Data Availability")
+  ggtitle("Data Available")
 
 p <- (c | d) / (e | f)
 p
@@ -150,6 +144,8 @@ ggplot(rrpp,
        aes(y = doi,
            x = reproducibility_score)) +
   geom_density_ridges() +
+  ylab("DOI") +
+  xlab("Reproducibility Score (%)") +
   xlim(c(0, 100))
 ```
 
