@@ -215,6 +215,15 @@ A custom function, `import_notes()`, was written to import the data, format the 
 A total reproducibility score was calculated as the per cent of total possible for a given paper.
 However, some papers did not use specialized software therefore they were not scored for this category.
 
+## Data Cleaning
+
+Efforts were made to standardise the scoring as much as possible.
+In some cases the `software_avail`, or the openness of the software used, score did not agree with the software that was recorded and these scores were modified after discussion to match the agreed on ratings.
+For example, a paper was rated as having a `software_avail` rating of `3`, but the evaulator noted that Excel had been used.
+Here, the `software_avail` rating was changed to `2` to bring it into line with the agreed upon guidelines.
+In other cases, papers did not adequately describe all the software used, e.g., GenAlEx, an Excel add-on, was referred to but Excel was not mentioned in the text.
+In these cases, Excel was added to the `software_used` column.
+
 ## Statistical Analysis
 
 The statistical analysis was performed using R version `r version$version.string` [@RCT2022] on an Apple MacBook Pro (13-inch, M1, 2020).
