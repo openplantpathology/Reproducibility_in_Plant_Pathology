@@ -340,7 +340,7 @@ This is suitable for studies that may have a small data set or simple analysis o
 This allows the reader to quickly view the extra materials and a DOI is assigned as a part of the article itself.
 
 At the second level, in our search of the literature, we found that @Hill2019 shared code and example data to reproduce the results of the paper as supplementary materials, citing all packages used and the versions.
-The scripts provided used an R package, _checkpoint_ [@Ooi2022], to provide a mechanism to help ensure reproducibility by installing the package versions used by the authors that are necessary to reproduce the work rather than defaulting to the latest versions.
+The scripts provided used an R package, *checkpoint* [@Ooi2022], to provide a mechanism to help ensure reproducibility by installing the package versions used by the authors that are necessary to reproduce the work rather than defaulting to the latest versions.
 However, the scripts did not run unhindered, as the supplementary materials suggested that they should, without changes to the data, but with some modifications to the data, and file name changes, the scripts ran allowing examples of the research to be reproduced using the definition of @Peng2009.
 
 The third level is the use of proper code repositories such as GitHub and data repositories like FigShare, Zenodo or OSF.io among others, allow for the deposition and updating of code, figures, data preprints or any other materials that support the article itself while providing a DOI and citation for a standalone citation.
