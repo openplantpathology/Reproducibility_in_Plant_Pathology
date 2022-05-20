@@ -45,6 +45,7 @@ Suggests:
     extrafont,
     flextable,
     ggplot2 (>= 3.3.0),
+    ggridges,
     git2r,
     googlesheets4,
     here,
