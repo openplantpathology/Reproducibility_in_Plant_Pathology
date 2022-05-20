@@ -77,7 +77,7 @@ rrpp <-
   within(rrpp,
          abbreviation <- relevel(abbreviation, ref = "Mol Plant Pathol"))
 
-m_e <-
+m_f <-
   brm(
     formula = reproducibility_score ~  abbreviation + (1 | year) +
       (1 | assignee),
@@ -91,23 +91,23 @@ m_e <-
     chains = 4
   )
 
-summary(m_e)
+summary(m_f)
 
-plot(m_e)
+plot(m_f)
 
-pp_check(m_e)
+pp_check(m_f)
 
-plot(pd(m_e))
+plot(pd(m_f))
 
-pander(equivalence_test(m_e))
+pander(equivalence_test(m_f))
 ```
 
 ## Save model object
 
-Save the model object, `m_e` for figures in the paper.
+Save the model object, `m_f` for figures in the paper.
 
 ```{r save-data}
-save(m_e, file = here("inst/extdata/m_e.Rda"))
+save(m_f, file = here("inst/extdata/m_f.Rda"))
 ```
 
 # Colophon
