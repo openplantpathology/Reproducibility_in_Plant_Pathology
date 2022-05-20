@@ -249,6 +249,8 @@ All methods are described in greater detail with the code necessary to reproduce
 
 # Results
 
+Due to differences in evaluators' interpretations (Fig ZZZZ) of whether or not an article had a molecular focus or not, this scoring criteria was not used in the overall evaluation.
+
 There were `r length(which(rrpp$reproducibility_score == 100))` (`r round(length(which(rrpp$reproducibility_score == 100))/nrow(rrpp), 2) * 100`%) articles that scored 100% or were classed as fully reproducible (Figure \@ref(fig:reproScore)).
 `r toTitleCase(as.character(english::english(length(which(rrpp$reproducibility_score == 0)))))` (`r round(length(which(rrpp$reproducibility_score == 0))/nrow(rrpp), 2) * 100`%) of articles were scored at 0% out of a possible 100% for reproducibility (Figure \@ref(fig:reproScore)).
 The mean value was `r round(mean(rrpp$reproducibility_score), 1)`% and the median value was `r round(median(rrpp$reproducibility_score), 1)`%.
