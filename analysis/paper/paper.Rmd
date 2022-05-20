@@ -79,10 +79,7 @@ opts_chunk$set(
   message = FALSE,
   echo = FALSE,
   dev = c("postscript"),
-  fig.width = 3.31,
-  fig.height = 3.31,
   out.width = "100%",
-  dpi = 300,
   comment = "#>",
   dev = "cairo_pdf",
   cache = FALSE
