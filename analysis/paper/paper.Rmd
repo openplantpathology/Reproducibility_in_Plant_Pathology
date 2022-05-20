@@ -502,7 +502,7 @@ scoring_criteria %>%
 
 # Figures
 
-```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualisations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialised journals. Six factors were evaluated, (A) Publication (Journal Title), (B) Article Class, (C) Molecular Focus, (D) Five Year Impact Factor of Journal, (E) Journal Open Access Policy, (F) Year of Publication and (G) the Journals' Reproducibility Instructions where y is the data's density and y~rep~ are ten random posterior draws. Model fitnesses were found to be good for all models and no effects of any of the factors were observed on the reproducibility score.", cache=FALSE, fig.env='figure', out.width=0, out.height=0}
+```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualisations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialised journals. Six factors were evaluated, (A) Publication (Journal Title), (B) Article Class, (C) Five Year Impact Factor of Journal, (D) Journal Open Access Policy, (E) Year of Publication and (F) the Journals' Reproducibility Instructions where y is the data's density and y~rep~ are ten random posterior draws. Model fitnesses were found to be good for all models and no effects of any of the factors were observed on the reproducibility score.", cache=FALSE, fig.env='figure', out.width=0, out.height=0}
 
 set.seed(23)
 theme_set(theme_classic())
