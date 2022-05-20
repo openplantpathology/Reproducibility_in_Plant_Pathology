@@ -46,6 +46,7 @@ packages <- c(
   "extrafont",
   "flextable",
   "ggplot2",
+  "ggridges",
   "ggpubr",
   "here",
   "janitor",
