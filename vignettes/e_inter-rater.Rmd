@@ -1,0 +1,180 @@
+---
+title: "Inter-rater Repeatability"
+author: "Adam H. Sparks"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Inter-rater Repeatability}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{tidyverse}
+  %\VignetteDepends{pander}
+  %\VignetteDepends{ggridges}
+  %\VignetteDepends{patchwork}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+knitr::opts_chunk$set(fig.width = 6.4, fig.height = 6.4)
+```
+
+This vignette documents the analysis of the data gathered from surveying 5 journal articles, which all five authors evaluated for an inter-rater comparison.
+Five articles were evaluated by all five authors to understand the differences between ratings assigned by each of the paper's authors.
+All original scores are kept with corrections being made to the `software_avail` column in `software_avail_corrected` (by AHS) based on the software that was recorded as being used in each paper.
+This step removes some disagreement between the ratings.
+
+# Set-up Workspace
+
+Load libraries used and setting the *ggplot2* theme for the document.
+
+```{r load-libraries, message=FALSE}
+library(patchwork)
+library(ggridges)
+library(tidyverse)
+library(pander)
+library(Reproducibility.in.Plant.Pathology)
+
+theme_set(theme_classic())
+```
+
+## Import Data
+
+Import the data and print.
+
+```{r import-rrpp}
+rrpp <- import_interrater_scores()
+pander(rrpp)
+```
+
+## Article Classifications
+
+```{r article-classifications}
+a <- ggplot(rrpp, aes(x = molecular,
+                      colour = molecular,
+                      fill = molecular)) +
+  geom_bar(position = "dodge") +
+  ylab("") +
+  xlab("") +
+  theme(
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()  #remove y axis ticks
+  ) +
+  ggtitle("Molecular Focus") +
+  facet_grid(doi ~ assignee) +
+  theme(legend.position = "top")
+
+b <- ggplot(rrpp, aes(x = art_class,
+                      colour = art_class,
+                      fill = art_class)) +
+  geom_bar(position = "dodge") +
+  ylab("") +
+  xlab("") +
+  theme(
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+  ) +
+  ggtitle("Article Class") +
+  facet_grid(doi ~ assignee) +
+  theme(legend.position = "top")
+
+p <- (a | b)
+p
+```
+
+
+## Reproducibility Criteria
+
+```{r reproducibility-scores}
+c <- ggplot(rrpp,
+            aes(y = doi,
+                x = software_cite)) +
+  xlab("") +
+  xlim(c(0, 3)) +
+  theme(axis.text.x = element_blank(),
+        axis.ticks.x = element_blank()) +
+  geom_density_ridges() +
+  ggtitle("Software Citation")
+
+d <- ggplot(rrpp,
+            aes(y = doi,
+                x = software_avail)) +
+  ylab("") +
+  xlab("") +
+  geom_density_ridges() +
+  theme(
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+  ) +
+  xlim(c(0, 3)) +
+  ggtitle("Software Availability")
+
+e <- ggplot(rrpp,
+            aes(y = doi,
+                x = comp_mthds_avail)) +
+  geom_density_ridges() +
+  xlim(c(0, 3)) +
+  ggtitle("Computational Methods Availability")
+
+f <- ggplot(rrpp,
+            aes(y = doi,
+                x = data_avail)) +
+  ylab("") +
+  theme(axis.text.y = element_blank(),
+        axis.ticks.y = element_blank()) +
+  xlim(c(0, 3)) +
+  geom_density_ridges() +
+  ggtitle("Data Availability")
+
+p <- (c | d) / (e | f)
+p
+```
+
+## Reproducibility Scores
+
+Look at agreement of the reproducibility scores across evaluators with corrected `software_avail` ratings, `software_avail_corrected`.
+
+```{r repro-scores}
+ggplot(rrpp,
+       aes(y = doi,
+           x = reproducibility_score)) +
+  geom_density_ridges() +
+  xlim(c(0, 100))
+```
+
+## Software Used
+
+We can check if most authors found the same software in the papers that were evaluated.
+Perfect agreement is a 5, below that the software was not clearly and easily detected by the evaluator.
+
+```{r software-table}
+rrpp_software <-
+  rrpp %>%
+  transform(software_used = strsplit(software_used_cleaned, ",")) %>%
+  unnest(software_used) %>%
+  mutate(software_used = trimws(software_used)) %>%
+  mutate(software_used = toupper(software_used))
+
+tab <- table(rrpp_software$software_used)
+tab_s <- as.data.frame(sort(tab))
+tab_s <-
+  tab_s %>%
+  arrange(desc(Freq)) %>%
+  rename("Software" = "Var1", "Frequency" = "Freq")
+
+pander(tab_s)
+```
+
+# Colophon
+
+```{r sessioninfo}
+sessioninfo::session_info()
+```
