@@ -84,6 +84,8 @@ opts_chunk$set(
   dev = "cairo_pdf",
   cache = FALSE
 )
+
+ir <- import_interrater_scores()
 ```
 
 ```{r fonts, include=FALSE, message=FALSE, eval=FALSE}
