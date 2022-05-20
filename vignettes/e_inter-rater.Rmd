@@ -51,6 +51,8 @@ pander(rrpp)
 
 ## Article Classifications
 
+Check differences between evaluators in classifying articles as having a molecular focus or fundamental or applied research.
+
 ```{r article-classifications}
 a <- ggplot(rrpp, aes(x = molecular,
                       colour = molecular,
@@ -88,8 +90,9 @@ p <- (a | b)
 p
 ```
 
-
 ## Reproducibility Criteria
+
+Visualise differences between evaluators for the four criteria used to score reproducibility for each paper.
 
 ```{r reproducibility-scores}
 c <- ggplot(rrpp,
