@@ -513,7 +513,6 @@ load(file = here("inst/extdata/m_g.Rda"))
 load(file = here("inst/extdata/m_h.Rda"))
 load(file = here("inst/extdata/m_i.Rda"))
 load(file = here("inst/extdata/m_j.Rda"))
-load(file = here("inst/extdata/m_k.Rda"))
 
 pp_m_e <- pp_check(m_e)
 pp_m_f <- pp_check(m_f)
@@ -521,10 +520,9 @@ pp_m_g <- pp_check(m_g)
 pp_m_h <- pp_check(m_h)
 pp_m_i <- pp_check(m_i)
 pp_m_j <- pp_check(m_j)
-pp_m_k <- pp_check(m_k)
 
 # put them all together
-p <- (pp_m_e | pp_m_f) / (pp_m_g | pp_m_h) / (pp_m_i | pp_m_j) / pp_m_k
+p <- (pp_m_e | pp_m_f) / (pp_m_g | pp_m_h) / (pp_m_i | pp_m_j)
 
 p <- p + plot_annotation(tag_levels = "A",
                          title = "Bayesian posterior distributions of evaluation score models")
