@@ -8,9 +8,11 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
   %\VignetteDepends{tidyverse}
+  %\VignetteDepends{irr}
   %\VignetteDepends{pander}
   %\VignetteDepends{ggridges}
   %\VignetteDepends{patchwork}
+  %\VignetteDepends{psych}
 ---
 
 ```{r setup, include = FALSE}
@@ -31,8 +33,10 @@ This step removes some disagreement between the ratings.
 Load libraries used and setting the *ggplot2* theme for the document.
 
 ```{r load-libraries, message=FALSE}
-library(patchwork)
 library(ggridges)
+library(irr)
+library(patchwork)
+library(psych)
 library(tidyverse)
 library(pander)
 library(Reproducibility.in.Plant.Pathology)
@@ -171,6 +175,93 @@ tab_s <-
 
 pander(tab_s)
 ```
+
+## Agreement Stats
+
+Here will compute a simple percentage agreement between the reviewers using the [*irr*](https://CRAN.R-project.org/package=irr) package.
+
+### Software Citations
+
+Percent agreement of software citations criteria rankings.
+
+##### Agreement
+
+```{r software-cite-agreement, warning=FALSE}
+rrpp %>% 
+  select(doi, assignee, software_cite) %>% 
+  pivot_wider(names_from = assignee, values_from = software_cite) %>% 
+  select(Adam, Emerson, Kaique, Nik, Zach) %>% 
+  as.matrix() %>% 
+  agree() %>% 
+  pander()
+```
+
+#### Fleiss' Kappa
+
+```{r software-cite-kappa, warning=FALSE}
+rrpp %>% 
+  select(doi, assignee, software_cite) %>% 
+  pivot_wider(names_from = assignee, values_from = software_cite) %>% 
+  select(Adam, Emerson, Kaique, Nik, Zach) %>% 
+  as.matrix() %>% 
+  kappam.fleiss() %>% 
+  pander()
+```
+
+### Data Availability
+
+##### Agreement
+
+Percent agreement of data availability criteria rankings.
+
+```{r data-avail-agreement, warning=FALSE}
+rrpp %>% 
+  select(doi, assignee, data_avail) %>% 
+  pivot_wider(names_from = assignee, values_from = data_avail) %>% 
+  select(Adam, Emerson, Kaique, Nik, Zach) %>% 
+  as.matrix() %>% 
+  agree() %>% 
+  pander()
+```
+
+### Computational Availability
+
+##### Agreement
+
+Percent agreement of computational methods availability criteria rankings.
+
+```{r comp-methods-agreement, warning=FALSE}
+rrpp %>% 
+  select(doi, assignee, comp_mthds_avail) %>% 
+  pivot_wider(names_from = assignee, values_from = comp_mthds_avail) %>% 
+  select(Adam, Emerson, Kaique, Nik, Zach) %>% 
+  as.matrix() %>% 
+  agree() %>% 
+  pander()
+```
+
+### Reproduciblity Score
+
+Calculate the intraclass correlation (ICC), a measure of association to rate the reliability of raters.
+See `?psych::ICC` for more on this function and the methods.
+
+```{r repro-score-icc}
+rrpp %>% 
+  select(doi, assignee, reproducibility_score) %>% 
+  pivot_wider(names_from = assignee, values_from = reproducibility_score) %>% 
+  select(Adam, Emerson, Kaique, Nik, Zach) %>% 
+  as.matrix() %>% 
+  ICC()
+```
+
+[Koo & Li](https://pubmed.ncbi.nlm.nih.gov/27330520/) provide the following guidelines for interpreting the ICC:
+
+-   **Less than 0.50**: Poor reliability
+-   **Between 0.5 and 0.75**: Moderate reliability
+-   **Between 0.75 and 0.9**: Good reliability
+-   **Greater than 0.9**: Excellent reliability
+
+Thus, we would conclude that an ICC of **0.57** indicates that the papers can be rated with "moderate" reliability by different raters.
 
 # Colophon
 
