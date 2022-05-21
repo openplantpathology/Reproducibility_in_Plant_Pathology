@@ -53,6 +53,7 @@ packages <- c(
   "knitr",
   "officer",
   "patchwork",
+  "psych",
   "rsvg",
   "tidyr",
   "tools"
@@ -255,10 +256,7 @@ However, differences in evaluators' interpretations of whether or not an article
 There was reasonable agreement among the authors when evaluating whether software was cited properly or not and freely and openly available (Figure \@ref(fig:irCriteria)A, \@ref(fig:irCriteria)B).
 All authors agreed on the evaluation of the computational methods and data availability of all five articles that were scored by each author (Figure \@ref(fig:irCriteria)C, \@ref(fig:irCriteria)C).
 
-The overall reproducibility scores assigned by authors to the five articles evaluated to check for inter-rater differences showed some differences (Figure \@ref(fig:irReproScore)).
-The article that had the greatest difference, 13 to 33%, was DOI "10.1007/s12600-021-00902-2" with a standard deviation of `r ir %>% filter(doi == "10.1007/s12600-021-00902-2") %>% summarise(x = round(sd(reproducibility_score), 1))`.
-All other articles had standard deviation scores of less than 4 (Table \@ref(tab:interRaterSD)).
-However, all article scores largely agreed and fell below 50% (Figure \@ref(fig:irReproScore)).
+The overall reproducibility scores assigned by authors to the five articles evaluated to check for inter-rater differences had moderate reliability, 0.57, (Table \@ref(tab:icc), Figure \@ref(fig:irReproScore)).
 
 There were `r length(which(rrpp$reproducibility_score == 100))` (`r round(length(which(rrpp$reproducibility_score == 100))/nrow(rrpp), 2) * 100`%) articles that scored 100% or were classed as fully reproducible (Figure \@ref(fig:reproScore)).
 `r toTitleCase(as.character(english::english(length(which(rrpp$reproducibility_score == 0)))))` (`r round(length(which(rrpp$reproducibility_score == 0))/nrow(rrpp), 2) * 100`%) of articles were scored at 0% out of a possible 100% for reproducibility (Figure \@ref(fig:reproScore)).
@@ -509,16 +507,17 @@ scoring_criteria %>%
 
 \newpage
 
-```{r interRaterSD, echo=FALSE, message=FALSE, warning=FALSE}
+```{r icc, echo=FALSE, message=FALSE, warning=FALSE}
 ir %>%
-  group_by(doi) %>%
-  summarise(x = round(sd(reproducibility_score), 1)) %>%
-  rename(`Standard Deviation` = x) %>%
-  rename(DOI = doi) %>%
+  select(doi, assignee, reproducibility_score) %>%
+  pivot_wider(names_from = assignee, values_from = reproducibility_score) %>%
+  select(Adam, Emerson, Kaique, Nik, Zach) %>%
+  as.matrix() %>%
+  ICC() %>%
+  `[[`(1) %>%
   flextable() %>%
-  set_table_properties(layout = "autofit") %>%
-  set_caption(
-    "Standard deviation of reproducibility scores for five articles evaluated by all five co-authors to check for differences in article ratings.")
+  set_table_properties(layout = "autofit") %>% 
+  set_caption("this needs a caption")
 ```
 
 \newpage
