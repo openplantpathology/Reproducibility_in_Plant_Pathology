@@ -598,7 +598,7 @@ p <- p + plot_annotation(tag_levels = "A",
                          title = "Evaluator agreement in article classifications")
 
 ggsave(
-  filename = here("analysis/figures/Sparks_et_al_Figure_1.eps"),
+  filename = here("analysis/figures/Sparks_et_al_Figure_2.eps"),
   plot = p,
   width = 6,
   height = 6,
