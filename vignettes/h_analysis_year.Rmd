@@ -1,0 +1,167 @@
+---
+title: "Analysis of Publication Year Effect"
+author: "Adam H. Sparks"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Analysis of Publication Year Effect}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{brms}
+  %\VignetteDepends{bayestestR}
+  %\VignetteDepends{bayesplot}
+  %\VignetteDepends{ggplot2}
+  %\VignetteDepends{here}
+  %\VignetteDepends{pander}
+  %\VignetteDepends{tidyr}
+  %\VignetteDepends{sessioninfo}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+knitr::opts_chunk$set(fig.width = 6.4, fig.height = 6.4)
+```
+
+This vignette documents the analysis of the data gathered from surveying 21 journals and 450 articles in the field of plant pathology for their openness and reproducibility and the effect that the publication year had on that score.
+
+# Set-up Workspace
+
+Load libraries used and setting the _ggplot2_ theme for the document.
+
+```{r load-libraries, message=FALSE}
+library("brms")
+library("bayestestR")
+library("bayesplot")
+library("ggplot2")
+library("here")
+library("pander")
+library("tidyr")
+library("Reproducibility.in.Plant.Pathology")
+
+options(mc.cores = parallel::detectCores())
+theme_set(theme_classic())
+```
+
+### Priors
+
+```{r priors}
+priors <-  prior_string("normal(0, 1)")
+```
+
+## Year of Publication Effect Models
+
+### Computational Methods Availability
+
+Test the effect that year of publication had on the reproducibility score.
+Here, `year` is a fixed effect, `journal` and `assignee` are assigned as random effects.
+
+```{r code}
+rrpp <- import_notes()
+rrpp <- drop_na(rrpp, comp_mthds_avail)
+
+m_h1 <-
+  brm(
+    formula = comp_mthds_avail ~  year +
+      (1 | abbreviation) +
+      (1 | assignee) +
+      (1 | year),
+    data = rrpp,
+    seed = 27,
+    prior = priors,
+    family = cumulative("logit"),
+    iter = 4000,
+    control = list(adapt_delta = 0.9999),
+  )
+
+summary(m_h1)
+
+plot(m_h1)
+
+pp_check(m_h1)
+
+plot(pd(m_h1))
+
+pander(equivalence_test(m_h1))
+```
+
+### Data Availability
+
+```{r data}
+rrpp <- import_notes()
+rrpp <- drop_na(rrpp, data_avail)
+
+m_h2 <-
+  brm(
+    formula = data_avail ~  year +
+      (1 | abbreviation) +
+      (1 | assignee) +
+      (1 | year),
+    data = rrpp,
+    seed = 27,
+    prior = priors,
+    family = cumulative("logit"),
+    iter = 4000,
+    control = list(adapt_delta = 0.9999),
+  )
+
+summary(m_h2)
+
+plot(m_h2)
+
+pp_check(m_h2)
+
+plot(pd(m_h2))
+
+pander(equivalence_test(m_h2))
+```
+
+### Openness
+
+Test for any effects of the `software_avail` (openness) of the software used.
+
+```{r openness}
+rrpp <- import_notes()
+rrpp <- drop_na(rrpp, software_avail)
+
+m_h3 <-
+  brm(
+    formula = software_avail ~  year +
+      (1 | abbreviation) +
+      (1 | assignee) +
+      (1 | year),
+    data = rrpp,
+    seed = 27,
+    prior = priors,
+    family = cumulative("logit"),
+    iter = 4000,
+    control = list(adapt_delta = 0.99)
+  )
+
+summary(m_h3)
+
+plot(m_h3)
+
+pp_check(m_h3)
+
+plot(pd(m_h3))
+
+pander(equivalence_test(m_h3))
+```
+
+## Save model objects
+
+Save the model objects for figures in the paper.
+
+```{r save-models}
+save(m_h1, file = here("inst/extdata/m_h1.Rda"))
+save(m_h2, file = here("inst/extdata/m_h2.Rda"))
+save(m_h3, file = here("inst/extdata/m_h3.Rda"))
+```
+
+# Colophon
+```{r sessioninfo}
+sessioninfo::session_info()
+```

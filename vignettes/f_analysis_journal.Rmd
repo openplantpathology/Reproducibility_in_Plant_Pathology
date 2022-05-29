@@ -14,6 +14,7 @@ vignette: >
   %\VignetteDepends{here}
   %\VignetteDepends{pander}
   %\VignetteDepends{sessioninfo}
+  %\VignetteDepends{tidyr}
 ---
 
 ```{r setup, include = FALSE}
@@ -37,77 +38,148 @@ library("bayesplot")
 library("ggplot2")
 library("here")
 library("pander")
+library("tidyr")
 library("Reproducibility.in.Plant.Pathology")
 
 options(mc.cores = parallel::detectCores())
 theme_set(theme_classic())
 ```
 
-## Import Data
-
-```{r import-notes}
-rrpp <- import_notes()
-```
-
 ## Notes
 
 All models are using the same priors.
 
-Because of the amount of zero values in the `reproducibility_score` a `hurdle_gamma()` family is used for all models as well.
-
-## Journal Effect Model
+## Journal Effect Models
 
 ### Priors
 
-The priors are fairly flat.
-
 ```{r priors}
-priors <- prior_string("normal(0, 10)")
+priors <-  prior_string("normal(0, 1.5)")
 ```
 
-Test the effect that the journal's effect on the reproducibility score.
+### Computational Methods Availability
+
+Test the effect that the journal's effect on the available of computational methods.
 Set up a *brms* model with journal (`abbreviation`) as the fixed effect and `year` and `assignee` as random effects.
-Base level is set to Molecular Plant Pathology, the journal with the highest five-year impact factor that will be used as the intercept in the following model.
+Base level is set to *Molecular Plant Pathology*, the journal with the highest five-year impact factor that will be used as the intercept in the following model.
 
-### Model with assignee as random effect
+```{r code}
+# import data
+rrpp <- import_notes()
 
-```{r journal-evaluation}
 # relevel factors for analysis, use Mol Plant Pathol as basis for analysis, highest IF
 rrpp <-
   within(rrpp,
          abbreviation <- relevel(abbreviation, ref = "Mol Plant Pathol"))
 
-m_f <-
+rrpp <- drop_na(rrpp, comp_mthds_avail)
+
+m_f1 <-
   brm(
-    formula = reproducibility_score ~  abbreviation + (1 | year) +
-      (1 | assignee),
+    formula = comp_mthds_avail ~ abbreviation +
+      (1 | assignee) +
+      (1 | year),
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = "hurdle_gamma",
-    control = list(adapt_delta = 0.9999,
-                   max_treedepth = 15),
-    iter = 3000,
-    chains = 4
+    family = cumulative("logit"),
+    iter = 6000,
+    control = list(adapt_delta = 0.999)
   )
 
-summary(m_f)
+summary(m_f1)
 
-plot(m_f)
+plot(m_f1)
 
-pp_check(m_f)
+pp_check(m_f1)
 
-plot(pd(m_f))
+plot(pd(m_f1))
 
-pander(equivalence_test(m_f))
+pander(equivalence_test(m_f1))
 ```
 
-## Save model object
+### Data Availability
 
-Save the model object, `m_f` for figures in the paper.
+Test the effect that the journal may have on the availability of data.
+Base level is set to *Molecular Plant Pathology*, the journal with the highest five-year impact factor that will be used as the intercept in the following model.
+
+```{r data}
+# reimport data due to changes in previous model dropping NA values
+rrpp <- import_notes()
+rrpp <-
+  within(rrpp,
+         abbreviation <- relevel(abbreviation, ref = "Mol Plant Pathol"))
+
+rrpp <- drop_na(rrpp, data_avail)
+
+m_f2 <-
+  brm(
+    formula = data_avail ~ abbreviation +
+      (1 | assignee) +
+      (1 | year),
+    data = rrpp,
+    seed = 27,
+    prior = priors,
+    family = cumulative("logit"),
+    iter = 4000,
+    control = list(adapt_delta = 0.999)
+  )
+
+summary(m_f2)
+
+plot(m_f2)
+
+pp_check(m_f2)
+
+plot(pd(m_f2))
+
+pander(equivalence_test(m_f2))
+```
+
+### Openness
+
+Test for any effects of the journal on the `software_avail` (openness) of the software used.
+Test the effect that the journal may have on the availability of data.
+
+```{r openness}
+rrpp <- import_notes()
+rrpp <-
+  within(rrpp,
+         abbreviation <- relevel(abbreviation, ref = "Mol Plant Pathol"))
+rrpp <- drop_na(rrpp, software_avail)
+
+m_f3 <-
+  brm(
+    formula = software_avail ~  abbreviation +
+      (1 | assignee) +
+      (1 | year),
+    data = rrpp,
+    seed = 27,
+    prior = priors,
+    family = cumulative("logit"),
+    iter = 4000,
+    control = list(adapt_delta = 0.999)
+  )
+
+summary(m_f3)
+
+plot(m_f3)
+
+pp_check(m_f3)
+
+plot(pd(m_f3))
+
+pander(equivalence_test(m_f3))
+```
+
+## Save model objects
+
+Save the model objects for figures in the paper.
 
 ```{r save-data}
-save(m_f, file = here("inst/extdata/m_f.Rda"))
+save(m_f1, file = here("inst/extdata/m_f1.Rda"))
+save(m_f2, file = here("inst/extdata/m_f2.Rda"))
+save(m_f3, file = here("inst/extdata/m_f3.Rda"))
 ```
 
 # Colophon

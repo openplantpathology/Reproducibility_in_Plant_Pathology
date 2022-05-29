@@ -1,0 +1,167 @@
+---
+title: "Reproducibility Instructions Effect"
+author: "Adam H. Sparks"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Reproducibility Instructions Effect}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{brms}
+  %\VignetteDepends{bayestestR}
+  %\VignetteDepends{bayesplot}
+  %\VignetteDepends{ggplot2}
+  %\VignetteDepends{here}
+  %\VignetteDepends{pander}
+  %\VignetteDepends{tidyr}
+  %\VignetteDepends{sessioninfo}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+knitr::opts_chunk$set(fig.width = 6.4, fig.height = 6.4)
+```
+
+This vignette documents the analysis of the data gathered from surveying 21 journals and 450 articles in the field of plant pathology for their openness and reproducibility and the effect that the publication's reproducibility instructions had on that score.
+
+# Set-up Workspace
+
+Load libraries used and setting the *jgplot2* theme for the document.
+
+```{r load-libraries, message=FALSE}
+library("brms")
+library("bayestestR")
+library("bayesplot")
+library("ggplot2")
+library("here")
+library("pander")
+library("tidyr")
+library("Reproducibility.in.Plant.Pathology")
+
+options(mc.cores = parallel::detectCores())
+theme_set(theme_classic())
+```
+
+## Reproducibility Instructions Models
+
+### Computational Methods Availability
+
+Test the effect that journal's instructions for depositing code and data had on the availability of computational methods.
+
+```{r code}
+priors <- prior_string("normal(0, 1)")
+rrpp <- import_notes()
+rrpp <- drop_na(rrpp, comp_mthds_avail)
+
+m_j1 <-
+  brm(
+    formula = comp_mthds_avail ~ repro_inst +
+      (1 | year) +
+      (1 | assignee) +
+      (1 | abbreviation),
+    data = rrpp,
+    seed = 27,
+    prior = priors,
+    family = cumulative("logit"),
+    control = list(adapt_delta = 0.99),
+    iter = 4000,
+    chains = 4
+  )
+
+summary(m_j1)
+
+plot(m_j1)
+
+pp_check(m_j1)
+
+plot(pd(m_j1))
+
+pander(equivalence_test(m_j1))
+```
+
+### Data Availability
+
+Test the effect that journal's instructions for depositing code and data had on the data's availability.
+
+```{r data}
+rrpp <- import_notes()
+rrpp <- drop_na(rrpp, data_avail)
+
+m_j2 <-
+  brm(
+    formula = data_avail ~ repro_inst +
+      (1 | year) +
+      (1 | assignee) +
+      (1 | abbreviation),
+    data = rrpp,
+    seed = 27,
+    prior = priors,
+    family = cumulative("logit"),
+    control = list(adapt_delta = 0.99),
+    iter = 4000,
+    chains = 4
+  )
+
+summary(m_j2)
+
+plot(m_j2)
+
+pp_check(m_j2)
+
+plot(pd(m_j2))
+
+pander(equivalence_test(m_j2))
+```
+
+### Openness
+
+Test the effect that journal's instructions for depositing code and data had on the `software_avail` (openness) of the software used.
+
+```{r openness}
+rrpp <- import_notes()
+rrpp <- drop_na(rrpp, software_avail)
+
+m_j3 <-
+  brm(
+    formula = software_avail ~ repro_inst +
+      (1 | year) +
+      (1 | assignee) +
+      (1 | abbreviation),
+    data = rrpp,
+    seed = 27,
+    prior = priors,
+    family = cumulative("logit"),
+    control = list(adapt_delta = 0.99),
+    iter = 4000,
+    chains = 4
+  )
+
+summary(m_j3)
+
+plot(m_j3)
+
+pp_check(m_j3)
+
+plot(pd(m_j3))
+
+pander(equivalence_test(m_j3))
+```
+
+## Save model objects
+
+Save the model objects for figures in the paper.
+
+```{r save}
+save(m_j1, file = here("inst/extdata/m_j1.Rda"))
+save(m_j2, file = here("inst/extdata/m_j2.Rda"))
+save(m_j3, file = here("inst/extdata/m_j3.Rda"))
+```
+
+# Colophon
+
+```{r sessioninfo}
+sessioninfo::session_info()
+```
