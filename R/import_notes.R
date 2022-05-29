@@ -57,48 +57,21 @@ import_notes <- function() {
                       true = 0,
                       false = IF_5year
                     )) %>%
-    dplyr::mutate(journal = as.factor(journal)) %>%
-    dplyr::mutate(year = as.factor(year)) %>%
-    dplyr::mutate(art_class = as.factor(art_class)) %>%
-    dplyr::mutate(repro_inst = as.factor(repro_inst)) %>%
-    dplyr::mutate(open = as.factor(open)) %>%
-    dplyr::mutate(abbreviation = as.factor(abbreviation)) %>%
-    dplyr::mutate(assignee = as.factor(assignee))
-
-  # add reproducibility score as a percent of total possible
-  #
-  # calculate total possible score for a paper
-  total_possible <-
-    notes %>%
-    dplyr::select(comp_mthds_avail,
-                  software_avail,
-                  software_cite,
-                  data_avail) %>%
-    dplyr::mutate(total_possible = rowSums(!is.na(.)) * 3) %>%
-    dplyr::select(total_possible)
-
-  # calculate reproducibility score
-  notes <-
-    notes %>%
-    tibble::add_column(total_possible) %>%
-    dplyr::rowwise() %>%
-    dplyr::mutate(reproducibility_score =
-                    (
-                      sum(
-                        comp_mthds_avail,
-                        software_avail,
-                        software_cite,
-                        data_avail,
-                        na.rm = TRUE
-                      ) / total_possible
-                    ) * 100)
-
-  # create mean assignee rating value
-  notes <-
-    notes %>%
-    dplyr::group_by(assignee) %>%
-    dplyr::summarise(mean_assignee = mean(reproducibility_score)) %>%
-    dplyr::full_join(notes, by = "assignee")
+    dplyr::mutate(
+      software_cite = software_cite + 1,
+      software_avail = software_avail + 1,
+      comp_mthds_avail = comp_mthds_avail + 1,
+      data_avail = data_avail + 1
+    ) %>%
+    dplyr::mutate(
+      journal = as.factor(journal),
+      year = as.factor(year),
+      art_class = as.factor(art_class),
+      repro_inst = as.factor(repro_inst),
+      open = as.factor(open),
+      abbreviation = as.factor(abbreviation),
+      assignee = as.factor(assignee)
+    )
 
   # add a unique identifier value to each article since not all have a DOI
   notes$uid <- seq_along(1:nrow(notes))
