@@ -37,27 +37,20 @@ import_interrater_scores <- function() {
 
   notes <-
     notes %>%
-    dplyr::mutate(doi = as.factor(doi)) %>%
-    dplyr::mutate(art_class = as.factor(art_class)) %>%
-    dplyr::mutate(molecular = as.factor(molecular)) %>%
-    dplyr::mutate(assignee = as.factor(assignee))
-
-  # add reproducibility score as a percent of total possible
-  #
-  # calculate total possible score for a paper
-  total_possible <-
-    notes %>%
-    dplyr::select(
-      comp_mthds_avail,
-      software_avail,
-      software_avail_corrected,
-      software_cite,
-      data_avail
+    dplyr::mutate(
+      software_cite = software_cite + 1,
+      software_avail = software_avail + 1,
+      comp_mthds_avail = comp_mthds_avail + 1,
+      data_avail = data_avail + 1
     ) %>%
-    dplyr::mutate(total_possible = rowSums(!is.na(.)) * 3) %>%
-    dplyr::select(total_possible)
+    dplyr::mutate(
+      doi = as.factor(doi),
+      art_class = as.factor(art_class),
+      molecular = as.factor(molecular),
+      assignee = as.factor(assignee)
+    )
 
-    # add a unique identifier value to each article since not all have a DOI
+  # add a unique identifier value to each article since not all have a DOI
   notes$uid <- seq_along(1:nrow(notes))
 
   return(notes)
