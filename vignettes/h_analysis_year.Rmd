@@ -64,14 +64,14 @@ rrpp <- drop_na(rrpp, comp_mthds_avail)
 
 m_h1 <-
   brm(
-    formula = comp_mthds_avail ~  year +
+    formula = comp_mthds_avail ~ year +
       (1 | abbreviation) +
       (1 | assignee) +
       (1 | year),
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative("logit"),
+    family = cumulative(link = "logit"),
     iter = 4000,
     control = list(adapt_delta = 0.9999),
   )
@@ -95,14 +95,14 @@ rrpp <- drop_na(rrpp, data_avail)
 
 m_h2 <-
   brm(
-    formula = data_avail ~  year +
+    formula = data_avail ~ year +
       (1 | abbreviation) +
       (1 | assignee) +
       (1 | year),
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative("logit"),
+    family = cumulative(link = "logit"),
     iter = 4000,
     control = list(adapt_delta = 0.9999),
   )
@@ -128,14 +128,14 @@ rrpp <- drop_na(rrpp, software_avail)
 
 m_h3 <-
   brm(
-    formula = software_avail ~  year +
+    formula = software_avail ~ year +
       (1 | abbreviation) +
       (1 | assignee) +
       (1 | year),
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative("logit"),
+    family = cumulative(link = "logit"),
     iter = 4000,
     control = list(adapt_delta = 0.99)
   )

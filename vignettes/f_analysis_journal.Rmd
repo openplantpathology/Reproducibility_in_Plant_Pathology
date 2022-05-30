@@ -82,7 +82,7 @@ m_f1 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative("logit"),
+    family = cumulative(link = "logit"),
     iter = 6000,
     control = list(adapt_delta = 0.999)
   )
@@ -120,7 +120,7 @@ m_f2 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative("logit"),
+    family = cumulative(link = "logit"),
     iter = 4000,
     control = list(adapt_delta = 0.999)
   )
@@ -156,7 +156,7 @@ m_f3 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative("logit"),
+    family = cumulative(link = "logit"),
     iter = 4000,
     control = list(adapt_delta = 0.999)
   )

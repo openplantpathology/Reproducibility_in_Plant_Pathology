@@ -72,7 +72,7 @@ m_g1 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative("logit"),
+    family = cumulative(link = "logit"),
     control = list(adapt_delta = 0.99),
     iter = 4000,
     chains = 4
@@ -106,7 +106,7 @@ m_g2 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative("logit"),
+    family = cumulative(link = "logit"),
     control = list(adapt_delta = 0.99),
     iter = 4000,
     chains = 4
@@ -139,7 +139,7 @@ m_g3 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative("logit"),
+    family = cumulative(link = "logit"),
     control = list(adapt_delta = 0.99),
     iter = 4000,
     chains = 4

@@ -52,7 +52,7 @@ theme_set(theme_classic())
 Test the effect that journal's instructions for depositing code and data had on the availability of computational methods.
 
 ```{r code}
-priors <- prior_string("normal(0, 1)")
+priors <- prior_string("normal(0, 1.5)")
 rrpp <- import_notes()
 rrpp <- drop_na(rrpp, comp_mthds_avail)
 
@@ -65,7 +65,7 @@ m_j1 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative("logit"),
+    family = cumulative(link = "logit"),
     control = list(adapt_delta = 0.99),
     iter = 4000,
     chains = 4
@@ -99,7 +99,7 @@ m_j2 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative("logit"),
+    family = cumulative(link = "logit"),
     control = list(adapt_delta = 0.99),
     iter = 4000,
     chains = 4
@@ -133,7 +133,7 @@ m_j3 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative("logit"),
+    family = cumulative(link = "logit"),
     control = list(adapt_delta = 0.99),
     iter = 4000,
     chains = 4
