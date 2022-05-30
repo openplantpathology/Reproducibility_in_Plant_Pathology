@@ -171,24 +171,24 @@ Percent agreement of software citations criteria rankings.
 ##### Agreement
 
 ```{r software-cite-agreement, warning=FALSE}
-rrpp %>% 
-  select(doi, assignee, software_cite) %>% 
-  pivot_wider(names_from = assignee, values_from = software_cite) %>% 
-  select(Adam, Emerson, Kaique, Nik, Zach) %>% 
-  as.matrix() %>% 
-  agree() %>% 
+rrpp %>%
+  select(doi, assignee, software_cite) %>%
+  pivot_wider(names_from = assignee, values_from = software_cite) %>%
+  select(Adam, Emerson, Kaique, Nik, Zach) %>%
+  as.matrix() %>%
+  agree() %>%
   pander()
 ```
 
 #### Fleiss' Kappa
 
 ```{r software-cite-kappa, warning=FALSE}
-rrpp %>% 
-  select(doi, assignee, software_cite) %>% 
-  pivot_wider(names_from = assignee, values_from = software_cite) %>% 
-  select(Adam, Emerson, Kaique, Nik, Zach) %>% 
-  as.matrix() %>% 
-  kappam.fleiss() %>% 
+rrpp %>%
+  select(doi, assignee, software_cite) %>%
+  pivot_wider(names_from = assignee, values_from = software_cite) %>%
+  select(Adam, Emerson, Kaique, Nik, Zach) %>%
+  as.matrix() %>%
+  kappam.fleiss() %>%
   pander()
 ```
 
@@ -199,24 +199,24 @@ Percent agreement of software availability criteria rankings.
 ##### Agreement
 
 ```{r software-avail-agreement, warning=FALSE}
-rrpp %>% 
-  select(doi, assignee, software_avail) %>% 
-  pivot_wider(names_from = assignee, values_from = software_avail) %>% 
-  select(Adam, Emerson, Kaique, Nik, Zach) %>% 
-  as.matrix() %>% 
-  agree() %>% 
+rrpp %>%
+  select(doi, assignee, software_avail) %>%
+  pivot_wider(names_from = assignee, values_from = software_avail) %>%
+  select(Adam, Emerson, Kaique, Nik, Zach) %>%
+  as.matrix() %>%
+  agree() %>%
   pander()
 ```
 
 #### Fleiss' Kappa
 
 ```{r software-avail-kappa, warning=FALSE}
-rrpp %>% 
-  select(doi, assignee, software_avail) %>% 
-  pivot_wider(names_from = assignee, values_from = software_avail) %>% 
-  select(Adam, Emerson, Kaique, Nik, Zach) %>% 
-  as.matrix() %>% 
-  kappam.fleiss() %>% 
+rrpp %>%
+  select(doi, assignee, software_avail) %>%
+  pivot_wider(names_from = assignee, values_from = software_avail) %>%
+  select(Adam, Emerson, Kaique, Nik, Zach) %>%
+  as.matrix() %>%
+  kappam.fleiss() %>%
   pander()
 ```
 
@@ -227,24 +227,24 @@ Percent agreement of corrected software availability criteria rankings.
 ##### Agreement
 
 ```{r software-avail-cor-agreement, warning=FALSE}
-rrpp %>% 
-  select(doi, assignee, software_avail_corrected) %>% 
-  pivot_wider(names_from = assignee, values_from = software_avail_corrected) %>% 
-  select(Adam, Emerson, Kaique, Nik, Zach) %>% 
-  as.matrix() %>% 
-  agree() %>% 
+rrpp %>%
+  select(doi, assignee, software_avail_corrected) %>%
+  pivot_wider(names_from = assignee, values_from = software_avail_corrected) %>%
+  select(Adam, Emerson, Kaique, Nik, Zach) %>%
+  as.matrix() %>%
+  agree() %>%
   pander()
 ```
 
 #### Fleiss' Kappa
 
 ```{r software-avail-cor-kappa, warning=FALSE}
-rrpp %>% 
-  select(doi, assignee, software_avail_corrected) %>% 
-  pivot_wider(names_from = assignee, values_from = software_avail_corrected) %>% 
-  select(Adam, Emerson, Kaique, Nik, Zach) %>% 
-  as.matrix() %>% 
-  kappam.fleiss() %>% 
+rrpp %>%
+  select(doi, assignee, software_avail_corrected) %>%
+  pivot_wider(names_from = assignee, values_from = software_avail_corrected) %>%
+  select(Adam, Emerson, Kaique, Nik, Zach) %>%
+  as.matrix() %>%
+  kappam.fleiss() %>%
   pander()
 ```
 
@@ -255,12 +255,12 @@ rrpp %>%
 Percent agreement of data availability criteria rankings.
 
 ```{r data-avail-agreement, warning=FALSE}
-rrpp %>% 
-  select(doi, assignee, data_avail) %>% 
-  pivot_wider(names_from = assignee, values_from = data_avail) %>% 
-  select(Adam, Emerson, Kaique, Nik, Zach) %>% 
-  as.matrix() %>% 
-  agree() %>% 
+rrpp %>%
+  select(doi, assignee, data_avail) %>%
+  pivot_wider(names_from = assignee, values_from = data_avail) %>%
+  select(Adam, Emerson, Kaique, Nik, Zach) %>%
+  as.matrix() %>%
+  agree() %>%
   pander()
 ```
 
@@ -271,12 +271,12 @@ rrpp %>%
 Percent agreement of computational methods availability criteria rankings.
 
 ```{r comp-methods-agreement, warning=FALSE}
-rrpp %>% 
-  select(doi, assignee, comp_mthds_avail) %>% 
-  pivot_wider(names_from = assignee, values_from = comp_mthds_avail) %>% 
-  select(Adam, Emerson, Kaique, Nik, Zach) %>% 
-  as.matrix() %>% 
-  agree() %>% 
+rrpp %>%
+  select(doi, assignee, comp_mthds_avail) %>%
+  pivot_wider(names_from = assignee, values_from = comp_mthds_avail) %>%
+  select(Adam, Emerson, Kaique, Nik, Zach) %>%
+  as.matrix() %>%
+  agree() %>%
   pander()
 ```
 
