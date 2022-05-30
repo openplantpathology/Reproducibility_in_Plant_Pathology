@@ -192,6 +192,34 @@ rrpp %>%
   pander()
 ```
 
+### Software Availability
+
+Percent agreement of software availability criteria rankings.
+
+##### Agreement
+
+```{r software-avail-agreement, warning=FALSE}
+rrpp %>% 
+  select(doi, assignee, software_avail) %>% 
+  pivot_wider(names_from = assignee, values_from = software_avail) %>% 
+  select(Adam, Emerson, Kaique, Nik, Zach) %>% 
+  as.matrix() %>% 
+  agree() %>% 
+  pander()
+```
+
+#### Fleiss' Kappa
+
+```{r software-avail-kappa, warning=FALSE}
+rrpp %>% 
+  select(doi, assignee, software_avail) %>% 
+  pivot_wider(names_from = assignee, values_from = software_avail) %>% 
+  select(Adam, Emerson, Kaique, Nik, Zach) %>% 
+  as.matrix() %>% 
+  kappam.fleiss() %>% 
+  pander()
+```
+
 ### Data Availability
 
 ##### Agreement
