@@ -67,7 +67,7 @@ m_j1 <-
     prior = priors,
     family = cumulative(link = "logit"),
     control = list(adapt_delta = 0.99),
-    iter = 4000,
+    iter = 6000,
     chains = 4
   )
 
@@ -101,7 +101,7 @@ m_j2 <-
     prior = priors,
     family = cumulative(link = "logit"),
     control = list(adapt_delta = 0.99),
-    iter = 4000,
+    iter = 6000,
     chains = 4
   )
 
@@ -135,7 +135,7 @@ m_j3 <-
     prior = priors,
     family = cumulative(link = "logit"),
     control = list(adapt_delta = 0.99),
-    iter = 4000,
+    iter = 6000,
     chains = 4
   )
 

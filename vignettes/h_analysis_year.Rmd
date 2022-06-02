@@ -72,7 +72,7 @@ m_h1 <-
     seed = 27,
     prior = priors,
     family = cumulative(link = "logit"),
-    iter = 4000,
+    iter = 6000,
     control = list(adapt_delta = 0.9999),
   )
 
@@ -103,7 +103,7 @@ m_h2 <-
     seed = 27,
     prior = priors,
     family = cumulative(link = "logit"),
-    iter = 4000,
+    iter = 6000,
     control = list(adapt_delta = 0.9999),
   )
 
@@ -136,7 +136,7 @@ m_h3 <-
     seed = 27,
     prior = priors,
     family = cumulative(link = "logit"),
-    iter = 4000,
+    iter = 6000,
     control = list(adapt_delta = 0.99)
   )
 
