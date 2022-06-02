@@ -73,7 +73,8 @@ invisible(
 
 library("Reproducibility.in.Plant.Pathology")
 
-rrpp <- import_notes()
+rrpp <- import_notes_paper()
+ir <- import_interrater_scores_paper()
 
 opts_chunk$set(
   collapse = TRUE,
@@ -86,8 +87,6 @@ opts_chunk$set(
   dev = "cairo_pdf",
   cache = FALSE
 )
-
-ir <- import_interrater_scores()
 ```
 
 ```{r fonts, include=FALSE, message=FALSE, eval=FALSE}
