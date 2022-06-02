@@ -206,36 +206,34 @@ This was downloaded, saved as an Open Document Spreadsheet (ODS) file and is lef
 Articles were classified as fundamental or applied and a note was made whether the article's primary focus was using or developing molecular techniques (TRUE/FALSE).
 This classification was based on the evaluator's judgement of the article.
 
-Where possible, the software used in the preparation of the publication was recorded in the notes if it was cited or otherwise specified in the article text.
+Where possible, the software used in conducting the research behind the publication was recorded in the notes if it was cited or otherwise specified in the article text.
 
 Values for software packages were checked for spelling consistency and corrections were made manually where necessary.
 When working with these data in R, all strings of software character values were converted to fully upper-case to standardise the capitalisation and alleviate any issues with capitalisation used between evaluators.
 A custom function, `import_notes()`, was written to import the data, format the columns properly and calculate the overall reproducibility score in R [@RCT2022].
 
-A total reproducibility score was calculated as the per cent of total possible for a given paper.
-However, some papers did not use specialized software therefore they were not scored for this category.
-
 ## Data Cleaning
 
 Efforts were made to standardise the scoring as much as possible.
-In some cases the `software_avail`, or the openness of the software used, score did not agree with the software that was recorded and these scores were modified after discussion to match the agreed on ratings.
-For example, a paper was rated as having a `software_avail` rating of `3`, but the evaulator noted that Excel had been used.
-Here, the `software_avail` rating was changed to `2` to bring it into line with the agreed upon guidelines.
+In some cases the `software_avail`, or the openness of the software used, score did not agree with the software that was recorded and these scores were modified after discussion to match the agreed on ratings based on the record of the software that was used in each respective paper.
+For example, a paper was rated as having a `software_avail` rating of `3`, but the evaluator noted that Excel had been used; here, the `software_avail` rating was changed to `2` to bring it into line with the agreed upon guidelines.
 In other cases, papers did not adequately describe all the software used, e.g., GenAlEx, an Excel add-on, was referred to but Excel was not mentioned in the text.
-In these cases, Excel was added to the `software_used` column.
+Here, Excel was added to the `software_used` column and the `software_avail` score was adjusted accordingly.
 
 ## Statistical Analysis
 
 The statistical analysis was performed using R version `r version$version.string` [@RCT2022] on an Apple MacBook Pro (13-inch, M1, 2020).
-Bayesian mixed-effect models were fit using the contributed package 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021] to evaluate the fixed effects of the publication (journal title), article class, molecular focus, five-year journal impact factor, journal open access policy on the reproducibility index and year to test for changes over time in the reproducibility index.
+Inter-rater differences were evaluated using percent agreement and Fliess' Kappa [ZZZZ cite emerson here]
+The software availability, computational methods availability and data availability scores were converted from 0-3 to 1-4 ordinal score values and Bayesian mixed-effect models were fit using the contributed package 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021] to evaluate the fixed effects of the publication (journal title), five-year journal impact factor, journal open access policy, journal data and code deposition instructions.
+The models included 'year', 'journal' and 'assignee' as random effects except in the year of publication analysis where 'year' was a fixed effect, publication analysis where the 'journal' was a fixed effect and five-year impact factor where correlations between the journal title and impact factor affected the software availability model.
 
-Relatively flat priors were selected from a normal distribution with a mean of 0 and a standard deviation of 10 for all parameters.
+Non-informative priors were selected from a normal distribution with a mean of 0 and a standard deviation of 1.5 were selected for all models.
 
 The random effects were year and assignee for all models excepting the model which tested for year effects.
 In all models, the random effects were the publication title and assigned evaluator.
 
-Models were fit using the `hurdle_gamma()` family function due to zero-inflated continuous data and the assumption that a zero value would only come from one process, the scoring.
-Each model was run for 3000 iterations in four chains.
+Models were fit using the `cumulative(link = "logit")` family function for ordinal scale data.
+Each model was run for 4000 iterations in four chains.
 
 The `adapt_delta()` and `max_treedepth()` values were adjusted as necessary on a case-by-case basis for each of the models to ensure a good model fit to the data and that the chains mixed well.
 
@@ -243,27 +241,17 @@ Model finesses were evaluated using model summaries and diagnostic plots from 'b
 
 Probability of direction or maximum probability of effect was plotted, `pd()`, and a test for practical equivalence, `equivalence_test()`, was performed for each model using the contributed R package 'bayestestR' (version `r packageVersion("bayestestR")`) [@Makowski2019] and the Region of Practical Equivalence (ROPE) was set to -0.1 to 0.1.
 
-Data were visualised using 'ggplot2' (version `r packageVersion("ggplot2")`) [@Wickham2016], 'ggpubr' (version `r packageVersion("ggpubr")`) [@Kassambara2020], 'egg' (version `r packageVersion("egg")`) [@Auguie2019] and patchwork (version `r packageVersion("patchwork")`) [@Pedersen2020].
+Data were visualised using 'ggplot2' (version `r packageVersion("ggplot2")`) [@Wickham2016], 'ggpubr' (version `r packageVersion("ggpubr")`) [@Kassambara2020] and patchwork (version `r packageVersion("patchwork")`) [@Pedersen2020].
 
 All methods are described in greater detail with the code necessary to reproduce the work in @Sparks2022.
 
 # Results
 
 The differences between the co-authors' classifications of the article class as `applied` or `fundamental` had no differences in the five articles that were evaluated by all of the co-authors (Figure \@ref(fig:irArtClass)A).
-However, differences in evaluators' interpretations of whether or not an article had a molecular focus or not led to this scoring criteria being dropped from the analysis and is not included in this analysis (Figure \@ref(fig:irArtClass)B).
-
-There was reasonable agreement among the authors when evaluating whether software was cited properly or not and freely and openly available (Figure \@ref(fig:irCriteria)A, \@ref(fig:irCriteria)B).
-All authors agreed on the evaluation of the computational methods and data availability of all five articles that were scored by each author (Figure \@ref(fig:irCriteria)C, \@ref(fig:irCriteria)C).
-
-The overall reproducibility scores assigned by authors to the five articles evaluated to check for inter-rater differences had moderate reliability, 0.57, (Table \@ref(tab:icc), Figure \@ref(fig:irReproScore)).
-
-There were `r length(which(rrpp$reproducibility_score == 100))` (`r round(length(which(rrpp$reproducibility_score == 100))/nrow(rrpp), 2) * 100`%) articles that scored 100% or were classed as fully reproducible (Figure \@ref(fig:reproScore)).
-`r toTitleCase(as.character(english::english(length(which(rrpp$reproducibility_score == 0)))))` (`r round(length(which(rrpp$reproducibility_score == 0))/nrow(rrpp), 2) * 100`%) of articles were scored at 0% out of a possible 100% for reproducibility (Figure \@ref(fig:reproScore)).
-The mean value was `r round(mean(rrpp$reproducibility_score), 1)`% and the median value was `r round(median(rrpp$reproducibility_score), 1)`%.
+However, there were several differences in evaluators' interpretations of whether or not an article had a molecular focus (Figure \@ref(fig:irArtClass)B).
+All authors agreed on the evaluation of the computational methods and data availability of all five articles that were scored by each author (Figure \@ref(fig:irCriteria)A, \@ref(fig:irCriteria)B).
 
 The analysis detected that the journal title did have an effect on the reproducibility score but there was no effect of article class or impact factor.
-
-Articles with a molecular focus skewed to a higher ranking reproducibility and openness but the difference was not strong enough to be detected with the analysis used.
 
 No journals surveyed were completely closed, all offered at least an option for open access but some were completely open.
 The analysis was unable to detect any differences in the effect of access policy on the openness and reproducibility of the evaluated articles, but in journals where the policy was to allow both open and pay-for-fee access, the articles were less likely to be open and reproducible when compared to journals that were completely open.
@@ -279,7 +267,7 @@ While the analysis did not detect an effect of the journals' instructions for sh
 The majority of the articles, `r length(which(rrpp$art_class == "Fundamental"))`, were classed as fundamental, with the remaining `r length(which(rrpp$art_class != "Fundamental"))` classed as applied.
 
 Most articles did not make any computational methods available in any fashion with `r length(which(rrpp$comp_mthds_avail == 3))` (`r round(length(which(rrpp$comp_mthds_avail == 3))/nrow(rrpp), 3)`%) classified as '3', which was the highest score available (Figure \@ref(fig:articleScores)A).
-`r gsub("(^[[:alpha:]])", "\\U\\1", as.character(english(length(which(rrpp$comp_mthds_avail == 0)))), perl = TRUE)` (`r round(length(which(rrpp$comp_mthds_avail == 0))/nrow(rrpp), 2) * 100`%) were classed as '0' and `r as.character(english(length(which(is.na(rrpp$comp_mthds_avail)))))` articles (`r round(length(which(is.na(rrpp$comp_mthds_avail)))/nrow(rrpp), 2) * 100`%) appeared to not use any computational methods.
+`r gsub("(^[[:alpha:]])", "\\U\\1", as.character(english(length(which(rrpp$comp_mthds_avail + -1 == 0)))), perl = TRUE)` (`r round(length(which(rrpp$comp_mthds_avail+ -1 == 0))/nrow(rrpp), 2) * 100`%) were classed as '0' and `r as.character(english(length(which(is.na(rrpp$comp_mthds_avail)))))` articles (`r round(length(which(is.na(rrpp$comp_mthds_avail)))/nrow(rrpp), 2) * 100`%) appeared to not use any computational methods.
 
 More articles did a good job of using software that was reasonably available to anyone with `r length(which(rrpp$software_avail >= 2))` (`r round(length(which(rrpp$software_avail >= 2))/nrow(rrpp), 2) * 100`%) scoring '2' or '3' (Figure \@ref(fig:articleScores)B) for software availability.
 
@@ -502,21 +490,6 @@ scoring_criteria %>%
   set_table_properties(layout = "autofit") %>%
   set_caption(
     "Articles were scored in four areas for reproducibility on a scale of '0' to '3' by five independent evaluators to rank articles in each of four areas, 'Computational methods availability', 'Data availability', 'Software availability' and 'Software citation'.")
-```
-
-\newpage
-
-```{r icc, echo=FALSE, message=FALSE, warning=FALSE}
-ir %>%
-  select(doi, assignee, reproducibility_score) %>%
-  pivot_wider(names_from = assignee, values_from = reproducibility_score) %>%
-  select(Adam, Emerson, Kaique, Nik, Zach) %>%
-  as.matrix() %>%
-  ICC() %>%
-  `[[`(1) %>%
-  flextable() %>%
-  set_table_properties(layout = "autofit") %>% 
-  set_caption("this needs a caption")
 ```
 
 \newpage
