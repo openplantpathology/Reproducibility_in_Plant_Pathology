@@ -204,40 +204,44 @@ The five-year impact factor for 2022 for each journal was retrieved from InCites
 This was downloaded, saved as an Open Document Spreadsheet (ODS) file and is left-joined with the article notes using a `left_join()` from the 'dplyr' package (version `r packageVersion("dplyr")`) [@Wickham2020] for analysis when a custom function for this analysis, `import_notes()`, was executed.
 
 Articles were classified as fundamental or applied and a note was made whether the article's primary focus was using or developing molecular techniques (TRUE/FALSE).
-This classification was based on the evaluator's judgement of the article.
+These classifications were based on the individual evaluator's judgement of the article.
 
-Where possible, the software used in conducting the research behind the publication was recorded in the notes if it was cited or otherwise specified in the article text.
+Each article was rated on a 0 -- 3 scale for its software, data and code availability.
+'Software availability' was defined as follows, a score of '0' was 'Not available or not mentioned in the publication'; '1' was 'Expensive proprietary software that only institutions would typically purchase'; '2' was 'Used proprietary software that most individuals can afford (e.g., Excel) or SAS that is now available free for use with a university login'; and '3' was 'Used entirely open source and free software (e.g., R, Julia, Python)'; 'NA' indicates that no specialised software was necessary or used.
+'Code availability' scores were assigned as '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no code was created to conduct the work that was detectable.
+Lastly, the 'Data availability' was evaluated as '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no data were generated, e.g., a methods paper.
 
-Values for software packages were checked for spelling consistency and corrections were made manually where necessary.
-When working with these data in R, all strings of software character values were converted to fully upper-case to standardise the capitalisation and alleviate any issues with capitalisation used between evaluators.
-A custom function, `import_notes()`, was written to import the data, format the columns properly and calculate the overall reproducibility score in R [@RCT2022].
+Where possible, the software used in conducting the research behind the publication was recorded in the notes when it was cited or otherwise specified in the article text.
 
 ## Data Cleaning
 
 Efforts were made to standardise the scoring as much as possible.
-In some cases the `software_avail`, or the openness of the software used, score did not agree with the software that was recorded and these scores were modified after discussion to match the agreed on ratings based on the record of the software that was used in each respective paper.
+A custom function, `import_notes()`, was written to import the data, format the columns properly and calculate the overall reproducibility score in R [@RCT2022].
+Values for software packages were checked for spelling consistency and corrections were made manually where necessary.
+When working with these data in R, all strings of software character values were converted to fully upper-case to standardise the capitalisation and alleviate any issues with capitalisation used between evaluators.
+In some cases the `software_avail`, or the openness of the software used, score did not agree with the software that was recorded and the agreed-upon criteria, so these scores were modified after discussion to match the ratings to the record of the software that was used in each respective paper.
 For example, a paper was rated as having a `software_avail` rating of `3`, but the evaluator noted that Excel had been used; here, the `software_avail` rating was changed to `2` to bring it into line with the agreed upon guidelines.
 In other cases, papers did not adequately describe all the software used, e.g., GenAlEx, an Excel add-on, was referred to but Excel was not mentioned in the text.
 Here, Excel was added to the `software_used` column and the `software_avail` score was adjusted accordingly.
+The software availability, computational methods availability and data availability scores were converted from 0 -- 3 to 1 -- 4 ordinal score values for analysis.
 
 ## Statistical Analysis
 
 The statistical analysis was performed using R version `r version$version.string` [@RCT2022] on an Apple MacBook Pro (13-inch, M1, 2020).
-Inter-rater differences were evaluated using percent agreement and Fliess' Kappa [ZZZZ cite emerson here]
-The software availability, computational methods availability and data availability scores were converted from 0-3 to 1-4 ordinal score values and Bayesian mixed-effect models were fit using the contributed package 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021] to evaluate the fixed effects of the publication (journal title), five-year journal impact factor, journal open access policy, journal data and code deposition instructions.
+
+Inter-rater differences were evaluated using percent agreement and Fliess' Kappa [@DelPonte2019].
+
+The articles' computational reproducibility were analysed using Bayesian mixed-effect models fit using the contributed package 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021] to evaluate the fixed effects of the publication (journal title), five-year journal impact factor, journal open access policy, journal data and code deposition instructions on three factors, data and code availability how open and available the software used were.
 The models included 'year', 'journal' and 'assignee' as random effects except in the year of publication analysis where 'year' was a fixed effect, publication analysis where the 'journal' was a fixed effect and five-year impact factor where correlations between the journal title and impact factor affected the software availability model.
 
 Non-informative priors were selected from a normal distribution with a mean of 0 and a standard deviation of 1.5 were selected for all models.
-
-The random effects were year and assignee for all models excepting the model which tested for year effects.
-In all models, the random effects were the publication title and assigned evaluator.
 
 Models were fit using the `cumulative(link = "logit")` family function for ordinal scale data.
 Each model was run for 4000 iterations in four chains.
 
 The `adapt_delta()` and `max_treedepth()` values were adjusted as necessary on a case-by-case basis for each of the models to ensure a good model fit to the data and that the chains mixed well.
 
-Model finesses were evaluated using model summaries and diagnostic plots from 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021] and posterior fits using `pp_check()` (Figure \@ref(fig:posteriors)) from the contributed R package 'bayesplot' (version `r packageVersion("bayesplot")`) [@Gabry2019].
+Model fitnesses were evaluated using model summaries and diagnostic plots from 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021] and posterior fits using `pp_check()` (Figure \@ref(fig:posteriors)) from the contributed R package 'bayesplot' (version `r packageVersion("bayesplot")`) [@Gabry2019].
 
 Probability of direction or maximum probability of effect was plotted, `pd()`, and a test for practical equivalence, `equivalence_test()`, was performed for each model using the contributed R package 'bayestestR' (version `r packageVersion("bayestestR")`) [@Makowski2019] and the Region of Practical Equivalence (ROPE) was set to -0.1 to 0.1.
 
