@@ -231,7 +231,7 @@ The statistical analysis was performed using R version `r version$version.string
 
 Inter-rater differences were evaluated using percent agreement and Fliess' Kappa [@DelPonte2019].
 
-The articles' computational reproducibility were analysed using Bayesian mixed-effect models fit using the contributed package 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021] to evaluate the fixed effects of the publication (journal title), five-year journal impact factor, journal open access policy, journal data and code deposition instructions on three factors, data and code availability how open and available the software used were.
+The articles' computational reproducibility were analysed using Bayesian mixed-effect models fit using the contributed package 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021] to evaluate the fixed effects of the publication (journal title), five-year journal impact factor, journal open access policy, journal data and code deposition instructions on three factors, data, code and software availability.
 The models included 'year', 'journal' and 'assignee' as random effects except in the year of publication analysis where 'year' was a fixed effect, publication analysis where the 'journal' was a fixed effect and five-year impact factor where correlations between the journal title and impact factor affected the software availability model.
 
 Non-informative priors were selected from a normal distribution with a mean of 0 and a standard deviation of 1.5 were selected for all models.
