@@ -1,10 +1,10 @@
 ---
-title: "Analysis of Open Access Policy"
+title: "Analysis of Open Access Policy Effect"
 author: "Adam H. Sparks"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Analysis of Open Access Policy}
+  %\VignetteIndexEntry{Analysis of Open Access Policy Effect}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
   %\VignetteDepends{brms}

@@ -1,10 +1,10 @@
 ---
-title: "Reproducibility Instructions Effect"
+title: "Analysis of Reproducibility Instructions Effect"
 author: "Adam H. Sparks"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Reproducibility Instructions Effect}
+  %\VignetteIndexEntry{Analysis of Reproducibility Instructions Effect}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
   %\VignetteDepends{brms}
