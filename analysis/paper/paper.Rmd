@@ -237,7 +237,7 @@ The models included 'year', 'journal' and 'assignee' as random effects except in
 Non-informative priors were selected from a normal distribution with a mean of 0 and a standard deviation of 1.5 were selected for all models.
 
 Models were fit using the `cumulative(link = "logit")` family function for ordinal scale data.
-Each model was run for 4000 iterations in four chains.
+Each model was run for 6000 iterations in four chains with a warmup of 3000 iterations.
 
 The `adapt_delta()` and `max_treedepth()` values were adjusted as necessary on a case-by-case basis for each of the models to ensure a good model fit to the data and that the chains mixed well.
 
