@@ -29,7 +29,7 @@ This vignette documents the analysis of the data gathered from surveying 21 jour
 
 # Set-up Workspace
 
-Load libraries used and setting the _ggplot2_ theme for the document.
+Load libraries used and setting the *ggplot2* theme for the document.
 
 ```{r load-libraries, message=FALSE}
 library("brms")
@@ -162,6 +162,7 @@ save(m_h3, file = here("inst/extdata/m_h3.Rda"))
 ```
 
 # Colophon
+
 ```{r sessioninfo}
 sessioninfo::session_info()
 ```
