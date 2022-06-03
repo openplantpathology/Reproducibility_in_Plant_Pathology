@@ -203,9 +203,6 @@ Each journal was classified as to whether they were completely open (TRUE), behi
 The five-year impact factor for 2022 for each journal was retrieved from InCites Journal Citation Reports, Clarivate Analytics and entered in a separate sheet in the Google sheets file.
 This was downloaded, saved as an Open Document Spreadsheet (ODS) file and is left-joined with the article notes using a `left_join()` from the 'dplyr' package (version `r packageVersion("dplyr")`) [@Wickham2020] for analysis when a custom function for this analysis, `import_notes()`, was executed.
 
-Articles were classified as fundamental or applied and a note was made whether the article's primary focus was using or developing molecular techniques (TRUE/FALSE).
-These classifications were based on the individual evaluator's judgement of the article.
-
 Each article was rated on a 0 -- 3 scale for its software, data and code availability.
 'Software availability' was defined as follows, a score of '0' was 'Not available or not mentioned in the publication'; '1' was 'Expensive proprietary software that only institutions would typically purchase'; '2' was 'Used proprietary software that most individuals can afford (e.g., Excel) or SAS that is now available free for use with a university login'; and '3' was 'Used entirely open source and free software (e.g., R, Julia, Python)'; 'NA' indicates that no specialised software was necessary or used.
 'Code availability' scores were assigned as '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no code was created to conduct the work that was detectable.
@@ -251,8 +248,6 @@ All methods are described in greater detail with the code necessary to reproduce
 
 # Results
 
-The differences between the co-authors' classifications of the article class as `applied` or `fundamental` had no differences in the five articles that were evaluated by all of the co-authors (Figure \@ref(fig:irArtClass)A).
-However, there were several differences in evaluators' interpretations of whether or not an article had a molecular focus (Figure \@ref(fig:irArtClass)B).
 All authors agreed on the evaluation of the computational methods and data availability of all five articles that were scored by each author (Figure \@ref(fig:irCriteria)A, \@ref(fig:irCriteria)B).
 
 The analysis detected that the journal title did have an effect on the reproducibility score but there was no effect of article class or impact factor.
@@ -499,157 +494,6 @@ scoring_criteria %>%
 \newpage
 
 # Figures
-
-```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualisations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialised journals. Six factors were evaluated, (A) Publication (Journal Title), (B) Article Class, (C) Five Year Impact Factor of Journal, (D) Journal Open Access Policy, (E) Year of Publication and (F) the Journals' Reproducibility Instructions where y is the data's density and y~rep~ are ten random posterior draws. Model fitnesses were found to be good for all models and no effects of any of the factors were observed on the reproducibility score.", cache=FALSE, fig.env='figure'}
-
-set.seed(23)
-
-color_scheme_set(scheme = "gray")
-
-load(file = here("inst/extdata/m_f1.Rda"))
-load(file = here("inst/extdata/m_f2.Rda"))
-load(file = here("inst/extdata/m_f3.Rda"))
-load(file = here("inst/extdata/m_g1.Rda"))
-load(file = here("inst/extdata/m_g2.Rda"))
-load(file = here("inst/extdata/m_g3.Rda"))
-load(file = here("inst/extdata/m_h1.Rda"))
-load(file = here("inst/extdata/m_h2.Rda"))
-load(file = here("inst/extdata/m_h3.Rda"))
-load(file = here("inst/extdata/m_i1.Rda"))
-load(file = here("inst/extdata/m_i2.Rda"))
-load(file = here("inst/extdata/m_i3.Rda"))
-load(file = here("inst/extdata/m_j1.Rda"))
-load(file = here("inst/extdata/m_j2.Rda"))
-load(file = here("inst/extdata/m_j3.Rda"))
-
-mod_list <- list(
-  pp_check(m_f1) +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank()
-    ),
-  pp_check(m_f2) +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank()
-    ),
-  pp_check(m_f3) +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank()
-    ),
-  pp_check(m_g1) +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank()
-    ),
-  pp_check(m_g2) +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank()
-    ),
-  pp_check(m_g3) +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank()
-    ),
-  pp_check(m_h1) +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank()
-    ),
-  pp_check(m_h2) +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank()
-    ),
-  pp_check(m_h3) +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank()
-    ),
-  pp_check(m_i1),
-  pp_check(m_i2),
-  pp_check(m_i3)
-)
-
-p <- wrap_plots(mod_list, nrow = 4) +
-  plot_layout(guides = "collect") +
-  plot_annotation(tag_levels = "A",
-                  title = "Bayesian posterior distributions of evaluation score models")
-
-ggsave(
-  filename = here("analysis/figures/Sparks_et_al_Figure_1.eps"),
-  plot = p,
-  width = 6,
-  height = 6,
-  units = "in",
-  device = cairo_ps
-)
-embed_fonts(
-  file = here("analysis/figures/Sparks_et_al_Figure_1.eps"),
-  outfile = here("analysis/figures/Sparks_et_al_Figure_1.eps"),
-  options = "-dEPSCrop"
-)
-include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_1.eps"))
-```
-
-\newpage
-
-```{r irArtClass, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Evaluator classifications of (A) an articles focus being molecular techniques (TRUE/FALSE) and (B) an article's class (Fundamental/Applied). Where all five articles were scored by all five authors to check for agreement between the evaluations.", cache=FALSE, fig.env='figure'}
-
-theme_set(theme_classic())
-a <- ggplot(ir, aes(y = doi,
-                      fill = molecular)) +
-  geom_bar() +
-  scale_fill_grey(name = "") +
-  ylab("DOI") +
-  xlab("Count") +
-  ggtitle("Molecular Focus") +
-  theme(legend.position = "top")
-
-b <- ggplot(ir, aes(y = doi,
-                      fill = art_class)) +
-  geom_bar() +
-  scale_fill_grey(name = "") +
-  xlab("Count") +
-  ylab("") +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank()
-  ) +
-  ggtitle("Article Class") +
-  theme(legend.position = "top")
-
-p <- (a | b)
-p <- p + plot_annotation(tag_levels = "A",
-                         title = "Evaluator agreement in article classifications")
-
-ggsave(
-  filename = here("analysis/figures/Sparks_et_al_Figure_2.eps"),
-  plot = p,
-  width = 6,
-  height = 6,
-  units = "in",
-  device = cairo_ps
-)
-embed_fonts(
-  file = here("analysis/figures/Sparks_et_al_Figure_2.eps"),
-  outfile = here("analysis/figures/Sparks_et_al_Figure_2.eps"),
-  options = "-dEPSCrop"
-)
-include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_2.eps"))
-```
-
 \newpage
 
 ```{r irCriteria, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Evaluator agreement for five articles scored for (A) computational methods (code) used, e.g. scripts or other self-written programs were freely and openly available and (B) data represented in the paper were freely and openly available. Note that one evaluator rated an article with computational methods available as 'NA', which is reflected in that article having only four evaluations for this criteria.", cache=FALSE, fig.env='figure'}
@@ -675,10 +519,11 @@ b <- ggplot(ir,
 
 p <- a + b
 p <- p + plot_annotation(tag_levels = "A",
-                         title = "Evaluator agreement in article reproducibility criteria scoring")
+                         title = "Evaluator agreement in article reproducibility criteria scoring") &
+  theme(text = element_text("Arial"))
 
 ggsave(
-  filename = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
+  filename = here("analysis/figures/Sparks_et_al_Figure_1.eps"),
   plot = p,
   width = 6,
   height = 6,
@@ -686,11 +531,161 @@ ggsave(
   device = cairo_ps
 )
 embed_fonts(
-  file = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
-  outfile = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
+  file = here("analysis/figures/Sparks_et_al_Figure_1.eps"),
+  outfile = here("analysis/figures/Sparks_et_al_Figure_1.eps"),
   options = "-dEPSCrop"
 )
-include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_3.eps"))
+include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_1.eps"))
+```
+
+\newpage
+
+```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualisations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialised journals. Six factors were evaluated, (A, B, C) Publication (Journal Title), (D, E, F) Article Class, (G, H, I) Five Year Impact Factor of Journal, (J, K, L) Journal Open Access Policy, (M, N, O) Year of Publication and (P, Q) the Journals' Reproducibility Instructions where y is the data's density and y~rep~ are ten random posterior draws. Model fitnesses were found to be good for all models and no effects of any of the factors were observed on the reproducibility score.", cache=FALSE, fig.env='figure'}
+
+set.seed(23)
+
+color_scheme_set(scheme = "gray")
+
+load(file = here("inst/extdata/m_f1.Rda"))
+load(file = here("inst/extdata/m_f2.Rda"))
+load(file = here("inst/extdata/m_f3.Rda"))
+load(file = here("inst/extdata/m_g1.Rda"))
+load(file = here("inst/extdata/m_g2.Rda"))
+load(file = here("inst/extdata/m_g3.Rda"))
+load(file = here("inst/extdata/m_h1.Rda"))
+load(file = here("inst/extdata/m_h2.Rda"))
+load(file = here("inst/extdata/m_h3.Rda"))
+load(file = here("inst/extdata/m_i1.Rda"))
+load(file = here("inst/extdata/m_i2.Rda"))
+load(file = here("inst/extdata/m_i3.Rda"))
+load(file = here("inst/extdata/m_j1.Rda"))
+load(file = here("inst/extdata/m_j2.Rda"))
+load(file = here("inst/extdata/m_j3.Rda"))
+load(file = here("inst/extdata/m_k1.Rda"))
+load(file = here("inst/extdata/m_k2.Rda"))
+
+
+mod_list <- list(
+  pp_check(m_f1) +
+    ggtitle("Code") +
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis.title.x = element_blank(),
+      plot.title = element_text(hjust = 0.5)
+    ) +
+    ylab("Journal"),
+  pp_check(m_f2) +
+    ggtitle("Data") +
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis.title.x = element_blank(),
+      plot.title = element_text(hjust = 0.5)
+    ),
+  pp_check(m_f3) +
+    ggtitle("Software") +
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis.title.x = element_blank(),
+      plot.title = element_text(hjust = 0.5)
+    ),
+  pp_check(m_g1) +
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis.title.x = element_blank()
+    ) +
+    ylab("5 Y IF"),
+  pp_check(m_g2) +
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis.title.x = element_blank()
+    ),
+  pp_check(m_g3) +
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis.title.x = element_blank()
+    ),
+  pp_check(m_h1) +
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis.title.x = element_blank()
+    ) +
+    ylab("Year"),
+  pp_check(m_h2) +
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis.title.x = element_blank()
+    ),
+  pp_check(m_h3) +
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis.title.x = element_blank(),
+    ),
+  pp_check(m_i1) +
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis.title.x = element_blank()
+    ) +
+    ylab("Access"),
+  pp_check(m_i2) +
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis.title.x = element_blank()
+    ),
+  pp_check(m_i3) +
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis.title.x = element_blank()
+    ),
+  pp_check(m_j1) +
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis.title.x = element_blank()
+    ) +
+    ylab("Instructions"),
+  pp_check(m_j2) +
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis.title.x = element_blank()
+    ),
+  pp_check(m_j3),
+  pp_check(m_k1) +
+    ylab("Software"),
+  pp_check(m_k2)
+)
+
+p <- wrap_plots(mod_list, ncol = 3) +
+  plot_layout(guides = "collect") &
+  plot_annotation(title = "Bayesian posterior distributions of evaluation score models") &
+  theme(text = element_text("Arial"))
+
+ggsave(
+  filename = here("analysis/figures/Sparks_et_al_Figure_2.eps"),
+  plot = p,
+  width = 6,
+  height = 6,
+  units = "in",
+  device = cairo_ps
+)
+embed_fonts(
+  file = here("analysis/figures/Sparks_et_al_Figure_2.eps"),
+  outfile = here("analysis/figures/Sparks_et_al_Figure_2.eps"),
+  options = "-dEPSCrop"
+)
+include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_2.eps"))
 ```
 
 \newpage
@@ -717,7 +712,8 @@ c <- ggplot(rrpp, aes(x = as.factor(data_avail))) +
 
 p <- a + b + c
 p <- p +
-  plot_annotation(tag_levels = "A")
+  plot_annotation(tag_levels = "A") &
+  theme(text = element_text("Arial"))
 
 ggsave(
   filename = here("analysis/figures/Sparks_et_al_Figure_4.eps"),
@@ -728,11 +724,11 @@ ggsave(
   device = cairo_ps
 )
 embed_fonts(
-  file = here("analysis/figures/Sparks_et_al_Figure_4.eps"),
-  outfile = here("analysis/figures/Sparks_et_al_Figure_4.eps"),
+  file = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
+  outfile = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
   options = "-dEPSCrop"
 )
-include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_4.eps"))
+include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_3.eps"))
 ```
 
 \newpage
@@ -780,12 +776,12 @@ p <- export_svg(
 )
 
 rsvg_ps(svg = charToRaw(p),
-        file = here("analysis/figures/Sparks_et_al_Figure_5.eps"))
+        file = here("analysis/figures/Sparks_et_al_Figure_4.eps"))
 embed_fonts(
-  file = here("analysis/figures/Sparks_et_al_Figure_5.eps"),
-  outfile = here("analysis/figures/Sparks_et_al_Figure_5.eps"),
+  file = here("analysis/figures/Sparks_et_al_Figure_4.eps"),
+  outfile = here("analysis/figures/Sparks_et_al_Figure_4.eps"),
   options = "-dEPSCrop"
 )
 
-include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_5.eps"))
+include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_4.eps"))
 ```
