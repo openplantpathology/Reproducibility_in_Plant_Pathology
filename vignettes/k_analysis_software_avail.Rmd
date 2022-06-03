@@ -29,7 +29,7 @@ This vignette documents the analysis of the data gathered from surveying 21 jour
 
 # Set-up Workspace
 
-Load libraries used and setting the *jgplot2* theme for the document.
+Load libraries used and setting the *ggplot2* theme for the document.
 
 ```{r load-libraries, message=FALSE}
 library("brms")
@@ -45,7 +45,7 @@ options(mc.cores = parallel::detectCores())
 theme_set(theme_classic())
 ```
 
-## Reproducibility Instructions Models
+## Software Availability (Openness of Software Used) Models
 
 ### Computational Methods Availability
 
@@ -56,7 +56,7 @@ priors <- prior_string("normal(0, 1.5)")
 rrpp <- import_notes()
 rrpp <- drop_na(rrpp, comp_mthds_avail)
 
-m_h1 <-
+m_k1 <-
   brm(
     formula = comp_mthds_avail ~ software_avail +
       (1 | year) +
@@ -71,15 +71,15 @@ m_h1 <-
     chains = 4
   )
 
-summary(m_h1)
+summary(m_k1)
 
-plot(m_h1)
+plot(m_k1)
 
-pp_check(m_h1)
+pp_check(m_k1)
 
-plot(pd(m_h1))
+plot(pd(m_k1))
 
-pander(equivalence_test(m_h1))
+pander(equivalence_test(m_k1))
 ```
 
 ### Data Availability
@@ -90,7 +90,7 @@ Test for any relationship between the openness of the software used had on the a
 rrpp <- import_notes()
 rrpp <- drop_na(rrpp, data_avail)
 
-m_h2 <-
+m_k2 <-
   brm(
     formula = data_avail ~ software_avail +
       (1 | year) +
@@ -105,24 +105,24 @@ m_h2 <-
     chains = 4
   )
 
-summary(m_h2)
+summary(m_k2)
 
-plot(m_h2)
+plot(m_k2)
 
-pp_check(m_h2)
+pp_check(m_k2)
 
-plot(pd(m_h2))
+plot(pd(m_k2))
 
-pander(equivalence_test(m_h2))
+pander(equivalence_test(m_k2))
 ```
 
-## Save model objects
+## Save Model Objects
 
 Save the model objects for figures in the paper.
 
 ```{r save}
-save(m_h1, file = here("inst/extdata/m_h1.Rda"))
-save(m_h2, file = here("inst/extdata/m_h2.Rda"))
+save(m_k1, file = here("inst/extdata/m_k1.Rda"))
+save(m_k2, file = here("inst/extdata/m_k2.Rda"))
 ```
 
 # Colophon
