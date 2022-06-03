@@ -16,7 +16,7 @@ vignette: >
   %\VignetteDepends{tidyverse}
   %\VignetteDepends{sessioninfo}
 ---
-  
+
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
 collapse = TRUE,
@@ -29,15 +29,13 @@ This vignette documents a simple visualisation and tabulation of the data gather
 
 # Set-up Workspace
 
-Load libraries used and setting the _ggplot2_ theme for the document.
+Load libraries used and setting the *ggplot2* theme for the document.
 
 ```{r load-libraries}
 library("tidyverse")
 library("janitor")
 library("pander")
 library("Reproducibility.in.Plant.Pathology")
-library("ggplot2")
-library("tidyr")
 theme_set(theme_classic())
 ```
 
@@ -45,41 +43,6 @@ theme_set(theme_classic())
 
 ```{r}
 rrpp <- import_notes()
-```
-
-## Reproducibility score
-
-The reproducibility score was calculated as the sum of the scores for computational method availability for the total available scores.
-That is, if a paper did not require specialised software but deposited and reported all data the score was 100%, the same as for another article that cited and used all open source software and deposited code and data.
-
-```{r repro_score}
-ggplot(rrpp, aes(x = reproducibility_score)) +
-  geom_density() +
-  ggtitle("Reproducibility Score") +
-  xlab("Score (%)")
-```
-
-## Evaluator effect on reproducibility score
-
-Have a look at whether evaluators had an effect on the scores assigned.
-
-### Reproducibility score
-
-```{r evaluator}
-ggplot(rrpp, aes(y = reproducibility_score,
-                  x = reorder(factor(assignee), mean_assignee))) +
-  geom_count() +
-  stat_summary(
-    fun = median,
-    fun.min = median,
-    fun.max = median,
-    geom = "crossbar",
-    width = 0.5
-  ) +
-  ggtitle("Evaluator Scores Sorted by Their Respective Mean Scores") +
-  ylab("Reproducibility Score (%)") +
-  xlab("Evaluator") +
-  labs(caption = "Crossbar indicates median reproducibility score value.")
 ```
 
 ### Individual Rating Scores
@@ -104,20 +67,9 @@ ggplot(rrpp_long, aes(x = as.factor(value))) +
 
 # Visualise evaluations
 
-## Article classes
-
-What class did the articles fall into, "Applied" or "Fundamental".
-
-```{r class}
-ggplot(rrpp, aes(y = art_class)) +
-  geom_bar() +
-  ylab("Class") +
-  ggtitle("Article Classification")
-```
-
 ## Computational methods available
 
-Were the computational methods, scripts, source code, _etc._, made available?
+Were the computational methods, scripts, source code, *etc.*, made available?
 
 ```{r comp_methods}
 ggplot(rrpp, aes(y = as.factor(comp_mthds_avail))) +
@@ -194,164 +146,68 @@ ggplot(rrpp, aes(y = as.factor(data_avail))) +
   ylab("Score")
 ```
 
-## Article class effect on reproducibility score
-
-```{r art_class}
-ggplot(rrpp, aes(y = reproducibility_score,
-                 x = art_class)) +
-  geom_count() +
-  stat_summary(
-    fun = median,
-    fun.min = median,
-    fun.max = median,
-    geom = "crossbar",
-    width = 0.5
-  ) +
-  ggtitle("Article Class Effect") +
-  ylab("Reproducibility Score (%)") +
-  xlab("Class") +
-  labs(caption = "Crossbar indicates median reproducibility score value.")
-```
-
-
 ## Journal effect on reproducibility score
 
 ```{r journal}
-ggplot(rrpp, aes(x = reproducibility_score,
-                 y = abbreviation)) +
-  geom_count() +
-  ggtitle("Journal Effect") +
-  ylab("Journal") +
+rrpp %>%
+  pivot_longer(cols = c("comp_mthds_avail", "data_avail", "software_avail")) %>%
+  ggplot(aes(x = value,
+             y = abbreviation)) +
+  geom_count(alpha = 0.5) +
+  facet_wrap(. ~ name) +
   xlab("Score")
 ```
-
 
 ## Five year impact factor effect on reproducibility score
 
 ```{r IF, message=FALSE}
-ggplot(rrpp, aes(y = reproducibility_score,
-                 x = IF_5year)) +
-  geom_count() +
-  geom_smooth() +
-  ggtitle("Five Year IF Effect") +
-  ylab("Score") +
-  xlab("Impact Factor")
+rrpp %>%
+  pivot_longer(cols = c("comp_mthds_avail", "data_avail", "software_avail")) %>%
+  ggplot(aes(x = value,
+             y = IF_5year)) +
+  geom_count(alpha = 0.5) +
+  facet_wrap(. ~ name) +
+  xlab("Score")
 ```
 
 ## Journal open access effect on reproducibility score
 
 ```{r open_access}
-ggplot(rrpp, aes(y = reproducibility_score,
-                 x = as.factor(open))) +
+rrpp %>%
+  pivot_longer(cols = c("comp_mthds_avail", "data_avail", "software_avail")) %>%
+  ggplot(aes(x = value,
+             y = as.factor(open))) +
   geom_count() +
-  stat_summary(
-    fun = median,
-    fun.min = median,
-    fun.max = median,
-    geom = "crossbar",
-    width = 0.5
-  ) +
   ggtitle("Journal Open Access Classification Effect") +
-  ylab("Score") +
-  xlab("Open Access Classification") +
-  labs(caption = "Crossbar indicates median score value.")
+  ylab("Classification") +
+  xlab("Open Access Classification")
 ```
 
 ## Journal reproducibility instructions effect on reproducibility score
 
 ```{r repro_inst}
-ggplot(rrpp, aes(y = reproducibility_score,
-                 x = as.factor(repro_inst))) +
-  geom_count() +
-  stat_summary(
-    fun = median,
-    fun.min = median,
-    fun.max = median,
-    geom = "crossbar",
-    width = 0.5
-  ) +
+rrpp %>%
+  pivot_longer(cols = c("comp_mthds_avail", "data_avail", "software_avail")) %>%
+  ggplot(aes(x = value,
+             y = as.factor(repro_inst))) +
+  geom_count(alpha = 0.5) +
   ggtitle("Reproducibility Instructions Effect") +
-  ylab("Reproducibility Score (%)") +
+  ylab("Score") +
   xlab("Reproducibility Instructions Score") +
-  labs(caption = "Crossbar indicates median score value.")
+  facet_wrap(. ~ name)
 ```
 
 ## Scores by year
 
-## Full reproducibility score
-
 ```{r full_score, message=FALSE}
-ggplot(rrpp, aes(y = reproducibility_score,
-                 x = year)) +
-  geom_count() +
-  geom_smooth() +
-  stat_summary(
-    fun = median,
-    fun.min = median,
-    fun.max = median,
-    geom = "crossbar",
-    width = 0.5
-  ) +
-  ylab("Reproducibility Score (%)") +
+rrpp %>%
+  pivot_longer(cols = c("comp_mthds_avail", "data_avail", "software_avail")) %>%
+  ggplot(aes(x = value,
+             y = year)) +
+  geom_count(alpha = 0.5) +
+  ylab("Score") +
   xlab("Year") +
-  labs(caption = "Crossbar indicates median score value.")
-```
-
-## Computational methods score
-
-```{r comp_methods_score, message=FALSE}
-ggplot(rrpp, aes(y = comp_mthds_avail,
-                 x = year)) +
-  geom_count() +
-  geom_smooth() +
-  stat_summary(
-    fun = median,
-    fun.min = median,
-    fun.max = median,
-    geom = "crossbar",
-    width = 0.5
-  ) +
-  ylab("Computational Methods Availability") +
-  xlab("Year") +
-  labs(caption = "Crossbar indicates median score value.")
-```
-
-## Software availability
-
-```{r software_avail2, message=FALSE}
-ggplot(rrpp, aes(y = software_avail,
-                 x = year)) +
-  geom_count() +
-  geom_smooth() +
-  stat_summary(
-    fun = median,
-    fun.min = median,
-    fun.max = median,
-    geom = "crossbar",
-    width = 0.5
-  ) +
-  ylab("Software Availability") +
-  xlab("Year") +
-  labs(caption = "Crossbar indicates median score value.")
-```
-
-## Data availability
-
-```{r data_avail, message=FALSE}
-ggplot(rrpp, aes(y = data_avail,
-                 x = year)) +
-  geom_count() +
-  geom_smooth() +
-  stat_summary(
-    fun = median,
-    fun.min = median,
-    fun.max = median,
-    geom = "crossbar",
-    width = 0.5
-  ) +
-  ylab("Data Availability") +
-  xlab("Year") +
-  labs(caption = "Crossbar indicates median score value.")
+  facet_wrap(. ~ name)
 ```
 
 # Tables
@@ -362,13 +218,4 @@ ggplot(rrpp, aes(y = data_avail,
 rrpp_journals <- tabyl(rrpp, journal)[, -3]
 names(rrpp_journals) <- c("Journal", "n")
 pander(rrpp_journals)
-```
-
-## Table of article scores
-
-```{r table_scores}
-article_scores <- tabyl(rrpp, reproducibility_score)
-names(article_scores) <- c("Score", "n", "Percent")
-article_scores$Percent <- round(article_scores$Percent * 100, 1)
-pander(article_scores)
 ```
