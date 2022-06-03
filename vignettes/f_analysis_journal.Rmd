@@ -172,7 +172,7 @@ plot(pd(m_f3))
 pander(equivalence_test(m_f3))
 ```
 
-## Save model objects
+## Save Model Objects
 
 Save the model objects for figures in the paper.
 

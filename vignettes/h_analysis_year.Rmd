@@ -48,7 +48,7 @@ theme_set(theme_classic())
 ### Priors
 
 ```{r priors}
-priors <-  prior_string("normal(0, 1.5)")
+priors <- prior_string("normal(0, 1.5)")
 ```
 
 ## Year of Publication Effect Models
@@ -151,7 +151,7 @@ plot(pd(m_h3))
 pander(equivalence_test(m_h3))
 ```
 
-## Save model objects
+## Save Model Objects
 
 Save the model objects for figures in the paper.
 

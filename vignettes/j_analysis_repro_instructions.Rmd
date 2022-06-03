@@ -150,7 +150,7 @@ plot(pd(m_j3))
 pander(equivalence_test(m_j3))
 ```
 
-## Save model objects
+## Save Model Objects
 
 Save the model objects for figures in the paper.
 
