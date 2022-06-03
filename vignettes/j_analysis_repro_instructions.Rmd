@@ -29,7 +29,7 @@ This vignette documents the analysis of the data gathered from surveying 21 jour
 
 # Set-up Workspace
 
-Load libraries used and setting the *jgplot2* theme for the document.
+Load libraries used and setting the *ggplot2* theme for the document.
 
 ```{r load-libraries, message=FALSE}
 library("brms")
