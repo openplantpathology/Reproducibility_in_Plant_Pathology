@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 knitr::opts_chunk$set(fig.width = 6.4, fig.height = 6.4)
 ```
 
-This vignette documents the analysis of the data gathered from surveying 21 journals and 450 articles in the field of plant pathology for their openness and reproducibility and the effect that the software used instructions had on the availaibility of code and data.
+This vignette documents the analysis of the data gathered from surveying 21 journals and 450 articles in the field of plant pathology for their openness and reproducibility and the effect that the software used instructions had on the availability of code and data.
 
 # Set-up Workspace
 
