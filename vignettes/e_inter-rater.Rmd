@@ -264,6 +264,19 @@ rrpp %>%
   pander()
 ```
 
+
+#### Fleiss' Kappa
+
+```{r data-avail-cor-kappa, warning=FALSE}
+rrpp %>%
+  select(doi, assignee, data_avail) %>%
+  pivot_wider(names_from = assignee, values_from = data_avail) %>%
+  select(Adam, Emerson, Kaique, Nik, Zach) %>%
+  as.matrix() %>%
+  kappam.fleiss() %>%
+  pander()
+```
+
 ### Computational Availability
 
 ##### Agreement
@@ -277,6 +290,19 @@ rrpp %>%
   select(Adam, Emerson, Kaique, Nik, Zach) %>%
   as.matrix() %>%
   agree() %>%
+  pander()
+```
+
+
+#### Fleiss' Kappa
+
+```{r code-avail-cor-kappa, warning=FALSE}
+rrpp %>%
+  select(doi, assignee, comp_mthds_avail) %>%
+  pivot_wider(names_from = assignee, values_from = comp_mthds_avail) %>%
+  select(Adam, Emerson, Kaique, Nik, Zach) %>%
+  as.matrix() %>%
+  kappam.fleiss() %>%
   pander()
 ```
 
