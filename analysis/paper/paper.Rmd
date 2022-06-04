@@ -377,6 +377,7 @@ While there are many other methods, these two approaches illustrate some of the 
 ## Best Practices to Enhance Reproducible Research
 
 Journals can encourage authors to deposit their data and code by providing instruction for how to deposit the data and code in a repository and mint a DOI to accompany these resources.
+While our analysis was unable to detect any differences in journals providing such instruction and journals that did not, the trend did indicate that journals that provided such instruction had better scores for data and code availability.
 
 A general work flow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, and writing the manuscript.
 Here we defined three levels of reproducibility which are also related to the evolution of computational methods and reproducible practices (Figure \@ref(fig:workflow-dia)).
