@@ -295,7 +295,7 @@ There were no detectable effects of the instructions on any of the three scores 
 ## Effect of Software Used
 
 The availability of the software used had no effect on the availability of the code, i.e., the use of free, open-source software (FOSS), did not have the effect of making the code more available.
-Conversely, the use of closed or restrictive software did not cause code to be less available. 
+Conversely, the use of closed or restrictive software did not cause code to be less available.
 There was no detectable effect of the software's availability on the availability of data.
 However, both of these scores tended to be higher when the software used was more available.
 
