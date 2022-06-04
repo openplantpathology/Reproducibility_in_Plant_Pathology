@@ -252,32 +252,52 @@ All methods are described in greater detail with the code necessary to reproduce
 
 # Results
 
-All authors agreed on the evaluation of the computational methods and data availability of all five articles that were scored by each author (Figure \@ref(fig:irCriteria)A, \@ref(fig:irCriteria)B).
+Most articles did not make any computational methods available in any fashion with `r length(which(rrpp$comp_mthds_avail == 3))` (`r round(length(which(rrpp$comp_mthds_avail == 3))/nrow(rrpp), 3)`%) classified as '3', which was the highest score available (Figure \@ref(fig:articleScores)A).
+`r gsub("(^[[:alpha:]])", "\\U\\1", as.character(english(length(which(rrpp$comp_mthds_avail + -1 == 0)))), perl = TRUE)` (`r round(length(which(rrpp$comp_mthds_avail+ -1 == 0))/nrow(rrpp), 2) * 100`%) were classed as '0' and `r as.character(english(length(which(is.na(rrpp$comp_mthds_avail)))))` articles (`r round(length(which(is.na(rrpp$comp_mthds_avail)))/nrow(rrpp), 2) * 100`%) appeared to not use any computational methods.
 
-The analysis detected that the journal title did have an effect on the reproducibility score but there was no effect of article class or impact factor.
+However, data was mostly not available with `r length(which(rrpp$data_avail == 0))` (`r round(length(which(rrpp$data_avail == 0))/nrow(rrpp), 2) * 100`%) scoring '0' where the data was not available or mentioned in the article.
+However, more articles, `r length(which(rrpp$data_avail == 3))` (`r round(length(which(rrpp$data_avail == 3))/nrow(rrpp), 2) * 100`%) scored '3' than scored '1' or '2' combined, `r length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))` (`r round(length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))/nrow(rrpp), 2) * 100`%) with `r as.character(english(length(which(is.na(rrpp$data_avail)))))` articles not producing shareable data (Figure \@ref(fig:articleScores)D).
+
+More articles did a good job of using software that was reasonably available to anyone with `r length(which(rrpp$software_avail >= 2))` (`r round(length(which(rrpp$software_avail >= 2))/nrow(rrpp), 2) * 100`%) scoring '2' or '3' (Figure \@ref(fig:articleScores)B) for software availability.
+
+## Interrater Agreement
+
+All authors agreed on the evaluation of the data availability of all five articles that were scored by each author (Figure \@ref(fig:irCriteria)A) but one of the authors rated one article as `NA` or no computational methods used rather than zero as with the other four authors (Figure \@ref(fig:irCriteria)B), giving the interrater percent agreement a score of 100% with the `NA value dropped from the code availability.
+Fleiss' Kappa was not able to be calculated for code or data availability due to 100% agreement of a score of '0', converted to '1' for the analysis.
+
+## Effect of Journal Title
+
+The analysis found that publications in Phytopathology were more likely to share their code but was unable to detect differences in any other journal titles.
+Publications in Crop Protection and Plant Disease were less likely to share their data but no effects were detectable in any other journal title.
+The analysis was unable to detect any effect of journal title on the software used, though articles in Plant Disease, Nematology and Tropical Plant Pathology tended to be more open and available.
+
+## Effect of Impact Factor
+
+There were no detectable effects of the five-year impact factor on code or data availability.
+However, there was no effect of the five-year impact factor on the availability of the software that was used.
+
+## Effect of Year
+
+We were unable to detect any observable differences as a result of the year that an article was published for code, data or software availability.
+
+## Effect of Access Policy
 
 No journals surveyed were completely closed, all offered at least an option for open access but some were completely open.
 The analysis was unable to detect any differences in the effect of access policy on the openness and reproducibility of the evaluated articles, but in journals where the policy was to allow both open and pay-for-fee access, the articles were less likely to be open and reproducible when compared to journals that were completely open.
 
-We were unable to detect any observable differences in the years that publications were submitted.
-The year 2016 appears to be have a higher score than prior and following years, but the analysis was undecided on the effect of all years on the publications' openness and reproducibility.
+## Effect of Reproducibility Instructions
 
 Most journals in our discipline fail to mention the availability of the computational methods to support the article as published.
 Only two journals, *Plant Pathology* and *Tropical Plant Pathology* have full instructions for authors regarding both data and code deposition in repositories for sharing with readers.
 Three had no instructions at all, *Forest Pathology*, *Phytopathologia Mediterranea* and *Revista Mexicana de Fitopatología*, with the remaining 16 journals having varying levels of instruction for authors to deposit data but not code.
-While the analysis did not detect an effect of the journals' instructions for sharing or depositing data and or code, the more detailed the instructions, the higher the article scored.
+There were no detectable effects of the instructions on any of the three scores that were evaluated.
 
-The majority of the articles, `r length(which(rrpp$art_class == "Fundamental"))`, were classed as fundamental, with the remaining `r length(which(rrpp$art_class != "Fundamental"))` classed as applied.
+## Effect of Software Used
 
-Most articles did not make any computational methods available in any fashion with `r length(which(rrpp$comp_mthds_avail == 3))` (`r round(length(which(rrpp$comp_mthds_avail == 3))/nrow(rrpp), 3)`%) classified as '3', which was the highest score available (Figure \@ref(fig:articleScores)A).
-`r gsub("(^[[:alpha:]])", "\\U\\1", as.character(english(length(which(rrpp$comp_mthds_avail + -1 == 0)))), perl = TRUE)` (`r round(length(which(rrpp$comp_mthds_avail+ -1 == 0))/nrow(rrpp), 2) * 100`%) were classed as '0' and `r as.character(english(length(which(is.na(rrpp$comp_mthds_avail)))))` articles (`r round(length(which(is.na(rrpp$comp_mthds_avail)))/nrow(rrpp), 2) * 100`%) appeared to not use any computational methods.
-
-More articles did a good job of using software that was reasonably available to anyone with `r length(which(rrpp$software_avail >= 2))` (`r round(length(which(rrpp$software_avail >= 2))/nrow(rrpp), 2) * 100`%) scoring '2' or '3' (Figure \@ref(fig:articleScores)B) for software availability.
-
-Software citations were also reasonably well reported in the literature with `r length(which(rrpp$software_cite == 2))` (`r round(length(which(rrpp$software_cite == 2))/nrow(rrpp), 2) * 100`%) scoring '2' where the main software was cited with version numbers and `r length(which(rrpp$software_cite == 3))` (`r round(length(which(rrpp$software_cite == 3))/nrow(rrpp), 2) * 100`%) scoring '3' where full citations including R packages or the SAS PROC used were cited where appropriate (Figure \@ref(fig:articleScores)C).
-
-However, data availability was mostly not available with `r length(which(rrpp$data_avail == 0))` (`r round(length(which(rrpp$data_avail == 0))/nrow(rrpp), 2) * 100`%) scoring '0' where the data was not available or mentioned in the article.
-However, more articles, `r length(which(rrpp$data_avail == 3))` (`r round(length(which(rrpp$data_avail == 3))/nrow(rrpp), 2) * 100`%) scored '3' than scored '1' or '2' combined, `r length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))` (`r round(length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))/nrow(rrpp), 2) * 100`%) with `r as.character(english(length(which(is.na(rrpp$data_avail)))))` articles not producing shareable data (Figure \@ref(fig:articleScores)D).
+The availability of the software used had no effect on the availability of the code, i.e., the use of free, open-source software (FOSS), did not have the effect of making the code more available.
+Conversely, the use of closed or restrictive software did not cause code to be less available. 
+There was no detectable effect of the software's availability on the availability of data.
+However, both of these scores tended to be higher when the software used was more available.
 
 ```{r softwareCited, echo=FALSE, include=FALSE}
 # tally up software used for the next paragraph
