@@ -12,7 +12,6 @@ vignette: >
   %\VignetteDepends{bayesplot}
   %\VignetteDepends{ggplot2}
   %\VignetteDepends{here}
-  %\VignetteDepends{pander}
   %\VignetteDepends{sessioninfo}
   %\VignetteDepends{tidyr}
 ---
@@ -37,7 +36,6 @@ library("bayestestR")
 library("bayesplot")
 library("ggplot2")
 library("here")
-library("pander")
 library("tidyr")
 library("Reproducibility.in.Plant.Pathology")
 
@@ -80,7 +78,7 @@ pp_check(m_i1)
 
 plot(pd(m_i1))
 
-pander(equivalence_test(m_i1))
+equivalence_test(m_i1)
 ```
 
 ### Data Availability
@@ -113,7 +111,7 @@ pp_check(m_i2)
 
 plot(pd(m_i2))
 
-pander(equivalence_test(m_i2))
+equivalence_test(m_i2)
 ```
 
 ### Openness
@@ -146,7 +144,7 @@ pp_check(m_i3)
 
 plot(pd(m_i3))
 
-pander(equivalence_test(m_i3))
+equivalence_test(m_i3)
 ```
 
 ## Save Model Objects

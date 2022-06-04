@@ -37,7 +37,6 @@ library("bayestestR")
 library("bayesplot")
 library("ggplot2")
 library("here")
-library("pander")
 library("tidyr")
 library("Reproducibility.in.Plant.Pathology")
 
@@ -79,7 +78,7 @@ pp_check(m_j1)
 
 plot(pd(m_j1))
 
-pander(equivalence_test(m_j1))
+equivalence_test(m_j1)
 ```
 
 ### Data Availability
@@ -113,7 +112,7 @@ pp_check(m_j2)
 
 plot(pd(m_j2))
 
-pander(equivalence_test(m_j2))
+equivalence_test(m_j2)
 ```
 
 ### Openness
@@ -147,7 +146,7 @@ pp_check(m_j3)
 
 plot(pd(m_j3))
 
-pander(equivalence_test(m_j3))
+equivalence_test(m_j3)
 ```
 
 ## Save Model Objects
