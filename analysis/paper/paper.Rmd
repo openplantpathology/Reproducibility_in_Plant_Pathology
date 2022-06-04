@@ -527,7 +527,6 @@ readODS::read_ods(
 \newpage
 
 # Figures
-\newpage
 
 ```{r irCriteria, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Evaluator agreement for five articles scored for (A) computational methods (code) used, e.g. scripts or other self-written programs were freely and openly available and (B) data represented in the paper were freely and openly available. Note that one evaluator rated an article with computational methods available as 'NA', which is reflected in that article having only four evaluations for this criteria.", cache=FALSE, fig.env='figure'}
 a <- ggplot(ir,
