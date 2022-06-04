@@ -506,13 +506,21 @@ tab_s %>%
 \newpage
 
 ```{r scoring, echo=FALSE, message=FALSE, warning=FALSE}
-scoring_criteria %>%
+readODS::read_ods(
+    system.file(
+      "extdata",
+      "Reproducibility_in_plant_pathology_notes.ods",
+      package = "Reproducibility.in.Plant.Pathology"
+    ),
+    na = "NA",
+    sheet = "scoring_criteria_paper"
+  ) %>% 
   rename(`Index Value` = Index.Value) %>%
   flextable() %>%
   colformat_num(na_str = "NA") %>%
   set_table_properties(layout = "autofit") %>%
   set_caption(
-    "Articles were scored in four areas for reproducibility on a scale of '0' to '3' by five independent evaluators to rank articles in each of four areas, 'Computational methods availability', 'Data availability', 'Software availability' and 'Software citation'.")
+    "Articles were three in four areas for reproducibility on a scale of '0' to '3' by five independent evaluators to rank articles in each of four areas, 'Computational Methods Availability', 'Data Availability', 'Software Availability'.")
 ```
 
 \newpage
