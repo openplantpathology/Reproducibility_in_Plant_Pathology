@@ -87,6 +87,8 @@ opts_chunk$set(
   dev = "cairo_pdf",
   cache = FALSE
 )
+
+theme_set(theme_classic())
 ```
 
 ```{r fonts, include=FALSE, message=FALSE, eval=FALSE}
