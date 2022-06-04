@@ -390,7 +390,8 @@ In the next section we present standards and tools that can be used to ensure re
 
 When making your science more open and reproducible, methods, software used (this includes items such as R, Julia or Python packages that were directly used in the analysis or production of the paper, etc.) should be cited properly.
 Deposit and annotate biological materials with an herbarium or other repository.
-Provide a full description of all equipment used, *e.g.*, 'a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals.' This allows end-users to identify what was used and identify the methods used more accurately.
+Provide a full description of all equipment used, *e.g.*, "a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals".
+This allows end-users to identify what was used and identify the methods used more accurately.
 Just as importantly, this acknowledges the contributions of others whose works were instrumental in your research.
 This also helps ensure that you as a researcher can reconstruct what you have done since you will have good notes and documentation and be able to identify if something changes, *e.g.*, a package version, what effect it had on your research.
 
