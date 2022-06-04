@@ -570,24 +570,80 @@ set.seed(23)
 
 color_scheme_set(scheme = "gray")
 
-load(file = here("inst/extdata/m_f1.Rda"))
-load(file = here("inst/extdata/m_f2.Rda"))
-load(file = here("inst/extdata/m_f3.Rda"))
-load(file = here("inst/extdata/m_g1.Rda"))
-load(file = here("inst/extdata/m_g2.Rda"))
-load(file = here("inst/extdata/m_g3.Rda"))
-load(file = here("inst/extdata/m_h1.Rda"))
-load(file = here("inst/extdata/m_h2.Rda"))
-load(file = here("inst/extdata/m_h3.Rda"))
-load(file = here("inst/extdata/m_i1.Rda"))
-load(file = here("inst/extdata/m_i2.Rda"))
-load(file = here("inst/extdata/m_i3.Rda"))
-load(file = here("inst/extdata/m_j1.Rda"))
-load(file = here("inst/extdata/m_j2.Rda"))
-load(file = here("inst/extdata/m_j3.Rda"))
-load(file = here("inst/extdata/m_k1.Rda"))
-load(file = here("inst/extdata/m_k2.Rda"))
+load(system.file("extdata",
+            "m_f1.Rda",
+            package = "Reproducibility.in.Plant.Pathology",
+            mustWork = TRUE))
+load(system.file("extdata",
+            "m_f2.Rda",
+            package = "Reproducibility.in.Plant.Pathology",
+            mustWork = TRUE))
+load(system.file("extdata",
+            "m_f3.Rda",
+            package = "Reproducibility.in.Plant.Pathology",
+            mustWork = TRUE))
 
+load(system.file("extdata",
+            "m_g1.Rda",
+            package = "Reproducibility.in.Plant.Pathology",
+            mustWork = TRUE))
+load(system.file("extdata",
+            "m_g2.Rda",
+            package = "Reproducibility.in.Plant.Pathology",
+            mustWork = TRUE))
+load(system.file("extdata",
+            "m_g3.Rda",
+            package = "Reproducibility.in.Plant.Pathology",
+            mustWork = TRUE))
+
+load(system.file("extdata",
+            "m_h1.Rda",
+            package = "Reproducibility.in.Plant.Pathology",
+            mustWork = TRUE))
+load(system.file("extdata",
+            "m_h2.Rda",
+            package = "Reproducibility.in.Plant.Pathology",
+            mustWork = TRUE))
+load(system.file("extdata",
+            "m_h3.Rda",
+            package = "Reproducibility.in.Plant.Pathology",
+            mustWork = TRUE))
+
+load(system.file("extdata",
+            "m_i1.Rda",
+            package = "Reproducibility.in.Plant.Pathology",
+            mustWork = TRUE))
+load(system.file("extdata",
+            "m_i2.Rda",
+            package = "Reproducibility.in.Plant.Pathology",
+            mustWork = TRUE))
+load(system.file("extdata",
+            "m_i3.Rda",
+            package = "Reproducibility.in.Plant.Pathology",
+            mustWork = TRUE))
+
+load(system.file("extdata",
+            "m_j1.Rda",
+            package = "Reproducibility.in.Plant.Pathology",
+            mustWork = TRUE))
+load(system.file("extdata",
+            "m_j2.Rda",
+            package = "Reproducibility.in.Plant.Pathology",
+            mustWork = TRUE))
+load(system.file("extdata",
+            "m_j3.Rda",
+            package = "Reproducibility.in.Plant.Pathology",
+            mustWork = TRUE))
+
+
+load(system.file("extdata",
+            "m_k1.Rda",
+            package = "Reproducibility.in.Plant.Pathology",
+            mustWork = TRUE))
+load(system.file("extdata",
+            "m_k2.Rda",
+            package = "Reproducibility.in.Plant.Pathology",
+            mustWork = TRUE))
 
 mod_list <- list(
   pp_check(m_f1) +
