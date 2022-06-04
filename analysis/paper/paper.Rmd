@@ -260,9 +260,9 @@ However, more articles, `r length(which(rrpp$data_avail == 3))` (`r round(length
 
 More articles did a good job of using software that was reasonably available to anyone with `r length(which(rrpp$software_avail >= 2))` (`r round(length(which(rrpp$software_avail >= 2))/nrow(rrpp), 2) * 100`%) scoring '2' or '3' (Figure \@ref(fig:articleScores)B) for software availability.
 
-## Interrater Agreement
+## Inter-rater Agreement
 
-All authors agreed on the evaluation of the data availability of all five articles that were scored by each author (Figure \@ref(fig:irCriteria)A) but one of the authors rated one article as `NA` or no computational methods used rather than zero as with the other four authors (Figure \@ref(fig:irCriteria)B), giving the interrater percent agreement a score of 100% with the `NA value dropped from the code availability.
+All authors agreed on the evaluation of the data availability of all five articles that were scored by each author (Figure \@ref(fig:irCriteria)A) but one of the authors rated one article as `NA` or no computational methods used rather than zero as with the other four authors (Figure \@ref(fig:irCriteria)B), giving the inter-rater percent agreement a score of 100% with the `NA value dropped from the code availability.
 Fleiss' Kappa was not able to be calculated for code or data availability due to 100% agreement of a score of '0', converted to '1' for the analysis.
 
 ## Effect of Journal Title
@@ -466,7 +466,7 @@ A webpage version of the compendium is available from <https://openplantpatholog
 
 # Acknowledgements
 
-The authors are grateful for insightful comments from Dr. David Ferris and the USQ Centre for Crop Health Advisory Group on the final manuscript.
+The authors are grateful for insightful comments from Dr. David Ferris and the USQ Centre for Crop Health Advisory Group on the final manuscript and from Ms. Anna Hepworth for statistical guidance on evaluating inter-rater scores.
 
 \newpage
 
