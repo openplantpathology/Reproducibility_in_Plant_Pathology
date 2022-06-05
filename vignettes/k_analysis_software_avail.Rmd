@@ -75,9 +75,7 @@ plot(m_k1)
 
 pp_check(m_k1)
 
-plot(pd(m_k1))
-
-equivalence_test(m_k1)
+plot(equivalence_test(k1))
 ```
 
 ### Data Availability
@@ -109,9 +107,7 @@ plot(m_k2)
 
 pp_check(m_k2)
 
-plot(pd(m_k2))
-
-equivalence_test(m_k2)
+plot(equivalence_test(k2))
 ```
 
 ## Save Model Objects

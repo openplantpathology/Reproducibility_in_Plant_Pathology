@@ -82,9 +82,7 @@ plot(m_g1)
 
 pp_check(m_g1)
 
-plot(pd(m_g1))
-
-equivalence_test(m_g1)
+plot(equivalence_test(g1))
 ```
 
 ### Data Availability
@@ -116,9 +114,7 @@ plot(m_g2)
 
 pp_check(m_g2)
 
-plot(pd(m_g2))
-
-equivalence_test(m_g2)
+plot(equivalence_test(g2))
 ```
 
 ### Openness
@@ -149,9 +145,7 @@ plot(m_g3)
 
 pp_check(m_g3)
 
-plot(pd(m_g3))
-
-equivalence_test(m_g3)
+plot(equivalence_test(g3))
 ```
 
 ## Save Model Objects
