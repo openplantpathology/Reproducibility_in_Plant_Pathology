@@ -46,6 +46,7 @@ import_notes <- function() {
     sheet = "5yr IF"
   )
 
+
   notes <-
     notes %>%
     dplyr::left_join(x = notes,
@@ -58,19 +59,28 @@ import_notes <- function() {
                       false = IF_5year
                     )) %>%
     dplyr::mutate(
-      software_cite = software_cite + 1,
-      software_avail = software_avail + 1,
-      comp_mthds_avail = comp_mthds_avail + 1,
-      data_avail = data_avail + 1
-    ) %>%
-    dplyr::mutate(
       journal = as.factor(journal),
       year = as.factor(year),
       art_class = as.factor(art_class),
       repro_inst = as.factor(repro_inst),
       open = as.factor(open),
       abbreviation = as.factor(abbreviation),
-      assignee = as.factor(assignee)
+      assignee = as.factor(assignee),
+      software_avail = factor(
+        software_avail,
+        levels = c("0", "1", "2", "3"),
+        ordered = TRUE
+      ),
+      comp_mthds_avail = factor(
+        comp_mthds_avail,
+        levels = c("0", "1", "2", "3"),
+        ordered = TRUE
+      ),
+      data_avail = factor(
+        data_avail,
+        levels = c("0", "1", "2", "3"),
+        ordered = TRUE
+      )
     )
 
   # add a unique identifier value to each article since not all have a DOI
