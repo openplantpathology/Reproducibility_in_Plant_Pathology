@@ -58,9 +58,8 @@ priors <-  prior_string("normal(0, 1.5)")
 
 m_i1 <-
   brm(
-    formula = comp_mthds_avail ~ open + 
+    formula = comp_mthds_avail ~ open +
       (1 | abbreviation) +
-      (1 | year) +
       (1 | assignee),
     data = rrpp,
     seed = 27,
@@ -76,7 +75,7 @@ plot(m_i1)
 
 pp_check(m_i1)
 
-plot(equivalence_test(i1))
+plot(equivalence_test(m_i1))
 ```
 
 ### Data Availability
@@ -91,7 +90,6 @@ m_i2 <-
   brm(
     formula = data_avail ~ open + 
       (1 | abbreviation) +
-      (1 | year) +
       (1 | assignee),
     data = rrpp,
     seed = 27,
@@ -107,7 +105,7 @@ plot(m_i2)
 
 pp_check(m_i2)
 
-plot(equivalence_test(i2))
+plot(equivalence_test(m_i2))
 ```
 
 ### Openness
@@ -121,8 +119,7 @@ rrpp <- drop_na(rrpp, software_avail)
 m_i3 <-
   brm(
     formula = software_avail ~ open +
-      (1 | year) +
-      (1 | assignee),
+      (1 | abbreviation),
     data = rrpp,
     seed = 27,
     prior = priors,
@@ -138,7 +135,7 @@ plot(m_i3)
 
 pp_check(m_i3)
 
-plot(equivalence_test(i3))
+plot(equivalence_test(m_i3))
 ```
 
 ## Save Model Objects

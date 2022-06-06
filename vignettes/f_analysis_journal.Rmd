@@ -68,7 +68,8 @@ rrpp <- import_notes()
 # relevel factors for analysis, use Mol Plant Pathol as basis for analysis, highest IF
 rrpp <-
   within(rrpp,
-         abbreviation <- relevel(abbreviation, ref = "Mol Plant Pathol"))
+         abbreviation <-
+           relevel(abbreviation, ref = "Mol Plant Pathol"))
 
 rrpp <- drop_na(rrpp, comp_mthds_avail)
 
@@ -91,7 +92,7 @@ plot(m_f1)
 
 pp_check(m_f1)
 
-plot(equivalence_test(f1))
+plot(equivalence_test(m_f1))
 ```
 
 ### Data Availability
@@ -104,7 +105,8 @@ Base level is set to *Molecular Plant Pathology*, the journal with the highest f
 rrpp <- import_notes()
 rrpp <-
   within(rrpp,
-         abbreviation <- relevel(abbreviation, ref = "Mol Plant Pathol"))
+         abbreviation <-
+           relevel(abbreviation, ref = "Mol Plant Pathol"))
 
 rrpp <- drop_na(rrpp, data_avail)
 
@@ -118,7 +120,7 @@ m_f2 <-
     prior = priors,
     family = cumulative(link = "logit"),
     iter = 6000,
-    control = list(adapt_delta = 0.999)
+    control = list(adapt_delta = 0.99)
   )
 
 summary(m_f2)
@@ -127,32 +129,33 @@ plot(m_f2)
 
 pp_check(m_f2)
 
-plot(equivalence_test(f2))
+plot(equivalence_test(m_f2), range = c(-0.1, 0.1))
 ```
 
 ### Openness
 
 Test for any effects of the journal on the `software_avail` (openness) of the software used.
-Test the effect that the journal may have on the availability of data.
+Test the effect that the journal may have on the availability of software used.
+Here the assignee is not used as a random effect because A. Sparks evaluated all scores and adjusted them based on the recorded software used, so in essence a single evaluator assigned this score.
 
 ```{r openness}
 rrpp <- import_notes()
 rrpp <-
   within(rrpp,
-         abbreviation <- relevel(abbreviation, ref = "Mol Plant Pathol"))
+         journal <- relevel(abbreviation,
+                            ref = "Mol Plant Pathol"))
 rrpp <- drop_na(rrpp, software_avail)
 
 m_f3 <-
   brm(
-    formula = software_avail ~  abbreviation +
-      (1 | assignee) +
+    formula = software_avail ~ abbreviation +
       (1 | year),
     data = rrpp,
     seed = 27,
     prior = priors,
     family = cumulative(link = "logit"),
     iter = 6000,
-    control = list(adapt_delta = 0.999)
+    control = list(adapt_delta = 0.9)
   )
 
 summary(m_f3)
@@ -161,7 +164,7 @@ plot(m_f3)
 
 pp_check(m_f3)
 
-plot(equivalence_test(f3))
+plot(equivalence_test(m_f3), range = c(-0.1, 0.1))
 ```
 
 ## Save Model Objects
