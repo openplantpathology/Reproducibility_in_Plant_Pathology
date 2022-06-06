@@ -73,8 +73,8 @@ invisible(
 
 library("Reproducibility.in.Plant.Pathology")
 
-rrpp <- import_notes_paper()
-ir <- import_interrater_scores_paper()
+rrpp <- import_notes()
+ir <- import_interrater_scores()
 
 opts_chunk$set(
   collapse = TRUE,
