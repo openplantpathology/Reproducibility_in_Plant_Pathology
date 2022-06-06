@@ -90,17 +90,6 @@ ggplot(rrpp, aes(y = as.factor(software_avail))) +
   ylab("Score")
 ```
 
-## Software citations
-
-Were the software that was used properly cited?
-
-```{r software_cite}
-ggplot(rrpp, aes(y = as.factor(software_cite))) +
-  geom_bar() +
-  ggtitle("Software Cited") +
-  ylab("Score")
-```
-
 ## Software used (cited)
 
 Count and sort top 10 software packages cited.
