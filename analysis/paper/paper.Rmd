@@ -829,6 +829,55 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_3.eps"))
 
 \newpage
 
+```{r equivalence-tests, echo=FALSE, warning=FALSE, message=FALSE}
+a <- plot(equivalence_test(m_f1), rope_color = "grey70") +
+  scale_y_discrete(
+    label = function(x) {
+      x %>% gsub("b_abbreviation", "", .)
+    }
+  ) +
+  scale_fill_grey()
+b <-
+  plot(equivalence_test(m_f2), rope_color = "grey70") +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.title.y = element_blank()
+  ) +
+  scale_fill_grey()
+c <-
+  plot(equivalence_test(m_f3), rope_color = "grey70") +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.title.y = element_blank()
+  ) +
+  scale_fill_grey()
+
+p <- a + b + c
+p <- p +
+  plot_annotation(tag_levels = "A") &
+  theme(text = element_text("Arial"))
+
+ggsave(
+  filename = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
+  plot = p,
+  width = 6,
+  height = 6,
+  units = "in",
+  device = cairo_ps
+)
+embed_fonts(
+  file = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
+  outfile = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
+  options = "-dEPSCrop"
+)
+include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_3.eps"))
+
+```
+
+\newpage
+
 ```{r workflow-dia, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='An example of an open and reproducible research workflow. Starting with the question, determine the methodology, describe it, make it available and cite it. Data are used in analysis and any binary files or code are made available as supplements to the manuscript. Source code and raw data are made available in a public repository, preferably with version control for tracking changes through time, and a DOI for final released products.', cache=FALSE, fig.env='figure'}
 
 p <- export_svg(
