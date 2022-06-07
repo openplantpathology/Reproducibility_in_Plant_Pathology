@@ -132,41 +132,6 @@ pp_check(m_f2)
 plot(equivalence_test(m_f2), range = c(-0.1, 0.1))
 ```
 
-### Openness
-
-Test for any effects of the journal on the `software_avail` (openness) of the software used.
-Test the effect that the journal may have on the availability of software used.
-Here the assignee is not used as a random effect because A. Sparks evaluated all scores and adjusted them based on the recorded software used, so in essence a single evaluator assigned this score.
-
-```{r openness}
-rrpp <- import_notes()
-rrpp <-
-  within(rrpp,
-         journal <- relevel(abbreviation,
-                            ref = "Mol Plant Pathol"))
-rrpp <- drop_na(rrpp, software_avail)
-
-m_f3 <-
-  brm(
-    formula = software_avail ~ abbreviation +
-      (1 | year),
-    data = rrpp,
-    seed = 27,
-    prior = priors,
-    family = cumulative(link = "logit"),
-    iter = 6000,
-    control = list(adapt_delta = 0.9)
-  )
-
-summary(m_f3)
-
-plot(m_f3)
-
-pp_check(m_f3)
-
-plot(equivalence_test(m_f3), range = c(-0.1, 0.1))
-```
-
 ## Save Model Objects
 
 Save the model objects for figures in the paper.
@@ -174,7 +139,6 @@ Save the model objects for figures in the paper.
 ```{r save-data}
 save(m_f1, file = here("inst/extdata/m_f1.Rda"))
 save(m_f2, file = here("inst/extdata/m_f2.Rda"))
-save(m_f3, file = here("inst/extdata/m_f3.Rda"))
 ```
 
 # Colophon

@@ -108,36 +108,6 @@ pp_check(m_i2)
 plot(equivalence_test(m_i2))
 ```
 
-### Openness
-
-Test for any effects of the five year impact factor on the `software_avail` (openness) of the software used.
-
-```{r openness}
-rrpp <- import_notes()
-rrpp <- drop_na(rrpp, software_avail)
-
-m_i3 <-
-  brm(
-    formula = software_avail ~ open +
-      (1 | abbreviation),
-    data = rrpp,
-    seed = 27,
-    prior = priors,
-    family = cumulative(link = "logit"),
-    control = list(adapt_delta = 0.99),
-    iter = 6000,
-    chains = 4
-  )
-
-summary(m_i3)
-
-plot(m_i3)
-
-pp_check(m_i3)
-
-plot(equivalence_test(m_i3))
-```
-
 ## Save Model Objects
 
 Save the model for figures in the paper.
@@ -146,7 +116,6 @@ Save the model for figures in the paper.
 # save the model for figures in the paper
 save(m_i1, file = here("inst/extdata/m_i1.Rda"))
 save(m_i2, file = here("inst/extdata/m_i2.Rda"))
-save(m_i3, file = here("inst/extdata/m_i3.Rda"))
 ```
 
 # Colophon
