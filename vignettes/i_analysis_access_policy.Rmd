@@ -60,7 +60,8 @@ m_i1 <-
   brm(
     formula = comp_mthds_avail ~ open +
       (1 | abbreviation) +
-      (1 | assignee),
+      (1 | assignee) +
+      (1 | year),
     data = rrpp,
     seed = 27,
     prior = priors,
@@ -90,7 +91,8 @@ m_i2 <-
   brm(
     formula = data_avail ~ open + 
       (1 | abbreviation) +
-      (1 | assignee),
+      (1 | assignee) +
+      (1 | year),
     data = rrpp,
     seed = 27,
     prior = priors,
