@@ -92,9 +92,6 @@ c <- ggplot(rrpp,
                 x = software_cite)) +
   ylab("DOI") +
   xlab("") +
-  xlim(c(1, 4)) +
-  theme(axis.text.x = element_blank(),
-        axis.ticks.x = element_blank()) +
   geom_density_ridges() +
   ggtitle("Software Cited")
 
@@ -105,12 +102,9 @@ d <- ggplot(rrpp,
   xlab("") +
   geom_density_ridges() +
   theme(
-    axis.text.x = element_blank(),
-    axis.ticks.x = element_blank(),
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank()
   ) +
-  xlim(c(1, 4)) +
   ggtitle("Software Available")
 
 e <- ggplot(rrpp,
@@ -119,7 +113,6 @@ e <- ggplot(rrpp,
   geom_density_ridges() +
   ylab("DOI") +
   xlab("Score") +
-  xlim(c(1, 4)) +
   ggtitle("Comp. Methods Available")
 
 f <- ggplot(rrpp,
@@ -129,7 +122,6 @@ f <- ggplot(rrpp,
   xlab("Score") +
   theme(axis.text.y = element_blank(),
         axis.ticks.y = element_blank()) +
-  xlim(c(1, 4)) +
   geom_density_ridges() +
   ggtitle("Data Available")
 
