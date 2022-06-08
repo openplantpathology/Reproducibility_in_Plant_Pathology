@@ -295,42 +295,29 @@ More articles did a good job of using software that was reasonably available to 
 
 ## Inter-rater Agreement
 
-All authors agreed on the evaluation of the data availability of all five articles that were scored by each author but one of the authors rated one article as `NA` or no computational methods used rather than zero as with the other four authors, giving the inter-rater percent agreement a score of 100% with the \`NA value dropped from the code availability.
-Fleiss' Kappa was not able to be calculated for code or data availability due to 100% agreement of a score of '0', converted to '1' for the analysis.
+All authors agreed on the inter-rater article evaluations for the data availability, '0', not available, but one of the authors rated one article as `NA` or not having any computational methods used rather than '0' as with the other four authors, giving the inter-rater percent agreement a score of 100% with the \`NA value dropped from the code availability.
 
 ## Effect of Journal Title
 
 The analysis found that publications in Phytopathology were more likely to share their code but was unable to detect differences in any other journal titles.
 Publications in Crop Protection and Plant Disease were less likely to share their data but no effects were detectable in any other journal title.
-The analysis was unable to detect any effect of journal title on the software used, though articles in Plant Disease, Nematology and Tropical Plant Pathology tended to be more open and available.
+
+## Effect of Year
+
+We were unable to detect any observable differences as a result of the year that an article was published for code availability.
+However, of the articles surveyed those published in 2016 were more likely to have shared data than the other years.
 
 ## Effect of Impact Factor
 
 There were no detectable effects of the five-year impact factor on code or data availability.
-However, there was no effect of the five-year impact factor on the availability of the software that was used.
-
-## Effect of Year
-
-We were unable to detect any observable differences as a result of the year that an article was published for code, data or software availability.
 
 ## Effect of Access Policy
 
-No journals surveyed were completely closed, all offered at least an option for open access but some were completely open.
-The analysis was unable to detect any differences in the effect of access policy on the openness and reproducibility of the evaluated articles, but in journals where the policy was to allow both open and pay-for-fee access, the articles were less likely to be open and reproducible when compared to journals that were completely open.
+No journals surveyed were completely closed, all offered at least an option for open access articles but some were completely open.
+The analysis was unable to detect any differences in the effect of access policy on the availability of code or data.
+But in those journals where the policy was fully open access, the articles were more likely to share code.
 
-## Effect of Reproducibility Instructions
-
-Most journals in our discipline fail to mention the availability of the computational methods to support the article as published.
-Only two journals, *Plant Pathology* and *Tropical Plant Pathology* have full instructions for authors regarding both data and code deposition in repositories for sharing with readers.
-Three had no instructions at all, *Forest Pathology*, *Phytopathologia Mediterranea* and *Revista Mexicana de Fitopatología*, with the remaining 16 journals having varying levels of instruction for authors to deposit data but not code.
-There were no detectable effects of the instructions on any of the three scores that were evaluated.
-
-## Effect of Software Used
-
-The availability of the software used had no effect on the availability of the code, i.e., the use of free, open-source software (FOSS), did not have the effect of making the code more available.
-Conversely, the use of closed or restrictive software did not cause code to be less available.
-There was no detectable effect of the software's availability on the availability of data.
-However, both of these scores tended to be higher when the software used was more available.
+## Software Used
 
 ```{r softwareCited, echo=FALSE, include=FALSE}
 # tally up software used for the next paragraph
@@ -349,12 +336,13 @@ tab_s <-
   filter(Freq %in% head(unique(Freq), 10)) %>% 
   rename("Software" = "Var1", "Frequency" = "Freq")
 ```
-
-In the top ten most frequently cited software, the most frequently cited program was `r tab_s[1, 1]`, where different versions were not distinguished.
-The next three programs were statistical software, `r tab_s[2, 1]` (2nd), `r tab_s[3, 1]` (3rd) and `r tab_s[4, 1]` (4th) with two other statistical programs also frequently cited, GenStat and Statistica (tied 8th).
-The remainder of the top ten programs we found were related to sequence analysis, *i.e.*, Clustal (5th), BLAST(6th), and BioEdit (10th) or phylogenetic analysis MrBayes (7th).
-The most general-purpose software cited in the top 10 was Excel® (9th).
-The Python programming language was cited only twice, not appearing in the top ten.
+Two-hundred fifty three unique software applications were recorded as having been used in the articles that were evalutated.
+These included desktop programs, web-based software and databases.
+From the top ten most frequently cited software, the most frequently cited program was `r tab_s[1, 1]`, where different versions were not distinguished.
+The next three programs were statistical software, SAS (`r scales::ordinal(which(tab_s == "SAS"))`), SPSS (`r scales::ordinal(which(tab_s == "SPSS"))`) and R (`r scales::ordinal(which(tab_s == "R"))`) with two other statistical programs also frequently cited, GenStat and Statistica (tied 8th).
+The remainder of the top ten programs we found were related to sequence analysis, *i.e.*, Clustal (`r scales::ordinal(which(tab_s == "CLUSTAL"))`), BLAST ((`r scales::ordinal(which(tab_s == "BLAST"))`)), and BioEdit ((`r scales::ordinal(which(tab_s == "BIOEDIT"))`)) or phylogenetic analysis MrBayes ((`r scales::ordinal(which(tab_s == "MRBAYS"))`)).
+The most general-purpose software cited in the top 10 was Excel® (`r scales::ordinal(which(tab_s == "EXCEL"))`).
+The Python programming language was cited only twice.
 
 # Discussion
 
