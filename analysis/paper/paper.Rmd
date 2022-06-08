@@ -90,17 +90,12 @@ opts_chunk$set(
 
 theme_set(theme_classic())
 
-
 load(system.file("extdata",
             "m_f1.Rda",
             package = "Reproducibility.in.Plant.Pathology",
             mustWork = TRUE))
 load(system.file("extdata",
             "m_f2.Rda",
-            package = "Reproducibility.in.Plant.Pathology",
-            mustWork = TRUE))
-load(system.file("extdata",
-            "m_f3.Rda",
             package = "Reproducibility.in.Plant.Pathology",
             mustWork = TRUE))
 
@@ -112,10 +107,6 @@ load(system.file("extdata",
             "m_g2.Rda",
             package = "Reproducibility.in.Plant.Pathology",
             mustWork = TRUE))
-load(system.file("extdata",
-            "m_g3.Rda",
-            package = "Reproducibility.in.Plant.Pathology",
-            mustWork = TRUE))
 
 load(system.file("extdata",
             "m_h1.Rda",
@@ -125,10 +116,6 @@ load(system.file("extdata",
             "m_h2.Rda",
             package = "Reproducibility.in.Plant.Pathology",
             mustWork = TRUE))
-load(system.file("extdata",
-            "m_h3.Rda",
-            package = "Reproducibility.in.Plant.Pathology",
-            mustWork = TRUE))
 
 load(system.file("extdata",
             "m_i1.Rda",
@@ -136,33 +123,6 @@ load(system.file("extdata",
             mustWork = TRUE))
 load(system.file("extdata",
             "m_i2.Rda",
-            package = "Reproducibility.in.Plant.Pathology",
-            mustWork = TRUE))
-load(system.file("extdata",
-            "m_i3.Rda",
-            package = "Reproducibility.in.Plant.Pathology",
-            mustWork = TRUE))
-
-load(system.file("extdata",
-            "m_j1.Rda",
-            package = "Reproducibility.in.Plant.Pathology",
-            mustWork = TRUE))
-load(system.file("extdata",
-            "m_j2.Rda",
-            package = "Reproducibility.in.Plant.Pathology",
-            mustWork = TRUE))
-load(system.file("extdata",
-            "m_j3.Rda",
-            package = "Reproducibility.in.Plant.Pathology",
-            mustWork = TRUE))
-
-
-load(system.file("extdata",
-            "m_k1.Rda",
-            package = "Reproducibility.in.Plant.Pathology",
-            mustWork = TRUE))
-load(system.file("extdata",
-            "m_k2.Rda",
             package = "Reproducibility.in.Plant.Pathology",
             mustWork = TRUE))
 ```
