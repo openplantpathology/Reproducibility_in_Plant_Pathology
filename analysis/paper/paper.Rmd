@@ -566,56 +566,11 @@ readODS::read_ods(
     "Articles were three in three areas for reproducibility on a scale of '0' to '3' by five independent evaluators to rank articles in each of four areas, 'Computational Methods Availability', 'Data Availability', 'Software Availability'.")
 ```
 
-
 \newpage
 
 # Figures
 
-```{r irCriteria, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Evaluator agreement for five articles scored for (A) computational methods (code) used, e.g. scripts or other self-written programs were freely and openly available and (B) data represented in the paper were freely and openly available. Note that one evaluator rated an article with computational methods available as 'NA', which is reflected in that article having only four evaluations for this criteria.", cache=FALSE, fig.env='figure'}
-a <- ggplot(ir,
-            aes(y = doi,
-                x = comp_mthds_avail)) +
-  geom_density_ridges() +
-  ylab("DOI") +
-  xlab("Score") +
-  xlim(c(0, 3)) +
-  ggtitle("Code Available")
-
-b <- ggplot(ir,
-            aes(y = doi,
-                x = data_avail)) +
-  ylab("") +
-  xlab("Score") +
-  theme(axis.text.y = element_blank(),
-        axis.ticks.y = element_blank()) +
-  xlim(c(0, 3)) +
-  geom_density_ridges() +
-  ggtitle("Data Available")
-
-p <- a + b
-p <- p + plot_annotation(tag_levels = "A",
-                         title = "Evaluator agreement in article reproducibility criteria scoring") &
-  theme(text = element_text("Arial"))
-
-ggsave(
-  filename = here("analysis/figures/Sparks_et_al_Figure_1.eps"),
-  plot = p,
-  width = 6,
-  height = 6,
-  units = "in",
-  device = cairo_ps
-)
-embed_fonts(
-  file = here("analysis/figures/Sparks_et_al_Figure_1.eps"),
-  outfile = here("analysis/figures/Sparks_et_al_Figure_1.eps"),
-  options = "-dEPSCrop"
-)
-include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_1.eps"))
-```
-
-\newpage
-
-```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualisations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialised journals. Six factors were evaluated, (A, B, C) Publication (Journal Title), (D, E, F) Article Class, (G, H, I) Five Year Impact Factor of Journal, (J, K, L) Journal Open Access Policy, (M, N, O) Year of Publication and (P, Q) the Journals' Reproducibility Instructions where y is the data's density and y~rep~ are ten random posterior draws. Model fitnesses were found to be good for all models and no effects of any of the factors were observed on the reproducibility score.", cache=FALSE, fig.env='figure'}
+```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualisations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialised journals. Six factors were evaluated, (A, B) Publication (Journal Title), (D, E) Year of Publication, (G, H) Five Year Impact Factor of Journal, and (J, K) Journal Open Access Policy where y is the data's density and y~rep~ are ten random posterior draws. Model fitnesses were found to be good for all models and no effects of any of the factors were observed on the reproducibility score.", cache=FALSE, fig.env='figure'}
 
 set.seed(23)
 
@@ -645,7 +600,7 @@ mod_list <- list(
       axis.ticks.x = element_blank(),
       axis.title.x = element_blank()
     ) +
-    ylab("5 Y IF"),
+    ylab("Year"),
   pp_check(m_g2) +
     theme(
       axis.text.x = element_blank(),
@@ -658,25 +613,26 @@ mod_list <- list(
       axis.ticks.x = element_blank(),
       axis.title.x = element_blank()
     ) +
-    ylab("Year"),
+    ylab("5 Y IF"),
   pp_check(m_h2) +
     theme(
       axis.text.x = element_blank(),
       axis.ticks.x = element_blank(),
       axis.title.x = element_blank()
     ),
-  pp_check(m_i1),
+  pp_check(m_i1) +
+    ylab("Access\nPolicy"),
   pp_check(m_i2)
     )
-)
 
-p <- wrap_plots(mod_list, ncol = 3) +
+p <- wrap_plots(mod_list, ncol = 2) +
   plot_layout(guides = "collect") &
-  plot_annotation(title = "Bayesian posterior distributions of evaluation score models") &
+  plot_annotation(title = "Bayesian posterior distributions of evaluation score models",
+                  tag_levels = "A") &
   theme(text = element_text("Arial"))
 
 ggsave(
-  filename = here("analysis/figures/Sparks_et_al_Figure_2.eps"),
+  filename = here("analysis/figures/Sparks_et_al_Figure_1.eps"),
   plot = p,
   width = 6,
   height = 6,
@@ -684,11 +640,11 @@ ggsave(
   device = cairo_ps
 )
 embed_fonts(
-  file = here("analysis/figures/Sparks_et_al_Figure_2.eps"),
-  outfile = here("analysis/figures/Sparks_et_al_Figure_2.eps"),
+  file = here("analysis/figures/Sparks_et_al_Figure_1.eps"),
+  outfile = here("analysis/figures/Sparks_et_al_Figure_1.eps"),
   options = "-dEPSCrop"
 )
-include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_2.eps"))
+include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_1.eps"))
 ```
 
 \newpage
@@ -719,7 +675,7 @@ p <- p +
   theme(text = element_text("Arial"))
 
 ggsave(
-  filename = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
+  filename = here("analysis/figures/Sparks_et_al_Figure_2.eps"),
   plot = p,
   width = 6,
   height = 6,
@@ -727,11 +683,11 @@ ggsave(
   device = cairo_ps
 )
 embed_fonts(
-  file = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
-  outfile = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
+  file = here("analysis/figures/Sparks_et_al_Figure_2.eps"),
+  outfile = here("analysis/figures/Sparks_et_al_Figure_2.eps"),
   options = "-dEPSCrop"
 )
-include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_3.eps"))
+include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_2.eps"))
 ```
 
 \newpage
@@ -752,16 +708,8 @@ b <-
     axis.title.y = element_blank()
   ) +
   scale_fill_grey()
-c <-
-  plot(equivalence_test(m_f3), rope_color = "grey70") +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank(),
-    axis.title.y = element_blank()
-  ) +
-  scale_fill_grey()
 
-p <- a + b + c
+p <- a + b
 p <- p +
   plot_annotation(tag_levels = "A") &
   theme(text = element_text("Arial"))
