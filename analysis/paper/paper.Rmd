@@ -289,7 +289,7 @@ All methods are described in greater detail with the code necessary to reproduce
 # Results
 
 Most articles did not make any computational methods available in any fashion with `r length(which(rrpp$comp_mthds_avail == 3))` (`r round(length(which(rrpp$comp_mthds_avail == 3))/nrow(rrpp), 3)`%) classified as '3', which was the highest score available (Figure \@ref(fig:articleScores)A).
-`r gsub("(^[[:alpha:]])", "\\U\\1", as.character(english(length(which(rrpp$comp_mthds_avail + -1 == 0)))), perl = TRUE)` (`r round(length(which(rrpp$comp_mthds_avail+ -1 == 0))/nrow(rrpp), 2) * 100`%) were classed as '0' and `r as.character(english(length(which(is.na(rrpp$comp_mthds_avail)))))` articles (`r round(length(which(is.na(rrpp$comp_mthds_avail)))/nrow(rrpp), 2) * 100`%) appeared to not use any computational methods.
+`r gsub("(^[[:alpha:]])", "\\U\\1", as.character(english(length(which(rrpp$comp_mthds_avail == 0)))), perl = TRUE)` (`r round(length(which(rrpp$comp_mthds_avail == 0))/nrow(rrpp), 2) * 100`%) were classed as '0' and `r as.character(english(length(which(is.na(rrpp$comp_mthds_avail)))))` articles (`r round(length(which(is.na(rrpp$comp_mthds_avail)))/nrow(rrpp), 2) * 100`%) appeared to not use any computational methods.
 
 However, data was mostly not available with `r length(which(rrpp$data_avail == 0))` (`r round(length(which(rrpp$data_avail == 0))/nrow(rrpp), 2) * 100`%) scoring '0' where the data was not available or mentioned in the article.
 However, more articles, `r length(which(rrpp$data_avail == 3))` (`r round(length(which(rrpp$data_avail == 3))/nrow(rrpp), 2) * 100`%) scored '3' than scored '1' or '2' combined, `r length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))` (`r round(length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))/nrow(rrpp), 2) * 100`%) with `r as.character(english(length(which(is.na(rrpp$data_avail)))))` articles not producing shareable data (Figure \@ref(fig:articleScores)D).
@@ -639,14 +639,6 @@ mod_list <- list(
       axis.title.x = element_blank(),
       plot.title = element_text(hjust = 0.5)
     ),
-  pp_check(m_f3) +
-    ggtitle("Software") +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank(),
-      plot.title = element_text(hjust = 0.5)
-    ),
   pp_check(m_g1) +
     theme(
       axis.text.x = element_blank(),
@@ -655,12 +647,6 @@ mod_list <- list(
     ) +
     ylab("5 Y IF"),
   pp_check(m_g2) +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank()
-    ),
-  pp_check(m_g3) +
     theme(
       axis.text.x = element_blank(),
       axis.ticks.x = element_blank(),
@@ -679,48 +665,9 @@ mod_list <- list(
       axis.ticks.x = element_blank(),
       axis.title.x = element_blank()
     ),
-  pp_check(m_h3) +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank(),
-    ),
-  pp_check(m_i1) +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank()
-    ) +
-    ylab("Access"),
-  pp_check(m_i2) +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank()
-    ),
-  pp_check(m_i3) +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank()
-    ),
-  pp_check(m_j1) +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank()
-    ) +
-    ylab("Instructions"),
-  pp_check(m_j2) +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank()
-    ),
-  pp_check(m_j3),
-  pp_check(m_k1) +
-    ylab("Software"),
-  pp_check(m_k2)
+  pp_check(m_i1),
+  pp_check(m_i2)
+    )
 )
 
 p <- wrap_plots(mod_list, ncol = 3) +
