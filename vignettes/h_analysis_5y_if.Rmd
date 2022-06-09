@@ -64,13 +64,12 @@ rrpp <- drop_na(rrpp, comp_mthds_avail)
 m_h1 <-
   brm(
     formula = comp_mthds_avail ~ IF_5year +
-      (1 | assignee) +
-      (1 | abbreviation),
+      (1 | assignee),
     data = rrpp,
     seed = 27,
     prior = priors,
     family = cumulative(link = "logit"),
-    control = list(adapt_delta = 0.99),
+    control = list(adapt_delta = 0.999),
     iter = 6000,
     chains = 4
   )
@@ -95,8 +94,7 @@ rrpp <- drop_na(rrpp, data_avail)
 m_h2 <-
   brm(
     formula = data_avail ~ IF_5year +
-      (1 | assignee) +
-      (1 | abbreviation),
+      (1 | assignee),
     data = rrpp,
     seed = 27,
     prior = priors,
