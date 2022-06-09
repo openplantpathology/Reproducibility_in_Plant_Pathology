@@ -73,6 +73,7 @@ rrpp <-
 
 rrpp <- drop_na(rrpp, comp_mthds_avail)
 
+
 m_f1 <-
   brm(
     formula = comp_mthds_avail ~ abbreviation +
@@ -82,7 +83,7 @@ m_f1 <-
     seed = 27,
     prior = priors,
     family = cumulative(link = "logit"),
-    iter = 6000,
+    iter = 10000,
     control = list(adapt_delta = 0.999)
   )
 
@@ -119,7 +120,7 @@ m_f2 <-
     seed = 27,
     prior = priors,
     family = cumulative(link = "logit"),
-    iter = 6000,
+    iter = 10000,
     control = list(adapt_delta = 0.99)
   )
 

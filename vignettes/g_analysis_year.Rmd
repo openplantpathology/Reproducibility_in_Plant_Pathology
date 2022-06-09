@@ -69,7 +69,7 @@ m_g1 <-
     seed = 27,
     prior = priors,
     family = cumulative(link = "logit"),
-    iter = 6000,
+iter = 10000,
     control = list(adapt_delta = 0.9999),
   )
 
@@ -97,7 +97,7 @@ m_g2 <-
     seed = 27,
     prior = priors,
     family = cumulative(link = "logit"),
-    iter = 6000,
+iter = 10000,
     control = list(adapt_delta = 0.9999),
   )
 

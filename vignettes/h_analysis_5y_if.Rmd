@@ -70,7 +70,7 @@ m_h1 <-
     prior = priors,
     family = cumulative(link = "logit"),
     control = list(adapt_delta = 0.999),
-    iter = 6000,
+    iter = 10000,
     chains = 4
   )
 
@@ -100,7 +100,7 @@ m_h2 <-
     prior = priors,
     family = cumulative(link = "logit"),
     control = list(adapt_delta = 0.99),
-    iter = 6000,
+    iter = 10000,
     chains = 4
   )
 

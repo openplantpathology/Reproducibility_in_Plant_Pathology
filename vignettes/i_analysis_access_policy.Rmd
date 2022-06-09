@@ -67,7 +67,7 @@ m_i1 <-
     prior = priors,
     family = cumulative(link = "logit"),
     control = list(adapt_delta = 0.999),
-    iter = 6000
+    iter = 10000
   )
 
 summary(m_i1)
@@ -98,7 +98,7 @@ m_i2 <-
     prior = priors,
     family = cumulative(link = "logit"),
     control = list(adapt_delta = 0.99),
-    iter = 6000
+    iter = 10000
   )
 
 summary(m_i2)
