@@ -278,13 +278,19 @@ The `adapt_delta()` and `max_treedepth()` values were adjusted as necessary on a
 
 Model finesses were evaluated using model summaries and diagnostic plots from 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021] and posterior fits using `pp_check()` (Figure \@ref(fig:posteriors)) from the contributed R package 'bayesplot' (version `r packageVersion("bayesplot")`) [@Gabry2019].
 
-Probability of direction or maximum probability of effect was plotted, `pd()`, and a test for practical equivalence, `equivalence_test()`, was performed for each model using the contributed R package 'bayestestR' (version `r packageVersion("bayestestR")`) [@Makowski2019] and the Region of Practical Equivalence (ROPE) was set to -0.1 to 0.1.
+A test for practical equivalence, `equivalence_test()`, was performed for each model using the contributed R package 'bayestestR' (version `r packageVersion("bayestestR")`) [@Makowski2019] with the Region of Practical Equivalence (ROPE) set to -0.1 to 0.1.
 
 Data were visualised using 'ggplot2' (version `r packageVersion("ggplot2")`) [@Wickham2016], 'ggpubr' (version `r packageVersion("ggpubr")`) [@Kassambara2020] and patchwork (version `r packageVersion("patchwork")`) [@Pedersen2020].
 
 All methods are described in greater detail with the code necessary to reproduce the work in @Sparks2022.
 
 # Results
+
+## Inter-rater Agreement
+
+All authors agreed on the inter-rater article evaluations for the data availability, '0', not available, but one of the authors rated one article as `NA` or not having any computational methods used rather than '0' as with the other four authors, giving the inter-rater percent agreement a score of 100% with the \`NA value dropped from the code availability.
+
+## Code and Data Sharing Classification Scores
 
 Most articles did not make any computational methods available in any fashion with `r length(which(rrpp$comp_mthds_avail == 3))` (`r round(length(which(rrpp$comp_mthds_avail == 3))/nrow(rrpp), 3)`%) classified as '3', which was the highest score available (Figure \@ref(fig:articleScores)A).
 `r gsub("(^[[:alpha:]])", "\\U\\1", as.character(english(length(which(rrpp$comp_mthds_avail == 0)))), perl = TRUE)` (`r round(length(which(rrpp$comp_mthds_avail == 0))/nrow(rrpp), 2) * 100`%) were classed as '0' and `r as.character(english(length(which(is.na(rrpp$comp_mthds_avail)))))` articles (`r round(length(which(is.na(rrpp$comp_mthds_avail)))/nrow(rrpp), 2) * 100`%) appeared to not use any computational methods.
@@ -294,25 +300,15 @@ However, more articles, `r length(which(rrpp$data_avail == 3))` (`r round(length
 
 More articles did a good job of using software that was reasonably available to anyone with `r length(which(rrpp$software_avail >= 2))` (`r round(length(which(rrpp$software_avail >= 2))/nrow(rrpp), 2) * 100`%) scoring '2' or '3' (Figure \@ref(fig:articleScores)B) for software availability.
 
-## Inter-rater Agreement
+## Analysis of Effects
 
-All authors agreed on the inter-rater article evaluations for the data availability, '0', not available, but one of the authors rated one article as `NA` or not having any computational methods used rather than '0' as with the other four authors, giving the inter-rater percent agreement a score of 100% with the \`NA value dropped from the code availability.
-
-## Effect of Journal Title
-
-The analysis found that publications in Phytopathology were more likely to share their code but was unable to detect differences in any other journal titles.
+The analysis found that publications in Phytopathology were more likely to share their code but undecided on any effects of any other journal titles (Median = `summarise_draws(m_f1) %>% filter(variable == "b_abbreviationPhytopathology") %>% select(median)`, 95% CI [0.78, 4.21] and can be considered as significant (0% in ROPE).
 Publications in Crop Protection and Plant Disease were less likely to share their data but no effects were detectable in any other journal title.
-
-## Effect of Year
 
 We were unable to detect any observable differences as a result of the year that an article was published for code availability.
 However, of the articles surveyed those published in 2016 were more likely to have shared data than the other years.
 
-## Effect of Impact Factor
-
 There were no detectable effects of the five-year impact factor on code or data availability.
-
-## Effect of Access Policy
 
 No journals surveyed were completely closed, all offered at least an option for open access articles but some were completely open.
 The analysis was unable to detect any differences in the effect of access policy on the availability of code or data.
