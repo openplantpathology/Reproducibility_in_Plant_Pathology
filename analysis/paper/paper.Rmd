@@ -474,6 +474,10 @@ Sharing materials detailing the analysis that was performed and documenting the 
 This open sharing of code and data leads to greater impact as work is cited if resources such as code or data are reused.
 With mandates for openly sharing data becoming more common with funding agencies, we can and should embrace this and move the discipline forward and have a greater impact with our work.
 
+Without the data underlying the paper, we as a community cannot adequately evaluate the work as it is presented.
+Without the code that was used to analyse the data, we as a community cannot adequately evaluate the work as it is presented.
+That is, while we may be standing on the shoulders of giants doing our work, we cannot see where they've been to do our work, which hinders our efforts.
+
 # Authors' Contributions
 
 A.H.S, E.DP., Z.F. and N.J.G. conceived of the presented idea and scoring system.
