@@ -333,9 +333,10 @@ tab_s <-
   filter(Freq %in% head(unique(Freq), 10)) %>% 
   rename("Software" = "Var1", "Frequency" = "Freq")
 ```
-Two-hundred fifty three unique software applications were recorded as having been used in the articles that were evalutated.
+
+There were `r as.character(english(length(unique(rrpp_software$software_used))))` unique software applications recorded being used in the articles that were evaluated.
 These included desktop programs, web-based software and databases.
-From the top ten most frequently cited software, the most frequently cited program was `r tab_s[1, 1]`, where different versions were not distinguished.
+From the top ten most frequently cited software, the most frequently cited program was `r tab_s[1, 1]`, where different versions were not distinguished for this work.
 The next three programs were statistical software, SAS (`r scales::ordinal(which(tab_s == "SAS"))`), SPSS (`r scales::ordinal(which(tab_s == "SPSS"))`) and R (`r scales::ordinal(which(tab_s == "R"))`) with two other statistical programs also frequently cited, GenStat and Statistica (tied 8th).
 The remainder of the top ten programs we found were related to sequence analysis, *i.e.*, Clustal (`r scales::ordinal(which(tab_s == "CLUSTAL"))`), BLAST ((`r scales::ordinal(which(tab_s == "BLAST"))`)), and BioEdit ((`r scales::ordinal(which(tab_s == "BIOEDIT"))`)) or phylogenetic analysis MrBayes ((`r scales::ordinal(which(tab_s == "MRBAYS"))`)).
 The most general-purpose software cited in the top 10 was Excel® (`r scales::ordinal(which(tab_s == "EXCEL"))`).
@@ -343,22 +344,25 @@ The Python programming language was cited only twice.
 
 # Discussion
 
+Except for a few isolated cases, most papers were not fully computationally reproducible.
+Very few authors choose to share both data and code.
+More authors shared data due to journal requirements to share sequence data, but other types of data related to field experiments or other laboratory studies were not likely to be shared.
+Code sharing was extremely rare, but in cases where it was shared, most were included as a part of the journal article's publication as extra materials rather than through data repositories.
+The reasons for not sharing code or data were not clearly available from the papers themselves and so this work was unable to determine possible reasons for this situation.
+We recognise that in some cases there may be commercial or intellectual property (IP) reasons for not sharing data or code, but these reasons should be clearly stated.
+However, in most cases, the data are collected with public funding and the code was developed using similar funding and there are no commercial or IP issues that preclude sharing and in fact the funding agency may have guidelines in place for sharing these materials.
+
+Much of the software used are Free Open Source Software (FOSS) packages, which means that the workflow can easily be recreated by anyone with the proper skills in using the software.
+However, the top three most widely used software packages were not FOSS, limiting the ability of the authors to share workflows with others.
 MEGA was the most widely cited software in this evaluation reflecting the wide spread use of sequence analysis in the field of plant pathology.
 The second, third and fourth, and eighth most frequently cited software packages were all statistical programs.
-SAS remains firmly entrenched in the discipline as the choice of software for statistical analysis followed by SPSS but R is not far removed from SPSS in fourth place with Statistica and Genstat tied for eighth.
+SAS remains firmly entrenched in the discipline as the choice of software for statistical analysis followed by SPSS but R, the most frequently occurring FOSS, is not far removed from SPSS in fourth place with Statistica and Genstat tied for eighth.
 The remainder of the top ten software packages we found were related to sequence analysis, *i.e.*, BLAST, Clustal and BioEdit, phylogenetic analysis MrBayes or the general-purpose spreadsheet program Excel®.
-It is interesting to note however, that with the popularity of Python that it only appears in the survey twice and in 2020 in both articles, not enough times to be in the top 10 most-cited.
-
-We recognise that the scoring methods were developed by the authors specifically for this evaluation and are not entirely objective and acknowledge that we have based our scoring decisions on our own experiences in the field of plant pathology.
-However, without assigning values, it is not possible to attempt to qualify or quantify where our discipline stands in regards to computational reproducibility.
-
-In the authors' view, while many software packages may be widely used or "freely" available if one has an institutional license, these types of software often hinder partners and interested parties that do not have access to them.
-Thus, the emphasis was given to using open source alternatives where possible over commercially available, non-free software packages.
-The authors believe that this is something to be encouraged as it allows the broadest possible audience to benefit from the work at the lowest possible monetary cost.
+It is interesting to note however, that even with the popularity of Python in scientific programming, it only appears in the survey twice in 2020 for both articles, not enough times to be in the top 10 most-cited.
 
 ## Are There Good Examples?
 
-While the majority of the articles that were surveyed did not score well, we are aware of and would like to highlight that there are several good examples from the plant pathology discipline that can be used as exemplars.
+While the majority of the articles that were surveyed did not score well for sharing data and code, we are aware of and would like to highlight that there are several good examples from the plant pathology discipline that can be used as exemplars.
 
 There are different ways to make research more open and reproducible, which can be thought of as levels of reproducibility.
 The first level is including tables of raw data or code with the paper as a supplemental file.
