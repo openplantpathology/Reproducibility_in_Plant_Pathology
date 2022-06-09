@@ -530,6 +530,179 @@ import_notes() %>%
 
 \newpage
 
+```{r effects-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
+equivalence_test(m_f1) %>%
+  mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
+  mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>%
+  rename(
+    "ROPE\nlow" = "ROPE_low",
+    "ROPE\nhigh" = "ROPE_high",
+    "ROPE %" = "ROPE_Percentage",
+    "ROPE Equivalence" = "ROPE_Equivalence",
+    "HDI\nLow" = "HDI_low",
+    "HDI\nHigh" = "HDI_high"
+  ) %>%
+  select(-Effects, -Component) %>%
+  flextable() %>%
+  colformat_num(na_str = "NA") %>%
+  set_formatter_type(fmt_double = "%.01f") %>% 
+  set_formatter(`ROPE %` = function(x) sprintf("%1.f%%", x * 100)) %>%
+  autofit() %>%
+  set_caption(
+    "The effect that the journal titles selected for inclusion had on the probability of pd being negative."
+  )
+```
+
+\newpage
+
+```{r effects-analysis-data, echo=FALSE, message=FALSE, warning=FALSE}
+equivalence_test(m_f2) %>%
+  mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
+  mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>%
+  rename(
+    "ROPE\nlow" = "ROPE_low",
+    "ROPE\nhigh" = "ROPE_high",
+    "ROPE %" = "ROPE_Percentage",
+    "ROPE Equivalence" = "ROPE_Equivalence",
+    "HDI\nLow" = "HDI_low",
+    "HDI\nHigh" = "HDI_high"
+  ) %>%
+  select(-Effects, -Component) %>%
+  flextable() %>%
+  colformat_num(na_str = "NA") %>%
+  set_formatter_type(fmt_double = "%.01f") %>%
+  set_formatter(`ROPE %` = function(x) sprintf("%1.f%%", x * 100)) %>%
+  autofit()
+```
+
+\newpage
+
+```{r year-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
+equivalence_test(m_g1) %>%
+  mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
+  rename(
+    "ROPE\nlow" = "ROPE_low",
+    "ROPE\nhigh" = "ROPE_high",
+    "ROPE %" = "ROPE_Percentage",
+    "ROPE Equivalence" = "ROPE_Equivalence",
+    "HDI\nLow" = "HDI_low",
+    "HDI\nHigh" = "HDI_high"
+  ) %>%
+  select(-Effects, -Component) %>%
+  flextable() %>%
+  colformat_num(na_str = "NA") %>%
+  set_formatter_type(fmt_double = "%.01f") %>%
+  set_formatter(`ROPE %` = function(x) sprintf("%1.f%%", x * 100)) %>%
+  autofit()
+```
+
+\newpage
+
+```{r year-analysis-data, echo=FALSE, message=FALSE, warning=FALSE}
+equivalence_test(m_g2) %>%
+  mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
+  rename(
+    "ROPE\nlow" = "ROPE_low",
+    "ROPE\nhigh" = "ROPE_high",
+    "ROPE %" = "ROPE_Percentage",
+    "ROPE Equivalence" = "ROPE_Equivalence",
+    "HDI\nLow" = "HDI_low",
+    "HDI\nHigh" = "HDI_high"
+  ) %>%
+  select(-Effects, -Component) %>%
+  flextable() %>%
+  colformat_num(na_str = "NA") %>%
+  set_formatter_type(fmt_double = "%.01f") %>%
+  set_formatter(`ROPE %` = function(x) sprintf("%1.f%%", x * 100)) %>%
+  autofit()
+```
+
+\newpage
+
+```{r if-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
+equivalence_test(m_h1) %>%
+  mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
+  rename(
+    "ROPE\nlow" = "ROPE_low",
+    "ROPE\nhigh" = "ROPE_high",
+    "ROPE %" = "ROPE_Percentage",
+    "ROPE Equivalence" = "ROPE_Equivalence",
+    "HDI\nLow" = "HDI_low",
+    "HDI\nHigh" = "HDI_high"
+  ) %>%
+  select(-Effects, -Component) %>%
+  flextable() %>%
+  colformat_num(na_str = "NA") %>%
+  set_formatter_type(fmt_double = "%.01f") %>%
+  set_formatter(`ROPE %` = function(x) sprintf("%1.f%%", x * 100)) %>%
+  autofit()
+```
+
+\newpage
+
+```{r if-analysis-data, echo=FALSE, message=FALSE, warning=FALSE}
+equivalence_test(m_h2) %>%
+  mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
+  rename(
+    "ROPE\nlow" = "ROPE_low",
+    "ROPE\nhigh" = "ROPE_high",
+    "ROPE %" = "ROPE_Percentage",
+    "ROPE Equivalence" = "ROPE_Equivalence",
+    "HDI\nLow" = "HDI_low",
+    "HDI\nHigh" = "HDI_high"
+  ) %>%
+  select(-Effects, -Component) %>%
+  flextable() %>%
+  colformat_num(na_str = "NA") %>%
+  set_formatter_type(fmt_double = "%.01f") %>%
+  set_formatter(`ROPE %` = function(x) sprintf("%1.f%%", x * 100)) %>%
+  autofit()
+```
+
+\newpage
+
+```{r access-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
+equivalence_test(m_i1) %>%
+  mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
+  rename(
+    "ROPE\nlow" = "ROPE_low",
+    "ROPE\nhigh" = "ROPE_high",
+    "ROPE %" = "ROPE_Percentage",
+    "ROPE Equivalence" = "ROPE_Equivalence",
+    "HDI\nLow" = "HDI_low",
+    "HDI\nHigh" = "HDI_high"
+  ) %>%
+  select(-Effects, -Component) %>%
+  flextable() %>%
+  colformat_num(na_str = "NA") %>%
+  set_formatter_type(fmt_double = "%.01f") %>%
+  set_formatter(`ROPE %` = function(x) sprintf("%1.f%%", x * 100)) %>%
+  autofit()
+```
+
+\newpage
+
+```{r access-analysis-data, echo=FALSE, message=FALSE, warning=FALSE}
+equivalence_test(m_i2) %>%
+  mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
+  rename(
+    "ROPE\nlow" = "ROPE_low",
+    "ROPE\nhigh" = "ROPE_high",
+    "ROPE %" = "ROPE_Percentage",
+    "ROPE Equivalence" = "ROPE_Equivalence",
+    "HDI\nLow" = "HDI_low",
+    "HDI\nHigh" = "HDI_high"
+  ) %>%
+  select(-Effects, -Component) %>%
+  flextable() %>%
+  colformat_num(na_str = "NA") %>%
+  set_formatter_type(fmt_double = "%.01f") %>%
+  set_formatter(`ROPE %` = function(x) sprintf("%1.f%%", x * 100)) %>%
+  autofit()
+```
+
+\newpage
+
 ```{r software-used, echo=FALSE, message=FALSE, warning=FALSE}
 tab_s %>%
   flextable() %>%
@@ -560,7 +733,7 @@ readODS::read_ods(
 
 # Figures
 
-```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualisations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialised journals. Six factors were evaluated, (A, B) Publication (Journal Title), (D, E) Year of Publication, (G, H) Five Year Impact Factor of Journal, and (J, K) Journal Open Access Policy where y is the data's density and y~rep~ are ten random posterior draws. Model fitnesses were found to be good for all models and no effects of any of the factors were observed on the reproducibility score.", cache=FALSE, fig.env='figure'}
+```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualisations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialised journals. Six factors were evaluated, (A, B) Publication (Journal Title), (C, D) Year of Publication, (E, F) Five Year Impact Factor of Journal, and (G, H) Journal Open Access Policy where y is the data's density and y~rep~ are ten random posterior draws. Model fitnesses were found to be good for all models and no effects of any of the factors were observed on the reproducibility score.", cache=FALSE, fig.env='figure'}
 
 set.seed(23)
 
@@ -682,47 +855,6 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_2.eps"))
 
 \newpage
 
-```{r equivalence-tests, echo=FALSE, warning=FALSE, message=FALSE}
-a <- plot(equivalence_test(m_f1), rope_color = "grey70") +
-  scale_y_discrete(
-    label = function(x) {
-      x %>% gsub("b_abbreviation", "", .)
-    }
-  ) +
-  scale_fill_grey()
-b <-
-  plot(equivalence_test(m_f2), rope_color = "grey70") +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank(),
-    axis.title.y = element_blank()
-  ) +
-  scale_fill_grey()
-
-p <- a + b
-p <- p +
-  plot_annotation(tag_levels = "A") &
-  theme(text = element_text("Arial"))
-
-ggsave(
-  filename = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
-  plot = p,
-  width = 6,
-  height = 6,
-  units = "in",
-  device = cairo_ps
-)
-embed_fonts(
-  file = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
-  outfile = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
-  options = "-dEPSCrop"
-)
-include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_3.eps"))
-
-```
-
-\newpage
-
 ```{r workflow-dia, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='An example of an open and reproducible research workflow. Starting with the question, determine the methodology, describe it, make it available and cite it. Data are used in analysis and any binary files or code are made available as supplements to the manuscript. Source code and raw data are made available in a public repository, preferably with version control for tracking changes through time, and a DOI for final released products.', cache=FALSE, fig.env='figure'}
 
 p <- export_svg(
@@ -766,12 +898,12 @@ p <- export_svg(
 )
 
 rsvg_ps(svg = charToRaw(p),
-        file = here("analysis/figures/Sparks_et_al_Figure_4.eps"))
+        file = here("analysis/figures/Sparks_et_al_Figure_3.eps"))
 embed_fonts(
-  file = here("analysis/figures/Sparks_et_al_Figure_4.eps"),
-  outfile = here("analysis/figures/Sparks_et_al_Figure_4.eps"),
+  file = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
+  outfile = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
   options = "-dEPSCrop"
 )
 
-include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_4.eps"))
+include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_3.eps"))
 ```
