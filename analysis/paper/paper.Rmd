@@ -293,26 +293,72 @@ All authors agreed on the inter-rater article evaluations for the data availabil
 ## Code and Data Sharing Classification Scores
 
 Most articles did not make any computational methods available in any fashion with `r length(which(rrpp$comp_mthds_avail == 3))` (`r round(length(which(rrpp$comp_mthds_avail == 3))/nrow(rrpp), 3)`%) classified as '3', which was the highest score available (Figure \@ref(fig:articleScores)A).
-`r gsub("(^[[:alpha:]])", "\\U\\1", as.character(english(length(which(rrpp$comp_mthds_avail == 0)))), perl = TRUE)` (`r round(length(which(rrpp$comp_mthds_avail == 0))/nrow(rrpp), 2) * 100`%) were classed as '0' and `r as.character(english(length(which(is.na(rrpp$comp_mthds_avail)))))` articles (`r round(length(which(is.na(rrpp$comp_mthds_avail)))/nrow(rrpp), 2) * 100`%) appeared to not use any computational methods.
+`r gsub("(^[[:alpha:]])", "\\U\\1", as.character(english(length(which(rrpp$comp_mthds_avail == 0)))), perl = TRUE)` (`r round(length(which(rrpp$comp_mthds_avail == 0))/nrow(rrpp), 2)`%) were classed as '0' and `r as.character(english(length(which(is.na(rrpp$comp_mthds_avail)))))` articles (`r round(length(which(is.na(rrpp$comp_mthds_avail)))/nrow(rrpp), 2)`%) appeared to not use any computational methods.
 
-However, data was mostly not available with `r length(which(rrpp$data_avail == 0))` (`r round(length(which(rrpp$data_avail == 0))/nrow(rrpp), 2) * 100`%) scoring '0' where the data was not available or mentioned in the article.
-However, more articles, `r length(which(rrpp$data_avail == 3))` (`r round(length(which(rrpp$data_avail == 3))/nrow(rrpp), 2) * 100`%) scored '3' than scored '1' or '2' combined, `r length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))` (`r round(length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))/nrow(rrpp), 2) * 100`%) with `r as.character(english(length(which(is.na(rrpp$data_avail)))))` articles not producing shareable data (Figure \@ref(fig:articleScores)D).
-
-More articles did a good job of using software that was reasonably available to anyone with `r length(which(rrpp$software_avail >= 2))` (`r round(length(which(rrpp$software_avail >= 2))/nrow(rrpp), 2) * 100`%) scoring '2' or '3' (Figure \@ref(fig:articleScores)B) for software availability.
+However, data was mostly not available with `r length(which(rrpp$data_avail == 0))` (`r round(length(which(rrpp$data_avail == 0))/nrow(rrpp), 2)`%) scoring '0' where the data was not available or mentioned in the article.
+However, more articles, `r length(which(rrpp$data_avail == 3))` (`r round(length(which(rrpp$data_avail == 3))/nrow(rrpp), 2)`%), scored '3' than scored '1' or '2' combined, `r length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))` (`r round(length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))/nrow(rrpp), 2)`%) with `r as.character(english(length(which(is.na(rrpp$data_avail)))))` articles not producing shareable data (Figure \@ref(fig:articleScores)D).
 
 ## Analysis of Effects
 
-The analysis found that publications in Phytopathology were more likely to share their code but undecided on any effects of any other journal titles (Median = `summarise_draws(m_f1) %>% filter(variable == "b_abbreviationPhytopathology") %>% select(median)`, 95% CI [0.78, 4.21] and can be considered as significant (0% in ROPE).
-Publications in Crop Protection and Plant Disease were less likely to share their data but no effects were detectable in any other journal title.
+```{r code-data-analysis, message=FALSE, warning=FALSE, echo=FALSE}
+f1_draws <- summarise_draws(m_f1)
+f1_equivalence <- equivalence_test(m_f1)
+
+f2_draws <- summarise_draws(m_f2)
+f2_equivalence <- equivalence_test(m_f2)
+
+g2_draws <- summarise_draws(m_g2)
+g2_equivalence <- equivalence_test(m_g2)
+
+i2_draws <- summarise_draws(m_i2)
+i2_equivalence <- equivalence_test(m_i2)
+
+phytopath_draws_f1 <-
+  filter(f1_draws, variable == "b_abbreviationPhytopathology")
+phytopath_equiv_f1 <-
+  as_tibble(f1_equivalence) %>% filter(Parameter == "b_abbreviationPhytopathology")
+
+cropProt_draws_f2 <-
+  filter(f2_draws, variable == "b_abbreviationCropProt")
+plantDis_draws_f2 <-
+  filter(f2_draws, variable == "b_abbreviationPlantDis")
+revMexFitopatol_draws_f2 <-
+  filter(f2_draws, variable == "b_abbreviationRevMexFitopatol")
+
+year2016_draws_g2 <-
+  as_tibble(g2_draws) %>% filter(variable == "b_year2016")
+
+access_i2 <-
+  filter(f2_draws, variable == "b_openTRUE")
+
+access_draws_i2 <-
+  as_tibble(i2_draws) %>% filter(variable == "b_openTRUE")
+
+cropProt_equiv_f2 <-
+  as_tibble(f1_equivalence) %>% filter(Parameter == "b_abbreviationCropProt")
+plantDis_equiv_f2 <-
+  as_tibble(f1_equivalence) %>% filter(Parameter == "b_abbreviationPlantDis")
+revMexFitopatol_equiv_f2 <-
+  as_tibble(f2_equivalence) %>% filter(Parameter == "b_abbreviationRevMexFitopatol")
+
+year2016_equiv_g2 <-
+  as_tibble(g2_equivalence) %>% filter(Parameter == "b_year2016")
+
+access_equiv_i2 <-
+  as_tibble(i2_equivalence) %>% filter(Parameter == "b_openTRUE")
+```
+
+The analysis found that publications in Phytopathology were more likely to share their code but undecided on any effects of any other journal titles (Median = `r round(phytopath_draws_f1$median, digits = 2)`, 95% CI [`r round(phytopath_equiv_f1$HDI_low, digits = 2)`, `r round(phytopath_equiv_f1$HDI_high, digits = 2)`] and can be considered as significant (`r round(phytopath_equiv_f1$ROPE_Percentage, digits = 2)`% in ROPE)).
+Publications in three journals, Crop Protection, Plant Disease and Revista Mexicana de Fitopatología were not likely to share their data (Median = `r round(cropProt_draws_f2$median, digits = 2)`, 95% CI [`r round(cropProt_equiv_f2$HDI_low, digits = 2)`, `r round(cropProt_equiv_f2$HDI_high, digits = 2)`] with (`r round(cropProt_equiv_f2$ROPE_Percentage, digits = 2)`% in ROPE), Median = `r round(plantDis_draws_f2$median, digits = 2)`, 95% CI [`r round(plantDis_equiv_f2$HDI_low, digits = 2)`, `r round(plantDis_equiv_f2$HDI_high, digits = 2)`] with (`r round(plantDis_equiv_f2$ROPE_Percentage, digits = 2)`% in ROPE) and Median = `r round(revMexFitopatol_draws_f2$median, digits = 2)`, 95% CI [`r round(revMexFitopatol_equiv_f2$HDI_low, digits = 2)`, `r round(revMexFitopatol_equiv_f2$HDI_high, digits = 2)`] (`r round(revMexFitopatol_equiv_f2$ROPE_Percentage, digits = 2)`% in ROPE), respectively, and so can be considered significant but no effects were detectable in any other journal titles.
 
 We were unable to detect any observable differences as a result of the year that an article was published for code availability.
-However, of the articles surveyed those published in 2016 were more likely to have shared data than the other years.
+However, of the articles surveyed those published in 2016 did share more code than in other years (Median = `r round(year2016_draws_g2$median, digits = 2)`, 95% CI [`r round(year2016_equiv_g2$HDI_low, digits = 2)`, `r round(year2016_equiv_g2$HDI_high, digits = 2)`] and can be considered as significant (`r round(year2016_equiv_g2$ROPE_Percentage, digits = 2) * 100 `% in ROPE)), but no discernible pattern was found across years.
 
 There were no detectable effects of the five-year impact factor on code or data availability.
 
 No journals surveyed were completely closed, all offered at least an option for open access articles but some were completely open.
 The analysis was unable to detect any differences in the effect of access policy on the availability of code or data.
-But in those journals where the policy was fully open access, the articles were more likely to share code.
+But in those journals where the policy was fully open access, the articles tended to be more likely to share code (Median = `r round(access_draws_i2$median, digits = 2)`, 95% CI [`r round(access_equiv_i2$HDI_low, digits = 2)`, `r round(access_equiv_i2$HDI_high, digits = 2)`]).
 
 ## Software Used
 
