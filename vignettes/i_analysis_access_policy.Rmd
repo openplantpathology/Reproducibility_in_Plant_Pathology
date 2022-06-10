@@ -13,6 +13,7 @@ vignette: >
   %\VignetteDepends{ggplot2}
   %\VignetteDepends{here}
   %\VignetteDepends{sessioninfo}
+  %\VignetteDepends{sessioninfo}
   %\VignetteDepends{tidyr}
 ---
 
@@ -36,6 +37,7 @@ library("bayestestR")
 library("bayesplot")
 library("ggplot2")
 library("here")
+library("report")
 library("tidyr")
 library("Reproducibility.in.Plant.Pathology")
 
@@ -77,6 +79,8 @@ plot(m_i1)
 pp_check(m_i1)
 
 plot(equivalence_test(m_i1))
+
+(m_i1_effect_size <- report_effectsize(m_i1))
 ```
 
 ### Data Availability
@@ -108,6 +112,8 @@ plot(m_i2)
 pp_check(m_i2)
 
 plot(equivalence_test(m_i2))
+
+(m_i2_effect_size <- report_effectsize(m_i2))
 ```
 
 ## Save Model Objects
@@ -118,6 +124,9 @@ Save the model for figures in the paper.
 # save the model for figures in the paper
 save(m_i1, file = here("inst/extdata/m_i1.Rda"))
 save(m_i2, file = here("inst/extdata/m_i2.Rda"))
+
+save(m_i1_effect_size, file = here("inst/extdata/m_i1_effectsize.Rda"))
+save(m_i2_effect_size, file = here("inst/extdata/m_i2_effectsize.Rda"))
 ```
 
 # Colophon
