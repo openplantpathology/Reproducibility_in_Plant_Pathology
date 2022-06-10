@@ -441,7 +441,6 @@ However, the top three most widely used software packages were not FOSS, limitin
 MEGA was the most widely cited software in this evaluation reflecting the wide spread use of sequence analysis in the field of plant pathology.
 The second, third and fourth, and eighth most frequently cited software packages were all statistical programs.
 SAS remains firmly entrenched in the discipline as the choice of software for statistical analysis followed by SPSS but R, the most frequently occurring FOSS, is not far removed from SPSS in fourth place with Statistica and Genstat tied for eighth.
-The remainder of the top ten software packages we found were related to sequence analysis, *i.e.*, BLAST, Clustal and BioEdit, phylogenetic analysis MrBayes or the general-purpose spreadsheet program Excel®.
 It is interesting to note however, that even with the popularity of Python in scientific programming, it only appears in the survey twice in 2020 for both articles, not enough times to be in the top 10 most-cited.
 
 ## Are There Good Examples?
