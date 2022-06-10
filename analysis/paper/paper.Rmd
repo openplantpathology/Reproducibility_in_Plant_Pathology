@@ -1,5 +1,5 @@
 ---
-title: "Openness and Computational Reproducibility in plant pathology: where do we stand and a way forward"
+title: "Openness and Computational Reproducibility in Plant Pathology: Where do we Stand and a Way Forward"
 author:
   - Adam H. Sparks:
       email: Adam.Sparks@dpird.wa.gov.au
