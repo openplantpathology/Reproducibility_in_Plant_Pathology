@@ -422,8 +422,8 @@ There were `r as.character(english(length(unique(rrpp_software$software_used))))
 These included desktop programs, web-based software and databases.
 From the top ten most frequently cited software, the most frequently cited program was `r tab_s[1, 1]`, where different versions were not distinguished for this work.
 The next three programs were statistical software, SAS (`r scales::ordinal(which(tab_s == "SAS"))`), SPSS (`r scales::ordinal(which(tab_s == "SPSS"))`) and R (`r scales::ordinal(which(tab_s == "R"))`) with two other statistical programs also frequently cited, GenStat and Statistica (tied 8th).
-The remainder of the top ten programs we found were related to sequence analysis, *i.e.*, Clustal (`r scales::ordinal(which(tab_s == "CLUSTAL"))`), BLAST (`r scales::ordinal(which(tab_s == "BLAST"))`), and BioEdit (`r scales::ordinal(which(tab_s == "BIOEDIT"))`) or phylogenetic analysis MrBayes (`r scales::ordinal(which(tab_s == "MRBAYES"))`).
-The most general-purpose software cited in the top 10 was Excel® (`r scales::ordinal(which(tab_s == "EXCEL"))`).
+The remainder of the top ten programs we found were mostly related to sequence analysis, *i.e.*, Clustal (`r scales::ordinal(which(tab_s == "CLUSTAL"))`), BLAST (`r scales::ordinal(which(tab_s == "BLAST"))`), and BioEdit (9th) or phylogenetic analysis MrBayes (8th), tied with the most general-purpose software cited in the top 10, Excel®.
+In tenth place was FigTree, used for phylogenetic trees.
 The Python programming language was cited only twice.
 
 # Discussion
