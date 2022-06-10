@@ -346,19 +346,57 @@ year2016_equiv_g2 <-
 
 access_equiv_i2 <-
   as_tibble(i2_equivalence) %>% filter(Parameter == "b_openTRUE")
+
+
+phytopath_median <- round(phytopath_draws_f1$median, digits = 2)
+phytopath_hdi_low <- round(phytopath_equiv_f1$HDI_low, digits = 2)
+phytopath_hdi_high <- round(phytopath_equiv_f1$HDI_high, digits = 2)
+phytopath_perc_rope <-
+  round(phytopath_equiv_f1$ROPE_Percentage, digits = 2)
+
+cropProt_median <- round(cropProt_draws_f2$median, digits = 2)
+cropProt_hdi_low <- round(cropProt_equiv_f2$HDI_low, digits = 2)
+cropProt_hdi_high <- round(cropProt_equiv_f2$HDI_high, digits = 2)
+cropProt_perc_rope <-
+  round(cropProt_equiv_f2$ROPE_Percentage, digits = 2)
+
+plantDis_median <- round(plantDis_draws_f2$median, digits = 2)
+plantDis_hdi_low <- round(plantDis_equiv_f2$HDI_low, digits = 2)
+plantDis_hdi_high <- round(plantDis_equiv_f2$HDI_high, digits = 2)
+plantDis_perc_rope <-
+  round(plantDis_equiv_f2$ROPE_Percentage, digits = 2)
+
+revMexFitopatol_median <-
+  round(revMexFitopatol_draws_f2$median, digits = 2)
+revMexFitopatol_hdi_low <-
+  round(revMexFitopatol_equiv_f2$HDI_low, digits = 2)
+revMexFitopatol_hdi_high <-
+  round(revMexFitopatol_equiv_f2$HDI_high, digits = 2)
+revMexFitopatol_perc_rope <-
+  round(revMexFitopatol_equiv_f2$ROPE_Percentage, digits = 2)
+
+
+year2016_median <- round(year2016_draws_g2$median, digits = 2)
+year2016_hdi_low <- round(year2016_equiv_g2$HDI_low, digits = 2)
+year2016_hdi_high <- round(year2016_equiv_g2$HDI_high, digits = 2)
+year2016_perc_rope <- round(year2016_equiv_g2$ROPE_Percentage, digits = 2)
+
+access_median <- round(access_draws_i2$median, digits = 2)
+access_hdi_low <- round(access_equiv_i2$HDI_low, digits = 2)
+access_hdi_high <- round(access_equiv_i2$HDI_high, digits = 2)
 ```
 
-The analysis found that publications in Phytopathology were more likely to share their code but undecided on any effects of any other journal titles (Median = `r round(phytopath_draws_f1$median, digits = 2)`, 95% CI [`r round(phytopath_equiv_f1$HDI_low, digits = 2)`, `r round(phytopath_equiv_f1$HDI_high, digits = 2)`] and can be considered as significant (`r round(phytopath_equiv_f1$ROPE_Percentage, digits = 2)`% in ROPE)).
-Publications in three journals, Crop Protection, Plant Disease and Revista Mexicana de Fitopatología were not likely to share their data (Median = `r round(cropProt_draws_f2$median, digits = 2)`, 95% CI [`r round(cropProt_equiv_f2$HDI_low, digits = 2)`, `r round(cropProt_equiv_f2$HDI_high, digits = 2)`] with (`r round(cropProt_equiv_f2$ROPE_Percentage, digits = 2)`% in ROPE), Median = `r round(plantDis_draws_f2$median, digits = 2)`, 95% CI [`r round(plantDis_equiv_f2$HDI_low, digits = 2)`, `r round(plantDis_equiv_f2$HDI_high, digits = 2)`] with (`r round(plantDis_equiv_f2$ROPE_Percentage, digits = 2)`% in ROPE) and Median = `r round(revMexFitopatol_draws_f2$median, digits = 2)`, 95% CI [`r round(revMexFitopatol_equiv_f2$HDI_low, digits = 2)`, `r round(revMexFitopatol_equiv_f2$HDI_high, digits = 2)`] (`r round(revMexFitopatol_equiv_f2$ROPE_Percentage, digits = 2)`% in ROPE), respectively, and so can be considered significant but no effects were detectable in any other journal titles.
+The analysis found that publications in Phytopathology were more likely to share their code but undecided on any effects of any other journal titles (Median = `r phytopath_median`, 95% CI [`r phytopath_hdi_low`, `r phytopath_hdi_high`] and can be considered as significant (`r phytopath_perc_rope`% in ROPE)).
+Publications in three journals, Crop Protection, Plant Disease and Revista Mexicana de Fitopatología were not likely to share their data (Median = `r cropProt_median`, 95% CI [`r cropProt_hdi_low`, `r cropProt_hdi_high`] with (`r cropProt_perc_rope`% in ROPE), Median = `r plantDis_median`, 95% CI [`r plantDis_hdi_low`, `r plantDis_hdi_high`] with (`r plantDis_perc_rope`% in ROPE) and Median = `r revMexFitopatol_median`, 95% CI [`r revMexFitopatol_hdi_low`, `r revMexFitopatol_hdi_high`] (`r revMexFitopatol_perc_rope`% in ROPE), respectively, and so can be considered significant but no effects were detectable in any other journal titles.
 
 We were unable to detect any observable differences as a result of the year that an article was published for code availability.
-However, of the articles surveyed those published in 2016 did share more code than in other years (Median = `r round(year2016_draws_g2$median, digits = 2)`, 95% CI [`r round(year2016_equiv_g2$HDI_low, digits = 2)`, `r round(year2016_equiv_g2$HDI_high, digits = 2)`] and can be considered as significant (`r round(year2016_equiv_g2$ROPE_Percentage, digits = 2) * 100 `% in ROPE)), but no discernible pattern was found across years.
+However, of the articles surveyed those published in 2016 did share more code than in other years (Median = `r year2016_median`, 95% CI [`r year2016_hdi_low`, `r year2016_hdi_high`] and can be considered as significant (`r year2016_perc_rope`% in ROPE)), but no discernible pattern was found across years.
 
 There were no detectable effects of the five-year impact factor on code or data availability.
 
 No journals surveyed were completely closed, all offered at least an option for open access articles but some were completely open.
 The analysis was unable to detect any differences in the effect of access policy on the availability of code or data.
-But in those journals where the policy was fully open access, the articles tended to be more likely to share code (Median = `r round(access_draws_i2$median, digits = 2)`, 95% CI [`r round(access_equiv_i2$HDI_low, digits = 2)`, `r round(access_equiv_i2$HDI_high, digits = 2)`]).
+But in those journals where the policy was fully open access, the articles tended to be more likely to share code (Median = `r access_median`, 95% CI [`r access_hdi_low`, `r access_hdi_high`]).
 
 ## Software Used
 
