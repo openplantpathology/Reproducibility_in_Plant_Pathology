@@ -581,8 +581,8 @@ equivalence_test(m_f1) %>%
   mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
   mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>%
   rename(
-    "ROPE\nlow" = "ROPE_low",
-    "ROPE\nhigh" = "ROPE_high",
+    "ROPE\nLow" = "ROPE_low",
+    "ROPE\nHigh" = "ROPE_high",
     "ROPE %" = "ROPE_Percentage",
     "ROPE Equivalence" = "ROPE_Equivalence",
     "HDI\nLow" = "HDI_low",
