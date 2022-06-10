@@ -591,8 +591,14 @@ equivalence_test(m_f1) %>%
   select(-Effects, -Component) %>%
   flextable() %>%
   colformat_num(na_str = "NA") %>%
-  set_formatter_type(fmt_double = "%.01f") %>% 
-  set_formatter(`ROPE %` = function(x) sprintf("%1.f%%", x * 100)) %>%
+  colformat_double(
+    j = c("CI", "ROPE\nLow", "ROPE\nHigh", "HDI\nLow", "HDI\nHigh"),
+    digits = 2
+  ) %>%
+  set_formatter(
+    `ROPE %` = function(x)
+      sprintf("%1.f%%", x * 100)
+  ) %>%
   autofit() %>%
   set_caption(
     "The effect that the journal titles selected for inclusion had on the probability of pd being negative."
@@ -606,8 +612,8 @@ equivalence_test(m_f2) %>%
   mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
   mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>%
   rename(
-    "ROPE\nlow" = "ROPE_low",
-    "ROPE\nhigh" = "ROPE_high",
+    "ROPE\nLow" = "ROPE_low",
+    "ROPE\nHigh" = "ROPE_high",
     "ROPE %" = "ROPE_Percentage",
     "ROPE Equivalence" = "ROPE_Equivalence",
     "HDI\nLow" = "HDI_low",
@@ -616,9 +622,18 @@ equivalence_test(m_f2) %>%
   select(-Effects, -Component) %>%
   flextable() %>%
   colformat_num(na_str = "NA") %>%
-  set_formatter_type(fmt_double = "%.01f") %>%
-  set_formatter(`ROPE %` = function(x) sprintf("%1.f%%", x * 100)) %>%
-  autofit()
+  colformat_double(
+    j = c("CI", "ROPE\nLow", "ROPE\nHigh", "HDI\nLow", "HDI\nHigh"),
+    digits = 2
+  ) %>%
+  set_formatter(
+    `ROPE %` = function(x)
+      sprintf("%1.f%%", x * 100)
+  ) %>%
+  autofit() %>%
+  set_caption(
+    "The effect that the journal titles selected for inclusion had on the probability of pd being negative."
+  )
 ```
 
 \newpage
@@ -626,9 +641,10 @@ equivalence_test(m_f2) %>%
 ```{r year-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
 equivalence_test(m_g1) %>%
   mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
+  mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>%
   rename(
-    "ROPE\nlow" = "ROPE_low",
-    "ROPE\nhigh" = "ROPE_high",
+    "ROPE\nLow" = "ROPE_low",
+    "ROPE\nHigh" = "ROPE_high",
     "ROPE %" = "ROPE_Percentage",
     "ROPE Equivalence" = "ROPE_Equivalence",
     "HDI\nLow" = "HDI_low",
@@ -637,9 +653,18 @@ equivalence_test(m_g1) %>%
   select(-Effects, -Component) %>%
   flextable() %>%
   colformat_num(na_str = "NA") %>%
-  set_formatter_type(fmt_double = "%.01f") %>%
-  set_formatter(`ROPE %` = function(x) sprintf("%1.f%%", x * 100)) %>%
-  autofit()
+  colformat_double(
+    j = c("CI", "ROPE\nLow", "ROPE\nHigh", "HDI\nLow", "HDI\nHigh"),
+    digits = 2
+  ) %>%
+  set_formatter(
+    `ROPE %` = function(x)
+      sprintf("%1.f%%", x * 100)
+  ) %>%
+  autofit() %>%
+  set_caption(
+    "The effect that the journal titles selected for inclusion had on the probability of pd being negative."
+  )
 ```
 
 \newpage
@@ -647,9 +672,10 @@ equivalence_test(m_g1) %>%
 ```{r year-analysis-data, echo=FALSE, message=FALSE, warning=FALSE}
 equivalence_test(m_g2) %>%
   mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
+  mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>%
   rename(
-    "ROPE\nlow" = "ROPE_low",
-    "ROPE\nhigh" = "ROPE_high",
+    "ROPE\nLow" = "ROPE_low",
+    "ROPE\nHigh" = "ROPE_high",
     "ROPE %" = "ROPE_Percentage",
     "ROPE Equivalence" = "ROPE_Equivalence",
     "HDI\nLow" = "HDI_low",
@@ -658,9 +684,18 @@ equivalence_test(m_g2) %>%
   select(-Effects, -Component) %>%
   flextable() %>%
   colformat_num(na_str = "NA") %>%
-  set_formatter_type(fmt_double = "%.01f") %>%
-  set_formatter(`ROPE %` = function(x) sprintf("%1.f%%", x * 100)) %>%
-  autofit()
+  colformat_double(
+    j = c("CI", "ROPE\nLow", "ROPE\nHigh", "HDI\nLow", "HDI\nHigh"),
+    digits = 2
+  ) %>%
+  set_formatter(
+    `ROPE %` = function(x)
+      sprintf("%1.f%%", x * 100)
+  ) %>%
+  autofit() %>%
+  set_caption(
+    "The effect that the journal titles selected for inclusion had on the probability of pd being negative."
+  )
 ```
 
 \newpage
@@ -668,9 +703,10 @@ equivalence_test(m_g2) %>%
 ```{r if-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
 equivalence_test(m_h1) %>%
   mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
+  mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>%
   rename(
-    "ROPE\nlow" = "ROPE_low",
-    "ROPE\nhigh" = "ROPE_high",
+    "ROPE\nLow" = "ROPE_low",
+    "ROPE\nHigh" = "ROPE_high",
     "ROPE %" = "ROPE_Percentage",
     "ROPE Equivalence" = "ROPE_Equivalence",
     "HDI\nLow" = "HDI_low",
@@ -679,9 +715,18 @@ equivalence_test(m_h1) %>%
   select(-Effects, -Component) %>%
   flextable() %>%
   colformat_num(na_str = "NA") %>%
-  set_formatter_type(fmt_double = "%.01f") %>%
-  set_formatter(`ROPE %` = function(x) sprintf("%1.f%%", x * 100)) %>%
-  autofit()
+  colformat_double(
+    j = c("CI", "ROPE\nLow", "ROPE\nHigh", "HDI\nLow", "HDI\nHigh"),
+    digits = 2
+  ) %>%
+  set_formatter(
+    `ROPE %` = function(x)
+      sprintf("%1.f%%", x * 100)
+  ) %>%
+  autofit() %>%
+  set_caption(
+    "The effect that the journal titles selected for inclusion had on the probability of pd being negative."
+  )
 ```
 
 \newpage
@@ -689,9 +734,10 @@ equivalence_test(m_h1) %>%
 ```{r if-analysis-data, echo=FALSE, message=FALSE, warning=FALSE}
 equivalence_test(m_h2) %>%
   mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
+  mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>%
   rename(
-    "ROPE\nlow" = "ROPE_low",
-    "ROPE\nhigh" = "ROPE_high",
+    "ROPE\nLow" = "ROPE_low",
+    "ROPE\nHigh" = "ROPE_high",
     "ROPE %" = "ROPE_Percentage",
     "ROPE Equivalence" = "ROPE_Equivalence",
     "HDI\nLow" = "HDI_low",
@@ -700,9 +746,18 @@ equivalence_test(m_h2) %>%
   select(-Effects, -Component) %>%
   flextable() %>%
   colformat_num(na_str = "NA") %>%
-  set_formatter_type(fmt_double = "%.01f") %>%
-  set_formatter(`ROPE %` = function(x) sprintf("%1.f%%", x * 100)) %>%
-  autofit()
+  colformat_double(
+    j = c("CI", "ROPE\nLow", "ROPE\nHigh", "HDI\nLow", "HDI\nHigh"),
+    digits = 2
+  ) %>%
+  set_formatter(
+    `ROPE %` = function(x)
+      sprintf("%1.f%%", x * 100)
+  ) %>%
+  autofit() %>%
+  set_caption(
+    "The effect that the journal titles selected for inclusion had on the probability of pd being negative."
+  )
 ```
 
 \newpage
@@ -710,9 +765,10 @@ equivalence_test(m_h2) %>%
 ```{r access-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
 equivalence_test(m_i1) %>%
   mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
+  mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>%
   rename(
-    "ROPE\nlow" = "ROPE_low",
-    "ROPE\nhigh" = "ROPE_high",
+    "ROPE\nLow" = "ROPE_low",
+    "ROPE\nHigh" = "ROPE_high",
     "ROPE %" = "ROPE_Percentage",
     "ROPE Equivalence" = "ROPE_Equivalence",
     "HDI\nLow" = "HDI_low",
@@ -721,9 +777,18 @@ equivalence_test(m_i1) %>%
   select(-Effects, -Component) %>%
   flextable() %>%
   colformat_num(na_str = "NA") %>%
-  set_formatter_type(fmt_double = "%.01f") %>%
-  set_formatter(`ROPE %` = function(x) sprintf("%1.f%%", x * 100)) %>%
-  autofit()
+  colformat_double(
+    j = c("CI", "ROPE\nLow", "ROPE\nHigh", "HDI\nLow", "HDI\nHigh"),
+    digits = 2
+  ) %>%
+  set_formatter(
+    `ROPE %` = function(x)
+      sprintf("%1.f%%", x * 100)
+  ) %>%
+  autofit() %>%
+  set_caption(
+    "The effect that the journal titles selected for inclusion had on the probability of pd being negative."
+  )
 ```
 
 \newpage
@@ -731,9 +796,10 @@ equivalence_test(m_i1) %>%
 ```{r access-analysis-data, echo=FALSE, message=FALSE, warning=FALSE}
 equivalence_test(m_i2) %>%
   mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
+  mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>%
   rename(
-    "ROPE\nlow" = "ROPE_low",
-    "ROPE\nhigh" = "ROPE_high",
+    "ROPE\nLow" = "ROPE_low",
+    "ROPE\nHigh" = "ROPE_high",
     "ROPE %" = "ROPE_Percentage",
     "ROPE Equivalence" = "ROPE_Equivalence",
     "HDI\nLow" = "HDI_low",
@@ -742,9 +808,18 @@ equivalence_test(m_i2) %>%
   select(-Effects, -Component) %>%
   flextable() %>%
   colformat_num(na_str = "NA") %>%
-  set_formatter_type(fmt_double = "%.01f") %>%
-  set_formatter(`ROPE %` = function(x) sprintf("%1.f%%", x * 100)) %>%
-  autofit()
+  colformat_double(
+    j = c("CI", "ROPE\nLow", "ROPE\nHigh", "HDI\nLow", "HDI\nHigh"),
+    digits = 2
+  ) %>%
+  set_formatter(
+    `ROPE %` = function(x)
+      sprintf("%1.f%%", x * 100)
+  ) %>%
+  autofit() %>%
+  set_caption(
+    "The effect that the journal titles selected for inclusion had on the probability of pd being negative."
+  )
 ```
 
 \newpage
