@@ -449,7 +449,7 @@ While the majority of the articles that were surveyed did not score well for sha
 
 There are different ways to make research more open and reproducible, which can be thought of as levels of reproducibility.
 The first level is including tables of raw data or code with the paper as a supplemental file.
-This is suitable for studies that may have a small data set or simple analysis or for demonstrations purposes as @Madden2015 demonstrate in their discussion regarding the use of $P$ values in statistical analyses where they supply an *e-**X**tra*\* with reproducible examples for readers to refer to.
+This is suitable for studies that may have a small data set or simple analysis or for demonstrations purposes as @Madden2015 demonstrate in their discussion regarding the use of $P$ values in statistical analyses where they supply an *e-**X**tra* with reproducible examples for readers to refer to.
 This allows the reader to quickly view the extra materials and a DOI is assigned as a part of the article itself.
 
 At the second level, in our search of the literature, we found that @Hill2019 shared code and example data to reproduce the results of the paper as supplementary materials, citing all packages used and the versions.
