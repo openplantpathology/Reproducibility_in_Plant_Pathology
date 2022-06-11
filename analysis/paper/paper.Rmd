@@ -89,40 +89,72 @@ opts_chunk$set(
 theme_set(theme_classic())
 
 load(system.file("extdata",
-            "m_f1.Rda",
-            package = "Reproducibility.in.Plant.Pathology",
-            mustWork = TRUE))
+                 "m_f1.Rda",
+                 package = "Reproducibility.in.Plant.Pathology",
+                 mustWork = TRUE))
 load(system.file("extdata",
-            "m_f2.Rda",
-            package = "Reproducibility.in.Plant.Pathology",
-            mustWork = TRUE))
+                 "m_f1_effectsize.Rda",
+                 package = "Reproducibility.in.Plant.Pathology",
+                 mustWork = TRUE))
+load(system.file("extdata",
+                 "m_f2.Rda",
+                 package = "Reproducibility.in.Plant.Pathology",
+                 mustWork = TRUE))
+load(system.file("extdata",
+                 "m_f2_effectsize.Rda",
+                 package = "Reproducibility.in.Plant.Pathology",
+                 mustWork = TRUE))
 
 load(system.file("extdata",
-            "m_g1.Rda",
-            package = "Reproducibility.in.Plant.Pathology",
-            mustWork = TRUE))
+                 "m_g1.Rda",
+                 package = "Reproducibility.in.Plant.Pathology",
+                 mustWork = TRUE))
 load(system.file("extdata",
-            "m_g2.Rda",
-            package = "Reproducibility.in.Plant.Pathology",
-            mustWork = TRUE))
+                 "m_g1_effectsize.Rda",
+                 package = "Reproducibility.in.Plant.Pathology",
+                 mustWork = TRUE))
+load(system.file("extdata",
+                 "m_g2.Rda",
+                 package = "Reproducibility.in.Plant.Pathology",
+                 mustWork = TRUE))
+load(system.file("extdata",
+                 "m_g2_effectsize.Rda",
+                 package = "Reproducibility.in.Plant.Pathology",
+                 mustWork = TRUE))
 
 load(system.file("extdata",
-            "m_h1.Rda",
-            package = "Reproducibility.in.Plant.Pathology",
-            mustWork = TRUE))
+                 "m_h1.Rda",
+                 package = "Reproducibility.in.Plant.Pathology",
+                 mustWork = TRUE))
 load(system.file("extdata",
-            "m_h2.Rda",
-            package = "Reproducibility.in.Plant.Pathology",
-            mustWork = TRUE))
+                 "m_h1_effectsize.Rda",
+                 package = "Reproducibility.in.Plant.Pathology",
+                 mustWork = TRUE))
+load(system.file("extdata",
+                 "m_h2.Rda",
+                 package = "Reproducibility.in.Plant.Pathology",
+                 mustWork = TRUE))
+load(system.file("extdata",
+                 "m_h2_effectsize.Rda",
+                 package = "Reproducibility.in.Plant.Pathology",
+                 mustWork = TRUE))
 
 load(system.file("extdata",
-            "m_i1.Rda",
-            package = "Reproducibility.in.Plant.Pathology",
-            mustWork = TRUE))
+                 "m_i1.Rda",
+                 package = "Reproducibility.in.Plant.Pathology",
+                 mustWork = TRUE))
 load(system.file("extdata",
-            "m_i2.Rda",
-            package = "Reproducibility.in.Plant.Pathology",
-            mustWork = TRUE))
+                 "m_i1_effectsize.Rda",
+                 package = "Reproducibility.in.Plant.Pathology",
+                 mustWork = TRUE))
+load(system.file("extdata",
+                 "m_i2.Rda",
+                 package = "Reproducibility.in.Plant.Pathology",
+                 mustWork = TRUE))
+load(system.file("extdata",
+                 "m_i2_effectsize.Rda",
+                 package = "Reproducibility.in.Plant.Pathology",
+                 mustWork = TRUE))
 ```
 
 ```{r fonts, include=FALSE, message=FALSE, eval=FALSE}
