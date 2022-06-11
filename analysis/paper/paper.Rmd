@@ -93,7 +93,7 @@ load(system.file("extdata",
                  package = "Reproducibility.in.Plant.Pathology",
                  mustWork = TRUE))
 load(system.file("extdata",
-                 "m_f1_effectsize.Rda",
+                 "m_f1_report.Rda",
                  package = "Reproducibility.in.Plant.Pathology",
                  mustWork = TRUE))
 load(system.file("extdata",
@@ -101,7 +101,7 @@ load(system.file("extdata",
                  package = "Reproducibility.in.Plant.Pathology",
                  mustWork = TRUE))
 load(system.file("extdata",
-                 "m_f2_effectsize.Rda",
+                 "m_f2_report.Rda",
                  package = "Reproducibility.in.Plant.Pathology",
                  mustWork = TRUE))
 
@@ -110,7 +110,7 @@ load(system.file("extdata",
                  package = "Reproducibility.in.Plant.Pathology",
                  mustWork = TRUE))
 load(system.file("extdata",
-                 "m_g1_effectsize.Rda",
+                 "m_g1_report.Rda",
                  package = "Reproducibility.in.Plant.Pathology",
                  mustWork = TRUE))
 load(system.file("extdata",
@@ -118,7 +118,7 @@ load(system.file("extdata",
                  package = "Reproducibility.in.Plant.Pathology",
                  mustWork = TRUE))
 load(system.file("extdata",
-                 "m_g2_effectsize.Rda",
+                 "m_g2_report.Rda",
                  package = "Reproducibility.in.Plant.Pathology",
                  mustWork = TRUE))
 
@@ -127,7 +127,7 @@ load(system.file("extdata",
                  package = "Reproducibility.in.Plant.Pathology",
                  mustWork = TRUE))
 load(system.file("extdata",
-                 "m_h1_effectsize.Rda",
+                 "m_h1_report.Rda",
                  package = "Reproducibility.in.Plant.Pathology",
                  mustWork = TRUE))
 load(system.file("extdata",
@@ -135,7 +135,7 @@ load(system.file("extdata",
                  package = "Reproducibility.in.Plant.Pathology",
                  mustWork = TRUE))
 load(system.file("extdata",
-                 "m_h2_effectsize.Rda",
+                 "m_h2_report.Rda",
                  package = "Reproducibility.in.Plant.Pathology",
                  mustWork = TRUE))
 
@@ -144,7 +144,7 @@ load(system.file("extdata",
                  package = "Reproducibility.in.Plant.Pathology",
                  mustWork = TRUE))
 load(system.file("extdata",
-                 "m_i1_effectsize.Rda",
+                 "m_i1_report.Rda",
                  package = "Reproducibility.in.Plant.Pathology",
                  mustWork = TRUE))
 load(system.file("extdata",
@@ -152,7 +152,7 @@ load(system.file("extdata",
                  package = "Reproducibility.in.Plant.Pathology",
                  mustWork = TRUE))
 load(system.file("extdata",
-                 "m_i2_effectsize.Rda",
+                 "m_i2_report.Rda",
                  package = "Reproducibility.in.Plant.Pathology",
                  mustWork = TRUE))
 ```
