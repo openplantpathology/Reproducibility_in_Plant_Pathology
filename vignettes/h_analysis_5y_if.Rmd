@@ -13,7 +13,7 @@ vignette: >
   %\VignetteDepends{ggplot2}
   %\VignetteDepends{here}
   %\VignetteDepends{sessioninfo}
-  %\VignetteDepends{sessioninfo}
+  %\VignetteDepends{report}
   %\VignetteDepends{tidyr}
 ---
 
