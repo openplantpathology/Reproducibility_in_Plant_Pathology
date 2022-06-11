@@ -647,6 +647,7 @@ import_notes() %>%
 
 ```{r effects-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
 equivalence_test(m_f1) %>%
+  filter(!grepl("Intercept", Parameter)) %>% 
   mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
   mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>%
   rename(
@@ -678,6 +679,7 @@ equivalence_test(m_f1) %>%
 
 ```{r effects-analysis-data, echo=FALSE, message=FALSE, warning=FALSE}
 equivalence_test(m_f2) %>%
+  filter(!grepl("Intercept", Parameter)) %>% 
   mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
   mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>%
   rename(
@@ -709,6 +711,7 @@ equivalence_test(m_f2) %>%
 
 ```{r year-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
 equivalence_test(m_g1) %>%
+  filter(!grepl("Intercept", Parameter)) %>% 
   mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
   mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>%
   rename(
@@ -740,6 +743,7 @@ equivalence_test(m_g1) %>%
 
 ```{r year-analysis-data, echo=FALSE, message=FALSE, warning=FALSE}
 equivalence_test(m_g2) %>%
+  filter(!grepl("Intercept", Parameter)) %>% 
   mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
   mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>%
   rename(
@@ -771,6 +775,7 @@ equivalence_test(m_g2) %>%
 
 ```{r if-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
 equivalence_test(m_h1) %>%
+  filter(!grepl("Intercept", Parameter)) %>% 
   mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
   mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>%
   rename(
@@ -802,6 +807,7 @@ equivalence_test(m_h1) %>%
 
 ```{r if-analysis-data, echo=FALSE, message=FALSE, warning=FALSE}
 equivalence_test(m_h2) %>%
+  filter(!grepl("Intercept", Parameter)) %>% 
   mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
   mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>%
   rename(
@@ -833,6 +839,7 @@ equivalence_test(m_h2) %>%
 
 ```{r access-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
 equivalence_test(m_i1) %>%
+  filter(!grepl("Intercept", Parameter)) %>% 
   mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
   mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>%
   rename(
@@ -864,6 +871,7 @@ equivalence_test(m_i1) %>%
 
 ```{r access-analysis-data, echo=FALSE, message=FALSE, warning=FALSE}
 equivalence_test(m_i2) %>%
+  filter(!grepl("Intercept", Parameter)) %>% 
   mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
   mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>%
   rename(
