@@ -301,9 +301,10 @@ Inter-rater differences were evaluated using percent agreement and Fliess' Kappa
 We fitted Bayesian logistic mixed models (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000 and thinning of 1) using the `cumulative(link = "logit")` family function for ordinal scale data using using the contributed package 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021]. Priors over all parameters were set as normal (mean = 0.00, SD = 1.50), student_t (location = 0.00, scale = 2.50) distributions.
 
 The models' were structured as follows to predict two responses, computational methods and data availability.
-For the the publishing journal (abbreviation was used throughout) (formula: response ~ abbreviation) and the models included assignee and year as random effects (formula: list(~1 | assignee, ~1 | year)).
-The effects of year were predicted as (formula: response ~ year) and the models included abbreviation and assignee as random effects (formula: list(~1 | abbreviation, ~1 | assignee)).
-
+To predict the responses with publishing journal (abbreviation was used throughout) the formula took the form: response ~ abbreviation and the models included assignee and year as random effects (formula: list(~1 | assignee, ~1 | year)).
+To predict the response with year were predicted as (formula: response ~ year) and the models included abbreviation and assignee as random effects (formula: list(~1 | abbreviation, ~1 | assignee)).
+To predict the responses with IF_5year the formula took the form response ~ IF_5year and included assignee as random effect (formula: ~1 | assignee) without journal as a random effect to mitigate correlation between impact factor and the journal of publication.
+To predict the responses with the journals' open access policies the formula took the form response ~ open and included abbreviation, assignee and year as random effects (formula: list(~1 | abbreviation, ~1 | assignee, ~1 | year)).
 
 The `adapt_delta()` and `max_treedepth()` values were adjusted as necessary on a case-by-case basis for each of the models to ensure a good model fit to the data and that the chains mixed well.
 
