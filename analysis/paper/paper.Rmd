@@ -298,13 +298,12 @@ The statistical analysis was performed using R version `r version$version.string
 
 Inter-rater differences were evaluated using percent agreement and Fliess' Kappa [@DelPonte2019].
 
-The articles' scores for data, code and software availability were analysed using Bayesian mixed-effect models fit using the contributed package 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021] to evaluate the fixed effects of the publication (journal title), five-year journal impact factor, year of publication, journal open access policy, and the effect of the availability of the software used, `software_avail` on the code and data availability.
-The models included 'year', 'journal' and 'assignee' as random effects except in the year of publication analysis where 'year' was a fixed effect, journal title analysis where the 'journal' was a fixed effect and the five-year impact factor model where correlations between the journal title and impact factor affected the software availability model.
+We fitted Bayesian logistic mixed models (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000 and thinning of 1) using the `cumulative(link = "logit")` family function for ordinal scale data using using the contributed package 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021]. Priors over all parameters were set as normal (mean = 0.00, SD = 1.50), student_t (location = 0.00, scale = 2.50) distributions.
 
-Non-informative priors were selected from a normal distribution with a mean of 0 and a standard deviation of 1.5 were selected for all models.
+The models' were structured as follows to predict two responses, computational methods and data availability.
+For the the publishing journal (abbreviation was used throughout) (formula: response ~ abbreviation) and the models included assignee and year as random effects (formula: list(~1 | assignee, ~1 | year)).
+The effects of year were predicted as (formula: response ~ year) and the models included abbreviation and assignee as random effects (formula: list(~1 | abbreviation, ~1 | assignee)).
 
-Models were fit using the `cumulative(link = "logit")` family function for ordinal scale data.
-Each model was run for 10,000 iterations in four chains with a warmup of 3000 iterations and thinning set to 1.
 
 The `adapt_delta()` and `max_treedepth()` values were adjusted as necessary on a case-by-case basis for each of the models to ensure a good model fit to the data and that the chains mixed well.
 
