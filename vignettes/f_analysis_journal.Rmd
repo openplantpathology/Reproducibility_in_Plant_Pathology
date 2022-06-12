@@ -97,7 +97,7 @@ pp_check(m_f1)
 
 plot(equivalence_test(m_f1))
 
-(m_f1_report <- report(m_f1))
+pander(m_f1_report <- report(m_f1))
 ```
 
 ### Data Availability
@@ -136,7 +136,7 @@ pp_check(m_f2)
 
 plot(equivalence_test(m_f2), range = c(-0.1, 0.1))
 
-(m_f2_report <- report(m_f2))
+pander(m_f2_report <- report(m_f2))
 ```
 
 ## Save Model Objects

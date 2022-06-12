@@ -84,7 +84,7 @@ pp_check(m_h1)
 
 plot(equivalence_test(m_h1))
 
-(m_h1_effect_size <- report(m_h1))
+pander(m_h1_report <- report(m_h1))
 ```
 
 ### Data Availability
@@ -116,7 +116,7 @@ pp_check(m_h2)
 
 plot(equivalence_test(m_h2))
 
-(m_h2_effect_size <- report(m_h2))
+pander(m_h2_report <- report(m_h2))
 ```
 
 ## Save Model Objects
@@ -127,8 +127,8 @@ Save the model objects for figures in the paper.
 save(m_h1, file = here("inst/extdata/m_h1.Rda"))
 save(m_h2, file = here("inst/extdata/m_h2.Rda"))
 
-save(m_h1_effect_size, file = here("inst/extdata/m_h1_report.Rda"))
-save(m_h2_effect_size, file = here("inst/extdata/m_h2_report.Rda"))
+save(m_h1_report, file = here("inst/extdata/m_h1_report.Rda"))
+save(m_h2_report, file = here("inst/extdata/m_h2_report.Rda"))
 ```
 
 # Colophon

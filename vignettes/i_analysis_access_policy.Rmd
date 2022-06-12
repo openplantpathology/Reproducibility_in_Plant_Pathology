@@ -12,7 +12,8 @@ vignette: >
   %\VignetteDepends{bayesplot}
   %\VignetteDepends{ggplot2}
   %\VignetteDepends{here}
-  %\VignetteDepends{sessioninfo}
+  %\VignetteDepends{pander}
+  %\VignetteDepends{report}
   %\VignetteDepends{sessioninfo}
   %\VignetteDepends{tidyr}
 ---
@@ -37,6 +38,7 @@ library("bayestestR")
 library("bayesplot")
 library("ggplot2")
 library("here")
+library("pander")
 library("report")
 library("tidyr")
 library("Reproducibility.in.Plant.Pathology")
@@ -80,7 +82,7 @@ pp_check(m_i1)
 
 plot(equivalence_test(m_i1))
 
-(m_i1_effect_size <- report(m_i1))
+pander(m_i1_report <- report(m_i1))
 ```
 
 ### Data Availability
@@ -113,7 +115,7 @@ pp_check(m_i2)
 
 plot(equivalence_test(m_i2))
 
-(m_i2_effect_size <- report(m_i2))
+pander(m_i2_report <- report(m_i2))
 ```
 
 ## Save Model Objects
@@ -125,8 +127,8 @@ Save the model for figures in the paper.
 save(m_i1, file = here("inst/extdata/m_i1.Rda"))
 save(m_i2, file = here("inst/extdata/m_i2.Rda"))
 
-save(m_i1_effect_size, file = here("inst/extdata/m_i1_report.Rda"))
-save(m_i2_effect_size, file = here("inst/extdata/m_i2_report.Rda"))
+save(m_i1_report, file = here("inst/extdata/m_i1_report.Rda"))
+save(m_i2_report, file = here("inst/extdata/m_i2_report.Rda"))
 ```
 
 # Colophon
