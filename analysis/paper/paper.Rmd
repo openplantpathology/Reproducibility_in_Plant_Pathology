@@ -353,7 +353,7 @@ There was no detectable pattern in increasing or decreasing availability of data
 
 There were no detectable effects when predicting the effects of the five-year impact factor on the availability of code or data.
 
-No journals surveyed were completely closed, all offered at least an option for open access articles but some were completely open.
+No journals surveyed were completely closed, all offered at least an option for open access articles but `r rrpp %>% distinct(abbreviation, open) %>% filter(open == TRUE) %>% nrow()` (`r round(rrpp %>% distinct(abbreviation, open) %>% filter(open == TRUE) %>% nrow()/nrow(rrpp), 2)`%) were completely open.
 The effect of the open access policy, open being TRUE, (Median = 0.08, 95% CI [-2.13, 2.26]) had a 52.95% probability of being positive (> 0), 51.12% of being significant (> 0.05), and 41.96% of being large (> 0.30).
 The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 22528).
 
