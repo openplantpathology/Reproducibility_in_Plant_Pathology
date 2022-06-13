@@ -332,97 +332,12 @@ However, more articles, `r length(which(rrpp$data_avail == 3))` (`r round(length
 
 ## Statistical Analysis
 
-```{r code-data-analysis, message=FALSE, warning=FALSE, echo=FALSE}
-f1_draws <- summarise_draws(m_f1)
-f1_equivalence <- equivalence_test(m_f1)
-
-f2_draws <- summarise_draws(m_f2)
-f2_equivalence <- equivalence_test(m_f2)
-
-g2_draws <- summarise_draws(m_g2)
-g2_equivalence <- equivalence_test(m_g2)
-
-i2_draws <- summarise_draws(m_i2)
-i2_equivalence <- equivalence_test(m_i2)
-
-phytopath_draws_f1 <-
-  filter(f1_draws, variable == "b_abbreviationPhytopathology")
-phytopath_equiv_f1 <-
-  as_tibble(f1_equivalence) %>% filter(Parameter == "b_abbreviationPhytopathology")
-
-cropProt_draws_f2 <-
-  filter(f2_draws, variable == "b_abbreviationCropProt")
-plantDis_draws_f2 <-
-  filter(f2_draws, variable == "b_abbreviationPlantDis")
-revMexFitopatol_draws_f2 <-
-  filter(f2_draws, variable == "b_abbreviationRevMexFitopatol")
-
-year2016_draws_g2 <-
-  as_tibble(g2_draws) %>% filter(variable == "b_year2016")
-
-access_i2 <-
-  filter(f2_draws, variable == "b_openTRUE")
-
-access_draws_i2 <-
-  as_tibble(i2_draws) %>% filter(variable == "b_openTRUE")
-
-cropProt_equiv_f2 <-
-  as_tibble(f1_equivalence) %>% filter(Parameter == "b_abbreviationCropProt")
-plantDis_equiv_f2 <-
-  as_tibble(f1_equivalence) %>% filter(Parameter == "b_abbreviationPlantDis")
-revMexFitopatol_equiv_f2 <-
-  as_tibble(f2_equivalence) %>% filter(Parameter == "b_abbreviationRevMexFitopatol")
-
-year2016_equiv_g2 <-
-  as_tibble(g2_equivalence) %>% filter(Parameter == "b_year2016")
-
-access_equiv_i2 <-
-  as_tibble(i2_equivalence) %>% filter(Parameter == "b_openTRUE")
-
-
-phytopath_median <- round(phytopath_draws_f1$median, digits = 2)
-phytopath_hdi_low <- round(phytopath_equiv_f1$HDI_low, digits = 2)
-phytopath_hdi_high <- round(phytopath_equiv_f1$HDI_high, digits = 2)
-phytopath_perc_rope <-
-  round(phytopath_equiv_f1$ROPE_Percentage, digits = 2)
-
-cropProt_median <- round(cropProt_draws_f2$median, digits = 2)
-cropProt_hdi_low <- round(cropProt_equiv_f2$HDI_low, digits = 2)
-cropProt_hdi_high <- round(cropProt_equiv_f2$HDI_high, digits = 2)
-cropProt_perc_rope <-
-  round(cropProt_equiv_f2$ROPE_Percentage, digits = 2)
-
-plantDis_median <- round(plantDis_draws_f2$median, digits = 2)
-plantDis_hdi_low <- round(plantDis_equiv_f2$HDI_low, digits = 2)
-plantDis_hdi_high <- round(plantDis_equiv_f2$HDI_high, digits = 2)
-plantDis_perc_rope <-
-  round(plantDis_equiv_f2$ROPE_Percentage, digits = 2)
-
-revMexFitopatol_median <-
-  round(revMexFitopatol_draws_f2$median, digits = 2)
-revMexFitopatol_hdi_low <-
-  round(revMexFitopatol_equiv_f2$HDI_low, digits = 2)
-revMexFitopatol_hdi_high <-
-  round(revMexFitopatol_equiv_f2$HDI_high, digits = 2)
-revMexFitopatol_perc_rope <-
-  round(revMexFitopatol_equiv_f2$ROPE_Percentage, digits = 2)
-
-
-year2016_median <- round(year2016_draws_g2$median, digits = 2)
-year2016_hdi_low <- round(year2016_equiv_g2$HDI_low, digits = 2)
-year2016_hdi_high <- round(year2016_equiv_g2$HDI_high, digits = 2)
-year2016_perc_rope <- round(year2016_equiv_g2$ROPE_Percentage, digits = 2)
-
-access_median <- round(access_draws_i2$median, digits = 2)
-access_hdi_low <- round(access_equiv_i2$HDI_low, digits = 2)
-access_hdi_high <- round(access_equiv_i2$HDI_high, digits = 2)
-```
-
 For brevity, only journals where the 95% CI fell outside the Region of Practical Equivalence (ROPE) are reported here.
-For a full description of all parameters see (XXXXXX).
+For a full description of all parameters details see (XXXXXX).
 When predicting the availability of computational methods (code) availability, the effect of *Phytopathology* (Median = 2.55, 95% CI [0.73, 4.24]) had a 99.59% probability of being positive (> 0), 99.57% of being significant (> 0.05), and 99.12% of being large (> 0.30).
 The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 24803).
 When predicting the availability of data availability, three journals were less likely to share data, with the others being unable to detect any effect.
+Publications in three journals, Crop Protection, Plant Disease and Revista Mexicana de Fitopatología were not likely to share their data and so can be considered significant but no effects were detectable in any other journal titles.
 The effect of *Crop Protection* (Median = -2.13, 95% CI [-4.15, -0.59]) had a 99.78% probability of being negative (< 0), 99.70% of being significant (< -0.05), and 99.16% of being large (< -0.30).
 The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 19427).
 The effect of *Plant Disease* (Median = -2.13, 95% CI [-4.14, -0.60]) had a 99.84% probability of being negative (< 0), 99.80% of being significant (< -0.05), and 99.15% of being large (< -0.30).
