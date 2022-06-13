@@ -332,8 +332,9 @@ However, more articles, `r length(which(rrpp$data_avail == 3))` (`r round(length
 
 ## Statistical Analysis
 
-For brevity, only journals where the 95% CI fell outside the Region of Practical Equivalence (ROPE) are reported here.
+For brevity, only details of parameter where the 95% CI fell outside the Region of Practical Equivalence (ROPE) are reported here.
 For a full description of all parameters details see (XXXXXX).
+
 When predicting the availability of computational methods (code) availability, the effect of *Phytopathology* (Median = 2.55, 95% CI [0.73, 4.24]) had a 99.59% probability of being positive (> 0), 99.57% of being significant (> 0.05), and 99.12% of being large (> 0.30).
 The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 24803).
 When predicting the availability of data availability, three journals were less likely to share data, with the others being unable to detect any effect.
