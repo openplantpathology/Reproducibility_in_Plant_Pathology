@@ -298,7 +298,9 @@ The statistical analysis was performed using R version `r version$version.string
 
 Inter-rater differences were evaluated using percent agreement and Fliess' Kappa [@DelPonte2019].
 
-We fitted Bayesian logistic mixed models (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000 and thinning of 1) using the `cumulative(link = "logit")` family function for ordinal scale data using using the contributed package 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021]. Priors over all parameters were set as normal (mean = 0.00, SD = 1.50), student_t (location = 0.00, scale = 2.50) distributions.
+We fitted Bayesian logistic mixed models (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000 and thinning of 1) using the `cumulative(link = "probit")` family function for ordinal scale data using using the contributed package 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021].
+Priors were selected to be weakly informative and deemed suitable through using `pp_check()` to examine the predictions based on priors only (using the parameter `sample_prior = only` in `brm()`).
+Priors over all parameters were set as: normal (mean = 0.00, SD = 1.0) distributions for both fixed parameters and random intercepts.
 
 The models' were structured as follows to predict two responses, computational methods and data availability.
 To predict the responses with publishing journal (abbreviation was used throughout) the formula took the form: response ~ abbreviation and the models included assignee and year as random effects (formula: list(~1 | assignee, ~1 | year)).
