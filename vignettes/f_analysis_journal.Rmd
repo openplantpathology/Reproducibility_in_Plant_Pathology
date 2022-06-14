@@ -55,7 +55,7 @@ All models are using the same priors.
 
 ### Priors
 
-Priors were set 
+Priors were set to be generic weakly informative.
 
 ```{r priors}
 priors <- c(prior(normal(0, 1), class = "b"),
