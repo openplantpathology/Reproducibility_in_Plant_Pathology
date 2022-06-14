@@ -335,11 +335,12 @@ However, more articles, `r length(which(rrpp$data_avail == 3))` (`r round(length
 ## Statistical Analysis
 
 For brevity, only details of parameter where the 95% CI fell outside the Region of Practical Equivalence (ROPE) are reported here.
-For a full description of all parameters details see (XXXXXX).
+For a full description of all models' parameter details see (XXXXXX).
 
-When predicting the availability of computational methods (code) availability, the effect of *Phytopathology* (Median = 2.55, 95% CI [0.73, 4.24]) had a 99.59% probability of being positive (> 0), 99.57% of being significant (> 0.05), and 99.12% of being large (> 0.30).
-The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 24803).
-When predicting the availability of data availability, three journals were less likely to share data, with the others being unable to detect any effect.
+When predicting the availability of computational methods (code) availability, all journals were compared with *Phytopathology*
+There were no clear differences found between any of the journals as compared with *Phytopathology* for the sharing of computational materials, the effects of all parameters were undecided.
+
+When predicting the availability of data availability as compared with *Phytopathology* two journals were not likely to share data, with the others being unable to detect any effect.
 Publications in three journals, Crop Protection, Plant Disease and Revista Mexicana de Fitopatología were not likely to share their data and so can be considered significant but no effects were detectable in any other journal titles.
 The effect of *Crop Protection* (Median = -2.13, 95% CI [-4.15, -0.59]) had a 99.78% probability of being negative (< 0), 99.70% of being significant (< -0.05), and 99.16% of being large (< -0.30).
 The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 19427).
