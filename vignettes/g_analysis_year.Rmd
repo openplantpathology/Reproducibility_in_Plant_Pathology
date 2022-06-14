@@ -50,7 +50,8 @@ theme_set(theme_classic())
 ### Priors
 
 ```{r priors}
-priors <- prior_string("normal(0, 1.5)")
+priors <- c(prior(normal(0, 1), class = "b"),
+            prior(normal(0, 1), class = "Intercept"))
 ```
 
 ## Year of Publication Effect Models
@@ -72,7 +73,7 @@ m_g1 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative(link = "logit"),
+    family = cumulative(link = "probit"),
 iter = 10000,
     control = list(adapt_delta = 0.9999),
   )
@@ -81,7 +82,7 @@ summary(m_g1)
 
 plot(m_g1)
 
-pp_check(m_g1)
+pp_check(m_g1, ndraws = 50, type = "bars")
 
 plot(equivalence_test(m_g1))
 
@@ -102,7 +103,7 @@ m_g2 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative(link = "logit"),
+    family = cumulative(link = "probit"),
 iter = 10000,
     control = list(adapt_delta = 0.9999),
   )
@@ -111,7 +112,7 @@ summary(m_g2)
 
 plot(m_g2)
 
-pp_check(m_g2)
+pp_check(m_g2, ndraws = 50, type = "bars")
 
 plot(equivalence_test(m_g2))
 

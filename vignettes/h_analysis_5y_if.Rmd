@@ -52,7 +52,8 @@ theme_set(theme_classic())
 The priors are fairly uninformative.
 
 ```{r priors}
-priors <- prior_string("normal(0, 1.5)")
+priors <- c(prior(normal(0, 1), class = "b"),
+            prior(normal(0, 1), class = "Intercept"))
 ```
 
 ## Five Year Impact Factor Model
@@ -72,7 +73,7 @@ m_h1 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative(link = "logit"),
+    family = cumulative(link = "probit"),
     control = list(adapt_delta = 0.999),
     iter = 10000,
     chains = 4
@@ -82,7 +83,7 @@ summary(m_h1)
 
 plot(m_h1)
 
-pp_check(m_h1)
+pp_check(m_h1, type = "bars", draws = 50)
 
 plot(equivalence_test(m_h1))
 
@@ -104,7 +105,7 @@ m_h2 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative(link = "logit"),
+    family = cumulative(link = "probit"),
     control = list(adapt_delta = 0.99),
     iter = 10000,
     chains = 4
@@ -114,7 +115,7 @@ summary(m_h2)
 
 plot(m_h2)
 
-pp_check(m_h2)
+pp_check(m_h2, type = "bars", draws = 50)
 
 plot(equivalence_test(m_h2))
 

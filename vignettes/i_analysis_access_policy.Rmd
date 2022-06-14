@@ -58,7 +58,8 @@ Here, `open` is a fixed effect, `year`, `journal` and `assignee` are assigned as
 rrpp <- import_notes()
 rrpp <- drop_na(rrpp, comp_mthds_avail)
 
-priors <-  prior_string("normal(0, 1.5)")
+priors <- c(prior(normal(0, 1), class = "b"),
+            prior(normal(0, 1), class = "Intercept"))
 
 m_i1 <-
   brm(
@@ -69,7 +70,7 @@ m_i1 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative(link = "logit"),
+    family = cumulative(link = "probit"),
     control = list(adapt_delta = 0.999),
     iter = 10000
   )
@@ -78,7 +79,7 @@ summary(m_i1)
 
 plot(m_i1)
 
-pp_check(m_i1)
+pp_check(m_i1, type = "bars", draws = 50)
 
 plot(equivalence_test(m_i1))
 
@@ -87,7 +88,7 @@ pander(m_i1_report <- report(m_i1))
 
 ### Data Availability
 
-Test for any effects of the five year impact factor on the data's availability.
+Test for any effects of the journals' open access policy on the data's availability.
 
 ```{r data}
 rrpp <- import_notes()
@@ -102,7 +103,7 @@ m_i2 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative(link = "logit"),
+    family = cumulative(link = "probit"),
     control = list(adapt_delta = 0.99),
     iter = 10000
   )
@@ -111,7 +112,7 @@ summary(m_i2)
 
 plot(m_i2)
 
-pp_check(m_i2)
+pp_check(m_i2, type = "bars", draws = 50)
 
 plot(equivalence_test(m_i2))
 
