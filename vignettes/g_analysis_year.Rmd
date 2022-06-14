@@ -12,6 +12,7 @@ vignette: >
   %\VignetteDepends{bayesplot}
   %\VignetteDepends{ggplot2}
   %\VignetteDepends{here}
+  %\VignetteDepends{pander}
   %\VignetteDepends{report}
   %\VignetteDepends{sessioninfo}
   %\VignetteDepends{tidyr}
@@ -37,6 +38,7 @@ library("bayestestR")
 library("bayesplot")
 library("ggplot2")
 library("here")
+library("pander")
 library("report")
 library("tidyr")
 library("Reproducibility.in.Plant.Pathology")
