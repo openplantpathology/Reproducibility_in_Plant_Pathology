@@ -696,6 +696,117 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_2.eps"))
 
 \newpage
 
+```{r journal-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='I am so tired', cache=FALSE, fig.env='figure'}
+a <- plot(parameters(m_f1)) + 
+  scale_colour_grey() +
+  ggtitle("Code")
+
+b <- plot(parameters(m_f2)) + 
+  scale_colour_grey() +
+   theme(
+      axis.text.y = element_blank(),
+      axis.ticks.y = element_blank(),
+      axis.title.y = element_blank()
+    ) +
+  ggtitle("Data")
+
+p <- a + b
+p <- p +
+  plot_annotation(tag_levels = "A") &
+  theme(text = element_text("Arial"))
+
+ggsave(
+  filename = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
+  plot = p,
+  width = 6,
+  height = 6,
+  units = "in",
+  device = cairo_ps
+)
+embed_fonts(
+  file = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
+  outfile = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
+  options = "-dEPSCrop"
+)
+include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_3.eps"))
+```
+
+\newpage
+
+```{r year-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='I am so tired', cache=FALSE, fig.env='figure'}
+a <- plot(parameters(m_g1), show_lables = TRUE) + 
+  scale_colour_grey() +
+  ggtitle("Code")
+
+b <- plot(parameters(m_g2), show_lables = TRUE) + 
+  scale_colour_grey() +
+   theme(
+      axis.text.y = element_blank(),
+      axis.ticks.y = element_blank(),
+      axis.title.y = element_blank()
+    ) +
+  ggtitle("Data")
+
+p <- a + b
+p <- p +
+  plot_annotation(tag_levels = "A") &
+  theme(text = element_text("Arial"))
+
+ggsave(
+  filename = here("analysis/figures/Sparks_et_al_Figure_4.eps"),
+  plot = p,
+  width = 6,
+  height = 6,
+  units = "in",
+  device = cairo_ps
+)
+embed_fonts(
+  file = here("analysis/figures/Sparks_et_al_Figure_4.eps"),
+  outfile = here("analysis/figures/Sparks_et_al_Figure_4.eps"),
+  options = "-dEPSCrop"
+)
+include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_4.eps"))
+```
+
+\newpage
+
+```{r IF-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='I am so tired', cache=FALSE, fig.env='figure'}
+a <- plot(parameters(m_h1), show_lables = TRUE) + 
+  scale_colour_grey() +
+  ggtitle("Code")
+
+b <- plot(parameters(m_h2), show_lables = TRUE) + 
+  scale_colour_grey() +
+   theme(
+      axis.text.y = element_blank(),
+      axis.ticks.y = element_blank(),
+      axis.title.y = element_blank()
+    ) +
+  ggtitle("Data")
+
+p <- a + b
+p <- p +
+  plot_annotation(tag_levels = "A") &
+  theme(text = element_text("Arial"))
+
+ggsave(
+  filename = here("analysis/figures/Sparks_et_al_Figure_5.eps"),
+  plot = p,
+  width = 6,
+  height = 6,
+  units = "in",
+  device = cairo_ps
+)
+embed_fonts(
+  file = here("analysis/figures/Sparks_et_al_Figure_5.eps"),
+  outfile = here("analysis/figures/Sparks_et_al_Figure_5.eps"),
+  options = "-dEPSCrop"
+)
+include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_5.eps"))
+```
+
+\newpage
+
 ```{r workflow-dia, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='An example of an open and reproducible research workflow. Starting with the question, determine the methodology, describe it, make it available and cite it. Data are used in analysis and any binary files or code are made available as supplements to the manuscript. Source code and raw data are made available in a public repository, preferably with version control for tracking changes through time, and a DOI for final released products.', cache=FALSE, fig.env='figure'}
 
 p <- export_svg(
