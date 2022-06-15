@@ -850,12 +850,90 @@ p <- export_svg(
 )
 
 rsvg_ps(svg = charToRaw(p),
-        file = here("analysis/figures/Sparks_et_al_Figure_3.eps"))
+        file = here("analysis/figures/Sparks_et_al_Figure_6.eps"))
 embed_fonts(
-  file = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
-  outfile = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
+  file = here("analysis/figures/Sparks_et_al_Figure_6.eps"),
+  outfile = here("analysis/figures/Sparks_et_al_Figure_6.eps"),
   options = "-dEPSCrop"
 )
 
-include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_3.eps"))
+include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_6.eps"))
+```
+
+\newpage
+
+# Supplementary Materials
+
+## Tables
+
+\newpage
+
+```{r effects-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
+parameters(m_f1) %>%
+  filter(!grepl("Intercept", Parameter)) %>%
+  as_tibble() %>%
+  mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
+  rename("ROPE %" = "ROPE_Percentage",
+         "CI\nLow" = "CI_low",
+         "CI\nHigh" = "CI_high") %>%
+  flextable() %>%
+  set_formatter(
+    `ROPE %` = function(x)
+      sprintf("%1.f%%", x * 100)
+  ) %>%
+  autofit()
+```
+
+\newpage
+
+```{r effects-analysis-data, echo=FALSE, message=FALSE, warning=FALSE}
+parameters(m_f2) %>%
+  filter(!grepl("Intercept", Parameter)) %>%
+  as_tibble() %>%
+  mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
+  rename("ROPE %" = "ROPE_Percentage",
+         "CI\nLow" = "CI_low",
+         "CI\nHigh" = "CI_high") %>%
+  flextable() %>%
+  set_formatter(
+    `ROPE %` = function(x)
+      sprintf("%1.f%%", x * 100)
+  ) %>%
+  autofit()
+```
+
+\newpage
+
+```{r year-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
+parameters(m_h1) %>%
+  filter(!grepl("Intercept", Parameter)) %>%
+  as_tibble() %>%
+  mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
+  rename("ROPE %" = "ROPE_Percentage",
+         "CI\nLow" = "CI_low",
+         "CI\nHigh" = "CI_high") %>%
+  flextable() %>%
+  set_formatter(
+    `ROPE %` = function(x)
+      sprintf("%1.f%%", x * 100)
+  ) %>%
+  autofit()
+```
+
+\newpage
+
+```{r year-analysis-data, echo=FALSE, message=FALSE, warning=FALSE}
+parameters(m_h2) %>%
+  filter(!grepl("Intercept", Parameter)) %>%
+  as_tibble() %>%
+  mutate(Parameter = gsub("b_", "", .$Parameter)) %>%
+  rename("ROPE %" = "ROPE_Percentage",
+         "CI\nLow" = "CI_low",
+         "CI\nHigh" = "CI_high") %>%
+  flextable() %>%
+  set_formatter(
+    `ROPE %` = function(x)
+      sprintf("%1.f%%", x * 100)
+  ) %>%
+  autofit()
 ```
