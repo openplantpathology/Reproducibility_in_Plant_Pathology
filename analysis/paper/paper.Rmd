@@ -254,7 +254,7 @@ In the first event, three authors (AS, EDP, and ZF) evaluated 200 articles, in t
 
 Each journal was classified as to whether they were completely open (TRUE), behind a paywall (FALSE) or a combination (BOTH).
 The five-year impact factor for 2022 for each journal was retrieved from InCites Journal Citation Reports, Clarivate Analytics and entered in a separate sheet in the Google sheets file.
-This was downloaded, saved as an Open Document Spreadsheet (ODS) file and is left-joined with the article notes using a `left_join()` from the 'dplyr' package (version `r packageVersion("dplyr")`) [@Wickham2020] for analysis when a custom function for this analysis, `import_notes()`, was executed.
+This was downloaded, saved as an Open Document Spreadsheet (ODS) file for analysis.
 
 Each article was rated on a 0 -- 3 scale for its software, data and code availability.
 'Software availability' rated how freely and openly available the software used was.
