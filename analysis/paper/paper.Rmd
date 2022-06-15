@@ -140,23 +140,6 @@ load(system.file("extdata",
                  "m_h2_report.Rda",
                  package = "Reproducibility.in.Plant.Pathology",
                  mustWork = TRUE))
-
-load(system.file("extdata",
-                 "m_i1.Rda",
-                 package = "Reproducibility.in.Plant.Pathology",
-                 mustWork = TRUE))
-load(system.file("extdata",
-                 "m_i1_report.Rda",
-                 package = "Reproducibility.in.Plant.Pathology",
-                 mustWork = TRUE))
-load(system.file("extdata",
-                 "m_i2.Rda",
-                 package = "Reproducibility.in.Plant.Pathology",
-                 mustWork = TRUE))
-load(system.file("extdata",
-                 "m_i2_report.Rda",
-                 package = "Reproducibility.in.Plant.Pathology",
-                 mustWork = TRUE))
 ```
 
 ```{r fonts, include=FALSE, message=FALSE, eval=FALSE}
