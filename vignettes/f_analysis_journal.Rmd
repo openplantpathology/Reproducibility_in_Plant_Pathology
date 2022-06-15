@@ -12,6 +12,7 @@ vignette: >
   %\VignetteDepends{bayesplot}
   %\VignetteDepends{ggplot2}
   %\VignetteDepends{here}
+  %\VignetteDepends{parallel}
   %\VignetteDepends{pander}
   %\VignetteDepends{report}
   %\VignetteDepends{sessioninfo}
