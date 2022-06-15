@@ -275,11 +275,11 @@ In some cases the `software_avail`, or the openness of the software used, score 
 For example, a paper was rated as having a `software_avail` rating of `3`, but the evaluator noted that Excel had been used; here, the `software_avail` rating was changed to `2` to bring it into line with the agreed upon guidelines.
 In other cases, papers did not adequately describe all the software used, e.g., GenAlEx, an Excel add-on, was referred to but Excel was not mentioned in the text.
 Here, Excel was added to the `software_used` column and the `software_avail` score was adjusted accordingly.
-The software availability, computational methods availability and data availability scores were converted from 0 -- 3 to 1 -- 4 ordinal score values for analysis.
 
 ## Statistical Analysis
 
 The statistical analysis was performed using R version `r version$version.string` [@RCT2022] on an Apple MacBook Pro (13-inch, M1, 2020).
+Statistical analysis were carried out using R 4.1.0 (R Core Team, 2021), the rstanarm (v2.13.1; Gabry & Goodrich, 2016) and the report (v0.2.0; Makowski, Patil, & Lüdecke, 2019) packages. The full reproducible code is available in Supplementary Materials.
 
 Inter-rater differences were evaluated using percent agreement and Fliess' Kappa [@DelPonte2019].
 
