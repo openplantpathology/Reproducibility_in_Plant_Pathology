@@ -623,7 +623,7 @@ readODS::read_ods(
   ) %>% 
   flextable() %>%
   colformat_num(na_str = "NA") %>%
-  set_table_properties(layout = "autofit") %>%
+  autofit() %>%
   set_caption(
     "Articles were three in three areas for reproducibility on a scale of '0' to '3' by five independent evaluators to rank articles in each of four areas, 'Computational Methods Availability', 'Data Availability', 'Software Availability'.")
 ```
