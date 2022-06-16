@@ -77,17 +77,6 @@ ggplot(rrpp, aes(y = as.factor(comp_mthds_avail))) +
   labs(caption = "NA means that no computational methods were used to generate the data,\ne.g. only PCR results reported with no statistical analysis")
 ```
 
-## Software availability
-
-Were the software used readily available and preferably open-source?
-
-```{r software_avail}
-ggplot(rrpp, aes(y = as.factor(software_avail))) +
-  geom_bar() +
-  ggtitle("Software Availability") +
-  ylab("Score")
-```
-
 ## Software used (cited)
 
 Count and sort top 10 software packages cited.
