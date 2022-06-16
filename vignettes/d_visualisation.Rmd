@@ -122,68 +122,127 @@ ggplot(rrpp, aes(y = as.factor(data_avail))) +
   ylab("Score")
 ```
 
-## Journal effect on reproducibility score
-
-```{r journal}
-rrpp %>%
-  pivot_longer(cols = c("comp_mthds_avail", "data_avail", "software_avail")) %>%
-  ggplot(aes(x = value,
-             y = abbreviation)) +
-  geom_count(alpha = 0.5) +
-  facet_wrap(. ~ name) +
-  xlab("Score")
-```
-
-## Five year impact factor effect on reproducibility score
-
-```{r IF, message=FALSE}
-rrpp %>%
-  pivot_longer(cols = c("comp_mthds_avail", "data_avail", "software_avail")) %>%
-  ggplot(aes(x = value,
-             y = IF_5year)) +
-  geom_count(alpha = 0.5) +
-  facet_wrap(. ~ name) +
-  xlab("Score")
-```
-
-## Journal open access effect on reproducibility score
-
-```{r open_access}
-rrpp %>%
-  pivot_longer(cols = c("comp_mthds_avail", "data_avail", "software_avail")) %>%
-  ggplot(aes(x = value,
-             y = as.factor(open))) +
-  geom_count() +
-  ggtitle("Journal Open Access Classification Effect") +
-  ylab("Classification") +
-  xlab("Open Access Classification")
-```
-
-## Journal reproducibility instructions effect on reproducibility score
-
-```{r repro_inst}
-rrpp %>%
-  pivot_longer(cols = c("comp_mthds_avail", "data_avail", "software_avail")) %>%
-  ggplot(aes(x = value,
-             y = as.factor(repro_inst))) +
-  geom_count(alpha = 0.5) +
-  ggtitle("Reproducibility Instructions Effect") +
-  ylab("Score") +
-  xlab("Reproducibility Instructions Score") +
-  facet_wrap(. ~ name)
-```
-
 ## Scores by year
 
 ```{r full_score, message=FALSE}
 rrpp %>%
-  pivot_longer(cols = c("comp_mthds_avail", "data_avail", "software_avail")) %>%
+  pivot_longer(cols = c("comp_mthds_avail", "data_avail")) %>%
   ggplot(aes(x = value,
              y = year)) +
   geom_count(alpha = 0.5) +
   ylab("Score") +
   xlab("Year") +
   facet_wrap(. ~ name)
+```
+
+# Visualise Probabilities
+
+## Code Availability
+
+```{r code-probabilities, messages=FALSE}
+rrpp %>%
+  group_by(comp_mthds_avail) %>%
+  drop_na(comp_mthds_avail) %>%
+  count() %>%
+  mutate(pr_k = n / nrow(drop_na(rrpp, comp_mthds_avail))) %>%
+  ungroup() %>%
+  mutate(cum_pr_k = cumsum(pr_k)) %>% 
+  
+  ggplot(aes(x = as.numeric(as.character(comp_mthds_avail)), y = cum_pr_k, 
+             fill = as.numeric(as.character(comp_mthds_avail)))) +
+  geom_line() +
+  geom_point(shape = 21,
+             colour = "grey92", 
+             size = 2.5,
+             stroke = 1) +
+  scale_y_continuous("cumulative proportion", breaks = c(0, .5, 1)) +
+  scale_fill_gradient() +
+  coord_cartesian(ylim = c(0, 1)) +
+  theme(legend.position = "none") +
+  xlab("Computational Methods Availability Score")
+```
+
+```{r log-cum-odds-code, message=FALSE}
+# McElreath's convenience function from page 335
+logit <- function(x) log(x / (1 - x))
+
+rrpp %>%
+  group_by(comp_mthds_avail) %>%
+  drop_na(comp_mthds_avail) %>%
+  count() %>%
+  mutate(pr_k = n / nrow(drop_na(rrpp, comp_mthds_avail))) %>%
+  ungroup() %>%
+  mutate(cum_pr_k = cumsum(pr_k)) %>%
+  filter(comp_mthds_avail < 3) %>%
+  ggplot(aes(
+    x = as.numeric(as.character(comp_mthds_avail)),
+    y = logit(cum_pr_k),
+    fill = as.numeric(as.character(comp_mthds_avail))
+  )) +
+  geom_line() +
+  geom_point(
+    shape = 21,
+    colour = "grey92",
+    size = 2.5,
+    stroke = 1
+  ) +
+  coord_cartesian(xlim = c(0, 3)) +
+  ylab("log-cumulative-odds") +
+  xlab("Code Availability") +
+  scale_fill_gradient() +
+  theme(legend.position = "none")
+```
+
+## Data Availability
+
+```{r data-probabilities, message=FALSE}
+rrpp %>%
+  group_by(data_avail) %>%
+  drop_na(data_avail) %>%
+  count() %>%
+  mutate(pr_k = n / nrow(drop_na(rrpp, data_avail))) %>%
+  ungroup() %>%
+  mutate(cum_pr_k = cumsum(pr_k)) %>% 
+  ggplot(aes(x = as.numeric(as.character(data_avail)), y = cum_pr_k, 
+             fill = as.numeric(as.character(data_avail)))) +
+  geom_line() +
+  geom_point(shape = 21,
+             colour = "grey92", 
+             size = 2.5,
+             stroke = 1) +
+  scale_y_continuous("cumulative proportion", breaks = c(0, .5, 1)) +
+  scale_fill_gradient() +
+  coord_cartesian(ylim = c(0, 1)) +
+  theme(legend.position = "none") +
+  xlab("Data Availability Score")
+```
+
+```{r log-cum-odds-data, message=FALSE}
+rrpp %>%
+  group_by(data_avail) %>%
+  drop_na(data_avail) %>%
+  count() %>%
+  mutate(pr_k = n / nrow(drop_na(rrpp, data_avail))) %>%
+  ungroup() %>%
+  mutate(cum_pr_k = cumsum(pr_k)) %>%
+  filter(data_avail < 3) %>%
+  ggplot(aes(
+    x = as.numeric(as.character(data_avail)),
+    y = logit(cum_pr_k),
+    fill = as.numeric(as.character(data_avail))
+  )) +
+  geom_line() +
+  geom_point(
+    shape = 21,
+    colour = "grey92",
+    size = 2.5,
+    stroke = 1
+  ) +
+  coord_cartesian(xlim = c(0, 3)) +
+  ylab("log-cumulative-odds") +
+  xlab("Code Availability") +
+  scale_fill_gradient() +
+  theme(legend.position = "none")
 ```
 
 # Tables
