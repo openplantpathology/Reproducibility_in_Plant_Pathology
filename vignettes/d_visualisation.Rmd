@@ -48,16 +48,14 @@ rrpp <- import_notes()
 ### Individual Rating Scores
 
 ```{r evaluator-ratings}
-rrpp_long <-
-  pivot_longer(rrpp,
-               cols = c(
-                 "comp_mthds_avail",
-                 "software_avail",
-                 "software_cite",
-                 "data_avail"
-               ))
-
-ggplot(rrpp_long, aes(x = as.factor(value))) +
+rrpp %>%
+  mutate(
+    comp_mthds_avail = as.numeric(as.character(comp_mthds_avail)),
+    data_avail =  as.numeric(as.character(data_avail))
+  ) %>%
+  pivot_longer(cols = c("comp_mthds_avail",
+                        "data_avail")) %>%
+  ggplot(aes(x = as.factor(value))) +
   geom_bar() +
   ylab("Count") +
   xlab("Criteria Score") +
