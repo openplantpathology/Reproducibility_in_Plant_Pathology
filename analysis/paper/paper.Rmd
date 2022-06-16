@@ -393,6 +393,29 @@ The remainder of the top ten programs we found were mostly related to sequence a
 In tenth place was FigTree, used for phylogenetic trees.
 The Python programming language was cited only twice.
 
+## Statistical Analysis
+
+When predicting the availability of computational methods (code) and availability, all journals were compared with *Phytopathology* as the reference with latent scores with a mean of zero.
+
+There were no clear differences that the analysis could detect between any of the journals as compared with *Phytopathology* for the sharing of computational methods (code); the effects of all parameters were undecided (Figure \@ref(fig:journal-parameters)A).
+
+When predicting the availability of data availability as compared with *Phytopathology*, publications in three journals, *Crop Protection*, *Plant Disease* and *Revista Mexicana de Fitopatología*, can be considered clearly less likely to share data than publications in *Phytopathology*, but no effects were detectable in any other journal title.
+The effect of *Crop Protection* (Median = -2.13, 95% CI [-4.15, -0.59]) had a 99.78% probability of being negative (< 0), 99.70% of being significant (< -0.05), and 99.16% of being large (< -0.30).
+The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 19427).
+The effect of *Plant Disease* (Median = -2.13, 95% CI [-4.14, -0.60]) had a 99.84% probability of being negative (< 0), 99.80% of being significant (< -0.05), and 99.15% of being large (< -0.30).
+The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 22687).
+The effect of *Revista Mexicana Fitopatologia* (Median = -2.03, 95% CI [-4.09, -0.43]) had a 99.52% probability of being negative (< 0), 99.38% of being significant (< -0.05), and 98.38% of being large (< -0.30).
+The estimation successfully converged (Rhat = 1.002) and the indices are reliable (ESS = 5769).
+
+There was no effect detected for year when predicting the availability of computational methods (code) availability.
+However, the effect of the publication year of 2016 on the availability of data (Median = 1.13, 95% CI [0.23, 2.05]) had a 99.27% probability of being positive (> 0), 99.08% of being significant (> 0.05), and 96.48% of being large (> 0.30).
+The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 10707).
+There was no detectable pattern in increasing or decreasing availability of data in the years examined.
+
+There were no detectable effects when predicting the effects of the five-year impact factor on the availability of code or data.
+
+No journals surveyed were completely closed, all offered at least an option for open access articles but `r rrpp %>% distinct(abbreviation, open) %>% filter(open == TRUE) %>% nrow()` (`r round(rrpp %>% distinct(abbreviation, open) %>% filter(open == TRUE) %>% nrow()/nrow(rrpp), 2)`%) were completely open.
+
 # Discussion
 
 Except for a few isolated cases, most papers were not fully computationally reproducible.
