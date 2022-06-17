@@ -61,7 +61,8 @@ packages <- c(
 
 install.packages(setdiff(packages,
                          rownames(installed.packages())),
-                 repos = "http://cran.us.r-project.org")
+                 repos = "http://cran.us.r-project.org",
+                 dependencies = TRUE)
 
 invisible(lapply(packages,
                  library,
