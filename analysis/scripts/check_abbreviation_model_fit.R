@@ -125,13 +125,12 @@ m_f2_probit <-
   )
 loo_f2_probit <- loo(m_f2_probit, save_psis = TRUE)
 
-# compare with AIC
+# compare with waic
 waic(m_f1_logit_intercept,
      m_f1_logit,
      m_f1_probit,
      m_f1_logit_no_year)
-waic(m_f2_logit_intercept,
-     m_f2_logit,
+waic(m_f2_logit,
      m_f2_probit,
      m_f2_logit_no_year)
 
@@ -140,7 +139,6 @@ loo_compare(loo_f1_logit_intercept,
             loo_f1_logit,
             loo_f1_probit,
             loo_f1_logit_no_year)
-loo_compare(loo_f2_logit_intercept,
-            loo_f2_logit,
+loo_compare(loo_f2_logit,
             loo_f2_probit,
             loo_f2_logit_no_year)
