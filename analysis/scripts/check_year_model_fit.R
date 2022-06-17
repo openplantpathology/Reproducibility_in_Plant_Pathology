@@ -19,18 +19,6 @@ priors <- c(prior(normal(0, 1), class = "b"),
 
 prior_i_only <- c(prior(normal(0, 1), class = "Intercept"))
 
-m_g1_logit_intercept <-
-  brm(formula = data_avail ~ 1 +
-        (1 | assignee),
-      data = rrpp,
-      seed = 27,
-      prior = prior_i_only,
-      family = cumulative(link = "logit"),
-      iter = 20000,
-      control = list(adapt_delta = 0.999),
-      save_pars = save_pars(all = TRUE)
-  )
-
 m_g1_logit <-
   brm(
     formula = data_avail ~ year +
@@ -85,3 +73,17 @@ m_g2_probit <-
 
 m_g1_comparison <- bayesfactor_models(m_g1_logit, m_g1_probit)
 m_g2_comparison <- bayesfactor_models(m_g2_logit, m_g2_probit)
+
+
+# compare with waic
+waic(m_g1_logit,
+     m_g1_probit)
+waic(m_g2_logit,
+     m_g2_probit)
+
+# compare with LOO
+loo_compare(loo_f1_logit,
+            loo_f1_probit)
+loo_compare(loo_f2_logit,
+            loo_f2_probit)
+
