@@ -716,7 +716,7 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_2.eps"))
 
 \newpage
 
-```{r journal-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the journal title for (A) computational materials (code) and (B) data being made readily available to the public. Intervals in grey have a median value less than that of *Phytopathology*, the base level used for the analysis and articles in these journals could be less likely to share computational materials and data than articles published in *Phytopathology*. Intervals in black have a median value that is greater than that of *Phytopathlogy*, the base level for the analysis and articles in these journals could be more likely to share data or code than those found in *Phytopathology*.', cache=FALSE, fig.env='figure'}
+```{r journal-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the journal title for (A) computational materials (code) and (B) data being made readily available to the public. A test for equivalence was unable to detect any clear differences between *Phytopathology* and all other journals sharing computational materials. However, a test for equivalence found that *Molecular Plant Pathology* and *Phytopathologia Mediterranea* were more likely have data available than articles found in *Phytopathology*. Intervals in grey have a median value less than that of *Phytopathology*, the base level used for the analysis and articles in these journals could be less likely to share computational materials and data than articles published in *Phytopathology*. Intervals in black have a median value that is greater than that of *Phytopathlogy*, the base level for the analysis and articles in these journals could be more likely to share data or code than those found in *Phytopathology*.', cache=FALSE, fig.env='figure'}
 a <- plot(parameters(m_f1)) +
   scale_colour_grey() +
   ggtitle("Code")
@@ -753,7 +753,7 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_3.eps"))
 
 \newpage
 
-```{r year-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the year of publication for (A) computational materials (code) and (B) data being made readily available to the public.', cache=FALSE, fig.env='figure'}
+```{r year-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the year of publication for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence was undecided in any detectable effects of year of publication on computational materials or data being shared. Intervals in grey indicate that the median was less than zero or less likely that code or data were shared and intervals in black indicate that the median value is above zero or more likely to share data and code.', cache=FALSE, fig.env='figure'}
 a <- plot(parameters(m_g1), show_lables = TRUE) + 
   scale_colour_grey() +
   ggtitle("Code")
@@ -790,7 +790,7 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_4.eps"))
 
 \newpage
 
-```{r IF-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the publishing journal\'s five-year impact factor for (A) computational materials (code) and (B) data being made readily available to the public.', cache=FALSE, fig.env='figure'}
+```{r IF-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the publishing journal\'s five-year impact factor for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence was undecided on any detectable effects of impact factor. Intervals in grey indicate that the median was less than zero or less likely that code or data were shared and intervals in black indicate that the median value is above zero or more likely to share data and code.', cache=FALSE, fig.env='figure'}
 a <- plot(parameters(m_h1), show_lables = TRUE) + 
   scale_colour_grey() +
   ggtitle("Code")
