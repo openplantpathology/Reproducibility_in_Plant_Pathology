@@ -321,8 +321,7 @@ Here, Excel was added to the `software_used` column and the `software_avail` sco
 
 ## Statistical Analysis
 
-The statistical analysis was performed using R version `r version$version.string` [@RCT2022] on an Apple MacBook Pro (13-inch, M1, 2020).
-Statistical analysis were carried out using R 4.1.0 (R Core Team, 2021), the rstanarm (v2.13.1; Gabry & Goodrich, 2016) and the report (v0.2.0; Makowski, Patil, & Lüdecke, 2019) packages. The full reproducible code is available in @Sparks2022.
+The statistical analysis was performed using R version `r version$version.string` [@RCT2022] on an Apple MacBook Pro (13-inch, M1, 2020) using R 4.1.0 (R Core Team, 2021).
 
 Inter-rater differences were evaluated using percent agreement and Fliess' Kappa [@DelPonte2019].
 
