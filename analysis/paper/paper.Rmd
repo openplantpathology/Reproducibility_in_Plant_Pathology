@@ -325,7 +325,7 @@ Statistical analysis were carried out using R 4.1.0 (R Core Team, 2021), the rst
 
 Inter-rater differences were evaluated using percent agreement and Fliess' Kappa [@DelPonte2019].
 
-We fitted Bayesian logistic mixed models (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000 and thinning of 1) using cumulative family function for ordinal data using the contributed package 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021].
+We fitted Bayesian logistic mixed models (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000 and thinning of 1) using cumulative family function with a logit link for ordinal data using the contributed package 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021].
 The cumulative family allows for the probability of a given value is the probability of that value or any smaller value.
 Priors were selected to be weakly informative and deemed suitable through using `pp_check()` to examine the the models' predictions based on priors only (using the parameter `sample_prior = only` in `brm()`).
 Priors over all parameters were set as: normal (mean = 0.00, SD = 1.0) distributions for both fixed parameters and random effects.
