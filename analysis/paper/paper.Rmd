@@ -291,7 +291,7 @@ This also assumes that there is no effect or bias on reproducibility based on th
 Articles were then manually selected by visiting the journals' websites and selecting the articles within which the randomly assigned page numbers fell, *i.e.*, if the page number was 32, the article that started on page 28 and ended on page 35 was selected as it contained page 32.
 In cases where an article was not suitable, *e.g.*, a review or otherwise not related to plant pathology or the randomly assigned numbers for that journal and year fell within the same article, the next article in that journal was selected until a suitable article was found.
 
-Depending on the scoring event, three to five of this paper's authors were each assigned to rate a randomised list of journal articles using scoring criteria devised for the purposes of this research (Table \@ref(tab:scoring)) in each of the three different scoring events as their time allowed for their participation.
+Depending on the scoring event, three to five of this paper's authors were each assigned to rate a randomised list of journal articles using scoring criteria devised for the purposes of this research in each of the three different scoring events as their time allowed for their participation.
 In the first event, three authors (AS, EDP, and ZF) evaluated 200 articles, in the second event two authors evaluated 100 articles (EDP, KA) and in the third round, five authors (AS, EDP, KA, ZF, NG) evaluated 150 articles for a total of 450 articles.
 
 ## Scoring Criteria
@@ -607,25 +607,6 @@ tab_s %>%
   flextable() %>%
   autofit() %>%
   set_caption("The top ten sofware programs that were found to be used in the papers that were surveyed.")
-```
-
-\newpage
-
-```{r scoring, echo=FALSE, message=FALSE, warning=FALSE}
-readODS::read_ods(
-    system.file(
-      "extdata",
-      "Reproducibility_in_plant_pathology_notes.ods",
-      package = "Reproducibility.in.Plant.Pathology"
-    ),
-    na = "NA",
-    sheet = "scoring_criteria_paper"
-  ) %>% 
-  flextable() %>%
-  colformat_num(na_str = "NA") %>%
-  autofit() %>%
-  set_caption(
-    "Articles were three in two areas for reproducibility on a scale of '0' to '3' by five independent evaluators to rank articles in each of two areas, 'Computational Methods Availability' and 'Data Availability'.")
 ```
 
 \newpage
