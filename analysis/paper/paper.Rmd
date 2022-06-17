@@ -332,7 +332,7 @@ Priors over all parameters were set as: normal (mean = 0.00, SD = 1.0) distribut
 The best fitting models were selected by using Widely Applicable Information Criterion (WAIC) and the expected log pointwise predictive density via `loo_compare()`.
 
 The models' were structured as follows to predict two responses, the availability of computational methods and data that were created or collected for the manuscript.
-To predict the responses with publishing journal (abbreviation was used throughout) the formula took the form: response ~ abbreviation and the models included assignee and year as random effects (formula: list(~1 | assignee, ~1 | year)).
+To predict the responses with publishing journal (abbreviation was used throughout) the formula took the form: response ~ abbreviation and the models included assignee as a random effect (formula: ~1 | assignee).
 To predict the response with year were predicted as (formula: response ~ year) and the models included abbreviation and assignee as random effects (formula: list(~1 | abbreviation, ~1 | assignee)).
 To predict the responses with IF_5year the formula took the form response ~ IF_5year and included assignee as random effect (formula: ~1 | assignee) without journal as a random effect to mitigate correlation between impact factor and the journal of publication.
 
