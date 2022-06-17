@@ -700,27 +700,21 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_1.eps"))
 
 \newpage
 
-```{r articleScores, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Aggregated article scores for each of the three categories evaluated, (A) presents 'Software availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Expensive proprietary software that only institutions would typically purchase'; '2' was 'Used proprietary software that most individuals can afford (e.g., Excel) or SAS that is now available free for use with a university login'; and '3' was 'Used entirely open source and free software (e.g., R, Julia, Python)'; 'NA' indicates that no specialised software was necessary or used. (B) displays 'Code availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no code was created to conduct the work that was detectable. (C) shows 'Data availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no data were generated, e.g., a methods paper.", cache=FALSE, fig.env='figure'}
+```{r articleScores, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Aggregated article scores for each of the two categories evaluated, (A) displays 'Code availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no code was created to conduct the work that was detectable. (B) shows 'Data availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no data were generated, e.g., a methods paper.", cache=FALSE, fig.env='figure'}
 
-a <- ggplot(rrpp, aes(x = as.factor(software_avail))) +
-  geom_bar(fill = "black") +
-  ylab("Count") +
-  xlab("Article Score") +
-  ggtitle("Software")
-
-b <- ggplot(rrpp, aes(x = as.factor(comp_mthds_avail))) +
+a <- ggplot(rrpp, aes(x = as.factor(comp_mthds_avail))) +
   geom_bar(fill = "black") +
   ylab("Count") +
   xlab("Article Score") +
   ggtitle("Code")
 
-c <- ggplot(rrpp, aes(x = as.factor(data_avail))) +
+b <- ggplot(rrpp, aes(x = as.factor(data_avail))) +
   geom_bar(fill = "black") +
   ylab("Count") +
   xlab("Article Score") +
   ggtitle("Data")
 
-p <- a + b + c
+p <- a + b
 p <- p +
   plot_annotation(tag_levels = "A") &
   theme(text = element_text("Arial"))
