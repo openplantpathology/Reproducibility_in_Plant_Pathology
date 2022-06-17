@@ -344,7 +344,7 @@ A test for practical equivalence, `equivalence_test()`, was performed for each m
 
 Using the Sequential Effect eXistence and sIgnificance Testing (SEXIT) framework, the median of the posterior distribution and its 95% CI (Highest Density Interval), along the probability of direction (pd), the probability of significance and the probability of being large are reported.
 The thresholds beyond which the effect is considered as significant (i.e., non-negligible) and large are 0.05 and 0.3 as suggested by @Makowski2019.
-Convergence and stability of the Bayesian sampling had been assessed using R-hat, which should be below 1.01 [@VVehtari2021] and Effective Sample Size (ESS), which should be greater than 1000 [@Burkner2017].
+Convergence and stability of the Bayesian sampling had been assessed using R-hat, which should be below 1.01 [@Vehtari2021] and Effective Sample Size (ESS), which should be greater than 1000 [@Burkner2017].
 
 A full report of all parameters and model details are available in the Supplementary Materials.
 Additionally, all methods are described in greater detail with the code necessary to reproduce the work in @Sparks2022.
