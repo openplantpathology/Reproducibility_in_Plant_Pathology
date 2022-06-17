@@ -300,9 +300,7 @@ Each journal was classified as to whether they were completely open (TRUE), behi
 The five-year impact factor for 2022 for each journal was retrieved from InCites Journal Citation Reports, Clarivate Analytics and entered in a separate sheet in the Google sheets file.
 This was downloaded, saved as an Open Document Spreadsheet (ODS) file for analysis.
 
-Each article was rated on a 0 -- 3 scale for its software, data and code availability.
-'Software availability' rated how freely and openly available the software used was.
-It was defined as follows, a score of '0' was 'Not available or not mentioned in the publication'; '1' was 'Expensive proprietary software that only institutions would typically purchase'; '2' was 'Used proprietary software that most individuals can afford (e.g., Excel) or SAS that is now available free for use with a university login'; and '3' was 'Used entirely open source and free software (e.g., R, Julia, Python)'; 'NA' indicates that no specialised software was necessary or used.
+Each article was rated on a 0 -- 3 scale for its data and code availability.
 'Code availability' rated how easily and openly available the computational methods used in the article were.
 Scores were assigned as '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no code was created to conduct the work that was detectable.
 Lastly, the 'Data availability' evaluated how freely and openly available the data presented in the article were.
@@ -627,7 +625,7 @@ readODS::read_ods(
   colformat_num(na_str = "NA") %>%
   autofit() %>%
   set_caption(
-    "Articles were three in three areas for reproducibility on a scale of '0' to '3' by five independent evaluators to rank articles in each of four areas, 'Computational Methods Availability', 'Data Availability', 'Software Availability'.")
+    "Articles were three in two areas for reproducibility on a scale of '0' to '3' by five independent evaluators to rank articles in each of two areas, 'Computational Methods Availability' and 'Data Availability'.")
 ```
 
 \newpage
