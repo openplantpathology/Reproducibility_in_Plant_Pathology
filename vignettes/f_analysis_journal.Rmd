@@ -85,8 +85,7 @@ rrpp <- drop_na(rrpp, comp_mthds_avail)
 m_f1 <-
   brm(
     formula = comp_mthds_avail ~ abbreviation +
-      (1 | assignee) +
-      (1 | year),
+      (1 | assignee),
     data = rrpp,
     seed = 27,
     prior = priors,
@@ -124,8 +123,7 @@ rrpp <- drop_na(rrpp, data_avail)
 m_f2 <-
   brm(
     formula = data_avail ~ abbreviation +
-      (1 | assignee) +
-      (1 | year),
+      (1 | assignee),
     data = rrpp,
     seed = 27,
     prior = priors,
