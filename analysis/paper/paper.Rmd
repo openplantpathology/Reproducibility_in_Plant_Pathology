@@ -323,7 +323,7 @@ Here, Excel was added to the `software_used` column and the `software_avail` sco
 ## Statistical Analysis
 
 The statistical analysis was performed using R version `r version$version.string` [@RCT2022] on an Apple MacBook Pro (13-inch, M1, 2020).
-Statistical analysis were carried out using R 4.1.0 (R Core Team, 2021), the rstanarm (v2.13.1; Gabry & Goodrich, 2016) and the report (v0.2.0; Makowski, Patil, & Lüdecke, 2019) packages. The full reproducible code is available in Supplementary Materials.
+Statistical analysis were carried out using R 4.1.0 (R Core Team, 2021), the rstanarm (v2.13.1; Gabry & Goodrich, 2016) and the report (v0.2.0; Makowski, Patil, & Lüdecke, 2019) packages. The full reproducible code is available in @Sparks2022.
 
 Inter-rater differences were evaluated using percent agreement and Fliess' Kappa [@DelPonte2019].
 
@@ -331,6 +331,7 @@ We fitted Bayesian logistic mixed models (estimated using MCMC sampling with 4 c
 The cumulative family allows for the probability of a given value is the probability of that value or any smaller value.
 Priors were selected to be weakly informative and deemed suitable through using `pp_check()` to examine the the models' predictions based on priors only (using the parameter `sample_prior = only` in `brm()`).
 Priors over all parameters were set as: normal (mean = 0.00, SD = 1.0) distributions for both fixed parameters and random effects.
+The best fitting models were selected by using Widely Applicable Information Criterion (WAIC) and the expected log pointwise predictive density via `loo_compare()`.
 
 The models' were structured as follows to predict two responses, the availability of computational methods and data that were created or collected for the manuscript.
 To predict the responses with publishing journal (abbreviation was used throughout) the formula took the form: response ~ abbreviation and the models included assignee and year as random effects (formula: list(~1 | assignee, ~1 | year)).
