@@ -74,7 +74,7 @@ m_h1 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative(link = "probit"),
+    family = cumulative(),
     control = list(adapt_delta = 0.999),
     iter = 10000,
     chains = 4
@@ -106,7 +106,7 @@ m_h2 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative(link = "probit"),
+    family = cumulative(),
     control = list(adapt_delta = 0.99),
     iter = 10000,
     chains = 4

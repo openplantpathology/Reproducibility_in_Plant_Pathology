@@ -90,7 +90,7 @@ m_f1 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative(link = "probit"),
+    family = cumulative(),
     iter = 10000,
     control = list(adapt_delta = 0.999)
   )
@@ -129,7 +129,7 @@ m_f2 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative(link = "probit"),
+    family = cumulative(),
     iter = 10000,
     control = list(adapt_delta = 0.99)
   )
