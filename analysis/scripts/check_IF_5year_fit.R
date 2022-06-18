@@ -19,69 +19,64 @@ priors <- c(prior(normal(0, 1), class = "b"),
 
 prior_i_only <- c(prior(normal(0, 1), class = "Intercept"))
 
-m_g1_logit_intercept <-
-  brm(formula = data_avail ~ 1 +
-        (1 | assignee),
-      data = rrpp,
-      seed = 27,
-      prior = prior_i_only,
-      family = cumulative(link = "logit"),
-      iter = 20000,
-      control = list(adapt_delta = 0.999),
-      save_pars = save_pars(all = TRUE)
-  )
-
-m_g1_logit <-
+cat("m_h1_logit model ")
+m_h1_logit <-
   brm(
-    formula = data_avail ~ year +
+    formula = data_avail ~ IF_5year +
       (1 | assignee),
     data = rrpp,
     seed = 27,
     prior = priors,
     family = cumulative(link = "logit"),
+    control = list(adapt_delta = 0.99),
     iter = 20000,
-    control = list(adapt_delta = 0.999),
     save_pars = save_pars(all = TRUE)
   )
 
-m_g2_logit <-
+cat("m_h2_logit model ")
+m_h2_logit <-
   brm(
-    formula = data_avail ~ year +
+    formula = data_avail ~ IF_5year +
       (1 | assignee),
     data = rrpp,
     seed = 27,
     prior = priors,
     family = cumulative(link = "logit"),
+    control = list(adapt_delta = 0.9),
     iter = 20000,
-    control = list(adapt_delta = 0.999),
     save_pars = save_pars(all = TRUE)
   )
 
-m_g1_probit <-
+cat("m_h1_probit model ")
+m_h1_probit <-
   brm(
-    formula = data_avail ~ year +
+    formula = data_avail ~ IF_5year +
       (1 | assignee),
     data = rrpp,
     seed = 27,
     prior = priors,
     family = cumulative(link = "probit"),
-    iter = 20000,
     control = list(adapt_delta = 0.99),
+    iter = 25000,
     save_pars = save_pars(all = TRUE)
   )
 
-m_g2_probit <-
+cat("m_h2_probit model ")
+m_h2_probit <-
   brm(
-    formula = data_avail ~ year +
+    formula = data_avail ~ IF_5year +
       (1 | assignee),
     data = rrpp,
     seed = 27,
     prior = priors,
     family = cumulative(link = "probit"),
-    iter = 20000,
     control = list(adapt_delta = 0.99),
+    iter = 25000,
     save_pars = save_pars(all = TRUE)
   )
 
-m_g1_comparison <- bayesfactor_models(m_g1_logit, m_g1_probit)
-m_g2_comparison <- bayesfactor_models(m_g2_logit, m_g2_probit)
+# compare with waic
+waic(m_h1_logit,
+     m_h1_probit)
+waic(m_h2_logit,
+     m_h2_probit)

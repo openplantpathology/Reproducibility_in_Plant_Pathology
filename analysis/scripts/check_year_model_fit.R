@@ -28,7 +28,6 @@ m_g1_logit <-
     prior = priors,
     family = cumulative(link = "logit"),
     iter = 20000,
-    control = list(adapt_delta = 0.999),
     save_pars = save_pars(all = TRUE)
   )
 
@@ -41,7 +40,6 @@ m_g2_logit <-
     prior = priors,
     family = cumulative(link = "logit"),
     iter = 20000,
-    control = list(adapt_delta = 0.999),
     save_pars = save_pars(all = TRUE)
   )
 
@@ -71,19 +69,10 @@ m_g2_probit <-
     save_pars = save_pars(all = TRUE)
   )
 
-m_g1_comparison <- bayesfactor_models(m_g1_logit, m_g1_probit)
-m_g2_comparison <- bayesfactor_models(m_g2_logit, m_g2_probit)
-
-
 # compare with waic
 waic(m_g1_logit,
      m_g1_probit)
 waic(m_g2_logit,
      m_g2_probit)
 
-# compare with LOO
-loo_compare(loo_f1_logit,
-            loo_f1_probit)
-loo_compare(loo_f2_logit,
-            loo_f2_probit)
 
