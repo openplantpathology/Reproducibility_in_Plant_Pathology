@@ -28,13 +28,17 @@ output:
      reference_docx: "../templates/phytopath_template.docx"
 ---
 
-```{r, setup, echo = FALSE, message=FALSE}
+```{r, setup, echo = FALSE, message=FALSE, warning=FALSE}
 
 library("Reproducibility.in.Plant.Pathology")
 library("tidyverse")
 library("pander")
 library("report")
 library("flextable")
+library("bayestestR")
+
+options(mc.cores = parallel::detectCores())
+theme_set(theme_classic())
 
 rrpp <- import_notes()
 ir <- import_interrater_scores()
@@ -182,12 +186,20 @@ font_import()
 
 ### Computational Methods
 
+```{r journal-code-test, echo=FALSE, message=FALSE, warning=FALSE}
+plot(equivalence_test(m_f1))
+```
+
 ```{r journal-code, echo=FALSE}
 m_f1_report %>% 
   pander()
 ```
 
 ### Data
+
+```{r journal-data-test, echo=FALSE, message=FALSE, warning=FALSE}
+plot(equivalence_test(m_f2))
+```
 
 ```{r journal-data, echo=FALSE}
 m_f2_report %>% 
@@ -200,12 +212,20 @@ m_f2_report %>%
 
 ### Computational Methods
 
+```{r year-code-test, echo=FALSE, message=FALSE, warning=FALSE}
+plot(equivalence_test(m_g1))
+```
+
 ```{r year-code, echo=FALSE}
 m_g1_report %>% 
   pander()
 ```
 
 ### Data
+
+```{r year-data-test, echo=FALSE, message=FALSE, warning=FALSE}
+plot(equivalence_test(m_g2))
+```
 
 ```{r year-data, echo=FALSE}
 m_g2_report %>% 
@@ -218,12 +238,20 @@ m_g2_report %>%
 
 ### Computational Methods
 
+```{r if5yr-code-test, echo=FALSE, message=FALSE, warning=FALSE}
+plot(equivalence_test(m_h1))
+```
+
 ```{r if5yr-code, echo=FALSE}
 m_h1_report %>% 
   pander()
 ```
 
 ### Data
+
+```{r if5yr-data-test, echo=FALSE, message=FALSE, warning=FALSE}
+plot(equivalence_test(m_h2))
+```
 
 ```{r if5yr-data, echo=FALSE}
 m_h2_report %>% 
