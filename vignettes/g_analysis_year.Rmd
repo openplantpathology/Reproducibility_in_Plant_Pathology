@@ -50,6 +50,8 @@ theme_set(theme_classic())
 
 ### Priors
 
+Priors were set to be generic weakly informative.
+
 ```{r priors}
 priors <- c(prior(normal(0, 1), class = "b"),
             prior(normal(0, 1), class = "Intercept"))
