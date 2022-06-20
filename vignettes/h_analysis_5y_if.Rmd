@@ -50,7 +50,7 @@ theme_set(theme_classic())
 
 ### Priors
 
-The priors are fairly uninformative.
+Priors were set to be generic weakly informative.
 
 ```{r priors}
 priors <- c(prior(normal(0, 1), class = "b"),
@@ -74,10 +74,9 @@ m_h1 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative(),
-    control = list(adapt_delta = 0.999),
-    iter = 10000,
-    chains = 4
+    family = cumulative(link = "logit"),
+    control = list(adapt_delta = 0.99),
+    iter = 10000
   )
 
 summary(m_h1)
@@ -106,8 +105,8 @@ m_h2 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative(),
-    control = list(adapt_delta = 0.99),
+    family = cumulative(link = "logit"),
+    control = list(adapt_delta = 0.9),
     iter = 10000,
     chains = 4
   )
