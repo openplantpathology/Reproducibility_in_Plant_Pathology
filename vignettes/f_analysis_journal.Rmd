@@ -91,7 +91,7 @@ m_f1 <-
     prior = priors,
     family = cumulative(),
     iter = 10000,
-    control = list(adapt_delta = 0.999)
+    control = list(adapt_delta = 0.99)
   )
 
 summary(m_f1)
@@ -129,7 +129,7 @@ m_f2 <-
     prior = priors,
     family = cumulative(),
     iter = 10000,
-    control = list(adapt_delta = 0.99)
+    control = list(adapt_delta = 0.9)
   )
 
 summary(m_f2)
