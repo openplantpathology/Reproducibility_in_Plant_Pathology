@@ -420,22 +420,29 @@ The second, third and fourth, and eighth most frequently cited software packages
 SAS remains firmly entrenched in the discipline as the choice of software for statistical analysis followed by SPSS but R, the most frequently occurring FOSS, is not far removed from SPSS in fourth place with Statistica and Genstat tied for eighth.
 It is interesting to note however, that even with the popularity of Python in scientific programming, it only appears in the survey twice in 2020 for both articles, not enough times to be in the top 10 most-cited.
 
-## Are There Good Examples?
 
-While the majority of the articles that were surveyed did not score well for sharing data and code, we are aware of and would like to highlight that there are several good examples from the plant pathology discipline that can be used as exemplars.
+
+## Examples of Different Levels of Reproducibility
 
 There are different ways to make research more open and reproducible, which can be thought of as levels of reproducibility.
-The first level is including tables of raw data or code with the paper as a supplemental file.
-This is suitable for studies that may have a small data set or simple analysis or for demonstrations purposes as @Madden2015 demonstrate in their discussion regarding the use of $P$ values in statistical analyses where they supply an *e-**X**tra* with reproducible examples for readers to refer to.
-This allows the reader to quickly view the extra materials and a DOI is assigned as a part of the article itself.
+A general work flow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, and writing the manuscript.
+Here we defined three levels of reproducibility which are also related to the evolution of computational methods and reproducible practices (Figure \@ref(fig:workflow-dia)).
 
-At the second level, in our search of the literature, we found that @Hill2019 shared code and example data to reproduce the results of the paper as supplementary materials, citing all packages used and the versions.
+The first level is including tables of raw data or code with the paper as a supplemental file or even within the paper as tables where possible.
+This is suitable for studies that may have a small data set or simple analysis or for demonstrations purposes as @Madden2015 demonstrate in their discussion regarding the use of $P$ values in statistical analyses where they supply an *e-**X**tra* with reproducible examples for readers to refer to.
+@Hill2019 also shared code and example data to reproduce the results of the paper as supplementary materials, citing all packages used and the versions.
 The scripts provided used an R package, *checkpoint* [@Ooi2022], to provide a mechanism to help ensure reproducibility by installing the package versions used by the authors that are necessary to reproduce the work rather than defaulting to the latest versions.
 However, the scripts did not run unhindered, as the supplementary materials suggested that they should, without changes to the data, but with some modifications to the data, and file name changes, the scripts ran allowing examples of the research to be reproduced using the definition of @Peng2009.
-One drawback to this approach is that journals are often not equipped to handle code, e.g., script files, that may be developed as a part of the research process and so they are often archived as PDF or Word documents which hinder the ability to easily ingest and start working with them.
+One drawback to this approach is that journals are often not equipped to handle code, e.g., script files, that may be developed as a part of the research process and so they are often archived as PDF or Word documents which hinder the ability to easily ingest and start working with them or if they are provided in a native text format, they do not render via the web properly.
 Though this should be possible given some effort from the publishing journal to share simple text files rather than binary formats along with the proper instructions and handling of these file formats rather than a one-size-fits all approach that we commonly see for supplementary materials.
+For example, the R scripts for @Hill2019 were provided as supplementary materials but do not actually appear in the browser window when requested, which may confuse readers and makes downloading them more difficult.
+While this allows the reader to quickly view the extra materials and a DOI is assigned as a part of the article itself, the data or code are not readily findable and accessible. 
+Furthermore, in many cases this does not allow prompt access to the data and running the code because of a journal paywall.
 
-The third level is the use of proper code repositories such as GitHub and data repositories like FigShare, Zenodo or OSF.io among others, allow for the deposition and updating of code, figures, data preprints or any other materials that support the article itself while providing a DOI and citation for a standalone citation.
+The second level is providing machine readable text files of the raw data and code in a public code repository such as GitHub, GitLab, but without a DOI or other long-term repository as provided by a library, Zenodo, FigShare, etc.
+Fewer authors choose to follow this method, but in one instance that we found, @Vogel2021 deposited Fastq files in the National Center of Biotechnology Information Sequence Read Archive (BioProject accession number PRJNA616021) and provide the scripts for analysis via a GitHub repository (<https://github.com/gmv23/pcap-gwas>) but we were unable to find a DOI to refer to these materials.
+
+The third level is the use of proper code repositories such as GitHub and data repositories like FigShare, Zenodo or OSF.io among others, allow for the deposition and updating of code, figures, data preprints or any other materials that support the article itself while providing a DOI and citation.
 As an example, Sparks et al. [-@Sparks2011; -@Sparks2014] used FigShare to provide models, data and code [@Sparks2016] necessary to replicate model development and the subsequent study on the effects of climate change on potato late blight.
 Similarly, @carleson2019population hosted the code for reproducing a population genomic analysis of *Phytophthora plurivora* on GitHub, while providing all data on OSF.io (the Open Science Framework).
 @Lehner2017 used GitHub to host a code repository of their research compendium website with data and a reproducible report that explains in detail all steps of the analysis and the R code for conducting a meta-analysis for assessing heterogeneity in the relationship between white mold incidence and soybean yield and between incidence and soybean yield (<https://emdelponte.github.io/paper-white-mold-meta-analysis/>).
@@ -445,7 +452,7 @@ However, even this example is not totally open as it requires ArcGIS, an expensi
 This highlights the difficulty in making work completely open and reproducible, further work could be undertaken to make the Python scripts rely totally on free-open-source-software but the work as it it provided here does allow for the complete reproducibility of the paper as written provided with the proper tools.
 Using a repository resource like GitHub allows readers to easily contact the authors by opening "Issues" and report bugs or ask questions in an open forum that are not as straightforward when the data are provided as supplementary material.
 
-The fourth level includes packaging the full analysis in a containerized software application, *e.g.*, Docker.
+Taking this approach even further, packaging the full analysis in a containerized software application, *e.g.*, Docker is a way to help ensure computational reproducibility but at the expense of added complexity.
 Docker is an open source containerization platform that enables users to package several applications and an operating system into containers, thereby standardising the executable components by combining application source code (or analyses) with the operating system required to run that analysis on a user's computer.
 However, there are drawbacks to using Docker.
 It can be difficult to understand for a new user and new platforms, like the Apple M1 chip, may not be fully supported, which hinder the ability to share the container.
@@ -456,20 +463,8 @@ When this level is employed, tools such as Binder, <https://mybinder.org>, can b
 @Kamvar2015 took a slightly different approach by including all files necessary for the analysis and most output files in a repository [@Kamvar2014] that also included an installable R package that was used for the original analysis.
 While there are many other methods, these two approaches illustrate some of the best-practices where the data and other files were deposited in repositories with DOIs and reproducibility issues were addressed by using R packages to handle dependencies and other versioning issues making the work more portable.
 
-## Best Practices to Enhance Reproducible Research
-
-Journals can encourage authors to deposit their data and code by providing instruction for how to deposit the data and code in a repository and mint a DOI to accompany these resources.
-While our analysis was unable to detect any differences in journals providing such instruction and journals that did not, the trend did indicate that journals that provided such instruction had better scores for data and code availability.
-
-A general work flow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, and writing the manuscript.
-Here we defined three levels of reproducibility which are also related to the evolution of computational methods and reproducible practices (Figure \@ref(fig:workflow-dia)).
-
-The first level of reproducibility involves openly available research materials such as isolates or strains and/or nucleic acid sequences in public collections and citations for methods used.
-A second level involves providing raw data and code as binary files (PDF or other non-text files) in supplemental materials, which do not allow prompt access to the data and running the code because of use of expensive commercial software or a paywall.
-The highest level includes efforts to annotate structured raw data (FAIR -- Findable, Accessible, Interoperable and Re-usable) [@Wilkinson2016] and fully document the analysis using open source code which are deposited in public repositories and can be run by anyone following the download of data and code.
+Efforts to annotate structured raw data (FAIR -- Findable, Accessible, Interoperable and Re-usable) [@Wilkinson2016] and fully document the analysis using open source code which are deposited in public repositories and can be run by anyone following the download of data and code.
 The first level, as reported, is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations.
-In the next section we present standards and tools that can be used to ensure reproducibility.
-
 When making your science more open and reproducible, methods, software used (this includes items such as R, Julia or Python packages that were directly used in the analysis or production of the paper, etc.) should be cited properly.
 Deposit and annotate biological materials with an herbarium or other repository.
 Provide a full description of all equipment used, *e.g.*, "a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals".
@@ -517,6 +512,8 @@ If readers are uncertain, we suggest to also consult with local librarians about
 Most universities and other research-focused workplaces provide a facility for staff to deposit papers and other academic materials, but this may extend to software development repositories as well.
 The important aspect is that data once deposited cannot be modified any more.
 
+## Final Thoughts
+
 In this work we have evaluated the state of computational reproducibility in the plant pathology literature and presented suggestions for areas of improvement.
 As we prepared this letter, we became more aware of the urgent need to spread and establish an open science attitude and culture among plant pathologists.
 To assist in fostering this sort of change in our discipline, Open Plant Pathology (OPP), <https://www.openplantpathology.org>, an institution-independent and non-funded initiative, was founded in January 2018 by two of this letter's co-authors, Del Ponte and Sparks, in 2018 with the following vision: "foster a diverse community culture that values openness, transparency and reproducibility of scientific research data and methods in our field".
@@ -524,7 +521,7 @@ We started OPP with a minimal infrastructure and support from other enthusiastic
 
 We believe that adopting an attitude of open and collaborative science and using the best reproducibility practices in our daily work, directly benefits us as researchers.
 For example, between complicated analyses, reviews and revisions and questions years later about the data that was collected or analysis that was conducted, it is extremely beneficial to be able to easily reproduce your work quickly and easily.
-This letter was drafted over the course of several years as the authors had time to devote to it.
+This manuscript was drafted over the course of several years as the authors had time to devote to it.
 Having everything in a reproducible framework made it easy to resume work and set-aside as necessary without losing information and having everything well-documented made it more simple to do this.
 Second, it benefits the reviewer by aiding their understanding of the work done and gives them more materials to use to make suggestions for improvements when reviewing and the end-user or reader is better able to verify the validity of the methods used and recreate the analysis.
 Perhaps more importantly, sharing these details helps with knowledge transfer by showing other interested parties how something was done rather than simply describing it.
@@ -532,11 +529,13 @@ Lastly, openly sharing your work and making it discoverable can lead to new coll
 One of the most important messages that we would like to share is that there is more to the work than just the paper.
 Sharing materials detailing the analysis that was performed and documenting the data provide citable products and enhance the manuscript providing the reader with a richer set of information with which to understand the work that was performed.
 This open sharing of code and data leads to greater impact as work is cited if resources such as code or data are reused.
+But it is not just up to the authors to ensure that their work is reproducible.
+Journals can and should provide clear instruction for how to deposit the data and code in a repository and mint a DOI to accompany these resources to encourage authors to share the data and code that support the manuscript.
 With mandates for openly sharing data becoming more common with funding agencies, we can and should embrace this and move the discipline forward and have a greater impact with our work.
 
 Without the data underlying the paper, we as a community cannot adequately evaluate the work as it is presented.
 Without the code that was used to analyse the data, we as a community cannot adequately evaluate the work as it is presented.
-That is, while we may be standing on the shoulders of giants doing our work, we cannot see where they've been to do our work, which hinders our efforts.
+That is, while we may be standing on the shoulders of giants doing our work, we cannot see where they have been to do our work, which hinders our efforts.
 
 # Authors' Contributions
 
