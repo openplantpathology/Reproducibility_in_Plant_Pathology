@@ -327,13 +327,13 @@ Priors over all parameters were set as: normal (mean = 0.00, SD = 1.0) distribut
 The best fitting models were selected by using Widely Applicable Information Criterion (WAIC) and the expected log pointwise predictive density via `loo_compare()`.
 
 The models' were structured as follows to predict two responses, the availability of computational methods and data that were created or collected for the manuscript.
-To predict the responses with publishing journal (abbreviation was used throughout) the formula took the form: response ~ abbreviation and the models included assignee as a random effect (formula: ~1 | assignee).
+To predict the responses with publishing journal, as the journals' abbreviation, the formula took the form: response ~ abbreviation and the models included assignee as a random effect (formula: ~1 | assignee).
 To predict the response with year were predicted as (formula: response ~ year) and the models included abbreviation and assignee as random effects (formula: list(~1 | abbreviation, ~1 | assignee)).
 To predict the responses with IF_5year the formula took the form response ~ IF_5year and included assignee as random effect (formula: ~1 | assignee) without journal as a random effect to mitigate correlation between impact factor and the journal of publication.
 
 The `adapt_delta()` and `max_treedepth()` values were adjusted as necessary on a case-by-case basis for each of the models to ensure a good model fit to the data and that the chains mixed well.
 
-Model fitness's were evaluated using model summaries and diagnostic plots from 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021] and posterior fits using `pp_check()` (Figure \@ref(fig:posteriors)) from the contributed R package 'bayesplot' (version `r packageVersion("bayesplot")`) [@Gabry2019].
+Model fitness's were evaluated using model summaries and diagnostic plots from 'brms' (version `r packageVersion("brms")`) and posterior fits using `pp_check()` (Figure \@ref(fig:posteriors)) from the contributed R package 'bayesplot' (version `r packageVersion("bayesplot")`) [@Gabry2019].
 
 A test for practical equivalence, `equivalence_test()`, was performed for each model using the contributed R package 'bayestestR' (version `r packageVersion("bayestestR")`) [@Makowski2019] with the Region of Practical Equivalence (ROPE) set to -0.1 to 0.1 and confidence interval of 0.95.
 
