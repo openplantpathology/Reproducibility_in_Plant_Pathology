@@ -273,6 +273,8 @@ Plant pathologists routinely provide information on protocols and chemicals allo
 However, frequently biological specimens such as strains, cultures or cultivars are not available after publication.
 These cases do constitute a lack of reproducibility but will not be covered here.
 
+In this paper we will assume that a general work flow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, writing the manuscript and depositing the code used along with the raw data in proper repositories (Figure \@ref(fig:workflow-dia)).
+
 # Materials and Methods
 
 ## Article Selection and Evaluation Events
@@ -598,6 +600,61 @@ tab_s %>%
 
 # Figures
 
+```{r workflow-dia, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='An example of an open and reproducible research workflow. Starting with the question, determine the methodology, describe it, make it available and cite it. Data are used in analysis and any binary files or code are made available as supplements to the manuscript. Source code and raw data are made available in a public repository, preferably with version control for tracking changes through time, and a DOI for final released products.', cache=FALSE, fig.env='figure'}
+
+p <- export_svg(
+  grViz(
+    "digraph Fig3 {
+    graph [fontsize = 8, nodesep=0.5]
+
+    node[shape = plaintext, width = 1.2, fontname = Helvetica, fontsize = 20]
+    'An open and reproducible workflow'
+
+    node [shape = oval, style = filled, fillcolor = grey99, width = 1.2, fontname = Arial]
+    Question
+
+    node [shape = box, style = filled, fillcolor = grey99, width = 1.2, fontname = Arial]
+    Methodology; Data; Analysis; Manuscript;
+
+    node [shape = box, style = filled, fillcolor = grey90, width = 1.2, fontname = Arial]
+    Description; Availability; Citation
+
+    node [shape = box, style = filled, fillcolor = grey80, width = 1.2]
+    'Binary Code'; 'Binary File'; Supplement
+
+    node [shape = box, style = filled, fillcolor = grey70, width = 1.2]
+    'Source Code'; 'Data File'; Metadata; 'Public Repository';
+
+    Question->Methodology->Data->Analysis
+    Analysis->Manuscript
+    Methodology->Description
+    Methodology->Citation
+    Methodology->Availability
+    Manuscript->Supplement
+    Data->'Data File'->'Public Repository'
+    Data->Metadata->'Public Repository'
+    Analysis->'Binary Code'->Supplement
+    Analysis->'Source Code'->'Public Repository'
+    Data->'Binary File'->Supplement
+  }",
+  width = 1000,
+  height = 750
+  )
+)
+
+rsvg_ps(svg = charToRaw(p),
+        file = here("analysis/figures/Sparks_et_al_Figure_1.eps"))
+embed_fonts(
+  file = here("analysis/figures/Sparks_et_al_Figure_1.eps"),
+  outfile = here("analysis/figures/Sparks_et_al_Figure_1.eps"),
+  options = "-dEPSCrop"
+)
+
+include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_1.eps"))
+```
+
+\newpage
+
 ```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualisations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialised journals. Six factors were evaluated, (A, B) Publication (Journal Title), (C, D) Year of Publication, (E, F) Five Year Impact Factor of Journal, and (G, H) Journal Open Access Policy where y is the data's density and y~rep~ are ten random posterior draws. Model fitnesses were found to be good for all models.", cache=FALSE, fig.env='figure'}
 
 set.seed(23)
@@ -647,43 +704,6 @@ p <- wrap_plots(mod_list, ncol = 2) +
   theme(text = element_text("Arial"))
 
 ggsave(
-  filename = here("analysis/figures/Sparks_et_al_Figure_1.eps"),
-  plot = p,
-  width = 6,
-  height = 6,
-  units = "in",
-  device = cairo_ps
-)
-embed_fonts(
-  file = here("analysis/figures/Sparks_et_al_Figure_1.eps"),
-  outfile = here("analysis/figures/Sparks_et_al_Figure_1.eps"),
-  options = "-dEPSCrop"
-)
-include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_1.eps"))
-```
-
-\newpage
-
-```{r articleScores, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Aggregated article scores for each of the two categories evaluated, (A) displays 'Code availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no code was created to conduct the work that was detectable. (B) shows 'Data availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no data were generated, e.g., a methods paper.", cache=FALSE, fig.env='figure'}
-
-a <- ggplot(rrpp, aes(x = as.factor(comp_mthds_avail))) +
-  geom_bar(fill = "black") +
-  ylab("Count") +
-  xlab("Article Score") +
-  ggtitle("Code")
-
-b <- ggplot(rrpp, aes(x = as.factor(data_avail))) +
-  geom_bar(fill = "black") +
-  ylab("Count") +
-  xlab("Article Score") +
-  ggtitle("Data")
-
-p <- a + b
-p <- p +
-  plot_annotation(tag_levels = "A") &
-  theme(text = element_text("Arial"))
-
-ggsave(
   filename = here("analysis/figures/Sparks_et_al_Figure_2.eps"),
   plot = p,
   width = 6,
@@ -701,18 +721,18 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_2.eps"))
 
 \newpage
 
-```{r journal-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the journal title for (A) computational materials (code) and (B) data being made readily available to the public. A test for equivalence was unable to detect any clear differences between *Phytopathology* and all other journals sharing computational materials (code). However, a test for equivalence found that *Molecular Plant Pathology* and *Phytopathologia Mediterranea* were more likely have data available than articles found in *Phytopathology*. Intervals in grey have a median value less than that of *Phytopathology*, the base level used for the analysis and articles in these journals could be less likely to share computational materials and data than articles published in *Phytopathology*. Intervals in black have a median value that is greater than that of *Phytopathlogy*, the base level for the analysis and articles in these journals could be more likely to share data or code than those found in *Phytopathology*.', cache=FALSE, fig.env='figure'}
-a <- plot(parameters(m_f1)) +
-  scale_colour_grey() +
+```{r articleScores, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Aggregated article scores for each of the two categories evaluated, (A) displays 'Code availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no code was created to conduct the work that was detectable. (B) shows 'Data availability', where '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no data were generated, e.g., a methods paper.", cache=FALSE, fig.env='figure'}
+
+a <- ggplot(rrpp, aes(x = as.factor(comp_mthds_avail))) +
+  geom_bar(fill = "black") +
+  ylab("Count") +
+  xlab("Article Score") +
   ggtitle("Code")
 
-b <- plot(parameters(m_f2)) +
-  scale_colour_grey() +
-  theme(
-    axis.text.y = element_blank(),
-    axis.ticks.y = element_blank(),
-    axis.title.y = element_blank()
-  ) +
+b <- ggplot(rrpp, aes(x = as.factor(data_avail))) +
+  geom_bar(fill = "black") +
+  ylab("Count") +
+  xlab("Article Score") +
   ggtitle("Data")
 
 p <- a + b
@@ -738,18 +758,18 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_3.eps"))
 
 \newpage
 
-```{r year-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the year of publication for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence was undecided in any detectable effects of year of publication on computational materials or data being shared. Intervals in grey indicate that the median was less than zero or less likely that code or data were shared and intervals in black indicate that the median value is above zero or more likely to share data and code.', cache=FALSE, fig.env='figure'}
-a <- plot(parameters(m_g1), show_lables = TRUE) + 
+```{r journal-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the journal title for (A) computational materials (code) and (B) data being made readily available to the public. A test for equivalence was unable to detect any clear differences between *Phytopathology* and all other journals sharing computational materials (code). However, a test for equivalence found that *Molecular Plant Pathology* and *Phytopathologia Mediterranea* were more likely have data available than articles found in *Phytopathology*. Intervals in grey have a median value less than that of *Phytopathology*, the base level used for the analysis and articles in these journals could be less likely to share computational materials and data than articles published in *Phytopathology*. Intervals in black have a median value that is greater than that of *Phytopathlogy*, the base level for the analysis and articles in these journals could be more likely to share data or code than those found in *Phytopathology*.', cache=FALSE, fig.env='figure'}
+a <- plot(parameters(m_f1)) +
   scale_colour_grey() +
   ggtitle("Code")
 
-b <- plot(parameters(m_g2), show_lables = TRUE) + 
+b <- plot(parameters(m_f2)) +
   scale_colour_grey() +
-   theme(
-      axis.text.y = element_blank(),
-      axis.ticks.y = element_blank(),
-      axis.title.y = element_blank()
-    ) +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.title.y = element_blank()
+  ) +
   ggtitle("Data")
 
 p <- a + b
@@ -775,12 +795,12 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_4.eps"))
 
 \newpage
 
-```{r IF-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the publishing journal\'s five-year impact factor for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence was undecided on any detectable effects of impact factor. Intervals in grey indicate that the median was less than zero or less likely that code or data were shared and intervals in black indicate that the median value is above zero or more likely to share data and code.', cache=FALSE, fig.env='figure'}
-a <- plot(parameters(m_h1), show_lables = TRUE) + 
+```{r year-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the year of publication for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence was undecided in any detectable effects of year of publication on computational materials or data being shared. Intervals in grey indicate that the median was less than zero or less likely that code or data were shared and intervals in black indicate that the median value is above zero or more likely to share data and code.', cache=FALSE, fig.env='figure'}
+a <- plot(parameters(m_g1), show_lables = TRUE) + 
   scale_colour_grey() +
   ggtitle("Code")
 
-b <- plot(parameters(m_h2), show_lables = TRUE) + 
+b <- plot(parameters(m_g2), show_lables = TRUE) + 
   scale_colour_grey() +
    theme(
       axis.text.y = element_blank(),
@@ -812,55 +832,37 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_5.eps"))
 
 \newpage
 
-```{r workflow-dia, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='An example of an open and reproducible research workflow. Starting with the question, determine the methodology, describe it, make it available and cite it. Data are used in analysis and any binary files or code are made available as supplements to the manuscript. Source code and raw data are made available in a public repository, preferably with version control for tracking changes through time, and a DOI for final released products.', cache=FALSE, fig.env='figure'}
+```{r IF-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the publishing journal\'s five-year impact factor for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence was undecided on any detectable effects of impact factor. Intervals in grey indicate that the median was less than zero or less likely that code or data were shared and intervals in black indicate that the median value is above zero or more likely to share data and code.', cache=FALSE, fig.env='figure'}
+a <- plot(parameters(m_h1), show_lables = TRUE) + 
+  scale_colour_grey() +
+  ggtitle("Code")
 
-p <- export_svg(
-  grViz(
-    "digraph Fig3 {
-    graph [fontsize = 8, nodesep=0.5]
+b <- plot(parameters(m_h2), show_lables = TRUE) + 
+  scale_colour_grey() +
+   theme(
+      axis.text.y = element_blank(),
+      axis.ticks.y = element_blank(),
+      axis.title.y = element_blank()
+    ) +
+  ggtitle("Data")
 
-    node[shape = plaintext, width = 1.2, fontname = Helvetica, fontsize = 20]
-    'An open and reproducible workflow'
+p <- a + b
+p <- p +
+  plot_annotation(tag_levels = "A") &
+  theme(text = element_text("Arial"))
 
-    node [shape = oval, style = filled, fillcolor = grey99, width = 1.2, fontname = Arial]
-    Question
-
-    node [shape = box, style = filled, fillcolor = grey99, width = 1.2, fontname = Arial]
-    Methodology; Data; Analysis; Manuscript;
-
-    node [shape = box, style = filled, fillcolor = grey90, width = 1.2, fontname = Arial]
-    Description; Availability; Citation
-
-    node [shape = box, style = filled, fillcolor = grey80, width = 1.2]
-    'Binary Code'; 'Binary File'; Supplement
-
-    node [shape = box, style = filled, fillcolor = grey70, width = 1.2]
-    'Source Code'; 'Data File'; Metadata; 'Public Repository';
-
-    Question->Methodology->Data->Analysis
-    Analysis->Manuscript
-    Methodology->Description
-    Methodology->Citation
-    Methodology->Availability
-    Manuscript->Supplement
-    Data->'Data File'->'Public Repository'
-    Data->Metadata->'Public Repository'
-    Analysis->'Binary Code'->Supplement
-    Analysis->'Source Code'->'Public Repository'
-    Data->'Binary File'->Supplement
-  }",
-  width = 1000,
-  height = 750
-  )
+ggsave(
+  filename = here("analysis/figures/Sparks_et_al_Figure_6.eps"),
+  plot = p,
+  width = 6,
+  height = 6,
+  units = "in",
+  device = cairo_ps
 )
-
-rsvg_ps(svg = charToRaw(p),
-        file = here("analysis/figures/Sparks_et_al_Figure_6.eps"))
 embed_fonts(
   file = here("analysis/figures/Sparks_et_al_Figure_6.eps"),
   outfile = here("analysis/figures/Sparks_et_al_Figure_6.eps"),
   options = "-dEPSCrop"
 )
-
 include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_6.eps"))
 ```
