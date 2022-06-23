@@ -580,7 +580,7 @@ distinct(rrpp, journal, IF_5year) %>%
   colformat_num(na_str = "NA") %>%
   autofit() %>%
   set_caption(
-    "Journal titles selected for inclusion, their respective five year impact factors as of 2022 and the number (n) of articles from each journal that were evaluated."
+    "Journal titles selected for inclusion, their respective five year impact factors as of 2022 (5 Year IF) and the number (n) of articles from each journal that were evaluated."
   )
 ```
 
