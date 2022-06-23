@@ -350,16 +350,16 @@ Additionally, all methods are described in greater detail with the code necessar
 
 ## Inter-rater Agreement
 
-All authors agreed on the five inter-rater article evaluations for the data availability, '0', not available for a inter-rater score of 100%.
+All authors agreed on the five inter-rater article evaluations for the data availability, '0', not available for an inter-rater score of 100%.
 However, one of the authors rated one article as 'NA' or not having any computational methods used rather than '0' as with the other four authors, giving the inter-rater percent agreement a score of 100% with the 'NA' value dropped from the code availability.
 
 ## Code and Data Sharing Findings
 
-Most articles did not make any computational methods available in any fashion with `r length(which(rrpp$comp_mthds_avail == 3))` (`r round(length(which(rrpp$comp_mthds_avail == 3))/nrow(rrpp), 3)`%) classified as '3', which was the highest score available (Figure \@ref(fig:articleScores)A).
-`r gsub("(^[[:alpha:]])", "\\U\\1", as.character(english(length(which(rrpp$comp_mthds_avail == 0)))), perl = TRUE)` (`r round(length(which(rrpp$comp_mthds_avail == 0))/nrow(rrpp), 2)`%) were classed as '0' and `r as.character(english(length(which(is.na(rrpp$comp_mthds_avail)))))` articles (`r round(length(which(is.na(rrpp$comp_mthds_avail)))/nrow(rrpp), 2)`%) appeared to not use any computational methods.
+Most articles did not make any computational methods available in any fashion with `r length(which(rrpp$comp_mthds_avail == 3))` (`r round(length(which(rrpp$comp_mthds_avail == 3))/nrow(rrpp), 3) * 100`%) classified as '3', which was the highest score available (Figure \@ref(fig:articleScores)A).
+`r gsub("(^[[:alpha:]])", "\\U\\1", as.character(english(length(which(rrpp$comp_mthds_avail == 0)))), perl = TRUE)` (`r round(length(which(rrpp$comp_mthds_avail == 0))/nrow(rrpp), 3) * 100`%) were classed as '0' and `r as.character(english(length(which(is.na(rrpp$comp_mthds_avail)))))` articles (`r round(length(which(is.na(rrpp$comp_mthds_avail)))/nrow(rrpp), 2) * 100`%) appeared to not use any computational methods.
 
-Additionally, data that supported the articles were mostly unavailable with `r length(which(rrpp$data_avail == 0))` (`r round(length(which(rrpp$data_avail == 0))/nrow(rrpp), 2)`%) scoring '0' where the data was not available or mentioned in the article.
-However, more articles, `r length(which(rrpp$data_avail == 3))` (`r round(length(which(rrpp$data_avail == 3))/nrow(rrpp), 2)`%), scored '3' than scored '1' or '2' combined, `r length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))` (`r round(length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))/nrow(rrpp), 2)`%) with `r as.character(english(length(which(is.na(rrpp$data_avail)))))` articles not producing shareable data (Figure \@ref(fig:articleScores)D).
+Additionally, data that supported the articles were mostly unavailable with `r length(which(rrpp$data_avail == 0))` (`r round(length(which(rrpp$data_avail == 0))/nrow(rrpp), 2) * 100`%) scoring '0' where the data was not available or mentioned in the article.
+However, more articles, `r length(which(rrpp$data_avail == 3))` (`r round(length(which(rrpp$data_avail == 3))/nrow(rrpp), 2) * 100`%), scored '3' than scored '1' or '2' combined, `r length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))` (`r round(length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))/nrow(rrpp), 2) * 100`%) with `r as.character(english(length(which(is.na(rrpp$data_avail)))))` articles not producing shareable data (Figure \@ref(fig:articleScores)D).
 
 ## Software Used
 
