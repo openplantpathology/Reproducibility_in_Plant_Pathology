@@ -439,14 +439,14 @@ While this allows the reader to quickly view the extra materials and a DOI is as
 Furthermore, in many cases this does not allow prompt access to the data and running the code because of a journal paywall.
 
 The second level is providing machine readable text files of the raw data and code in a public code repository such as GitHub, GitLab, but without a DOI or other long-term repository as provided by a library, Zenodo, FigShare, etc.
-Fewer authors choose to follow this method, but in one instance that we found, @Vogel2021 deposited Fastq files in the National Center of Biotechnology Information Sequence Read Archive (BioProject accession number PRJNA616021) and provide the scripts for analysis via a GitHub repository (<https://github.com/gmv23/pcap-gwas>) but we were unable to find a DOI to refer to these materials.
+Fewer authors choose to follow this method, but in one instance that we found, @Vogel2021 deposited Fastq files in the National Center of Biotechnology Information Sequence Read Archive (BioProject accession number PRJNA616021) and provided the scripts for analysis via a GitHub repository (<https://github.com/gmv23/pcap-gwas>) but we were unable to find a DOI that refers to these materials or a proper citation to properly cite them here.
 
-The third level is the use of proper code repositories such as GitHub and data repositories like FigShare, Zenodo or OSF.io among others, allow for the deposition and updating of code, figures, data preprints or any other materials that support the article itself while providing a DOI and citation.
+The third level is the use of proper code repositories such as GitHub and data repositories like FigShare, Zenodo or OSF.io among others, allowing for the deposition and updating of code, figures, data preprints or any other materials that support the article itself while providing a DOI and citation.
 As an example, Sparks et al. [-@Sparks2011; -@Sparks2014] used FigShare to provide models, data and code [@Sparks2016] necessary to replicate model development and the subsequent study on the effects of climate change on potato late blight.
 Similarly, @carleson2019population hosted the code for reproducing a population genomic analysis of *Phytophthora plurivora* on GitHub, while providing all data on OSF.io (the Open Science Framework).
 @Lehner2017 used GitHub to host a code repository of their research compendium website with data and a reproducible report that explains in detail all steps of the analysis and the R code for conducting a meta-analysis for assessing heterogeneity in the relationship between white mold incidence and soybean yield and between incidence and soybean yield (<https://emdelponte.github.io/paper-white-mold-meta-analysis/>).
 The website clearly demonstrates the analysis to readers and uses R so that anyone can easily replicate the work.
-Likewise, @Duku2016 provide scripts for models, data and code for graphs, via a website hosted by GitHub, <http://adamhsparks.github.io/MICCORDEA/>, that can be used to replicate their study modelling the effects of climate change on rice bacterial blight and rice leaf blast in Tanzania [@Sparks2022a].
+Likewise, @Duku2016 provide R and Python scripts for models, data and code for graphs, via a website hosted by GitHub, <http://adamhsparks.github.io/MICCORDEA/>, that can be used to replicate their study modelling the effects of climate change on rice bacterial blight and rice leaf blast in Tanzania [@Sparks2022a].
 However, even this example is not totally open as it requires ArcGIS, an expensive proprietary software, to run the provided Python scripts for the RICEPEST model [@Savary2014].
 This highlights the difficulty in making work completely open and reproducible, further work could be undertaken to make the Python scripts rely totally on free-open-source-software but the work as it it provided here does allow for the complete reproducibility of the paper as written provided with the proper tools.
 Using a repository resource like GitHub allows readers to easily contact the authors by opening "Issues" and report bugs or ask questions in an open forum that are not as straightforward when the data are provided as supplementary material.
@@ -458,14 +458,13 @@ It can be difficult to understand for a new user and new platforms, like the App
 But, in most cases using an open source language like R, Julia or Python allows us to share our work in a fashion where we know that the analysis will run exactly the same on every computer.
 For more on using Docker for reproducible research, we would refer readers to @Nuest2020.
 As an example of this approach, @Khaliq2020 provided a research compendium as a Docker container with a DOI and a full R package that enables readers to fully replicate their analysis of *Ascochyta rabiei* conidia dispersal in chickpea using the data collected and stepping through other points where weather data were investigated and various models were fit before deciding on the best fit and recreate any figures as published in the article [@Khaliq2020a].
-When this level is employed, tools such as Binder, <https://mybinder.org>, can be used that allow readers and reviewers to launch an interactive session in their web browser and interact with the data and rerun the analysis in an RStudio instance or Jupyter notebooks as Mioroni et al. used [@Miorini2018; @Miorini2019].
+When this level is employed, tools such as Binder, <https://mybinder.org>, can be used that allow readers and reviewers to launch an interactive session in their web browser and interact with the data and rerun the analysis in an RStudio instance or Jupyter notebooks as Mioroni et al. used [-@Miorini2018; -@Miorini2019].
 @Kamvar2015 took a slightly different approach by including all files necessary for the analysis and most output files in a repository [@Kamvar2014] that also included an installable R package that was used for the original analysis.
 While there are many other methods, these two approaches illustrate some of the best-practices where the data and other files were deposited in repositories with DOIs and reproducibility issues were addressed by using R packages to handle dependencies and other versioning issues making the work more portable.
 
 Efforts to annotate structured raw data (FAIR -- Findable, Accessible, Interoperable and Re-usable) [@Wilkinson2016] and fully document the analysis using open source code which are deposited in public repositories and can be run by anyone following the download of data and code.
 The first level, as reported, is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations.
 When making your science more open and reproducible, methods, software used (this includes items such as R, Julia or Python packages that were directly used in the analysis or production of the paper, etc.) should be cited properly.
-Deposit and annotate biological materials with an herbarium or other repository.
 Provide a full description of all equipment used, *e.g.*, "a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals".
 This allows end-users to identify what was used and identify the methods used more accurately.
 Just as importantly, this acknowledges the contributions of others whose works were instrumental in your research.
@@ -478,9 +477,9 @@ Text files for saving small sets of data are preferable.
 Data that are saved in binary formats such as PDF files are difficult to reuse because they are not easily machine readable.
 In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, *e.g.*, comma separated (CSV) or tab separated (TSV) files.
 This also helps ensure that the data are reusable.
-Larger data sets may warrant the use of a proper database like GenBank, MariaDB or PostgreSQL which provide users with several benefits but two important benefits to mention here are (i) data redundancy, ensuring no records are duplicated and (ii) data consistency, ensuring that all records in a data set are recorded in the same format for every observation.
-While personal databases may offer many advantages, the trade-off is that they are more complex to set up and administer, especially for a small data set.
+Larger data sets may warrant the use of a proper database like lightweight personal databases, e.g. SQLite or DuckDB, larger more robust databases, e.g., MariaDB, PostgreSQL or a specialised database like GenBank which provide users with several benefits but two important benefits to mention here are (i) data redundancy, ensuring no records are duplicated and (ii) data consistency, ensuring that all records in a data set are recorded in the same format for every observation.
 Databases such a GenBank are preferable for molecular data ensuring data integrity and machine readability.
+While databases may offer many advantages for speed and data integrity, the trade-off is that they are more complex to set up and administer, especially for a small data set.
 
 Ideally, once the data are complete, best practices for keeping your data as you perform your work include treating the raw data as read-only and using file permissions to prevent changes to the raw data files.
 It should be noted, that the use of a database management system also allows for both of these at the expense of added complexity.
@@ -508,7 +507,7 @@ Doing either of these leaves the work in an unstable state where future users ma
 It is a best practice to always ensure that you have deposited the data with a provider such as GenBank, Zenodo, FigShare or OSF.io and generated a DOI for the materials to help ensure continued accessibility.
 Many of these providers provide rather easy ways to link the project with a software development repository to help ensure that the data are available in perpetuity.
 If readers are uncertain, we suggest to also consult with local librarians about possible resources.
-Most universities and other research-focused workplaces provide a facility for staff to deposit papers and other academic materials, but this may extend to software development repositories as well.
+Most universities and other research-focused workplaces provide a facility for staff to deposit papers and other academic materials, but this may extend to software development or data repositories as well.
 The important aspect is that data once deposited cannot be modified any more.
 
 ## Final Thoughts
@@ -532,9 +531,8 @@ But it is not just up to the authors to ensure that their work is reproducible.
 Journals can and should provide clear instruction for how to deposit the data and code in a repository and mint a DOI to accompany these resources to encourage authors to share the data and code that support the manuscript.
 With mandates for openly sharing data becoming more common with funding agencies, we can and should embrace this and move the discipline forward and have a greater impact with our work.
 
-Without the data underlying the paper, we as a community cannot adequately evaluate the work as it is presented.
-Without the code that was used to analyse the data, we as a community cannot adequately evaluate the work as it is presented.
-That is, while we may be standing on the shoulders of giants doing our work, we cannot see where they have been to do our work, which hinders our efforts.
+Without the code used to generate the paper and the data that were gathered for the paper, we as a community cannot adequately evaluate the work as it is presented.
+That is, while we may be standing on the shoulders of giants in doing our work, we cannot see where they have been to do our work, which hinders our efforts to be able to see farther ahead.
 
 # Authors' Contributions
 
