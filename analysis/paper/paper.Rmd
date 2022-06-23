@@ -524,8 +524,9 @@ One of the most important messages that we would like to share is that there is 
 Sharing materials detailing the analysis that was performed and documenting the data provide citable products and enhance the manuscript providing the reader with a richer set of information with which to understand the work that was performed.
 This open sharing of code and data leads to greater impact as work is cited if resources such as code or data are reused.
 But it is not just up to the authors to ensure that their work is reproducible.
-Journals can and should provide clear instruction for how to deposit the data and code in a repository and mint a DOI to accompany these resources to encourage authors to share the data and code that support the manuscript.
-With mandates for openly sharing data becoming more common with funding agencies, we can and should embrace this and move the discipline forward and have a greater impact with our work.
+At the very least, journals can and should provide clear instruction for how to deposit the data and code in a repository and mint a DOI to accompany these resources to encourage authors to share the data and code that support the manuscript.
+Ideally, with mandates for openly sharing data becoming more common with funding agencies, journals should also be mandating this practice as well.
+We can and should embrace this and move the discipline forward and have a greater impact with our work.
 
 Without the code used to generate the paper and the data that were gathered for the paper, we as a community cannot adequately evaluate the work as it is presented.
 That is, while we may be standing on the shoulders of giants in doing our work, we cannot see where they have been to do our work, which hinders our efforts to be able to see farther ahead.
