@@ -425,8 +425,7 @@ It is interesting to note however, that even with the popularity of Python in sc
 ## Examples of Different Levels of Reproducibility
 
 There are different ways to make research more open and reproducible, which can be thought of as levels of reproducibility.
-A general work flow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, and writing the manuscript.
-Here we defined three levels of reproducibility which are also related to the evolution of computational methods and reproducible practices (Figure \@ref(fig:workflow-dia)).
+Here we define three levels of reproducibility which are also related to the evolution of computational methods and reproducible practices and highlight papers that fit these definitions.
 
 The first level is including tables of raw data or code with the paper as a supplemental file or even within the paper as tables where possible.
 This is suitable for studies that may have a small data set or simple analysis or for demonstrations purposes as @Madden2015 demonstrate in their discussion regarding the use of $P$ values in statistical analyses where they supply an *e-**X**tra* with reproducible examples for readers to refer to.
