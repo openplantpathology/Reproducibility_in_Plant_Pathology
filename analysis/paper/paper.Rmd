@@ -390,17 +390,17 @@ The Python programming language was cited only twice.
 
 When predicting the availability of computational methods (code) and availability, all journals were compared with *Phytopathology* as the reference with latent scores having a mean of zero.
 
-There were no clear differences that the analysis could detect between any of the journals as compared with *Phytopathology* for the sharing of computational methods (code); the effects of all parameters were undecided (Figure \@ref(fig:journal-parameters)A) (Supplementary Figures .
+There were no clear differences that the analysis could detect between any of the journals as compared with *Phytopathology* for the sharing of computational methods (code); the effects of all parameters were undecided (Figure \@ref(fig:journal-parameters)A, Figure S1, Table S1).
 
-When predicting the availability of data availability as compared with *Phytopathology*, publications in two journals, *Phytopathologia Mediterrania* and *Molecular Plant Pathology*, can be considered clearly more likely to share data than publications in *Phytopathology*, but no effects were detectable in any other journal title.
+When predicting the availability of data availability as compared with *Phytopathology*, publications in two journals, *Phytopathologia Mediterrania* and *Molecular Plant Pathology*, can be considered clearly more likely to share data than publications in *Phytopathology*, but no effects were detectable in any other journal title (\@ref(fig:journal-parameters)B, Figure S2, Table S2).
 The effect of *Molecular Plant Microbe Interactions* (Median = 0.67, 95% CI [-0.28, 1.57]) has a 92.15% probability of being positive (> 0), 90.61% of being significant (> 0.05), and 78.94% of being large (> 0.30).
 The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 25478).
 The effect of *Phytopathologia Mediterranea* (Median = 1.25, 95% CI [0.32, 2.15]) has a 99.58% probability of being positive (> 0), 99.42% of being significant (> 0.05), and 97.73% of being large (> 0.30).
 The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 24986).
 
-There was no effect detected for year when predicting the availability of computational methods (code) or data availability.
+There was no effect detected for year when predicting the availability of computational methods (code) or data availability (Figures S3, S4; Tables S3, S4).
 
-There were no detectable effects when predicting the effects of the five-year impact factor on the availability of computational methods (code) or data.
+There were no detectable effects when predicting the effects of the five-year impact factor on the availability of computational methods (code) or data (Figures S5, S6, Tables S5, S6).
 
 # Discussion
 
