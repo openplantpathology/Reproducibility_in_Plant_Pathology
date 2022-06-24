@@ -106,7 +106,7 @@ m_h2 <-
     seed = 27,
     prior = priors,
     family = cumulative(link = "logit"),
-    control = list(adapt_delta = 0.9),
+    control = list(adapt_delta = 0.99),
     iter = 10000,
     chains = 4
   )
