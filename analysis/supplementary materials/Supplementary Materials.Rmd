@@ -161,6 +161,12 @@ load(
     mustWork = TRUE
   )
 )
+
+knitr::opts_chunk$set(
+  fig.cap.pre = "Figure S",
+  tab.cap.pre = "Table S"
+)
+
 ```
 
 ```{r fonts, include=FALSE, message=FALSE, eval=FALSE}
@@ -206,7 +212,7 @@ font_import()
 
 ### Computational Methods
 
-```{r journal-code-test, echo=FALSE, message=FALSE, warning=FALSE}
+```{r journal-code-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the publishing journal on articles\' supporting code availability."}
 p <- plot(equivalence_test(m_f1))
 
 ggsave(
@@ -233,14 +239,9 @@ include_graphics(path = here(
 ))
 ```
 
-```{r journal-code, echo=FALSE}
-m_f1_report %>% 
-  pander()
-```
-
 ### Data
 
-```{r journal-data-test, echo=FALSE, message=FALSE, warning=FALSE}
+```{r journal-data-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the publishing journal on articles\' supporting code availability."}
 p <- plot(equivalence_test(m_f2))
 
 ggsave(
@@ -267,18 +268,13 @@ include_graphics(path = here(
 ))
 ```
 
-```{r journal-data, echo=FALSE}
-m_f2_report %>% 
-  pander()
-```
-
 \newpage
 
 ## Year
 
 ### Computational Methods
 
-```{r year-code-test, echo=FALSE, message=FALSE, warning=FALSE}
+```{r year-code-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the year of publication title on articles\' supporting code availability."}
 p <- plot(equivalence_test(m_g1))
 
 ggsave(
@@ -305,14 +301,9 @@ include_graphics(path = here(
 ))
 ```
 
-```{r year-code, echo=FALSE}
-m_g1_report %>% 
-  pander()
-```
-
 ### Data
 
-```{r year-data-test, echo=FALSE, message=FALSE, warning=FALSE}
+```{r year-data-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the year of publication on articles\' supporting data availability."}
 p <- plot(equivalence_test(m_g2))
 
 ggsave(
@@ -339,18 +330,13 @@ include_graphics(path = here(
 ))
 ```
 
-```{r year-data, echo=FALSE}
-m_g2_report %>% 
-  pander()
-```
-
 \newpage
 
 ## Five-year Impact Factor
 
 ### Computational Methods
 
-```{r if5yr-code-test, echo=FALSE, message=FALSE, warning=FALSE}
+```{r if5yr-code-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the publishing journal's five-year impact factor on articles\' supporting code availability."}
 p <- plot(equivalence_test(m_h1))
 
 ggsave(
@@ -377,14 +363,9 @@ include_graphics(path = here(
 ))
 ```
 
-```{r if5yr-code, echo=FALSE}
-m_h1_report %>% 
-  pander()
-```
-
 ### Data
 
-```{r if5yr-data-test, echo=FALSE, message=FALSE, warning=FALSE}
+```{r if5yr-data-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the year of publication on articles\' supporting data availability."}
 p <- plot(equivalence_test(m_h2))
 
 ggsave(
@@ -411,11 +392,6 @@ include_graphics(path = here(
 ))
 ```
 
-```{r if5yr-data, echo=FALSE}
-m_h2_report %>% 
-  pander()
-```
-
 ## Tables
 
 \newpage
@@ -436,7 +412,8 @@ as_tibble(m_f1_report) %>%
       ifelse((!is.na(x)), sprintf("%1.f%%", x * 100), x)
   ) %>%
   autofit() %>%
-  set_caption("")
+  set_caption("Full description of model fit for the effect of journal title on code availability. We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict comp_mthds_avail with abbreviation (formula: comp_mthds_avail ~ abbreviation). The model included assignee as random effect (formula: ~1 | assignee). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00) and student_t (location = 0.00, scale = 2.50) distributions.")
+
 ```
 
 \newpage
@@ -457,7 +434,8 @@ as_tibble(m_f2_report) %>%
       ifelse((!is.na(x)), sprintf("%1.f%%", x * 100), x)
   ) %>%
   autofit() %>%
-  set_caption("")
+    set_caption("Full description of model fit for the effect of journal title on data availability. We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict comp_mthds_avail with abbreviation (formula: comp_mthds_avail ~ abbreviation). The model included assignee as random effect (formula: ~1 | assignee). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00) and student_t (location = 0.00, scale = 2.50) distributions.")
+
 ```
 
 \newpage
@@ -466,19 +444,21 @@ as_tibble(m_f2_report) %>%
 as_tibble(m_g1_report) %>%
   filter(!grepl("Intercept", Parameter)) %>%
   filter(!grepl("R2", Parameter)) %>%
-  filter(!is.na(Parameter)) %>% 
+  filter(!is.na(Parameter)) %>%
   rename("ROPE %" = "ROPE_Percentage",
          "CI\nLow" = "CI_low",
          "CI\nHigh" = "CI_high") %>%
   flextable() %>%
-  fontsize(size = 8, part = "all") %>% 
-  colformat_double(digits = 2) %>% 
-    set_formatter(
+  fontsize(size = 8, part = "all") %>%
+  colformat_double(digits = 2) %>%
+  set_formatter(
     `ROPE %` = function(x)
       ifelse((!is.na(x)), sprintf("%1.f%%", x * 100), x)
   ) %>%
   autofit() %>%
-  set_caption("")
+  set_caption(
+    "Full description of model fit for the effect of year of publication on code availability. We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict comp_mthds_avail with year (formula: comp_mthds_avail ~ year). The model included abbreviation and assignee as random effects (formula: list(~1 | abbreviation, ~1 | assignee)). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), student_t (location = 0.00, scale = 2.50) and student_t (location = 0.00, scale = 2.50) distributions."
+  )
 ```
 
 \newpage
@@ -499,7 +479,8 @@ as_tibble(m_g2_report) %>%
       ifelse((!is.na(x)), sprintf("%1.f%%", x * 100), x)
   ) %>%
   autofit() %>%
-  set_caption("")
+    set_caption("Full description of model fit for the effect of year of publication on data availability. We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict comp_mthds_avail with year (formula: comp_mthds_avail ~ year). The model included abbreviation and assignee as random effects (formula: list(~1 | abbreviation, ~1 | assignee)). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), student_t (location = 0.00, scale = 2.50) and student_t (location = 0.00, scale = 2.50) distributions.")
+
 ```
 
 \newpage
@@ -508,19 +489,22 @@ as_tibble(m_g2_report) %>%
 as_tibble(m_h1_report) %>%
   filter(!grepl("Intercept", Parameter)) %>%
   filter(!grepl("R2", Parameter)) %>%
-  filter(!is.na(Parameter)) %>% 
+  filter(!is.na(Parameter)) %>%
   rename("ROPE %" = "ROPE_Percentage",
          "CI\nLow" = "CI_low",
          "CI\nHigh" = "CI_high") %>%
   flextable() %>%
-  fontsize(size = 8, part = "all") %>% 
-  colformat_double(digits = 2) %>% 
-    set_formatter(
+  fontsize(size = 8, part = "all") %>%
+  colformat_double(digits = 2) %>%
+  set_formatter(
     `ROPE %` = function(x)
       ifelse((!is.na(x)), sprintf("%1.f%%", x * 100), x)
   ) %>%
   autofit() %>%
-  set_caption("")
+  set_caption(
+    "Full description of model fit for the effect of five-year impact factor on code availability. We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict comp_mthds_avail with year (formula: comp_mthds_avail ~ year). The model included abbreviation and assignee as random effects (formula: list(~1 | abbreviation, ~1 | assignee)). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), student_t (location = 0.00, scale = 2.50) and student_t (location = 0.00, scale = 2.50) distributions."
+  )
+
 ```
 
 \newpage
@@ -529,17 +513,19 @@ as_tibble(m_h1_report) %>%
 as_tibble(m_h2_report) %>%
   filter(!grepl("Intercept", Parameter)) %>%
   filter(!grepl("R2", Parameter)) %>%
-  filter(!is.na(Parameter)) %>% 
+  filter(!is.na(Parameter)) %>%
   rename("ROPE %" = "ROPE_Percentage",
          "CI\nLow" = "CI_low",
          "CI\nHigh" = "CI_high") %>%
   flextable() %>%
-  fontsize(size = 8, part = "all") %>% 
-  colformat_double(digits = 2) %>% 
-    set_formatter(
+  fontsize(size = 8, part = "all") %>%
+  colformat_double(digits = 2) %>%
+  set_formatter(
     `ROPE %` = function(x)
       ifelse((!is.na(x)), sprintf("%1.f%%", x * 100), x)
   ) %>%
   autofit() %>%
-  set_caption("")
+  set_caption(
+    "Full description of model fit for the effect of five year impact factor on data availability. We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict comp_mthds_avail with year (formula: comp_mthds_avail ~ year). The model included abbreviation and assignee as random effects (formula: list(~1 | abbreviation, ~1 | assignee)). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), student_t (location = 0.00, scale = 2.50) and student_t (location = 0.00, scale = 2.50) distributions."
+  )
 ```
