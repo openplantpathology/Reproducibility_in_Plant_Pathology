@@ -390,7 +390,7 @@ The Python programming language was cited only twice.
 
 When predicting the availability of computational methods (code) and availability, all journals were compared with *Phytopathology* as the reference with latent scores having a mean of zero.
 
-There were no clear differences that the analysis could detect between any of the journals as compared with *Phytopathology* for the sharing of computational methods (code); the effects of all parameters were undecided (Figure \@ref(fig:journal-parameters)A).
+There were no clear differences that the analysis could detect between any of the journals as compared with *Phytopathology* for the sharing of computational methods (code); the effects of all parameters were undecided (Figure \@ref(fig:journal-parameters)A) (Supplementary Figures .
 
 When predicting the availability of data availability as compared with *Phytopathology*, publications in two journals, *Phytopathologia Mediterrania* and *Molecular Plant Pathology*, can be considered clearly more likely to share data than publications in *Phytopathology*, but no effects were detectable in any other journal title.
 The effect of *Molecular Plant Microbe Interactions* (Median = 0.67, 95% CI [-0.28, 1.57]) has a 92.15% probability of being positive (> 0), 90.61% of being significant (> 0.05), and 78.94% of being large (> 0.30).
