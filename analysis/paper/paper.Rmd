@@ -597,46 +597,50 @@ tab_s %>%
 
 # Figures
 
-```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualisations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialised journals. Six factors were evaluated, (A, B) Publication (Journal Title), (C, D) Year of Publication, (E, F) Five Year Impact Factor of Journal, and (G, H) Journal Open Access Policy where y is the data's density and y~rep~ are ten random posterior draws. Model fitnesses were found to be good for all models.", cache=FALSE, fig.env='figure'}
+```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualisations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialised journals. The journal title was tested for an effect on code availability (A) and data availability (B), the year of publication was tested for an effect on code availability (A) and data availability (B), and Five Year Impact Factor of Journal was tested for effect on code availability (A) and data availability (B). Model fitnesses were found to be good for all models.", cache=FALSE, fig.env='figure'}
 
 set.seed(23)
 
 color_scheme_set(scheme = "gray")
 
 mod_list <- list(
-  pp_check(m_f1, type = "bars", ndraws = 50) +
-    ggtitle("Code") +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank(),
-      plot.title = element_text(hjust = 0.5)
-    ) +
-    ylab("Journal"),
-  pp_check(m_f2, type = "bars", ndraws = 50) +
-    ggtitle("Data") +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank(),
-      plot.title = element_text(hjust = 0.5)
-    ),
-  pp_check(m_g1, type = "bars", ndraws = 50) +
-    theme(
-      axis.text.x = element_blank(),
-      axis.ticks.x = element_blank(),
-      axis.title.x = element_blank()
-    ) +
-    ylab("Year"),
-  pp_check(m_g2, type = "bars", ndraws = 50) +
+  pp_check(m_f1, type = "rootogram", ndraws = 50) +
     theme(
       axis.text.x = element_blank(),
       axis.ticks.x = element_blank(),
       axis.title.x = element_blank()
     ),
-  pp_check(m_h1, type = "bars", ndraws = 50) +
-    ylab("5 Y IF"),
-  pp_check(m_h2, type = "bars", ndraws = 50)
+  pp_check(m_f2, type = "rootogram", ndraws = 50) +
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis.title.x = element_blank(),
+      axis.text.y = element_blank(),
+      axis.ticks.y = element_blank(),
+      axis.title.y = element_blank()
+    ),
+  pp_check(m_g1, type = "rootogram", ndraws = 50) +
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis.title.x = element_blank()
+    ),
+  pp_check(m_g2, type = "rootogram", ndraws = 50) +
+    theme(
+      axis.text.x = element_blank(),
+      axis.ticks.x = element_blank(),
+      axis.title.x = element_blank(),
+      axis.text.y = element_blank(),
+      axis.ticks.y = element_blank(),
+      axis.title.y = element_blank()
+    ),
+  pp_check(m_h1, type = "rootogram", ndraws = 50),
+  pp_check(m_h2, type = "rootogram", ndraws = 50) +
+    theme(
+      axis.text.y = element_blank(),
+      axis.ticks.y = element_blank(),
+      axis.title.y = element_blank()
+    )
 )
 
 p <- wrap_plots(mod_list, ncol = 2) +
