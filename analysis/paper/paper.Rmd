@@ -58,11 +58,13 @@ packages <- c(
   "tools"
 )
 
+# install packages if needed
 install.packages(setdiff(packages,
                          rownames(installed.packages())),
                  repos = "http://cran.us.r-project.org",
                  dependencies = TRUE)
 
+# load packages for use in knitting Rmd
 invisible(lapply(packages,
                  library,
                  character.only = TRUE))
