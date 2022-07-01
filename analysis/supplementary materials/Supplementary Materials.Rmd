@@ -43,6 +43,7 @@ packages <- c(
   "knitr",
   "officer",
   "pander",
+  "parameters",
   "posterior",
   "report",
   "tools"
@@ -213,7 +214,12 @@ font_import()
 ### Computational Methods
 
 ```{r journal-code-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the publishing journal on articles\' supporting code availability."}
-p <- plot(equivalence_test(m_f1))
+y_labs <- gsub("abbreviation", "", parameters(m_f1)$Parameter)
+y_labs <- rev(gsub("b_", "", y_labs))
+y_labs <- y_labs[c(21:22, 1:20)]
+
+p <- plot(equivalence_test(m_f1)) +
+    scale_y_discrete(labels = y_labs)
 
 ggsave(
   filename = here(
@@ -242,7 +248,12 @@ include_graphics(path = here(
 ### Data
 
 ```{r journal-data-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the publishing journal on articles\' supporting code availability."}
-p <- plot(equivalence_test(m_f2))
+y_labs <- gsub("abbreviation", "", parameters(m_f2)$Parameter)
+y_labs <- rev(gsub("b_", "", y_labs))
+y_labs <- y_labs[c(21:23, 1:20)]
+
+p <- plot(equivalence_test(m_f2)) +
+    scale_y_discrete(labels = y_labs)
 
 ggsave(
   filename = here(
@@ -275,7 +286,12 @@ include_graphics(path = here(
 ### Computational Methods
 
 ```{r year-code-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the year of publication title on articles\' supporting code availability."}
-p <- plot(equivalence_test(m_g1))
+y_labs <- gsub("year", "", parameters(m_g1)$Parameter)
+y_labs <- rev(gsub("b_", "", y_labs))
+y_labs <- y_labs[c(10:11, 1:9)]
+
+p <- plot(equivalence_test(m_g1)) +
+  scale_y_discrete(labels = y_labs)
 
 ggsave(
   filename = here(
@@ -304,7 +320,8 @@ include_graphics(path = here(
 ### Data
 
 ```{r year-data-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the year of publication on articles\' supporting data availability."}
-p <- plot(equivalence_test(m_g2))
+p <- plot(equivalence_test(m_g2)) +
+  scale_y_discrete(labels = y_labs)
 
 ggsave(
   filename = here(
