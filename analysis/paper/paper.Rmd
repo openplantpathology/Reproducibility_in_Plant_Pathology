@@ -589,10 +589,20 @@ distinct(rrpp, journal, IF_5year) %>%
 \newpage
 
 ```{r software-used, echo=FALSE, message=FALSE, warning=FALSE}
-tab_s %>%
+tab_t <- tabyl(rrpp_software, software_used, year)
+
+tab_t <- tab_t[tab_t$software_used %in% tab_s$Software ,]
+
+tab_t %>%
+  rowwise() %>%
+  mutate(Total = sum(c_across(where(is.numeric)), na.rm = T)) %>%
+  arrange(desc(Total)) %>%
+  rename(Software = software_used) %>% 
   flextable() %>%
   autofit() %>%
-  set_caption("The top ten sofware programs that were found to be used in the papers that were surveyed.")
+  set_caption(
+    "The frequency of use of top ten sofware programs by year of publication that were found to be used in the papers that were surveyed."
+  )
 ```
 
 \newpage
