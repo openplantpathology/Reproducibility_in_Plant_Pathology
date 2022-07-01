@@ -554,7 +554,7 @@ A webpage version of the compendium is available from <https://openplantpatholog
 
 # Acknowledgements
 
-The authors are grateful for insightful comments from Dr. David Ferris and the USQ Centre for Crop Health Advisory Group on the final manuscript and from Ms. Anna Hepworth for statistical guidance on evaluating inter-rater scores.
+The authors are grateful for insightful comments from Dr. David Ferris and the USQ Centre for Crop Health Advisory Group on the final manuscript, from Ms. Anna Hepworth for statistical guidance on evaluating inter-rater scores and Dr Rebecca O'Leary for her insightful comments that helped improve the paper.
 
 \newpage
 
