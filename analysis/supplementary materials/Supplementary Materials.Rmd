@@ -247,7 +247,7 @@ include_graphics(path = here(
 
 ### Data
 
-```{r journal-data-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the publishing journal on articles\' supporting code availability."}
+```{r journal-data-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the publishing journal on articles’ supporting data availability.."}
 y_labs <- gsub("abbreviation", "", parameters(m_f2)$Parameter)
 y_labs <- rev(gsub("b_", "", y_labs))
 y_labs <- y_labs[c(21:23, 1:20)]
