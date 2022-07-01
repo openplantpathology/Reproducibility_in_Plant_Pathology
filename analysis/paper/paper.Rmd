@@ -317,7 +317,7 @@ When working with these data in R, all strings of software character values were
 
 ## Statistical Analysis
 
-The statistical analysis was performed using R version `r version$version.string` [@RCT2022] on an Apple MacBook Pro (13-inch, M1, 2020).
+The statistical analysis was performed using `r version$version.string` [@RCT2022] on an Apple MacBook Pro (13-inch, M1, 2020).
 
 Inter-rater differences were evaluated using percent agreement and Fliess' Kappa [@DelPonte2019].
 
