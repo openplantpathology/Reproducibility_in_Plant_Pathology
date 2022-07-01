@@ -285,7 +285,8 @@ From those 21 journals we randomly selected 450 articles published from 2012 to 
 Using R [@RCT2022], two lists were created, the first was a list of the 21 journals and the second was a list of the evaluators that were evaluating the articles for reproducibility.
 Initially there were four evaluators, later a fifth was added and the list was recreated.
 There were three evaluation events that took place to increase the yearly coverage of the evaluations.
-Each evaluator was assigned 50 articles to evaluate during an evaluation event.
+During each scoring event, each evaluator was randomly assigned 50 unique articles to evaluate during an evaluation event.
+
 A list of randomly generated numbers representing page numbers from one to 150, sampled with replacement, was assigned to a randomized list of the 21 journals for each sampling event.
 This was done because some journals restart their numbering with each issue and also ensures that the journal is more likely to have a page number corresponding to the randomly generated value.
 This also assumes that there is no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year.
@@ -294,7 +295,8 @@ Articles were then manually selected by visiting the journals' websites and sele
 In cases where an article was not suitable, *e.g.*, a review or otherwise not related to plant pathology or the randomly assigned numbers for that journal and year fell within the same article, the next article in that journal was selected until a suitable article was found.
 
 Depending on the scoring event, three to five of this paper's authors were each assigned to rate a randomised list of journal articles using scoring criteria devised for the purposes of this research in each of the three different scoring events as their time allowed for their participation.
-In the first event, three authors (AS, EDP, and ZF) evaluated 200 articles, in the second event two authors evaluated 100 articles (EDP, KA) and in the third round, five authors (AS, EDP, KA, ZF, NG) evaluated 150 articles for a total of 450 articles.
+In the first event, three authors (AS, EDP, and ZF) evaluated a total of 200 unique articles, in the second event two authors evaluated a total of 100 unique articles (EDP, KA) and in the third round, five authors (AS, EDP, KA, ZF, NG) evaluated a total of 150 unique articles for a total of 450 articles.
+Each article was evaluated by only one evaluator save five articles randomly selected for inter-rater repeatability analysis from the third and final evaluation event.
 
 ## Scoring Criteria
 
