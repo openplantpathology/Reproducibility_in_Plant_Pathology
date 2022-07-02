@@ -20,12 +20,14 @@ institute:
   - OSU: Department of Botany and Plant Pathology, Oregon State University, Corvallis OR 97331, USA
   - ARS: Horticultural Crops Research Unit, USDA Agricultural Research Service, Corvallis OR 97330, USA
 output: 
-  officedown::rdocx_document:
-     pandoc_args:
-       - '--lua-filter=pagebreak.lua'
+  bookdown::word_document2:
      fig_caption: yes
      number_sections: FALSE
      reference_docx: "../templates/phytopath_template.docx"
+     pandoc_args:
+       - '--lua-filter=scholarly-metadata.lua'
+       - '--lua-filter=author-info-blocks.lua'
+       - '--lua-filter=pagebreak.lua'
 ---
 
 ```{r, setup, echo = FALSE, message=FALSE, warning=FALSE}
