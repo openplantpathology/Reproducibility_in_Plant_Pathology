@@ -25,6 +25,9 @@
     <loc>https://openplantpathology.github.io/Reproducible.Plant.Pathology/articles/b3_assigning_articles.html</loc>
   </url>
   <url>
+    <loc>https://openplantpathology.github.io/Reproducible.Plant.Pathology/articles/b4_assigning_articles.html</loc>
+  </url>
+  <url>
     <loc>https://openplantpathology.github.io/Reproducible.Plant.Pathology/articles/c_retrieving_references.html</loc>
   </url>
   <url>
@@ -35,6 +38,9 @@
   </url>
   <url>
     <loc>https://openplantpathology.github.io/Reproducible.Plant.Pathology/articles/e_analysis_journal.html</loc>
+  </url>
+  <url>
+    <loc>https://openplantpathology.github.io/Reproducible.Plant.Pathology/articles/e_inter-rater.html</loc>
   </url>
   <url>
     <loc>https://openplantpathology.github.io/Reproducible.Plant.Pathology/articles/e_visualisation.html</loc>
@@ -50,6 +56,9 @@
   </url>
   <url>
     <loc>https://openplantpathology.github.io/Reproducible.Plant.Pathology/articles/g_analysis_mol_focus.html</loc>
+  </url>
+  <url>
+    <loc>https://openplantpathology.github.io/Reproducible.Plant.Pathology/articles/g_analysis_year.html</loc>
   </url>
   <url>
     <loc>https://openplantpathology.github.io/Reproducible.Plant.Pathology/articles/h_analysis_5y_if.html</loc>
@@ -86,6 +95,9 @@
   </url>
   <url>
     <loc>https://openplantpathology.github.io/Reproducible.Plant.Pathology/reference/doi2bib.html</loc>
+  </url>
+  <url>
+    <loc>https://openplantpathology.github.io/Reproducible.Plant.Pathology/reference/import_interrater_scores.html</loc>
   </url>
   <url>
     <loc>https://openplantpathology.github.io/Reproducible.Plant.Pathology/reference/import_notes.html</loc>

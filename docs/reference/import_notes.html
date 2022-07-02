@@ -46,28 +46,25 @@ InCites Journal Citation Reports for 2018."><!-- mathjax --><script src="https:/
       <a href="../articles/b3_assigning_articles.html">Third Round of Assigning Articles to Evaluators</a>
     </li>
     <li>
+      <a href="../articles/b4_assigning_articles.html">Inter-rater Differences Between Evaluators</a>
+    </li>
+    <li>
       <a href="../articles/c_retrieving_references.html">Retrieving References Using DOI and Generate Database</a>
     </li>
     <li>
       <a href="../articles/d_visualisation.html">Data Visualisation</a>
     </li>
     <li>
-      <a href="../articles/e_analysis_journal.html">Analysis of Journal Effect</a>
+      <a href="../articles/e_inter-rater.html">Inter-rater Repeatability</a>
     </li>
     <li>
-      <a href="../articles/f_analysis_art_class.html">Analysis of Article Class Effect</a>
+      <a href="../articles/f_analysis_journal.html">Analysis of Journal Effect</a>
     </li>
     <li>
-      <a href="../articles/g_analysis_mol_focus.html">Analysis of Molecular Focus Effect</a>
+      <a href="../articles/g_analysis_year.html">Analysis of Publication Year Effect</a>
     </li>
     <li>
-      <a href="../articles/h_analysis_5y_if.html">Analysis of Five Year Impact Factor</a>
-    </li>
-    <li>
-      <a href="../articles/i_analysis_access_policy.html">Analysis of Open Access Policy</a>
-    </li>
-    <li>
-      <a href="../articles/j_analysis_year.html">Analysis of Publication Year Effect</a>
+      <a href="../articles/h_analysis_5y_if.html">Analysis of Five Year Impact Factor Effect</a>
     </li>
   </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
@@ -97,270 +94,121 @@ InCites Journal Citation Reports for 2018.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">import_notes</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">import_notes</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="value">
     <h2>Value</h2>
-    <p>A [tibble::tibble()] object of reproducibility score notes formatted
+    
+
+<p>A [tibble::tibble()] object of reproducibility score notes formatted
 for use in analysis and manuscript preparation</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">notes</span> <span class="op">&lt;-</span> <span class="fu">import_notes</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">pander</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pander/man/pander.html" class="external-link">pander</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">notes</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">notes</span> <span class="op">&lt;-</span> <span class="fu">import_notes</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">pander</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pander/man/pander.html" class="external-link">pander</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">notes</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ----------------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            journal                  abbreviation       year   contains_page </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------ ---------------------- ------ ---------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Australasian Plant Pathology   Australas Plant Path   2013        51       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      journal        abbreviation    year   contains_page   assignee </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------ --------------- ------ --------------- ----------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Forest Pathology   Forest Pathol   2012        142          Adam   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Australasian Plant Pathology   Australas Plant Path   2013        13       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Forest Pathology   Forest Pathol   2013        144          Adam   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Australasian Plant Pathology   Australas Plant Path   2014        29       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Forest Pathology   Forest Pathol   2021        83           Adam   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Australasian Plant Pathology   Australas Plant Path   2014        55       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Forest Pathology   Forest Pathol   2014        125          Adam   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Australasian Plant Pathology   Australas Plant Path   2017        16       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Forest Pathology   Forest Pathol   2015        114          Adam   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Australasian Plant Pathology   Australas Plant Path   2017        75       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ----------------------------------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Forest Pathology   Forest Pathol   2018        62         Emerson  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Table: Table continues below</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  assignee              doi              doi_url </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---------- --------------------------- ---------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Adam     10.1007/s13313-012-0178-7   #NAME?  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                doi                  doi_url             comments           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------- --------- ------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  10.1111/j.1439-0329.2011.00729.x   #NAME?                 NA              </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Zach     10.1007/s13313-012-0157-z   #NAME?  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         10.1111/efp.12011           #NAME?                 NA              </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Adam     10.1007/s13313-013-0228-9   #NAME?  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         10.1111/efp.12647           #NAME?      No page numbers in this    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                journal, so selected first  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                               article that was research in </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                           2021             </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Zach     10.1007/s13313-013-0240-0   #NAME?  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         10.1111/efp.12076           #NAME?                 NA              </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Kaique    10.1007/s13313-016-0461-0   #NAME?  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         10.1111/efp.12134           #NAME?                 NA              </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Kaique    10.1007/s13313-017-0465-4   #NAME?  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         10.1111/efp.12376           #NAME?                 NA              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Table: Table continues below</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             comments              open   repro_inst    art_class    molecular </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------- ------ ------------ ------------- -----------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  When the article was published   BOTH       2          Applied         0     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   I'm not sure that MaxEnt was                                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    freely available, however,                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  very recently (1st half 2017)                                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   it's become freely available                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  open   repro_inst    art_class    molecular   software_cite   software_avail </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ------ ------------ ------------- ----------- --------------- ----------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  BOTH       0          Applied         0             0               0        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  The journal has guidelines for   BOTH       2          Applied         0     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   data availability, but does                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   not mention reproducibility                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    exactly. I am not sure how                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   this effects the "repo_inst"                                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   value. For the "country", I                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   put the country of where the                                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         authors worked.                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  BOTH       0        Fundamental       1             0               0        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                NA                 BOTH       2          Applied         0     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  BOTH       0        Fundamental       1             2               1        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  The journal has guidelines for   BOTH       2          Applied         0     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   data availability, but does                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   not mention reproducibility                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    exactly. I am not sure how                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   this effects the "repo_inst"                                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   value. For the "country", I                                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   put the country of where the                                                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         authors worked.                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  BOTH       0          Applied         1             3               2        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Original random page number     BOTH       2        Fundamental       1     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  not applicable, selected first                                               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    following plant pathology                                                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             article                                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  BOTH       0          Applied         0             3               2        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                NA                 BOTH       2          Applied         0     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  BOTH       0          Applied         0             0               0        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Table: Table continues below</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ----------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  software_cite   software_avail   comp_mthds_avail   data_avail </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> --------------- ---------------- ------------------ ------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        3               3                 0               2      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        0               0                 0               0      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        3               2                 0               0      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        0               0                 0               0      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        1               3                 0               3      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        0               0                 0               0      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ----------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Table: Table continues below</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          software_used           category   bibtexkey   address   annote </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------- ---------- ----------- --------- --------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             MaxEnt               ARTICLE       NA         NA        NA   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               NA                    NA         NA         NA        NA   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             GenStat                 NA         NA         NA        NA   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               NA                    NA         NA         NA        NA   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  iPhyClassifier, BioEdit, MEGA      NA         NA         NA        NA   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               NA                    NA         NA         NA        NA   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Table: Table continues below</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             author               booktitle   chapter   crossref   edition </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------- ----------- --------- ---------- ---------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  J Elith, J Simpson, M Hirsch,      NA         NA         NA        NA    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           M A Burgman                                                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  comp_mthds_avail   data_avail           software_used           IF_2year </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------ ------------ ------------------------------- ----------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         0               0                     NA                  1.363   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              NULL                   NA         NA         NA        NA    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         0               2                    NSITE                1.363   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   R. Billones-Baaijens, E. E.       NA         NA         NA        NA    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Jones, H. J. Ridgway, M. V.                                             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Jaspers                                                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         0               1        SPSS, Primer Premier, geNorm,    1.363   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                            RefFinder                      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              NULL                   NA         NA         NA        NA    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         0               0           MAFFT, MEGA, PAUP, SAS        1.363   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              NULL                   NA         NA         NA        NA    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         0               0                 SAS, Excel              1.363   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              NULL                   NA         NA         NA        NA    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         0               0                     NA                  1.363   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Table: Table continues below</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  editor   howpublished   institution   key   month   note   number </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -------- -------------- ------------- ----- ------- ------ --------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   NULL         NA            NA        NA     jan     NA      1    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ----------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  IF_5year     Source: InCites Journal     uid </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             Citation Reports, Clarivate       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                   Analytics, 2022             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---------- ----------------------------- -----</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1.595                 NA                 1  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   NULL         NA            NA        NA     jan     NA      1    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1.595                 NA                 2  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   NULL         NA            NA        NA     may     NA      1    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1.595                 NA                 3  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   NULL         NA            NA        NA     jul     NA      1    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1.595                 NA                 4  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    NA          NA            NA        NA     NA      NA      NA   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1.595                 NA                 5  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    NA          NA            NA        NA     NA      NA      NA   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   1.595                 NA                 6  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ----------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Table: Table continues below</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  organization   pages    publisher   school   series </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -------------- -------- ----------- -------- --------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       NA        43--51      NA         NA       NA   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       NA          NA        NA         NA       NA   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       NA        25--31      NA         NA       NA   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       NA        53--60      NA         NA       NA   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       NA          NA        NA         NA       NA   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       NA          NA        NA         NA       NA   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Table: Table continues below</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              title               type   volume   url   issn </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------- ------ -------- ----- ------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Taxonomic uncertainty and      NA      42     NA     NA  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       decision making for                                   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   biosecurity: spatial models                               </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      for myrtle/guava rust                                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  On–farm waste-based composts     NA      42     NA     NA  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           in managing                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      \textit{{Macrophomina                                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  phaseolina}} induced dry root                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     rot of guar in an arid                                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           environment                                       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Susceptibility of common       NA      43     NA     NA  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  rootstock and scion varieties                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        of grapevines to                                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  \textit{{Botryosphaeriaceae}}                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             species                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  An improved culture solution     NA      43     NA     NA  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          technique for                                      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     \textit{{Plasmodiophora                                 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  brassicae}} infection and the                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  dynamic infection in the root                              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              hair                                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               NA                  NA      NA     NA     NA  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               NA                  NA      NA     NA     NA  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Table: Table continues below</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  x.article.pm..title   IF_2year   IF_5year     Source: InCites Journal   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                              Citation Reports, Clarivate </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                    Analytics, 2022       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> --------------------- ---------- ---------- -----------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          NA             1.599      1.708                 NA              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          NA             1.599      1.708                 NA              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          NA             1.599      1.708                 NA              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          NA             1.599      1.708                 NA              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          NA             1.599      1.708                 NA              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          NA             1.599      1.708                 NA              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Table: Table continues below</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ----------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  total_possible   reproducibility_score </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---------------- -----------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        12                 66.67         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        12                   0           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        12                 41.67         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        12                   0           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        12                 58.33         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        12                   0           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ----------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -371,13 +219,11 @@ for use in analysis and manuscript preparation</p>
 
 
       <footer><div class="copyright">
-  <p></p><p>Developed by Adam H. Sparks, Emerson M. Del Ponte, Kaique S. Alves,
-Zachary S. L. Foster, Niklaus J. Grünwald.</p>
+  <p></p><p>Developed by Adam H. Sparks, Emerson M. Del Ponte, Kaique S. Alves, Zachary S. L. Foster, Niklaus J. Grünwald.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
-2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
       </footer></div>
