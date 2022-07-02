@@ -426,7 +426,7 @@ It is interesting to note however, that even with the popularity of Python in sc
 ## Examples of Different Levels of Reproducibility
 
 There are different ways to make research more open and reproducible, which can be thought of as levels of reproducibility.
-Assuming that a general workflow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, writing the manuscript then the next logical steps are depositing the code used along with the raw data in proper repositories (Figure \@ref(fig:workflow-dia)).
+If a general workflow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, summarizing/analyzing and presenting data and results, writing the manuscript then the next logical steps are depositing the code used along with the raw data in proper repositories (Figure \@ref(fig:workflow-dia)).
 Here we define three levels of reproducibility which are also related to the evolution of computational methods and reproducible practices and highlight papers that fit these definitions.
 
 The first level is including tables of raw data or code with the paper as a supplemental file or even within the paper as tables where possible.
@@ -481,7 +481,7 @@ Databases such a GenBank are preferable for molecular data ensuring data integri
 While databases may offer many advantages for speed and data integrity, the trade-off is that they are more complex to set up and administer, especially for a small data set.
 
 Ideally, once the data are complete, best practices for keeping your data as you perform your work include treating the raw data as read-only and using file permissions to prevent changes to the raw data files.
-It should be noted that the use of a database management system also allows for both of these at the expense of added complexity.
+It should be noted that the use of a database management system also allows for both at the expense of added complexity.
 Saving files in proprietary formats such as .xls(x) can also lead to issues in the future when opening using newer (or older) software versions.
 Unexpected changes to values in the data [@Ziemann2016] may also occur when using proprietary formats.
 
