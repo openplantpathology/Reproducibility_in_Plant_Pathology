@@ -476,7 +476,7 @@ Text files for saving small sets of data are preferable.
 Data that are saved in binary formats such as PDF files are difficult to reuse because they are not easily machine readable.
 In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, *e.g.*, comma separated (CSV) or tab separated (TSV) files.
 This also helps ensure that the data are reusable.
-Larger data sets may warrant the use of a proper database like lightweight personal databases, e.g., SQLite or DuckDB, larger more robust databases, e.g., MariaDB, PostgreSQL or a specialised database like GenBank which provide users with several benefits but two important benefits to mention here are (i) data redundancy, ensuring no records are duplicated and (ii) data consistency, ensuring that all records in a data set are recorded in the same format for every observation.
+Larger data sets may warrant the use of a proper database like lightweight personal databases, e.g., SQLite or DuckDB, larger more robust databases, e.g., MariaDB, PostgreSQL or a specialized database like GenBank which provide users with several benefits but two important benefits to mention here are (i) data redundancy, ensuring no records are duplicated and (ii) data consistency, ensuring that all records in a data set are recorded in the same format for every observation.
 Databases such a GenBank are preferable for molecular data ensuring data integrity and machine readability.
 While databases may offer many advantages for speed and data integrity, the trade-off is that they are more complex to set up and administer, especially for a small data set.
 
@@ -611,7 +611,7 @@ tab_t %>%
 
 # Figures
 
-```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualizations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialised journals. The journal title was tested for an effect on code availability (A) and data availability (B), the year of publication was tested for an effect on code availability (C) and data availability (D), and Five Year Impact Factor of Journal was tested for effect on code availability (E) and data availability (F). Model fitnesses were found to be good for all models.", cache=FALSE, fig.env='figure'}
+```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualizations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialized journals. The journal title was tested for an effect on code availability (A) and data availability (B), the year of publication was tested for an effect on code availability (C) and data availability (D), and Five Year Impact Factor of Journal was tested for effect on code availability (E) and data availability (F). Model fitnesses were found to be good for all models.", cache=FALSE, fig.env='figure'}
 
 set.seed(23)
 
