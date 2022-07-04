@@ -40,6 +40,7 @@ packages <- c(
   "brms",
   "extrafont",
   "flextable",
+  "grDevices",
   "ggpubr",
   "here",
   "knitr",
@@ -62,6 +63,14 @@ invisible(lapply(packages,
 
 options(mc.cores = parallel::detectCores())
 theme_set(theme_classic())
+
+opts_chunk$set(
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  echo = FALSE,
+  dev = "cairo_ps"
+)
 
 rrpp <- import_notes()
 ir <- import_interrater_scores()

@@ -45,6 +45,7 @@ packages <- c(
   "extrafont",
   "flextable",
   "ggpubr",
+  "grDevices",
   "here",
   "janitor",
   "knitr",
@@ -79,10 +80,9 @@ opts_chunk$set(
   warning = FALSE,
   message = FALSE,
   echo = FALSE,
-  dev = c("postscript"),
   out.width = "100%",
   comment = "#>",
-  dev = "cairo_pdf",
+  dev = "cairo_ps",
   cache = FALSE
 )
 
