@@ -23,7 +23,7 @@ This repository contains the data and code for our article:
 Our pre-print is online on the agriRxiv preprint server:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
-> J. (2021). *Openness and computational reproducibility in plant
+> J. (2022). *Openness and computational reproducibility in plant
 > pathology: where do we stand and a way forward*. agriRxiv, Accessed 04
 > Jul 2022. Online at <https://doi.org/10.31220/agriRxiv.2021.00082>
 
