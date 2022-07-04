@@ -23,7 +23,7 @@ import_interrater_scores <- function() {
     software_cite <-
     IF_5year <- art_class <- repro_inst <- abbreviation <-
     assignee <-
-    reproducibility_score <- journal <- year <- . <- NULL
+    reproducibility_score <- journal <- year <- doi <- molecular <- . <- NULL
 
   notes <- readODS::read_ods(
     system.file(
@@ -42,6 +42,11 @@ import_interrater_scores <- function() {
       art_class = as.factor(art_class),
       molecular = as.factor(molecular),
       assignee = as.factor(assignee),
+      software_cite = factor(
+        software_cite,
+        levels = c("0", "1", "2", "3"),
+        ordered = TRUE
+      ),
       software_avail = factor(
         software_avail,
         levels = c("0", "1", "2", "3"),
@@ -55,6 +60,11 @@ import_interrater_scores <- function() {
       data_avail = factor(
         data_avail,
         levels = c("0", "1", "2", "3"),
+        ordered = TRUE
+      ),
+      software_avail_corrected = factor(
+        software_avail_corrected,
+        levels =  c("0", "1", "2", "3"),
         ordered = TRUE
       )
     )
