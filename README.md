@@ -99,7 +99,8 @@ necessary to re-knit the MS Word document of the paper from an Rmd file,
 “/analysis/paper/paper.Rmd”.
 
 A script, `knit_paper.R`, is located in `analysis/paper/knit_paper.R`
-that will knit the [Word document](analysis/paper/paper.docx) in a
+that will knit the [manuscript](analysis/paper/paper.docx) and the
+[supplementary materials](analysis/supplementary-materials.docx) in a
 Docker session.
 
 ## Meta

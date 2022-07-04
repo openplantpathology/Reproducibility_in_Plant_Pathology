@@ -74,7 +74,7 @@ docker run -d -p 8787:8787 adamhsparks/reproducibility_in_plant_pathology
 The file structure follows a normal R package with one exception.
 The top-level "/analysis" directory contains the directories and files necessary to re-knit the MS Word document of the paper from an Rmd file, "/analysis/paper/paper.Rmd".
 
-A script, `knit_paper.R`, is located in `analysis/paper/knit_paper.R` that will knit the [Word document](analysis/paper/paper.docx) in a Docker session.
+A script, `knit_paper.R`, is located in `analysis/paper/knit_paper.R` that will knit the [manuscript](analysis/paper/paper.docx) and the [supplementary materials](analysis/supplementary-materials.docx) in a Docker session.
 
 ## Meta
 
