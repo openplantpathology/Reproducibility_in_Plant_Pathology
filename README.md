@@ -28,7 +28,7 @@ Our pre-print is online on the agriRxiv preprint server:
 > Jul 2022. Online at <https://doi.org/10.31220/agriRxiv.2021.00082>
 
 The paper is a systematic and quantitative review of articles published
-in 20 plant pathology journals that spans five years of publications. It
+in 21 plant pathology journals that spans five years of publications. It
 provides a basis for identifying what has been done so far in the
 discipline of plant pathology’s published research to ensure
 computational reproducibility. The results show that as a discipline,
