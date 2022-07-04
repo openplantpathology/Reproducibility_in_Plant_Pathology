@@ -68,7 +68,6 @@ Suggests:
     tibble,
     tidyverse,
     spelling
-LazyData: TRUE
 RoxygenNote: 7.2.0
 Encoding: UTF-8
 NeedsCompilation: no
