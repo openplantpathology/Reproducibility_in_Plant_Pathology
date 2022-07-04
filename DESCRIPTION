@@ -1,7 +1,7 @@
 Package: Reproducibility.in.Plant.Pathology
 Type: Package
 Title: A Systematic Quantitative Review of Articles Providing a Basis for Identifying Reproducible Research Efforts the Field of Plant Pathology
-Version: 0.0.6
+Version: 0.0.7
 Authors@R: c(
     person(given = "Adam H.", family = "Sparks",
     role = c("aut", "cre"),
