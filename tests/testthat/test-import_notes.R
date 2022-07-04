@@ -1,4 +1,4 @@
-# Test that import_notes() returns expected results, a tibble with 49 cols
+# Test that import_notes() returns expected results, a tibble with 21 cols
 # and columns that are set to factor are factors. All other default as read.
 test_that("import_notes returns expected results", {
   notes <- import_notes()
