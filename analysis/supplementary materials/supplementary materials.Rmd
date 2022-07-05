@@ -376,7 +376,7 @@ p <- plot(equivalence_test(m_f1)) +
 
 ggsave(
   filename = here(
-    "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_1.eps"
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"
   ),
   plot = p,
   width = 6,
@@ -386,15 +386,15 @@ ggsave(
 )
 embed_fonts(
   file = here(
-    "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_1.eps"
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"
   ),
   outfile = here(
-    "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_1.eps"
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"
   ),
   options = "-dEPSCrop"
 )
 include_graphics(path = here(
-  "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_1.eps"
+  "analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"
 ))
 ```
 
@@ -410,7 +410,7 @@ p <- plot(equivalence_test(m_f2)) +
 
 ggsave(
   filename = here(
-    "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_2.eps"
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_2.eps"
   ),
   plot = p,
   width = 6,
@@ -420,15 +420,15 @@ ggsave(
 )
 embed_fonts(
   file = here(
-    "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_2.eps"
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_2.eps"
   ),
   outfile = here(
-    "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_2.eps"
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_2.eps"
   ),
   options = "-dEPSCrop"
 )
 include_graphics(path = here(
-  "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_2.eps"
+  "analysis/figures/Sparks_et_al_Supplementary_Figure_2.eps"
 ))
 ```
 
@@ -444,7 +444,7 @@ p <- plot(equivalence_test(m_g1)) +
 
 ggsave(
   filename = here(
-    "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_3.eps"
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_3.eps"
   ),
   plot = p,
   width = 6,
@@ -454,15 +454,15 @@ ggsave(
 )
 embed_fonts(
   file = here(
-    "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_3.eps"
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_3.eps"
   ),
   outfile = here(
-    "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_3.eps"
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_3.eps"
   ),
   options = "-dEPSCrop"
 )
 include_graphics(path = here(
-  "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_3.eps"
+  "analysis/figures/Sparks_et_al_Supplementary_Figure_3.eps"
 ))
 ```
 
@@ -474,7 +474,7 @@ p <- plot(equivalence_test(m_g2)) +
 
 ggsave(
   filename = here(
-    "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_4.eps"
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_4.eps"
   ),
   plot = p,
   width = 6,
@@ -484,15 +484,15 @@ ggsave(
 )
 embed_fonts(
   file = here(
-    "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_4.eps"
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_4.eps"
   ),
   outfile = here(
-    "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_4.eps"
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_4.eps"
   ),
   options = "-dEPSCrop"
 )
 include_graphics(path = here(
-  "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_4.eps"
+  "analysis/figures/Sparks_et_al_Supplementary_Figure_4.eps"
 ))
 ```
 
@@ -503,7 +503,7 @@ p <- plot(equivalence_test(m_h1))
 
 ggsave(
   filename = here(
-    "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_5.eps"
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_5.eps"
   ),
   plot = p,
   width = 6,
@@ -513,15 +513,15 @@ ggsave(
 )
 embed_fonts(
   file = here(
-    "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_5.eps"
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_5.eps"
   ),
   outfile = here(
-    "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_5.eps"
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_5.eps"
   ),
   options = "-dEPSCrop"
 )
 include_graphics(path = here(
-  "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_5.eps"
+  "analysis/figures/Sparks_et_al_Supplementary_Figure_5.eps"
 ))
 ```
 
@@ -532,7 +532,7 @@ p <- plot(equivalence_test(m_h2))
 
 ggsave(
   filename = here(
-    "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_6.eps"
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_6.eps"
   ),
   plot = p,
   width = 6,
@@ -542,14 +542,14 @@ ggsave(
 )
 embed_fonts(
   file = here(
-    "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_6.eps"
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_6.eps"
   ),
   outfile = here(
-    "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_6.eps"
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_6.eps"
   ),
   options = "-dEPSCrop"
 )
 include_graphics(path = here(
-  "analysis/supplementary figures/Sparks_et_al_Supplementary_Figure_6.eps"
+  "analysis/figures/Sparks_et_al_Supplementary_Figure_6.eps"
 ))
 ```
