@@ -30,7 +30,7 @@ output:
        - '--lua-filter=pagebreak.lua'
 ---
 
-```{r, setup, echo = FALSE, message=FALSE, warning=FALSE}
+```{r, setup, echo=FALSE, message=FALSE, warning=FALSE}
 
 library("Reproducibility.in.Plant.Pathology")
 packages <- c(
