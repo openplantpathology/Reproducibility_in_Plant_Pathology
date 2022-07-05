@@ -52,28 +52,34 @@ packages <- c(
   "tools"
 )
 
+# install packages if needed
 install.packages(setdiff(packages,
                          rownames(installed.packages())),
                  repos = "http://cran.us.r-project.org",
                  dependencies = TRUE)
 
+# load packages for use in knitting Rmd
 invisible(lapply(packages,
                  library,
                  character.only = TRUE))
 
-options(mc.cores = parallel::detectCores())
-theme_set(theme_classic())
+library("Reproducibility.in.Plant.Pathology")
+
+rrpp <- import_notes()
+ir <- import_interrater_scores()
 
 opts_chunk$set(
   collapse = TRUE,
   warning = FALSE,
   message = FALSE,
   echo = FALSE,
-  dev = "cairo_ps"
+  out.width = "100%",
+  comment = "#>",
+  dev = "cairo_ps",
+  cache = FALSE
 )
 
-rrpp <- import_notes()
-ir <- import_interrater_scores()
+theme_set(theme_classic())
 
 load(
   system.file(
