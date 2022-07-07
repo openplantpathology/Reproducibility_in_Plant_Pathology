@@ -437,7 +437,7 @@ However, the scripts did not run unhindered, as the supplementary materials sugg
 One drawback to this approach is that journals are often not equipped to handle code, e.g., script files, that may be developed as a part of the research process and so they are often archived as PDF or Word documents which hinder the ability to easily ingest and start working with them or if they are provided in a native text format, they do not render via the web properly.
 Though this should be possible given some effort from the publishing journal to share simple text files rather than binary formats along with the proper instructions and handling of these file formats rather than a one-size-fits all approach that we commonly see for supplementary materials.
 For example, the R scripts for @Hill2019 were provided as supplementary materials but do not actually appear in the browser window when requested, which may confuse readers and makes downloading them more difficult.
-While this allows the reader to quickly view the extra materials and a DOI is assigned as a part of the article itself, the data or code are not readily findable and accessible. 
+While this allows the reader to quickly view the extra materials and a DOI is assigned as a part of the article itself, the data or code are not readily findable and accessible through a searchable database.
 Furthermore, in many cases this does not allow prompt access to the data and running the code because of a journal paywall.
 
 The second layer is providing machine readable text files of the raw data and code in a public code repository such as GitHub, GitLab, but without a DOI or some other long-term repository as provided by a library, Zenodo, FigShare, etc.
