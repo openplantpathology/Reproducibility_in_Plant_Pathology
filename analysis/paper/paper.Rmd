@@ -509,7 +509,11 @@ If readers are uncertain, we suggest to also consult with local librarians about
 Most universities and other research-focused workplaces provide a facility for staff to deposit papers and other academic materials, but this may extend to software development or data repositories as well.
 The important aspect is that data once deposited cannot be modified any more.
 
-## Final Thoughts
+These layers provide increasing openness and reproducibility so Layer 1 should not be viewed as the starting point before moving on to Layer 2 and then Layer 3.
+Rather the layers are provided to give the reader some idea of how much benefit end-users of the computational materials and data will derive at the expense of the increasing complexity.
+Authors need not start with Level 1 before moving to Level 2 and then Level 3.
+If they have the ability to start with depositing the computational materials and data and generating DOIs all parties will benefit from it.
+However, we recognise that these steps may not be appropriate or attractive for various reasons and so have detailed other layers that improve openness and reproducibility.
 
 In this work we have evaluated the state of computational reproducibility in the plant pathology literature and presented suggestions for areas of improvement.
 As we prepared this letter, we became more aware of the urgent need to spread and establish an open science attitude and culture among plant pathologists.
