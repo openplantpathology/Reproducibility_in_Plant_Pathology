@@ -618,13 +618,13 @@ set.seed(23)
 color_scheme_set(scheme = "gray")
 
 mod_list <- list(
-  pp_check(m_f1, type = "rootogram", ndraws = 50) +
+  pp_check(m_f1, type = "bars", ndraws = 50) +
     theme(
       axis.text.x = element_blank(),
       axis.ticks.x = element_blank(),
       axis.title.x = element_blank()
     ),
-  pp_check(m_f2, type = "rootogram", ndraws = 50) +
+  pp_check(m_f2, type = "bars", ndraws = 50) +
     theme(
       axis.text.x = element_blank(),
       axis.ticks.x = element_blank(),
@@ -633,13 +633,13 @@ mod_list <- list(
       axis.ticks.y = element_blank(),
       axis.title.y = element_blank()
     ),
-  pp_check(m_g1, type = "rootogram", ndraws = 50) +
+  pp_check(m_g1, type = "bars", ndraws = 50) +
     theme(
       axis.text.x = element_blank(),
       axis.ticks.x = element_blank(),
       axis.title.x = element_blank()
     ),
-  pp_check(m_g2, type = "rootogram", ndraws = 50) +
+  pp_check(m_g2, type = "bars", ndraws = 50) +
     theme(
       axis.text.x = element_blank(),
       axis.ticks.x = element_blank(),
@@ -648,8 +648,12 @@ mod_list <- list(
       axis.ticks.y = element_blank(),
       axis.title.y = element_blank()
     ),
-  pp_check(m_h1, type = "rootogram", ndraws = 50),
-  pp_check(m_h2, type = "rootogram", ndraws = 50) +
+  pp_check(m_h1, type = "bars", ndraws = 50) +
+    scale_x_continuous(labels = c("0", "1", "2", "3"),
+                       breaks = 1:4),
+  pp_check(m_h2, type = "bars", ndraws = 50) +
+    scale_x_continuous(labels = c("0", "1", "2", "3"),
+                       breaks = 1:4) +
     theme(
       axis.text.y = element_blank(),
       axis.ticks.y = element_blank(),
