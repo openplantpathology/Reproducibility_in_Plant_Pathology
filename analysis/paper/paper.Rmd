@@ -423,13 +423,13 @@ The second, third and fourth, and eighth most frequently cited software packages
 SAS remains firmly entrenched in the discipline as the choice of software for statistical analysis followed by SPSS but R, the most frequently occurring FOSS, is not far removed from SPSS in fourth place with Statistica and Genstat tied for eighth.
 It is interesting to note however, that even with the popularity of Python in scientific programming it only appears in the survey twice in 2020 for both articles, not enough times to be in the top 10 most-cited.
 
-## Examples of Different Levels of Reproducibility
+## Examples of Different Layers of Reproducibility
 
-There are different ways to make research more open and reproducible, which can be thought of as levels of reproducibility.
+There are different ways to make research more open and reproducible, which can be thought of as layers of reproducibility.
 If a general workflow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, analyzing, summarizing and presenting data and results, writing the manuscript then the next logical steps are depositing the code used along with the raw data in proper repositories (Figure \@ref(fig:workflow-dia)).
-Here we define three levels of reproducibility which are also related to the evolution of computational methods and reproducible practices and highlight papers that fit these definitions.
+Here we define three layers of reproducibility which are also related to the evolution of computational methods and reproducible practices and highlight papers that fit these definitions.
 
-The first level is including tables of raw data or code with the paper as a supplemental file or even within the paper as tables where possible.
+The first layer is including tables of raw data or code with the paper as a supplemental file or even within the paper as tables where possible.
 This is suitable for studies that may have a small data set or simple analysis or for demonstrations purposes as @Madden2015 demonstrate in their discussion regarding the use of $P$ values in statistical analyzes where they supply an *e-**X**tra* with reproducible examples for readers to refer to.
 @Hill2019 also shared code and example data to reproduce the results of the paper as supplementary materials, citing all packages used and the versions.
 The scripts provided used an R package, *checkpoint* [@Ooi2022], to provide a mechanism to help ensure reproducibility by installing the package versions used by the authors that are necessary to reproduce the work rather than defaulting to the latest versions.
@@ -440,10 +440,10 @@ For example, the R scripts for @Hill2019 were provided as supplementary material
 While this allows the reader to quickly view the extra materials and a DOI is assigned as a part of the article itself, the data or code are not readily findable and accessible. 
 Furthermore, in many cases this does not allow prompt access to the data and running the code because of a journal paywall.
 
-The second level is providing machine readable text files of the raw data and code in a public code repository such as GitHub, GitLab, but without a DOI or some other long-term repository as provided by a library, Zenodo, FigShare, etc.
+The second layer is providing machine readable text files of the raw data and code in a public code repository such as GitHub, GitLab, but without a DOI or some other long-term repository as provided by a library, Zenodo, FigShare, etc.
 Fewer authors choose to follow this method, but in one instance that we found, which was not a part of this analysis, @Vogel2021 deposited Fastq files in the National Center of Biotechnology Information Sequence Read Archive (BioProject accession number PRJNA616021) and provided the scripts for analysis via a GitHub repository (<https://github.com/gmv23/pcap-gwas>) but we were unable to find a DOI that refers to these materials or a proper citation to properly cite them here.
 
-The third level is the use of proper code repositories such as GitHub and data repositories like FigShare, Zenodo or OSF.io among others, allowing for the deposition and updating of code, figures, data preprints or any other materials that support the article itself while providing a DOI and citation.
+The third layer is the use of proper code repositories such as GitHub and data repositories like FigShare, Zenodo or OSF.io among others, allowing for the deposition and updating of code, figures, data preprints or any other materials that support the article itself while providing a DOI and citation.
 As an example, Sparks et al. [-@Sparks2011; -@Sparks2014] used FigShare to provide models, data and code [@Sparks2016] necessary to replicate model development and the subsequent study on the effects of climate change on potato late blight.
 Similarly, @carleson2019population hosted the code for reproducing a population genomic analysis of *Phytophthora plurivora* on GitHub, while providing all data on OSF.io (the Open Science Framework).
 @Lehner2017 used GitHub to host a code repository of their research compendium website with data and a reproducible report that explains in detail all steps of the analysis and the R code for conducting a meta-analysis for assessing heterogeneity in the relationship between white mold incidence and soybean yield and between incidence and soybean yield (<https://emdelponte.github.io/paper-white-mold-meta-analysis/>).
@@ -457,12 +457,12 @@ It can be difficult to understand for a new user and new platforms, like the App
 But, in most cases using an open-source language like R, Julia or Python allows us to share our work in a fashion where we know that the analysis will run exactly the same on every computer.
 For more on using Docker for reproducible research, we would refer readers to @Nuest2020.
 As an example of this approach, @Khaliq2020 provided a research compendium as a Docker container with a DOI and a full R package that enables readers to fully replicate their analysis of *Ascochyta rabiei* conidia dispersal in chickpea using the data collected and stepping through other points where weather data were investigated and various models were fit before deciding on the best fit and recreate any figures as published in the article [@Khaliq2020a].
-When this level is employed, tools such as Binder, <https://mybinder.org>, can be used that allow readers and reviewers to launch an interactive session in their web browser and interact with the data and rerun the analysis in an RStudio instance or Jupyter notebooks as Mioroni et al. used [-@Miorini2018; -@Miorini2019].
+When this layer is employed, tools such as Binder, <https://mybinder.org>, can be used that allow readers and reviewers to launch an interactive session in their web browser and interact with the data and rerun the analysis in an RStudio instance or Jupyter notebooks as Mioroni et al. used [-@Miorini2018; -@Miorini2019].
 @Kamvar2015 took a slightly different approach by including all files necessary for the analysis and most output files in a repository [@Kamvar2014] that also included an installable R package that was used for the original analysis.
 While there are many other methods, these two approaches illustrate some of the best-practices where the data and other files were deposited in repositories with DOIs and reproducibility issues were addressed by using R packages to handle dependencies and other versioning issues making the work more portable.
 
 Efforts to annotate structured raw data (FAIR -- Findable, Accessible, Interoperable and Re-usable) [@Wilkinson2016] and fully document the analysis using open-source code which are deposited in public repositories and can be run by anyone following the download of data and code.
-The first level, as reported, is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations.
+The first layer, as reported, is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations.
 When making your science more open and reproducible, methods, software used (this includes items such as R, Julia or Python packages that were directly used in the analysis or production of the paper, etc.) should be cited properly.
 Provide a full description of all equipment used, *e.g.*, "a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals".
 This allows end-users to identify what was used and identify the methods used more accurately.
