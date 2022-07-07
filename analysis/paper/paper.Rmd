@@ -654,10 +654,12 @@ mod_list <- list(
     ),
   pp_check(m_h1, type = "bars", ndraws = 50) +
     scale_x_continuous(labels = c("0", "1", "2", "3"),
-                       breaks = 1:4),
+                       breaks = 1:4) +
+  xlab("Score (0 to 3)"),
   pp_check(m_h2, type = "bars", ndraws = 50) +
     scale_x_continuous(labels = c("0", "1", "2", "3"),
                        breaks = 1:4) +
+    xlab("Score (0 to 3)") +
     theme(
       axis.text.y = element_blank(),
       axis.ticks.y = element_blank(),
