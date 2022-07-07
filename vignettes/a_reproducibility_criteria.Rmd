@@ -83,11 +83,15 @@ Entered as a decimal value.
 
 #### "open"
 
+**Note that this was collected but not used in final analysis because it was likely to change over the time-period which was looked at**
+
 Whether the journal is open-access or not
 
 Entered as `TRUE`/`FALSE`/`BOTH`
 
 #### "repro_inst"
+
+**Note that this was collected but not used in final analysis because it was likely to change over the time-period which was looked at**
 
 Does the journal have guidelines for reproducibility?
 
@@ -100,6 +104,8 @@ Does the journal have guidelines for reproducibility?
 -   `3` - Detailed instructions on where to place data and code
 
 #### "art_class"
+
+**Note that this was collected but not used in final analysis**
 
 What kind of research the article describes
 
@@ -114,6 +120,8 @@ Entered as an R `vector` object in comma-separated list with spaces.
 For example: `Applied` or `Fundamental`
 
 #### "molecular"
+
+**Note that this was collected but not used in final analysis**
 
 Was the article primarily focused on using or developing molecular methods?
 
@@ -143,6 +151,8 @@ In the case of multiple methods where some are available and some are not, score
 
 #### "software_avail"
 
+**Note that this was collected but not used in final analysis**
+
 Score of software availability.
 
 Entered as a number between `0` and `3`.
@@ -162,6 +172,8 @@ MEGA is free to download but is not open-source and cannot be redistributed, so 
 -   `NA` - No software was used in the research that can be determined as the article is written.
 
 #### "software_cite"
+
+**Note that this was collected but not used in final analysis**
 
 Score of citations for software used.
 
