@@ -463,53 +463,53 @@ It can be difficult to understand for a new user and new platforms, like the App
 But, in most cases using an open-source language like R, Julia or Python allows us to share our work in a fashion where we know that the analysis will run exactly the same on every computer.
 For more on using Docker for reproducible research, we would refer readers to @Nuest2020.
 As an example of this approach, @Khaliq2020 provided a research compendium as a Docker container with a DOI and a full R package that enables readers to fully replicate their analysis of *Ascochyta rabiei* conidia dispersal in chickpea using the data collected and stepping through other points where weather data were investigated and various models were fit before deciding on the best fit and recreate any figures as published in the article [@Khaliq2020a].
-When this layer is employed, tools such as Binder, <https://mybinder.org>, can be used that allow readers and reviewers to launch an interactive session in their web browser and interact with the data and rerun the analysis in an RStudio instance or Jupyter notebooks as Mioroni et al. used [-@Miorini2018; -@Miorini2019].
+When this layer is employed, tools such as Binder, <https://mybinder.org>, can be used that allow readers and reviewers to launch an interactive session in their web browser and interact with the data and rerun the analysis in an RStudio instance or Jupyter notebooks, a "web application for creating and sharing computational documents" [@jupyter2022], as Mioroni et al. used [-@Miorini2018; -@Miorini2019].
 @Kamvar2015 took a slightly different approach by including all files necessary for the analysis and most output files in a repository [@Kamvar2014] that also included an installable R package that was used for the original analysis.
 While there are many other methods, these two approaches illustrate some of the best-practices where the data and other files were deposited in repositories with DOIs and reproducibility issues were addressed by using R packages to handle dependencies and other versioning issues making the work more portable.
 
 Efforts to annotate structured raw data (FAIR -- Findable, Accessible, Interoperable and Re-usable) [@Wilkinson2016] and fully document the analysis using open-source code which are deposited in public repositories and can be run by anyone following the download of data and code.
 The first layer, as reported, is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations.
-When making your science more open and reproducible, methods, software used (this includes items such as R, Julia or Python packages that were directly used in the analysis or production of the paper, etc.) should be cited properly.
+When making our science more open and reproducible, methods, software used (this includes items such as R, Julia or Python packages that were directly used in the analysis or production of the paper, etc.) should be cited properly.
 Provide a full description of all equipment used, *e.g.*, "a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals".
 This allows end-users to identify what was used and identify the methods used more accurately.
-Just as importantly, this acknowledges the contributions of others whose works were instrumental in your research.
-This also helps ensure that you as a researcher can reconstruct what you have done since you will have good notes and documentation and be able to identify if something changes, *e.g.*, a package version, what effect it had on your research.
+Just as importantly, this acknowledges the contributions of others whose works were instrumental in our research.
+This also helps to ensure that we researchers can reconstruct what we have done since we will have good notes and documentation and be able to identify if something changes, *e.g.*, a package version, what effect it had on our research.
 
-The use of programming or scripting languages such as R, Julia, SAS or Python enables you as a scientist to keep very detailed records of what was computationally performed.
-This is as opposed to using software such as spreadsheet programs like Excel, Google Sheets, Numbers, Calc or others which can be used for simple statistical analyzes and visualization or other point-and-click software packages that do not enable you to keep an accurate record of the steps taken to import, format, visualize and analyze data.
+The use of programming or scripting languages such as R, Julia, SAS or Python enables us scientists to keep very detailed records of what was computationally performed.
+This is as opposed to using software such as spreadsheet programs like Excel, Google Sheets, Numbers, Calc or others which can be used for simple statistical analyzes and visualization or other point-and-click software packages that do not enable us to keep an accurate record of the steps taken to import, format, visualize and analyze data.
 
 Text files for saving small sets of data are preferable.
 Data that are saved in binary formats such as PDF files are difficult to reuse because they are not easily machine readable.
 In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, *e.g.*, comma separated (CSV) or tab separated (TSV) files.
-This also helps ensure that the data are reusable.
+This also helps to ensure that the data are reusable.
 Larger data sets may warrant the use of a proper database like lightweight personal databases, e.g., SQLite or DuckDB, larger more robust databases, e.g., MariaDB, PostgreSQL or a specialized database like GenBank which provide users with several benefits but two important benefits to mention here are (i) data redundancy, ensuring no records are duplicated and (ii) data consistency, ensuring that all records in a data set are recorded in the same format for every observation.
 Databases such a GenBank are preferable for molecular data ensuring data integrity and machine readability.
 While databases may offer many advantages for speed and data integrity, the trade-off is that they are more complex to set up and administer, especially for a small data set.
 
-Ideally, once the data are complete, best practices for keeping your data as you perform your work include treating the raw data as read-only and using file permissions to prevent changes to the raw data files.
+Ideally, once the data are complete, best practices for keeping our data as we perform our work include treating the raw data as read-only and using file permissions to prevent changes to the raw data files.
 It should be noted that the use of a database management system also allows for both at the expense of added complexity.
 Saving files in proprietary formats such as .xls(x) can also lead to issues in the future when opening using newer (or older) software versions.
 Unexpected changes to values in the data [@Ziemann2016] may also occur when using proprietary formats.
 
 If steps are followed to make the data FAIR, then it will be readable by humans and machines alike and this will help support discoveries and support further research.
-In turn, sharing data will lead to new citations for your work as others discover and use it.
-To make your data the most widely discoverable and usable, ensure that it has a persistent identifier.
+In turn, sharing data will lead to new citations for our work as others discover and use it.
+To make our data the most widely discoverable and usable, ensure that it has a persistent identifier.
 A digital object identifier (DOI) is the most common (<https://www.doi.org/>) but the Handle.Net Registry (HNR) (<https://handle.net/>) is also an option.
-There are different options for generating a DOI for your data and other materials.
-FigShare, Zenodo and OSF.io all offer persistent archives along with a service to generate a DOI for your materials.
+There are different options for generating a DOI for our data and other materials.
+FigShare, Zenodo and OSF.io all offer persistent archives along with a service to generate a DOI for our materials.
 The use of a persistent identifier works to ensure that even if the data are moved, they can still be located using that unique identifier.
 For more on FAIR data, visit Go-Fair <https://www.go-fair.org/fair-principles/>.
 
-Once you have determined how to best manage your source code and the data sets for analysis the next step is to consider how to share your data.
-Providers such as FigShare, Dataverse, OSF.io and Zenodo allow for you to deposit your data and generate a DOI for sharing your project once you are finished with it.
+Once it has been determined how to best manage the source code and the data sets for analysis, the next step is to consider how to share the data.
+Providers such as FigShare, Dataverse, OSF.io and Zenodo allow for us to deposit our data and generate a DOI for sharing the project once it is finished.
 
-Other providers exist that allow for you to not only track changes but also to share the data openly, these include GitHub, Gitlab and Bitbucket.
+Other providers exist that allow for us to not only track changes but also to share the data openly, these include GitHub, Gitlab and Bitbucket.
 GitHub is arguably the most popular and widely used software development platform currently.
 Data that is encoded in CSV or other plain text formats can easily be deposited in a repository along with code for analysis to enable tracking of changes and other users to download and replicate the work.
 
-We would advise against the practice of depositing data on a laboratory website or a site such as GitHub only as these are not an optimal way to preserve and share your work over the long term.
+We would advise against the practice of depositing data on a laboratory website or a site such as GitHub only as these are not an optimal way to preserve and share our work over the long term.
 Doing either of these leaves the work in an unstable state where future users may be unable to access the work as they are fraught with link-rot and other issues.
-It is a best practice to always ensure that you have deposited the data with a provider such as GenBank, Zenodo, FigShare or OSF.io and generated a DOI for the materials to help ensure continued accessibility.
+It is a best practice to always ensure that we have deposited the data with a provider such as GenBank, Zenodo, FigShare or OSF.io and generated a DOI for the materials to help ensure continued accessibility.
 Many of these providers provide rather easy ways to link the project with a software development repository to help ensure that the data are available in perpetuity.
 If readers are uncertain, we suggest to also consult with local librarians about possible resources.
 Most universities and other research-focused workplaces provide a facility for staff to deposit papers and other academic materials, but this may extend to software development or data repositories as well.
@@ -527,12 +527,12 @@ To assist in fostering this sort of change in our discipline, Open Plant Patholo
 We started OPP with a minimal infrastructure and support from other enthusiastic colleagues that allows members to interact sharing and gathering ideas on how we can improve the openness and reproducibility in our discipline.
 
 We believe that adopting an attitude of open and collaborative science and using the best reproducibility practices in our daily work, directly benefits us as researchers.
-For example, between complicated analyzes, reviews and revisions and questions years later about the data that was collected or analysis that was conducted, it is extremely beneficial to be able to easily reproduce your work quickly and easily.
+For example, between complicated analyzes, reviews and revisions and questions years later about the data that was collected or analysis that was conducted, it is extremely beneficial to be able to easily reproduce our work quickly and easily.
 This manuscript was drafted over the course of several years as the authors had time to devote to it.
 Having everything in a reproducible framework made it easy to resume work and set-aside as necessary without losing information and having everything well-documented made it simpler to do this.
 Second, it benefits the reviewer by aiding their understanding of the work done and gives them more materials to use to make suggestions for improvements when reviewing and the end-user or reader is better able to verify the validity of the methods used and recreate the analysis.
 Perhaps more importantly, sharing these details helps with knowledge transfer by showing other interested parties how something was done rather than simply describing it.
-Lastly, openly sharing your work and making it discoverable can lead to new collaborations and synergistic ideas.
+Lastly, openly sharing our work and making it discoverable can lead to new collaborations and synergistic ideas.
 One of the most important messages that we would like to share is that there is more to the work than just the paper.
 Sharing materials detailing the analysis that was performed and documenting the data provide citable products and enhance the manuscript providing the reader with a richer set of information with which to understand the work that was performed.
 This open sharing of code and data leads to greater impact as work is cited if resources such as code or data are reused.
