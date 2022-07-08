@@ -106,10 +106,9 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Inter-rater Repeatability</h1>
-                        <h4 data-toc-skip class="author">Adam H.
-Sparks</h4>
+                        <h4 data-toc-skip class="author">Adam H. Sparks</h4>
             
-            <h4 data-toc-skip class="date">2022-07-07</h4>
+            <h4 data-toc-skip class="date">2022-07-08</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/HEAD/vignettes/e_inter-rater.Rmd" class="external-link"><code>vignettes/e_inter-rater.Rmd</code></a></small>
       <div class="hidden name"><code>e_inter-rater.Rmd</code></div>
@@ -118,20 +117,11 @@ Sparks</h4>
 
     
     
-<p>This vignette documents the analysis of the data gathered from
-surveying 5 journal articles, which all five authors evaluated for an
-inter-rater comparison. Five articles were evaluated by all five authors
-to understand the differences between ratings assigned by each of the
-paper’s authors. All original scores are kept with corrections being
-made to the <code>software_avail</code> column in
-<code>software_avail_corrected</code> (by AHS) based on the software
-that was recorded as being used in each paper. This step removes some
-disagreement between the ratings.</p>
+<p>This vignette documents the analysis of the data gathered from surveying 5 journal articles, which all five authors evaluated for an inter-rater comparison. Five articles were evaluated by all five authors to understand the differences between ratings assigned by each of the paper’s authors. All original scores are kept with corrections being made to the <code>software_avail</code> column in <code>software_avail_corrected</code> (by AHS) based on the software that was recorded as being used in each paper. This step removes some disagreement between the ratings.</p>
 <div class="section level2">
 <h2 id="set-up-workspace">Set-up Workspace<a class="anchor" aria-label="anchor" href="#set-up-workspace"></a>
 </h2>
-<p>Load libraries used and setting the <em>ggplot2</em> theme for the
-document.</p>
+<p>Load libraries used and setting the <em>ggplot2</em> theme for the document.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/ggridges/" class="external-link">ggridges</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://www.r-project.org" class="external-link">irr</a></span><span class="op">)</span></span>
@@ -152,8 +142,7 @@ document.</p>
 <div class="section level3">
 <h3 id="article-classifications">Article Classifications<a class="anchor" aria-label="anchor" href="#article-classifications"></a>
 </h3>
-<p>Check differences between evaluators in classifying articles as
-having a molecular focus or fundamental or applied research.</p>
+<p>Check differences between evaluators in classifying articles as having a molecular focus or fundamental or applied research.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">rrpp</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">doi</span>,</span>
 <span>                      fill <span class="op">=</span> <span class="va">molecular</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -184,8 +173,7 @@ having a molecular focus or fundamental or applied research.</p>
 <div class="section level3">
 <h3 id="reproducibility-criteria">Reproducibility Criteria<a class="anchor" aria-label="anchor" href="#reproducibility-criteria"></a>
 </h3>
-<p>Visualise differences between evaluators for the four criteria used
-to score reproducibility for each paper.</p>
+<p>Visualise differences between evaluators for the four criteria used to score reproducibility for each paper.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">c</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">rrpp</span>,</span>
 <span>            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">doi</span>,</span>
@@ -236,9 +224,7 @@ to score reproducibility for each paper.</p>
 <div class="section level3">
 <h3 id="software-used">Software Used<a class="anchor" aria-label="anchor" href="#software-used"></a>
 </h3>
-<p>We can check if most authors found the same software in the papers
-that were evaluated. Perfect agreement is a 5, below that the software
-was not clearly and easily detected by the evaluator.</p>
+<p>We can check if most authors found the same software in the papers that were evaluated. Perfect agreement is a 5, below that the software was not clearly and easily detected by the evaluator.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rrpp_software</span> <span class="op">&lt;-</span></span>
 <span>  <span class="va">rrpp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -327,9 +313,7 @@ was not clearly and easily detected by the evaluator.</p>
 <div class="section level3">
 <h3 id="agreement-stats">Agreement Stats<a class="anchor" aria-label="anchor" href="#agreement-stats"></a>
 </h3>
-<p>Here will compute a simple percentage agreement between the reviewers
-using the <a href="https://CRAN.R-project.org/package=irr" class="external-link"><em>irr</em></a>
-package.</p>
+<p>Here will compute a simple percentage agreement between the reviewers using the <a href="https://CRAN.R-project.org/package=irr" class="external-link"><em>irr</em></a> package.</p>
 <div class="section level4">
 <h4 id="software-citations">Software Citations<a class="anchor" aria-label="anchor" href="#software-citations"></a>
 </h4>
@@ -471,8 +455,7 @@ package.</p>
 <div class="section level4">
 <h4 id="software-availability-corrected">Software Availability Corrected<a class="anchor" aria-label="anchor" href="#software-availability-corrected"></a>
 </h4>
-<p>Percent agreement of corrected software availability criteria
-rankings.</p>
+<p>Percent agreement of corrected software availability criteria rankings.</p>
 <div class="section level6">
 <h6 id="agreement-2">Agreement<a class="anchor" aria-label="anchor" href="#agreement-2"></a>
 </h6>
@@ -613,8 +596,7 @@ rankings.</p>
 <div class="section level6">
 <h6 id="agreement-4">Agreement<a class="anchor" aria-label="anchor" href="#agreement-4"></a>
 </h6>
-<p>Percent agreement of computational methods availability criteria
-rankings.</p>
+<p>Percent agreement of computational methods availability criteria rankings.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rrpp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">doi</span>, <span class="va">assignee</span>, <span class="va">comp_mthds_avail</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -694,8 +676,8 @@ rankings.</p>
 <span><span class="co">#&gt;  collate  en_AU.UTF-8</span></span>
 <span><span class="co">#&gt;  ctype    en_AU.UTF-8</span></span>
 <span><span class="co">#&gt;  tz       Australia/Perth</span></span>
-<span><span class="co">#&gt;  date     2022-07-07</span></span>
-<span><span class="co">#&gt;  pandoc   2.17.1.1 @ /Applications/RStudio.app/Contents/MacOS/quarto/bin/ (via rmarkdown)</span></span>
+<span><span class="co">#&gt;  date     2022-07-08</span></span>
+<span><span class="co">#&gt;  pandoc   2.14.0.1 @ /usr/local/bin/ (via rmarkdown)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────</span></span></span>
 <span><span class="co">#&gt;  <span style="color: #555555; font-style: italic;">package                           </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version</span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span></span>
@@ -760,7 +742,7 @@ rankings.</p>
 <span><span class="co">#&gt;  readr                              * 2.1.2   <span style="color: #555555;">2022-01-30</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  readxl                               1.4.0   <span style="color: #555555;">2022-03-28</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  reprex                               2.0.1   <span style="color: #555555;">2021-08-05</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  Reproducibility.in.Plant.Pathology * 0.0.7   <span style="color: #555555;">2022-07-07</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
+<span><span class="co">#&gt;  Reproducibility.in.Plant.Pathology * 0.0.7   <span style="color: #555555;">2022-07-08</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
 <span><span class="co">#&gt;  rlang                                1.0.3   <span style="color: #555555;">2022-06-27</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
 <span><span class="co">#&gt;  rmarkdown                            2.14    <span style="color: #555555;">2022-04-25</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  rprojroot                            2.0.3   <span style="color: #555555;">2022-04-02</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
@@ -785,7 +767,7 @@ rankings.</p>
 <span><span class="co">#&gt;  xml2                                 1.3.3   <span style="color: #555555;">2021-11-30</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  yaml                                 2.3.5   <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> [1] /private/var/folders/hc/tft3s5bn48gb81cs99mycyf00000gn/T/RtmpYnFb88/temp_libpath10334ac48f07</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;"> [1] /private/var/folders/hc/tft3s5bn48gb81cs99mycyf00000gn/T/Rtmpo68He0/temp_libpathcb5746a94b7</span></span></span>
 <span><span class="co">#&gt; <span style="color: #555555;"> [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library</span></span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────</span></span></span></code></pre></div>

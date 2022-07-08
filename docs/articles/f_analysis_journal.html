@@ -106,10 +106,9 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Analysis of Journal Effect</h1>
-                        <h4 data-toc-skip class="author">Adam H.
-Sparks</h4>
+                        <h4 data-toc-skip class="author">Adam H. Sparks</h4>
             
-            <h4 data-toc-skip class="date">2022-07-07</h4>
+            <h4 data-toc-skip class="date">2022-07-08</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/HEAD/vignettes/f_analysis_journal.Rmd" class="external-link"><code>vignettes/f_analysis_journal.Rmd</code></a></small>
       <div class="hidden name"><code>f_analysis_journal.Rmd</code></div>
@@ -118,15 +117,11 @@ Sparks</h4>
 
     
     
-<p>This vignette documents the analysis of the data gathered from
-surveying 21 journals and 450 articles in the field of plant pathology
-for their openness and reproducibility and the effect that the journal
-it was published in had on that score.</p>
+<p>This vignette documents the analysis of the data gathered from surveying 21 journals and 450 articles in the field of plant pathology for their openness and reproducibility and the effect that the journal it was published in had on that score.</p>
 <div class="section level2">
 <h2 id="set-up-workspace">Set-up Workspace<a class="anchor" aria-label="anchor" href="#set-up-workspace"></a>
 </h2>
-<p>Load libraries used and setting the <em>ggplot2</em> theme for the
-document.</p>
+<p>Load libraries used and setting the <em>ggplot2</em> theme for the document.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/paul-buerkner/brms" class="external-link">"brms"</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://easystats.github.io/bayestestR/" class="external-link">"bayestestR"</a></span><span class="op">)</span></span>
@@ -159,13 +154,7 @@ document.</p>
 <div class="section level4">
 <h4 id="computational-methods-availability">Computational Methods Availability<a class="anchor" aria-label="anchor" href="#computational-methods-availability"></a>
 </h4>
-<p>Test the effect that the journal’s effect on the available of
-computational methods. Set up a <em>brms</em> model with journal
-(<code>abbreviation</code>) as the fixed effect and <code>year</code>
-and <code>assignee</code> as random effects. Test the effect that the
-journal may have on the availability of data. Base level is set to
-<em>Phytopathology</em>, the journal that will be used as the intercept
-in the following model.</p>
+<p>Test the effect that the journal’s effect on the available of computational methods. Set up a <em>brms</em> model with journal (<code>abbreviation</code>) as the fixed effect and <code>year</code> and <code>assignee</code> as random effects. Test the effect that the journal may have on the availability of data. Base level is set to <em>Phytopathology</em>, the journal that will be used as the intercept in the following model.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># import data</span></span>
 <span><span class="va">rrpp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/import_notes.html">import_notes</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -203,55 +192,53 @@ in the following model.</p>
 <span><span class="co">#&gt; Group-Level Effects: </span></span>
 <span><span class="co">#&gt; ~assignee (Number of levels: 5) </span></span>
 <span><span class="co">#&gt;               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; sd(Intercept)     6.16      2.66     2.78    12.77 1.00     8583    11853</span></span>
+<span><span class="co">#&gt; sd(Intercept)     6.18      2.71     2.76    12.95 1.00     7427    11121</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Population-Level Effects: </span></span>
 <span><span class="co">#&gt;                                 Estimate Est.Error l-95% CI u-95% CI Rhat</span></span>
-<span><span class="co">#&gt; Intercept[1]                        0.18      0.78    -1.36     1.72 1.00</span></span>
-<span><span class="co">#&gt; Intercept[2]                        0.57      0.78    -0.95     2.10 1.00</span></span>
-<span><span class="co">#&gt; abbreviationAustralasPlantPath     -0.13      0.96    -2.06     1.70 1.00</span></span>
-<span><span class="co">#&gt; abbreviationCanJPlantPathol        -0.19      0.91    -2.03     1.54 1.00</span></span>
-<span><span class="co">#&gt; abbreviationCropProt               -0.24      0.90    -2.04     1.46 1.00</span></span>
-<span><span class="co">#&gt; abbreviationEurJPlantPathol        -0.19      0.92    -2.04     1.56 1.00</span></span>
-<span><span class="co">#&gt; abbreviationForestPathol           -0.20      0.92    -2.08     1.54 1.00</span></span>
-<span><span class="co">#&gt; abbreviationJGenPlantPathol        -0.22      0.88    -1.99     1.43 1.00</span></span>
-<span><span class="co">#&gt; abbreviationJPhytopathol           -0.21      0.92    -2.06     1.56 1.00</span></span>
+<span><span class="co">#&gt; Intercept[1]                        0.18      0.79    -1.39     1.71 1.00</span></span>
+<span><span class="co">#&gt; Intercept[2]                        0.56      0.78    -0.98     2.09 1.00</span></span>
+<span><span class="co">#&gt; abbreviationAustralasPlantPath     -0.13      0.94    -2.03     1.65 1.00</span></span>
+<span><span class="co">#&gt; abbreviationCanJPlantPathol        -0.20      0.92    -2.06     1.57 1.00</span></span>
+<span><span class="co">#&gt; abbreviationCropProt               -0.24      0.89    -2.02     1.44 1.00</span></span>
+<span><span class="co">#&gt; abbreviationEurJPlantPathol        -0.19      0.91    -2.02     1.54 1.00</span></span>
+<span><span class="co">#&gt; abbreviationForestPathol           -0.21      0.90    -2.00     1.50 1.00</span></span>
+<span><span class="co">#&gt; abbreviationJPhytopathol           -0.35      0.86    -2.08     1.30 1.00</span></span>
 <span><span class="co">#&gt; abbreviationJPlantPathol           -0.23      0.90    -2.05     1.48 1.00</span></span>
-<span><span class="co">#&gt; abbreviationMolPlantMicroIn         0.47      0.84    -1.21     2.06 1.00</span></span>
-<span><span class="co">#&gt; abbreviationMolPlantPathol         -0.27      0.89    -2.09     1.40 1.00</span></span>
-<span><span class="co">#&gt; abbreviationNematology             -0.21      0.91    -2.03     1.54 1.00</span></span>
-<span><span class="co">#&gt; abbreviationPhysiolMolPlantP       -0.25      0.91    -2.08     1.47 1.00</span></span>
-<span><span class="co">#&gt; abbreviationPhytoparasitica        -0.27      0.92    -2.14     1.47 1.00</span></span>
-<span><span class="co">#&gt; abbreviationPhytopatholMediterr    -0.20      0.91    -2.02     1.53 1.00</span></span>
-<span><span class="co">#&gt; abbreviationPlantDis               -0.18      0.91    -2.00     1.55 1.00</span></span>
-<span><span class="co">#&gt; abbreviationPlantHealthProgress    -0.16      0.94    -2.03     1.63 1.00</span></span>
-<span><span class="co">#&gt; abbreviationPlantPathol            -0.24      0.89    -2.02     1.44 1.00</span></span>
-<span><span class="co">#&gt; abbreviationRevMexFitopatol        -0.23      0.90    -2.02     1.48 1.00</span></span>
-<span><span class="co">#&gt; abbreviationTropPlantPathol         0.65      0.88    -1.12     2.33 1.00</span></span>
-<span><span class="co">#&gt; abbreviationVirolJ                 -0.16      0.92    -2.00     1.59 1.00</span></span>
+<span><span class="co">#&gt; abbreviationMolPlantMicroIn         0.47      0.84    -1.24     2.06 1.00</span></span>
+<span><span class="co">#&gt; abbreviationMolPlantPathol         -0.28      0.88    -2.07     1.39 1.00</span></span>
+<span><span class="co">#&gt; abbreviationNematology             -0.22      0.91    -2.05     1.50 1.00</span></span>
+<span><span class="co">#&gt; abbreviationPhysiolMolPlantP       -0.24      0.90    -2.03     1.46 1.00</span></span>
+<span><span class="co">#&gt; abbreviationPhytoparasitica        -0.26      0.90    -2.10     1.44 1.00</span></span>
+<span><span class="co">#&gt; abbreviationPhytopatholMediterr    -0.21      0.92    -2.10     1.54 1.00</span></span>
+<span><span class="co">#&gt; abbreviationPlantDis               -0.19      0.92    -2.05     1.54 1.00</span></span>
+<span><span class="co">#&gt; abbreviationPlantHealthProgress    -0.17      0.92    -2.02     1.61 1.00</span></span>
+<span><span class="co">#&gt; abbreviationPlantPathol            -0.26      0.89    -2.08     1.43 1.00</span></span>
+<span><span class="co">#&gt; abbreviationRevMexFitopatol        -0.25      0.90    -2.08     1.42 1.00</span></span>
+<span><span class="co">#&gt; abbreviationTropPlantPathol         0.64      0.88    -1.16     2.34 1.00</span></span>
+<span><span class="co">#&gt; abbreviationVirolJ                 -0.15      0.92    -1.98     1.60 1.00</span></span>
 <span><span class="co">#&gt;                                 Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; Intercept[1]                       20726    13682</span></span>
-<span><span class="co">#&gt; Intercept[2]                       22881    13517</span></span>
-<span><span class="co">#&gt; abbreviationAustralasPlantPath     29511    14408</span></span>
-<span><span class="co">#&gt; abbreviationCanJPlantPathol        31007    14254</span></span>
-<span><span class="co">#&gt; abbreviationCropProt               27964    14610</span></span>
-<span><span class="co">#&gt; abbreviationEurJPlantPathol        28679    13433</span></span>
-<span><span class="co">#&gt; abbreviationForestPathol           29590    14553</span></span>
-<span><span class="co">#&gt; abbreviationJGenPlantPathol        30320    14292</span></span>
-<span><span class="co">#&gt; abbreviationJPhytopathol           31370    14073</span></span>
-<span><span class="co">#&gt; abbreviationJPlantPathol           29899    13640</span></span>
-<span><span class="co">#&gt; abbreviationMolPlantMicroIn        28962    13688</span></span>
-<span><span class="co">#&gt; abbreviationMolPlantPathol         31339    14491</span></span>
-<span><span class="co">#&gt; abbreviationNematology             31060    13861</span></span>
-<span><span class="co">#&gt; abbreviationPhysiolMolPlantP       30574    14436</span></span>
-<span><span class="co">#&gt; abbreviationPhytoparasitica        31493    13159</span></span>
-<span><span class="co">#&gt; abbreviationPhytopatholMediterr    31257    14233</span></span>
-<span><span class="co">#&gt; abbreviationPlantDis               30114    14942</span></span>
-<span><span class="co">#&gt; abbreviationPlantHealthProgress    30920    13814</span></span>
-<span><span class="co">#&gt; abbreviationPlantPathol            31177    14733</span></span>
-<span><span class="co">#&gt; abbreviationRevMexFitopatol        30717    14231</span></span>
-<span><span class="co">#&gt; abbreviationTropPlantPathol        30999    14783</span></span>
-<span><span class="co">#&gt; abbreviationVirolJ                 31629    14461</span></span>
+<span><span class="co">#&gt; Intercept[1]                       20931    13951</span></span>
+<span><span class="co">#&gt; Intercept[2]                       23037    15441</span></span>
+<span><span class="co">#&gt; abbreviationAustralasPlantPath     30560    15255</span></span>
+<span><span class="co">#&gt; abbreviationCanJPlantPathol        31547    14543</span></span>
+<span><span class="co">#&gt; abbreviationCropProt               30803    14980</span></span>
+<span><span class="co">#&gt; abbreviationEurJPlantPathol        28502    14393</span></span>
+<span><span class="co">#&gt; abbreviationForestPathol           32011    14845</span></span>
+<span><span class="co">#&gt; abbreviationJPhytopathol           31433    14064</span></span>
+<span><span class="co">#&gt; abbreviationJPlantPathol           29448    14156</span></span>
+<span><span class="co">#&gt; abbreviationMolPlantMicroIn        30388    14703</span></span>
+<span><span class="co">#&gt; abbreviationMolPlantPathol         31545    13679</span></span>
+<span><span class="co">#&gt; abbreviationNematology             31961    15150</span></span>
+<span><span class="co">#&gt; abbreviationPhysiolMolPlantP       31067    14704</span></span>
+<span><span class="co">#&gt; abbreviationPhytoparasitica        30741    13121</span></span>
+<span><span class="co">#&gt; abbreviationPhytopatholMediterr    30516    14256</span></span>
+<span><span class="co">#&gt; abbreviationPlantDis               27095    14430</span></span>
+<span><span class="co">#&gt; abbreviationPlantHealthProgress    30774    13922</span></span>
+<span><span class="co">#&gt; abbreviationPlantPathol            33260    13203</span></span>
+<span><span class="co">#&gt; abbreviationRevMexFitopatol        29959    13382</span></span>
+<span><span class="co">#&gt; abbreviationTropPlantPathol        29416    12912</span></span>
+<span><span class="co">#&gt; abbreviationVirolJ                 30947    14755</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Family Specific Parameters: </span></span>
 <span><span class="co">#&gt;      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
@@ -270,8 +257,8 @@ in the following model.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://easystats.github.io/bayestestR/reference/equivalence_test.html" class="external-link">equivalence_test</a></span><span class="op">(</span><span class="va">m_f1</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Picking joint bandwidth of 0.0979</span></span>
-<span><span class="co">#&gt; Warning: Removed 22000 rows containing non-finite values (stat_density_ridges).</span></span></code></pre></div>
+<span><span class="co">#&gt; Picking joint bandwidth of 0.0973</span></span>
+<span><span class="co">#&gt; Warning: Removed 21000 rows containing non-finite values (stat_density_ridges).</span></span></code></pre></div>
 <p><img src="f_analysis_journal_files/figure-html/code-7.png" width="614.4"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
@@ -289,157 +276,36 @@ in the following model.</p>
 <span><span class="co">#&gt; likely invalid for ordinal families.</span></span>
 <span><span class="co">#&gt; Warning: 'data_findcols()' is deprecated and will be removed in a future update.</span></span>
 <span><span class="co">#&gt;   Its usage is discouraged. Please use 'data_find()' instead.</span></span></code></pre></div>
-<p>We fitted a Bayesian logistic mixed model (estimated using MCMC
-sampling with 4 chains of 10000 iterations and a warmup of 5000) to
-predict comp_mthds_avail with abbreviation (formula: comp_mthds_avail ~
-abbreviation). The model included assignee as random effect (formula: ~1
-| assignee). Priors over parameters were set as normal (mean = 0.00, SD
-= 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD =
-1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00),
-normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal
-(mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean
-= 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean =
-0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00,
-SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD =
-1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00),
-normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal
-(mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean
-= 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean =
-0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00,
-SD = 1.00), normal (mean = 0.00, SD = 1.00) and student_t (location =
-0.00, scale = 2.50) distributions. The model’s explanatory power is weak
-(R2 = 0.03, 95% CI [7.61e-04, 0.10]) and the part related to the fixed
-effects alone (marginal R2) is of 0.44 (95% CI [0.35, 0.47]). Within
-this model:</p>
+<p>We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict comp_mthds_avail with abbreviation (formula: comp_mthds_avail ~ abbreviation). The model included assignee as random effect (formula: ~1 | assignee). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00) and student_t (location = 0.00, scale = 2.50) distributions. The model’s explanatory power is weak (R2 = 0.03, 95% CI [5.31e-04, 0.10]) and the part related to the fixed effects alone (marginal R2) is of 0.43 (95% CI [0.35, 0.47]). Within this model:</p>
 <ul>
-<li>The effect of b Intercept[1] (Median = 0.19, 95% CI [-1.36, 1.72])
-has a 59.40% probability of being positive (&gt; 0), 56.81% of being
-significant (&gt; 0.05), and 44.12% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 29651)</li>
-<li>The effect of b Intercept[2] (Median = 0.57, 95% CI [-0.95, 2.10])
-has a 77.05% probability of being positive (&gt; 0), 74.98% of being
-significant (&gt; 0.05), and 63.90% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 30587)</li>
-<li>The effect of b abbreviationAustralasPlantPath (Median = -0.12, 95%
-CI [-2.06, 1.70]) has a 54.94% probability of being negative (&lt; 0),
-52.80% of being significant (&lt; -0.05), and 42.30% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 27705)</li>
-<li>The effect of b abbreviationCanJPlantPathol (Median = -0.18, 95% CI
-[-2.03, 1.54]) has a 57.45% probability of being negative (&lt; 0),
-55.39% of being significant (&lt; -0.05), and 44.66% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 28262)</li>
-<li>The effect of b abbreviationCropProt (Median = -0.23, 95% CI [-2.04,
-1.46]) has a 59.85% probability of being negative (&lt; 0), 57.73% of
-being significant (&lt; -0.05), and 46.72% of being large (&lt; -0.30).
-The estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 29300)</li>
-<li>The effect of b abbreviationEurJPlantPathol (Median = -0.17, 95% CI
-[-2.04, 1.56]) has a 57.18% probability of being negative (&lt; 0),
-55.09% of being significant (&lt; -0.05), and 44.21% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 29573)</li>
-<li>The effect of b abbreviationForestPathol (Median = -0.18, 95% CI
-[-2.08, 1.54]) has a 57.90% probability of being negative (&lt; 0),
-55.70% of being significant (&lt; -0.05), and 44.91% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 31258)</li>
-<li>The effect of b abbreviationJGenPlantPathol (Median = -0.20, 95% CI
-[-1.99, 1.43]) has a 58.68% probability of being negative (&lt; 0),
-56.53% of being significant (&lt; -0.05), and 45.55% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 29277)</li>
-<li>The effect of b abbreviationJPhytopathol (Median = -0.19, 95% CI
-[-2.06, 1.56]) has a 57.99% probability of being negative (&lt; 0),
-55.88% of being significant (&lt; -0.05), and 45.23% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 28624)</li>
-<li>The effect of b abbreviationJPlantPathol (Median = -0.21, 95% CI
-[-2.05, 1.48]) has a 59.26% probability of being negative (&lt; 0),
-56.92% of being significant (&lt; -0.05), and 46.18% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 30983)</li>
-<li>The effect of b abbreviationMolPlantMicroIn (Median = 0.50, 95% CI
-[-1.21, 2.06]) has a 72.02% probability of being positive (&gt; 0),
-70.09% of being significant (&gt; 0.05), and 59.07% of being large (&gt;
-0.30). The estimation successfully converged (Rhat = 1.000) and the
-indices are reliable (ESS = 30414)</li>
-<li>The effect of b abbreviationMolPlantPathol (Median = -0.25, 95% CI
-[-2.09, 1.40]) has a 60.82% probability of being negative (&lt; 0),
-58.68% of being significant (&lt; -0.05), and 47.88% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 30157)</li>
-<li>The effect of b abbreviationNematology (Median = -0.21, 95% CI
-[-2.03, 1.54]) has a 58.55% probability of being negative (&lt; 0),
-56.36% of being significant (&lt; -0.05), and 45.85% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 30847)</li>
-<li>The effect of b abbreviationPhysiolMolPlantP (Median = -0.23, 95% CI
-[-2.08, 1.47]) has a 59.77% probability of being negative (&lt; 0),
-57.68% of being significant (&lt; -0.05), and 46.77% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 30812)</li>
-<li>The effect of b abbreviationPhytoparasitica (Median = -0.25, 95% CI
-[-2.14, 1.47]) has a 60.26% probability of being negative (&lt; 0),
-58.20% of being significant (&lt; -0.05), and 47.52% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 29939)</li>
-<li>The effect of b abbreviationPhytopatholMediterr (Median = -0.18, 95%
-CI [-2.02, 1.53]) has a 58.05% probability of being negative (&lt; 0),
-55.83% of being significant (&lt; -0.05), and 44.89% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 30533)</li>
-<li>The effect of b abbreviationPlantDis (Median = -0.16, 95% CI [-2.00,
-1.55]) has a 57.16% probability of being negative (&lt; 0), 54.90% of
-being significant (&lt; -0.05), and 43.92% of being large (&lt; -0.30).
-The estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 31033)</li>
-<li>The effect of b abbreviationPlantHealthProgress (Median = -0.15, 95%
-CI [-2.03, 1.63]) has a 56.38% probability of being negative (&lt; 0),
-54.31% of being significant (&lt; -0.05), and 43.79% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 30250)</li>
-<li>The effect of b abbreviationPlantPathol (Median = -0.22, 95% CI
-[-2.02, 1.44]) has a 59.85% probability of being negative (&lt; 0),
-57.49% of being significant (&lt; -0.05), and 46.38% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 31019)</li>
-<li>The effect of b abbreviationRevMexFitopatol (Median = -0.21, 95% CI
-[-2.02, 1.48]) has a 59.25% probability of being negative (&lt; 0),
-56.86% of being significant (&lt; -0.05), and 45.77% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 31371)</li>
-<li>The effect of b abbreviationTropPlantPathol (Median = 0.67, 95% CI
-[-1.12, 2.33]) has a 77.16% probability of being positive (&gt; 0),
-75.41% of being significant (&gt; 0.05), and 66.07% of being large (&gt;
-0.30). The estimation successfully converged (Rhat = 1.000) and the
-indices are reliable (ESS = 20693)</li>
-<li>The effect of b abbreviationVirolJ (Median = -0.14, 95% CI [-2.00,
-1.59]) has a 55.94% probability of being negative (&lt; 0), 53.89% of
-being significant (&lt; -0.05), and 43.13% of being large (&lt; -0.30).
-The estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 22806)</li>
+<li>The effect of b Intercept[1] (Median = 0.17, 95% CI [-1.39, 1.71]) has a 58.67% probability of being positive (&gt; 0), 56.15% of being significant (&gt; 0.05), and 43.77% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 30384)</li>
+<li>The effect of b Intercept[2] (Median = 0.56, 95% CI [-0.98, 2.09]) has a 76.53% probability of being positive (&gt; 0), 74.45% of being significant (&gt; 0.05), and 63.12% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 31899)</li>
+<li>The effect of b abbreviationAustralasPlantPath (Median = -0.12, 95% CI [-2.03, 1.65]) has a 54.62% probability of being negative (&lt; 0), 52.61% of being significant (&lt; -0.05), and 42.38% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 30761)</li>
+<li>The effect of b abbreviationCanJPlantPathol (Median = -0.18, 95% CI [-2.06, 1.57]) has a 57.91% probability of being negative (&lt; 0), 55.74% of being significant (&lt; -0.05), and 45.12% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 28147)</li>
+<li>The effect of b abbreviationCropProt (Median = -0.22, 95% CI [-2.02, 1.44]) has a 60.01% probability of being negative (&lt; 0), 57.68% of being significant (&lt; -0.05), and 46.62% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 31905)</li>
+<li>The effect of b abbreviationEurJPlantPathol (Median = -0.17, 95% CI [-2.02, 1.54]) has a 57.45% probability of being negative (&lt; 0), 55.41% of being significant (&lt; -0.05), and 44.25% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 31231)</li>
+<li>The effect of b abbreviationForestPathol (Median = -0.20, 95% CI [-2.00, 1.50]) has a 58.38% probability of being negative (&lt; 0), 56.31% of being significant (&lt; -0.05), and 45.25% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 29064)</li>
+<li>The effect of b abbreviationJPhytopathol (Median = -0.33, 95% CI [-2.08, 1.30]) has a 64.91% probability of being negative (&lt; 0), 62.83% of being significant (&lt; -0.05), and 51.61% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 30218)</li>
+<li>The effect of b abbreviationJPlantPathol (Median = -0.21, 95% CI [-2.05, 1.48]) has a 59.29% probability of being negative (&lt; 0), 56.93% of being significant (&lt; -0.05), and 45.91% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 31148)</li>
+<li>The effect of b abbreviationMolPlantMicroIn (Median = 0.49, 95% CI [-1.24, 2.06]) has a 71.78% probability of being positive (&gt; 0), 69.86% of being significant (&gt; 0.05), and 58.86% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 31652)</li>
+<li>The effect of b abbreviationMolPlantPathol (Median = -0.26, 95% CI [-2.07, 1.39]) has a 61.45% probability of being negative (&lt; 0), 59.19% of being significant (&lt; -0.05), and 48.20% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 30455)</li>
+<li>The effect of b abbreviationNematology (Median = -0.20, 95% CI [-2.05, 1.50]) has a 58.54% probability of being negative (&lt; 0), 56.44% of being significant (&lt; -0.05), and 45.63% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 30267)</li>
+<li>The effect of b abbreviationPhysiolMolPlantP (Median = -0.21, 95% CI [-2.03, 1.46]) has a 59.51% probability of being negative (&lt; 0), 57.32% of being significant (&lt; -0.05), and 46.48% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 29855)</li>
+<li>The effect of b abbreviationPhytoparasitica (Median = -0.24, 95% CI [-2.10, 1.44]) has a 60.60% probability of being negative (&lt; 0), 58.53% of being significant (&lt; -0.05), and 47.22% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 26753)</li>
+<li>The effect of b abbreviationPhytopatholMediterr (Median = -0.19, 95% CI [-2.10, 1.54]) has a 58.48% probability of being negative (&lt; 0), 56.09% of being significant (&lt; -0.05), and 45.34% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 30382)</li>
+<li>The effect of b abbreviationPlantDis (Median = -0.17, 95% CI [-2.05, 1.54]) has a 57.09% probability of being negative (&lt; 0), 55.07% of being significant (&lt; -0.05), and 44.64% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 32634)</li>
+<li>The effect of b abbreviationPlantHealthProgress (Median = -0.15, 95% CI [-2.02, 1.61]) has a 56.42% probability of being negative (&lt; 0), 54.13% of being significant (&lt; -0.05), and 43.53% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 29507)</li>
+<li>The effect of b abbreviationPlantPathol (Median = -0.24, 95% CI [-2.08, 1.43]) has a 60.72% probability of being negative (&lt; 0), 58.48% of being significant (&lt; -0.05), and 47.30% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 29672)</li>
+<li>The effect of b abbreviationRevMexFitopatol (Median = -0.22, 95% CI [-2.08, 1.42]) has a 59.52% probability of being negative (&lt; 0), 57.26% of being significant (&lt; -0.05), and 46.58% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 31230)</li>
+<li>The effect of b abbreviationTropPlantPathol (Median = 0.66, 95% CI [-1.16, 2.34]) has a 77.12% probability of being positive (&gt; 0), 75.34% of being significant (&gt; 0.05), and 66.14% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 20885)</li>
+<li>The effect of b abbreviationVirolJ (Median = -0.13, 95% CI [-1.98, 1.60]) has a 55.52% probability of being negative (&lt; 0), 53.33% of being significant (&lt; -0.05), and 42.50% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 22977)</li>
 </ul>
-<p>Following the Sequential Effect eXistence and sIgnificance Testing
-(SEXIT) framework, we report the median of the posterior distribution
-and its 95% CI (Highest Density Interval), along the probability of
-direction (pd), the probability of significance and the probability of
-being large. The thresholds beyond which the effect is considered as
-significant (i.e., non-negligible) and large are |0.05| and |0.30|.
-Convergence and stability of the Bayesian sampling has been assessed
-using R-hat, which should be below 1.01 (Vehtari et al., 2019), and
-Effective Sample Size (ESS), which should be greater than 1000 (Burkner,
-2017).</p>
+<p>Following the Sequential Effect eXistence and sIgnificance Testing (SEXIT) framework, we report the median of the posterior distribution and its 95% CI (Highest Density Interval), along the probability of direction (pd), the probability of significance and the probability of being large. The thresholds beyond which the effect is considered as significant (i.e., non-negligible) and large are |0.05| and |0.30|. Convergence and stability of the Bayesian sampling has been assessed using R-hat, which should be below 1.01 (Vehtari et al., 2019), and Effective Sample Size (ESS), which should be greater than 1000 (Burkner, 2017).</p>
 </div>
 <div class="section level4">
 <h4 id="data-availability">Data Availability<a class="anchor" aria-label="anchor" href="#data-availability"></a>
 </h4>
-<p>Test the effect that the journal may have on the availability of
-data. Base level is set to <em>Phytopathology</em>, the journal that
-will be used as the intercept in the following model.</p>
+<p>Test the effect that the journal may have on the availability of data. Base level is set to <em>Phytopathology</em>, the journal that will be used as the intercept in the following model.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># reimport data due to changes in previous model dropping NA values</span></span>
 <span><span class="va">rrpp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/import_notes.html">import_notes</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -475,57 +341,55 @@ will be used as the intercept in the following model.</p>
 <span><span class="co">#&gt; Group-Level Effects: </span></span>
 <span><span class="co">#&gt; ~assignee (Number of levels: 5) </span></span>
 <span><span class="co">#&gt;               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; sd(Intercept)     2.38      1.36     0.34     5.72 1.00     3674     2662</span></span>
+<span><span class="co">#&gt; sd(Intercept)     2.45      1.37     0.48     5.80 1.00     3620     2767</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Population-Level Effects: </span></span>
 <span><span class="co">#&gt;                                 Estimate Est.Error l-95% CI u-95% CI Rhat</span></span>
-<span><span class="co">#&gt; Intercept[1]                        0.35      0.69    -0.99     1.66 1.00</span></span>
-<span><span class="co">#&gt; Intercept[2]                        0.69      0.69    -0.65     1.99 1.00</span></span>
-<span><span class="co">#&gt; Intercept[3]                        1.20      0.69    -0.14     2.50 1.00</span></span>
-<span><span class="co">#&gt; abbreviationAustralasPlantPath      0.55      0.63    -0.72     1.73 1.00</span></span>
-<span><span class="co">#&gt; abbreviationCanJPlantPathol         0.23      0.55    -0.90     1.27 1.00</span></span>
-<span><span class="co">#&gt; abbreviationCropProt               -1.29      0.70    -2.73    -0.01 1.00</span></span>
-<span><span class="co">#&gt; abbreviationEurJPlantPathol         0.03      0.58    -1.15     1.12 1.00</span></span>
-<span><span class="co">#&gt; abbreviationForestPathol           -0.12      0.57    -1.28     0.93 1.00</span></span>
-<span><span class="co">#&gt; abbreviationJGenPlantPathol         0.07      0.53    -1.02     1.06 1.00</span></span>
-<span><span class="co">#&gt; abbreviationJPhytopathol           -0.80      0.65    -2.14     0.39 1.00</span></span>
-<span><span class="co">#&gt; abbreviationJPlantPathol            0.14      0.53    -0.95     1.15 1.00</span></span>
-<span><span class="co">#&gt; abbreviationMolPlantMicroIn         0.67      0.47    -0.27     1.57 1.00</span></span>
-<span><span class="co">#&gt; abbreviationMolPlantPathol          0.96      0.40     0.15     1.75 1.00</span></span>
-<span><span class="co">#&gt; abbreviationNematology             -0.24      0.62    -1.51     0.93 1.00</span></span>
-<span><span class="co">#&gt; abbreviationPhysiolMolPlantP        0.54      0.46    -0.41     1.42 1.00</span></span>
-<span><span class="co">#&gt; abbreviationPhytoparasitica        -0.23      0.56    -1.40     0.81 1.00</span></span>
-<span><span class="co">#&gt; abbreviationPhytopatholMediterr     1.25      0.46     0.33     2.14 1.00</span></span>
-<span><span class="co">#&gt; abbreviationPlantDis               -1.31      0.70    -2.75    -0.02 1.00</span></span>
-<span><span class="co">#&gt; abbreviationPlantHealthProgress    -0.67      0.66    -2.03     0.55 1.00</span></span>
-<span><span class="co">#&gt; abbreviationPlantPathol            -0.09      0.48    -1.07     0.82 1.00</span></span>
-<span><span class="co">#&gt; abbreviationRevMexFitopatol        -1.20      0.70    -2.66     0.09 1.00</span></span>
-<span><span class="co">#&gt; abbreviationTropPlantPathol         0.33      0.55    -0.79     1.36 1.00</span></span>
-<span><span class="co">#&gt; abbreviationVirolJ                  0.84      0.45    -0.05     1.71 1.00</span></span>
+<span><span class="co">#&gt; Intercept[1]                        0.39      0.68    -0.96     1.69 1.00</span></span>
+<span><span class="co">#&gt; Intercept[2]                        0.67      0.68    -0.66     1.96 1.00</span></span>
+<span><span class="co">#&gt; Intercept[3]                        1.14      0.68    -0.19     2.43 1.00</span></span>
+<span><span class="co">#&gt; abbreviationAustralasPlantPath      0.60      0.65    -0.71     1.84 1.00</span></span>
+<span><span class="co">#&gt; abbreviationCanJPlantPathol         0.28      0.55    -0.83     1.32 1.00</span></span>
+<span><span class="co">#&gt; abbreviationCropProt               -1.26      0.70    -2.73     0.02 1.00</span></span>
+<span><span class="co">#&gt; abbreviationEurJPlantPathol         0.06      0.58    -1.11     1.15 1.00</span></span>
+<span><span class="co">#&gt; abbreviationForestPathol           -0.11      0.56    -1.26     0.95 1.00</span></span>
+<span><span class="co">#&gt; abbreviationJPhytopathol           -0.26      0.47    -1.22     0.62 1.00</span></span>
+<span><span class="co">#&gt; abbreviationJPlantPathol            0.14      0.53    -0.94     1.14 1.00</span></span>
+<span><span class="co">#&gt; abbreviationMolPlantMicroIn         0.54      0.49    -0.43     1.47 1.00</span></span>
+<span><span class="co">#&gt; abbreviationMolPlantPathol          0.93      0.42     0.10     1.75 1.00</span></span>
+<span><span class="co">#&gt; abbreviationNematology             -0.22      0.63    -1.51     0.95 1.00</span></span>
+<span><span class="co">#&gt; abbreviationPhysiolMolPlantP        0.58      0.46    -0.34     1.47 1.00</span></span>
+<span><span class="co">#&gt; abbreviationPhytoparasitica        -0.49      0.59    -1.72     0.62 1.00</span></span>
+<span><span class="co">#&gt; abbreviationPhytopatholMediterr     1.68      0.45     0.78     2.57 1.00</span></span>
+<span><span class="co">#&gt; abbreviationPlantDis               -1.29      0.70    -2.74    -0.02 1.00</span></span>
+<span><span class="co">#&gt; abbreviationPlantHealthProgress    -0.62      0.68    -2.01     0.64 1.00</span></span>
+<span><span class="co">#&gt; abbreviationPlantPathol            -0.10      0.49    -1.08     0.83 1.00</span></span>
+<span><span class="co">#&gt; abbreviationRevMexFitopatol        -1.17      0.71    -2.64     0.12 1.00</span></span>
+<span><span class="co">#&gt; abbreviationTropPlantPathol         0.35      0.55    -0.76     1.39 1.00</span></span>
+<span><span class="co">#&gt; abbreviationVirolJ                  0.87      0.45    -0.03     1.73 1.00</span></span>
 <span><span class="co">#&gt;                                 Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; Intercept[1]                        4910     4051</span></span>
-<span><span class="co">#&gt; Intercept[2]                        4954     4244</span></span>
-<span><span class="co">#&gt; Intercept[3]                        5078     4870</span></span>
-<span><span class="co">#&gt; abbreviationAustralasPlantPath     32028    14710</span></span>
-<span><span class="co">#&gt; abbreviationCanJPlantPathol        27728    13503</span></span>
-<span><span class="co">#&gt; abbreviationCropProt               34017    12844</span></span>
-<span><span class="co">#&gt; abbreviationEurJPlantPathol        28199    14139</span></span>
-<span><span class="co">#&gt; abbreviationForestPathol           28508    12957</span></span>
-<span><span class="co">#&gt; abbreviationJGenPlantPathol        28807    13756</span></span>
-<span><span class="co">#&gt; abbreviationJPhytopathol           31295    12637</span></span>
-<span><span class="co">#&gt; abbreviationJPlantPathol           28557    14363</span></span>
-<span><span class="co">#&gt; abbreviationMolPlantMicroIn        25454    14842</span></span>
-<span><span class="co">#&gt; abbreviationMolPlantPathol         22457    14821</span></span>
-<span><span class="co">#&gt; abbreviationNematology             29852    14212</span></span>
-<span><span class="co">#&gt; abbreviationPhysiolMolPlantP       26813    15787</span></span>
-<span><span class="co">#&gt; abbreviationPhytoparasitica        27140    13898</span></span>
-<span><span class="co">#&gt; abbreviationPhytopatholMediterr    25981    14816</span></span>
-<span><span class="co">#&gt; abbreviationPlantDis               30780    12398</span></span>
-<span><span class="co">#&gt; abbreviationPlantHealthProgress    31532    13636</span></span>
-<span><span class="co">#&gt; abbreviationPlantPathol            25159    14143</span></span>
-<span><span class="co">#&gt; abbreviationRevMexFitopatol        34704    13776</span></span>
-<span><span class="co">#&gt; abbreviationTropPlantPathol        27180    14511</span></span>
-<span><span class="co">#&gt; abbreviationVirolJ                 24027    14588</span></span>
+<span><span class="co">#&gt; Intercept[1]                        4568     3906</span></span>
+<span><span class="co">#&gt; Intercept[2]                        4664     4086</span></span>
+<span><span class="co">#&gt; Intercept[3]                        4714     4124</span></span>
+<span><span class="co">#&gt; abbreviationAustralasPlantPath     22627    13881</span></span>
+<span><span class="co">#&gt; abbreviationCanJPlantPathol        21135    13461</span></span>
+<span><span class="co">#&gt; abbreviationCropProt               21486    12619</span></span>
+<span><span class="co">#&gt; abbreviationEurJPlantPathol        21775    14610</span></span>
+<span><span class="co">#&gt; abbreviationForestPathol           21731    14352</span></span>
+<span><span class="co">#&gt; abbreviationJPhytopathol           18205    14551</span></span>
+<span><span class="co">#&gt; abbreviationJPlantPathol           20686    13080</span></span>
+<span><span class="co">#&gt; abbreviationMolPlantMicroIn        19686    14899</span></span>
+<span><span class="co">#&gt; abbreviationMolPlantPathol         16352    15135</span></span>
+<span><span class="co">#&gt; abbreviationNematology             22979    14528</span></span>
+<span><span class="co">#&gt; abbreviationPhysiolMolPlantP       17852    14071</span></span>
+<span><span class="co">#&gt; abbreviationPhytoparasitica        21850    14704</span></span>
+<span><span class="co">#&gt; abbreviationPhytopatholMediterr    17618    14568</span></span>
+<span><span class="co">#&gt; abbreviationPlantDis               22659    13861</span></span>
+<span><span class="co">#&gt; abbreviationPlantHealthProgress    22211    13652</span></span>
+<span><span class="co">#&gt; abbreviationPlantPathol            19092    14954</span></span>
+<span><span class="co">#&gt; abbreviationRevMexFitopatol        25025    13729</span></span>
+<span><span class="co">#&gt; abbreviationTropPlantPathol        20973    13741</span></span>
+<span><span class="co">#&gt; abbreviationVirolJ                 17193    14863</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Family Specific Parameters: </span></span>
 <span><span class="co">#&gt;      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
@@ -544,8 +408,8 @@ will be used as the intercept in the following model.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://easystats.github.io/bayestestR/reference/equivalence_test.html" class="external-link">equivalence_test</a></span><span class="op">(</span><span class="va">m_f2</span><span class="op">)</span>, range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.1</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Picking joint bandwidth of 0.0633</span></span>
-<span><span class="co">#&gt; Warning: Removed 23000 rows containing non-finite values (stat_density_ridges).</span></span></code></pre></div>
+<span><span class="co">#&gt; Picking joint bandwidth of 0.0631</span></span>
+<span><span class="co">#&gt; Warning: Removed 22000 rows containing non-finite values (stat_density_ridges).</span></span></code></pre></div>
 <p><img src="f_analysis_journal_files/figure-html/data-7.png" width="614.4"></p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
@@ -563,158 +427,32 @@ will be used as the intercept in the following model.</p>
 <span><span class="co">#&gt; likely invalid for ordinal families.</span></span>
 <span><span class="co">#&gt; Warning: 'data_findcols()' is deprecated and will be removed in a future update.</span></span>
 <span><span class="co">#&gt;   Its usage is discouraged. Please use 'data_find()' instead.</span></span></code></pre></div>
-<p>We fitted a Bayesian logistic mixed model (estimated using MCMC
-sampling with 4 chains of 10000 iterations and a warmup of 5000) to
-predict data_avail with abbreviation (formula: data_avail ~
-abbreviation). The model included assignee as random effect (formula: ~1
-| assignee). Priors over parameters were set as normal (mean = 0.00, SD
-= 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD =
-1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00),
-normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal
-(mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean
-= 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean =
-0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00,
-SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD =
-1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00),
-normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal
-(mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean
-= 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean =
-0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00,
-SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD =
-1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00),
-normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal
-(mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00) and student_t
-(location = 0.00, scale = 2.50) distributions. The model’s explanatory
-power is weak (R2 = 0.10, 95% CI [0.06, 0.15]) and the part related to
-the fixed effects alone (marginal R2) is of 0.19 (95% CI [0.07, 0.27]).
-Within this model:</p>
+<p>We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict data_avail with abbreviation (formula: data_avail ~ abbreviation). The model included assignee as random effect (formula: ~1 | assignee). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00) and student_t (location = 0.00, scale = 2.50) distributions. The model’s explanatory power is weak (R2 = 0.12, 95% CI [0.07, 0.17]) and the part related to the fixed effects alone (marginal R2) is of 0.20 (95% CI [0.09, 0.28]). Within this model:</p>
 <ul>
-<li>The effect of b Intercept[1] (Median = 0.34, 95% CI [-0.99, 1.66])
-has a 68.57% probability of being positive (&gt; 0), 66.23% of being
-significant (&gt; 0.05), and 51.98% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 31547)</li>
-<li>The effect of b Intercept[2] (Median = 0.67, 95% CI [-0.65, 1.99])
-has a 83.67% probability of being positive (&gt; 0), 81.77% of being
-significant (&gt; 0.05), and 70.48% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 27171)</li>
-<li>The effect of b Intercept[3] (Median = 1.19, 95% CI [-0.14, 2.50])
-has a 96.06% probability of being positive (&gt; 0), 95.32% of being
-significant (&gt; 0.05), and 90.22% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 32205)</li>
-<li>The effect of b abbreviationAustralasPlantPath (Median = 0.57, 95%
-CI [-0.72, 1.73]) has a 81.27% probability of being positive (&gt; 0),
-79.27% of being significant (&gt; 0.05), and 66.52% of being large (&gt;
-0.30). The estimation successfully converged (Rhat = 1.000) and the
-indices are reliable (ESS = 27880)</li>
-<li>The effect of b abbreviationCanJPlantPathol (Median = 0.25, 95% CI
-[-0.90, 1.27]) has a 67.86% probability of being positive (&gt; 0),
-64.51% of being significant (&gt; 0.05), and 46.36% of being large (&gt;
-0.30). The estimation successfully converged (Rhat = 1.000) and the
-indices are reliable (ESS = 27696)</li>
-<li>The effect of b abbreviationCropProt (Median = -1.26, 95% CI [-2.73,
--0.01]) has a 97.61% probability of being negative (&lt; 0), 97.02% of
-being significant (&lt; -0.05), and 93.14% of being large (&lt; -0.30).
-The estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 27968)</li>
-<li>The effect of b abbreviationEurJPlantPathol (Median = 0.05, 95% CI
-[-1.15, 1.12]) has a 53.30% probability of being positive (&gt; 0),
-49.96% of being significant (&gt; 0.05), and 33.03% of being large (&gt;
-0.30). The estimation successfully converged (Rhat = 1.000) and the
-indices are reliable (ESS = 29917)</li>
-<li>The effect of b abbreviationForestPathol (Median = -0.10, 95% CI
-[-1.28, 0.93]) has a 57.48% probability of being negative (&lt; 0),
-53.96% of being significant (&lt; -0.05), and 36.11% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 28634)</li>
-<li>The effect of b abbreviationJGenPlantPathol (Median = 0.08, 95% CI
-[-1.02, 1.06]) has a 56.39% probability of being positive (&gt; 0),
-52.62% of being significant (&gt; 0.05), and 33.59% of being large (&gt;
-0.30). The estimation successfully converged (Rhat = 1.000) and the
-indices are reliable (ESS = 25423)</li>
-<li>The effect of b abbreviationJPhytopathol (Median = -0.77, 95% CI
-[-2.14, 0.39]) has a 90.08% probability of being negative (&lt; 0),
-88.38% of being significant (&lt; -0.05), and 77.90% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 22402)</li>
-<li>The effect of b abbreviationJPlantPathol (Median = 0.15, 95% CI
-[-0.95, 1.15]) has a 61.49% probability of being positive (&gt; 0),
-57.77% of being significant (&gt; 0.05), and 38.89% of being large (&gt;
-0.30). The estimation successfully converged (Rhat = 1.000) and the
-indices are reliable (ESS = 29101)</li>
-<li>The effect of b abbreviationMolPlantMicroIn (Median = 0.68, 95% CI
-[-0.27, 1.57]) has a 91.79% probability of being positive (&gt; 0),
-90.39% of being significant (&gt; 0.05), and 78.70% of being large (&gt;
-0.30). The estimation successfully converged (Rhat = 1.000) and the
-indices are reliable (ESS = 26589)</li>
-<li>The effect of b abbreviationMolPlantPathol (Median = 0.97, 95% CI
-[0.15, 1.75]) has a 99.00% probability of being positive (&gt; 0),
-98.59% of being significant (&gt; 0.05), and 94.84% of being large (&gt;
-0.30). The estimation successfully converged (Rhat = 1.000) and the
-indices are reliable (ESS = 26320)</li>
-<li>The effect of b abbreviationNematology (Median = -0.22, 95% CI
-[-1.51, 0.93]) has a 64.00% probability of being negative (&lt; 0),
-60.91% of being significant (&lt; -0.05), and 44.63% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 26182)</li>
-<li>The effect of b abbreviationPhysiolMolPlantP (Median = 0.55, 95% CI
-[-0.41, 1.42]) has a 87.88% probability of being positive (&gt; 0),
-85.65% of being significant (&gt; 0.05), and 70.30% of being large (&gt;
-0.30). The estimation successfully converged (Rhat = 1.000) and the
-indices are reliable (ESS = 29513)</li>
-<li>The effect of b abbreviationPhytoparasitica (Median = -0.21, 95% CI
-[-1.40, 0.81]) has a 65.09% probability of being negative (&lt; 0),
-61.56% of being significant (&lt; -0.05), and 43.63% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 30020)</li>
-<li>The effect of b abbreviationPhytopatholMediterr (Median = 1.26, 95%
-CI [0.33, 2.14]) has a 99.50% probability of being positive (&gt; 0),
-99.37% of being significant (&gt; 0.05), and 97.77% of being large (&gt;
-0.30). The estimation successfully converged (Rhat = 1.000) and the
-indices are reliable (ESS = 24628)</li>
-<li>The effect of b abbreviationPlantDis (Median = -1.27, 95% CI [-2.75,
--0.02]) has a 97.67% probability of being negative (&lt; 0), 97.22% of
-being significant (&lt; -0.05), and 93.37% of being large (&lt; -0.30).
-The estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 33167)</li>
-<li>The effect of b abbreviationPlantHealthProgress (Median = -0.65, 95%
-CI [-2.03, 0.55]) has a 84.41% probability of being negative (&lt; 0),
-82.35% of being significant (&lt; -0.05), and 70.23% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 26790)</li>
-<li>The effect of b abbreviationPlantPathol (Median = -0.08, 95% CI
-[-1.07, 0.82]) has a 56.55% probability of being negative (&lt; 0),
-52.27% of being significant (&lt; -0.05), and 32.34% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and
-the indices are reliable (ESS = 23905)</li>
-<li>The effect of b abbreviationRevMexFitopatol (Median = -1.18, 95% CI
-[-2.66, 0.09]) has a 96.51% probability of being negative (&lt; 0),
-95.84% of being significant (&lt; -0.05), and 90.68% of being large
-(&lt; -0.30). The estimation successfully converged (Rhat = 1.001) and
-the indices are reliable (ESS = 5016)</li>
-<li>The effect of b abbreviationTropPlantPathol (Median = 0.34, 95% CI
-[-0.79, 1.36]) has a 73.15% probability of being positive (&gt; 0),
-70.23% of being significant (&gt; 0.05), and 52.84% of being large (&gt;
-0.30). The estimation successfully converged (Rhat = 1.001) and the
-indices are reliable (ESS = 5073)</li>
-<li>The effect of b abbreviationVirolJ (Median = 0.85, 95% CI [-0.05,
-1.71]) has a 96.72% probability of being positive (&gt; 0), 95.95% of
-being significant (&gt; 0.05), and 88.75% of being large (&gt; 0.30).
-The estimation successfully converged (Rhat = 1.001) and the indices are
-reliable (ESS = 5175)</li>
+<li>The effect of b Intercept[1] (Median = 0.39, 95% CI [-0.96, 1.69]) has a 71.58% probability of being positive (&gt; 0), 69.20% of being significant (&gt; 0.05), and 55.39% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 22513)</li>
+<li>The effect of b Intercept[2] (Median = 0.67, 95% CI [-0.66, 1.96]) has a 83.34% probability of being positive (&gt; 0), 81.49% of being significant (&gt; 0.05), and 70.58% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 20870)</li>
+<li>The effect of b Intercept[3] (Median = 1.14, 95% CI [-0.19, 2.43]) has a 95.13% probability of being positive (&gt; 0), 94.33% of being significant (&gt; 0.05), and 88.70% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 20200)</li>
+<li>The effect of b abbreviationAustralasPlantPath (Median = 0.62, 95% CI [-0.71, 1.84]) has a 82.77% probability of being positive (&gt; 0), 80.62% of being significant (&gt; 0.05), and 68.65% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 21647)</li>
+<li>The effect of b abbreviationCanJPlantPathol (Median = 0.30, 95% CI [-0.83, 1.32]) has a 70.20% probability of being positive (&gt; 0), 67.20% of being significant (&gt; 0.05), and 49.81% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 21568)</li>
+<li>The effect of b abbreviationCropProt (Median = -1.23, 95% CI [-2.73, 0.02]) has a 97.23% probability of being negative (&lt; 0), 96.65% of being significant (&lt; -0.05), and 92.14% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 18003)</li>
+<li>The effect of b abbreviationEurJPlantPathol (Median = 0.08, 95% CI [-1.11, 1.15]) has a 55.45% probability of being positive (&gt; 0), 52.05% of being significant (&gt; 0.05), and 35.24% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 20336)</li>
+<li>The effect of b abbreviationForestPathol (Median = -0.09, 95% CI [-1.26, 0.95]) has a 56.55% probability of being negative (&lt; 0), 52.98% of being significant (&lt; -0.05), and 35.68% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 19561)</li>
+<li>The effect of b abbreviationJPhytopathol (Median = -0.25, 95% CI [-1.22, 0.62]) has a 70.81% probability of being negative (&lt; 0), 67.04% of being significant (&lt; -0.05), and 45.68% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 16327)</li>
+<li>The effect of b abbreviationJPlantPathol (Median = 0.15, 95% CI [-0.94, 1.14]) has a 61.59% probability of being positive (&gt; 0), 57.98% of being significant (&gt; 0.05), and 39.11% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 22361)</li>
+<li>The effect of b abbreviationMolPlantMicroIn (Median = 0.54, 95% CI [-0.43, 1.47]) has a 86.74% probability of being positive (&gt; 0), 84.44% of being significant (&gt; 0.05), and 69.24% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 17765)</li>
+<li>The effect of b abbreviationMolPlantPathol (Median = 0.94, 95% CI [0.10, 1.75]) has a 98.67% probability of being positive (&gt; 0), 98.11% of being significant (&gt; 0.05), and 93.08% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 21343)</li>
+<li>The effect of b abbreviationNematology (Median = -0.19, 95% CI [-1.51, 0.95]) has a 62.33% probability of being negative (&lt; 0), 59.38% of being significant (&lt; -0.05), and 43.31% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 17610)</li>
+<li>The effect of b abbreviationPhysiolMolPlantP (Median = 0.59, 95% CI [-0.34, 1.47]) has a 89.25% probability of being positive (&gt; 0), 87.19% of being significant (&gt; 0.05), and 72.90% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 22282)</li>
+<li>The effect of b abbreviationPhytoparasitica (Median = -0.47, 95% CI [-1.72, 0.62]) has a 79.19% probability of being negative (&lt; 0), 76.67% of being significant (&lt; -0.05), and 61.48% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 21371)</li>
+<li>The effect of b abbreviationPhytopatholMediterr (Median = 1.68, 95% CI [0.78, 2.57]) has a 99.99% probability of being positive (&gt; 0), 99.98% of being significant (&gt; 0.05), and 99.83% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 19017)</li>
+<li>The effect of b abbreviationPlantDis (Median = -1.26, 95% CI [-2.74, -0.02]) has a 97.67% probability of being negative (&lt; 0), 97.06% of being significant (&lt; -0.05), and 92.84% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 24185)</li>
+<li>The effect of b abbreviationPlantHealthProgress (Median = -0.59, 95% CI [-2.01, 0.64]) has a 82.13% probability of being negative (&lt; 0), 80.01% of being significant (&lt; -0.05), and 67.30% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 20364)</li>
+<li>The effect of b abbreviationPlantPathol (Median = -0.08, 95% CI [-1.08, 0.83]) has a 57.09% probability of being negative (&lt; 0), 52.75% of being significant (&lt; -0.05), and 33.05% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 17100)</li>
+<li>The effect of b abbreviationRevMexFitopatol (Median = -1.15, 95% CI [-2.64, 0.12]) has a 95.95% probability of being negative (&lt; 0), 95.05% of being significant (&lt; -0.05), and 89.37% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.001) and the indices are reliable (ESS = 4719)</li>
+<li>The effect of b abbreviationTropPlantPathol (Median = 0.35, 95% CI [-0.76, 1.39]) has a 74.18% probability of being positive (&gt; 0), 71.14% of being significant (&gt; 0.05), and 53.95% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.001) and the indices are reliable (ESS = 4809)</li>
+<li>The effect of b abbreviationVirolJ (Median = 0.87, 95% CI [-0.03, 1.73]) has a 97.06% probability of being positive (&gt; 0), 96.36% of being significant (&gt; 0.05), and 89.73% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.001) and the indices are reliable (ESS = 4869)</li>
 </ul>
-<p>Following the Sequential Effect eXistence and sIgnificance Testing
-(SEXIT) framework, we report the median of the posterior distribution
-and its 95% CI (Highest Density Interval), along the probability of
-direction (pd), the probability of significance and the probability of
-being large. The thresholds beyond which the effect is considered as
-significant (i.e., non-negligible) and large are |0.05| and |0.30|.
-Convergence and stability of the Bayesian sampling has been assessed
-using R-hat, which should be below 1.01 (Vehtari et al., 2019), and
-Effective Sample Size (ESS), which should be greater than 1000 (Burkner,
-2017).</p>
+<p>Following the Sequential Effect eXistence and sIgnificance Testing (SEXIT) framework, we report the median of the posterior distribution and its 95% CI (Highest Density Interval), along the probability of direction (pd), the probability of significance and the probability of being large. The thresholds beyond which the effect is considered as significant (i.e., non-negligible) and large are |0.05| and |0.30|. Convergence and stability of the Bayesian sampling has been assessed using R-hat, which should be below 1.01 (Vehtari et al., 2019), and Effective Sample Size (ESS), which should be greater than 1000 (Burkner, 2017).</p>
 </div>
 </div>
 <div class="section level3">
@@ -744,8 +482,8 @@ Effective Sample Size (ESS), which should be greater than 1000 (Burkner,
 <span><span class="co">#&gt;  collate  en_AU.UTF-8</span></span>
 <span><span class="co">#&gt;  ctype    en_AU.UTF-8</span></span>
 <span><span class="co">#&gt;  tz       Australia/Perth</span></span>
-<span><span class="co">#&gt;  date     2022-07-07</span></span>
-<span><span class="co">#&gt;  pandoc   2.17.1.1 @ /Applications/RStudio.app/Contents/MacOS/quarto/bin/ (via rmarkdown)</span></span>
+<span><span class="co">#&gt;  date     2022-07-08</span></span>
+<span><span class="co">#&gt;  pandoc   2.14.0.1 @ /usr/local/bin/ (via rmarkdown)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────</span></span></span>
 <span><span class="co">#&gt;  <span style="color: #555555; font-style: italic;">package                           </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version </span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span></span>
@@ -838,7 +576,7 @@ Effective Sample Size (ESS), which should be greater than 1000 (Burkner,
 <span><span class="co">#&gt;  plyr                                 1.8.7    <span style="color: #555555;">2022-03-24</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  posterior                            1.2.2    <span style="color: #555555;">2022-06-09</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  prettyunits                          1.1.1    <span style="color: #555555;">2020-01-24</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  processx                             3.6.1    <span style="color: #555555;">2022-06-17</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  processx                             3.7.0    <span style="color: #555555;">2022-07-07</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
 <span><span class="co">#&gt;  projpred                             2.1.2    <span style="color: #555555;">2022-05-13</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  promises                             1.2.0.1  <span style="color: #555555;">2021-02-11</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  ps                                   1.7.1    <span style="color: #555555;">2022-06-18</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
@@ -850,14 +588,13 @@ Effective Sample Size (ESS), which should be greater than 1000 (Burkner,
 <span><span class="co">#&gt;  readODS                              1.7.0    <span style="color: #555555;">2020-07-10</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  readr                                2.1.2    <span style="color: #555555;">2022-01-30</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  report                             * 0.5.1    <span style="color: #555555;">2022-02-22</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  Reproducibility.in.Plant.Pathology * 0.0.7    <span style="color: #555555;">2022-07-07</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
+<span><span class="co">#&gt;  Reproducibility.in.Plant.Pathology * 0.0.7    <span style="color: #555555;">2022-07-08</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
 <span><span class="co">#&gt;  reshape2                             1.4.4    <span style="color: #555555;">2020-04-09</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  rlang                                1.0.3    <span style="color: #555555;">2022-06-27</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
 <span><span class="co">#&gt;  rmarkdown                            2.14     <span style="color: #555555;">2022-04-25</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  rprojroot                            2.0.3    <span style="color: #555555;">2022-04-02</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  rstan                                2.21.5   <span style="color: #555555;">2022-04-11</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  rstantools                           2.2.0    <span style="color: #555555;">2022-04-08</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  rstudioapi                           0.13     <span style="color: #555555;">2020-11-12</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  sandwich                             3.0-2    <span style="color: #555555;">2022-06-15</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  sass                                 0.4.1    <span style="color: #555555;">2022-03-23</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  scales                               1.2.0    <span style="color: #555555;">2022-04-13</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
@@ -890,7 +627,7 @@ Effective Sample Size (ESS), which should be greater than 1000 (Burkner,
 <span><span class="co">#&gt;  yaml                                 2.3.5    <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  zoo                                  1.8-10   <span style="color: #555555;">2022-04-15</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> [1] /private/var/folders/hc/tft3s5bn48gb81cs99mycyf00000gn/T/RtmpYnFb88/temp_libpath10334ac48f07</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;"> [1] /private/var/folders/hc/tft3s5bn48gb81cs99mycyf00000gn/T/Rtmpo68He0/temp_libpathcb5746a94b7</span></span></span>
 <span><span class="co">#&gt; <span style="color: #555555;"> [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library</span></span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────</span></span></span></code></pre></div>

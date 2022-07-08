@@ -105,12 +105,10 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Retrieving References Using DOI and Generate
-Database</h1>
-                        <h4 data-toc-skip class="author">Adam H.
-Sparks</h4>
+      <h1 data-toc-skip>Retrieving References Using DOI and Generate Database</h1>
+                        <h4 data-toc-skip class="author">Adam H. Sparks</h4>
             
-            <h4 data-toc-skip class="date">2022-07-07</h4>
+            <h4 data-toc-skip class="date">2022-07-08</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/HEAD/vignettes/c_retrieving_references.Rmd" class="external-link"><code>vignettes/c_retrieving_references.Rmd</code></a></small>
       <div class="hidden name"><code>c_retrieving_references.Rmd</code></div>
@@ -122,8 +120,7 @@ Sparks</h4>
 <div class="section level3">
 <h3 id="load-the-dois">Load the DOIs<a class="anchor" aria-label="anchor" href="#load-the-dois"></a>
 </h3>
-<p>Load DOIs from the gsheet template used to create the notes file. The
-DOIs were recorded when the initial articles were assigned.</p>
+<p>Load DOIs from the gsheet template used to create the notes file. The DOIs were recorded when the initial articles were assigned.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">doi</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu">googlesheets4</span><span class="fu">::</span><span class="fu"><a href="https://googlesheets4.tidyverse.org/reference/range_read.html" class="external-link">read_sheet</a></span><span class="op">(</span></span>
@@ -135,22 +132,14 @@ DOIs were recorded when the initial articles were assigned.</p>
 <div class="section level3">
 <h3 id="some-journals-do-not-provide-a-doi">Some journals do not provide a DOI!<a class="anchor" aria-label="anchor" href="#some-journals-do-not-provide-a-doi"></a>
 </h3>
-<p>For some reason, even now, some journals are not minting DOIs. Those
-journals will be removed from the automated search for references. They
-will be manually added later.</p>
+<p>For some reason, even now, some journals are not minting DOIs. Those journals will be removed from the automated search for references. They will be manually added later.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">doi</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html" class="external-link">na.omit</a></span><span class="op">(</span><span class="va">doi</span><span class="op">[</span>, <span class="st">"doi"</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="write-doi-values-to-text-file">Write DOI values to text file<a class="anchor" aria-label="anchor" href="#write-doi-values-to-text-file"></a>
 </h3>
-<p>The DOI values were written to a text file and Zotero was used to
-fetch the reference for the DOIs using the “Add Items by Identifier” by
-copy-pasting the string of DOIs from the text file into the search
-field. The resulting library was exported from Zotero and checked for
-integrity and cleaned using JabRef. Entries that had invalid or missing
-DOI values were manually added to the resulting .bib file. This
-resulting file is saved as <code>inst/references.bib</code>.</p>
+<p>The DOI values were written to a text file and Zotero was used to fetch the reference for the DOIs using the “Add Items by Identifier” by copy-pasting the string of DOIs from the text file into the search field. The resulting library was exported from Zotero and checked for integrity and cleaned using JabRef. Entries that had invalid or missing DOI values were manually added to the resulting .bib file. This resulting file is saved as <code>inst/references.bib</code>.</p>
 </div>
 <div class="section level3">
 <h3 id="print-the-references-">Print the references.<a class="anchor" aria-label="anchor" href="#print-the-references-"></a>
@@ -367,7 +356,7 @@ resulting file is saved as <code>inst/references.bib</code>.</p>
 <span><span class="co">## doi:10.1007/s40858-014-0001-9</span></span>
 <span><span class="co">## &lt;https://doi.org/10.1007/s40858-014-0001-9&gt;, &lt;2022-02-11&gt;.</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## CANIK OREL D, KARAGOZ A, DURMAZ R, ERTUNC F (2016). "Phenotypic and</span></span>
+<span><span class="co">## Canik Orel D, Karagoz A, Durmaz R, Ertunc F (2016). "Phenotypic and</span></span>
 <span><span class="co">## Molecular Characterization of \textlessem\textgreater{Rhizobium}</span></span>
 <span><span class="co">## Vitis\textless/em\textgreater Strains from Vineyards in Turkey."</span></span>
 <span><span class="co">## _Phytopathologia Mediterranea_, *55*(1). ISSN 15932095, 00319465,</span></span>
@@ -387,7 +376,7 @@ resulting file is saved as <code>inst/references.bib</code>.</p>
 <span><span class="co">## 0894-0282, 1943-7706, doi:10.1094/MPMI-07-11-0193</span></span>
 <span><span class="co">## &lt;https://doi.org/10.1094/MPMI-07-11-0193&gt;, &lt;2022-02-11&gt;.</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## HAIDUKOWSKI M, COZZI G, DIPIERRO N, BAVARO SL, LOGRIECO AF, PACIOLLA C</span></span>
+<span><span class="co">## Haidukowski M, Cozzi G, Dipierro N, Bavaro SL, Logrieco AF, Paciolla C</span></span>
 <span><span class="co">## (2017). "Decontamination of Fumonisin B1 in Maize Grain by</span></span>
 <span><span class="co">## \textlessem\textgreater{Pleurotus} Eryngii\textless/em\textgreater and</span></span>
 <span><span class="co">## Antioxidant Enzymes." _Phytopathologia Mediterranea_, *56*(1). ISSN</span></span>
@@ -515,7 +504,7 @@ resulting file is saved as <code>inst/references.bib</code>.</p>
 <span><span class="co">## 96-104. ISSN 1345-2630, 1610-739X, doi:10.1007/s10327-013-0428-8</span></span>
 <span><span class="co">## &lt;https://doi.org/10.1007/s10327-013-0428-8&gt;, &lt;2022-02-11&gt;.</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## BALCONI C, BERARDO N, LOCATELLI S, LANZANOVA C, TORRI A, REDAELLI R</span></span>
+<span><span class="co">## Balconi C, Berardo N, Locatelli S, Lanzanova C, Torri A, Redaelli R</span></span>
 <span><span class="co">## (2014). "Evaluation of Ear Rot (\textlessem\textgreater{Fusarium}</span></span>
 <span><span class="co">## Verticillioides\textless/em\textgreater) Resistance and Fumonisin</span></span>
 <span><span class="co">## Accumulation in Italian Maize Inbred Lines." _Phytopathologia</span></span>
@@ -2628,17 +2617,18 @@ resulting file is saved as <code>inst/references.bib</code>.</p>
 <span><span class="co">## 71-79. ISSN 1125-4653, 2239-7264, doi:10.1007/s42161-018-0138-3</span></span>
 <span><span class="co">## &lt;https://doi.org/10.1007/s42161-018-0138-3&gt;, &lt;2022-02-11&gt;.</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## BOSSO L, RUSSO D, DI FEBBRARO M, CRISTINZIO G, ZOINA A (2016).</span></span>
+<span><span class="co">## Bosso L, Russo D, Di Febbraro M, Cristinzio G, Zoina A (2016).</span></span>
 <span><span class="co">## "Potential Distribution of \textlessem\textgreater{Xylella}</span></span>
 <span><span class="co">## Fastidiosa\textless/em\textgreater in Italy: A Maximum Entropy Model."</span></span>
 <span><span class="co">## _Phytopathologia Mediterranea_, *55*(1). ISSN 15932095, 00319465,</span></span>
 <span><span class="co">## doi:10.14601/Phytopathol_Mediterr-16429</span></span>
 <span><span class="co">## &lt;https://doi.org/10.14601/Phytopathol_Mediterr-16429&gt;, &lt;2022-02-11&gt;.</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## CARLUCCI A, Francesco LOPS, MOSTERT L, HALLEEN F, RAIMONDO ML (2017).</span></span>
-<span><span class="co">## "Occurrence Fungi Causing Black Foot on Young Grapevines and Nursery</span></span>
-<span><span class="co">## Rootstock Plants in Italy." _Phytopathologia Mediterranea_, *56*(1).</span></span>
-<span><span class="co">## ISSN 15932095, 00319465, doi:10.14601/Phytopathol_Mediterr-18769</span></span>
+<span><span class="co">## Carlucci A, Francesco L. O. P. S. And Mostert L, Halleen F, Raimondo ML</span></span>
+<span><span class="co">## (2017). "Occurrence Fungi Causing Black Foot on Young Grapevines and</span></span>
+<span><span class="co">## Nursery Rootstock Plants in Italy." _Phytopathologia Mediterranea_,</span></span>
+<span><span class="co">## *56*(1). ISSN 15932095, 00319465,</span></span>
+<span><span class="co">## doi:10.14601/Phytopathol_Mediterr-18769</span></span>
 <span><span class="co">## &lt;https://doi.org/10.14601/Phytopathol_Mediterr-18769&gt;, &lt;2022-02-11&gt;.</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Bogo A, Casa RT, Rufato L, Gonçalves MJ (2012). "The Effect of Hail</span></span>
@@ -3308,8 +3298,8 @@ resulting file is saved as <code>inst/references.bib</code>.</p>
 <span><span class="co">##  collate  en_AU.UTF-8</span></span>
 <span><span class="co">##  ctype    en_AU.UTF-8</span></span>
 <span><span class="co">##  tz       Australia/Perth</span></span>
-<span><span class="co">##  date     2022-07-07</span></span>
-<span><span class="co">##  pandoc   2.17.1.1 @ /Applications/RStudio.app/Contents/MacOS/quarto/bin/ (via rmarkdown)</span></span>
+<span><span class="co">##  date     2022-07-08</span></span>
+<span><span class="co">##  pandoc   2.14.0.1 @ /usr/local/bin/ (via rmarkdown)</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────</span></span></span>
 <span><span class="co">##  <span style="color: #555555; font-style: italic;">package                           </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version</span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span></span>
@@ -3332,11 +3322,10 @@ resulting file is saved as <code>inst/references.bib</code>.</p>
 <span><span class="co">##  purrr                                0.3.4   <span style="color: #555555;">2020-04-17</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">##  R6                                   2.5.1   <span style="color: #555555;">2021-08-19</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">##  ragg                                 1.2.2   <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">##  Reproducibility.in.Plant.Pathology * 0.0.7   <span style="color: #555555;">2022-07-07</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
+<span><span class="co">##  Reproducibility.in.Plant.Pathology * 0.0.7   <span style="color: #555555;">2022-07-08</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
 <span><span class="co">##  rlang                                1.0.3   <span style="color: #555555;">2022-06-27</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
 <span><span class="co">##  rmarkdown                            2.14    <span style="color: #555555;">2022-04-25</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">##  rprojroot                            2.0.3   <span style="color: #555555;">2022-04-02</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">##  rstudioapi                           0.13    <span style="color: #555555;">2020-11-12</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">##  sass                                 0.4.1   <span style="color: #555555;">2022-03-23</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">##  sessioninfo                          1.2.2   <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">##  stringi                              1.7.6   <span style="color: #555555;">2021-11-29</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
@@ -3346,7 +3335,7 @@ resulting file is saved as <code>inst/references.bib</code>.</p>
 <span><span class="co">##  xfun                                 0.31    <span style="color: #555555;">2022-05-10</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">##  yaml                                 2.3.5   <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## <span style="color: #555555;"> [1] /private/var/folders/hc/tft3s5bn48gb81cs99mycyf00000gn/T/RtmpYnFb88/temp_libpath10334ac48f07</span></span></span>
+<span><span class="co">## <span style="color: #555555;"> [1] /private/var/folders/hc/tft3s5bn48gb81cs99mycyf00000gn/T/Rtmpo68He0/temp_libpathcb5746a94b7</span></span></span>
 <span><span class="co">## <span style="color: #555555;"> [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library</span></span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────</span></span></span></code></pre>

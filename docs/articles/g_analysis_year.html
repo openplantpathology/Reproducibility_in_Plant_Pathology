@@ -106,10 +106,9 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Analysis of Publication Year Effect</h1>
-                        <h4 data-toc-skip class="author">Adam H.
-Sparks</h4>
+                        <h4 data-toc-skip class="author">Adam H. Sparks</h4>
             
-            <h4 data-toc-skip class="date">2022-07-07</h4>
+            <h4 data-toc-skip class="date">2022-07-08</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/HEAD/vignettes/g_analysis_year.Rmd" class="external-link"><code>vignettes/g_analysis_year.Rmd</code></a></small>
       <div class="hidden name"><code>g_analysis_year.Rmd</code></div>
@@ -118,15 +117,11 @@ Sparks</h4>
 
     
     
-<p>This vignette documents the analysis of the data gathered from
-surveying 21 journals and 450 articles in the field of plant pathology
-for their openness and reproducibility and the effect that the
-publication year had on that score.</p>
+<p>This vignette documents the analysis of the data gathered from surveying 21 journals and 450 articles in the field of plant pathology for their openness and reproducibility and the effect that the publication year had on that score.</p>
 <div class="section level2">
 <h2 id="set-up-workspace">Set-up Workspace<a class="anchor" aria-label="anchor" href="#set-up-workspace"></a>
 </h2>
-<p>Load libraries used and setting the <em>ggplot2</em> theme for the
-document.</p>
+<p>Load libraries used and setting the <em>ggplot2</em> theme for the document.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/paul-buerkner/brms" class="external-link">"brms"</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://easystats.github.io/bayestestR/" class="external-link">"bayestestR"</a></span><span class="op">)</span></span>
@@ -154,10 +149,7 @@ document.</p>
 <div class="section level4">
 <h4 id="computational-methods-availability">Computational Methods Availability<a class="anchor" aria-label="anchor" href="#computational-methods-availability"></a>
 </h4>
-<p>Test the effect that year of publication had on the code
-availability. Here, <code>year</code> is a fixed effect,
-<code>journal</code> and <code>assignee</code> are assigned as random
-effects.</p>
+<p>Test the effect that year of publication had on the code availability. Here, <code>year</code> is a fixed effect, <code>journal</code> and <code>assignee</code> are assigned as random effects.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rrpp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/import_notes.html">import_notes</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">rrpp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html" class="external-link">drop_na</a></span><span class="op">(</span><span class="va">rrpp</span>, <span class="va">comp_mthds_avail</span><span class="op">)</span></span>
@@ -186,27 +178,27 @@ effects.</p>
 <span><span class="co">#&gt;          total post-warmup draws = 20000</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Group-Level Effects: </span></span>
-<span><span class="co">#&gt; ~abbreviation (Number of levels: 21) </span></span>
+<span><span class="co">#&gt; ~abbreviation (Number of levels: 20) </span></span>
 <span><span class="co">#&gt;               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; sd(Intercept)     1.44      0.93     0.10     3.64 1.00     7001     6865</span></span>
+<span><span class="co">#&gt; sd(Intercept)     1.50      0.95     0.12     3.77 1.00     7734     7960</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; ~assignee (Number of levels: 5) </span></span>
 <span><span class="co">#&gt;               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; sd(Intercept)     7.20      3.29     3.18    15.32 1.00     6717    10829</span></span>
+<span><span class="co">#&gt; sd(Intercept)     7.15      3.20     3.14    15.16 1.00     9500    12853</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Population-Level Effects: </span></span>
 <span><span class="co">#&gt;              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; Intercept[1]     0.27      0.80    -1.31     1.83 1.00    19993    14790</span></span>
-<span><span class="co">#&gt; Intercept[2]     0.68      0.80    -0.90     2.22 1.00    22586    15584</span></span>
-<span><span class="co">#&gt; year2013        -0.29      0.88    -2.06     1.37 1.00    23853    14073</span></span>
-<span><span class="co">#&gt; year2014        -0.29      0.89    -2.08     1.40 1.00    25685    14099</span></span>
-<span><span class="co">#&gt; year2015         0.38      0.85    -1.37     1.98 1.00    25608    14850</span></span>
-<span><span class="co">#&gt; year2016         0.44      0.84    -1.26     2.06 1.00    25509    14879</span></span>
-<span><span class="co">#&gt; year2017        -0.32      0.90    -2.11     1.41 1.00    24491    14975</span></span>
-<span><span class="co">#&gt; year2018        -0.29      0.90    -2.09     1.43 1.00    24223    15436</span></span>
-<span><span class="co">#&gt; year2019         0.78      0.76    -0.75     2.24 1.00    23874    15401</span></span>
-<span><span class="co">#&gt; year2020        -0.32      0.89    -2.12     1.36 1.00    24911    14684</span></span>
-<span><span class="co">#&gt; year2021         0.36      0.82    -1.31     1.93 1.00    24249    14405</span></span>
+<span><span class="co">#&gt; Intercept[1]     0.29      0.81    -1.32     1.89 1.00    25804    13198</span></span>
+<span><span class="co">#&gt; Intercept[2]     0.70      0.81    -0.89     2.27 1.00    28107    14843</span></span>
+<span><span class="co">#&gt; year2013        -0.28      0.88    -2.04     1.43 1.00    31528    14497</span></span>
+<span><span class="co">#&gt; year2014        -0.29      0.88    -2.05     1.40 1.00    31400    13908</span></span>
+<span><span class="co">#&gt; year2015         0.38      0.85    -1.31     2.00 1.00    31255    14292</span></span>
+<span><span class="co">#&gt; year2016         0.44      0.83    -1.22     2.03 1.00    31944    14640</span></span>
+<span><span class="co">#&gt; year2017        -0.31      0.88    -2.09     1.38 1.00    31750    14053</span></span>
+<span><span class="co">#&gt; year2018        -0.30      0.89    -2.07     1.43 1.00    33007    15549</span></span>
+<span><span class="co">#&gt; year2019         0.78      0.78    -0.77     2.27 1.00    31007    14311</span></span>
+<span><span class="co">#&gt; year2020        -0.31      0.87    -2.08     1.36 1.00    29577    14123</span></span>
+<span><span class="co">#&gt; year2021         0.34      0.83    -1.32     1.93 1.00    31341    14847</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Family Specific Parameters: </span></span>
 <span><span class="co">#&gt;      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
@@ -225,7 +217,7 @@ effects.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://easystats.github.io/bayestestR/reference/equivalence_test.html" class="external-link">equivalence_test</a></span><span class="op">(</span><span class="va">m_g1</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Picking joint bandwidth of 0.0924</span></span>
+<span><span class="co">#&gt; Picking joint bandwidth of 0.0925</span></span>
 <span><span class="co">#&gt; Warning: Removed 11000 rows containing non-finite values (stat_density_ridges).</span></span></code></pre></div>
 <p><img src="g_analysis_year_files/figure-html/code-5.png" width="614.4"></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
@@ -244,91 +236,21 @@ effects.</p>
 <span><span class="co">#&gt; likely invalid for ordinal families.</span></span>
 <span><span class="co">#&gt; Warning: 'data_findcols()' is deprecated and will be removed in a future update.</span></span>
 <span><span class="co">#&gt;   Its usage is discouraged. Please use 'data_find()' instead.</span></span></code></pre></div>
-<p>We fitted a Bayesian logistic mixed model (estimated using MCMC
-sampling with 4 chains of 10000 iterations and a warmup of 5000) to
-predict comp_mthds_avail with year (formula: comp_mthds_avail ~ year).
-The model included abbreviation and assignee as random effects (formula:
-list(~1 | abbreviation, ~1 | assignee)). Priors over parameters were set
-as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00),
-normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal
-(mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean
-= 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean =
-0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00,
-SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD =
-1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00),
-normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00),
-student_t (location = 0.00, scale = 2.50) and student_t (location =
-0.00, scale = 2.50) distributions. The model’s explanatory power is weak
-(R2 = 0.07, 95% CI [1.21e-03, 0.24]) and the part related to the fixed
-effects alone (marginal R2) is of 0.44 (95% CI [0.33, 0.49]). Within
-this model:</p>
+<p>We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict comp_mthds_avail with year (formula: comp_mthds_avail ~ year). The model included abbreviation and assignee as random effects (formula: list(~1 | abbreviation, ~1 | assignee)). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), student_t (location = 0.00, scale = 2.50) and student_t (location = 0.00, scale = 2.50) distributions. The model’s explanatory power is weak (R2 = 0.07, 95% CI [1.51e-03, 0.25]) and the part related to the fixed effects alone (marginal R2) is of 0.44 (95% CI [0.32, 0.49]). Within this model:</p>
 <ul>
-<li>The effect of b Intercept[1] (Median = 0.28, 95% CI [-1.31, 1.83])
-has a 63.37% probability of being positive (&gt; 0), 61.02% of being
-significant (&gt; 0.05), and 48.99% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 19970)</li>
-<li>The effect of b Intercept[2] (Median = 0.69, 95% CI [-0.90, 2.22])
-has a 80.05% probability of being positive (&gt; 0), 78.21% of being
-significant (&gt; 0.05), and 68.14% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 22564)</li>
-<li>The effect of b year2013 (Median = -0.27, 95% CI [-2.06, 1.37]) has
-a 62.21% probability of being negative (&lt; 0), 60.05% of being
-significant (&lt; -0.05), and 48.81% of being large (&lt; -0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 23650)</li>
-<li>The effect of b year2014 (Median = -0.27, 95% CI [-2.08, 1.40]) has
-a 61.97% probability of being negative (&lt; 0), 59.80% of being
-significant (&lt; -0.05), and 48.52% of being large (&lt; -0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 25456)</li>
-<li>The effect of b year2015 (Median = 0.40, 95% CI [-1.37, 1.98]) has a
-67.97% probability of being positive (&gt; 0), 65.89% of being
-significant (&gt; 0.05), and 54.70% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 25220)</li>
-<li>The effect of b year2016 (Median = 0.46, 95% CI [-1.26, 2.06]) has a
-70.73% probability of being positive (&gt; 0), 68.77% of being
-significant (&gt; 0.05), and 57.40% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 25034)</li>
-<li>The effect of b year2017 (Median = -0.30, 95% CI [-2.11, 1.41]) has
-a 63.24% probability of being negative (&lt; 0), 61.07% of being
-significant (&lt; -0.05), and 49.85% of being large (&lt; -0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 24321)</li>
-<li>The effect of b year2018 (Median = -0.28, 95% CI [-2.09, 1.43]) has
-a 62.67% probability of being negative (&lt; 0), 60.54% of being
-significant (&lt; -0.05), and 49.14% of being large (&lt; -0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 24165)</li>
-<li>The effect of b year2019 (Median = 0.79, 95% CI [-0.75, 2.24]) has a
-85.00% probability of being positive (&gt; 0), 83.45% of being
-significant (&gt; 0.05), and 74.19% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 23683)</li>
-<li>The effect of b year2020 (Median = -0.30, 95% CI [-2.12, 1.36]) has
-a 63.48% probability of being negative (&lt; 0), 61.22% of being
-significant (&lt; -0.05), and 49.95% of being large (&lt; -0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 24611)</li>
-<li>The effect of b year2021 (Median = 0.38, 95% CI [-1.31, 1.93]) has a
-67.73% probability of being positive (&gt; 0), 65.50% of being
-significant (&gt; 0.05), and 53.91% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 24080)</li>
+<li>The effect of b Intercept[1] (Median = 0.29, 95% CI [-1.32, 1.89]) has a 63.63% probability of being positive (&gt; 0), 61.38% of being significant (&gt; 0.05), and 49.43% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 26019)</li>
+<li>The effect of b Intercept[2] (Median = 0.69, 95% CI [-0.89, 2.27]) has a 80.57% probability of being positive (&gt; 0), 78.92% of being significant (&gt; 0.05), and 68.52% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 28270)</li>
+<li>The effect of b year2013 (Median = -0.27, 95% CI [-2.04, 1.43]) has a 61.96% probability of being negative (&lt; 0), 59.67% of being significant (&lt; -0.05), and 48.45% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 31204)</li>
+<li>The effect of b year2014 (Median = -0.27, 95% CI [-2.05, 1.40]) has a 62.27% probability of being negative (&lt; 0), 60.22% of being significant (&lt; -0.05), and 48.94% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 31303)</li>
+<li>The effect of b year2015 (Median = 0.39, 95% CI [-1.31, 2.00]) has a 67.75% probability of being positive (&gt; 0), 65.66% of being significant (&gt; 0.05), and 54.34% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 31206)</li>
+<li>The effect of b year2016 (Median = 0.45, 95% CI [-1.22, 2.03]) has a 70.43% probability of being positive (&gt; 0), 68.44% of being significant (&gt; 0.05), and 57.29% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 31869)</li>
+<li>The effect of b year2017 (Median = -0.30, 95% CI [-2.09, 1.38]) has a 63.51% probability of being negative (&lt; 0), 61.38% of being significant (&lt; -0.05), and 50.18% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 31420)</li>
+<li>The effect of b year2018 (Median = -0.29, 95% CI [-2.07, 1.43]) has a 62.64% probability of being negative (&lt; 0), 60.51% of being significant (&lt; -0.05), and 49.53% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 33386)</li>
+<li>The effect of b year2019 (Median = 0.79, 95% CI [-0.77, 2.27]) has a 84.29% probability of being positive (&gt; 0), 82.64% of being significant (&gt; 0.05), and 73.65% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 30931)</li>
+<li>The effect of b year2020 (Median = -0.30, 95% CI [-2.08, 1.36]) has a 63.50% probability of being negative (&lt; 0), 61.26% of being significant (&lt; -0.05), and 49.97% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 29247)</li>
+<li>The effect of b year2021 (Median = 0.36, 95% CI [-1.32, 1.93]) has a 66.88% probability of being positive (&gt; 0), 64.69% of being significant (&gt; 0.05), and 52.92% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 30811)</li>
 </ul>
-<p>Following the Sequential Effect eXistence and sIgnificance Testing
-(SEXIT) framework, we report the median of the posterior distribution
-and its 95% CI (Highest Density Interval), along the probability of
-direction (pd), the probability of significance and the probability of
-being large. The thresholds beyond which the effect is considered as
-significant (i.e., non-negligible) and large are |0.05| and |0.30|.
-Convergence and stability of the Bayesian sampling has been assessed
-using R-hat, which should be below 1.01 (Vehtari et al., 2019), and
-Effective Sample Size (ESS), which should be greater than 1000 (Burkner,
-2017).</p>
+<p>Following the Sequential Effect eXistence and sIgnificance Testing (SEXIT) framework, we report the median of the posterior distribution and its 95% CI (Highest Density Interval), along the probability of direction (pd), the probability of significance and the probability of being large. The thresholds beyond which the effect is considered as significant (i.e., non-negligible) and large are |0.05| and |0.30|. Convergence and stability of the Bayesian sampling has been assessed using R-hat, which should be below 1.01 (Vehtari et al., 2019), and Effective Sample Size (ESS), which should be greater than 1000 (Burkner, 2017).</p>
 </div>
 <div class="section level4">
 <h4 id="data-availability">Data Availability<a class="anchor" aria-label="anchor" href="#data-availability"></a>
@@ -361,28 +283,28 @@ Effective Sample Size (ESS), which should be greater than 1000 (Burkner,
 <span><span class="co">#&gt;          total post-warmup draws = 20000</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Group-Level Effects: </span></span>
-<span><span class="co">#&gt; ~abbreviation (Number of levels: 21) </span></span>
+<span><span class="co">#&gt; ~abbreviation (Number of levels: 20) </span></span>
 <span><span class="co">#&gt;               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; sd(Intercept)     0.79      0.28     0.33     1.41 1.00     5387     7099</span></span>
+<span><span class="co">#&gt; sd(Intercept)     0.91      0.29     0.45     1.57 1.00     7185    11303</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; ~assignee (Number of levels: 5) </span></span>
 <span><span class="co">#&gt;               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; sd(Intercept)     2.46      1.39     0.40     5.81 1.00     3986     2831</span></span>
+<span><span class="co">#&gt; sd(Intercept)     2.53      1.38     0.56     5.91 1.00     4073     3793</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Population-Level Effects: </span></span>
 <span><span class="co">#&gt;              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
-<span><span class="co">#&gt; Intercept[1]     0.46      0.69    -0.87     1.78 1.00     5702     5479</span></span>
-<span><span class="co">#&gt; Intercept[2]     0.80      0.68    -0.54     2.11 1.00     5745     5646</span></span>
-<span><span class="co">#&gt; Intercept[3]     1.32      0.68    -0.02     2.62 1.00     5923     5920</span></span>
-<span><span class="co">#&gt; year2013        -0.24      0.46    -1.17     0.63 1.00    18463    14670</span></span>
-<span><span class="co">#&gt; year2014        -0.14      0.47    -1.10     0.75 1.00    19806    14004</span></span>
-<span><span class="co">#&gt; year2015         0.35      0.50    -0.64     1.31 1.00    20042    14899</span></span>
-<span><span class="co">#&gt; year2016         0.96      0.41     0.17     1.76 1.00    17174    14469</span></span>
-<span><span class="co">#&gt; year2017        -0.20      0.47    -1.14     0.69 1.00    17475    14933</span></span>
-<span><span class="co">#&gt; year2018         0.14      0.47    -0.78     1.04 1.00    15988    15378</span></span>
-<span><span class="co">#&gt; year2019         0.22      0.44    -0.66     1.06 1.00    16982    15266</span></span>
-<span><span class="co">#&gt; year2020         0.14      0.44    -0.74     0.98 1.00    17495    15461</span></span>
-<span><span class="co">#&gt; year2021         0.57      0.41    -0.24     1.37 1.00    14763    15308</span></span>
+<span><span class="co">#&gt; Intercept[1]     0.44      0.67    -0.89     1.72 1.00     6253     6229</span></span>
+<span><span class="co">#&gt; Intercept[2]     0.73      0.67    -0.60     2.00 1.00     6363     6529</span></span>
+<span><span class="co">#&gt; Intercept[3]     1.21      0.67    -0.14     2.49 1.00     6545     6947</span></span>
+<span><span class="co">#&gt; year2013        -0.39      0.49    -1.38     0.52 1.00    23987    14268</span></span>
+<span><span class="co">#&gt; year2014        -0.26      0.50    -1.28     0.68 1.00    23508    15081</span></span>
+<span><span class="co">#&gt; year2015         0.21      0.52    -0.83     1.21 1.00    24068    14531</span></span>
+<span><span class="co">#&gt; year2016         1.08      0.42     0.26     1.90 1.00    19871    15382</span></span>
+<span><span class="co">#&gt; year2017        -0.29      0.47    -1.23     0.62 1.00    21073    15676</span></span>
+<span><span class="co">#&gt; year2018         0.11      0.47    -0.83     1.02 1.00    19532    15242</span></span>
+<span><span class="co">#&gt; year2019         0.27      0.44    -0.62     1.12 1.00    18881    15473</span></span>
+<span><span class="co">#&gt; year2020         0.11      0.45    -0.80     1.00 1.00    21081    15334</span></span>
+<span><span class="co">#&gt; year2021         0.51      0.42    -0.32     1.33 1.00    18943    16719</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Family Specific Parameters: </span></span>
 <span><span class="co">#&gt;      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS</span></span>
@@ -401,7 +323,7 @@ Effective Sample Size (ESS), which should be greater than 1000 (Burkner,
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://easystats.github.io/bayestestR/reference/equivalence_test.html" class="external-link">equivalence_test</a></span><span class="op">(</span><span class="va">m_g2</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Picking joint bandwidth of 0.0559</span></span>
+<span><span class="co">#&gt; Picking joint bandwidth of 0.0567</span></span>
 <span><span class="co">#&gt; Warning: Removed 12000 rows containing non-finite values (stat_density_ridges).</span></span></code></pre></div>
 <p><img src="g_analysis_year_files/figure-html/data-5.png" width="614.4"></p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
@@ -420,99 +342,22 @@ Effective Sample Size (ESS), which should be greater than 1000 (Burkner,
 <span><span class="co">#&gt; likely invalid for ordinal families.</span></span>
 <span><span class="co">#&gt; Warning: 'data_findcols()' is deprecated and will be removed in a future update.</span></span>
 <span><span class="co">#&gt;   Its usage is discouraged. Please use 'data_find()' instead.</span></span></code></pre></div>
-<p>We fitted a Bayesian logistic mixed model (estimated using MCMC
-sampling with 4 chains of 10000 iterations and a warmup of 5000) to
-predict data_avail with year (formula: data_avail ~ year). The model
-included abbreviation and assignee as random effects (formula: list(~1 |
-abbreviation, ~1 | assignee)). Priors over parameters were set as normal
-(mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean
-= 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean =
-0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00,
-SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD =
-1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00),
-normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal
-(mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean
-= 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean =
-0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00,
-SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD =
-1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00),
-student_t (location = 0.00, scale = 2.50) and student_t (location =
-0.00, scale = 2.50) distributions. The model’s explanatory power is weak
-(R2 = 0.12, 95% CI [0.06, 0.18]) and the part related to the fixed
-effects alone (marginal R2) is of 0.08 (95% CI [0.02, 0.15]). Within
-this model:</p>
+<p>We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict data_avail with year (formula: data_avail ~ year). The model included abbreviation and assignee as random effects (formula: list(~1 | abbreviation, ~1 | assignee)). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), student_t (location = 0.00, scale = 2.50) and student_t (location = 0.00, scale = 2.50) distributions. The model’s explanatory power is moderate (R2 = 0.15, 95% CI [0.08, 0.21]) and the part related to the fixed effects alone (marginal R2) is of 0.09 (95% CI [0.02, 0.17]). Within this model:</p>
 <ul>
-<li>The effect of b Intercept[1] (Median = 0.46, 95% CI [-0.87, 1.78])
-has a 74.03% probability of being positive (&gt; 0), 71.80% of being
-significant (&gt; 0.05), and 58.50% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 5757)</li>
-<li>The effect of b Intercept[2] (Median = 0.79, 95% CI [-0.54, 2.11])
-has a 87.44% probability of being positive (&gt; 0), 85.84% of being
-significant (&gt; 0.05), and 76.19% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 5803)</li>
-<li>The effect of b Intercept[3] (Median = 1.32, 95% CI [-0.02, 2.62])
-has a 97.28% probability of being positive (&gt; 0), 96.80% of being
-significant (&gt; 0.05), and 92.89% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 5982)</li>
-<li>The effect of b year2013 (Median = -0.24, 95% CI [-1.17, 0.63]) has
-a 69.70% probability of being negative (&lt; 0), 65.70% of being
-significant (&lt; -0.05), and 44.40% of being large (&lt; -0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 18500)</li>
-<li>The effect of b year2014 (Median = -0.14, 95% CI [-1.10, 0.75]) has
-a 61.65% probability of being negative (&lt; 0), 57.44% of being
-significant (&lt; -0.05), and 36.04% of being large (&lt; -0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 19674)</li>
-<li>The effect of b year2015 (Median = 0.36, 95% CI [-0.64, 1.31]) has a
-76.11% probability of being positive (&gt; 0), 72.95% of being
-significant (&gt; 0.05), and 54.84% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 19968)</li>
-<li>The effect of b year2016 (Median = 0.96, 95% CI [0.17, 1.76]) has a
-99.10% probability of being positive (&gt; 0), 98.75% of being
-significant (&gt; 0.05), and 94.70% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 17241)</li>
-<li>The effect of b year2017 (Median = -0.19, 95% CI [-1.14, 0.69]) has
-a 66.09% probability of being negative (&lt; 0), 61.79% of being
-significant (&lt; -0.05), and 40.54% of being large (&lt; -0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 17449)</li>
-<li>The effect of b year2018 (Median = 0.15, 95% CI [-0.78, 1.04]) has a
-62.36% probability of being positive (&gt; 0), 58.34% of being
-significant (&gt; 0.05), and 37.82% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 15912)</li>
-<li>The effect of b year2019 (Median = 0.23, 95% CI [-0.66, 1.06]) has a
-69.94% probability of being positive (&gt; 0), 66.02% of being
-significant (&gt; 0.05), and 43.30% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 16946)</li>
-<li>The effect of b year2020 (Median = 0.14, 95% CI [-0.74, 0.98]) has a
-62.58% probability of being positive (&gt; 0), 58.26% of being
-significant (&gt; 0.05), and 35.64% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 17440)</li>
-<li>The effect of b year2021 (Median = 0.57, 95% CI [-0.24, 1.37]) has a
-91.55% probability of being positive (&gt; 0), 89.69% of being
-significant (&gt; 0.05), and 74.65% of being large (&gt; 0.30). The
-estimation successfully converged (Rhat = 1.000) and the indices are
-reliable (ESS = 14742)</li>
+<li>The effect of b Intercept[1] (Median = 0.44, 95% CI [-0.89, 1.72]) has a 74.06% probability of being positive (&gt; 0), 71.80% of being significant (&gt; 0.05), and 58.33% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.001) and the indices are reliable (ESS = 6316)</li>
+<li>The effect of b Intercept[2] (Median = 0.73, 95% CI [-0.60, 2.00]) has a 85.69% probability of being positive (&gt; 0), 84.02% of being significant (&gt; 0.05), and 73.48% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.001) and the indices are reliable (ESS = 6420)</li>
+<li>The effect of b Intercept[3] (Median = 1.21, 95% CI [-0.14, 2.49]) has a 96.14% probability of being positive (&gt; 0), 95.44% of being significant (&gt; 0.05), and 90.90% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.001) and the indices are reliable (ESS = 6604)</li>
+<li>The effect of b year2013 (Median = -0.38, 95% CI [-1.38, 0.52]) has a 78.42% probability of being negative (&lt; 0), 75.42% of being significant (&lt; -0.05), and 56.62% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 23774)</li>
+<li>The effect of b year2014 (Median = -0.25, 95% CI [-1.28, 0.68]) has a 69.97% probability of being negative (&lt; 0), 66.03% of being significant (&lt; -0.05), and 46.02% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 23336)</li>
+<li>The effect of b year2015 (Median = 0.22, 95% CI [-0.83, 1.21]) has a 66.59% probability of being positive (&gt; 0), 62.93% of being significant (&gt; 0.05), and 43.58% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 23777)</li>
+<li>The effect of b year2016 (Median = 1.09, 95% CI [0.26, 1.90]) has a 99.53% probability of being positive (&gt; 0), 99.34% of being significant (&gt; 0.05), and 96.85% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 19806)</li>
+<li>The effect of b year2017 (Median = -0.28, 95% CI [-1.23, 0.62]) has a 72.77% probability of being negative (&lt; 0), 69.17% of being significant (&lt; -0.05), and 48.48% of being large (&lt; -0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 21092)</li>
+<li>The effect of b year2018 (Median = 0.11, 95% CI [-0.83, 1.02]) has a 59.32% probability of being positive (&gt; 0), 55.16% of being significant (&gt; 0.05), and 34.18% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 19481)</li>
+<li>The effect of b year2019 (Median = 0.28, 95% CI [-0.62, 1.12]) has a 72.80% probability of being positive (&gt; 0), 69.01% of being significant (&gt; 0.05), and 47.68% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 18980)</li>
+<li>The effect of b year2020 (Median = 0.11, 95% CI [-0.80, 1.00]) has a 59.93% probability of being positive (&gt; 0), 55.59% of being significant (&gt; 0.05), and 33.70% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 21015)</li>
+<li>The effect of b year2021 (Median = 0.51, 95% CI [-0.32, 1.33]) has a 88.75% probability of being positive (&gt; 0), 86.41% of being significant (&gt; 0.05), and 69.23% of being large (&gt; 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 18898)</li>
 </ul>
-<p>Following the Sequential Effect eXistence and sIgnificance Testing
-(SEXIT) framework, we report the median of the posterior distribution
-and its 95% CI (Highest Density Interval), along the probability of
-direction (pd), the probability of significance and the probability of
-being large. The thresholds beyond which the effect is considered as
-significant (i.e., non-negligible) and large are |0.05| and |0.30|.
-Convergence and stability of the Bayesian sampling has been assessed
-using R-hat, which should be below 1.01 (Vehtari et al., 2019), and
-Effective Sample Size (ESS), which should be greater than 1000 (Burkner,
-2017).</p>
+<p>Following the Sequential Effect eXistence and sIgnificance Testing (SEXIT) framework, we report the median of the posterior distribution and its 95% CI (Highest Density Interval), along the probability of direction (pd), the probability of significance and the probability of being large. The thresholds beyond which the effect is considered as significant (i.e., non-negligible) and large are |0.05| and |0.30|. Convergence and stability of the Bayesian sampling has been assessed using R-hat, which should be below 1.01 (Vehtari et al., 2019), and Effective Sample Size (ESS), which should be greater than 1000 (Burkner, 2017).</p>
 </div>
 </div>
 <div class="section level3">
@@ -542,8 +387,8 @@ Effective Sample Size (ESS), which should be greater than 1000 (Burkner,
 <span><span class="co">#&gt;  collate  en_AU.UTF-8</span></span>
 <span><span class="co">#&gt;  ctype    en_AU.UTF-8</span></span>
 <span><span class="co">#&gt;  tz       Australia/Perth</span></span>
-<span><span class="co">#&gt;  date     2022-07-07</span></span>
-<span><span class="co">#&gt;  pandoc   2.17.1.1 @ /Applications/RStudio.app/Contents/MacOS/quarto/bin/ (via rmarkdown)</span></span>
+<span><span class="co">#&gt;  date     2022-07-08</span></span>
+<span><span class="co">#&gt;  pandoc   2.14.0.1 @ /usr/local/bin/ (via rmarkdown)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────</span></span></span>
 <span><span class="co">#&gt;  <span style="color: #555555; font-style: italic;">package                           </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version </span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span></span>
@@ -636,7 +481,7 @@ Effective Sample Size (ESS), which should be greater than 1000 (Burkner,
 <span><span class="co">#&gt;  plyr                                 1.8.7    <span style="color: #555555;">2022-03-24</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  posterior                            1.2.2    <span style="color: #555555;">2022-06-09</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  prettyunits                          1.1.1    <span style="color: #555555;">2020-01-24</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  processx                             3.6.1    <span style="color: #555555;">2022-06-17</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
+<span><span class="co">#&gt;  processx                             3.7.0    <span style="color: #555555;">2022-07-07</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
 <span><span class="co">#&gt;  projpred                             2.1.2    <span style="color: #555555;">2022-05-13</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  promises                             1.2.0.1  <span style="color: #555555;">2021-02-11</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  ps                                   1.7.1    <span style="color: #555555;">2022-06-18</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
@@ -648,14 +493,13 @@ Effective Sample Size (ESS), which should be greater than 1000 (Burkner,
 <span><span class="co">#&gt;  readODS                              1.7.0    <span style="color: #555555;">2020-07-10</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  readr                                2.1.2    <span style="color: #555555;">2022-01-30</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  report                             * 0.5.1    <span style="color: #555555;">2022-02-22</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  Reproducibility.in.Plant.Pathology * 0.0.7    <span style="color: #555555;">2022-07-07</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
+<span><span class="co">#&gt;  Reproducibility.in.Plant.Pathology * 0.0.7    <span style="color: #555555;">2022-07-08</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
 <span><span class="co">#&gt;  reshape2                             1.4.4    <span style="color: #555555;">2020-04-09</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  rlang                                1.0.3    <span style="color: #555555;">2022-06-27</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
 <span><span class="co">#&gt;  rmarkdown                            2.14     <span style="color: #555555;">2022-04-25</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  rprojroot                            2.0.3    <span style="color: #555555;">2022-04-02</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  rstan                                2.21.5   <span style="color: #555555;">2022-04-11</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  rstantools                           2.2.0    <span style="color: #555555;">2022-04-08</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">#&gt;  rstudioapi                           0.13     <span style="color: #555555;">2020-11-12</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  sandwich                             3.0-2    <span style="color: #555555;">2022-06-15</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  sass                                 0.4.1    <span style="color: #555555;">2022-03-23</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  scales                               1.2.0    <span style="color: #555555;">2022-04-13</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
@@ -688,7 +532,7 @@ Effective Sample Size (ESS), which should be greater than 1000 (Burkner,
 <span><span class="co">#&gt;  yaml                                 2.3.5    <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt;  zoo                                  1.8-10   <span style="color: #555555;">2022-04-15</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; <span style="color: #555555;"> [1] /private/var/folders/hc/tft3s5bn48gb81cs99mycyf00000gn/T/RtmpYnFb88/temp_libpath10334ac48f07</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;"> [1] /private/var/folders/hc/tft3s5bn48gb81cs99mycyf00000gn/T/Rtmpo68He0/temp_libpathcb5746a94b7</span></span></span>
 <span><span class="co">#&gt; <span style="color: #555555;"> [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library</span></span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────</span></span></span></code></pre></div>

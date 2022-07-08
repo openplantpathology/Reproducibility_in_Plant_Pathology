@@ -110,103 +110,126 @@ for use in analysis and manuscript preparation</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">notes</span> <span class="op">&lt;-</span> <span class="fu">import_notes</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">pander</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pander/man/pander.html" class="external-link">pander</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">notes</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      journal        abbreviation    year   contains_page   assignee </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------ --------------- ------ --------------- ----------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Forest Pathology   Forest Pathol   2012        142          Adam   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ----------------------------------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            journal                  abbreviation       year   contains_page </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------ ---------------------- ------ ---------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Australasian Plant Pathology   Australas Plant Path   2014        29       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Forest Pathology   Forest Pathol   2013        144          Adam   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Australasian Plant Pathology   Australas Plant Path   2013        51       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Forest Pathology   Forest Pathol   2021        83           Adam   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Australasian Plant Pathology   Australas Plant Path   2020         8       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Forest Pathology   Forest Pathol   2014        125          Adam   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Australasian Plant Pathology   Australas Plant Path   2017        75       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Forest Pathology   Forest Pathol   2015        114          Adam   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Australasian Plant Pathology   Australas Plant Path   2017        16       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Forest Pathology   Forest Pathol   2018        62         Emerson  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Australasian Plant Pathology   Australas Plant Path   2018        11       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ----------------------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Table: Table continues below</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                doi                  doi_url             comments           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------- --------- ------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  10.1111/j.1439-0329.2011.00729.x   #NAME?                 NA              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  assignee              doi               doi_url </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---------- ---------------------------- ---------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Adam     10.1007/s13313-013-0228-9    #NAME?  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         10.1111/efp.12011           #NAME?                 NA              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Adam     10.1007/s13313-012-0178-7    #NAME?  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         10.1111/efp.12647           #NAME?      No page numbers in this    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                journal, so selected first  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                               article that was research in </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                           2021             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Emerson    10.1007/s13313-019-00670-y   #NAME?  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         10.1111/efp.12076           #NAME?                 NA              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Kaique    10.1007/s13313-017-0465-4    #NAME?  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         10.1111/efp.12134           #NAME?                 NA              </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Kaique    10.1007/s13313-016-0461-0    #NAME?  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         10.1111/efp.12376           #NAME?                 NA              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---------------------------------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Kaique    10.1007/s13313-017-0532-x    #NAME?  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Table: Table continues below</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  open   repro_inst    art_class    molecular   software_cite   software_avail </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------ ------------ ------------- ----------- --------------- ----------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  BOTH       0          Applied         0             0               0        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             comments              open   repro_inst    art_class    molecular </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------- ------ ------------ ------------- -----------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                NA                 BOTH       2          Applied         0     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  BOTH       0        Fundamental       1             0               0        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  When the article was published   BOTH       2          Applied         0     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   I'm not sure that MaxEnt was                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    freely available, however,                                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  very recently (1st half 2017)                                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   it's become freely available                                                </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  BOTH       0        Fundamental       1             2               1        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                NA                 BOTH       2        Fundamental       0     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  BOTH       0          Applied         1             3               2        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                NA                 BOTH       2          Applied         0     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  BOTH       0          Applied         0             3               2        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Original random page number     BOTH       2        Fundamental       1     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  not applicable, selected first                                               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    following plant pathology                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             article                                                           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  BOTH       0          Applied         0             0               0        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                NA                 BOTH       2          Applied         1     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Table: Table continues below</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  comp_mthds_avail   data_avail           software_used           IF_2year </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------ ------------ ------------------------------- ----------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         0               0                     NA                  1.363   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ----------------------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  software_cite   software_avail   comp_mthds_avail   data_avail </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> --------------- ---------------- ------------------ ------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        3               1                 0               0      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         0               2                    NSITE                1.363   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        1               3                 0               3      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         0               1        SPSS, Primer Premier, geNorm,    1.363   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                            RefFinder                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        1               2                 0               0      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         0               0           MAFFT, MEGA, PAUP, SAS        1.363   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        0               0                 0               0      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         0               0                 SAS, Excel              1.363   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        1               2                 0               3      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         0               0                     NA                  1.363   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        2               2                 0               3      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ----------------------------------------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Table: Table continues below</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ----------------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  IF_5year     Source: InCites Journal     uid </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Citation Reports, Clarivate       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   Analytics, 2022             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---------- ----------------------------- -----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1.595                 NA                 1  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          software_used            IF_2year   IF_5year </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------- ---------- ----------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             GenStat                1.599      1.708   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1.595                 NA                 2  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              MaxEnt                1.599      1.708   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1.595                 NA                 3  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              MSTATC                1.599      1.708   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1.595                 NA                 4  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                NA                  1.599      1.708   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1.595                 NA                 5  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  iPhyClassifier, BioEdit, MEGA     1.599      1.708   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1.595                 NA                 6  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ----------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Sequence Scanner, MEGA, MAFFT,    1.599      1.708   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    MrModeltest, MrBayes, PAUP                         </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Table: Table continues below</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -----------------------------------</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Source: InCites Journal     uid </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Citation Reports, Clarivate       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        Analytics, 2022             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ----------------------------- -----</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              NA                 1  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              NA                 2  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              NA                 3  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              NA                 4  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              NA                 5  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              NA                 6  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -----------------------------------</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

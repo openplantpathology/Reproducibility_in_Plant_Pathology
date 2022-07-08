@@ -105,12 +105,10 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Third Round of Assigning Articles to
-Evaluators</h1>
-                        <h4 data-toc-skip class="author">Adam H.
-Sparks</h4>
+      <h1 data-toc-skip>Third Round of Assigning Articles to Evaluators</h1>
+                        <h4 data-toc-skip class="author">Adam H. Sparks</h4>
             
-            <h4 data-toc-skip class="date">2022-07-07</h4>
+            <h4 data-toc-skip class="date">2022-07-08</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/blob/HEAD/vignettes/b3_assigning_articles.Rmd" class="external-link"><code>vignettes/b3_assigning_articles.Rmd</code></a></small>
       <div class="hidden name"><code>b3_assigning_articles.Rmd</code></div>
@@ -122,12 +120,8 @@ Sparks</h4>
 <div class="section level3">
 <h3 id="creating-a-sample-of-articles">Creating a sample of articles<a class="anchor" aria-label="anchor" href="#creating-a-sample-of-articles"></a>
 </h3>
-<p>As a third round in response to reviewers’ comments, we sampled 150
-additional articles from the same 21 journals to bring the coverage of
-articles up to 2021. That is, this round covers the years 2019-2021.</p>
-<p>As before with the second round of reviews after the initial set,
-aside from the different years, the journals remain the same and process
-as described previously.</p>
+<p>As a third round in response to reviewers’ comments, we sampled 150 additional articles from the same 21 journals to bring the coverage of articles up to 2021. That is, this round covers the years 2019-2021.</p>
+<p>As before with the second round of reviews after the initial set, aside from the different years, the journals remain the same and process as described previously.</p>
 </div>
 <div class="section level3">
 <h3 id="step-1">Step 1<a class="anchor" aria-label="anchor" href="#step-1"></a>
@@ -151,10 +145,7 @@ as described previously.</p>
 <div class="section level4">
 <h4 id="create-list-of-journals">Create list of journals<a class="anchor" aria-label="anchor" href="#create-list-of-journals"></a>
 </h4>
-<p>We hand-picked a list of 21 journals that we felt represented plant
-pathology research. In this step, we will create a <code>tibble</code>
-in R of these journals, assigning them a number so that we can randomise
-them.</p>
+<p>We hand-picked a list of 21 journals that we felt represented plant pathology research. In this step, we will create a <code>tibble</code> in R of these journals, assigning them a number so that we can randomise them.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">journal_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">21</span><span class="op">)</span>,</span>
@@ -188,13 +179,8 @@ them.</p>
 <div class="section level5">
 <h5 id="first-round-of-reviews">First round of reviews<a class="anchor" aria-label="anchor" href="#first-round-of-reviews"></a>
 </h5>
-<p>Initially, when we started this work we had four authors working
-together on it. For the four original authors of the paper we created a
-list for us to use that will randomly assign articles for us to evaluate
-for this manuscript.</p>
-<p>Later we decided to add more authors and more articles. That work is
-detailed in this <a href="b2_assigning_articles">second
-document</a>.</p>
+<p>Initially, when we started this work we had four authors working together on it. For the four original authors of the paper we created a list for us to use that will randomly assign articles for us to evaluate for this manuscript.</p>
+<p>Later we decided to add more authors and more articles. That work is detailed in this <a href="b2_assigning_articles">second document</a>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">assignees</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Adam"</span>, <span class="st">"Emerson"</span>, <span class="st">"Kaique"</span>, <span class="st">"Zach"</span>, <span class="st">"Nik"</span><span class="op">)</span>, <span class="fl">30</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -202,8 +188,7 @@ document</a>.</p>
 <div class="section level4">
 <h4 id="create-randomised-list">Create randomised list<a class="anchor" aria-label="anchor" href="#create-randomised-list"></a>
 </h4>
-<p>Now we will create a randomised list of journal articles to assign to
-each of the five authors for this paper.</p>
+<p>Now we will create a randomised list of journal articles to assign to each of the five authors for this paper.</p>
 <div class="section level5">
 <h5 id="create-a-randomised-list-of-the-journals">Create a randomised list of the journals<a class="anchor" aria-label="anchor" href="#create-a-randomised-list-of-the-journals"></a>
 </h5>
@@ -217,13 +202,7 @@ each of the five authors for this paper.</p>
 <div class="section level5">
 <h5 id="randomly-select-articles">Randomly select articles<a class="anchor" aria-label="anchor" href="#randomly-select-articles"></a>
 </h5>
-<p>Generate a random list of years between 2019 and 2021 and a random
-list of start pages between 1 and 150 since some journals start
-numbering at 1 with every issue. Then bind the columns of the randomised
-list of journals with the randomised years and page start numbers. This
-then assumes that there is no temporal effect, <em>i.e.</em>, the time
-of year an article is published does not affect whether or not it is
-reproducible.</p>
+<p>Generate a random list of years between 2019 and 2021 and a random list of start pages between 1 and 150 since some journals start numbering at 1 with every issue. Then bind the columns of the randomised list of journals with the randomised years and page start numbers. This then assumes that there is no temporal effect, <em>i.e.</em>, the time of year an article is published does not affect whether or not it is reproducible.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">year</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fl">2019</span><span class="op">:</span><span class="fl">2021</span>, <span class="fl">150</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
@@ -264,21 +243,13 @@ reproducible.</p>
 <span><span class="co">## <span style="color: #BCBCBC;">19</span> Forest Pathology                                4</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">20</span> Phytoparasitica                                 4</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">21</span> Australasian Plant Pathology                    3</span></span></code></pre>
-<p>Once this is done, the articles are manually examined for
-suitability. Reference articles or off-topic articles are not included.
-Notes are provided regarding these cases in
-<code>assigned_article_notes</code>. If the selected page number/article
-was not suitable, the next sequential article was selected manually.</p>
+<p>Once this is done, the articles are manually examined for suitability. Reference articles or off-topic articles are not included. Notes are provided regarding these cases in <code>assigned_article_notes</code>. If the selected page number/article was not suitable, the next sequential article was selected manually.</p>
 </div>
 </div>
 <div class="section level4">
 <h4 id="add-empty-columns-for-evaluations">Add empty columns for evaluations<a class="anchor" aria-label="anchor" href="#add-empty-columns-for-evaluations"></a>
 </h4>
-<p>A variety of information will be collected with each article to be
-used in the analysis later. It is easiest to enter this using a
-spreadsheet application, so we will add on the columns for what
-information we want to collect and save the table as a Google Sheet for
-manual editing.</p>
+<p>A variety of information will be collected with each article to be used in the analysis later. It is easiest to enter this using a spreadsheet application, so we will add on the columns for what information we want to collect and save the table as a Google Sheet for manual editing.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">to_record</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
 <span>  <span class="st">"doi"</span>,</span>
@@ -309,16 +280,8 @@ manual editing.</p>
 <div class="section level4">
 <h4 id="write-to-google-sheets">Write to Google Sheets<a class="anchor" aria-label="anchor" href="#write-to-google-sheets"></a>
 </h4>
-<p>We decided to use Google Sheets so that we could concurrently edit
-the file more easily. Once we’re done filling in our evaluations, we
-will import the data back to R. Jenny Bryan has created a handy package,
-<em>googlesheets4</em> that we use here. <em>Note that this must be run
-interactively for <code><a href="https://googlesheets4.tidyverse.org/reference/gs4_create.html" class="external-link">gs4_create()</a></code> to work. Knitting this .Rmd
-file will not generate any Google Sheets, it must be done in an
-interactive R session.</em></p>
-<p>Create a Google Sheets workbook to hold worksheets for this project.
-This first sheet will serve as a template and is thus named
-“template”.</p>
+<p>We decided to use Google Sheets so that we could concurrently edit the file more easily. Once we’re done filling in our evaluations, we will import the data back to R. Jenny Bryan has created a handy package, <em>googlesheets4</em> that we use here. <em>Note that this must be run interactively for <code><a href="https://googlesheets4.tidyverse.org/reference/gs4_create.html" class="external-link">gs4_create()</a></code> to work. Knitting this .Rmd file will not generate any Google Sheets, it must be done in an interactive R session.</em></p>
+<p>Create a Google Sheets workbook to hold worksheets for this project. This first sheet will serve as a template and is thus named “template”.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Give googlesheets4 permission to access spreadsheets and Google Drive</span></span>
 <span><span class="fu"><a href="https://googlesheets4.tidyverse.org/reference/gs4_auth.html" class="external-link">gs4_auth</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -336,11 +299,7 @@ This first sheet will serve as a template and is thus named
 <div class="section level4">
 <h4 id="add-article-dois">Add article DOI’s<a class="anchor" aria-label="anchor" href="#add-article-dois"></a>
 </h4>
-<p>This step is completed in Google Sheets, each assigned individual
-looked up their assigned articles as provided via the year and page
-number columns for a journal and added notes and DOIs to a Google Sheet,
-“article_notes_2019-2021”, which will be imported to R in the next
-step.</p>
+<p>This step is completed in Google Sheets, each assigned individual looked up their assigned articles as provided via the year and page number columns for a journal and added notes and DOIs to a Google Sheet, “article_notes_2019-2021”, which will be imported to R in the next step.</p>
 <p>The Google Sheets file can be found here: <a href="https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381" class="external-link uri">https://docs.google.com/spreadsheets/d/19gXobV4oPZeWZiQJAPNIrmqpfGQtpapXWcSxaXRw1-M/edit#gid=1699540381</a>.</p>
 </div>
 </div>
@@ -359,8 +318,8 @@ step.</p>
 <span><span class="co">##  collate  en_AU.UTF-8</span></span>
 <span><span class="co">##  ctype    en_AU.UTF-8</span></span>
 <span><span class="co">##  tz       Australia/Perth</span></span>
-<span><span class="co">##  date     2022-07-07</span></span>
-<span><span class="co">##  pandoc   2.17.1.1 @ /Applications/RStudio.app/Contents/MacOS/quarto/bin/ (via rmarkdown)</span></span>
+<span><span class="co">##  date     2022-07-08</span></span>
+<span><span class="co">##  pandoc   2.14.0.1 @ /usr/local/bin/ (via rmarkdown)</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## <span style="color: #00BBBB; font-weight: bold;">─ Packages ───────────────────────────────────────────────────────────────────</span></span></span>
 <span><span class="co">##  <span style="color: #555555; font-style: italic;">package                           </span> <span style="color: #555555; font-style: italic;">*</span> <span style="color: #555555; font-style: italic;">version</span> <span style="color: #555555; font-style: italic;">date (UTC)</span> <span style="color: #555555; font-style: italic;">lib</span> <span style="color: #555555; font-style: italic;">source</span></span></span>
@@ -404,11 +363,10 @@ step.</p>
 <span><span class="co">##  ragg                                 1.2.2   <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">##  Rcpp                                 1.0.8.3 <span style="color: #555555;">2022-03-17</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">##  readr                              * 2.1.2   <span style="color: #555555;">2022-01-30</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">##  Reproducibility.in.Plant.Pathology * 0.0.7   <span style="color: #555555;">2022-07-07</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
+<span><span class="co">##  Reproducibility.in.Plant.Pathology * 0.0.7   <span style="color: #555555;">2022-07-08</span> <span style="color: #555555;">[1]</span> <span style="color: #BB00BB; font-weight: bold;">local</span></span></span>
 <span><span class="co">##  rlang                                1.0.3   <span style="color: #555555;">2022-06-27</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.1)</span></span></span>
 <span><span class="co">##  rmarkdown                            2.14    <span style="color: #555555;">2022-04-25</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">##  rprojroot                            2.0.3   <span style="color: #555555;">2022-04-02</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
-<span><span class="co">##  rstudioapi                           0.13    <span style="color: #555555;">2020-11-12</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">##  sass                                 0.4.1   <span style="color: #555555;">2022-03-23</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">##  sessioninfo                          1.2.2   <span style="color: #555555;">2021-12-06</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">##  sodium                               1.2.1   <span style="color: #555555;">2022-06-11</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
@@ -424,7 +382,7 @@ step.</p>
 <span><span class="co">##  xfun                                 0.31    <span style="color: #555555;">2022-05-10</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">##  yaml                                 2.3.5   <span style="color: #555555;">2022-02-21</span> <span style="color: #555555;">[2]</span> <span style="color: #555555;">CRAN (R 4.2.0)</span></span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## <span style="color: #555555;"> [1] /private/var/folders/hc/tft3s5bn48gb81cs99mycyf00000gn/T/RtmpYnFb88/temp_libpath10334ac48f07</span></span></span>
+<span><span class="co">## <span style="color: #555555;"> [1] /private/var/folders/hc/tft3s5bn48gb81cs99mycyf00000gn/T/Rtmpo68He0/temp_libpathcb5746a94b7</span></span></span>
 <span><span class="co">## <span style="color: #555555;"> [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library</span></span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## <span style="color: #00BBBB; font-weight: bold;">──────────────────────────────────────────────────────────────────────────────</span></span></span></code></pre>
