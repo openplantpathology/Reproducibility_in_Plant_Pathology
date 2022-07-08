@@ -480,8 +480,8 @@ When this layer is employed, tools such as Binder, <https://mybinder.org>, can b
 While there are many other methods, these two approaches illustrate some of the best-practices where the data and other files were deposited in repositories with DOIs and reproducibility issues were addressed by using R packages to handle dependencies and other versioning issues making the work more portable.
 
 Efforts to annotate structured raw data (FAIR -- Findable, Accessible, Interoperable and Re-usable) [@Wilkinson2016] and fully document the analysis using open-source code which are deposited in public repositories and can be run by anyone following the download of data and code.
-Making the raw data FAIR means providing proper metadata for the resource.
-The metadata define the resource that has been made available allowing for discovery and use by other interested parties.
+Making the raw data FAIR means providing proper metadata, a clear description of what the resource contains, how it can be used and other attributes about it that help users understand it.
+The metadata further define the resource that has been made available allowing for discovery and use by other interested parties.
 That is, proper cataloguing and descriptions of the computational materials and data enable others to easily find and understand what the materials are.
 Properly constructed metadata allow for interoperability by allowing both humans and machines to understand what the materials are that are included in the resources and make use of them more easily.
 Metadata also protects the resource and its future availability by tracking the resource's lineage, describing the resources physical characteristics and behavior so that it can be replicated using future technologies.
