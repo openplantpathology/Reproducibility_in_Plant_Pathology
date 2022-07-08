@@ -906,7 +906,7 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_6.eps"))
 
 # Supplementary Materials
 
-## Tables
+## Supplementary Tables
 
 ```{r effects-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
 as_tibble(m_f1_report) %>%
