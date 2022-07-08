@@ -1,0 +1,597 @@
+---
+title: "Supplementary materials for 'Openness and computational reproducibility in plant pathology: where do we stand and a way forward'"
+author:
+  - Adam H. Sparks:
+      email: Adam.Sparks@dpird.wa.gov.au
+      institute: DPIRD, USQ
+      correspondence: true
+  - Emerson M. Del Ponte:
+      institute: UFV
+  - Kaique S. Alves:
+      institute: UFV
+  - Zachary S. L. Foster:
+      institute: OSU
+  - Niklaus J. Grünwald:
+      institute: ARS
+institute:
+  - DPIRD: Department of Primary Industries and Regional Development, Farming Systems Innovation, Perth WA 6000, Australia
+  - USQ: University of Southern Queensland, Centre for Crop Health, Toowoomba Qld 4350, Australia
+  - UFV: Departmento de Fitopatologia, Universidade Federal de Viçosa, Brazil
+  - OSU: Department of Botany and Plant Pathology, Oregon State University, Corvallis OR 97331, USA
+  - ARS: Horticultural Crops Research Unit, USDA Agricultural Research Service, Corvallis OR 97330, USA
+output: 
+  bookdown::word_document2:
+     fig_caption: yes
+     number_sections: FALSE
+     reference_docx: "../templates/phytopath_template.docx"
+     pandoc_args:
+       - '--lua-filter=scholarly-metadata.lua'
+       - '--lua-filter=author-info-blocks.lua'
+       - '--lua-filter=pagebreak.lua'
+bibliography: references.bib
+link-citations: no
+csl: "../templates/american-phytopathological-society.csl"
+---
+
+```{r, setup, echo=FALSE, message=FALSE}
+packages <- c(
+  "DiagrammeR",
+  "DiagrammeRsvg",
+  "bayesplot",
+  "bayestestR",
+  "brms",
+  "dplyr",
+  "english",
+  "extrafont",
+  "flextable",
+  "ggpubr",
+  "grDevices",
+  "here",
+  "janitor",
+  "knitr",
+  "officer",
+  "parameters",
+  "patchwork",
+  "posterior",
+  "report",
+  "rsvg",
+  "tidyr",
+  "tools"
+)
+
+# install packages if needed
+install.packages(setdiff(packages,
+                         rownames(installed.packages())),
+                 repos = "http://cran.us.r-project.org",
+                 dependencies = TRUE)
+
+# load packages for use in knitting Rmd
+invisible(lapply(packages,
+                 library,
+                 character.only = TRUE))
+
+library("Reproducibility.in.Plant.Pathology")
+
+rrpp <- import_notes()
+ir <- import_interrater_scores()
+
+opts_chunk$set(
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  echo = FALSE,
+  out.width = "100%",
+  comment = "#>",
+  dev = "cairo_ps",
+  cache = FALSE,
+  fig.cap.pre = "Figure S",
+  tab.cap.pre = "Table S"
+)
+
+theme_set(theme_classic())
+
+load(
+  system.file(
+    "extdata",
+    "m_f1.Rda",
+    package = "Reproducibility.in.Plant.Pathology",
+    mustWork = TRUE
+  )
+)
+load(
+  system.file(
+    "extdata",
+    "m_f1_report.Rda",
+    package = "Reproducibility.in.Plant.Pathology",
+    mustWork = TRUE
+  )
+)
+load(
+  system.file(
+    "extdata",
+    "m_f2.Rda",
+    package = "Reproducibility.in.Plant.Pathology",
+    mustWork = TRUE
+  )
+)
+load(
+  system.file(
+    "extdata",
+    "m_f2_report.Rda",
+    package = "Reproducibility.in.Plant.Pathology",
+    mustWork = TRUE
+  )
+)
+
+load(
+  system.file(
+    "extdata",
+    "m_g1.Rda",
+    package = "Reproducibility.in.Plant.Pathology",
+    mustWork = TRUE
+  )
+)
+load(
+  system.file(
+    "extdata",
+    "m_g1_report.Rda",
+    package = "Reproducibility.in.Plant.Pathology",
+    mustWork = TRUE
+  )
+)
+load(
+  system.file(
+    "extdata",
+    "m_g2.Rda",
+    package = "Reproducibility.in.Plant.Pathology",
+    mustWork = TRUE
+  )
+)
+load(
+  system.file(
+    "extdata",
+    "m_g2_report.Rda",
+    package = "Reproducibility.in.Plant.Pathology",
+    mustWork = TRUE
+  )
+)
+
+load(
+  system.file(
+    "extdata",
+    "m_h1.Rda",
+    package = "Reproducibility.in.Plant.Pathology",
+    mustWork = TRUE
+  )
+)
+load(
+  system.file(
+    "extdata",
+    "m_h1_report.Rda",
+    package = "Reproducibility.in.Plant.Pathology",
+    mustWork = TRUE
+  )
+)
+load(
+  system.file(
+    "extdata",
+    "m_h2.Rda",
+    package = "Reproducibility.in.Plant.Pathology",
+    mustWork = TRUE
+  )
+)
+load(
+  system.file(
+    "extdata",
+    "m_h2_report.Rda",
+    package = "Reproducibility.in.Plant.Pathology",
+    mustWork = TRUE
+  )
+)
+```
+
+```{r fonts, include=FALSE, message=FALSE, eval=FALSE}
+# Note 1: This chunk only needs to be run once on a computer to import fonts for
+# use in R. This chunk makes .ttf fonts available to R for use and embedding in
+# .eps figure outputs.
+#
+# Note 2: GhostScript needs to be installed at the system level for the PS files
+# to be generated.  MacOS users can use `brew install ghostscript`.  Windows
+# users should download and install. Linux users can use their package manager.
+#
+# Note 3: You may need to tell R where to find GhostScript's 'gs' executable.
+# Set `R_GSCMD="/opt/homebrew/bin/gs"` in .Renviron for MacOS users using
+# homebrew to install on a Mac M1.
+# 
+# Windows users can follow these directions:
+# 1.	Go to the GhostScript website
+#     <https://www.ghostscript.com/download/gsdnld.html>.
+# 2.	Download the windows installer suitable for your machine
+# 3.	Run the installer file which you downloaded and follow the prompts
+# 4.	After running the installer click the windows "Start" button and type
+#     "Edit environment variables for your account" and open
+# 5.	In the tab 'Advanced' click the button at the bottom
+#     'Environment Variables...'
+# 6.	Under 'System variables' find the variable 'Path', select 'Path' and click
+#     the 'Edit' button
+# 7. 	Select a new line and copy the Ghostscript 'bin' folder location into the
+#     field.
+## 7.1	If you installed Ghostscript to the default folder location; then the
+#     folder location will likely be "C:\Program Files\gs\gs9.52\bin", the
+#     version number (9.52) may differ.
+# 8.	Save and exit the environmental variables window
+#
+# This chunk is then run only if knitting on new computer that the files have
+# not been generated
+
+font_import()
+```
+``
+
+# Supplementary Materials
+
+## Supplementary Tables
+
+```{r effects-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
+as_tibble(m_f1_report) %>%
+  filter(!grepl("R2", Parameter)) %>%
+  filter(!is.na(Parameter)) %>%
+  mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>% 
+  rename("ROPE %" = "ROPE_Percentage",
+         "CI\nLow" = "CI_low",
+         "CI\nHigh" = "CI_high") %>%
+  flextable() %>%
+  fontsize(size = 8, part = "all") %>%
+  colformat_double(digits = 2) %>%
+  set_formatter(
+    `ROPE %` = function(x)
+      ifelse((!is.na(x)), sprintf("%1.f%%", x * 100), x)
+  ) %>%
+  autofit() %>%
+  set_caption(
+    "Full description of model fit for the effect of journal title on code availability. We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict comp_mthds_avail with abbreviation (formula: comp_mthds_avail ~ abbreviation). The model included assignee as random effect (formula: ~1 | assignee). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00) and student_t (location = 0.00, scale = 2.50) distributions."
+  )
+```
+
+\newpage
+
+```{r effects-analysis-data, echo=FALSE, message=FALSE, warning=FALSE}
+as_tibble(m_f2_report) %>%
+  filter(!grepl("R2", Parameter)) %>%
+  filter(!is.na(Parameter)) %>%
+  mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>% 
+  rename("ROPE %" = "ROPE_Percentage",
+         "CI\nLow" = "CI_low",
+         "CI\nHigh" = "CI_high") %>%
+  flextable() %>%
+  fontsize(size = 8, part = "all") %>%
+  colformat_double(digits = 2) %>%
+  set_formatter(
+    `ROPE %` = function(x)
+      ifelse((!is.na(x)), sprintf("%1.f%%", x * 100), x)
+  ) %>%
+  autofit() %>%
+  set_caption(
+    "Full description of model fit for the effect of journal title on data availability. We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict comp_mthds_avail with abbreviation (formula: comp_mthds_avail ~ abbreviation). The model included assignee as random effect (formula: ~1 | assignee). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00) and student_t (location = 0.00, scale = 2.50) distributions."
+  )
+```
+
+\newpage
+
+```{r year-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
+as_tibble(m_g1_report) %>%
+  filter(!grepl("R2", Parameter)) %>%
+  filter(!is.na(Parameter)) %>%
+  mutate(Parameter = gsub("year", "", .$Parameter)) %>%
+  rename("ROPE %" = "ROPE_Percentage",
+         "CI\nLow" = "CI_low",
+         "CI\nHigh" = "CI_high") %>%
+  flextable() %>%
+  fontsize(size = 8, part = "all") %>%
+  colformat_double(digits = 2) %>%
+  set_formatter(
+    `ROPE %` = function(x)
+      ifelse((!is.na(x)), sprintf("%1.f%%", x * 100), x)
+  ) %>%
+  autofit() %>%
+  set_caption(
+    "Full description of model fit for the effect of year of publication on code availability. We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict comp_mthds_avail with year (formula: comp_mthds_avail ~ year). The model included abbreviation and assignee as random effects (formula: list(~1 | abbreviation, ~1 | assignee)). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), student_t (location = 0.00, scale = 2.50) and student_t (location = 0.00, scale = 2.50) distributions."
+  )
+```
+
+\newpage
+
+```{r year-analysis-data, echo=FALSE, message=FALSE, warning=FALSE}
+as_tibble(m_g2_report) %>%
+  filter(!grepl("R2", Parameter)) %>%
+  filter(!is.na(Parameter)) %>%
+  mutate(Parameter = gsub("year", "", .$Parameter)) %>% 
+  rename("ROPE %" = "ROPE_Percentage",
+         "CI\nLow" = "CI_low",
+         "CI\nHigh" = "CI_high") %>%
+  flextable() %>%
+  fontsize(size = 8, part = "all") %>%
+  colformat_double(digits = 2) %>%
+  set_formatter(
+    `ROPE %` = function(x)
+      ifelse((!is.na(x)), sprintf("%1.f%%", x * 100), x)
+  ) %>%
+  autofit() %>%
+  set_caption(
+    "Full description of model fit for the effect of year of publication on data availability. We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict comp_mthds_avail with year (formula: comp_mthds_avail ~ year). The model included abbreviation and assignee as random effects (formula: list(~1 | abbreviation, ~1 | assignee)). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), student_t (location = 0.00, scale = 2.50) and student_t (location = 0.00, scale = 2.50) distributions."
+  )
+```
+
+\newpage
+
+```{r if-5yr-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
+as_tibble(m_h1_report) %>%
+  filter(!grepl("R2", Parameter)) %>%
+  filter(!is.na(Parameter)) %>%
+  rename("ROPE %" = "ROPE_Percentage",
+         "CI\nLow" = "CI_low",
+         "CI\nHigh" = "CI_high") %>%
+  flextable() %>%
+  fontsize(size = 8, part = "all") %>%
+  colformat_double(digits = 2) %>%
+  set_formatter(
+    `ROPE %` = function(x)
+      ifelse((!is.na(x)), sprintf("%1.f%%", x * 100), x)
+  ) %>%
+  autofit() %>%
+  set_caption(
+    "Full description of model fit for the effect of five-year impact factor on code availability. We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict comp_mthds_avail with year (formula: comp_mthds_avail ~ year). The model included abbreviation and assignee as random effects (formula: list(~1 | abbreviation, ~1 | assignee)). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), student_t (location = 0.00, scale = 2.50) and student_t (location = 0.00, scale = 2.50) distributions."
+  )
+```
+
+\newpage
+
+```{r if-5yr-analysis-data, echo=FALSE, message=FALSE, warning=FALSE}
+as_tibble(m_h2_report) %>%
+  filter(!grepl("R2", Parameter)) %>%
+  filter(!is.na(Parameter)) %>%
+  rename("ROPE %" = "ROPE_Percentage",
+         "CI\nLow" = "CI_low",
+         "CI\nHigh" = "CI_high") %>%
+  flextable() %>%
+  fontsize(size = 8, part = "all") %>%
+  colformat_double(digits = 2) %>%
+  set_formatter(
+    `ROPE %` = function(x)
+      ifelse((!is.na(x)), sprintf("%1.f%%", x * 100), x)
+  ) %>%
+  autofit() %>%
+  set_caption(
+    "Full description of model fit for the effect of five year impact factor on data availability. We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict comp_mthds_avail with year (formula: comp_mthds_avail ~ year). The model included abbreviation and assignee as random effects (formula: list(~1 | abbreviation, ~1 | assignee)). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), student_t (location = 0.00, scale = 2.50) and student_t (location = 0.00, scale = 2.50) distributions."
+  )
+```
+
+\newpage
+
+## Supplementary Figures
+
+```{r evaluator-differences, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Criteria scores for 450 articles computational materials and data avaialbility for each of the five evaluators. Each article was evaluated on a 0 to 3 scale for computational materials (Code) and raw data availability (Data) by one of five evaluators."}
+p <- import_notes() %>%
+  mutate(
+    comp_mthds_avail = as.numeric(as.character(comp_mthds_avail)),
+    data_avail =  as.numeric(as.character(data_avail))
+  ) %>%
+  pivot_longer(cols = c("comp_mthds_avail",
+                        "data_avail")) %>%
+  ggplot(aes(y = as.factor(value), x = assignee)) +
+  geom_count() +
+  ylab("Criteria Score") +
+  xlab("Evaluator") +
+  ggtitle("Criteria scores by evaluator") +
+  facet_wrap(name ~ .,
+             labeller = labeller(name =
+                                   c(
+                                     "comp_mthds_avail" = "Code",
+                                     "data_avail" = "Data"
+                                   )))
+
+ggsave(
+  filename = here("analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"),
+  plot = p,
+  width = 6,
+  height = 6,
+  units = "in",
+  device = cairo_ps
+)
+embed_fonts(
+  file = here("analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"),
+  outfile = here("analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"),
+  options = "-dEPSCrop"
+)
+include_graphics(path = here("analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"))
+```
+
+\newpage
+
+```{r journal-code-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the publishing journal on articles\' supporting code availability."}
+y_labs <- gsub("abbreviation", "", parameters(m_f1)$Parameter)
+y_labs <- rev(gsub("b_", "", y_labs))
+y_labs <- y_labs[c(21:22, 1:20)]
+
+p <- plot(equivalence_test(m_f1)) +
+  scale_y_discrete(labels = y_labs)
+
+ggsave(
+  filename = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_2.eps"
+  ),
+  plot = p,
+  width = 6,
+  height = 6,
+  units = "in",
+  device = cairo_ps
+)
+embed_fonts(
+  file = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_2.eps"
+  ),
+  outfile = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_2.eps"
+  ),
+  options = "-dEPSCrop"
+)
+include_graphics(path = here(
+  "analysis/figures/Sparks_et_al_Supplementary_Figure_2.eps"
+))
+```
+
+\newpage
+
+```{r journal-data-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the publishing journal on articles’ supporting data availability.."}
+y_labs <- gsub("abbreviation", "", parameters(m_f2)$Parameter)
+y_labs <- rev(gsub("b_", "", y_labs))
+y_labs <- y_labs[c(21:23, 1:20)]
+
+p <- plot(equivalence_test(m_f2)) +
+  scale_y_discrete(labels = y_labs)
+
+ggsave(
+  filename = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_3.eps"
+  ),
+  plot = p,
+  width = 6,
+  height = 6,
+  units = "in",
+  device = cairo_ps
+)
+embed_fonts(
+  file = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_3.eps"
+  ),
+  outfile = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_3.eps"
+  ),
+  options = "-dEPSCrop"
+)
+include_graphics(path = here(
+  "analysis/figures/Sparks_et_al_Supplementary_Figure_3.eps"
+))
+```
+
+\newpage
+
+```{r year-code-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the year of publication title on articles\' supporting code availability."}
+y_labs <- gsub("year", "", parameters(m_g1)$Parameter)
+y_labs <- rev(gsub("b_", "", y_labs))
+y_labs <- y_labs[c(10:11, 1:9)]
+
+p <- plot(equivalence_test(m_g1)) +
+  scale_y_discrete(labels = y_labs)
+
+ggsave(
+  filename = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_4.eps"
+  ),
+  plot = p,
+  width = 6,
+  height = 6,
+  units = "in",
+  device = cairo_ps
+)
+embed_fonts(
+  file = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_4.eps"
+  ),
+  outfile = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_4.eps"
+  ),
+  options = "-dEPSCrop"
+)
+include_graphics(path = here(
+  "analysis/figures/Sparks_et_al_Supplementary_Figure_4.eps"
+))
+```
+
+\newpage
+
+```{r year-data-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the year of publication on articles\' supporting data availability."}
+p <- plot(equivalence_test(m_g2)) +
+  scale_y_discrete(labels = y_labs)
+
+ggsave(
+  filename = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_5.eps"
+  ),
+  plot = p,
+  width = 6,
+  height = 6,
+  units = "in",
+  device = cairo_ps
+)
+embed_fonts(
+  file = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_5.eps"
+  ),
+  outfile = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_5.eps"
+  ),
+  options = "-dEPSCrop"
+)
+include_graphics(path = here(
+  "analysis/figures/Sparks_et_al_Supplementary_Figure_5.eps"
+))
+```
+
+\newpage
+
+```{r if5yr-code-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the publishing journal's five-year impact factor on articles\' supporting code availability."}
+p <- plot(equivalence_test(m_h1))
+
+ggsave(
+  filename = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_6.eps"
+  ),
+  plot = p,
+  width = 6,
+  height = 6,
+  units = "in",
+  device = cairo_ps
+)
+embed_fonts(
+  file = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_6.eps"
+  ),
+  outfile = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_6.eps"
+  ),
+  options = "-dEPSCrop"
+)
+include_graphics(path = here(
+  "analysis/figures/Sparks_et_al_Supplementary_Figure_6.eps"
+))
+```
+
+\newpage
+
+```{r if5yr-data-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the year of publication on articles\' supporting data availability."}
+p <- plot(equivalence_test(m_h2))
+
+ggsave(
+  filename = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_7.eps"
+  ),
+  plot = p,
+  width = 6,
+  height = 6,
+  units = "in",
+  device = cairo_ps
+)
+embed_fonts(
+  file = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_7.eps"
+  ),
+  outfile = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_7.eps"
+  ),
+  options = "-dEPSCrop"
+)
+include_graphics(path = here(
+  "analysis/figures/Sparks_et_al_Supplementary_Figure_7.eps"
+))
+```
