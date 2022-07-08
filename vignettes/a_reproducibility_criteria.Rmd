@@ -134,6 +134,7 @@ Score of computational methods documentation.
 Are the computational methods used readily available, *e.g.*, R, SAS, Python scripts are shared?
 
 Entered as a number between `0` and `3`.
+Assign the lowest score possible, *i.e.*, if some methods are available but not all, then the score is `0`.
 
 -   `0` - Not available and not mentioned in publication.
 
@@ -158,7 +159,6 @@ Score of software availability.
 Entered as a number between `0` and `3`.
 The score should be assigned for the paper on the basis of the lowest-scoring software that was used/cited.
 
-
 -   `0` - Not available or not mentioned in the publication.
 
 -   `1` - Uses expensive proprietary software or requires getting a quote, *e.g.*, ArcGIS standard is 7000 USD, Minitab is 1610 USD.
@@ -178,6 +178,7 @@ MEGA is free to download but is not open-source and cannot be redistributed, so 
 Score of citations for software used.
 
 Entered as a number between `0` and `3`.
+Assign the lowest score possible, *i.e.*, if some software was cited but not all, then the score is `0`.
 
 -   `0` - not mentioned.
 
@@ -193,7 +194,7 @@ Entered as a number between `0` and `3`.
 
 Raw data availability score.
 
-Entered as a number between `0` and `3`.
+Entered as a number between `0` and `3`.Assign the lowest score possible, *i.e.*, if some data are available but not all, then the score is `0`.
 
 -   `0` - Not available or not mentioned in the publication.
 
@@ -201,7 +202,7 @@ Entered as a number between `0` and `3`.
 
 -   `2` - Online, but inconvenient or non-permanent, *e.g.*, login needed, pay wall, FTP server, personal lab website that may disappear, or may have already disappeared.
 
--   `3` - Freely available online to anonymous users for foreseeable future, *e.g.*, archived using Zenodo, dataverse or university library or some other proper archiving system.
+-   `3` - Freely available online to anonymous users for foreseeable future, *e.g.*, archived using Zenodo, dataverse or university library or some other proper archiving system including Genbank or other similar databases.
 
 #### "software_used"
 
