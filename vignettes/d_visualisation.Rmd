@@ -63,6 +63,27 @@ rrpp %>%
   facet_grid(name ~ assignee)
 ```
 
+```{r evaluator-ratings-dotplot}
+rrpp %>%
+  mutate(
+    comp_mthds_avail = as.numeric(as.character(comp_mthds_avail)),
+    data_avail =  as.numeric(as.character(data_avail))
+  ) %>%
+  pivot_longer(cols = c("comp_mthds_avail",
+                        "data_avail")) %>%
+  ggplot(aes(y = as.factor(value), x = assignee)) +
+  geom_count() +
+  ylab("Criteria Score") +
+  xlab("Evaluator") +
+  ggtitle("Criteria scores by evaluator") +
+  facet_wrap(name ~ .,
+             labeller = labeller(name =
+                                   c(
+                                     "comp_mthds_avail" = "Code",
+                                     "data_avail" = "Data"
+                                   )))
+```
+
 # Visualise evaluations
 
 ## Computational methods available
