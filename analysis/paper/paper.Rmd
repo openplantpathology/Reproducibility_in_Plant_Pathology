@@ -354,6 +354,9 @@ Additionally, all methods are described in greater detail with the code necessar
 All authors agreed on the five inter-rater article evaluations for the data availability, '0', not available for an inter-rater score of 100%.
 However, one of the authors rated one article as 'NA' or not having any computational methods used rather than '0' as with the other four authors, giving the inter-rater percent agreement a score of 100% with the 'NA' value dropped from the code availability.
 
+Looking at the ratings for all 450 articles and given the differing number of articles each co-author evaluated, there was broad agreement with no discernible patterns showing a strong bias or cause for concern (Figure \@ref(fig:evaluator-differences)).
+However, the analyses did account for different raters for each article by including this as a random effect.
+
 ## Code and Data Sharing Findings
 
 Most articles did not make any computational methods available in any fashion with `r length(which(rrpp$comp_mthds_avail == 3))` (`r round(length(which(rrpp$comp_mthds_avail == 3))/nrow(rrpp), 3) * 100`%) classified as '3', which was the highest score available (Figure \@ref(fig:articleScores)A).
@@ -407,6 +410,10 @@ There was no effect detected for year when predicting the availability of comput
 There were no detectable effects when predicting the effects of the five-year impact factor on the availability of computational methods (code) or data (Figures S5, S6, Tables S5, S6).
 
 # Discussion
+
+Our goal was to evaluate as many articles as we realistically could to get as broad an overview of the discipline as possible.
+Because of this each article, save the five that were used to compare the inter-rater differences, was evaluated by only one co-author.
+
 
 Except for a few isolated cases, most papers were not fully computationally reproducible.
 Very few authors choose to share both data and code.
@@ -1037,20 +1044,30 @@ as_tibble(m_h2_report) %>%
 
 \newpage
 
-## Figures
+## Supplementary Figures
 
-```{r journal-code-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the publishing journal on articles\' supporting code availability."}
-y_labs <- gsub("abbreviation", "", parameters(m_f1)$Parameter)
-y_labs <- rev(gsub("b_", "", y_labs))
-y_labs <- y_labs[c(21:22, 1:20)]
-
-p <- plot(equivalence_test(m_f1)) +
-  scale_y_discrete(labels = y_labs)
+```{r evaluator-differences, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Criteria scores for 450 articles computational materials and data avaialbility for each of the five evaluators. Each article was evaluated on a 0 to 3 scale for computational materials (Code) and raw data availability (Data) by one of five evaluators."}
+p <- import_notes() %>%
+  mutate(
+    comp_mthds_avail = as.numeric(as.character(comp_mthds_avail)),
+    data_avail =  as.numeric(as.character(data_avail))
+  ) %>%
+  pivot_longer(cols = c("comp_mthds_avail",
+                        "data_avail")) %>%
+  ggplot(aes(y = as.factor(value), x = assignee)) +
+  geom_count() +
+  ylab("Criteria Score") +
+  xlab("Evaluator") +
+  ggtitle("Criteria scores by evaluator") +
+  facet_wrap(name ~ .,
+             labeller = labeller(name =
+                                   c(
+                                     "comp_mthds_avail" = "Code",
+                                     "data_avail" = "Data"
+                                   )))
 
 ggsave(
-  filename = here(
-    "analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"
-  ),
+  filename = here("analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"),
   plot = p,
   width = 6,
   height = 6,
@@ -1058,27 +1075,21 @@ ggsave(
   device = cairo_ps
 )
 embed_fonts(
-  file = here(
-    "analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"
-  ),
-  outfile = here(
-    "analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"
-  ),
+  file = here("analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"),
+  outfile = here("analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"),
   options = "-dEPSCrop"
 )
-include_graphics(path = here(
-  "analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"
-))
+include_graphics(path = here("analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"))
 ```
 
 \newpage
 
-```{r journal-data-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the publishing journal on articles’ supporting data availability.."}
-y_labs <- gsub("abbreviation", "", parameters(m_f2)$Parameter)
+```{r journal-code-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the publishing journal on articles\' supporting code availability."}
+y_labs <- gsub("abbreviation", "", parameters(m_f1)$Parameter)
 y_labs <- rev(gsub("b_", "", y_labs))
-y_labs <- y_labs[c(21:23, 1:20)]
+y_labs <- y_labs[c(21:22, 1:20)]
 
-p <- plot(equivalence_test(m_f2)) +
+p <- plot(equivalence_test(m_f1)) +
   scale_y_discrete(labels = y_labs)
 
 ggsave(
@@ -1107,12 +1118,12 @@ include_graphics(path = here(
 
 \newpage
 
-```{r year-code-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the year of publication title on articles\' supporting code availability."}
-y_labs <- gsub("year", "", parameters(m_g1)$Parameter)
+```{r journal-data-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the publishing journal on articles’ supporting data availability.."}
+y_labs <- gsub("abbreviation", "", parameters(m_f2)$Parameter)
 y_labs <- rev(gsub("b_", "", y_labs))
-y_labs <- y_labs[c(10:11, 1:9)]
+y_labs <- y_labs[c(21:23, 1:20)]
 
-p <- plot(equivalence_test(m_g1)) +
+p <- plot(equivalence_test(m_f2)) +
   scale_y_discrete(labels = y_labs)
 
 ggsave(
@@ -1141,8 +1152,12 @@ include_graphics(path = here(
 
 \newpage
 
-```{r year-data-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the year of publication on articles\' supporting data availability."}
-p <- plot(equivalence_test(m_g2)) +
+```{r year-code-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the year of publication title on articles\' supporting code availability."}
+y_labs <- gsub("year", "", parameters(m_g1)$Parameter)
+y_labs <- rev(gsub("b_", "", y_labs))
+y_labs <- y_labs[c(10:11, 1:9)]
+
+p <- plot(equivalence_test(m_g1)) +
   scale_y_discrete(labels = y_labs)
 
 ggsave(
@@ -1171,8 +1186,9 @@ include_graphics(path = here(
 
 \newpage
 
-```{r if5yr-code-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the publishing journal's five-year impact factor on articles\' supporting code availability."}
-p <- plot(equivalence_test(m_h1))
+```{r year-data-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the year of publication on articles\' supporting data availability."}
+p <- plot(equivalence_test(m_g2)) +
+  scale_y_discrete(labels = y_labs)
 
 ggsave(
   filename = here(
@@ -1200,8 +1216,8 @@ include_graphics(path = here(
 
 \newpage
 
-```{r if5yr-data-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the year of publication on articles\' supporting data availability."}
-p <- plot(equivalence_test(m_h2))
+```{r if5yr-code-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the publishing journal's five-year impact factor on articles\' supporting code availability."}
+p <- plot(equivalence_test(m_h1))
 
 ggsave(
   filename = here(
@@ -1224,6 +1240,35 @@ embed_fonts(
 )
 include_graphics(path = here(
   "analysis/figures/Sparks_et_al_Supplementary_Figure_6.eps"
+))
+```
+
+\newpage
+
+```{r if5yr-data-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the year of publication on articles\' supporting data availability."}
+p <- plot(equivalence_test(m_h2))
+
+ggsave(
+  filename = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_7.eps"
+  ),
+  plot = p,
+  width = 6,
+  height = 6,
+  units = "in",
+  device = cairo_ps
+)
+embed_fonts(
+  file = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_7.eps"
+  ),
+  outfile = here(
+    "analysis/figures/Sparks_et_al_Supplementary_Figure_7.eps"
+  ),
+  options = "-dEPSCrop"
+)
+include_graphics(path = here(
+  "analysis/figures/Sparks_et_al_Supplementary_Figure_7.eps"
 ))
 ```
 
