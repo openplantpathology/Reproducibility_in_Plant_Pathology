@@ -632,7 +632,8 @@ tab_t %>%
   arrange(desc(Total)) %>%
   rename(Software = software_used) %>% 
   flextable() %>%
-  autofit() %>%
+  set_table_properties(layout = "autofit", width = 1) %>% 
+  fontsize(size = 10) %>% 
   set_caption(
     "The frequency of use of top ten software programs by year of publication that were found to be used in the papers that were surveyed."
   )
