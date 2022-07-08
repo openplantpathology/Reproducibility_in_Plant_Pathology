@@ -148,12 +148,12 @@ ggplot(rrpp, aes(y = as.factor(data_avail))) +
 ```{r full_score, message=FALSE}
 rrpp %>%
   pivot_longer(cols = c("comp_mthds_avail", "data_avail")) %>%
-  ggplot(aes(x = value,
-             y = year)) +
-  geom_count(alpha = 0.5) +
+  ggplot(aes(x = year,
+             y = value)) +
+  geom_count() +
   ylab("Score") +
   xlab("Year") +
-  facet_wrap(. ~ name)
+  facet_grid(name ~ .)
 ```
 
 # Visualise Probabilities
