@@ -480,6 +480,13 @@ When this layer is employed, tools such as Binder, <https://mybinder.org>, can b
 While there are many other methods, these two approaches illustrate some of the best-practices where the data and other files were deposited in repositories with DOIs and reproducibility issues were addressed by using R packages to handle dependencies and other versioning issues making the work more portable.
 
 Efforts to annotate structured raw data (FAIR -- Findable, Accessible, Interoperable and Re-usable) [@Wilkinson2016] and fully document the analysis using open-source code which are deposited in public repositories and can be run by anyone following the download of data and code.
+Making the raw data FAIR means providing proper metadata for the resource.
+The metadata define the resource that has been made available allowing for discovery and use by other interested parties.
+That is, proper cataloguing and descriptions of the computational materials and data enable others to easily find and understand what the materials are.
+Properly constructed metadata allow for interoperability by allowing both humans and machines to understand what the materials are that are included in the resources and make use of them more easily.
+Metadata also protects the resource and its future availability by tracking the resource's lineage, describing the resources physical characteristics and behavior so that it can be replicated using future technologies.
+That is, without metadata, the data are not FAIR and the computational materials lose value by not having good documentation.
+
 The first layer, as reported, is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations.
 When making our science more open and reproducible, methods, software used (this includes items such as R, Julia or Python packages that were directly used in the analysis or production of the paper, etc.) should be cited properly.
 Provide a full description of all equipment used, *e.g.*, "a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals".
@@ -513,7 +520,7 @@ The use of a persistent identifier works to ensure that even if the data are mov
 For more on FAIR data, visit Go-Fair <https://www.go-fair.org/fair-principles/>.
 
 Once it has been determined how to best manage the source code and the data sets for analysis, the next step is to consider how to share the data.
-Providers such as FigShare, Dataverse, OSF.io and Zenodo allow for us to deposit our data and generate a DOI for sharing the project once it is finished.
+Providers such as FigShare, Dataverse, OSF.io and Zenodo allow for us to deposit our data and provide metadata and generate a DOI for sharing the project once it is finished.
 
 Other providers exist that allow for us to not only track changes but also to share the data openly, these include GitHub, Gitlab and Bitbucket.
 GitHub is arguably the most popular and widely used software development platform currently.
