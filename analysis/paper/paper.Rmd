@@ -621,7 +621,7 @@ tab_t %>%
 
 # Figures
 
-```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualizations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialized journals. The journal title was tested for an effect on code availability (A) and data availability (B), the year of publication was tested for an effect on code availability (C) and data availability (D), and five-year impact factor of journal was tested for effect on code availability (E) and data availability (F). Where yrep indicate 50 random draws for model predictions and y are the observed values. Model fitnesses were found to be good for all models.", cache=FALSE, fig.env='figure'}
+```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualizations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialized journals. The journal title was tested for an effect on code availability (A) and data availability (B), the year of publication was tested for an effect on code availability (C) and data availability (D), and five-year impact factor of journal was tested for effect on code availability (E) and data availability (F). Where 'yrep' indicate 50 random draws for model predictions and 'y' are the observed values. Model fitnesses were found to be good for all models.", cache=FALSE, fig.env='figure'}
 
 set.seed(23)
 
