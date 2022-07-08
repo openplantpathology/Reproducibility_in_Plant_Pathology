@@ -602,18 +602,20 @@ The authors are grateful for insightful comments from Dr David Ferris and Dr Reb
 
 ```{r journals, echo=FALSE, message=FALSE, warning=FALSE}
 journal <-
-  tabyl(rrpp, journal) %>%
-  select(-percent)
+  tabyl(rrpp, journal, year) %>%
+  rowwise() %>%
+  mutate(n = sum(c_across(where(is.numeric)), na.rm = T))
 
 distinct(rrpp, journal, IF_5year) %>%
-  left_join(journal, by = "journal") %>% 
+  left_join(journal, by = "journal") %>%
   rename(Journal = journal,
-         `5 Year IF` = IF_5year) %>%
+         `IF` = IF_5year) %>%
   flextable() %>%
   colformat_num(na_str = "NA") %>%
-  autofit() %>%
+  fontsize(size = 10, part = "body") %>%
+  set_table_properties(layout = "autofit", width = 1) %>%
   set_caption(
-    "Journal titles selected for inclusion, their respective five-year impact factors as of 2022 (5 Year IF) and the number (n) of articles from each journal that were evaluated."
+    "Journal titles selected for inclusion, their respective five-year impact factors as of 2022 (5 Year IF), number of articles per year and the total number (n) of articles from each journal that were evaluated."
   )
 ```
 
