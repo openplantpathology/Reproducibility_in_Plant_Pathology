@@ -309,9 +309,18 @@ Scores were assigned as '0' was 'Not available or not mentioned in the publicati
 Second, the 'Data availability' evaluated how freely and openly available the data presented in the article were.
 This was evaluated as '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no data were generated, e.g., a methods paper.
 
+In cases where partial computational materials or data were made available, the score was assigned the lowest score reflecting the completeness of the availability, all or nothing.
+That is, in cases where some data such as sequences were deposited in a database, *e.g.*, GenBank, but other data that was collected and used were not made available, the score assigned was '0'.
+
 Where possible, the software used in conducting the research behind the publication was recorded in the notes when it was cited or otherwise specified in the article text.
 
 ## Data Cleaning
+
+The criteria scores were checked for inconsistencies using the evaluators' comments in the spreadsheet and based on the software used.
+In some cases these comments were used to adjust the criteria score to align with the scoring definitions.
+This was not possible in all cases but only in cases where the evaluator had left comments that could be checked and acted upon.
+For example, a reviewer noted that all data were deposited in GenBank but the data score was '0', this was changed to '3' to align with the definition.
+Or in other cases, some software packages used were Excel add-ins but Excel was not recorded as being used; Excel was added to the list of software used to rectify this.
 
 A custom function, `import_notes()`, was written to import the data and format the columns properly R [@RCT2022].
 Values for software packages were checked for spelling consistency and corrections were made manually where necessary.
