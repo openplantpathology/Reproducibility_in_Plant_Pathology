@@ -394,7 +394,7 @@ tab_s <-
   rename("Software" = "Var1", "Frequency" = "Freq")
 ```
 
-There were `r as.character(english(length(unique(rrpp_software$software_used))))` unique software applications recorded being used in the articles that were evaluated.
+There were `r as.character(english(length(unique(rrpp_software$software_used))))` unique software applications recorded being used in the articles that were evaluated (Table \@ref(tab:software-used)).
 These included desktop programs, web-based software and databases.
 From the top ten most frequently cited software, the most frequently cited program was `r tab_s[1, 1]`, where different versions were not distinguished for this work.
 The next three programs were statistical software, SAS (`r scales::ordinal(which(tab_s == "SAS"))`), SPSS (`r scales::ordinal(which(tab_s == "SPSS"))`) and R (`r scales::ordinal(which(tab_s == "R"))`) with two other statistical programs also frequently cited, GenStat and Statistica (tied 8th).
