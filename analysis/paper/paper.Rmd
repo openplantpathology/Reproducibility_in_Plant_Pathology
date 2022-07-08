@@ -363,7 +363,7 @@ Additionally, all methods are described in greater detail with the code necessar
 All authors agreed on the five inter-rater article evaluations for the data availability, '0', not available for an inter-rater score of 100%.
 However, one of the authors rated one article as 'NA' or not having any computational methods used rather than '0' as with the other four authors, giving the inter-rater percent agreement a score of 100% with the 'NA' value dropped from the code availability.
 
-Looking at the ratings for all 450 articles and given the differing number of articles each co-author evaluated, there was broad agreement with no discernible patterns showing a strong bias or cause for concern (Figure \@ref(fig:evaluator-differences)).
+Looking at the ratings for all 450 articles and given the differing number of articles each co-author evaluated, there was broad agreement with no discernible patterns showing a strong bias or cause for concern (Figure S1).
 However, the analyses did account for different raters for each article by including this as a random effect.
 
 ## Code and Data Sharing Findings
