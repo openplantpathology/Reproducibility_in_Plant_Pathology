@@ -322,7 +322,7 @@ This was not possible in all cases but only in cases where the evaluator had lef
 For example, a reviewer noted that all data were deposited in GenBank but the data score was '0', this was changed to '3' to align with the definition.
 Or in other cases, some software packages used were Excel add-ins but Excel was not recorded as being used; Excel was added to the list of software used to rectify this.
 
-A custom function, `import_notes()`, was written to import the data and format the columns properly R [@RCT2022].
+A custom function, `import_notes()`, was written to import the data and format the columns properly in R [@RCT2022].
 Values for software packages were checked for spelling consistency and corrections were made manually where necessary.
 When working with these data in R, all strings of software character values were converted to fully upper-case to standardize the capitalization and alleviate any issues with capitalization used between evaluators.
 
