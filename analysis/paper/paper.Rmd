@@ -270,7 +270,7 @@ Therefore, we will follow Peng's [-@Peng2009] definition that provides clear gui
 Therefore, our definition of reproducibility will be that the computer code and data are made freely available to others for verification and conducting alternate analyzes or for use in instructional purposes.
 And that the software used are also easily obtained and preferably open-source to avoid licensing or other issues related to accessibility for end-users related to costs or non-standard file formats, etc.
 
-Plant pathologists routinely provide information on protocols and chemicals allowing for reproducibility.
+Plant pathologists often provide information on protocols and chemicals allowing for reproducibility.
 However, frequently biological specimens such as strains, cultures or cultivars are not available after publication.
 These cases do constitute a lack of reproducibility but will not be covered here.
 
