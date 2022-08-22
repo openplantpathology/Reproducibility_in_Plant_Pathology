@@ -236,8 +236,8 @@ Scientific claims can only be evaluated based on how protocols, materials, equip
 Openly sharing protocols, data and computational code is central for current scholarly dissemination and communication, but in many fields, including plant pathology, adoption of these practices has been slow.
 We randomly selected 450 articles published from 2012 to 2021 across 21 journals representative of the plant pathology discipline and assigned them scores reflecting their openness and computational reproducibility.
 We found that most of the articles were not following protocols for open science and were failing to share data or code in a reproducible way.
-We also propose that use of open-source tools facilitates computationally reproducible work and analyzes benefitting not just readers, but the authors as well.
-Finally, we also provide ideas and tools to promote open, reproducible computational research practices among plant pathologists.
+We propose that use of open-source tools facilitates computationally reproducible work and analyzes benefitting not just readers, but the authors as well.
+Finally, we provide ideas and tools to promote open, reproducible computational research practices among plant pathologists.
 
 \newpage
 
