@@ -249,7 +249,7 @@ Scientific research in the field varies from the purely observational or descrip
 Whatever the case, research findings are verifiable based on how much of the research materials, processes and outcomes are made available beyond what is reported in the scientific article and the ability of others to make use of the methods and results.
 These research findings include biological materials (host and pathogen genotypes), nucleic/protein sequences, experimental and simulated raw data annotations, drawings and photographs and statistical analysis code among other materials and data generated during the research activities.
 
-Open science and reproducibility is becoming more mainstream with many funding agencies expecting data to be available upon the conclusion of the research project [@government_of_canada_2016; @vannoorden2017; @ARC2018], journals in the field promoting the sharing of data [@DelPonte2020], and other scientists becoming interested in sharing their raw data and even lab notebook contents [@Wald2010].
+Open science and reproducibility is becoming more mainstream with many funding agencies expecting data to be available upon the conclusion of the research project [e.g., @government_of_canada_2016; @vannoorden2017; @ARC2018; @EUCommission2022; @GatesFoundation2022], journals in the field promoting the sharing of data [@DelPonte2020], and other scientists becoming interested in sharing their raw data and even lab notebook contents [@Wald2010].
 
 Reproducibility is one component under the umbrella of open science.
 By proactively practicing open science, the work increases the chance to become more reproducible through the availability of data and code.
