@@ -345,7 +345,7 @@ Models 5 and 6 were used to predict the responses using IF_5year as the predicto
 
 The `adapt_delta()` and `max_treedepth()` values were adjusted as necessary on a case-by-case basis for each of the models to ensure a good model fit to the data and that the chains mixed well.
 
-Model fitness' were evaluated using model summaries and diagnostic plots from 'brms' (version `r packageVersion("brms")`) and posterior fits using `pp_check()` (Figure \@ref(fig:posteriors)) from the contributed R package 'bayesplot' (version `r packageVersion("bayesplot")`) [@Gabry2019].
+Model fitness was evaluated using model summaries and diagnostic plots from 'brms' (version `r packageVersion("brms")`) and posterior fits using `pp_check()` (Figure \@ref(fig:posteriors)) from the contributed R package 'bayesplot' (version `r packageVersion("bayesplot")`) [@Gabry2019].
 
 A test for practical equivalence, `equivalence_test()`, was performed for each model using the contributed R package 'bayestestR' (version `r packageVersion("bayestestR")`) [@Makowski2019] with the Region of Practical Equivalence (ROPE) set to -0.1 to 0.1 and confidence interval of 0.95.
 
@@ -371,7 +371,7 @@ However, the analyses did account for different raters for each article by inclu
 Most articles did not make any computational methods available in any fashion with `r length(which(rrpp$comp_mthds_avail == 3))` (`r round(length(which(rrpp$comp_mthds_avail == 3))/nrow(rrpp), 3) * 100`%) classified as '3', which was the highest score available (Figure \@ref(fig:articleScores)A).
 `r gsub("(^[[:alpha:]])", "\\U\\1", as.character(english(length(which(rrpp$comp_mthds_avail == 0)))), perl = TRUE)` (`r round(length(which(rrpp$comp_mthds_avail == 0))/nrow(rrpp), 3) * 100`%) were classed as '0' and `r as.character(english(length(which(is.na(rrpp$comp_mthds_avail)))))` articles (`r round(length(which(is.na(rrpp$comp_mthds_avail)))/nrow(rrpp), 2) * 100`%) appeared to not use any computational methods.
 
-Additionally, data that supported the articles were mostly unavailable with `r length(which(rrpp$data_avail == 0))` (`r round(length(which(rrpp$data_avail == 0))/nrow(rrpp), 2) * 100`%) scoring '0' where the data was not available or mentioned in the article.
+Additionally, data that supported the articles were mostly unavailable with `r length(which(rrpp$data_avail == 0))` (`r round(length(which(rrpp$data_avail == 0))/nrow(rrpp), 2) * 100`%) scoring '0' where the original data were not available or mentioned in the article.
 However, more articles, `r length(which(rrpp$data_avail == 3))` (`r round(length(which(rrpp$data_avail == 3))/nrow(rrpp), 2) * 100`%), scored '3' than scored '1' or '2' combined, `r length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))` (`r round(length(which(rrpp$data_avail == 2 | rrpp$data_avail == 1))/nrow(rrpp), 2) * 100`%) with `r as.character(english(length(which(is.na(rrpp$data_avail)))))` articles not producing shareable data (Figure \@ref(fig:articleScores)D).
 
 ## Software Used
@@ -462,7 +462,7 @@ The second layer is providing machine readable text files of the raw data and co
 Fewer authors choose to follow this method, but in one instance that we found, which was not a part of this analysis, @Vogel2021 deposited Fastq files in the National Center of Biotechnology Information Sequence Read Archive (BioProject accession number PRJNA616021) and provided the scripts for analysis via a GitHub repository (<https://github.com/gmv23/pcap-gwas>) but we were unable to find a DOI that refers to these materials or a proper citation to properly cite them here.
 
 The third layer is the use of proper code repositories such as GitHub and data repositories like FigShare, Zenodo or OSF.io among others, allowing for the deposition and updating of code, figures, data preprints or any other materials that support the article itself while providing a DOI and citation.
-As an example, Sparks et al. [-@Sparks2011; -@Sparks2014] used FigShare to provide models, data and code [@Sparks2016] necessary to replicate model development and the subsequent study on the effects of climate change on potato late blight.
+As an example, Sparks et al.  [-@Sparks2011; -@Sparks2014, @Sparks2016] used FigShare to provide models, data and code necessary to replicate model development and the subsequent study on the effects of climate change on potato late blight.
 Similarly, @carleson2019population hosted the code for reproducing a population genomic analysis of *Phytophthora plurivora* on GitHub, while providing all data on OSF.io (the Open Science Framework).
 @Lehner2017 used GitHub to host a code repository of their research compendium website with data and a reproducible report that explains in detail all steps of the analysis and the R code for conducting a meta-analysis for assessing heterogeneity in the relationship between white mold incidence and soybean yield and between incidence and soybean yield (<https://emdelponte.github.io/paper-white-mold-meta-analysis/>).
 The website clearly demonstrates the analysis to readers and uses R so that anyone can easily replicate the work.
@@ -474,7 +474,9 @@ However, there are drawbacks to using Docker.
 It can be difficult to understand for a new user and new platforms, like the Apple M1 chip, may not be fully supported, which hinder the ability to share the container.
 But, in most cases using an open-source language like R, Julia or Python allows us to share our work in a fashion where we know that the analysis will run exactly the same on every computer.
 For more on using Docker for reproducible research, we would refer readers to @Nuest2020.
-As an example of this approach, @Khaliq2020 provided a research compendium as a Docker container with a DOI and a full R package that enables readers to fully replicate their analysis of *Ascochyta rabiei* conidia dispersal in chickpea using the data collected and stepping through other points where weather data were investigated and various models were fit before deciding on the best fit and recreate any figures as published in the article [@Khaliq2020a].
+As an example of this approach, @Khaliq2020 provided a research compendium as a Docker container with a DOI and a full R package.
+This enables readers to fully replicate their analysis of *Ascochyta rabiei* conidia dispersal in chickpea using the data collected.
+It also allows for more in-depth investigation by stepping through other points where weather data were investigated and various models were fit before deciding on the best fit and recreate any figures as published in the article [@Khaliq2020a].
 When this layer is employed, tools such as Binder, <https://mybinder.org>, can be used that allow readers and reviewers to launch an interactive session in their web browser and interact with the data and rerun the analysis in an RStudio instance or Jupyter notebooks, a "web application for creating and sharing computational documents" [@jupyter2022], as Mioroni et al. used [-@Miorini2018; -@Miorini2019].
 @Kamvar2015 took a slightly different approach by including all files necessary for the analysis and most output files in a repository [@Kamvar2014] that also included an installable R package that was used for the original analysis.
 While there are many other methods, these two approaches illustrate some of the best-practices where the data and other files were deposited in repositories with DOIs and reproducibility issues were addressed by using R packages to handle dependencies and other versioning issues making the work more portable.
@@ -488,11 +490,11 @@ Metadata also protects the resource and its future availability by tracking the 
 That is, without metadata, the data are not FAIR and the computational materials lose value by not having good documentation.
 
 The first layer, as reported, is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations.
-When making our science more open and reproducible, methods, software used (this includes items such as R, Julia or Python packages that were directly used in the analysis or production of the paper, etc.) should be cited properly.
+When making science more open and reproducible, methods, software used (this includes items such as R, Julia or Python packages that were directly used in the analysis or production of the paper, etc.) should be cited properly.
 Provide a full description of all equipment used, *e.g.*, "a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals".
 This allows end-users to identify what was used and identify the methods used more accurately.
 Just as importantly, this acknowledges the contributions of others whose works were instrumental in our research.
-This also helps to ensure that we researchers can reconstruct what we have done since we will have good notes and documentation and be able to identify if something changes, *e.g.*, a package version, what effect it had on our research.
+This also helps to ensure that researchers can reconstruct what they did more easily since good notes exist and documentation and be able to identify if something changes, *e.g.*, a package version, what effect it had on the research.
 
 The use of programming or scripting languages such as R, Julia, SAS or Python enables us scientists to keep very detailed records of what was computationally performed.
 This is as opposed to using software such as spreadsheet programs like Excel, Google Sheets, Numbers, Calc or others which can be used for simple statistical analyzes and visualization or other point-and-click software packages that do not enable us to keep an accurate record of the steps taken to import, format, visualize and analyze data.
@@ -643,7 +645,7 @@ tab_t %>%
 
 # Figures
 
-```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualizations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialized journals. The journal title was tested for an effect on code availability (A) and data availability (B), the year of publication was tested for an effect on code availability (C) and data availability (D), and five-year impact factor of journal was tested for effect on code availability (E) and data availability (F). Where 'yrep' indicate 50 random draws for model predictions and 'y' are the observed values. Model fitnesses were found to be good for all models.", cache=FALSE, fig.env='figure'}
+```{r posteriors, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Posterior distribution visualizations for each of six models fitted to scoring data that were used to evaluate factors on reproducibility of 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialized journals. The journal title was tested for an effect on code availability (A) and data availability (B), the year of publication was tested for an effect on code availability (C) and data availability (D), and five-year impact factor of journal was tested for effect on code availability (E) and data availability (F). Where 'yrep' indicate 50 random draws for model predictions and 'y' are the observed values. Model fitness was found to be good for all models.", cache=FALSE, fig.env='figure'}
 
 set.seed(23)
 

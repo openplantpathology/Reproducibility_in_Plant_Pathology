@@ -370,7 +370,7 @@ as_tibble(m_h2_report) %>%
 
 ## Supplementary Figures
 
-```{r evaluator-differences, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Criteria scores for 450 articles computational materials and data avaialbility for each of the five evaluators. Each article was evaluated on a 0 to 3 scale for computational materials (Code) and raw data availability (Data) by one of five evaluators."}
+```{r evaluator-differences, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Criteria scores for 450 articles computational materials and data availability for each of the five evaluators. Each article was evaluated on a 0 to 3 scale for computational materials (Code) and raw data availability (Data) by one of five evaluators."}
 p <- import_notes() %>%
   mutate(
     comp_mthds_avail = as.numeric(as.character(comp_mthds_avail)),
@@ -442,7 +442,7 @@ include_graphics(path = here(
 
 \newpage
 
-```{r journal-data-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the publishing journal on articles’ supporting data availability.."}
+```{r journal-data-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the publishing journal on articles’ supporting data availability."}
 y_labs <- gsub("abbreviation", "", parameters(m_f2)$Parameter)
 y_labs <- rev(gsub("b_", "", y_labs))
 y_labs <- y_labs[c(21:23, 1:20)]
