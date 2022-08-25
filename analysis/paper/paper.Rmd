@@ -309,6 +309,9 @@ Scores were assigned as '0' was 'Not available or not mentioned in the publicati
 Second, the 'Data availability' evaluated how freely and openly available the data presented in the article were.
 This was evaluated as '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no data were generated, e.g., a methods paper.
 
+For the purposes of this research paper, the word "code" in "code availability" was defined as including any materials that were used in the data import, cleaning, analysis, genome assembly or manuscript preparation or in the case of modelling papers, the model's software code itself.
+The word "data" in "data availability" was defined as including any data created or collected and presented in the research manuscript.
+
 In cases where partial computational materials or data were made available, the score was assigned the lowest score reflecting the completeness of the availability, all or nothing.
 That is, in cases where some data such as sequences were deposited in a database, *e.g.*, GenBank, but other data that was collected and used were not made available, the score assigned was '0'.
 
