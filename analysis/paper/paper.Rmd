@@ -236,7 +236,7 @@ Scientific claims can only be evaluated based on how protocols, materials, equip
 Openly sharing protocols, data and computational code is central for current scholarly dissemination and communication, but in many fields, including plant pathology, adoption of these practices has been slow.
 We randomly selected 450 articles published from 2012 to 2021 across 21 journals representative of the plant pathology discipline and assigned them scores reflecting their openness and computational reproducibility.
 We found that most of the articles were not following protocols for open science and were failing to share data or code in a reproducible way.
-We propose that use of open-source tools facilitates computationally reproducible work and analyzes benefitting not just readers, but the authors as well.
+We propose that use of open-source tools facilitates computationally reproducible work and analyses benefitting not just readers, but the authors as well.
 Finally, we provide ideas and tools to promote open, reproducible computational research practices among plant pathologists.
 
 \newpage
@@ -802,11 +802,11 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_3.eps"))
 \newpage
 
 ```{r year-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the year of publication for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence was undecided in any detectable effects of year of publication on computational materials or data being shared. Intervals in grey indicate that the median was less than zero or less likely that code or data were shared and intervals in black indicate that the median value is above zero or more likely to share data and code.', cache=FALSE, fig.env='figure'}
-a <- plot(parameters(m_g1), show_lables = TRUE) + 
+a <- plot(parameters(m_g1), show_labels = TRUE) + 
   scale_colour_grey() +
   ggtitle("Code")
 
-b <- plot(parameters(m_g2), show_lables = TRUE) + 
+b <- plot(parameters(m_g2), show_labels = TRUE) + 
   scale_colour_grey() +
    theme(
       axis.text.y = element_blank(),
@@ -839,11 +839,11 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_4.eps"))
 \newpage
 
 ```{r IF-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the publishing journal\'s five-year impact factor for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence was undecided on any detectable effects of impact factor. Intervals in black indicate that the median value is above zero or more likely to share data and code.', cache=FALSE, fig.env='figure'}
-a <- plot(parameters(m_h1), show_lables = TRUE) + 
+a <- plot(parameters(m_h1), show_labels = TRUE) + 
   scale_colour_grey() +
   ggtitle("Code")
 
-b <- plot(parameters(m_h2), show_lables = TRUE) + 
+b <- plot(parameters(m_h2), show_labels = TRUE) + 
   scale_colour_grey() +
    theme(
       axis.text.y = element_blank(),
