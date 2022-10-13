@@ -288,8 +288,7 @@ There were three evaluation events that took place to increase the yearly covera
 During each scoring event, each evaluator was randomly assigned 50 unique articles to evaluate during an evaluation event.
 
 A list of randomly generated numbers representing page numbers from one to 150, sampled with replacement, was assigned to a randomized list of the 21 journals for each sampling event.
-This was done because some journals restart their numbering with each issue and also ensures that the journal is more likely to have a page number corresponding to the randomly generated value.
-This also assumes that there is no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year.
+This was done to ensure that the the randomly generated number had a corresponding number in the journal.
 
 Articles were then manually selected by visiting the journals' websites and selecting the articles within which the randomly assigned page numbers fell, *i.e.*, if the page number was 32, the article that started on page 28 and ended on page 35 was selected as it contained page 32.
 In cases where an article was not suitable, *e.g.*, a review or otherwise not related to plant pathology or the randomly assigned numbers for that journal and year fell within the same article, the next article in that journal was selected until a suitable article was found.
@@ -424,6 +423,10 @@ There were no detectable effects when predicting the effects of the five-year im
 
 Our goal was to evaluate as many articles as we realistically could to get as broad an overview of the discipline as possible.
 Because of this each article, save the five that were used to compare the inter-rater differences, was evaluated by only one co-author.
+
+The methods for selecting articles meant that only page numbers between 1 and 150 were selected.
+This approach assumed that there was no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year and some journals, _e.g._, _Phytopathology_(R) have focus issues with invited authors.
+In spite of some publications being from special issues, there were no detectable differences in the reproducibility of the articles as defined and measured by this article, so the assumption appears to be correct.
 
 Except for a few isolated cases, most papers were not fully computationally reproducible.
 Very few authors choose to share both data and code.
