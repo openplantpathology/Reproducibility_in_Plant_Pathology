@@ -459,7 +459,7 @@ Weed scientists started a community to promote openness in the discipline, Open 
 More broadly within agricultural research, articles have been published highlighting the advantages of, need for and how to publish FAIR data in agriculture [@Smith2018; @Arnaud2020; @Stacey2022].
 However, we were unable to find any quantification of the reproducibility of any of these related disciplines as we have done here.
 
-## Examples of Different Layers of Reproducibility
+## Examples of Different Layers for Improving Reproducibility
 
 There are different ways to make research more open and reproducible, which can be thought of as layers of reproducibility.
 If a general workflow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, analyzing, summarizing and presenting data and results, writing the manuscript then the next logical steps are depositing the code used along with the raw data in proper repositories (Figure \@ref(fig:workflow-dia)).
