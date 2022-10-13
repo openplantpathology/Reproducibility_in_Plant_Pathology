@@ -456,7 +456,7 @@ In response to this, other related disciplines have published guides or started 
 Weed scientists started a community to promote openness in the discipline, Open Weed Science, which stated that they valued, "open access knowledge-sharing as a strategy to enhance reproducibility within our discipline", but the website is no longer available and the Twitter account, \@OpenWeedSci, appears to be inactive when viewing the account as of October 2022 [@OpenWeedScience2021].
 @SerradaCruz2019 proposed a framework for capturing provenance of data-centric agronomic experiments using an R-based workflow, 'RFlow', which would allow reuse of R scripts using generic workflows and saving data and metadata to web repositories that other researchers and referees can browse using Web interfaces.
 @Kool2020 evaluated the reproducibility of on-farm experiments in Africa, finding that often the experimental design was difficult or impossible to reproduce from the publication.
-More broadly within agricultural research, articles have been published highlighting the advantages of, need for and how to publish FAIR data in agriculture, [@Smith2018; @Arnaud2020; @Stacey2022].
+More broadly within agricultural research, articles have been published highlighting the advantages of, need for and how to publish FAIR data in agriculture [@Smith2018; @Arnaud2020; @Stacey2022].
 However, we were unable to find any quantification of the reproducibility of any of these related disciplines as we have done here.
 
 ## Examples of Different Layers of Reproducibility
@@ -497,7 +497,7 @@ This enables readers to fully replicate their analysis of *Ascochyta rabiei* con
 It also allows for more in-depth investigation by stepping through other points where weather data were investigated and various models were fit before deciding on the best fit and recreate any figures as published in the article [@Khaliq2020a]. When this layer is employed, tools such as Binder, <https://mybinder.org>, can be used that allow readers and reviewers to launch an interactive session in their web browser and interact with the data and rerun the analysis in an RStudio instance or Jupyter notebooks, a "web application for creating and sharing computational documents" [@jupyter2022], as Mioroni et al. used [-@Miorini2018; -@Miorini2019]. @Kamvar2015 took a slightly different approach by including all files necessary for the analysis and most output files in a repository [@Kamvar2014] that also included an installable R package that was used for the original analysis.
 While there are many other methods, these two approaches illustrate some of the best-practices where the data and other files were deposited in repositories with DOIs and reproducibility issues were addressed by using R packages to handle dependencies and other versioning issues making the work more portable.
 
-Efforts to annotate structured raw data (FAIR -- Findable, Accessible, Interoperable and Re-usable) [@Wilkinson2016] and fully document the analysis using open-source code which are deposited in public repositories and can be run by anyone following the download of data and code.
+Efforts to annotate structured raw data, make it FAIR (Findable, Accessible, Interoperable and Re-usable) [@Wilkinson2016] and fully document the analysis using open-source code which are deposited in public repositories and can be run by anyone following the download of data and code.
 Making the raw data FAIR means providing proper metadata, a clear description of what the resource contains, how it can be used and other attributes about it that help users understand it.
 The metadata further define the resource that has been made available allowing for discovery and use by other interested parties.
 That is, proper cataloguing and descriptions of the computational materials and data enable others to easily find and understand what the materials are.
@@ -583,15 +583,10 @@ That is, while we may be standing on the shoulders of giants in doing our work, 
 
 # Authors' Contributions
 
-A.H.S, E.DP., Z.F.
-and N.J.G. conceived of the presented idea and scoring system.
-E.DP.
-provided five-year impact factors.
-A.H.S., E.DP., Z.F. K.A.
-and N.G.
-evaluated articles for scoring.
-A.H.S. designed the computational framework for analysis and created the research compendium with feedback from E.DP.
-and Z.F.
+A.H.S, E.DP., Z.F. and N.J.G. conceived of the presented idea and scoring system.
+E.DP. provided five-year impact factors.
+A.H.S., E.DP., Z.F. K.A. and N.G. evaluated articles for scoring.
+A.H.S. designed the computational framework for analysis and created the research compendium with feedback from E.DP. and Z.F.
 A.H.S. wrote the manuscript in consultation with E.DP.
 All authors provided critical feedback and helped contribute to the final version of the manuscript.
 
