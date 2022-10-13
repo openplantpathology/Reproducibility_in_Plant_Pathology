@@ -60,7 +60,6 @@ import_notes <- function() {
                     )) %>%
     dplyr::mutate(
       journal = as.factor(journal),
-      year = as.factor(year),
       art_class = as.factor(art_class),
       repro_inst = as.factor(repro_inst),
       open = as.factor(open),
