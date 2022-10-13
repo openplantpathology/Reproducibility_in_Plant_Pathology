@@ -406,11 +406,11 @@ The Python programming language was cited only twice.
 
 ## Statistical Analysis
 
-When predicting the availability of computational methods (code) and availability, all journals were compared with *Phytopathology* as the reference with latent scores having a mean of zero.
+When predicting the availability of computational methods (code) and availability, all journals were compared with *Phytopathology*&reg; as the reference with latent scores having a mean of zero.
 
-There were no clear differences that the analysis could detect between any of the journals as compared with *Phytopathology* for the sharing of computational methods (code); the effects of all parameters were undecided (Figure \@ref(fig:journal-parameters)A, Table S1, Figure S2).
+There were no clear differences that the analysis could detect between any of the journals as compared with *Phytopathology*&reg; for the sharing of computational methods (code); the effects of all parameters were undecided (Figure \@ref(fig:journal-parameters)A, Table S1, Figure S2).
 
-When predicting the availability of data availability as compared with *Phytopathology*, publications in one journal, *Phytopathologia Mediterranea*, can be considered clearly more likely to share data than publications in *Phytopathology*, but no effects were detectable in any other journal title (\@ref(fig:journal-parameters)B, Table S2, Figure S3).
+When predicting the availability of data availability as compared with *Phytopathology*&reg;, publications in one journal, *Phytopathologia Mediterranea*, can be considered clearly more likely to share data than publications in *Phytopathology*&reg;, but no effects were detectable in any other journal title (\@ref(fig:journal-parameters)B, Table S2, Figure S3).
 
 The effect of *Phytopathologia Mediterranea* (Median = 1.68, 95% CI [0.78, 2.57]) has a 99.99% probability of being positive (> 0), 99.98% of being significant (> 0.05), and 99.83% of being large (> 0.30). The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 19017).
 
@@ -425,14 +425,14 @@ Our goal was to evaluate as many articles as we realistically could to get as br
 Because of this each article, save the five that were used to compare the inter-rater differences, was evaluated by only one co-author.
 
 The methods for selecting articles meant that only page numbers between 1 and 150 were selected.
-This approach assumed that there was no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year and some journals, _e.g._, _Phytopathology_(R) have focus issues with invited authors.
+This approach assumed that there was no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year and some journals, _e.g._, *Phytopathology*&reg;&reg; have focus issues with invited authors.
 In spite of some publications being from special issues, there were no detectable differences in the reproducibility of the articles as defined and measured by this article, so the assumption appears to be correct.
 
 Except for a few isolated cases, most papers were not fully computationally reproducible.
 Very few authors choose to share both data and code.
 More authors shared data due to journal requirements to share sequence data, but other types of data related to field experiments or other laboratory studies were not likely to be shared.
 Code sharing was extremely rare, but in cases where it was shared, most were included as a part of the journal article's publication as extra materials rather than through data repositories.
-Authors publishing in *Phytopathologia Mediterranea* were more likely than articles published in *Phytopathology* to share data.
+Authors publishing in *Phytopathologia Mediterranea* were more likely than articles published in *Phytopathology*&reg; to share data.
 Several articles published in this journal either made the data available through GenBank or it was noted that all data were available through the article and associated supplementary materials.
 The journal ranking highest for sharing data, *Phytopathologia Mediterranea*, did not have any articles that were sampled in 2018 (Table \@ref(tab:journals)).
 There is no clear reason for the year 2018 to have more data shared than other years other than random chance that we found.
@@ -764,7 +764,7 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_2.eps"))
 
 \newpage
 
-```{r journal-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the journal title for (A) computational materials (code) and (B) data being made readily available to the public. A test for equivalence was unable to detect any clear differences between *Phytopathology* and all other journals sharing computational materials (code). However, a test for equivalence found that articles in *Phytopathologia Mediterranea* were more likely have data available than articles found in *Phytopathology*. Intervals in grey have a median value less than that of *Phytopathology*, the base level used for the analysis and articles in these journals could be less likely to share computational materials and data than articles published in *Phytopathology*. Intervals in black have a median value that is greater than that of *Phytopathology*, the base level for the analysis and articles in these journals could be more likely to share data or code than those found in *Phytopathology*.', cache=FALSE, fig.env='figure'}
+```{r journal-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the journal title for (A) computational materials (code) and (B) data being made readily available to the public. A test for equivalence was unable to detect any clear differences between *Phytopathology*&reg; and all other journals sharing computational materials (code). However, a test for equivalence found that articles in *Phytopathologia Mediterranea* were more likely have data available than articles found in *Phytopathology*&reg;. Intervals in grey have a median value less than that of *Phytopathology*&reg;, the base level used for the analysis and articles in these journals could be less likely to share computational materials and data than articles published in *Phytopathology*&reg;. Intervals in black have a median value that is greater than that of *Phytopathology*&reg;, the base level for the analysis and articles in these journals could be more likely to share data or code than those found in *Phytopathology*&reg;.', cache=FALSE, fig.env='figure'}
 
 a_y_labs <- rev(gsub("b_abbreviation", "", parameters(m_f1)$Parameter)[-c(1:2)])
 a <- plot(parameters(m_f1)) +
