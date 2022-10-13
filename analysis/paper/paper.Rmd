@@ -427,7 +427,7 @@ Our goal was to evaluate as many articles as we realistically could to get as br
 Because of this each article, save the five that were used to compare the inter-rater differences, was evaluated by only one co-author.
 
 The methods for selecting articles meant that only page numbers between 1 and 150 were selected.
-This approach assumed that there was no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year and some journals, *e.g.*, *Phytopathology*®® have focus issues with invited authors.
+This approach assumed that there was no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year and some journals, *e.g.*, *Phytopathology*® have focus issues with invited authors.
 In spite of some publications being from special issues, there were no detectable differences in the reproducibility of the articles as defined and measured by this article, so the assumption appears to be correct.
 
 Except for a few isolated cases, most papers were not fully computationally reproducible.
