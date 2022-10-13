@@ -330,20 +330,18 @@ When working with these data in R, all strings of software character values were
 
 ## Statistical Analysis
 
-The statistical analysis was performed using `r version$version.string` [@RCT2022] on an Apple MacBook Pro (13-inch, M1, 2020).
-
 Inter-rater differences were evaluated using percent agreement and Fliess' Kappa [@DelPonte2019].
+
+Six models were applied, with half predicting the response of code availability and the other half predicting data availability.
+Models 1 and 2 were used to predict responses with publishing journal, using the journals' abbreviation as the predictor the formula took the form: response \~ abbreviation (model 1: code_availability \~ abbreviation and model 2: data_availability \~ abbreviation) and the models included assignee as a random effect (formula: \~1 \| assignee).
+Models 3 and 4 were used to predict the two responses with year as the predictor (formula: response \~ year) and the models included abbreviation and assignee as random effects (formula: list(\~1 \| abbreviation, \~1 \| assignee)).
+Models 5 and 6 were used to predict the responses using IF_5year as the predictor the formula took the form: response \~ IF_5year and included assignee as random effect (formula: \~1 \| assignee) without journal as a random effect to mitigate correlation between impact factor and the journal of publication.
 
 We fitted Bayesian logistic mixed models (estimated using MCMC sampling with 4 chains of 10000 iterations and a warm-up of 5000 and thinning of 1) using cumulative family function with a logit link for ordinal data using the contributed package 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021].
 The cumulative logit family is often used for ordinal data as it uses cumulative probabilities up to a threshold, making all of the of ordinal categories binary at that threshold.
 Priors were selected to be weakly informative and deemed suitable through using `pp_check()` to examine the models' predictions based on priors only (using the parameter `sample_prior = only` in `brm()`).
 Priors over all parameters were set as: normal (mean = 0.00, SD = 1.0) distributions for both fixed parameters and random effects.
 The best fitting models were selected by using Widely Applicable Information Criterion (WAIC) and the expected log point-wise predictive density via `loo_compare()`.
-
-Six models were applied, with half predicting the response of code availability and the other half predicting data availability.
-Models 1 and 2 were used to predict responses with publishing journal, using the journals' abbreviation as the predictor the formula took the form: response \~ abbreviation (model 1: code_availability \~ abbreviation and model 2: data_availability \~ abbreviation) and the models included assignee as a random effect (formula: \~1 \| assignee).
-Models 3 and 4 were used to predict the two responses with year as the predictor (formula: response \~ year) and the models included abbreviation and assignee as random effects (formula: list(\~1 \| abbreviation, \~1 \| assignee)).
-Models 5 and 6 were used to predict the responses using IF_5year as the predictor the formula took the form: response \~ IF_5year and included assignee as random effect (formula: \~1 \| assignee) without journal as a random effect to mitigate correlation between impact factor and the journal of publication.
 
 The `adapt_delta()` and `max_treedepth()` values were adjusted as necessary on a case-by-case basis for each of the models to ensure a good model fit to the data and that the chains mixed well.
 
@@ -357,6 +355,8 @@ Convergence and stability of the Bayesian sampling was assessed using R-hat, whi
 
 A full report of all parameters and model details are available in the Supplementary Materials generated using the contributed package 'report' (version `r packageVersion("report")`) [@Makowski2021].
 Additionally, all methods are described in greater detail with the code necessary to reproduce the work in @Sparks2022.
+
+All statistical analysis was performed using `r version$version.string` [@RCT2022] on an Apple MacBook Pro (13-inch, M1, 2020).
 
 # Results
 
