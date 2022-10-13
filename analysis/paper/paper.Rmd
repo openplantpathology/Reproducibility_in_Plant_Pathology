@@ -249,7 +249,7 @@ Scientific research in the field varies from the purely observational or descrip
 Whatever the case, research findings are verifiable based on how much of the research materials, processes and outcomes are made available beyond what is reported in the scientific article and the ability of others to make use of the methods and results.
 These research findings include biological materials (host and pathogen genotypes), nucleic/protein sequences, experimental and simulated raw data annotations, drawings and photographs and statistical analysis code among other materials and data generated during the research activities.
 
-Open science and reproducibility is becoming more mainstream with many funding agencies expecting data to be available upon the conclusion of the research project [*e.g.*, @government_of_canada_2016; @vannoorden2017; @ARC2018; @EUCommission2022; @GatesFoundation2022], journals in the field promoting the sharing of data [@DelPonte2020], and other scientists becoming interested in sharing their raw data and even lab notebook contents [@Wald2010] or drawing attention to the lack of code and data that make the published work less useful [@Barton2022].
+Open science and reproducibility is becoming more mainstream with many funding agencies expecting data to be available upon the conclusion of the research project [e.g., @government_of_canada_2016; @vannoorden2017; @ARC2018; @EUCommission2022; @GatesFoundation2022], journals in the field promoting the sharing of data [@DelPonte2020], and other scientists becoming interested in sharing their raw data and even lab notebook contents [@Wald2010] or drawing attention to the lack of code and data that make the published work less useful [@Barton2022].
 
 Reproducibility is one component under the umbrella of open science.
 By proactively practising open science, the work increases the chance to become more reproducible through the availability of data and code.
@@ -259,7 +259,7 @@ For us to easily discuss the topic, we first must define what we mean so that we
 Many of the terms used in this area have varying definitions that may or may not agree with each other.
 For instance, reproducible research was recently highlighted by many authors [@Tiwari_2021; @Eckert2020; @Dienlin2020; @preeyanon2018; @Wallach2018; @Baker2016a; @Iqbal2016; @Nature2016; @Patil2016; @Weissgerber2016; @Brunsdon2015; @Sweedler2015; @Fitzjohn2014; @Ioannidis2014; @Fidler2013; @Stodden2013] as an important issue.
 
-In the biological sciences it is not always possible to use identical test material or perhaps the time or resources are not available for full reproducibility, *e.g.*, field trials that span years and locations or complex glasshouse experiments.
+In the biological sciences it is not always possible to use identical test material or perhaps the time or resources are not available for full reproducibility, e.g., field trials that span years and locations or complex glasshouse experiments.
 Therefore, we will follow Peng's [-@Peng2009] definition that provides clear guidelines for a minimum standard of "reproducible research":
 
 > "The replication of scientific findings using independent investigators, methods, data, equipment, and protocols has long been, and will continue to be, the standard by which scientific claims are evaluated. However, in many fields of study there are examples of scientific investigations that cannot be fully replicated because of a lack of time or resources. In such a situation, there is a need for a minimum standard that can fill the void between full replication and nothing. One candidate for this minimum standard is 'reproducible research', which requires that data sets and computer code be made available to others for verifying published results and conducting alternative analyzes".
@@ -279,7 +279,7 @@ These cases do constitute a lack of reproducibility but will not be covered here
 ## Article Selection and Evaluation Events
 
 To understand where we stand as a discipline regarding open science and reproducible research, we surveyed a broad selection of articles to represent a wide swath of publications to evaluate our collective status.
-We hand-picked 21 journals which we felt represented research publications in the field of plant pathology (Table \@ref(tab:journals)) that encompassed a range of subject matter foci, applied and fundamental work, country of origin and ranking metrics, *e.g.*, quartile range or citation index, to represent the discipline.
+We hand-picked 21 journals which we felt represented research publications in the field of plant pathology (Table \@ref(tab:journals)) that encompassed a range of subject matter foci, applied and fundamental work, country of origin and ranking metrics, e.g., quartile range or citation index, to represent the discipline.
 The aim was to gather as complete an overview of the status of computational reproducibility in plant pathology journals as possible and avoid bias in the findings by skewing towards high-impact journals that may have a greater influence.
 From those 21 journals we randomly selected 450 articles published from 2012 to 2021.
 Using R [@RCT2022], two lists were created, the first was a list of the 21 journals and the second was a list of the evaluators that were evaluating the articles for reproducibility.
@@ -291,7 +291,7 @@ A list of randomly generated numbers representing page numbers from one to 150, 
 This was done to ensure that the the randomly generated number had a corresponding number in the journal.
 
 Articles were then manually selected by visiting the journals' websites and selecting the articles within which the randomly assigned page numbers fell, *i.e.*, if the page number was 32, the article that started on page 28 and ended on page 35 was selected as it contained page 32.
-In cases where an article was not suitable, *e.g.*, a review or otherwise not related to plant pathology or the randomly assigned numbers for that journal and year fell within the same article, the next article in that journal was selected until a suitable article was found.
+In cases where an article was not suitable, e.g., a review or otherwise not related to plant pathology or the randomly assigned numbers for that journal and year fell within the same article, the next article in that journal was selected until a suitable article was found.
 
 Depending on the scoring event, three to five of this paper's authors were each assigned to rate a randomized list of journal articles using scoring criteria devised for the purposes of this research in each of the three different scoring events as their time allowed for their participation.
 In the first event, three authors (AS, EDP, and ZF) evaluated a total of 200 unique articles, in the second event two authors evaluated a total of 100 unique articles (EDP, KA) and in the third round, five authors (AS, EDP, KA, ZF, NG) evaluated a total of 150 unique articles for a total of 450 articles.
@@ -304,15 +304,15 @@ This was downloaded, saved as an Open Document Spreadsheet (ODS) file for analys
 
 Each article was rated on a 0 -- 3 scale for its data and code availability.
 'Code availability' rated how easily and openly available the computational methods used in the article were.
-Scores were assigned as '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (*e.g.*, login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (*e.g.*, archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no code was created to conduct the work that was detectable.
+Scores were assigned as '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no code was created to conduct the work that was detectable.
 Second, the 'Data availability' evaluated how freely and openly available the data presented in the article were.
-This was evaluated as '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (*e.g.*, login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (*e.g.*, archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no data were generated, *e.g.*, a methods paper.
+This was evaluated as '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no data were generated, e.g., a methods paper.
 
 For the purposes of this research paper, the word "code" in "code availability" was defined as including any materials that were used in the data import, cleaning, analysis, genome assembly or manuscript preparation or in the case of modelling papers, the model's software code itself.
 The word "data" in "data availability" was defined as including any data created or collected and presented in the research manuscript.
 
 In cases where partial computational materials or data were made available, the score was assigned the lowest score reflecting the completeness of the availability, all or nothing.
-That is, in cases where some data such as sequences were deposited in a database, *e.g.*, GenBank, but other data that was collected and used were not made available, the score assigned was '0'.
+That is, in cases where some data such as sequences were deposited in a database, e.g., GenBank, but other data that was collected and used were not made available, the score assigned was '0'.
 
 Where possible, the software used in conducting the research behind the publication was recorded in the notes when it was cited or otherwise specified in the article text.
 
@@ -429,7 +429,7 @@ Our goal was to evaluate as many articles as we realistically could to get as br
 Because of this each article, save the five that were used to compare the inter-rater differences, was evaluated by only one co-author.
 
 The methods for selecting articles meant that only page numbers between 1 and 150 were selected.
-This approach assumed that there was no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year and some journals, *e.g.*, *Phytopathology*® have focus issues with invited authors.
+This approach assumed that there was no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year and some journals, e.g., *Phytopathology*® have focus issues with invited authors.
 In spite of some publications being from special issues, there were no detectable differences in the reproducibility of the articles as defined and measured by this article, so the assumption appears to be correct.
 
 Except for a few isolated cases, most papers were not fully computationally reproducible.
@@ -474,7 +474,7 @@ This is suitable for studies that may have a small data set or simple analysis o
 The scripts provided used an R package, *checkpoint* [@Ooi2022], to provide a mechanism to help ensure reproducibility by installing the package versions used by the authors that were necessary to reproduce the work rather than defaulting to the latest versions, which may cause failures due to changes in the package code-bases.
 However, the scripts did not run unhindered as the supplementary materials suggested without changes to the data.
 But with some modifications to the data, and file name changes, the scripts ran allowing examples of the research to be reproduced using the definition of @Peng2009.
-One drawback to this approach is that journals are often not equipped to handle code, *e.g.*, script files, that may be developed as a part of the research process and so they are often archived as PDF or Word documents which hinder the ability to easily ingest and start working with them or if they are provided in a native text format, they do not render via the web properly.
+One drawback to this approach is that journals are often not equipped to handle code, e.g., script files, that may be developed as a part of the research process and so they are often archived as PDF or Word documents which hinder the ability to easily ingest and start working with them or if they are provided in a native text format, they do not render via the web properly.
 Though this should be possible given some effort from the publishing journal to share simple text files rather than binary formats along with the proper instructions and handling of these file formats rather than a one-size-fits all approach that we commonly see for supplementary materials.
 For example, the R scripts for @Hill2019 were provided as supplementary materials but do not actually appear in the browser window when requested, which may confuse readers and makes downloading them more difficult.
 While this allows the reader to quickly view the extra materials and a DOI is assigned as a part of the article itself, the data or code are not readily findable and accessible through a searchable database.
@@ -483,14 +483,14 @@ Furthermore, in many cases this does not allow prompt access to the data and run
 The second layer is providing machine readable text files of the raw data and code in a public code repository such as GitHub, GitLab, but without a DOI or some other long-term repository as provided by an institutional library, Zenodo, FigShare, etc.
 Fewer authors choose to follow this method, but in one instance that we found, which was not a part of this analysis, @Vogel2021 deposited Fastq files in the National Center of Biotechnology Information Sequence Read Archive (BioProject accession number PRJNA616021) and provided the scripts for analysis via a GitHub repository (<https://github.com/gmv23/pcap-gwas>) but we were unable to find a DOI that refers to these materials or a proper citation to properly cite them here.
 
-The third layer is the use of proper code repositories such as a library resource, or code repository (*e.g.* GitHub or GitLab) and data repositories (*e.g.*, FigShare, Zenodo or OSF.io), allowing for the deposition and updating of code, figures, data preprints or any other materials that support the article itself while providing a DOI and citation.
+The third layer is the use of proper code repositories such as a library resource, or code repository (e.g. GitHub or GitLab) and data repositories (e.g., FigShare, Zenodo or OSF.io), allowing for the deposition and updating of code, figures, data preprints or any other materials that support the article itself while providing a DOI and citation.
 As an example, Sparks et al. [-@Sparks2011; -@Sparks2014, @Sparks2016] used FigShare to provide models, data and code necessary to replicate model development and the subsequent study on the effects of climate change on potato late blight.
 Similarly, @carleson2019population hosted the code for reproducing a population genomic analysis of *Phytophthora plurivora* on GitHub, while providing all data on OSF.io (the Open Science Framework).
 @Lehner2017 used GitHub to host a code repository of their research compendium website with data and a reproducible report that explains in detail all steps of the analysis and the R code for conducting a meta-analysis for assessing heterogeneity in the relationship between white mold incidence and soybean yield and between incidence and soybean yield (<https://emdelponte.github.io/paper-white-mold-meta-analysis/>).
 The website clearly demonstrates the analysis to readers and uses R so that anyone can easily replicate the work.
 Using a public code repository resource allows other researchers to easily contact the authors by opening "Issues" and report bugs or ask questions in an open forum that are not as straightforward when the data are provided as supplementary material.
 
-Taking this approach even further, packaging the full analysis in a containerized software application, *e.g.*, Docker is a way to help ensure computational reproducibility but at the expense of added complexity.
+Taking this approach even further, packaging the full analysis in a containerized software application, e.g., Docker is a way to help ensure computational reproducibility but at the expense of added complexity.
 Docker is an open-source containerization platform that enables users to package several applications and an operating system into containers, thereby standardizing the executable components by combining application source code (or analyzes) with the operating system required to run that analysis on a user's computer.
 However, there are drawbacks to using Docker.
 It can be difficult to understand for a new user and new platforms, like the Apple M1 chip, may not be fully supported, which hinder the ability to share the container.
@@ -515,19 +515,19 @@ That is, without metadata, the data are not FAIR and the computational materials
 
 The first layer, as reported, is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations.
 When making science more open and reproducible, methods, software used (this includes items such as R, Julia or Python packages that were directly used in the analysis or production of the paper, etc.) should be cited properly.
-Provide a full description of all equipment used, *e.g.*, "a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals".
+Provide a full description of all equipment used, e.g., "a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals".
 This allows end-users to identify what was used and identify the methods used more accurately.
 Just as importantly, this acknowledges the contributions of others whose works were instrumental in our research.
-This also helps to ensure that researchers can reconstruct what they did more easily since good notes exist and documentation and be able to identify if something changes, *e.g.*, a package version, what effect it had on the research.
+This also helps to ensure that researchers can reconstruct what they did more easily since good notes exist and documentation and be able to identify if something changes, e.g., a package version, what effect it had on the research.
 
 The use of programming or scripting languages such as R, Julia, SAS or Python enables us scientists to keep very detailed records of what was computationally performed.
 This is as opposed to using software such as spreadsheet programs like Excel, Google Sheets, Numbers, Calc or others which can be used for simple statistical analyses and visualization or other point-and-click software packages that do not enable us to keep an accurate record of the steps taken to import, format, visualize and analyze data.
 
 Text files for saving small sets of data are preferable.
 Data that are saved in binary formats such as PDF files are difficult to reuse because they are not easily machine readable.
-In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, *e.g.*, comma separated (CSV) or tab separated (TSV) files.
+In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, e.g., comma separated (CSV) or tab separated (TSV) files.
 This also helps to ensure that the data are reusable.
-Larger data sets may warrant the use of a proper database like lightweight personal databases, *e.g.*, SQLite or DuckDB, larger more robust databases, *e.g.*, MariaDB, PostgreSQL or a specialized database like GenBank which provide users with several benefits but two important benefits to mention here are (i) data redundancy, ensuring no records are duplicated and (ii) data consistency, ensuring that all records in a data set are recorded in the same format for every observation.
+Larger data sets may warrant the use of a proper database like lightweight personal databases, e.g., SQLite or DuckDB, larger more robust databases, e.g., MariaDB, PostgreSQL or a specialized database like GenBank which provide users with several benefits but two important benefits to mention here are (i) data redundancy, ensuring no records are duplicated and (ii) data consistency, ensuring that all records in a data set are recorded in the same format for every observation.
 Databases such a GenBank are preferable for molecular data ensuring data integrity and machine readability.
 While databases may offer many advantages for speed and data integrity, the trade-off is that they are more complex to set up and administer, especially for a small data set.
 
