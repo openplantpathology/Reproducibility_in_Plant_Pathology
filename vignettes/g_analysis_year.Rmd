@@ -61,7 +61,7 @@ priors <- c(prior(normal(0, 1), class = "b"),
 
 ### Computational Methods Availability
 
-Test the effect that year of publication had on the code availability.
+Test the effect that year of publication had on the code availability and detect differences over time.
 Here, `year` is a fixed effect, `journal` and `assignee` are assigned as random effects.
 
 ```{r code}
@@ -76,8 +76,8 @@ m_g1 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative(),
-iter = 10000,
+    family = cumulative(link = "logit"),
+    iter = 10000,
     control = list(adapt_delta = 0.9999),
   )
 
@@ -106,9 +106,9 @@ m_g2 <-
     data = rrpp,
     seed = 27,
     prior = priors,
-    family = cumulative(),
-iter = 10000,
-    control = list(adapt_delta = 0.9999),
+    family = cumulative(link = "logit"),
+    iter = 10000,
+    control = list(adapt_delta = 0.99999),
   )
 
 summary(m_g2)
