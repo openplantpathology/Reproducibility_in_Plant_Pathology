@@ -449,7 +449,7 @@ The second, third and fourth, and eighth most frequently cited software packages
 SAS remains firmly entrenched in the discipline as the choice of software for statistical analysis followed by SPSS but R, the most frequently occurring FOSS, is not far removed from SPSS in fourth place with Statistica and Genstat tied for eighth.
 It is interesting to note however, that even with the popularity of Python in scientific programming it only appears in the survey twice in 2020 for both articles, not enough times to be in the top 10 most-cited.
 
-## Efforts and Examples from Related Disciplines
+## Examples and Efforts from Related Disciplines
 
 Plant pathology is not alone in the lack of reproducibility and with the close-nature of data and code.
 In response to this, other related disciplines have published guides or started communities to promote and support tools and methods that promote good practices that lead to open and reproducible research.In entomology @Wittman2020 published "A Guide and Toolbox to Replicability and Open Science in Entomology", which documented both the benefits and drawbacks of an open and reproducible workflow.
