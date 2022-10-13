@@ -409,7 +409,7 @@ The Python programming language was cited only twice.
 
 When predicting the availability of computational methods (code) and availability, all journals were compared with *Phytopathology*® as the reference with latent scores having a mean of zero.
 
-There were no clear differences that the analysis could detect between any of the journals as compared with *Phytopathology*® for the sharing of computational methods (code); the effects of all parameters were undecided (Figure Figure \@ref(fig:journal-parameters)A, Table S1, Figure S2).
+There were no clear differences that the analysis could detect between any of the journals as compared with *Phytopathology*® for the sharing of computational methods (code); the effects of all parameters were undecided (Figure \@ref(fig:journal-parameters)A, Table S1, Figure S2).
 
 When predicting the availability of data availability as compared with *Phytopathology*®, publications in one journal, *Phytopathologia Mediterranea*, can be considered clearly more likely to share data than publications in *Phytopathology*®, but no effects were detectable in any other journal title (Figure \@ref(fig:journal-parameters)B, Table S2, Figure S3).
 
