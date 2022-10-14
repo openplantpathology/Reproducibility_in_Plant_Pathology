@@ -88,104 +88,21 @@ opts_chunk$set(
 
 theme_set(theme_classic())
 
-load(
-  system.file(
-    "extdata",
-    "m_f1.Rda",
-    package = "Reproducibility.in.Plant.Pathology",
-    mustWork = TRUE
-  )
-)
-load(
-  system.file(
-    "extdata",
-    "m_f1_report.Rda",
-    package = "Reproducibility.in.Plant.Pathology",
-    mustWork = TRUE
-  )
-)
-load(
-  system.file(
-    "extdata",
-    "m_f2.Rda",
-    package = "Reproducibility.in.Plant.Pathology",
-    mustWork = TRUE
-  )
-)
-load(
-  system.file(
-    "extdata",
-    "m_f2_report.Rda",
-    package = "Reproducibility.in.Plant.Pathology",
-    mustWork = TRUE
-  )
-)
+load(here("inst/extdata/m_f1.Rda"))
+load(here("inst/extdata/m_f1_report.Rda"))
+load(here("inst/extdata/m_f2.Rda"))
+load(here("inst/extdata/m_f2_report.Rda"))
 
-load(
-  system.file(
-    "extdata",
-    "m_g1.Rda",
-    package = "Reproducibility.in.Plant.Pathology",
-    mustWork = TRUE
-  )
-)
-load(
-  system.file(
-    "extdata",
-    "m_g1_report.Rda",
-    package = "Reproducibility.in.Plant.Pathology",
-    mustWork = TRUE
-  )
-)
-load(
-  system.file(
-    "extdata",
-    "m_g2.Rda",
-    package = "Reproducibility.in.Plant.Pathology",
-    mustWork = TRUE
-  )
-)
-load(
-  system.file(
-    "extdata",
-    "m_g2_report.Rda",
-    package = "Reproducibility.in.Plant.Pathology",
-    mustWork = TRUE
-  )
-)
+load(here("inst/extdata/m_g1.Rda"))
+load(here("inst/extdata/m_g1_report.Rda"))
 
-load(
-  system.file(
-    "extdata",
-    "m_h1.Rda",
-    package = "Reproducibility.in.Plant.Pathology",
-    mustWork = TRUE
-  )
-)
-load(
-  system.file(
-    "extdata",
-    "m_h1_report.Rda",
-    package = "Reproducibility.in.Plant.Pathology",
-    mustWork = TRUE
-  )
-)
-load(
-  system.file(
-    "extdata",
-    "m_h2.Rda",
-    package = "Reproducibility.in.Plant.Pathology",
-    mustWork = TRUE
-  )
-)
-load(
-  system.file(
-    "extdata",
-    "m_h2_report.Rda",
-    package = "Reproducibility.in.Plant.Pathology",
-    mustWork = TRUE
-  )
-)
+load(here("inst/extdata/m_g2.Rda"))
+load(here("inst/extdata/m_g2_report.Rda"))
+
+load(here("inst/extdata/m_h1.Rda"))
+load(here("inst/extdata/m_h1_report.Rda"))
+load(here("inst/extdata/m_h2.Rda"))
+load(here("inst/extdata/m_h2_report.Rda"))
 ```
 
 ```{r fonts, include=FALSE, message=FALSE, eval=FALSE}
