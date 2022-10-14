@@ -33,7 +33,7 @@ link-citations: no
 csl: "../templates/american-phytopathological-society.csl"
 ---
 
-```{r, setup, echo=FALSE, message=FALSE}
+```{r, setup, echo=FALSE, message=FALSE, include=FALSE}
 packages <- c(
   "DiagrammeR",
   "DiagrammeRsvg",
@@ -54,6 +54,7 @@ packages <- c(
   "patchwork",
   "posterior",
   "report",
+  "rope",
   "rsvg",
   "tidyr",
   "tools"
@@ -64,12 +65,10 @@ install.packages(setdiff(packages,
                          rownames(installed.packages())),
                  repos = "http://cran.us.r-project.org",
                  dependencies = TRUE)
-
 # load packages for use in knitting Rmd
 invisible(lapply(packages,
                  library,
                  character.only = TRUE))
-
 library("Reproducibility.in.Plant.Pathology")
 
 rrpp <- import_notes()
