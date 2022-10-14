@@ -186,7 +186,6 @@ as_tibble(m_f2_report) %>%
 as_tibble(m_g1_report) %>%
   filter(!grepl("R2", Parameter)) %>%
   filter(!is.na(Parameter)) %>%
-  mutate(Parameter = gsub("year", "", .$Parameter)) %>%
   rename("CI\nLow" = "CI_low",
          "CI\nHigh" = "CI_high") %>%
   flextable() %>%
@@ -194,7 +193,7 @@ as_tibble(m_g1_report) %>%
   colformat_double(digits = 2) %>%
   autofit() %>%
   set_caption(
-    "Full description of model fit for the effect of year of publication on code availability. We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict comp_mthds_avail with year (formula: comp_mthds_avail ~ year). The model included abbreviation and assignee as random effects (formula: list(~1 | abbreviation, ~1 | assignee)). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), student_t (location = 0.00, scale = 2.50) and student_t (location = 0.00, scale = 2.50) distributions."
+    "We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict comp_mthds_avail with year (formula: comp_mthds_avail ~ year). The model included abbreviation and assignee as random effects (formula: list(~1 | abbreviation, ~1 | assignee)). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), student_t (location = 0.00, scale = 2.50) and student_t (location = 0.00, scale = 2.50) distributions."
   )
 ```
 
@@ -204,7 +203,6 @@ as_tibble(m_g1_report) %>%
 as_tibble(m_g2_report) %>%
   filter(!grepl("R2", Parameter)) %>%
   filter(!is.na(Parameter)) %>%
-  mutate(Parameter = gsub("year", "", .$Parameter)) %>% 
   rename("CI\nLow" = "CI_low",
          "CI\nHigh" = "CI_high") %>%
   flextable() %>%
@@ -212,7 +210,7 @@ as_tibble(m_g2_report) %>%
   colformat_double(digits = 2) %>%
   autofit() %>%
   set_caption(
-    "Full description of model fit for the effect of year of publication on data availability. We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict comp_mthds_avail with year (formula: comp_mthds_avail ~ year). The model included abbreviation and assignee as random effects (formula: list(~1 | abbreviation, ~1 | assignee)). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), student_t (location = 0.00, scale = 2.50) and student_t (location = 0.00, scale = 2.50) distributions."
+    "We fitted a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict data_avail with year (formula: data_avail ~ year). The model included abbreviation and assignee as random effects (formula: list(~1 | abbreviation, ~1 | assignee)). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), student_t (location = 0.00, scale = 2.50) and student_t (location = 0.00, scale = 2.50) distributions. "
   )
 ```
 
@@ -361,12 +359,7 @@ include_graphics(path = here(
 \newpage
 
 ```{r year-code-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the year of publication title on articles\' supporting code availability."}
-y_labs <- gsub("year", "", parameters(m_g1)$Parameter)
-y_labs <- rev(gsub("b_", "", y_labs))
-y_labs <- y_labs[c(10:11, 1:9)]
-
-p <- plot(equivalence_test(m_g1)) +
-  scale_y_discrete(labels = y_labs)
+p <- plot(equivalence_test(m_g1))
 
 ggsave(
   filename = here(
@@ -395,8 +388,7 @@ include_graphics(path = here(
 \newpage
 
 ```{r year-data-test, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Equivalence test for a model testing the effect of the year of publication on articles\' supporting data availability."}
-p <- plot(equivalence_test(m_g2)) +
-  scale_y_discrete(labels = y_labs)
+p <- plot(equivalence_test(m_g2))
 
 ggsave(
   filename = here(
