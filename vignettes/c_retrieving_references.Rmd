@@ -15,6 +15,7 @@ vignette: >
 ---
 
 ```{r, echo=FALSE, message=FALSE}
+renv::activate()
 library(Reproducibility.in.Plant.Pathology)
 ```
 

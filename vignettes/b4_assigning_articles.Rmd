@@ -12,6 +12,11 @@ vignette: >
   %\VignetteDepends{sessioninfo}
 ---
 
+
+```{r renv, echo=FALSE, include=FALSE, message=FALSE}
+renv::activate()
+```
+
 ## Creating a sample of articles
 
 In response to the reviewes, to evaluate differences between evaluators, we selected five articles that had been rated in the last round of ratings and assigned four of them to the other four evaluators that had not previously evaluated the articles.

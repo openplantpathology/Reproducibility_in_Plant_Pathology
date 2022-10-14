@@ -15,6 +15,11 @@ vignette: >
   %\VignetteDepends{sessioninfo}
 ---
 
+
+```{r renv, echo=FALSE, include=FALSE, message=FALSE}
+renv::activate()
+```
+
 ## Creating a sample of articles
 
 As a second round to bring the analysis up-to-date, we elected to sample 100 articles from the same 21 journals for 2017-2018.
