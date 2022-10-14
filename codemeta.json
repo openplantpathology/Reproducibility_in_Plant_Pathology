@@ -280,6 +280,19 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "report",
+      "name": "report",
+      "version": "<= 0.4.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=report"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "readr",
       "name": "readr",
       "provider": {
@@ -474,7 +487,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "64849.451KB",
+  "fileSize": "58842.796KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
