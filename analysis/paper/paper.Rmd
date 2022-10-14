@@ -335,7 +335,7 @@ When predicting the availability of data availability as compared with *Phytopat
 The effect of *Phytopathologia Mediterranea* (Median = 1.68, 95% CI [0.78, 2.57]) has a 99.99% probability of being positive (\> 0), 99.98% of being significant (\> 0.05), and 99.83% of being large (\> 0.30).
 The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 19017).
 
-There was no detectable effect or non-effect for year when predicting the availability of computational methods (Figure \@ref(fig:year-parameters)A, Table S3, Figure S4).
+There was no clear effect for year when predicting the availability of computational methods (Figure \@ref(fig:year-parameters)A, Table S3, Figure S4).
 However, the year of publication did not have an effect on the availability of data (Figure \@ref(fig:year-parameters)B, Table S4; Figure S5).
 
 There were no detectable effects when predicting the effects of the five-year impact factor on the availability of computational methods (code) or data (Figures \@ref(fig:IF-parameters)A, \@ref(fig:IF-parameters)B; Tables S5, S6; Figures S6, S7).
