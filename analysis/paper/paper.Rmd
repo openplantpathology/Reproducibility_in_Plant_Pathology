@@ -350,7 +350,7 @@ Therefore, we concluded that the inter-rater agreement was good enough for this 
 
 The methods for selecting articles meant that only page numbers between 1 and 150 were selected.
 This approach assumed that there was no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year and some journals, e.g., *Phytopathology*® have focus issues with invited authors.
-In spite of some publications being from special issues, there were no detectable differences in the reproducibility of the articles as defined and measured by this article, so the assumption appears to be correct.
+In spite of some publications being from special issues, there were no detectable differences in the reproducibility of the articles as defined and measured by this article, so the assumption appears to be correct and more importantly, may show that even when authors are specifically recruited that they are no more likely to share the supporting materials for the articles that they write.
 
 Except for a few isolated cases, most papers were not fully computationally reproducible.
 Very few authors choose to share both data and code.
