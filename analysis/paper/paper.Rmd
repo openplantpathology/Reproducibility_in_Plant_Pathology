@@ -342,16 +342,6 @@ There were no detectable effects when predicting the effects of the five-year im
 
 # Discussion
 
-We acknowledge that the number of article that are cross-scored is low.
-However, our aim was not to test inter-rater reproducibility, this is covered at length in the plant pathology literature.
-Our goal was to evaluate as many articles as we realistically could to get as broad an overview of the discipline as possible.
-Because of this each article, save the five that were used to compare the inter-rater differences, was evaluated by only one co-author.
-Therefore, we concluded that the inter-rater agreement was good enough for this paper to illustrate that code and data are not being widely shared with peer-reviewed publications.
-
-The methods for selecting articles meant that only page numbers between 1 and 150 were selected.
-This approach assumed that there was no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year and some journals, e.g., *Phytopathology*® have focus issues with invited authors.
-In spite of some publications being from special issues, there were no detectable differences in the reproducibility of the articles as defined and measured by this article, so the assumption appears to be correct and more importantly, may show that even when authors are specifically recruited that they are no more likely to share the supporting materials for the articles that they write.
-
 Except for a few isolated cases, most papers were not fully computationally reproducible.
 Very few authors choose to share both data and code.
 More authors shared data due to journal requirements to share sequence data, but other types of data related to field experiments or other laboratory studies were not likely to be shared.
@@ -370,6 +360,18 @@ MEGA was the most widely cited software in this evaluation reflecting the widesp
 The second, third and fourth, and eighth most frequently cited software packages were all statistical programs.
 SAS remains firmly entrenched in the discipline as the choice of software for statistical analysis followed by SPSS but R, the most frequently occurring FOSS, is not far removed from SPSS in fourth place with Statistica and Genstat tied for eighth.
 It is interesting to note however, that even with the popularity of Python in scientific programming it only appears in the survey twice in 2020 for both articles, not enough times to be in the top 10 most-cited.
+
+## Limitations to Our Approach
+
+We acknowledge that the number of article that are cross-scored is low.
+However, our aim was not to test inter-rater reproducibility, this is covered at length in the plant pathology literature.
+Our goal was to evaluate as many articles as we realistically could to get as broad an overview of the discipline as possible.
+Because of this each article, save the five that were used to compare the inter-rater differences, was evaluated by only one co-author.
+Therefore, we concluded that the inter-rater agreement was good enough for this paper to illustrate that code and data are not being widely shared with peer-reviewed publications.
+
+Furthermore, the methods for selecting articles meant that only page numbers between 1 and 150 were selected.
+This approach assumed that there was no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year and some journals, e.g., *Phytopathology*® have focus issues with invited authors.
+In spite of some publications being from special issues, there were no detectable differences in the reproducibility of the articles as defined and measured by this article, so the assumption appears to be correct and more importantly, may show that even when authors are specifically recruited that they are no more likely to share the supporting materials for the articles that they write.
 
 ## Examples and Efforts from Related Disciplines
 
