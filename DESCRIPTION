@@ -55,6 +55,7 @@ Suggests:
     patchwork,
     psych,
     rcrossref,
+    report (<= 0.4.0),
     readr,
     rmarkdown,
     roxygen2 (>= 6.0.1),
