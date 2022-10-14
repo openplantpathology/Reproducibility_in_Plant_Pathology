@@ -16,7 +16,6 @@ vignette: >
 ---
 
 ```{r renv, echo=FALSE, include=FALSE, message=FALSE}
-renv::activate()
 ```
 
 ## Creating a sample of articles

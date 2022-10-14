@@ -15,7 +15,6 @@ vignette: >
 ---
 
 ```{r setup, include = FALSE}
-renv::activate()
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
