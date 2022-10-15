@@ -566,7 +566,7 @@ distinct(rrpp, journal, IF_5year) %>%
   fontsize(size = 10, part = "body") %>%
   set_table_properties(layout = "autofit", width = 1) %>%
   set_caption(
-    "Journal titles selected for inclusion, their respective five-year impact factors as of 2022 (5 Year IF), number of articles per year and the total number (n) of articles from each journal that were evaluated."
+    "Journal titles selected for inclusion representing 21 plant pathology journals or specialised journals featuring plant pathology focused articles, their respective five-year impact factors as of 2022 (5 Year IF), number of articles per year and the total number (n) of articles from each journal that were evaluated."
   )
 ```
 
