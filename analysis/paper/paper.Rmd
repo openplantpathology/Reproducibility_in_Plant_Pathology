@@ -794,7 +794,7 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_4.eps"))
 
 \newpage
 
-```{r IF-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the publishing journal\'s five-year impact factor for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence was undecided on any detectable effects of impact factor. Intervals in black indicate that the median value is above zero or more likely to share data and code.', cache=FALSE, fig.env='figure'}
+```{r IF-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the publishing journal\'s five-year impact factor for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence was undecided on any detectable effects of impact factor. Intervals in black indicate that the median value is above zero or more likely to share data and code indicating that as the impact factor of the publication increases, the likelyhood of sharing code or data may increase', cache=FALSE, fig.env='figure'}
 a <- plot(parameters(m_h1), show_labels = TRUE) + 
   scale_colour_grey() +
   ggtitle("Code")
