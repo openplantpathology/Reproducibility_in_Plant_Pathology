@@ -586,7 +586,7 @@ tab_t %>%
   set_table_properties(layout = "autofit", width = 1) %>% 
   fontsize(size = 10) %>% 
   set_caption(
-    "The frequency of use of top ten software programs by year of publication that were found to be used in the papers that were surveyed."
+    "The frequency of use of top ten most used software programs that were found in 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialized journals by year of publication."
   )
 ```
 
