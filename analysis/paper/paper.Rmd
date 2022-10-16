@@ -757,7 +757,7 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_3.eps"))
 
 \newpage
 
-```{r year-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the year of publication for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence was undecided in any detectable effects of year of publication on computational materials or data being shared. Intervals in black indicate that the median value is above zero or more likely to share data and code indicating that as the year of publication increases, the likelyhood of sharing code or data may increase.', cache=FALSE, fig.env='figure'}
+```{r year-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the year of publication for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence indicated that there was no effect of year of publication on computational materials (code) being shared. A test for practical equivalence was undecided in finding effect of year of publication on supporting data being shared. Intervals in black indicate that the median value is above zero or more likely to share data and code indicating that as the year of publication increases, the likelyhood of sharing code or data may increase.', cache=FALSE, fig.env='figure'}
 a <- plot(parameters(m_g1), show_labels = TRUE) + 
   scale_colour_grey() +
   ggtitle("Code")
