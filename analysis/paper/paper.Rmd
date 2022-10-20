@@ -376,7 +376,7 @@ Furthermore, the methods for selecting articles meant that only page numbers bet
 This approach assumed that there was no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year and some journals, e.g., *Phytopathology*® have focus issues with invited authors.
 In spite of some publications being from special issues, there were no detectable differences in the reproducibility of the articles as defined and measured by this article, so the assumption appears to be correct and more importantly, may show that even when authors are specifically recruited that they are no more likely to share the supporting materials for the articles that they write.
 
-## Examples and Efforts from Related Disciplines
+## Examples and Efforts from Other Disciplines
 
 Plant pathology is not alone in the lack of reproducibility and the closed-nature of data and code.
 In response to this, other related disciplines have published guides or started communities to promote and support tools and methods that promote good practices that lead to open and reproducible research.In entomology @Wittman2020 published "A Guide and Toolbox to Replicability and Open Science in Entomology", which documented both the benefits and drawbacks of an open and reproducible workflow.
@@ -385,6 +385,14 @@ Weed scientists started a community to promote openness in the discipline, Open 
 @Kool2020 evaluated the reproducibility of on-farm experiments in Africa, finding that often the experimental design was difficult or impossible to reproduce from the publication.
 More broadly within agricultural research, articles have been published highlighting the advantages of, need for and how to publish FAIR data in agriculture [@Smith2018; @Arnaud2020; @Stacey2022].
 However, we were unable to find any quantification of the reproducibility of any of these related disciplines as we have done here.
+
+@Seibold2021 investigated the types of methods and software used in PLOS ONE articles and whether the were able to reproduce the data analysis using open source software for papers that dealt with longitudinal data and used mixed effect models or generalized estimating equations for analysis and provided the data.
+They found that most articles provided tables and visualisations only.
+However, unlike our analysis, even with the data being supplied they found that only one article used open source software, whereas R prominently featured in the articles we examined along with other free open-source software packages.
+Not surprisingly they found that replication was mostly difficult and required the results to be reverse engineered or contacting the authors.
+They were unable to reproduce the results for for three articles and only parts of another two.
+They needed to contact the articles' authors for all articles save two.
+Their main conclusion was that reproducing papers is difficult if no code is provided and puts an undue burden on those interested in reproducing the work.
 
 ## Examples of Different Layers for Improving Reproducibility
 
@@ -720,13 +728,13 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_2.eps"))
 ```{r journal-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the journal title for (A) computational materials (code) and (B) data being made readily available to the public. A test for equivalence was unable to detect any clear differences between *Phytopathology*&reg; and all other journals sharing computational materials (code). However, a test for equivalence found that articles in *Phytopathologia Mediterranea* were more likely have data available than articles found in *Phytopathology*&reg;. Intervals in grey have a median value less than that of *Phytopathology*&reg;, the base level used for the analysis and articles in these journals could be less likely to share computational materials and data than articles published in *Phytopathology*&reg;. Intervals in black have a median value that is greater than that of *Phytopathology*&reg;, the base level for the analysis and articles in these journals could be more likely to share data or code than those found in *Phytopathology*&reg;.', cache=FALSE, fig.env='figure'}
 
 a_y_labs <- rev(gsub("b_abbreviation", "", parameters(m_f1)$Parameter)[-c(1:2)])
-a <- plot(parameters(m_f1)) +
+a <- plot(equivalence_test(m_f1)) +
   scale_y_discrete(labels = a_y_labs) +
-  scale_colour_grey() +
+  scale_fill_grey() +
   ggtitle("Code")
 
-b <- plot(parameters(m_f2)) +
-  scale_colour_grey() +
+b <- plot(equivalence_test(m_f2)) +
+  scale_fill_grey() +
   theme(
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
@@ -758,11 +766,11 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_3.eps"))
 \newpage
 
 ```{r year-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the year of publication for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence indicated that there was no effect of year of publication on computational materials (code) being shared. A test for practical equivalence was undecided in finding effect of year of publication on supporting data being shared. Intervals in black indicate that the median value is above zero or more likely to share data and code indicating that as the year of publication increases, the likelyhood of sharing code or data may increase.', cache=FALSE, fig.env='figure'}
-a <- plot(parameters(m_g1), show_labels = TRUE) + 
+a <- plot(equivalence_test(m_g1), show_labels = TRUE) + 
   scale_colour_grey() +
   ggtitle("Code")
 
-b <- plot(parameters(m_g2), show_labels = TRUE) + 
+b <- plot(equivalence_test(m_g2), show_labels = TRUE) + 
   scale_colour_grey() +
    theme(
       axis.text.y = element_blank(),
@@ -795,11 +803,11 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_4.eps"))
 \newpage
 
 ```{r IF-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the publishing journal\'s five-year impact factor for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence was undecided on any detectable effects of impact factor. Intervals in black indicate that the median value is above zero or more likely to share data and code indicating that as the impact factor of the publication increases, the likelyhood of sharing code or data may increase', cache=FALSE, fig.env='figure'}
-a <- plot(parameters(m_h1), show_labels = TRUE) + 
+a <- plot(equivalence_test(m_h1), show_labels = TRUE) + 
   scale_colour_grey() +
   ggtitle("Code")
 
-b <- plot(parameters(m_h2), show_labels = TRUE) + 
+b <- plot(equivalence_test(m_h2), show_labels = TRUE) + 
   scale_colour_grey() +
    theme(
       axis.text.y = element_blank(),

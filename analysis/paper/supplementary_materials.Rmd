@@ -142,6 +142,7 @@ load(here("inst/extdata/m_h2_report.Rda"))
 
 font_import()
 ```
+``
 
 # Supplementary Materials
 
@@ -152,7 +153,8 @@ as_tibble(m_f1_report) %>%
   filter(!grepl("R2", Parameter)) %>%
   filter(!is.na(Parameter)) %>%
   mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>% 
-  rename("CI\nLow" = "CI_low",
+  rename("ROPE %" = "ROPE_Percentage",
+         "CI\nLow" = "CI_low",
          "CI\nHigh" = "CI_high") %>%
   flextable() %>%
   fontsize(size = 8, part = "all") %>%
@@ -174,7 +176,8 @@ as_tibble(m_f2_report) %>%
   filter(!grepl("R2", Parameter)) %>%
   filter(!is.na(Parameter)) %>%
   mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>% 
-  rename("CI\nLow" = "CI_low",
+  rename("ROPE %" = "ROPE_Percentage",
+         "CI\nLow" = "CI_low",
          "CI\nHigh" = "CI_high") %>%
   flextable() %>%
   fontsize(size = 8, part = "all") %>%
@@ -195,7 +198,9 @@ as_tibble(m_f2_report) %>%
 as_tibble(m_g1_report) %>%
   filter(!grepl("R2", Parameter)) %>%
   filter(!is.na(Parameter)) %>%
-  rename("CI\nLow" = "CI_low",
+  mutate(Parameter = gsub("year", "", .$Parameter)) %>%
+  rename("ROPE %" = "ROPE_Percentage",
+         "CI\nLow" = "CI_low",
          "CI\nHigh" = "CI_high") %>%
   flextable() %>%
   fontsize(size = 8, part = "all") %>%
@@ -216,7 +221,9 @@ as_tibble(m_g1_report) %>%
 as_tibble(m_g2_report) %>%
   filter(!grepl("R2", Parameter)) %>%
   filter(!is.na(Parameter)) %>%
-  rename("CI\nLow" = "CI_low",
+  mutate(Parameter = gsub("year", "", .$Parameter)) %>% 
+  rename("ROPE %" = "ROPE_Percentage",
+         "CI\nLow" = "CI_low",
          "CI\nHigh" = "CI_high") %>%
   flextable() %>%
   fontsize(size = 8, part = "all") %>%
@@ -237,7 +244,8 @@ as_tibble(m_g2_report) %>%
 as_tibble(m_h1_report) %>%
   filter(!grepl("R2", Parameter)) %>%
   filter(!is.na(Parameter)) %>%
-  rename("CI\nLow" = "CI_low",
+  rename("ROPE %" = "ROPE_Percentage",
+         "CI\nLow" = "CI_low",
          "CI\nHigh" = "CI_high") %>%
   flextable() %>%
   fontsize(size = 8, part = "all") %>%
@@ -258,7 +266,8 @@ as_tibble(m_h1_report) %>%
 as_tibble(m_h2_report) %>%
   filter(!grepl("R2", Parameter)) %>%
   filter(!is.na(Parameter)) %>%
-  rename("CI\nLow" = "CI_low",
+  rename("ROPE %" = "ROPE_Percentage",
+         "CI\nLow" = "CI_low",
          "CI\nHigh" = "CI_high") %>%
   flextable() %>%
   fontsize(size = 8, part = "all") %>%
