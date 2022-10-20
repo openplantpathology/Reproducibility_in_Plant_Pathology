@@ -63,6 +63,7 @@ Suggests:
     officer,
     pander,
     parallel,
+    see,
     sessioninfo,
     stringr,
     testthat,
