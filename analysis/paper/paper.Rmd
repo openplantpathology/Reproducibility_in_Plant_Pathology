@@ -766,18 +766,45 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_3.eps"))
 \newpage
 
 ```{r year-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the year of publication for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence indicated that there was no effect of year of publication on computational materials (code) being shared. A test for practical equivalence was undecided in finding effect of year of publication on supporting data being shared. Intervals in black indicate that the median value is above zero or more likely to share data and code indicating that as the year of publication increases, the likelyhood of sharing code or data may increase.', cache=FALSE, fig.env='figure'}
-a <- plot(equivalence_test(m_g1), show_labels = TRUE) + 
-  scale_colour_grey() +
-  ggtitle("Code")
 
-b <- plot(equivalence_test(m_g2), show_labels = TRUE) + 
-  scale_colour_grey() +
-   theme(
-      axis.text.y = element_blank(),
-      axis.ticks.y = element_blank(),
-      axis.title.y = element_blank()
-    ) +
-  ggtitle("Data")
+m_g1_eq <- equivalence_test(m_g1)
+m_g2_eq <- equivalence_test(m_g2)
+
+m_g1_eq <-
+  filter(m_g1_eq,
+         Parameter != "b_Intercept[1]" &
+           Parameter != "b_Intercept[2]")
+m_g2_eq <-
+  filter(
+    m_g2_eq,
+    Parameter != "b_Intercept[1]" &
+      Parameter != "b_Intercept[2]" &
+      Parameter != "b_Intercept[3]"
+  )
+
+a <- plot(m_g1_eq,
+          show_labels = TRUE,
+          rope_color = "grey10") +
+  ggtitle("Code") +
+  xlim(-0.3, 0.6) +
+  theme(axis.text.x = element_blank(),
+        axis.ticks.x = element_blank()) +
+  coord_flip()
+
+b <-
+  plot(m_g2_eq,
+       show_labels = TRUE,
+       rope_color = "grey10") +
+  theme(
+    axis.ticks.y = element_blank(),
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank(),
+  ) +
+  ggtitle("Data") +
+  xlim(-0.3, 0.6) +
+  coord_flip()
 
 p <- a + b
 p <- p +
@@ -803,18 +830,45 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_4.eps"))
 \newpage
 
 ```{r IF-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='95% credible interval for the probability associated with the publishing journal\'s five-year impact factor for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence was undecided on any detectable effects of impact factor. Intervals in black indicate that the median value is above zero or more likely to share data and code indicating that as the impact factor of the publication increases, the likelyhood of sharing code or data may increase', cache=FALSE, fig.env='figure'}
-a <- plot(equivalence_test(m_h1), show_labels = TRUE) + 
-  scale_colour_grey() +
-  ggtitle("Code")
+m_h1_eq <- equivalence_test(m_h1)
+m_h2_eq <- equivalence_test(m_h2)
 
-b <- plot(equivalence_test(m_h2), show_labels = TRUE) + 
-  scale_colour_grey() +
-   theme(
-      axis.text.y = element_blank(),
-      axis.ticks.y = element_blank(),
-      axis.title.y = element_blank()
-    ) +
-  ggtitle("Data")
+m_h1_eq <-
+  filter(m_h1_eq,
+         Parameter != "b_Intercept[1]" &
+           Parameter != "b_Intercept[2]")
+m_h2_eq <-
+  filter(
+    m_h2_eq,
+    Parameter != "b_Intercept[1]" &
+      Parameter != "b_Intercept[2]" &
+      Parameter != "b_Intercept[3]"
+  )
+
+a <- plot(m_h1_eq,
+          show_labels = TRUE,
+          rope_color = "grey10") +
+  ggtitle("Code") +
+  xlim(-0.2, 1.1) +
+  theme(axis.text.x = element_blank(),
+        axis.ticks.x = element_blank()) +
+  coord_flip()
+
+b <-
+  plot(m_h2_eq,
+       show_labels = TRUE,
+       rope_color = "grey10") +
+  theme(
+    axis.ticks.y = element_blank(),
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.text.x = element_blank(),
+    legend.position = "none"
+  ) +
+  ggtitle("Data") +
+  xlim(-0.2, 1.1) +
+  coord_flip()
 
 p <- a + b
 p <- p +
