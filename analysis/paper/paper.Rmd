@@ -51,6 +51,7 @@ packages <- c(
   "janitor",
   "knitr",
   "officer",
+  "patchwork",
   "parameters",
   "posterior",
   "report",
