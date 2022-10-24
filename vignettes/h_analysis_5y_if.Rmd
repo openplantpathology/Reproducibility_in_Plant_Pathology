@@ -88,6 +88,8 @@ pp_check(m_h1, type = "bars", draws = 50)
 plot(equivalence_test(m_h1))
 
 pander(m_h1_report <- report(m_h1))
+
+m_h1_es <- report_effectsize(m_h1)
 ```
 
 ### Data Availability
@@ -120,6 +122,8 @@ pp_check(m_h2, type = "bars", draws = 50)
 plot(equivalence_test(m_h2))
 
 pander(m_h2_report <- report(m_h2))
+
+m_h2_es <- report_effectsize(m_h2)
 ```
 
 ## Save Model Objects
@@ -132,6 +136,9 @@ save(m_h2, file = here("inst/extdata/m_h2.Rda"))
 
 save(m_h1_report, file = here("inst/extdata/m_h1_report.Rda"))
 save(m_h2_report, file = here("inst/extdata/m_h2_report.Rda"))
+
+save(m_h1_es, file = here("inst/extdata/m_h1_es.Rda"))
+save(m_h2_es, file = here("inst/extdata/m_h2_es.Rda"))
 ```
 
 # Colophon
