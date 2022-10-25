@@ -379,23 +379,24 @@ In spite of some publications being from special issues, there were no detectabl
 ## Examples and Efforts from Other Disciplines
 
 Plant pathology is not alone in the lack of reproducibility and the closed-nature of data and code.
-In response to this, other related disciplines have published guides or started communities to promote and support tools and methods that promote good practices that lead to open and reproducible research.In entomology @Wittman2020 published "A Guide and Toolbox to Replicability and Open Science in Entomology", which documented both the benefits and drawbacks of an open and reproducible workflow.
-Weed scientists started a community to promote openness in the discipline, Open Weed Science, which stated that they valued, "open access knowledge-sharing as a strategy to enhance reproducibility within our discipline", but the website is no longer available and the Twitter account, \@OpenWeedSci, appears to be inactive when viewing the account as of October 2022 [@OpenWeedScience2021].
-@SerradaCruz2019 proposed a framework for capturing provenance of data-centric agronomic experiments using an R-based workflow, 'RFlow', which would allow reuse of R scripts using generic workflows and saving data and metadata to web repositories that other researchers and referees can browse using Web interfaces.
-@Kool2020 evaluated the reproducibility of on-farm experiments in Africa, finding that often the experimental design was difficult or impossible to reproduce from the publication.
-Fernandez2022 provide an R package, 'cndcR', that supports the manuscript: "Dataset characteristics for the determination of critical nitrogen dilution curves: from the past to new guidelines", [Fernandez2022a].
-The package contains source data and R code that @Fernandez2022a used for their sensitivity analyses when fitting critical N dilution curves in crop species using Bayesian models. 
-The package allows the user to recreate the figures in the manuscript and includes the all of the data files required to produce all results and figures presented in the manuscript.
-More broadly within agricultural research, articles have been published highlighting the advantages of, need for and how to publish FAIR data in agriculture [@Smith2018; @Arnaud2020; @Stacey2022].
-However, we were unable to find any quantification of the reproducibility of any of these related disciplines as we have done here.
 
-@Seibold2021 investigated the types of methods and software used in PLOS ONE articles and whether the were able to reproduce the data analysis using open source software for papers that dealt with longitudinal data and used mixed effect models or generalized estimating equations for analysis and provided the data.
+@Seibold2021 carried out a similar study on the types of methods and software used in PLOS ONE articles and whether the were able to reproduce the data analysis using open source software for papers that dealt with longitudinal data and used mixed effect models or generalized estimating equations for analysis and provided the data.
 They found that most articles provided tables and visualisations only.
 However, unlike our analysis, even with the data being supplied they found that only one article used open source software, whereas R prominently featured in the articles we examined along with other free open-source software packages.
 Not surprisingly they found that replication was mostly difficult and required the results to be reverse engineered or contacting the authors.
 They were unable to reproduce the results for for three articles and only parts of another two.
 They needed to contact the articles' authors for all articles save two.
 Their main conclusion was that reproducing papers is difficult if no code is provided and puts an undue burden on those interested in reproducing the work.
+
+Other disciplines related to plant pathology have published guides or started communities to promote and support tools and methods that promote good practices that lead to open and reproducible research.In entomology @Wittman2020 published "A Guide and Toolbox to Replicability and Open Science in Entomology", which documented both the benefits and drawbacks of an open and reproducible workflow.
+Weed scientists started a community to promote openness in the discipline, Open Weed Science, which stated that they valued, "open access knowledge-sharing as a strategy to enhance reproducibility within our discipline", but the website is no longer available and the Twitter account, \@OpenWeedSci, appears to be inactive when viewing the account as of October 2022 [@OpenWeedScience2021].
+@SerradaCruz2019 proposed a framework for capturing provenance of data-centric agronomic experiments using an R-based workflow, 'RFlow', which would allow reuse of R scripts using generic workflows and saving data and metadata to web repositories that other researchers and referees can browse using Web interfaces.
+@Kool2020 evaluated the reproducibility of on-farm experiments in Africa, finding that often the experimental design was difficult or impossible to reproduce from the publication.
+@Fernandez2022 provide an R package, 'cndcR', that supports the manuscript: "Dataset characteristics for the determination of critical nitrogen dilution curves: from the past to new guidelines", [Fernandez2022a].
+The package contains source data and R code that @Fernandez2022a used for their sensitivity analyses when fitting critical N dilution curves in crop species using Bayesian models. 
+The package allows the user to recreate the figures in the manuscript and includes the all of the data files required to produce all results and figures presented in the manuscript.
+More broadly within agricultural research, articles have been published highlighting the advantages of, need for and how to publish FAIR data in agriculture [@Smith2018; @Arnaud2020; @Stacey2022].
+However, we were unable to find any quantification of the reproducibility of any of these related disciplines as we have done here.
 
 ## Examples of Different Layers for Improving Reproducibility
 
