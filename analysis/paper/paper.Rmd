@@ -508,7 +508,7 @@ To assist in fostering this sort of change in our discipline, Open Plant Patholo
 We started OPP with a minimal infrastructure and support from other enthusiastic colleagues that allows members to interact sharing and gathering ideas on how we can improve the openness and reproducibility in our discipline.
 
 We believe that adopting an attitude of open and collaborative science and using the best reproducibility practices in our daily work, directly benefits us as researchers.
-For example, between complicated analyzes, reviews and revisions and questions years later about the data that was collected or analysis that was conducted, it is extremely beneficial to be able to easily reproduce our work quickly and easily.
+For example, between complicated analyses, reviews and revisions and questions years later about the data that was collected or analysis that was conducted, it is extremely beneficial to be able to easily reproduce our work quickly and easily.
 This manuscript was drafted over the course of several years as the authors had time to devote to it.
 Having everything in a reproducible framework made it easy to resume work and set-aside as necessary without losing information and having everything well-documented made it simpler to do this.
 Second, it benefits the reviewer by aiding their understanding of the work done and gives them more materials to use to make suggestions for improvements when reviewing and the end-user or reader is better able to verify the validity of the methods used and recreate the analysis.
