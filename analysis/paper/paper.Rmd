@@ -395,14 +395,61 @@ Weed scientists started a community to promote openness in the discipline, Open 
 @Fernandez2022 provide an R package, 'cndcR', that supports the manuscript: "Dataset characteristics for the determination of critical nitrogen dilution curves: from the past to new guidelines", [Fernandez2022a].
 The package contains source data and R code that @Fernandez2022a used for their sensitivity analyses when fitting critical N dilution curves in crop species using Bayesian models. 
 The package allows the user to recreate the figures in the manuscript and includes the all of the data files required to produce all results and figures presented in the manuscript.
-More broadly within agricultural research, articles have been published highlighting the advantages of, need for and how to publish FAIR data in agriculture [@Smith2018; @Arnaud2020; @Stacey2022].
+More broadly within agricultural research, articles have been published highlighting the advantages of, need for and how to publish Findable, Accessible, Interoperable and Reusable (FAIR) data in agriculture [@Smith2018; @Arnaud2020; @Stacey2022].
 However, we were unable to find any quantification of the reproducibility of any of these related disciplines as we have done here.
 
-## Examples of Different Layers for Improving Reproducibility
+## Suggestions for Improving Computational Reproducibility
 
-There are different ways to make research more open and reproducible.
-These can be thought of as layers of reproducibility.
-If a general workflow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, analyzing, summarizing and presenting data and results, writing the manuscript then the next logical steps are depositing any code used along with the raw data in proper repositories (Figure \@ref(fig:workflow-dia)).
+While sharing code and data for computational reproducibility is important, it is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations.
+When making science more open and reproducible, methods, software used (this includes items such as R, Julia or Python packages that were directly used in the analysis or production of the paper, etc.) should be cited properly.
+Provide a full description of all equipment used, e.g., "a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals".
+This allows end-users to identify what was used and identify the methods used more accurately.
+Just as importantly, this acknowledges the contributions of others whose works were instrumental in our research.
+This also helps to ensure that researchers can reconstruct what they did more easily since good notes exist and documentation and be able to identify if something changes, e.g., a package version, what effect it had on the research.
+
+To help create a good set of data and code that can easily be shared, the use of programming or scripting languages such as R, Julia, SAS or Python enables us scientists to keep very detailed records of what was computationally performed.
+This is as opposed to using software such as spreadsheet programs like Excel, Google Sheets, Numbers, Calc or others which can be used for simple statistical analyses and visualization or other point-and-click software packages that do not enable us to keep an accurate record of the steps taken to import, format, visualize and analyze data.
+Text files for saving small sets of data are preferable.
+Data that are saved in binary formats such as PDF files are difficult to reuse because they are not easily machine readable.
+In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, e.g., comma separated (CSV) or tab separated (TSV) files.
+This also helps to ensure that the data are reusable.
+Larger data sets may warrant the use of a proper database like lightweight personal databases, e.g., SQLite or DuckDB, larger more robust databases, e.g., MariaDB, PostgreSQL or a specialized database like GenBank which provide users with several benefits but two important benefits to mention here are (i) data redundancy, ensuring no records are duplicated and (ii) data consistency, ensuring that all records in a data set are recorded in the same format for every observation.
+Databases such a GenBank are preferable for molecular data ensuring data integrity and machine readability.
+While databases may offer many advantages for speed and data integrity, the trade-off is that they are more complex to set up and administer, especially for a small data set.
+
+Ideally, once the data are complete, best practices for keeping our data as we perform our work include treating the raw data as read-only and using file permissions to prevent changes to the raw data files.
+It should be noted that the use of a database management system also allows for both at the expense of added complexity.
+Saving files in proprietary formats such as .xls(x) can also lead to issues in the future when opening using newer (or older) software versions.
+Unexpected changes to values in the data [@Ziemann2016] may also occur when using proprietary formats.
+
+Once these practices are in place, sharing the code and data becomes easier and can be thought of as a layered approach to computational reproducibility.
+
+Proper cataloguing and descriptions of the computational materials and data enable others to easily find and understand what the materials are.
+Properly constructed metadata allow for interoperability by allowing both humans and machines to understand what the materials are that are included in the resources and make use of them more easily.
+Metadata also protects the resource and its future availability by tracking the resource's lineage, describing the resources physical characteristics and behavior so that it can be replicated using future technologies.
+That is, without metadata, the data are not FAIR and the computational materials lose value by not having good documentation.
+
+If steps are followed to make the data FAIR, then it will be readable by humans and machines alike and this will help support discoveries and support further research.
+In turn, sharing data can lead to new citations for the work as others discover and use it.
+To make data the most widely discoverable and usable, ensure that it has a persistent identifier.
+A digital object identifier (DOI) is the most common (<https://www.doi.org/>) but the Handle.Net Registry (HNR) (<https://handle.net/>) is also an option.
+There are different options for generating a DOI for our data and other materials.
+FigShare, Zenodo and OSF.io all offer persistent archives along with a service to generate a DOI for our materials.
+The use of a persistent identifier works to ensure that even if the data are moved, they can still be located using that unique identifier.
+For more on FAIR data, visit Go-Fair <https://www.go-fair.org/fair-principles/>.
+
+Once it has been determined how to best manage the source code and the data sets for analysis, the next step is to consider how to share the data.
+Providers such as FigShare, Dataverse, OSF.io and Zenodo allow for us to deposit our data and provide metadata and generate a DOI for sharing the project once it is finished.
+Other providers exist that allow for us to not only track changes but also to share the data openly, these include GitHub, Gitlab and Bitbucket and GitHub is arguably the most popular and widely used open-source software development platform currently.
+However, we would advise against the practice of depositing data on a laboratory website or a site such as GitHub only as these are not an optimal way to preserve and share our work over the long term.
+Doing either of these leaves the work in an unstable state where future users may be unable to access the work as they are fraught with link-rot and other issues.
+It is a best practice to always ensure that we have deposited the data with a provider such as GenBank, Zenodo, FigShare or OSF.io and generated a DOI for the materials to help ensure continued accessibility.
+Many of these providers provide rather easy ways to link the project with a software development repository to help ensure that the data are available in perpetuity.
+If readers are uncertain, we suggest to also consult with local librarians about possible resources.
+Most universities and other research-focused workplaces provide a facility for staff to deposit papers and other academic materials, but this may extend to software development or data repositories as well.
+The important aspect is that data once deposited cannot be modified any more.
+
+Once these points have been addressed, if a general workflow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, analyzing, summarizing and presenting data and results, writing the manuscript then the next logical steps are depositing any code used along with the raw data in proper repositories (Figure \@ref(fig:workflow-dia)).
 Here we define three layers of reproducibility which are also related to the evolution of computational methods and reproducible practices and highlight papers that fit these definitions.
 
 The first layer is including tables of raw data or code with the paper as a supplemental file or even within the paper as tables where possible.
@@ -419,11 +466,11 @@ Furthermore, in many cases this does not allow prompt access to the data and run
 
 The second layer is providing machine readable text files of the raw data and code in a public code repository such as GitHub, GitLab, but without a DOI or some other long-term repository as provided by an institutional library, Zenodo, FigShare, etc.
 Fewer authors choose to follow this method, but in one instance that we found, which was not a part of this analysis, @Vogel2021 deposited Fastq files in the National Center of Biotechnology Information Sequence Read Archive (BioProject accession number PRJNA616021) and provided the scripts for analysis via a GitHub repository (<https://github.com/gmv23/pcap-gwas>) but we were unable to find a DOI that refers to these materials or a proper citation to properly cite them here and this illustrates that simply depositing code and data in repositories is not enough.
-Efforts must be made to annotate and structure the raw data to make it FAIR (Findable, Accessible, Interoperable and Re-usable) [@Wilkinson2016].
+Efforts must be made to annotate and structure the raw data to make it FAIR [@Wilkinson2016].
 Making the raw data FAIR means providing proper metadata, a clear description of what the resource contains, how it can be used and other attributes about it that help users understand it.
 Further, fully documenting the code used for the analysis is necessary for other researchers to fully use and understand.
 
-The third layer is the use of proper code repositories such as a library resource, or code repository (e.g. GitHub or GitLab) and data repositories (e.g., FigShare, Zenodo or OSF.io), allowing for the deposition and updating of code, figures, data preprints or any other materials that support the article itself while providing a DOI and citation.
+The third layer is the use of proper code repositories such as a library resource, or code repository (e.g., GitHub or GitLab) and data repositories (e.g., FigShare, Zenodo or OSF.io), allowing for the deposition and updating of code, figures, data preprints or any other materials that support the article itself while providing a DOI and citation.
 As an example, Sparks et al. [-@Sparks2011; -@Sparks2014, @Sparks2016] used FigShare to provide models, data and code necessary to replicate model development and the subsequent study on the effects of climate change on potato late blight.
 Similarly, @carleson2019population hosted the code for reproducing a population genomic analysis of *Phytophthora plurivora* on GitHub, while providing all data on OSF.io (the Open Science Framework).
 @Lehner2017 used GitHub to host a code repository of their research compendium website with data and a reproducible report that explains in detail all steps of the analysis and the R code for conducting a meta-analysis for assessing heterogeneity in the relationship between white mold incidence and soybean yield and between incidence and soybean yield (<https://emdelponte.github.io/paper-white-mold-meta-analysis/>).
@@ -442,59 +489,6 @@ It also allows for more in-depth investigation by stepping through other points 
 When this layer is employed, tools such as Binder, <https://mybinder.org>, can be used that allow readers and reviewers to launch an interactive session in their web browser and interact with the data and rerun the analysis in an RStudio instance or Jupyter notebooks, a "web application for creating and sharing computational documents" [@jupyter2022], as Mioroni et al. used [-@Miorini2018; -@Miorini2019].
 @Kamvar2015 took a slightly different approach by including all files necessary for the analysis and most output files in a repository [@Kamvar2014] that also included an installable R package that was used for the original analysis.
 While there are many other methods, these two approaches illustrate some of the best-practices where the data and other files were deposited in repositories with DOIs and reproducibility issues were addressed by using R packages to handle dependencies and other versioning issues making the work more portable.
-
-
-Proper cataloguing and descriptions of the computational materials and data enable others to easily find and understand what the materials are.
-Properly constructed metadata allow for interoperability by allowing both humans and machines to understand what the materials are that are included in the resources and make use of them more easily.
-Metadata also protects the resource and its future availability by tracking the resource's lineage, describing the resources physical characteristics and behavior so that it can be replicated using future technologies.
-That is, without metadata, the data are not FAIR and the computational materials lose value by not having good documentation.
-
-The first layer, as reported, is an essential step that is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations.
-When making science more open and reproducible, methods, software used (this includes items such as R, Julia or Python packages that were directly used in the analysis or production of the paper, etc.) should be cited properly.
-Provide a full description of all equipment used, e.g., "a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals".
-This allows end-users to identify what was used and identify the methods used more accurately.
-Just as importantly, this acknowledges the contributions of others whose works were instrumental in our research.
-This also helps to ensure that researchers can reconstruct what they did more easily since good notes exist and documentation and be able to identify if something changes, e.g., a package version, what effect it had on the research.
-
-The use of programming or scripting languages such as R, Julia, SAS or Python enables us scientists to keep very detailed records of what was computationally performed.
-This is as opposed to using software such as spreadsheet programs like Excel, Google Sheets, Numbers, Calc or others which can be used for simple statistical analyses and visualization or other point-and-click software packages that do not enable us to keep an accurate record of the steps taken to import, format, visualize and analyze data.
-
-Text files for saving small sets of data are preferable.
-Data that are saved in binary formats such as PDF files are difficult to reuse because they are not easily machine readable.
-In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, e.g., comma separated (CSV) or tab separated (TSV) files.
-This also helps to ensure that the data are reusable.
-Larger data sets may warrant the use of a proper database like lightweight personal databases, e.g., SQLite or DuckDB, larger more robust databases, e.g., MariaDB, PostgreSQL or a specialized database like GenBank which provide users with several benefits but two important benefits to mention here are (i) data redundancy, ensuring no records are duplicated and (ii) data consistency, ensuring that all records in a data set are recorded in the same format for every observation.
-Databases such a GenBank are preferable for molecular data ensuring data integrity and machine readability.
-While databases may offer many advantages for speed and data integrity, the trade-off is that they are more complex to set up and administer, especially for a small data set.
-
-Ideally, once the data are complete, best practices for keeping our data as we perform our work include treating the raw data as read-only and using file permissions to prevent changes to the raw data files.
-It should be noted that the use of a database management system also allows for both at the expense of added complexity.
-Saving files in proprietary formats such as .xls(x) can also lead to issues in the future when opening using newer (or older) software versions.
-Unexpected changes to values in the data [@Ziemann2016] may also occur when using proprietary formats.
-
-If steps are followed to make the data FAIR, then it will be readable by humans and machines alike and this will help support discoveries and support further research.
-In turn, sharing data will lead to new citations for our work as others discover and use it.
-To make our data the most widely discoverable and usable, ensure that it has a persistent identifier.
-A digital object identifier (DOI) is the most common (<https://www.doi.org/>) but the Handle.Net Registry (HNR) (<https://handle.net/>) is also an option.
-There are different options for generating a DOI for our data and other materials.
-FigShare, Zenodo and OSF.io all offer persistent archives along with a service to generate a DOI for our materials.
-The use of a persistent identifier works to ensure that even if the data are moved, they can still be located using that unique identifier.
-For more on FAIR data, visit Go-Fair <https://www.go-fair.org/fair-principles/>.
-
-Once it has been determined how to best manage the source code and the data sets for analysis, the next step is to consider how to share the data.
-Providers such as FigShare, Dataverse, OSF.io and Zenodo allow for us to deposit our data and provide metadata and generate a DOI for sharing the project once it is finished.
-
-Other providers exist that allow for us to not only track changes but also to share the data openly, these include GitHub, Gitlab and Bitbucket.
-GitHub is arguably the most popular and widely used software development platform currently.
-Data that is encoded in CSV or other plain text formats can easily be deposited in a repository along with code for analysis to enable tracking of changes and other users to download and replicate the work.
-
-We would advise against the practice of depositing data on a laboratory website or a site such as GitHub only as these are not an optimal way to preserve and share our work over the long term.
-Doing either of these leaves the work in an unstable state where future users may be unable to access the work as they are fraught with link-rot and other issues.
-It is a best practice to always ensure that we have deposited the data with a provider such as GenBank, Zenodo, FigShare or OSF.io and generated a DOI for the materials to help ensure continued accessibility.
-Many of these providers provide rather easy ways to link the project with a software development repository to help ensure that the data are available in perpetuity.
-If readers are uncertain, we suggest to also consult with local librarians about possible resources.
-Most universities and other research-focused workplaces provide a facility for staff to deposit papers and other academic materials, but this may extend to software development or data repositories as well.
-The important aspect is that data once deposited cannot be modified any more.
 
 These layers provide increasing openness and reproducibility so Layer 1 should not be viewed as the starting point before moving on to Layer 2 and then Layer 3.
 Rather the layers are provided to give the reader some idea of how much benefit end-users of the computational materials and data will derive at the expense of the increasing complexity.
