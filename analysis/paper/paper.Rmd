@@ -330,14 +330,15 @@ When predicting the availability of computational methods (code) and availabilit
 
 There were no clear differences that the analysis could detect between any of the journals as compared with *Phytopathology*® for the sharing of computational methods (code); the effects of all parameters were undecided (Figure \@ref(fig:journal-parameters)A, Table S1).
 
-When predicting the availability of data availability as compared with *Phytopathology*®, publications in one journal, *Phytopathologia Mediterranea*, can be considered clearly more likely to share data than publications in *Phytopathology*®, but no effects were detectable in any other journal title (Figure \@ref(fig:journal-parameters)B, Table S2).
+When predicting the availability of data availability as compared with *Phytopathology*®, publications in one journal, *Phytopathologia Mediterranea*, can be considered clearly more likely to share data than publications in *Phytopathology*®, but no effects were detectable in any other journal title (Figure \@ref(fig:journal-parameters)B; Table S2).
 
 The effect of *Phytopathologia Mediterranea* (Median = 1.68, 95% CI [0.78, 2.57]) had a 99.99% probability of being positive (\> 0), 99.98% of being significant (\> 0.05), and 99.83% of being large (\> 0.30).
 The estimation successfully converged (Rhat = 1.000) and the indices were reliable (ESS = 19017).
 
-There was no clear effect for year when predicting the availability of computational methods as the analysis results were undecided (Figure \@ref(fig:year-parameters)A, Table S3).
+There was no clear effect for year when predicting the availability of computational methods as the analysis results were undecided (Figure \@ref(fig:year-parameters)A; Table S3).
 
-However, the year of publication did not have an effect on the availability of data was accepted (Figure \@ref(fig:year-parameters)B, Table S4).
+However, the year of publication did not have an effect on the availability of data (Figure \@ref(fig:year-parameters)B, Table S4).
+
 The effect of year (Median = 0.08, 95% CI [-8.06e-03, 0.18]) had a 96.19% probability of being positive (> 0), 75.92% of being significant (> 0.05), and 0.00% of being large (> 0.30).
 The estimation successfully converged (Rhat = 1.000) and the indices were reliable (ESS = 21692).
 
