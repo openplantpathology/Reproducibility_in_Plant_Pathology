@@ -839,7 +839,10 @@ a <- plot(m_g1_eq,
     axis.title.y = element_blank(),
     axis.text.y = element_blank(),
     axis.title.x = element_blank(),
-    legend.box.spacing = unit(40, "pt")
+    legend.box.spacing = unit(40, "pt"),
+    legend.position = "bottom",
+    legend.justification = "right",
+    legend.margin = margin(r = -5)
   ) +
   xlim(-0.3, 0.7) +
   scale_fill_manual(values = "grey70") +
@@ -856,7 +859,10 @@ b <-
     axis.text.y = element_blank(),
     axis.title.x = element_blank(),
     legend.title = element_blank(),
-    legend.box.spacing = unit(40, "pt")
+    legend.box.spacing = unit(40, "pt"),
+    legend.position = "bottom",
+    legend.justification = "left",
+    legend.margin = margin(l = -5)
   ) +
   xlim(-0.3, 0.7) +
   scale_fill_manual(values = "black") +
