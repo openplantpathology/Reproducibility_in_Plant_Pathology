@@ -418,7 +418,10 @@ While this allows the reader to quickly view the extra materials and a DOI is as
 Furthermore, in many cases this does not allow prompt access to the data and running the code because of a journal paywall.
 
 The second layer is providing machine readable text files of the raw data and code in a public code repository such as GitHub, GitLab, but without a DOI or some other long-term repository as provided by an institutional library, Zenodo, FigShare, etc.
-Fewer authors choose to follow this method, but in one instance that we found, which was not a part of this analysis, @Vogel2021 deposited Fastq files in the National Center of Biotechnology Information Sequence Read Archive (BioProject accession number PRJNA616021) and provided the scripts for analysis via a GitHub repository (<https://github.com/gmv23/pcap-gwas>) but we were unable to find a DOI that refers to these materials or a proper citation to properly cite them here.
+Fewer authors choose to follow this method, but in one instance that we found, which was not a part of this analysis, @Vogel2021 deposited Fastq files in the National Center of Biotechnology Information Sequence Read Archive (BioProject accession number PRJNA616021) and provided the scripts for analysis via a GitHub repository (<https://github.com/gmv23/pcap-gwas>) but we were unable to find a DOI that refers to these materials or a proper citation to properly cite them here and this illustrates that simply depositing code and data in repositories is not enough.
+Efforts must be made to annotate and structure the raw data to make it FAIR (Findable, Accessible, Interoperable and Re-usable) [@Wilkinson2016].
+Making the raw data FAIR means providing proper metadata, a clear description of what the resource contains, how it can be used and other attributes about it that help users understand it.
+Further, fully documenting the code used for the analysis is necessary for other researchers to fully use and understand.
 
 The third layer is the use of proper code repositories such as a library resource, or code repository (e.g. GitHub or GitLab) and data repositories (e.g., FigShare, Zenodo or OSF.io), allowing for the deposition and updating of code, figures, data preprints or any other materials that support the article itself while providing a DOI and citation.
 As an example, Sparks et al. [-@Sparks2011; -@Sparks2014, @Sparks2016] used FigShare to provide models, data and code necessary to replicate model development and the subsequent study on the effects of climate change on potato late blight.
@@ -440,10 +443,6 @@ When this layer is employed, tools such as Binder, <https://mybinder.org>, can b
 @Kamvar2015 took a slightly different approach by including all files necessary for the analysis and most output files in a repository [@Kamvar2014] that also included an installable R package that was used for the original analysis.
 While there are many other methods, these two approaches illustrate some of the best-practices where the data and other files were deposited in repositories with DOIs and reproducibility issues were addressed by using R packages to handle dependencies and other versioning issues making the work more portable.
 
-Simply depositing code and data in repositories is not enough.
-Efforts must be made to annotate and structure the raw data to make it FAIR (Findable, Accessible, Interoperable and Re-usable) [@Wilkinson2016].
-Making the raw data FAIR means providing proper metadata, a clear description of what the resource contains, how it can be used and other attributes about it that help users understand it.
-Further, fully documenting the code used for the analysis is necessary for other researchers to fully use and understand.
 
 Proper cataloguing and descriptions of the computational materials and data enable others to easily find and understand what the materials are.
 Properly constructed metadata allow for interoperability by allowing both humans and machines to understand what the materials are that are included in the resources and make use of them more easily.
