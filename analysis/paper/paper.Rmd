@@ -250,9 +250,9 @@ When working with these data in R, all strings of software character values were
 Inter-rater differences were evaluated using percent agreement and Fliess' Kappa [@DelPonte2019].
 
 Six models were applied, with half predicting the response of code availability and the other half predicting data availability.
-Models 1 and 2 were used to predict responses with publishing journal, using the journals' abbreviation as the predictor (formula: response \~ abbreviation).
-Models 3 and 4 were used to predict the two responses with year as the predictor (formula: response \~&nbsp;year) and the models included abbreviation and assignee as random effects (formula: list(\~1&nbsp;\|&nbsp;abbreviation,&nbsp;\~1&nbsp;\|&nbsp;assignee)).
-Models 5 and 6 were used to predict the responses using IF_5year as the predictor, (formula: response&nbsp;\~&nbsp;IF_5year) and included assignee as random effect (formula:&nbsp;\~1&nbsp;\|&nbsp;assignee) without journal as a random effect to mitigate correlation between impact factor and the journal of publication.
+Models 1 and 2 were used to predict responses with publishing journal, using a factor, the journals' abbreviation, as the predictor (formula: response \~ abbreviation).
+Models 3 and 4 were used to predict the two responses with a continuous value, year, as the predictor (formula: response \~&nbsp;year) and the models included abbreviation and assignee as random effects (formula: list(\~1&nbsp;\|&nbsp;abbreviation,&nbsp;\~1&nbsp;\|&nbsp;assignee)) to detect changes that occurred over the years in which the manuscripts were published that were included.
+Models 5 and 6 were used to predict the responses using a continuous value, IF_5year, as the predictor, (formula: response&nbsp;\~&nbsp;IF_5year) and included assignee as random effect (formula:&nbsp;\~1&nbsp;\|&nbsp;assignee) without journal as a random effect to mitigate correlation between impact factor and the journal of publication.
 All models included the assigned article evaluator as a random effect (formula:&nbsp;\~1&nbsp;\|&nbsp;assignee) to address inter-rater effects on scoring.
 
 We fit Bayesian logistic mixed models (estimated using MCMC sampling with 4 chains of 10000 iterations and a warm-up of 5000 and thinning of 1) using cumulative family function with a logit link for ordinal data using the contributed package 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021].
