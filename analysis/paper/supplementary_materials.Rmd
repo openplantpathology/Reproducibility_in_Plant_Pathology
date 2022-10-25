@@ -94,19 +94,24 @@ theme_set(theme_classic())
 
 load(here("inst/extdata/m_f1.Rda"))
 load(here("inst/extdata/m_f1_report.Rda"))
+load(here("inst/extdata/m_f1_es.Rda"))
 load(here("inst/extdata/m_f2.Rda"))
 load(here("inst/extdata/m_f2_report.Rda"))
+load(here("inst/extdata/m_f2_es.Rda"))
 
 load(here("inst/extdata/m_g1.Rda"))
 load(here("inst/extdata/m_g1_report.Rda"))
-
+load(here("inst/extdata/m_g1_es.Rda"))
 load(here("inst/extdata/m_g2.Rda"))
 load(here("inst/extdata/m_g2_report.Rda"))
+load(here("inst/extdata/m_g2_es.Rda"))
 
 load(here("inst/extdata/m_h1.Rda"))
 load(here("inst/extdata/m_h1_report.Rda"))
+load(here("inst/extdata/m_h1_es.Rda"))
 load(here("inst/extdata/m_h2.Rda"))
 load(here("inst/extdata/m_h2_report.Rda"))
+load(here("inst/extdata/m_h2_es.Rda"))
 ```
 
 ```{r fonts, include=FALSE, message=FALSE, eval=FALSE}
@@ -152,7 +157,13 @@ font_import()
 ## Supplementary Tables
 
 ```{r effects-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
+m_f1_es <- c(m_f1_es, rep(NA, nrow(as_tibble(m_f1_report)) - length(m_f1_es)))
+m_f1_es <- gsub("\\s*\\([^\\)]+\\)", "", as.character(m_f1_es))
+
 as_tibble(m_f1_report) %>%
+  bind_cols(m_f1_es) %>%
+  rename("Effect Size" = "...10") %>% 
+  relocate("Effect Size", .before = Fit) %>%
   filter(!grepl("R2", Parameter)) %>%
   filter(!is.na(Parameter)) %>%
   mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>% 
@@ -174,7 +185,13 @@ as_tibble(m_f1_report) %>%
 \newpage
 
 ```{r effects-analysis-data, echo=FALSE, message=FALSE, warning=FALSE}
+m_f2_es <- c(m_f2_es, rep(NA, nrow(as_tibble(m_f2_report)) - length(m_f2_es)))
+m_f2_es <- gsub("\\s*\\([^\\)]+\\)", "", as.character(m_f2_es))
+
 as_tibble(m_f2_report) %>%
+  bind_cols(m_f2_es) %>%
+  rename("Effect Size" = "...10") %>% 
+  relocate("Effect Size", .before = Fit) %>%
   filter(!grepl("R2", Parameter)) %>%
   filter(!is.na(Parameter)) %>%
   mutate(Parameter = gsub("abbreviation", "", .$Parameter)) %>% 
@@ -196,7 +213,13 @@ as_tibble(m_f2_report) %>%
 \newpage
 
 ```{r year-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
+m_g1_es <- c(m_g1_es, rep(NA, nrow(as_tibble(m_g1_report)) - length(m_g1_es)))
+m_g1_es <- gsub("\\s*\\([^\\)]+\\)", "", as.character(m_g1_es))
+
 as_tibble(m_g1_report) %>%
+  bind_cols(m_g1_es) %>%
+  rename("Effect Size" = "...10") %>% 
+  relocate("Effect Size", .before = Fit) %>%
   filter(!grepl("R2", Parameter)) %>%
   filter(!is.na(Parameter)) %>%
   mutate(Parameter = gsub("year", "", .$Parameter)) %>%
@@ -218,7 +241,13 @@ as_tibble(m_g1_report) %>%
 \newpage
 
 ```{r year-analysis-data, echo=FALSE, message=FALSE, warning=FALSE}
+m_g2_es <- c(m_g2_es, rep(NA, nrow(as_tibble(m_g2_report)) - length(m_g2_es)))
+m_g2_es <- gsub("\\s*\\([^\\)]+\\)", "", as.character(m_g2_es))
+
 as_tibble(m_g2_report) %>%
+  bind_cols(m_g2_es) %>%
+  rename("Effect Size" = "...10") %>% 
+  relocate("Effect Size", .before = Fit) %>%
   filter(!grepl("R2", Parameter)) %>%
   filter(!is.na(Parameter)) %>%
   mutate(Parameter = gsub("year", "", .$Parameter)) %>% 
@@ -240,7 +269,13 @@ as_tibble(m_g2_report) %>%
 \newpage
 
 ```{r if-5yr-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
+m_h1_es <- c(m_h1_es, rep(NA, nrow(as_tibble(m_h1_report)) - length(m_h1_es)))
+m_h1_es <- gsub("\\s*\\([^\\)]+\\)", "", as.character(m_h1_es))
+
 as_tibble(m_h1_report) %>%
+  bind_cols(m_h1_es) %>%
+  rename("Effect Size" = "...10") %>% 
+  relocate("Effect Size", .before = Fit) %>%
   filter(!grepl("R2", Parameter)) %>%
   filter(!is.na(Parameter)) %>%
   rename("CI\nLow" = "CI_low",
@@ -261,7 +296,13 @@ as_tibble(m_h1_report) %>%
 \newpage
 
 ```{r if-5yr-analysis-data, echo=FALSE, message=FALSE, warning=FALSE}
+m_h2_es <- c(m_h2_es, rep(NA, nrow(as_tibble(m_h2_report)) - length(m_h2_es)))
+m_h2_es <- gsub("\\s*\\([^\\)]+\\)", "", as.character(m_h2_es))
+
 as_tibble(m_h2_report) %>%
+  bind_cols(m_h2_es) %>%
+  rename("Effect Size" = "...10") %>% 
+  relocate("Effect Size", .before = Fit) %>%
   filter(!grepl("R2", Parameter)) %>%
   filter(!is.na(Parameter)) %>%
   rename("CI\nLow" = "CI_low",
