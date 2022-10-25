@@ -350,10 +350,9 @@ Except for a few isolated cases, most papers were not fully computationally repr
 Very few authors choose to share both data and code.
 More authors shared data due to journal requirements to share sequence data, but other types of data related to field experiments or other laboratory studies were not likely to be shared.
 Code sharing was extremely rare, but in cases where it was shared, most were included as a part of the journal article's publication as extra materials rather than through data repositories.
-Authors publishing in *Phytopathologia Mediterranea* were more likely than articles published in *Phytopathology*® to share data.
-Several articles published in this journal either made the data available through GenBank or it was noted that all data were available through the article and associated supplementary materials.
-The journal ranking highest for sharing data, *Phytopathologia Mediterranea*, did not have any articles that were sampled in 2018 (Table \@ref(tab:journals)).
-There is no clear reason for the year 2018 to have more data shared than other years other than random chance that we found.
+Authors publishing in *Phytopathologia Mediterranea* were more likely than authors publishing in *Phytopathology*® to share data.
+Several articles published in t*Phytopathologia Mediterranea* either made the data available through GenBank or it was noted that all data were available through the article and associated supplementary materials, which may be the reason for this effect.
+
 The reasons for not sharing code or data were not clearly available from the papers themselves and so this work was unable to determine possible reasons for this situation.
 We recognize that in some cases there may be commercial or intellectual property (IP) reasons for not sharing data or code, but these reasons should be clearly stated.
 However, in most cases, the data are collected with public funding and the code was developed using similar funding and there are no commercial or IP issues that preclude sharing and in fact the funding agency may have guidelines in place for sharing these materials.
