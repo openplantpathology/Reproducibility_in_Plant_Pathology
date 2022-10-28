@@ -696,7 +696,6 @@ embed_fonts(
   outfile = here("analysis/figures/Sparks_et_al_Figure_1.eps"),
   options = "-dEPSCrop"
 )
-include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_1.eps"))
 ```
 
 \newpage
@@ -733,7 +732,6 @@ embed_fonts(
   outfile = here("analysis/figures/Sparks_et_al_Figure_2.eps"),
   options = "-dEPSCrop"
 )
-include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_2.eps"))
 ```
 
 \newpage
@@ -819,7 +817,6 @@ embed_fonts(
   outfile = here("analysis/figures/Sparks_et_al_Figure_3.eps"),
   options = "-dEPSCrop"
 )
-include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_3.eps"))
 ```
 
 \newpage
@@ -911,7 +908,6 @@ embed_fonts(
   outfile = here("analysis/figures/Sparks_et_al_Figure_4.eps"),
   options = "-dEPSCrop"
 )
-include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_4.eps"))
 ```
 
 \newpage
@@ -1002,7 +998,6 @@ embed_fonts(
   outfile = here("analysis/figures/Sparks_et_al_Figure_5.eps"),
   options = "-dEPSCrop"
 )
-include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_5.eps"))
 ```
 
 \newpage
@@ -1056,6 +1051,4 @@ embed_fonts(
   outfile = here("analysis/figures/Sparks_et_al_Figure_6.eps"),
   options = "-dEPSCrop"
 )
-
-include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_6.eps"))
 ```
