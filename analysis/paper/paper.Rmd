@@ -161,21 +161,23 @@ Finally, we provide ideas and suggest tools to promote open, reproducible comput
 
 Modern plant pathological research has many facets given the array of disciplines and sub-disciplines currently involved.
 Collectively, they contribute to increasing our basic and applied knowledge of several aspects of pathogen biology and disease development to ultimately improve plant disease management.
-Scientific research in the field varies from the purely observational or descriptive nature to inferential, based on experimental or simulation-derived data sets.
-Whatever the case, research findings are verifiable based on how much of the research materials, processes and outcomes are made available beyond what is reported in the scientific article and the ability of others to make use of the methods and results.
-These research findings include biological materials (host and pathogen genotypes), nucleic/protein sequences, experimental and simulated raw data annotations, drawings and photographs and statistical analysis code among other materials and data generated during the research activities.
+Scientific research in the field varies from the purely observational or descriptive in nature to inferential (based on experimental or simulation-derived data sets).
+Whatever the case, the verifiability of research findings depends on how much of the research materials, processes and outcomes are made available beyond what is reported in the scientific article and the ability of others to make use of the methods and results.
+Examples of such resources include biological materials (host and pathogen genotypes), nucleic/protein sequences, experimental and simulated raw data annotations, drawings and photographs and statistical analysis code.
 
-Open science and reproducibility is becoming more mainstream with many funding agencies expecting data to be available upon the conclusion of the research project [e.g., @government_of_canada_2016; @vannoorden2017; @ARC2018; @EUCommission2022; @GatesFoundation2022], journals in the field promoting the sharing of data [@DelPonte2020], and other scientists becoming interested in sharing their raw data and even lab notebook contents [@Wald2010] or drawing attention to the lack of code and data that make the published work less useful [@Barton2022].
+Open science and reproducibility is becoming more mainstream with many funding agencies expecting data to be available upon the conclusion of the research project [e.g., @government_of_canada_2016; @vannoorden2017; @ARC2018; @EUCommission2022; @GatesFoundation2022].
+Journals in the field are promoting the sharing of data [@DelPonte2020], and more scientists are becoming interested in sharing their raw data and even lab notebook contents [@Wald2010] or drawing attention to the lack of code and data that make published work less useful [@Barton2022].
 
 Reproducibility is one component under the umbrella of open science.
-By proactively practicing open science, the work increases the chance to become more reproducible through the availability of data and code.
+By proactively practicing open science, scientists increase the chance that their works become more reproducible due to the availability of data and code.
 That is, open science enables reproducibility and replicability.
 
-To discuss the topic, it helps to first define what we mean so that we may clearly communicate.
+To ensure clear communication on this topic, we first must define terms like reproducibility. 
 Many of the terms used in this area have varying definitions that may or may not agree with each other.
 For instance, reproducible research was recently highlighted by many authors [@Tiwari_2021; @Eckert2020; @Dienlin2020; @preeyanon2018; @Wallach2018; @Baker2016a; @Iqbal2016; @Nature2016; @Patil2016; @Weissgerber2016; @Brunsdon2015; @Sweedler2015; @Fitzjohn2014; @Ioannidis2014; @Fidler2013; @Stodden2013] as an important issue.
 
-In the biological sciences it is not always possible to use identical test material or perhaps the time or resources are not available for full reproducibility, e.g., field trials that span years and locations or complex glasshouse experiments.
+However, in the biological sciences it is not always possible to use identical test material or environmental conditions, e.g., field trials that span years and locations or complex glasshouse experiments.
+In other cases there is insufficient time and resources to reproduce the entire study.
 Therefore, we will follow Peng's [-@Peng2009] definition that provides clear guidelines for a minimum standard of "reproducible research":
 
 > "The replication of scientific findings using independent investigators, methods, data, equipment, and protocols has long been, and will continue to be, the standard by which scientific claims are evaluated. However, in many fields of study there are examples of scientific investigations that cannot be fully replicated because of a lack of time or resources. In such a situation, there is a need for a minimum standard that can fill the void between full replication and nothing. One candidate for this minimum standard is 'reproducible research', which requires that data sets and computer code be made available to others for verifying published results and conducting alternative analyses".
@@ -183,8 +185,12 @@ Therefore, we will follow Peng's [-@Peng2009] definition that provides clear gui
 > *Reproducible research and Biostatistics*.
 > Biostatistics, 10 (3): 405-408.
 
-Therefore, our definition of reproducibility will be that the computer code and data are made freely available to others for verification and conducting alternate analyses or for use in instructional purposes.
-And that the software used are also easily obtained and preferably open-source to avoid licensing or other issues related to accessibility for end-users related to costs or non-standard file formats.
+Therefore, our definition of computational reproducibility will be that the computer code and data are made freely available to others for verification and conducting alternate analyses or for use in instructional purposes.
+In addition, the software used should be easily obtained and preferably open-source to avoid licensing or other issues related to accessibility for end-users related to costs or non-standard file formats.
+
+Plant pathologists often provide information on protocols and chemicals allowing for reproducibility.
+However, biological specimens such as strains, cultures or cultivars are often not available after publication.
+These cases do constitute a lack of reproducibility but will not be covered here.
 
 Plant pathologists often provide information on protocols and chemicals allowing for reproducibility.
 However, frequently biological specimens such as strains, cultures or cultivars are not available after publication.
@@ -202,22 +208,24 @@ Using R [@RCT2022], two lists were created.
 The first was a list of the 21 journals and the second was a list of the evaluators that were evaluating the articles for reproducibility.
 Initially there were four evaluators, later a fifth was added and the list was recreated.
 There were three evaluation events that took place to increase the yearly coverage of the evaluations.
-During each scoring event, each evaluator was randomly assigned 50 unique articles to evaluate during an evaluation event.
+During each scoring event, each evaluator was randomly assigned 50 unique articles to evaluate.
 
 A list of randomly generated numbers representing page numbers from one to 150, sampled with replacement, was assigned to a randomized list of 21 journals for each sampling event.
-This was done to ensure that the the randomly generated number had a corresponding number in the journal.
+This was done to ensure that the randomly generated number had a corresponding number in the journal.
+
+A Google Sheets file was created to hold the article details and metadata for the paper's authors to refer in finding their assigned articles.
+The five-year impact factor for 2022 for each journal was retrieved from InCites Journal Citation Reports, Clarivate and entered in the spreadsheet with the article details for the respective journals.
+The authors entered article scores and comments about the article in a separate spreadsheet in the Google Sheets file to keep the original details intact and avoid overwriting or making possible errors that would lead to the loss of data.
+The entire workbook was downloaded and saved as an Open Document Spreadsheet (ODS) file for analysis after all the values were recorded.
 
 Articles were then manually selected by visiting the journals' websites and selecting the articles within which the randomly assigned page numbers fell, *i.e.*, if the page number was 32, the article that started on page 28 and ended on page 35 was selected as it contained page 32.
 In cases where an article was not suitable, e.g., a review or otherwise not related to plant pathology or the randomly assigned numbers for that journal and year fell within the same article, the next article in that journal was selected until a suitable article was found.
 
-Depending on the scoring event, three to five of this paper's authors were each assigned to rate a randomized list of journal articles using scoring criteria devised for the purposes of this research in each of the three different scoring events as their time allowed for their participation.
+During three scoring events, two to five of this paper's authors were each assigned to rate a randomized list of journal articles using scoring criteria devised for the purposes of this research as their time allowed for their participation.
 In the first event, three authors (AS, EDP, and ZF) evaluated a total of 200 unique articles, in the second event two authors evaluated a total of 100 unique articles (EDP, KA) and in the third round, five authors (AS, EDP, KA, ZF, NG) evaluated a total of 150 unique articles for a total of 450 articles.
 Each article was evaluated by only one evaluator save five articles randomly selected for inter-rater repeatability analysis from the third and final evaluation event.
 
 ## Scoring Criteria
-
-The five-year impact factor for 2022 for each journal was retrieved from InCites Journal Citation Reports, Clarivate Analytics and entered in a separate sheet in the Google sheets file.
-This was downloaded, saved as an Open Document Spreadsheet (ODS) file for analysis.
 
 Each article was rated on a 0--3 scale for its data and code availability.
 'Code availability' rated how easily and openly available the computational methods used in the article were.
@@ -225,7 +233,7 @@ Scores were assigned as '0' was 'Not available or not mentioned in the publicati
 Second, the 'Data availability' evaluated how freely and openly available the data presented in the article were.
 This was evaluated as '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no data were generated, e.g., a methods paper.
 
-For the purposes of this research paper, the word "code" in "code availability" was defined as including any materials that were used in the data import, cleaning, analysis, genome assembly or manuscript preparation or in the case of modelling papers, the model's software code itself.
+For the purposes of this research paper, the word "code" in "code availability" was defined as including any software that were used in the data import, cleaning, analysis, genome assembly or manuscript preparation or in the case of modelling papers, the model's software code itself.
 The word "data" in "data availability" was defined as including any data created or collected and presented in the research manuscript.
 
 In cases where partial computational materials or data were made available, the score was assigned the lowest score reflecting the completeness of the availability, all or nothing.
@@ -400,22 +408,20 @@ However, we were unable to find any quantification of the reproducibility of any
 
 ## Suggestions for Improving Computational Reproducibility
 
-While sharing code and data for computational reproducibility is important, it is not substituted by the other practices and eventually researchers fail to provide sufficient description or correct citations.
-When making science more open and reproducible, methods, software used (this includes items such as R, Julia or Python packages that were directly used in the analysis or production of the paper, etc.) should be cited properly.
-Provide a full description of all equipment used, e.g., "a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals".
-This allows end-users to identify what was used and identify the methods used more accurately.
-Just as importantly, this acknowledges the contributions of others whose works were instrumental in our research.
-This also helps to ensure that researchers can reconstruct what they did more easily since good notes exist and documentation and be able to identify if something changes, e.g., a package version, what effect it had on the research.
+When making science more open and computationally reproducible, methods and software used (e.g. R, Julia or Python packages that were directly used in the analysis or production of the paper, etc.) should be cited properly.
+Provide a full description of all equipment used, e.g., “a Spectrum Technologies Watchdog 2700 weather station was used to record wind speed, direction, rainfall, temperature and relative humidity at one-hour intervals”.
+This allows end-users to identify the tools and methods used more accurately.
+Just as importantly, this acknowledges the contributions of others whose works were instrumental in our research. This also helps to ensure that researchers can reconstruct what they did more easily since good notes and documentation exist and be able to identify if something changes, e.g., a package version, what effect it had on the research.
 
 To help create a good set of data and code that can easily be shared, the use of programming or scripting languages such as R, Julia, SAS or Python enables us scientists to keep very detailed records of what was computationally performed.
 This is as opposed to using software such as spreadsheet programs like Excel, Google Sheets, Numbers, Calc or others which can be used for simple statistical analyses and visualization or other point-and-click software packages that do not enable us to keep an accurate record of the steps taken to import, format, visualize and analyze data.
-Text files for saving small sets of data are preferable.
+Text files for saving small sets of data are preferable to proprietary file formats.
 Data that are saved in binary formats such as PDF files are difficult to reuse because they are not easily machine readable.
 In many cases, data sets are small enough and curated in spreadsheets, which should be saved as a plain text file, e.g., comma separated (CSV) or tab separated (TSV) files.
-This also helps to ensure that the data are reusable.
-Larger data sets may warrant the use of a proper database like lightweight personal databases, e.g., SQLite or DuckDB, larger more robust databases, e.g., MariaDB, PostgreSQL or a specialized database like GenBank which provide users with several benefits but two important benefits to mention here are (i) data redundancy, ensuring no records are duplicated and (ii) data consistency, ensuring that all records in a data set are recorded in the same format for every observation.
-Databases such a GenBank are preferable for molecular data ensuring data integrity and machine readability.
-While databases may offer many advantages for speed and data integrity, the trade-off is that they are more complex to set up and administer, especially for a small data set.
+This also helps to ensure that the data are reusable. Larger data sets may warrant the use of a proper database like lightweight personal databases, e.g., SQLite or DuckDB, larger more robust databases, e.g., MariaDB, PostgreSQL or a specialized database like GenBank which provide users with several benefit.
+Two important benefits to mention here are (i) avoiding data redundancy, ensuring no records are duplicated and (ii) data consistency, ensuring that all records in a data set are recorded in the same format for every observation.
+Databases such as GenBank are preferable for molecular data and ensure data integrity and machine readability.
+While databases may offer many advantages such as speed and data integrity, they are also more complex to set up and administer, and so they may not be the best choice for a small data set.
 
 Ideally, once the data are complete, best practices for keeping our data as we perform our work include treating the raw data as read-only and using file permissions to prevent changes to the raw data files.
 It should be noted that the use of a database management system also allows for both at the expense of added complexity.
@@ -433,23 +439,25 @@ If steps are followed to make the data FAIR, then it will be readable by humans 
 In turn, sharing data can lead to new citations for the work as others discover and use it.
 To make data the most widely discoverable and usable, ensure that it has a persistent identifier.
 A digital object identifier (DOI) is the most common (<https://www.doi.org/>) but the Handle.Net Registry (HNR) (<https://handle.net/>) is also an option.
-There are different options for generating a DOI for our data and other materials.
-FigShare, Zenodo and OSF.io all offer persistent archives along with a service to generate a DOI for our materials.
+There are different options for generating a DOI for data and other materials.
+FigShare, Zenodo and OSF.io all offer persistent archives along with a service to generate a DOI.
 The use of a persistent identifier works to ensure that even if the data are moved, they can still be located using that unique identifier.
 For more on FAIR data, visit Go-Fair <https://www.go-fair.org/fair-principles/>.
 
 Once it has been determined how to best manage the source code and the data sets for analysis, the next step is to consider how to share the data.
-Providers such as FigShare, Dataverse, OSF.io and Zenodo allow for us to deposit our data and provide metadata and generate a DOI for sharing the project once it is finished.
-Other providers exist that allow for us to not only track changes but also to share the data openly, these include GitHub, Gitlab and Bitbucket and GitHub is arguably the most popular and widely used open-source software development platform currently.
+Providers such as FigShare, Dataverse, OSF.io and Zenodo allow us to deposit our data and provide metadata and generate a DOI for sharing the project once it is finished.
+Other providers exist that allow for us to not only track changes but also to share the data openly.
+These include GitHub, Gitlab and Bitbucket.
+GitHub is arguably the most popular and widely used open-source software development platform currently.
 However, we would advise against the practice of depositing data on a laboratory website or a site such as GitHub only as these are not an optimal way to preserve and share our work over the long term.
 Doing either of these leaves the work in an unstable state where future users may be unable to access the work as they are fraught with link-rot and other issues.
 It is a best practice to always ensure that we have deposited the data with a provider such as GenBank, Zenodo, FigShare or OSF.io and generated a DOI for the materials to help ensure continued accessibility.
 Many of these providers provide rather easy ways to link the project with a software development repository to help ensure that the data are available in perpetuity.
 If readers are uncertain, we suggest to also consult with local librarians about possible resources.
 Most universities and other research-focused workplaces provide a facility for staff to deposit papers and other academic materials, but this may extend to software development or data repositories as well.
-The important aspect is that data once deposited cannot be modified any more.
+It is important that data once deposited cannot be modified.
 
-Once these points have been addressed, if a general workflow for producing academic research involves clearly defining a research question, obtaining data for testing the hypothesis, analyzing, summarizing and presenting data and results, writing the manuscript then the next logical steps are depositing any code used along with the raw data in proper repositories (Figure \@ref(fig:workflow-dia)).
+If a general workflow for producing academic research involves defining a research question, obtaining data for testing the hypothesis, analyzing, summarizing and presenting data and results, and writing the manuscript, then the next logical steps are depositing any code used along with the raw data in proper repositories (Figure \@ref(fig:workflow-dia)).
 Here we define three layers of reproducibility which are also related to the evolution of computational methods and reproducible practices and highlight papers that fit these definitions.
 
 The first layer is including tables of raw data or code with the paper as a supplemental file or even within the paper as tables where possible.
@@ -465,19 +473,19 @@ While this allows the reader to quickly view the extra materials and a DOI is as
 Furthermore, in many cases this does not allow prompt access to the data and running the code because of a journal paywall.
 
 The second layer is providing machine readable text files of the raw data and code in a public code repository such as GitHub, GitLab, but without a DOI or some other long-term repository as provided by an institutional library, Zenodo, FigShare, etc.
-Fewer authors choose to follow this method, but in one instance that we found, which was not a part of this analysis, @Vogel2021 deposited Fastq files in the National Center of Biotechnology Information Sequence Read Archive (BioProject accession number PRJNA616021) and provided the scripts for analysis via a GitHub repository (<https://github.com/gmv23/pcap-gwas>) but we were unable to find a DOI that refers to these materials or a proper citation to properly cite them here and this illustrates that simply depositing code and data in repositories is not enough.
+Fewer authors choose to follow this method, but in one instance that we found, which was not a part of this analysis, @Vogel2021 deposited Fastq files in the National Center of Biotechnology Information Sequence Read Archive (BioProject accession number PRJNA616021) and provided the scripts for analysis via a GitHub repository (<https://github.com/gmv23/pcap-gwas>), but we were unable to find a DOI that refers to these materials or a citation to properly cite them here and this illustrates that simply depositing code and data in repositories is not enough.
 Efforts must be made to annotate and structure the raw data to make it FAIR [@Wilkinson2016].
 Making the raw data FAIR means providing proper metadata, a clear description of what the resource contains, how it can be used and other attributes about it that help users understand it.
 Further, fully documenting the code used for the analysis is necessary for other researchers to fully use and understand.
 
 The third layer is the use of proper code repositories such as a library resource, or code repository (e.g., GitHub or GitLab) and data repositories (e.g., FigShare, Zenodo or OSF.io), allowing for the deposition and updating of code, figures, data preprints or any other materials that support the article itself while providing a DOI and citation.
-As an example, Sparks et al. [-@Sparks2011; -@Sparks2014, @Sparks2016] used FigShare to provide models, data and code necessary to replicate model development and the subsequent study on the effects of climate change on potato late blight.
+As an example, Sparks et al. [-@Sparks2011; -@Sparks2014; -@Sparks2016] used FigShare to provide models, data and code necessary to replicate model development and the subsequent study on the effects of climate change on potato late blight.
 Similarly, @carleson2019population hosted the code for reproducing a population genomic analysis of *Phytophthora plurivora* on GitHub, while providing all data on OSF.io (the Open Science Framework).
 @Lehner2017 used GitHub to host a code repository of their research compendium website with data and a reproducible report that explains in detail all steps of the analysis and the R code for conducting a meta-analysis for assessing heterogeneity in the relationship between white mold incidence and soybean yield and between incidence and soybean yield (<https://emdelponte.github.io/paper-white-mold-meta-analysis/>).
 The website clearly demonstrates the analysis to readers and uses R so that anyone can easily replicate the work.
 Using a public code repository resource allows other researchers to easily contact the authors by opening "Issues" and report bugs or ask questions in an open forum that are not as straightforward when the data are provided as supplementary material.
 
-Taking this approach even further, packaging the full analysis in a containerized software application, e.g., Docker is a way to help ensure computational reproducibility but at the expense of added complexity [@Merkel2014].
+Taking this approach even further, packaging the full analysis in a containerized software application (Docker) is a way to help ensure computational reproducibility but at the expense of added complexity [@Merkel2014].
 Docker is an open-source containerization platform that enables users to package several applications and an operating system into containers, thereby standardizing the executable components by combining application source code (or analyses) with the operating system required to run that analysis on a user's computer.
 However, there are drawbacks to using Docker.
 It can be difficult to understand for a new user and new platforms, like the Apple M1 chip, may not be fully supported, which hinder the ability to share the container.
