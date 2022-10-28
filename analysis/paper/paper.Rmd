@@ -413,7 +413,7 @@ Provide a full description of all equipment used, e.g., “a Spectrum Technologi
 This allows end-users to identify the tools and methods used more accurately.
 Just as importantly, this acknowledges the contributions of others whose works were instrumental in our research. This also helps to ensure that researchers can reconstruct what they did more easily since good notes and documentation exist and be able to identify if something changes, e.g., a package version, what effect it had on the research.
 
-To help create a good set of data and code that can easily be shared, the use of programming or scripting languages such as R, Julia, SAS or Python enables us scientists to keep very detailed records of what was computationally performed.
+To help create a good set of data and code that can easily be shared, the use of programming or scripting languages such as R, Julia, SAS or Python enables us to keep very detailed records of what was computationally performed.
 This is as opposed to using software such as spreadsheet programs like Excel, Google Sheets, Numbers, Calc or others which can be used for simple statistical analyses and visualization or other point-and-click software packages that do not enable us to keep an accurate record of the steps taken to import, format, visualize and analyze data.
 Text files for saving small sets of data are preferable to proprietary file formats.
 Data that are saved in binary formats such as PDF files are difficult to reuse because they are not easily machine readable.
