@@ -527,7 +527,7 @@ Ideally, with mandates for openly sharing data becoming more common with funding
 We can and should embrace this and move the discipline forward and have a greater impact with our work.
 
 Without the code used to generate the paper and the data that were gathered for the paper, we as a community cannot adequately evaluate the work as it is presented.
-That is, while we may be standing on the shoulders of giants in doing our work, we cannot see where they have been to do our work, which hinders our efforts to be able to see farther ahead.
+So, while we may be standing on the shoulders of giants as we are doing our work, when we cannot see where they have been by examining the code and data, it hinders our efforts to move plant pathology forward.
 
 # Authors' Contributions
 
