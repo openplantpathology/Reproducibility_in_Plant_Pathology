@@ -148,12 +148,12 @@ font_import()
 # Abstract {#abstract .unnumbered}
 
 Open research practices have been highlighted extensively during the last ten years in many fields of scientific study as essential standards needed to promote transparency and reproducibility of scientific results.
-Scientific claims can only be evaluated based on how protocols, materials, equipment and methods were described; data were collected and prepared; and analyzes were conducted.
+Scientific claims can only be evaluated based on how protocols, materials, equipment and methods were described; data were collected and prepared; and analyses were conducted.
 Openly sharing protocols, data and computational code is central for current scholarly dissemination and communication, but in many fields, including plant pathology, adoption of these practices has been slow.
 We randomly selected 450 articles published from 2012 to 2021 across 21 journals representative of the plant pathology discipline and assigned them scores reflecting their openness and computational reproducibility.
 We found that most of the articles were not following protocols for open science and were failing to share data or code in a reproducible way.
 We propose that use of open-source tools facilitates computationally reproducible work and analyses benefitting not just readers, but the authors as well.
-Finally, we provide ideas and tools to promote open, reproducible computational research practices among plant pathologists.
+Finally, we provide ideas and suggest tools to promote open, reproducible computational research practices among plant pathologists.
 
 \newpage
 
@@ -168,22 +168,22 @@ These research findings include biological materials (host and pathogen genotype
 Open science and reproducibility is becoming more mainstream with many funding agencies expecting data to be available upon the conclusion of the research project [e.g., @government_of_canada_2016; @vannoorden2017; @ARC2018; @EUCommission2022; @GatesFoundation2022], journals in the field promoting the sharing of data [@DelPonte2020], and other scientists becoming interested in sharing their raw data and even lab notebook contents [@Wald2010] or drawing attention to the lack of code and data that make the published work less useful [@Barton2022].
 
 Reproducibility is one component under the umbrella of open science.
-By proactively practising open science, the work increases the chance to become more reproducible through the availability of data and code.
+By proactively practicing open science, the work increases the chance to become more reproducible through the availability of data and code.
 That is, open science enables reproducibility and replicability.
 
-For us to easily discuss the topic, we first must define what we mean so that we may clearly communicate.
+To discuss the topic, it helps to first define what we mean so that we may clearly communicate.
 Many of the terms used in this area have varying definitions that may or may not agree with each other.
 For instance, reproducible research was recently highlighted by many authors [@Tiwari_2021; @Eckert2020; @Dienlin2020; @preeyanon2018; @Wallach2018; @Baker2016a; @Iqbal2016; @Nature2016; @Patil2016; @Weissgerber2016; @Brunsdon2015; @Sweedler2015; @Fitzjohn2014; @Ioannidis2014; @Fidler2013; @Stodden2013] as an important issue.
 
 In the biological sciences it is not always possible to use identical test material or perhaps the time or resources are not available for full reproducibility, e.g., field trials that span years and locations or complex glasshouse experiments.
 Therefore, we will follow Peng's [-@Peng2009] definition that provides clear guidelines for a minimum standard of "reproducible research":
 
-> "The replication of scientific findings using independent investigators, methods, data, equipment, and protocols has long been, and will continue to be, the standard by which scientific claims are evaluated. However, in many fields of study there are examples of scientific investigations that cannot be fully replicated because of a lack of time or resources. In such a situation, there is a need for a minimum standard that can fill the void between full replication and nothing. One candidate for this minimum standard is 'reproducible research', which requires that data sets and computer code be made available to others for verifying published results and conducting alternative analyzes".
+> "The replication of scientific findings using independent investigators, methods, data, equipment, and protocols has long been, and will continue to be, the standard by which scientific claims are evaluated. However, in many fields of study there are examples of scientific investigations that cannot be fully replicated because of a lack of time or resources. In such a situation, there is a need for a minimum standard that can fill the void between full replication and nothing. One candidate for this minimum standard is 'reproducible research', which requires that data sets and computer code be made available to others for verifying published results and conducting alternative analyses".
 > @Peng2009.
 > *Reproducible research and Biostatistics*.
 > Biostatistics, 10 (3): 405-408.
 
-Therefore, our definition of reproducibility will be that the computer code and data are made freely available to others for verification and conducting alternate analyzes or for use in instructional purposes.
+Therefore, our definition of reproducibility will be that the computer code and data are made freely available to others for verification and conducting alternate analyses or for use in instructional purposes.
 And that the software used are also easily obtained and preferably open-source to avoid licensing or other issues related to accessibility for end-users related to costs or non-standard file formats.
 
 Plant pathologists often provide information on protocols and chemicals allowing for reproducibility.
@@ -194,16 +194,17 @@ These cases do constitute a lack of reproducibility but will not be covered here
 
 ## Article Selection and Evaluation Events
 
-To understand where we stand as a discipline regarding open science and reproducible research, we surveyed a broad selection of articles to represent a wide swath of publications to evaluate our collective status.
-We hand-picked 21 journals which we felt represented research publications in the field of plant pathology (Table \@ref(tab:journals)) that encompassed a range of subject matter foci, applied and fundamental work, country of origin and ranking metrics, e.g., quartile range or citation index, to represent the discipline.
+To understand where we stand as a discipline regarding open science and reproducible research, we surveyed a broad selection of articles representing a wide swath of publications to evaluate our collective status.
+We hand-picked 21 journals which represented research publications in the field of plant pathology (Table \@ref(tab:journals)) that encompassed a range of subject matter foci, including applied and fundamental work, country of origin and ranking metrics, e.g., quartile range or citation index.
 The aim was to gather as complete an overview of the status of computational reproducibility in plant pathology journals as possible and avoid bias in the findings by skewing towards high-impact journals that may have a greater influence.
 From those 21 journals we randomly selected 450 articles published from 2012 to 2021.
-Using R [@RCT2022], two lists were created, the first was a list of the 21 journals and the second was a list of the evaluators that were evaluating the articles for reproducibility.
+Using R [@RCT2022], two lists were created.
+The first was a list of the 21 journals and the second was a list of the evaluators that were evaluating the articles for reproducibility.
 Initially there were four evaluators, later a fifth was added and the list was recreated.
 There were three evaluation events that took place to increase the yearly coverage of the evaluations.
 During each scoring event, each evaluator was randomly assigned 50 unique articles to evaluate during an evaluation event.
 
-A list of randomly generated numbers representing page numbers from one to 150, sampled with replacement, was assigned to a randomized list of the 21 journals for each sampling event.
+A list of randomly generated numbers representing page numbers from one to 150, sampled with replacement, was assigned to a randomized list of 21 journals for each sampling event.
 This was done to ensure that the the randomly generated number had a corresponding number in the journal.
 
 Articles were then manually selected by visiting the journals' websites and selecting the articles within which the randomly assigned page numbers fell, *i.e.*, if the page number was 32, the article that started on page 28 and ended on page 35 was selected as it contained page 32.
@@ -238,7 +239,7 @@ The criteria scores were checked for inconsistencies using the evaluators' comme
 In some cases these comments were used to adjust the criteria score to align with the scoring definitions.
 This was not possible in all cases but only in cases where the evaluator had left comments that could be checked and acted upon.
 For example, a reviewer noted that all data were deposited in GenBank but the data score was '0', this was changed to '3' to align with the definition.
-Or in other cases, some software packages used were Excel add-ins but Excel was not recorded as being used; Excel was added to the list of software used to rectify this.
+Or in other cases, some software packages used were Excel add-ins, but Excel was not recorded as being used; Excel was added to the list of software used to rectify this.
 
 A custom function, `import_notes()`, was written to import the data and format the columns properly in R [@RCT2022].
 Values for software packages were checked for spelling consistency and corrections were made manually where necessary.
@@ -255,7 +256,7 @@ Models 5 and 6 were used to predict the responses using a continuous value, IF_5
 All models included the assigned article evaluator as a random effect (formula:&nbsp;\~1&nbsp;\|&nbsp;assignee) to address inter-rater effects on scoring.
 
 We fit Bayesian logistic mixed models (estimated using MCMC sampling with 4 chains of 10000 iterations and a warm-up of 5000 and thinning of 1) using cumulative family function with a logit link for ordinal data using the contributed package 'brms' (version `r packageVersion("brms")`) [@Burkner2017; @Burkner2018; @Burkner2021].
-The cumulative logit family is often used for ordinal data as it uses cumulative probabilities up to a threshold, making all of the of ordinal categories binary at that threshold.
+The cumulative logit family is often used for ordinal data as it uses cumulative probabilities up to a threshold, making all of the ordinal categories binary at that threshold.
 Priors were selected to be weakly informative and deemed suitable through using `pp_check()` to examine the models' predictions based on priors only (using the parameter `sample_prior = only` in `brm()`).
 Priors over all parameters were set as: normal (mean = 0.00, SD = 1.0) distributions for both fixed parameters and random effects.
 The best fitting models were selected by using Widely Applicable Information Criterion (WAIC) and the expected log point-wise predictive density via `loo_compare()`.
@@ -318,7 +319,7 @@ These included desktop programs, web-based software and databases.
 From the top ten most frequently cited software, the most frequently cited program was `r tab_s[1, 1]`, where different versions were not distinguished for this work.
 The next three programs were statistical software, SAS (`r scales::ordinal(which(tab_s == "SAS"))`), SPSS (`r scales::ordinal(which(tab_s == "SPSS"))`) and R (`r scales::ordinal(which(tab_s == "R"))`) with two other statistical programs also frequently cited, GenStat and Statistica (tied 8th).
 The remainder of the top ten programs we found were mostly related to sequence analysis, *i.e.*, Clustal (`r scales::ordinal(which(tab_s == "CLUSTAL"))`), BLAST (`r scales::ordinal(which(tab_s == "BLAST"))`), and BioEdit (9th) or phylogenetic analysis MrBayes (8th), tied with the most general-purpose software cited in the top 10, Excel®.
-In tenth place was FigTree, used for phylogenetic trees.
+In tenth place was FigTree, used for rendering phylogenetic trees.
 The Python programming language was cited only twice.
 
 ## Statistical Analysis
@@ -346,11 +347,11 @@ There were no detectable effects when predicting the effects of the five-year im
 # Discussion
 
 Except for a few isolated cases, most papers were not fully computationally reproducible.
-Very few authors choose to share both data and code.
+Very few authors chose to share both data and code.
 More authors shared data due to journal requirements to share sequence data, but other types of data related to field experiments or other laboratory studies were not likely to be shared.
 Code sharing was extremely rare, but in cases where it was shared, most were included as a part of the journal article's publication as extra materials rather than through data repositories.
 Authors publishing in *Phytopathologia Mediterranea* were more likely than authors publishing in *Phytopathology*® to share data.
-Several articles published in t*Phytopathologia Mediterranea* either made the data available through GenBank or it was noted that all data were available through the article and associated supplementary materials, which may be the reason for this effect.
+Several articles published in *Phytopathologia Mediterranea* either made the data available through GenBank or it was noted that all data were available through the article and associated supplementary materials, which may be the reason for this effect.
 
 The reasons for not sharing code or data were not clearly available from the papers themselves and so this work was unable to determine possible reasons for this situation.
 We recognize that in some cases there may be commercial or intellectual property (IP) reasons for not sharing data or code, but these reasons should be clearly stated.
@@ -373,14 +374,14 @@ Therefore, we concluded that the inter-rater agreement was good enough for this 
 
 Furthermore, the methods for selecting articles meant that only page numbers between 1 and 150 were selected.
 This approach assumed that there was no effect or bias on reproducibility based on the time of year that an article was published since most journals start with page number one at the beginning of the year and some journals, e.g., *Phytopathology*® have focus issues with invited authors.
-In spite of some publications being from special issues, there were no detectable differences in the reproducibility of the articles as defined and measured by this article, so the assumption appears to be correct and more importantly, may show that even when authors are specifically recruited that they are no more likely to share the supporting materials for the articles that they write.
+Despite some publications being from special issues, there were no detectable differences in the reproducibility of the articles as defined and measured by this article, so the assumption appears to be correct and more importantly, may show that even when authors are specifically recruited that they are no more likely to share the supporting materials for the articles that they write.
 
 ## Examples and Efforts from Other Disciplines
 
 Plant pathology is not alone in the lack of reproducibility and the closed-nature of data and code.
 
 @Seibold2021 carried out a similar study on the types of methods and software used in PLOS ONE articles and whether the were able to reproduce the data analysis using open source software for papers that dealt with longitudinal data and used mixed effect models or generalized estimating equations for analysis and provided the data.
-They found that most articles provided tables and visualisations only.
+They found that most articles provided tables and visualizations only.
 However, unlike our analysis, even with the data being supplied they found that only one article used open source software, whereas R prominently featured in the articles we examined along with other free open-source software packages.
 Not surprisingly they found that replication was mostly difficult and required the results to be reverse engineered or contacting the authors.
 They were unable to reproduce the results for for three articles and only parts of another two.
@@ -452,7 +453,7 @@ Once these points have been addressed, if a general workflow for producing acade
 Here we define three layers of reproducibility which are also related to the evolution of computational methods and reproducible practices and highlight papers that fit these definitions.
 
 The first layer is including tables of raw data or code with the paper as a supplemental file or even within the paper as tables where possible.
-This is suitable for studies that may have a small data set or simple analysis or for demonstrations purposes as @Madden2015 demonstrate in their discussion regarding the use of $P$ values in statistical analyzes where they supply an *e-**X**tra* with reproducible examples for readers to refer to.
+This is suitable for studies that may have a small data set or simple analysis or for demonstrations purposes as @Madden2015 demonstrate in their discussion regarding the use of $P$ values in statistical analyses where they supply an *e-**X**tra* with reproducible examples for readers to refer to.
 @Hill2019 also shared code and example data to reproduce the results of the paper as supplementary materials, citing all packages used and the versions.
 The scripts provided used an R package, *checkpoint* [@Ooi2022], to provide a mechanism to help ensure reproducibility by installing the package versions used by the authors that were necessary to reproduce the work rather than defaulting to the latest versions, which may cause failures due to changes in the package code-bases.
 However, the scripts did not run unhindered as the supplementary materials suggested without changes to the data.
@@ -476,8 +477,8 @@ Similarly, @carleson2019population hosted the code for reproducing a population 
 The website clearly demonstrates the analysis to readers and uses R so that anyone can easily replicate the work.
 Using a public code repository resource allows other researchers to easily contact the authors by opening "Issues" and report bugs or ask questions in an open forum that are not as straightforward when the data are provided as supplementary material.
 
-Taking this approach even further, packaging the full analysis in a containerized software application, e.g., Docker is a way to help ensure computational reproducibility but at the expense of added complexity.
-Docker is an open-source containerization platform that enables users to package several applications and an operating system into containers, thereby standardizing the executable components by combining application source code (or analyzes) with the operating system required to run that analysis on a user's computer.
+Taking this approach even further, packaging the full analysis in a containerized software application, e.g., Docker is a way to help ensure computational reproducibility but at the expense of added complexity [@Merkel2014].
+Docker is an open-source containerization platform that enables users to package several applications and an operating system into containers, thereby standardizing the executable components by combining application source code (or analyses) with the operating system required to run that analysis on a user's computer.
 However, there are drawbacks to using Docker.
 It can be difficult to understand for a new user and new platforms, like the Apple M1 chip, may not be fully supported, which hinder the ability to share the container.
 But, in most cases using an open-source language like R, Julia or Python allows us to share our work in a fashion where we know that the analysis will run exactly the same on every computer.
@@ -493,7 +494,7 @@ These layers provide increasing openness and reproducibility so Layer 1 should n
 Rather the layers are provided to give the reader some idea of how much benefit end-users of the computational materials and data will derive at the expense of the increasing complexity.
 Authors need not start with Level 1 before moving to Level 2 and then Level 3.
 If they have the ability to start with depositing the computational materials and data and generating DOIs all parties will benefit from it.
-However, we recognise that these steps may not be appropriate or attractive for various reasons and so have detailed other layers that improve openness and reproducibility.
+However, we recognize that these steps may not be appropriate or attractive for various reasons and so have detailed other layers that improve openness and reproducibility.
 
 In this work we have evaluated the state of computational reproducibility in the plant pathology literature and presented suggestions for areas of improvement.
 As we prepared this letter, we became more aware of the urgent need to spread and establish an open science attitude and culture among plant pathologists.
@@ -535,7 +536,7 @@ The raw data for this work are documented and available from DOI [https://doi.or
 
 ## Code
 
-All code used in the analyzes and data visualization and associated materials have been made available as research compendium available from DOI [https://doi.org/10.5281/zenodo.1250664](10.5281/zenodo.1250664).
+All code used in the analyses and data visualization and associated materials have been made available as research compendium available from DOI [https://doi.org/10.5281/zenodo.1250664](10.5281/zenodo.1250664).
 A webpage version of the compendium is available from <https://openplantpathology.github.io/Reproducibility_in_Plant_Pathology/>.
 
 # Acknowledgements
@@ -570,7 +571,7 @@ distinct(rrpp, journal, IF_5year) %>%
   fontsize(size = 10, part = "body") %>%
   set_table_properties(layout = "autofit", width = 1) %>%
   set_caption(
-    "Journal titles selected for inclusion representing 21 plant pathology journals or specialised journals featuring plant pathology focused articles, their respective five-year impact factors as of 2022 (5 Year IF), number of articles per year and the total number (n) of articles from each journal that were evaluated."
+    "Journal titles selected for inclusion representing 21 plant pathology journals or specialized journals featuring plant pathology focused articles, their respective five-year impact factors as of 2022 (5 Year IF), number of articles per year and the total number (n) of articles from each journal that were evaluated."
   )
 ```
 
@@ -721,7 +722,7 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_2.eps"))
 
 \newpage
 
-```{r journal-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='Equivalence test for the affect associated with the journal title for (A) computational materials (code) and (B) data being made readily available to the public. A test for equivalence was unable to detect any clear differences between *Phytopathology*&reg; and all other journals sharing computational materials (code). However, a test for equivalence found that articles in *Phytopathologia Mediterranea* were more likely have data available than articles found in *Phytopathology*&reg;. Intervals in grey have a median value less than that of *Phytopathology*&reg;, the base level used for the analysis and articles in these journals could be less likely to share computational materials and data than articles published in *Phytopathology*&reg;. The region of practical equivalence (ROPE) is shown between two dotted lines. If the entire distribution falls within the ROPE, the hypothesis is accepted. If the entire distribution falls outside the ROPE, the hypothesis is rejected. In some cases the data do not provide a definitive answer and the decision on H0 is undecided.', cache=FALSE, fig.env='figure'}
+```{r journal-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='Equivalence test for the effect associated with the journal title for (A) computational materials (code) and (B) data being made readily available to the public. A test for equivalence was unable to detect any clear differences between *Phytopathology*&reg; and all other journals sharing computational materials (code). However, a test for equivalence found that articles in *Phytopathologia Mediterranea* were more likely to have data available than articles found in *Phytopathology*&reg;. Intervals in grey have a median value less than that of *Phytopathology*&reg;, the base level used for the analysis and articles in these journals could be less likely to share computational materials and data than articles published in *Phytopathology*&reg;. The region of practical equivalence (ROPE) is shown between two dotted lines. If the entire distribution falls within the ROPE, the hypothesis is accepted. If the entire distribution falls outside the ROPE, the hypothesis is rejected. In some cases, the data do not provide a definitive answer and the decision on H0 is undecided.', cache=FALSE, fig.env='figure'}
 m_f1_eq <- equivalence_test(m_f1, rule = "bayes")
 m_f2_eq <- equivalence_test(m_f2, rule = "bayes")
 
@@ -807,7 +808,7 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_3.eps"))
 
 \newpage
 
-```{r year-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='Equivalence test for the affect associated with the year of publication for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence was unable to detect an effect of year of publication on computational materials (code) being shared. A test for practical equivalence found that there was no effect of year of publication on the availability of supporting data. The region of practical equivalence (ROPE) is shown between two dotted lines. If the entire distribution falls within the ROPE, the hypothesis is accepted. If the entire distribution falls outside the ROPE, the hypothesis is rejected. In some cases the data do not provide a definitive answer and the decision on H0 is undecided. Here, year is treated as a continous variable to determine if there are changes over time in the likelyhood of sharing code and data.', cache=FALSE, fig.env='figure'}
+```{r year-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='Equivalence test for the effect associated with the year of publication for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence was unable to detect an effect of year of publication on computational materials (code) being shared. A test for practical equivalence found that there was no effect of year of publication on the availability of supporting data. The region of practical equivalence (ROPE) is shown between two dotted lines. If the entire distribution falls within the ROPE, the hypothesis is accepted. If the entire distribution falls outside the ROPE, the hypothesis is rejected. In some cases, the data do not provide a definitive answer and the decision on H0 is undecided. Here, year is treated as a continuous variable to determine if there are changes over time in the likelihood of sharing code and data.', cache=FALSE, fig.env='figure'}
 
 m_g1_eq <- equivalence_test(m_g1, rule = "bayes")
 m_g2_eq <- equivalence_test(m_g2, rule = "bayes")
@@ -899,7 +900,7 @@ include_graphics(path = here("analysis/figures/Sparks_et_al_Figure_4.eps"))
 
 \newpage
 
-```{r IF-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='Equivalence test for the affect associated with the publishing journal\'s five-year impact factor for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence was undecided on any detectable effects of impact factor. The region of practical equivalence (ROPE) is shown between two dotted lines. If the entire distribution falls within the ROPE, the hypothesis is accepted. If the entire distribution falls outside the ROPE, the hypothesis is rejected. In some cases the data do not provide a definitive answer and the decision on H0 is undecided. Here, impact factor is a continous variable to determine if greater or lesser impact factor values affect the likelyhood of sharing code and data.', cache=FALSE, fig.env='figure'}
+```{r IF-parameters, echo=FALSE, message=FALSE, warning=FALSE, fig.cap='Equivalence test for the affect associated with the publishing journal\'s five-year impact factor for (A) computational materials (code) and (B) data being made readily available to the public. A test for practical equivalence was undecided on any detectable effects of impact factor. The region of practical equivalence (ROPE) is shown between two dotted lines. If the entire distribution falls within the ROPE, the hypothesis is accepted. If the entire distribution falls outside the ROPE, the hypothesis is rejected. In some cases, the data do not provide a definitive answer and the decision on H0 is undecided. Here, impact factor is a continuous variable to determine if greater or lesser impact factor values affect the likelihood of sharing code and data.', cache=FALSE, fig.env='figure'}
 m_h1_eq <- equivalence_test(m_h1, rule = "bayes")
 m_h2_eq <- equivalence_test(m_h2, rule = "bayes")
 
