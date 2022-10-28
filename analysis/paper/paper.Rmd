@@ -42,6 +42,7 @@ packages <- c(
   "cowplot",
   "dplyr",
   "english",
+  "effectsize",
   "extrafont",
   "flextable",
   "ggpubr",
@@ -50,15 +51,16 @@ packages <- c(
   "janitor",
   "knitr",
   "officer",
-  "patchwork",
   "parameters",
+  "patchwork",
   "posterior",
   "report",
+  "rope",
   "rsvg",
-  "rstan",
   "tidyr",
   "tools"
 )
+
 
 # install packages if needed
 install.packages(setdiff(packages,

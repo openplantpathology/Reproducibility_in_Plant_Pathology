@@ -40,6 +40,7 @@ packages <- c(
   "bayesplot",
   "bayestestR",
   "brms",
+  "cowplot",
   "dplyr",
   "english",
   "effectsize",
