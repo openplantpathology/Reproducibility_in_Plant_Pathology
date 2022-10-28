@@ -526,9 +526,6 @@ At the very least, journals can and should provide clear instruction for how to 
 Ideally, with mandates for openly sharing data becoming more common with funding agencies, journals should also be mandating this practice as well.
 We can and should embrace this and move the discipline forward and have a greater impact with our work.
 
-Without the code used to generate the paper and the data that were gathered for the paper, we as a community cannot adequately evaluate the work as it is presented.
-So, while we may be standing on the shoulders of giants as we are doing our work, when we cannot see where they have been by examining the code and data, it hinders our efforts to move plant pathology forward.
-
 # Authors' Contributions
 
 A.H.S, E.DP., Z.F. and N.J.G. conceived of the presented idea and scoring system.
