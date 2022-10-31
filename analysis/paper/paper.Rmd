@@ -22,7 +22,7 @@ output:
   bookdown::word_document2:
      fig_caption: yes
      number_sections: FALSE
-     reference_docx: "../templates/phytopath_template.docx"
+     reference_docx: "../templates/phytopath-template.docx"
      pandoc_args:
        - '--lua-filter=scholarly-metadata.lua'
        - '--lua-filter=author-info-blocks.lua'
@@ -61,7 +61,6 @@ packages <- c(
   "tools"
 )
 
-
 # install packages if needed
 install.packages(setdiff(packages,
                          rownames(installed.packages())),
@@ -84,7 +83,8 @@ opts_chunk$set(
   out.width = "100%",
   comment = "#>",
   dev = "cairo_ps",
-  cache = FALSE
+  cache = FALSE,
+  ft.keepnext = FALSE
 )
 
 theme_set(theme_classic())
@@ -576,7 +576,7 @@ The authors are grateful for insightful comments from Dr David Ferris and Dr Reb
 journal <-
   tabyl(rrpp, journal, year) %>%
   rowwise() %>%
-  mutate(n = sum(c_across(where(is.numeric)), na.rm = T))
+  mutate(n = sum(c_across(where(is.numeric)), na.rm = TRUE))
 
 distinct(rrpp, journal, IF_5year) %>%
   left_join(journal, by = "journal") %>%
@@ -586,9 +586,7 @@ distinct(rrpp, journal, IF_5year) %>%
   colformat_num(na_str = "NA") %>%
   fontsize(size = 10, part = "body") %>%
   set_table_properties(layout = "autofit", width = 1) %>%
-  set_caption(
-    "Journal titles selected for inclusion representing 21 plant pathology journals or specialized journals featuring plant pathology focused articles, their respective five-year impact factors as of 2022 (5 Year IF), number of articles per year and the total number (n) of articles from each journal that were evaluated."
-  )
+  set_caption("Journal titles selected for inclusion representing 21 plant pathology journals or specialized journals featuring plant pathology focused articles, their respective five-year impact factors as of 2022 (5 Year IF), number of articles per year and the total number (n) of articles from each journal that were evaluated.")
 ```
 
 \newpage
