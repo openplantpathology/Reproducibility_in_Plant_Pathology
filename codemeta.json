@@ -2,7 +2,7 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "Reproducibility.in.Plant.Pathology",
-  "description": "A research compendium for the letter to the editor, \"Reproducibility in plant pathology: where do we stand and a way forward\", published in \"xxxxxx\".",
+  "description": "A research compendium for a perspectives paper, \"Reproducibility in plant pathology: where we stand and a way forward\", published in \"xxxxxx\".",
   "name": "Reproducibility.in.Plant.Pathology: A Systematic Quantitative Review of Articles Providing a Basis for Identifying Reproducible Research Efforts the Field of Plant Pathology",
   "codeRepository": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology",
   "issueTracker": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/issues",
@@ -499,7 +499,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "58846.489KB",
+  "fileSize": "58839.655KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
