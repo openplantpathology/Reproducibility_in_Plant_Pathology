@@ -26,8 +26,8 @@ Authors@R: c(
   )
 URL: https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology
 BugReports: https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/issues
-Description: A research compendium for the letter to the editor,
-    "Reproducibility in plant pathology: where do we stand and a way forward",
+Description: A research compendium for a perspectives paper,
+    "Reproducibility in plant pathology: where we stand and a way forward",
     published in "xxxxxx".
 Depends:
     R (>= 3.5.0)
