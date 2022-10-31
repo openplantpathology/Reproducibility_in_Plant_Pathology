@@ -24,8 +24,8 @@ Our pre-print is online on the agriRxiv preprint server:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
 > J. (2022). *Openness and computational reproducibility in plant
-> pathology: where do we stand and a way forward*. agriRxiv, Accessed 04
-> Jul 2022. Online at <https://doi.org/10.31220/agriRxiv.2021.00082>
+> pathology: where do we stand and a way forward*. agriRxiv, Accessed 31
+> Oct 2022. Online at <https://doi.org/10.31220/agriRxiv.2021.00082>
 
 The paper is a systematic and quantitative review of articles published
 in 21 plant pathology journals that spans five years of publications. It
@@ -46,8 +46,8 @@ Please cite this compendium as:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
 > J. (2022). *Compendium of R code and data for ‘Status and Best
-> Practices for Reproducible Research In Plant Pathology’*. Accessed 04
-> Jul 2022. Online at <https://doi.org/10.5281/zenodo.1250665>
+> Practices for Reproducible Research In Plant Pathology’*. Accessed 31
+> Oct 2022. Online at <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
 
@@ -115,7 +115,7 @@ attribution requested in reuse
 
 Adam H. Sparks Senior Research Scientist Farming Systems Innovation
 Primary Industries Development Department of Primary Industries and
-Regional Development Level 6.35, 1 Nash St., Perth WA 6000
+Regional Development Level 6.34, 1 Nash St., Perth WA 6000
 
 <https://adamhsparks.netlify.app>
 
