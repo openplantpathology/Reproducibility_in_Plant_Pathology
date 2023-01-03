@@ -376,7 +376,7 @@ p <- import_notes() %>%
                                    )))
 
 ggsave(
-  filename = here("analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"),
+  filename = here("analysis/figures/Sparks_et_al_Supplementary_Figure_S1.eps"),
   plot = p,
   width = 6,
   height = 6,
@@ -384,9 +384,9 @@ ggsave(
   device = cairo_ps
 )
 embed_fonts(
-  file = here("analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"),
-  outfile = here("analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"),
+  file = here("analysis/figures/Sparks_et_al_Supplementary_Figure_S1.eps"),
+  outfile = here("analysis/figures/Sparks_et_al_Supplementary_Figure_S1.eps"),
   options = "-dEPSCrop"
 )
-include_graphics(path = here("analysis/figures/Sparks_et_al_Supplementary_Figure_1.eps"))
+include_graphics(path = here("analysis/figures/Sparks_et_al_Supplementary_Figure_S1.eps"))
 ```
