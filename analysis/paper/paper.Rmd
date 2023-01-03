@@ -404,7 +404,7 @@ However, we were unable to find any quantification of the reproducibility of any
 
 ## Suggestions for Improving Computational Reproducibility
 
-When making science more open and computationally reproducible, methods and software used (e.g. R, Julia or Python packages that were directly used in the analysis or production of the paper, etc.) should be cited properly.
+When making science more open and computationally reproducible, methods and software used (e.g., R, Julia or Python packages that were directly used in the analysis or production of the paper, etc.) should be cited properly.
 This allows end-users to identify the tools and methods used more accurately.
 Just as importantly, this acknowledges the contributions of others whose works were instrumental in our research. This also helps to ensure that researchers can reconstruct what they did more easily since good notes and documentation exist and be able to identify if something changes, e.g., a package version, what effect it had on the research.
 
