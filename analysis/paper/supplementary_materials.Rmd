@@ -1,5 +1,5 @@
 ---
-title: "Supplementary materials for 'Openness and computational reproducibility in plant pathology: where do we stand and a way forward'"
+title: "Supplementary materials for 'Openness and computational reproducibility in plant pathology: where we stand and a way forward'"
 author:
   - Adam H. Sparks:
       email: Adam.Sparks@dpird.wa.gov.au
