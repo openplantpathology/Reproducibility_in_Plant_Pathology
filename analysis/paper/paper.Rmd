@@ -343,7 +343,7 @@ The estimation successfully converged (Rhat = 1.000) and the indices were reliab
 
 The analysis for the effect of year when predicting the availability of computational methods as the analysis results were undecided (Figure \@ref(fig:year-parameters)A; Table S3).
 
-The null hypothesis that the year of publication had no effect on the availability of data was not rejected.
+We failed to reject the null hypothesis that the year of publication had no effect on the availability of data.
 The analysis found that there was no effect of year of publication on the availability of data (Median = 0.08, 95% CI [-8.06e-03, 0.18]) with a 96.19% probability of being positive (\> 0), 75.92% of being significant (\> 0.05), and 0.00% of being large (\> 0.30) (Figure \@ref(fig:year-parameters)B, Table S4).
 The estimation successfully converged (Rhat = 1.000) and the indices were reliable (ESS = 21692).
 
