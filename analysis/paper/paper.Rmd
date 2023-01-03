@@ -373,7 +373,7 @@ It is interesting to note however, that even with the popularity of Python in sc
 ## Limitations to Our Approach
 
 We acknowledge that the number of article that are cross-scored is low.
-However, our aim was not to test inter-rater reproducibility, this is covered at length in the plant pathology literature.
+However, our aim was not to test inter-rater reproducibility.
 Our goal was to evaluate as many articles as we realistically could to get as broad an overview of the discipline as possible.
 Because of this each article, save the five that were used to compare the inter-rater differences, was evaluated by only one co-author.
 Therefore, we concluded that the inter-rater agreement was good enough for this paper to illustrate that code and data are not being widely shared with peer-reviewed publications.
