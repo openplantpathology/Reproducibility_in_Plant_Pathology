@@ -341,14 +341,13 @@ When predicting the availability of data as compared with *Phytopathology*®, pu
 The effect of *Phytopathologia Mediterranea* (Median = 1.68, 95% CI [0.78, 2.57]) had a 99.99% probability of being positive (\> 0), 99.98% of being significant (\> 0.05), and 99.83% of being large (\> 0.30).
 The estimation successfully converged (Rhat = 1.000) and the indices were reliable (ESS = 19017).
 
-There was no clear effect for year when predicting the availability of computational methods as the analysis results were undecided (Figure \@ref(fig:year-parameters)A; Table S3).
+The analysis for the effect of year when predicting the availability of computational methods as the analysis results were undecided (Figure \@ref(fig:year-parameters)A; Table S3).
 
-However, the year of publication did not have an effect on the availability of data (Figure \@ref(fig:year-parameters)B, Table S4).
-
-The effect of year (Median = 0.08, 95% CI [-8.06e-03, 0.18]) had a 96.19% probability of being positive (\> 0), 75.92% of being significant (\> 0.05), and 0.00% of being large (\> 0.30).
+The null hypothesis that the year of publication had no effect on the availability of data was not rejected.
+The analysis found that there was no effect of year of publication on the availability of data (Median = 0.08, 95% CI [-8.06e-03, 0.18]) with a 96.19% probability of being positive (\> 0), 75.92% of being significant (\> 0.05), and 0.00% of being large (\> 0.30) (Figure \@ref(fig:year-parameters)B, Table S4).
 The estimation successfully converged (Rhat = 1.000) and the indices were reliable (ESS = 21692).
 
-There were no detectable effects when predicting the effects of the five-year impact factor on the availability of computational methods (code) or data (Figures \@ref(fig:IF-parameters)A, \@ref(fig:IF-parameters)B; Tables S5, S6).
+The analyses were undecided when predicting both the effects of the five-year impact factor on the availability of computational methods (code) and data (Figures \@ref(fig:IF-parameters)A, \@ref(fig:IF-parameters)B; Tables S5, S6).
 
 # Discussion
 
