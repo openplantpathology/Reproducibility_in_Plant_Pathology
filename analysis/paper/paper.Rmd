@@ -345,7 +345,7 @@ There was no clear effect for year when predicting the availability of computati
 
 However, the year of publication did not have an effect on the availability of data (Figure \@ref(fig:year-parameters)B, Table S4).
 
-The effect of year (Median = 0.08, 95% CI [-8.06e-03, 0.18]) had a 96.19% probability of being positive (> 0), 75.92% of being significant (> 0.05), and 0.00% of being large (> 0.30).
+The effect of year (Median = 0.08, 95% CI [-8.06e-03, 0.18]) had a 96.19% probability of being positive (\> 0), 75.92% of being significant (\> 0.05), and 0.00% of being large (\> 0.30).
 The estimation successfully converged (Rhat = 1.000) and the indices were reliable (ESS = 21692).
 
 There were no detectable effects when predicting the effects of the five-year impact factor on the availability of computational methods (code) or data (Figures \@ref(fig:IF-parameters)A, \@ref(fig:IF-parameters)B; Tables S5, S6).
@@ -501,6 +501,8 @@ Rather the layers are provided to give the reader some idea of how much benefit 
 Authors need not start with Level 1 before moving to Level 2 and then Level 3.
 If they have the ability to start with depositing the computational materials and data and generating DOIs all parties will benefit from it.
 However, we recognize that these steps may not be appropriate or attractive for various reasons and so have detailed other layers that improve openness and reproducibility.
+
+## Closing
 
 In this work we have evaluated the state of computational reproducibility in the plant pathology literature and presented suggestions for areas of improvement.
 As we prepared this letter, we became more aware of the urgent need to spread and establish an open science attitude and culture among plant pathologists.
