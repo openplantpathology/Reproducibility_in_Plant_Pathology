@@ -554,7 +554,7 @@ pander::pander(sessionInfo())
 
 # Acknowledgements
 
-The authors are grateful for insightful comments from Dr David Ferris and Dr Rebecca O'Leary the USQ Centre for Crop Health Advisory Group on the final manuscript that helped improve the paper and from Ms Anna Hepworth for statistical guidance on evaluating inter-rater scores and for the comments from the anonymous reviewers and Dr Nian Wang that greatly improved the quality of this manuscript.
+The authors are grateful for insightful comments from Dr David Ferris, Dr Rebecca O'Leary, Mr Tinula Kariyawasam and the USQ Centre for Crop Health Advisory Group on the final manuscript that helped improve the paper and from Ms Anna Hepworth for statistical guidance on evaluating inter-rater scores and for the comments from the anonymous reviewers and Dr Nian Wang that greatly improved the quality of this manuscript.
 
 \newpage
 
