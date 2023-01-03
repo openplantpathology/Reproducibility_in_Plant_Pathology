@@ -191,10 +191,6 @@ Therefore, our definition of computational reproducibility will be that the comp
 In addition, the software used should be easily obtained and preferably open-source to avoid licensing or other issues related to accessibility for end-users related to costs or non-standard file formats.
 
 Plant pathologists often provide information on protocols and chemicals allowing for reproducibility.
-However, biological specimens such as strains, cultures or cultivars are often not available after publication.
-These cases do constitute a lack of reproducibility but will not be covered here.
-
-Plant pathologists often provide information on protocols and chemicals allowing for reproducibility.
 However, frequently biological specimens such as strains, cultures or cultivars are not available after publication.
 These cases do constitute a lack of reproducibility but will not be covered here.
 
