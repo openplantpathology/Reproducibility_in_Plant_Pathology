@@ -19,14 +19,15 @@ institute:
   - UFV: Departmento de Fitopatologia, Universidade Federal de Viçosa, Brazil
   - ARS: Horticultural Crops Disease and Pest Management Research Unit, USDA Agricultural Research Service, Corvallis OR 97330, USA
 output: 
-  bookdown::word_document2:
-     fig_caption: yes
-     number_sections: FALSE
-     reference_docx: "../templates/phytopath-template.docx"
-     pandoc_args:
-       - '--lua-filter=scholarly-metadata.lua'
-       - '--lua-filter=author-info-blocks.lua'
-       - '--lua-filter=pagebreak.lua'
+  officedown::rdocx_document:
+    base_format: bookdown::word_document2
+    number_sections: FALSE
+    reference_docx: "../templates/phytopath-template.docx"
+    fig_caption: yes
+    pandoc_args:
+      - '--lua-filter=scholarly-metadata.lua'
+      - '--lua-filter=author-info-blocks.lua'
+      - '--lua-filter=pagebreak.lua'
 bibliography: references.bib
 link-citations: no
 csl: "../templates/american-phytopathological-society.csl"
@@ -155,7 +156,7 @@ font_import()
 
 ## Supplementary Tables
 
-```{r effects-analysis-code, echo=FALSE, message=FALSE, warning=FALSE}
+```{r effects-analysis-code, echo=FALSE, message=FALSE, warning=FALSE, tab.cap="Full description of the model that was fit to scoring data, which were used to evaluate the effect of journal title on code availability for 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialized journals. Scoring for 'Code Availability' was scored 0-3 where, '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no code was created to conduct the work that was detectable. We fit a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict comp_mthds_avail with abbreviation (formula: comp_mthds_avail ~ abbreviation). The model included assignee as random effect (formula: ~1 | assignee). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00) and student_t (location = 0.00, scale = 2.50) distributions.", tab.style="Caption"}
 m_f1_es <- gsub("\\s*\\([^\\)]+\\)", "", as.character(m_f1_es))
 
 as_tibble(m_f1_report)[1:length(m_f1_es), ] %>%
@@ -179,11 +180,7 @@ as_tibble(m_f1_report)[1:length(m_f1_es), ] %>%
     `ROPE %` = function(x)
       ifelse((!is.na(x)), sprintf("%1.f%%", x * 100), x)
   ) %>%
-  autofit() %>% 
-  set_caption(
-    word_stylename = "Caption",
-    "Full description of the model that was fit to scoring data, which were used to evaluate the effect of journal title on code availability for 450 papers published in 21 plant pathology journals or plant pathology focused articles from other specialized journals. Scoring for 'Code Availability' was scored 0--3 where, '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no code was created to conduct the work that was detectable. We fit a Bayesian logistic mixed model (estimated using MCMC sampling with 4 chains of 10000 iterations and a warmup of 5000) to predict comp_mthds_avail with abbreviation (formula: comp_mthds_avail ~ abbreviation). The model included assignee as random effect (formula: ~1 | assignee). Priors over parameters were set as normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00), normal (mean = 0.00, SD = 1.00) and student_t (location = 0.00, scale = 2.50) distributions."
-  )
+  autofit()
 ```
 
 \newpage
@@ -356,7 +353,7 @@ as_tibble(m_g2_report)[1:length(m_g2_es), ] %>%
 
 \newpage
 
-## Supplementary Figure
+## Supplementary Figures
 
 ```{r evaluator-differences, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Criteria scores for 450 articles computational materials and data availability for each of the five evaluators. Each article was evaluated on a 0 to 3 scale for computational materials (Code) and raw data availability (Data) by one of five evaluators. Scoring for 'Code Availability' was scored 0--3 where, '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no code was created to conduct the work that was detectable. And the scoring for 'Data Availability' was scored 0--3 where, '0' was 'Not available or not mentioned in the publication'; '1' was 'Available upon request to the author; '2' was 'Online, but inconvenient or non-permanent (e.g., login needed, paywall, FTP server, personal lab website that may disappear, or may have already disappeared)'; and '3' was 'Freely available online to anonymous users for foreseeable future (e.g., archived using Zenodo, dataverse or university library or some other proper archiving system)'; 'NA' indicates that no data were generated, e.g., a methods paper."}
 p <- import_notes() %>%
