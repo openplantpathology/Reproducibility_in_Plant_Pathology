@@ -14,10 +14,10 @@ author:
   - Niklaus J. Grünwald:
       institute: ARS
 institute:
-  - DPIRD: Department of Primary Industries and Regional Development, Farming Systems Innovation, Perth WA 6000, Australia
+  - DPIRD: Department of Primary Industries and Regional Development, Perth WA 6000, Australia
   - USQ: University of Southern Queensland, Centre for Crop Health, Toowoomba Qld 4350, Australia
   - UFV: Departmento de Fitopatologia, Universidade Federal de Viçosa, Brazil
-  - ARS: Horticultural Crops Research Unit, USDA Agricultural Research Service, Corvallis OR 97330, USA
+  - ARS: Horticultural Crops Disease and Pest Management Research Unit, USDA Agricultural Research Service, Corvallis OR 97330, USA
 output: 
   bookdown::word_document2:
      fig_caption: yes
