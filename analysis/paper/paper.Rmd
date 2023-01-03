@@ -338,16 +338,24 @@ There were no clear differences that the analysis could detect between any of th
 
 When predicting the availability of data as compared with *Phytopathology*®, publications in one journal, *Phytopathologia Mediterranea*, can be considered clearly more likely to share data than publications in *Phytopathology*®, but no effects were detectable in any other journal title (Figure \@ref(fig:journal-parameters)B; Table S2).
 
-The effect of *Phytopathologia Mediterranea* (Median = 1.68, 95% CI [0.78, 2.57]) had a 99.99% probability of being positive (\> 0), 99.98% of being significant (\> 0.05), and 99.83% of being large (\> 0.30).
+The effect of *Phytopathologia Mediterranea* (Median = 1.68, 95\% CI [0.78, 2.57]) had a 99.99% probability of being positive (\> 0), 99.98% of being significant (\> 0.05), and 99.83\% of being large (\> 0.30).
 The estimation successfully converged (Rhat = 1.000) and the indices were reliable (ESS = 19017).
 
-The analysis for the effect of year when predicting the availability of computational methods as the analysis results were undecided (Figure \@ref(fig:year-parameters)A; Table S3).
+The analysis for the effect of year when predicting the availability of computational methods was undecided (Median = 0.20, 95\% CI [-0.13, 0.58]) and had a 88.38% probability of being positive (\> 0), 81.03\% of being significant (\> 0.05), and 28.31% of being large (\> 0.30).
+The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 19643).
 
 We failed to reject the null hypothesis that the year of publication had no effect on the availability of data.
-The analysis found that there was no effect of year of publication on the availability of data (Median = 0.08, 95% CI [-8.06e-03, 0.18]) with a 96.19% probability of being positive (\> 0), 75.92% of being significant (\> 0.05), and 0.00% of being large (\> 0.30) (Figure \@ref(fig:year-parameters)B, Table S4).
+The analysis found that there was no effect of year of publication on the availability of data (Median = 0.08, 95\% CI [-8.06e-03, 0.18]) with a 96.19% probability of being positive (\> 0), 75.92\% of being significant (\> 0.05), and 0.00% of being large (\> 0.30) (Figure \@ref(fig:year-parameters)B, Table S4).
 The estimation successfully converged (Rhat = 1.000) and the indices were reliable (ESS = 21692).
 
-The analyses were undecided when predicting both the effects of the five-year impact factor on the availability of computational methods (code) and data (Figures \@ref(fig:IF-parameters)A, \@ref(fig:IF-parameters)B; Tables S5, S6).
+The analyses were undecided when predicting both the effects of the five-year impact factor on the availability of computational methods (code) and data
+The effect of five-year impact factor (Median = 0.45, 95% CI [-0.05, 1.04]) had a
+96.00% probability of being positive (> 0), 94.25% of being significant
+(> 0.05), and 72.26% of being large (> 0.30).
+The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 14595).
+The effect of the five-year impact factor on data availability (Median = 0.15, 95% CI [-3.75e-03, 0.30]) had a 97.21% probability of being positive (> 0), 89.41% of being
+significant (> 0.05), and 2.48% of being large (> 0.30).
+The estimation successfully converged (Rhat = 1.000) and the indices are reliable (ESS = 4188).
 
 # Discussion
 
