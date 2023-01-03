@@ -363,7 +363,7 @@ The reasons for not sharing code or data were not clearly available from the pap
 We recognize that in some cases there may be commercial or intellectual property (IP) reasons for not sharing data or code, but these reasons should be clearly stated.
 However, in most cases, the data are collected with public funding and the code was developed using similar funding and there are no commercial or IP issues that preclude sharing and in fact the funding agency may have guidelines in place for sharing these materials.
 
-Much of the software used are Free open-source Software (FOSS) packages, which means that the workflow can easily be recreated by anyone with the proper skills in using the software.
+Much of the software that was used in the papers examined were Free Open-Source Software (FOSS) packages, which means that the workflow can easily be recreated by anyone with the proper skills in using the software.
 However, the top three most widely used software packages were not FOSS, limiting the ability of the authors to share workflows with others.
 MEGA was the most widely cited software in this evaluation reflecting the widespread use of sequence analysis in the field of plant pathology.
 The second, third and fourth, and eighth most frequently cited software packages were all statistical programs.
