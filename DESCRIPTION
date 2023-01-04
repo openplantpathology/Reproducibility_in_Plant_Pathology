@@ -1,7 +1,7 @@
 Package: Reproducibility.in.Plant.Pathology
 Type: Package
 Title: A Systematic Quantitative Review of Articles Providing a Basis for Identifying Reproducible Research Efforts the Field of Plant Pathology
-Version: 0.0.8
+Version: 1.0.0
 Authors@R: c(
     person(given = "Adam H.", family = "Sparks",
     role = c("aut", "cre"),
@@ -28,7 +28,7 @@ URL: https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology
 BugReports: https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/issues
 Description: A research compendium for a perspectives paper,
     "Reproducibility in plant pathology: where we stand and a way forward",
-    published in "xxxxxx".
+    published in "Phytopathology".
 Depends:
     R (>= 3.5.0)
 License: MIT + file LICENSE
@@ -70,7 +70,7 @@ Suggests:
     tibble,
     tidyverse,
     spelling
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Encoding: UTF-8
 NeedsCompilation: no
 VignetteBuilder: knitr
