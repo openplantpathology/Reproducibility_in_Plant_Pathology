@@ -381,8 +381,8 @@ It is interesting to note however, that even with the popularity of Python in sc
 
 We acknowledge that the number of article that are cross-scored is low.
 However, our aim was not to test inter-rater reproducibility.
-Our goal was to evaluate as many articles as we realistically could to get as broad an overview of the discipline as possible.
-Because of this each article, save the five that were used to compare the inter-rater differences, was evaluated by only one co-author.
+Our goal was to evaluate as many articles as we realistically possible to obtain as broad an overview of the discipline as possible.
+Because of this, aside from the five that were used to compare the inter-rater differences, each article was evaluated by only one of this paper's co-author.
 Therefore, we concluded that the inter-rater agreement was good enough for this paper to illustrate that code and data are not being widely shared with peer-reviewed publications.
 
 Furthermore, the methods for selecting articles meant that only page numbers between 1 and 150 were selected.
@@ -407,7 +407,7 @@ Weed scientists started a community to promote openness in the discipline, Open 
 @Fernandez2022 provide an R package, 'cndcR' [@Fernandez2022b], that supports the manuscript: "Dataset characteristics for the determination of critical nitrogen dilution curves: from the past to new guidelines", [@Fernandez2022a].
 The package contains source data and R code that @Fernandez2022a used for their sensitivity analyses when fitting critical N dilution curves in crop species using Bayesian models. 
 The package allows the user to recreate the figures in the manuscript and includes the all of the data files required to produce all results and figures presented in the manuscript.
-More broadly within agricultural research, articles have been published highlighting the advantages of, need for and how to publish Findable, Accessible, Interoperable and Reusable (FAIR) data in agriculture [@Smith2018; @Arnaud2020; @Stacey2022].
+More broadly within agricultural research, articles have been published highlighting the advantages of, the need for and how to publish Findable, Accessible, Interoperable and Reusable (FAIR) data in agriculture [@Smith2018; @Arnaud2020; @Stacey2022].
 However, we were unable to find any quantification of the reproducibility of any of these related disciplines as we have done here.
 
 ## Suggestions for Improving Computational Reproducibility
