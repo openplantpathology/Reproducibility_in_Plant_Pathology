@@ -179,7 +179,7 @@ Many of the terms used in this area have varying definitions that may or may not
 For instance, reproducible research was recently highlighted by many authors [@Tiwari_2021; @Eckert2020; @Dienlin2020; @preeyanon2018; @Wallach2018; @Baker2016a; @Iqbal2016; @Nature2016; @Patil2016; @Weissgerber2016; @Brunsdon2015; @Sweedler2015; @Fitzjohn2014; @Ioannidis2014; @Fidler2013; @Stodden2013] as an important issue.
 
 However, in the biological sciences it is not always possible to use identical test material or environmental conditions, e.g., field trials that span years and locations or complex glasshouse experiments.
-In other cases there is insufficient time and resources to reproduce the entire study.
+In other cases, there is insufficient time and resources to reproduce the entire study.
 Therefore, we will follow Peng's [-@Peng2009] definition that provides clear guidelines for a minimum standard of "reproducible research":
 
 > "The replication of scientific findings using independent investigators, methods, data, equipment, and protocols has long been, and will continue to be, the standard by which scientific claims are evaluated. However, in many fields of study there are examples of scientific investigations that cannot be fully replicated because of a lack of time or resources. In such a situation, there is a need for a minimum standard that can fill the void between full replication and nothing. One candidate for this minimum standard is 'reproducible research', which requires that data sets and computer code be made available to others for verifying published results and conducting alternative analyses".
@@ -242,9 +242,9 @@ Where possible, the software used in conducting the research behind the publicat
 ## Data Cleaning
 
 The criteria scores were checked for inconsistencies using the evaluators' comments in the spreadsheet and based on the software used.
-In some cases these comments were used to adjust the criteria score to align with the scoring definitions.
+In some cases, these comments were used to adjust the criteria score to align with the scoring definitions.
 This was not possible in all cases but only in cases where the evaluator had left comments that could be checked and acted upon.
-For example, a reviewer noted that all data were deposited in GenBank but the data score was '0', this was changed to '3' to align with the definition.
+For example, a reviewer noted that all data were deposited in GenBank, but the data score was '0', this was changed to '3' to align with the definition.
 Or in other cases, some software packages used were Excel add-ins, but Excel was not recorded as being used; Excel was added to the list of software used to rectify this.
 
 A custom function, `import_notes()`, was written to import the data and format the columns properly in R [@RCT2022].
@@ -375,11 +375,11 @@ However, the top three most widely used software packages were not FOSS, limitin
 MEGA was the most widely cited software in this evaluation reflecting the widespread use of sequence analysis in the field of plant pathology.
 The second, third and fourth, and eighth most frequently cited software packages were all statistical programs.
 SAS remains firmly entrenched in the discipline as the choice of software for statistical analysis followed by SPSS but R, the most frequently occurring FOSS, is not far removed from SPSS in fourth place with Statistica and Genstat tied for eighth.
-It is interesting to note however, that even with the popularity of Python in scientific programming it only appears in the survey twice in 2020 for both articles, not enough times to be in the top 10 most-cited.
+It is interesting to note however, that even with the popularity of Python in scientific programming it only appears in the survey twice in 2020 for both articles, not enough times to be in the top 10 most cited.
 
 ## Limitations to Our Approach
 
-We acknowledge that the number of article that are cross-scored is low.
+We acknowledge that the number of articles that are cross scored is low.
 However, our aim was not to test inter-rater reproducibility.
 Our goal was to evaluate as many articles as we realistically possible to obtain as broad an overview of the discipline as possible.
 Because of this, aside from the five that were used to compare the inter-rater differences, each article was evaluated by only one of this paper's co-author.
@@ -391,11 +391,11 @@ Despite some publications being from special issues, there were no detectable di
 
 ## Examples and Efforts from Other Disciplines
 
-Plant pathology is not alone in the lack of reproducibility and the closed-nature of data and code.
+Plant pathology is not alone in the lack of reproducibility and the closed nature of data and code.
 
-@Seibold2021 carried out a similar study on the types of methods and software used in PLOS ONE articles and whether the were able to reproduce the data analysis using open source software for papers that dealt with longitudinal data and used mixed effect models or generalized estimating equations for analysis and provided the data.
+@Seibold2021 carried out a similar study on the types of methods and software used in PLOS ONE articles and whether they were able to reproduce the data analysis using open-source software for papers that dealt with longitudinal data and used mixed effect models or generalized estimating equations for analysis and provided the data.
 They found that most articles provided tables and visualizations only.
-However, unlike our analysis, even with the data being supplied they found that only one article used open source software, whereas R prominently featured in the articles we examined along with other free open-source software packages.
+However, unlike our analysis, even with the data being supplied they found that only one article used open-source software, whereas R prominently featured in the articles we examined along with other free open-source software packages.
 Not surprisingly they found that replication was mostly difficult and required the results to be reverse engineered or contacting the authors.
 They were unable to reproduce the results for for three articles and only parts of another two.
 They needed to contact the articles' authors for all articles save two.
@@ -406,7 +406,7 @@ Weed scientists started a community to promote openness in the discipline, Open 
 @SerradaCruz2019 proposed a framework for capturing provenance of data-centric agronomic experiments using an R-based workflow, 'RFlow', which would allow reuse of R scripts using generic workflows and saving data and metadata to web repositories that other researchers and referees can browse using web interfaces.
 @Fernandez2022 provide an R package, 'cndcR' [@Fernandez2022b], that supports the manuscript: "Dataset characteristics for the determination of critical nitrogen dilution curves: from the past to new guidelines", [@Fernandez2022a].
 The package contains source data and R code that @Fernandez2022a used for their sensitivity analyses when fitting critical N dilution curves in crop species using Bayesian models. 
-The package allows the user to recreate the figures in the manuscript and includes the all of the data files required to produce all results and figures presented in the manuscript.
+The package allows the user to recreate the figures in the manuscript and includes all of the data files required to produce all results and figures presented in the manuscript.
 More broadly within agricultural research, articles have been published highlighting the advantages of, the need for and how to publish Findable, Accessible, Interoperable and Reusable (FAIR) data in agriculture [@Smith2018; @Arnaud2020; @Stacey2022].
 However, we were unable to find any quantification of the reproducibility of any of these related disciplines as we have done here.
 
@@ -468,7 +468,7 @@ Here we define three layers of reproducibility which are also related to the evo
 The first layer is including tables of raw data or code with the paper as a supplemental file or even within the paper as tables where possible.
 This is suitable for studies that may have a small data set or simple analysis or for demonstrations purposes as @Madden2015 demonstrate in their discussion regarding the use of $P$ values in statistical analyses where they supply an *e-**X**tra* with reproducible examples for readers to refer to.
 @Hill2019 also shared code and example data to reproduce the results of the paper as supplementary materials, citing all packages used and the versions.
-The scripts provided used an R package, *checkpoint* [@Ooi2022], to provide a mechanism to help ensure reproducibility by installing the package versions used by the authors that were necessary to reproduce the work rather than defaulting to the latest versions, which may cause failures due to changes in the package code-bases.
+The scripts provided used an R package, *checkpoint* [@Ooi2022], to provide a mechanism to help ensure reproducibility by installing the package versions used by the authors that were necessary to reproduce the work rather than defaulting to the latest versions, which may cause failures due to changes in the package codebases.
 However, the scripts did not run unhindered as the supplementary materials suggested without changes to the data.
 But with some modifications to the data, and file name changes, the scripts ran allowing examples of the research to be reproduced using the definition of @Peng2009.
 One drawback to this approach is that journals are often not equipped to handle code, e.g., script files, that may be developed as a part of the research process and so they are often archived as PDF or Word documents which hinder the ability to easily ingest and start working with them or if they are provided in a native text format, they do not render via the web properly.
@@ -494,11 +494,11 @@ Taking this approach even further, packaging the full analysis in a containerize
 Docker is an open-source containerization platform that enables users to package several applications and an operating system into containers, thereby standardizing the executable components by combining application source code (or analyses) with the operating system required to run that analysis on a user's computer.
 However, there are drawbacks to using Docker.
 It can be difficult to understand for a new user and new platforms, like the Apple M1 chip, may not be fully supported, which hinder the ability to share the container.
-But, in most cases using an open-source language like R, Julia or Python allows us to share our work in a fashion where we know that the analysis will run exactly the same on every computer.
+But, in most cases using an open-source language like R, Julia or Python allows us to share our work in a fashion where we know that the analysis will run the same on every computer.
 For more on using Docker for reproducible research, we would refer readers to @Nuest2020.
 As an example of this approach, @Khaliq2020 provided a research compendium as a Docker container with a DOI and a full R package.
 This enables readers to fully replicate their analysis of *Ascochyta rabiei* conidia dispersal in chickpea using the data collected.
-It also allows for more in-depth investigation by stepping through other points where weather data were investigated and various models were fit before deciding on the best fit and recreate any figures as published in the article [@Khaliq2020a].
+It also allows for more in-depth investigation by stepping through other points where weather data were investigated, and various models were fit before deciding on the best fit and recreate any figures as published in the article [@Khaliq2020a].
 When this layer is employed, tools such as Binder, <https://mybinder.org>, can be used that allow readers and reviewers to launch an interactive session in their web browser and interact with the data and rerun the analysis in an RStudio instance or Jupyter notebooks, a "web application for creating and sharing computational documents" [@jupyter2022], as Mioroni et al. used [-@Miorini2018; -@Miorini2019].
 @Kamvar2015 took a slightly different approach by including all files necessary for the analysis and most output files in a repository [@Kamvar2014] that also included an installable R package that was used for the original analysis.
 While there are many other methods, these two approaches illustrate some of the best-practices where the data and other files were deposited in repositories with DOIs and reproducibility issues were addressed by using R packages to handle dependencies and other versioning issues making the work more portable.
@@ -506,7 +506,7 @@ While there are many other methods, these two approaches illustrate some of the 
 These layers provide increasing openness and reproducibility so Layer 1 should not be viewed as the starting point before moving on to Layer 2 and then Layer 3.
 Rather the layers are provided to give the reader some idea of how much benefit end-users of the computational materials and data will derive at the expense of the increasing complexity.
 Authors need not start with Level 1 before moving to Level 2 and then Level 3.
-If they have the ability to start with depositing the computational materials and data and generating DOIs all parties will benefit from it.
+If they can start with depositing the computational materials and data and generating DOIs all parties will benefit from it.
 However, we recognize that these steps may not be appropriate or attractive for various reasons and so have detailed other layers that improve openness and reproducibility.
 
 ## Closing
