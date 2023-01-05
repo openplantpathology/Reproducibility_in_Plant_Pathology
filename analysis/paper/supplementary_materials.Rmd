@@ -19,18 +19,14 @@ institute:
   - UFV: Departmento de Fitopatologia, Universidade Federal de Viçosa, Brazil
   - ARS: Horticultural Crops Disease and Pest Management Research Unit, USDA Agricultural Research Service, Corvallis OR 97330, USA
 output: 
-  officedown::rdocx_document:
-    base_format: bookdown::word_document2
-    number_sections: FALSE
-    reference_docx: "../templates/phytopath-template.docx"
-    fig_caption: yes
-    pandoc_args:
-      - '--lua-filter=scholarly-metadata.lua'
-      - '--lua-filter=author-info-blocks.lua'
-      - '--lua-filter=pagebreak.lua'
-bibliography: references.bib
-link-citations: no
-csl: "../templates/american-phytopathological-society.csl"
+  bookdown::word_document2:
+     fig_caption: yes
+     number_sections: FALSE
+     reference_docx: "../templates/phytopath-template.docx"
+     pandoc_args:
+       - '--lua-filter=scholarly-metadata.lua'
+       - '--lua-filter=author-info-blocks.lua'
+       - '--lua-filter=pagebreak.lua'
 ---
 
 ```{r, setup, echo=FALSE, message=FALSE, include=FALSE}
