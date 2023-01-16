@@ -16,16 +16,16 @@ developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repo
 This repository contains the data and code for our article:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
-> J. (YYYY). *Openness and computational reproducibility in plant
-> pathology: where do we stand and a way forward*. Name of journal/book
-> <https://doi.org/xxx/xxx>
+> J. (2023). *Openness and computational reproducibility in plant
+> pathology: where do we stand and a way forward*, *Phytopathology*
+> <https://doi.org/10.1094/PHYTO-10-21-0430-PER>.
 
 Our pre-print is online on the agriRxiv preprint server:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
-> J. (2022). *Openness and computational reproducibility in plant
-> pathology: where do we stand and a way forward*. agriRxiv, Accessed 31
-> Oct 2022. Online at <https://doi.org/10.31220/agriRxiv.2021.00082>
+> J. (2023). *Openness and computational reproducibility in plant
+> pathology: where do we stand and a way forward*. agriRxiv, Accessed 16
+> Jan 2023. Online at <https://doi.org/10.31220/agriRxiv.2021.00082>
 
 The paper is a systematic and quantitative review of articles published
 in 21 plant pathology journals that spans five years of publications. It
@@ -45,9 +45,9 @@ citations for their work.
 Please cite this compendium as:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
-> J. (2022). *Compendium of R code and data for ‘Status and Best
-> Practices for Reproducible Research In Plant Pathology’*. Accessed 31
-> Oct 2022. Online at <https://doi.org/10.5281/zenodo.1250665>
+> J. (2023). *Compendium of R code and data for ‘Status and Best
+> Practices for Reproducible Research In Plant Pathology’*. Accessed 16
+> Jan 2023. Online at <https://doi.org/10.5281/zenodo.1250665>
 
 ### How to download or install
 
@@ -107,7 +107,7 @@ Docker session.
 
 ### Licensing
 
-Code: [MIT](http://opensource.org/licenses/MIT) year: 2022, copyright
+Code: [MIT](http://opensource.org/licenses/MIT) year: 2023, copyright
 holder: Adam H. Sparks
 
 Data: [CC-0](http://creativecommons.org/publicdomain/zero/1.0/)

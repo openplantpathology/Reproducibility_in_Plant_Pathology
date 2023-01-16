@@ -29,6 +29,7 @@ BugReports: https://github.com/openplantpathology/Reproducibility_in_Plant_Patho
 Description: A research compendium for a perspectives paper,
     "Reproducibility in plant pathology: where we stand and a way forward",
     published in "Phytopathology".
+DOI: 10.1094/PHYTO-10-21-0430-PER
 Depends:
     R (>= 3.5.0)
 License: MIT + file LICENSE
