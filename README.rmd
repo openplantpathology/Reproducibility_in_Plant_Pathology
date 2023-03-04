@@ -36,7 +36,7 @@ Based on these results and our own experiences, we offer suggestions as to how w
 
 Please cite this compendium as:
 
-> Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N. J. (`r format(Sys.Date(), "%Y")`). _Compendium of R code and data for 'Status and Best Practices for Reproducible Research In Plant Pathology'_. Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/10.5281/zenodo.1250665>
+> Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N. J. (`r format(Sys.Date(), "%Y")`). _Compendium of R code and data for 'Status and Best Practices for Reproducible Research In Plant Pathology'_. Accessed `r format(Sys.Date(), "%d %b %Y")`. Online at <https://doi.org/10.5281/zenodo.1250664>
 
 ### How to download or install
 
