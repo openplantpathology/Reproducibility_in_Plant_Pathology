@@ -1,47 +1,39 @@
-Package: Reproducibility.in.Plant.Pathology
 Type: Package
-Title: A Systematic Quantitative Review of Articles Providing a Basis for Identifying Reproducible Research Efforts the Field of Plant Pathology
-Version: 1.0.1
+Package: Reproducibility.in.Plant.Pathology
+Title: A Systematic Quantitative Review of Articles Providing a Basis for
+    Identifying Reproducible Research Efforts the Field of Plant Pathology
+Version: 1.0.2
 Authors@R: c(
-    person(given = "Adam H.", family = "Sparks",
-    role = c("aut", "cre"),
-    email = "adamhsparks@gmail.com",
-    comment = c(ORCID = "0000-0002-0061-8359")),
-    person(given = "Emerson M.", family ="Del Ponte",
-    role = "aut",
-    email = "edelponte@gmail.com",
-    comment = c(ORCID = "0000-0003-4398-409X")),
-    person(given = "Kaique S.", family = "Alves",
-    role = "aut",
-    email = "kaiquedsalves@gmail.com",
-    comment = c(ORCID = "https://orcid.org/0000-0001-9187-0252")),
-    person(given = "Zachary S. L.", family = "Foster",
-    role = "aut",
-    email = "zacharyfoster1989@gmail.com",
-    comment = c(ORCID = "https://orcid.org/0000-0002-5075-0948")),
-    person(given = "Niklaus J.", family = "Grünwald",
-    role = "aut",
-    email = "grunwaln@science.oregonstate.edu",
-    comment = c(ORCID = "0000-0003-1656-7602"))
+    person("Adam H.", "Sparks", , "adamhsparks@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-0061-8359")),
+    person("Emerson M.", "Del Ponte", , "edelponte@gmail.com", role = "aut",
+           comment = c(ORCID = "0000-0003-4398-409X")),
+    person("Kaique S.", "Alves", , "kaiquedsalves@gmail.com", role = "aut",
+           comment = c(ORCID = "https://orcid.org/0000-0001-9187-0252")),
+    person("Zachary S. L.", "Foster", , "zacharyfoster1989@gmail.com", role = "aut",
+           comment = c(ORCID = "https://orcid.org/0000-0002-5075-0948")),
+    person("Niklaus J.", "Grünwald", , "grunwaln@science.oregonstate.edu", role = "aut",
+           comment = c(ORCID = "0000-0003-1656-7602"))
   )
-URL: https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology
-BugReports: https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/issues
 Description: A research compendium for a perspectives paper,
-    "Reproducibility in plant pathology: where we stand and a way forward",
-    published in "Phytopathology".
-DOI: 10.5281/zenodo.1250664
+    "Reproducibility in plant pathology: where we stand and a way
+    forward", published in "Phytopathology".
+License: MIT + file LICENSE
+URL: 
+    https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology
+BugReports: 
+    https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/issues
 Depends:
     R (>= 3.5.0)
-License: MIT + file LICENSE
 Imports:
     dplyr,
     magrittr,
     readODS
 Suggests:
-    bib2df,
-    bibtex,
     bayesplot,
     bayestestR,
+    bib2df,
+    bibtex,
     brms,
     extrafont,
     flextable,
@@ -53,26 +45,28 @@ Suggests:
     irr,
     janitor,
     knitr,
-    patchwork,
-    psych,
-    rcrossref,
-    report (<= 0.4.0),
-    readr,
-    rmarkdown,
-    roxygen2 (>= 6.0.1),
     officedown,
     officer,
     pander,
     parallel,
+    patchwork,
+    psych,
+    rcrossref,
+    readr,
+    report (<= 0.4.0),
+    rmarkdown,
+    roxygen2 (>= 6.0.1),
     see,
     sessioninfo,
+    spelling,
     stringr,
     testthat,
     tibble,
-    tidyverse,
-    spelling
-RoxygenNote: 7.2.3
+    tidyverse
+VignetteBuilder: 
+    knitr
+DOI: 10.5281/zenodo.1250664
 Encoding: UTF-8
-NeedsCompilation: no
-VignetteBuilder: knitr
 Language: en-US
+NeedsCompilation: no
+RoxygenNote: 7.3.2

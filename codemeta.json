@@ -3,17 +3,17 @@
   "@type": "SoftwareSourceCode",
   "identifier": "Reproducibility.in.Plant.Pathology",
   "description": "A research compendium for a perspectives paper, \"Reproducibility in plant pathology: where we stand and a way forward\", published in \"Phytopathology\".",
-  "name": "Reproducibility.in.Plant.Pathology: A Systematic Quantitative Review of Articles Providing a Basis for Identifying Reproducible Research Efforts the Field of Plant Pathology",
+  "name": "Reproducibility.in.Plant.Pathology: A Systematic Quantitative Review of Articles Providing a Basis for\n    Identifying Reproducible Research Efforts the Field of Plant Pathology",
   "codeRepository": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology",
-  "issueTracker": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/issues",
+  "issueTracker": "\n    https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.2.2 (2022-10-31)",
+  "runtimePlatform": "R version 4.4.1 (2024-06-14)",
   "author": [
     {
       "@type": "Person",
@@ -63,30 +63,6 @@
   "softwareSuggestions": [
     {
       "@type": "SoftwareApplication",
-      "identifier": "bib2df",
-      "name": "bib2df",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=bib2df"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "bibtex",
-      "name": "bibtex",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=bibtex"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "bayesplot",
       "name": "bayesplot",
       "provider": {
@@ -108,6 +84,30 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=bayestestR"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "bib2df",
+      "name": "bib2df",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=bib2df"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "bibtex",
+      "name": "bibtex",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=bibtex"
     },
     {
       "@type": "SoftwareApplication",
@@ -244,92 +244,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "patchwork",
-      "name": "patchwork",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=patchwork"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "psych",
-      "name": "psych",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=psych"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "rcrossref",
-      "name": "rcrossref",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=rcrossref"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "report",
-      "name": "report",
-      "version": "<= 0.4.0",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=report"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "readr",
-      "name": "readr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=readr"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "rmarkdown",
-      "name": "rmarkdown",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "roxygen2",
-      "name": "roxygen2",
-      "version": ">= 6.0.1",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=roxygen2"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "officedown",
       "name": "officedown",
       "provider": {
@@ -371,6 +285,92 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "patchwork",
+      "name": "patchwork",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=patchwork"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "psych",
+      "name": "psych",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=psych"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rcrossref",
+      "name": "rcrossref",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rcrossref"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "readr",
+      "name": "readr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=readr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "report",
+      "name": "report",
+      "version": "<= 0.4.0",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=report"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "rmarkdown",
+      "name": "rmarkdown",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "roxygen2",
+      "name": "roxygen2",
+      "version": ">= 6.0.1",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=roxygen2"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "see",
       "name": "see",
       "provider": {
@@ -392,6 +392,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=sessioninfo"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "spelling",
+      "name": "spelling",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=spelling"
     },
     {
       "@type": "SoftwareApplication",
@@ -440,18 +452,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=tidyverse"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "spelling",
-      "name": "spelling",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=spelling"
     }
   ],
   "softwareRequirements": {
@@ -499,7 +499,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "58918.052KB",
+  "fileSize": "58893.639KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -533,7 +533,7 @@
       "name": "{Reproducibility.in.Plant.Pathology}: A Systematic Quantitative Review of Articles Providing a Basis for Identifying Reproducible Research Efforts the Field of Plant Pathology",
       "identifier": "10.5281/zenodo.1250664",
       "url": "https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology",
-      "description": "R package version 1.0.0",
+      "description": "R package version 1.0.2",
       "@id": "https://doi.org/10.5281/zenodo.1250664",
       "sameAs": "https://doi.org/10.5281/zenodo.1250664"
     }
