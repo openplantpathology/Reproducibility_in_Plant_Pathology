@@ -24,7 +24,7 @@ Our pre-print is online on the agriRxiv preprint server:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
 > J. (2023). *Openness and computational reproducibility in plant
-> pathology: where do we stand and a way forward*. agriRxiv, Accessed 06
+> pathology: where do we stand and a way forward*. agriRxiv, Accessed 05
 > Aug 2024. Online at <https://doi.org/10.31220/agriRxiv.2021.00082>
 
 The paper is a systematic and quantitative review of articles published
@@ -46,7 +46,7 @@ Please cite this compendium as:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
 > J. (2024). *Compendium of R code and data for ‘Status and Best
-> Practices for Reproducible Research In Plant Pathology’*. Accessed 06
+> Practices for Reproducible Research In Plant Pathology’*. Accessed 05
 > Aug 2024. Online at <https://doi.org/10.5281/zenodo.1250664>
 
 ### How to download or install
