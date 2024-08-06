@@ -1,10 +1,10 @@
 ---
-title: "Inter-rater Differences Between Evaluators"
+title: "Assigning Articles for Inter-rater Repeatability Evaluations"
 author: "Adam H. Sparks"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Inter-rater Differences Between Evaluators}
+  %\VignetteIndexEntry{Assigning Articles for Inter-rater Repeatability Evaluations}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
   %\VignetteDepends{dplyr}
@@ -18,7 +18,7 @@ vignette: >
 
 ## Creating a sample of articles
 
-In response to the reviewes, to evaluate differences between evaluators, we selected five articles that had been rated in the last round of ratings and assigned four of them to the other four evaluators that had not previously evaluated the articles.
+In response to the reviewers, to evaluate differences between evaluators, we selected five articles that had been rated in the last round of ratings and assigned four of them to the other four evaluators that had not previously evaluated the articles.
 
 ## Step 1
 
@@ -48,6 +48,7 @@ inter_rater_evals <-
   rrpp %>%
   mutate(year = as.character(year)) %>%
   mutate(year = as.numeric(year)) %>%
+  mutate(doi_url = sprintf("https://doi.org/%s", doi)) %>%
   filter(year >= 2019) %>%
   group_by(assignee) %>%
   slice_sample(n = 1)
