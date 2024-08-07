@@ -663,9 +663,11 @@ color_scheme_set(scheme = "gray")
 
 mod_list <- list(
   pp_check(m_f1, type = "bars", ndraws = 50) +
-    scale_x_continuous(,
-                       breaks = c(1, 2, 3, 4),
-                       limits = c(0.5, 4.5)) +
+    scale_x_continuous(
+      labels = c("0", "1", "2", "3"),
+      breaks = c(1, 2, 3, 4),
+      limits = c(0.5, 4.5)
+    ) +
     theme(
       axis.text.x = element_blank(),
       axis.ticks.x = element_blank(),
@@ -681,9 +683,11 @@ mod_list <- list(
       axis.title.y = element_blank()
     ),
   pp_check(m_g1, type = "bars", ndraws = 50) +
-    scale_x_continuous(,
-                       breaks = c(1, 2, 3, 4),
-                       limits = c(0.5, 4.5)) +
+    scale_x_continuous(
+      labels = c("0", "1", "2", "3"),
+      breaks = c(1, 2, 3, 4),
+      limits = c(0.5, 4.5)
+    ) +
     theme(
       axis.text.x = element_blank(),
       axis.ticks.x = element_blank(),
@@ -706,9 +710,11 @@ mod_list <- list(
     ) +
     xlab("Score (0 to 3)"),
   pp_check(m_h2, type = "bars", ndraws = 50) +
-    scale_x_continuous(labels = c("0", "1", "2", "3"),
-                       breaks = c(1, 2, 3, 4),
-                       limits = c(0.5, 4.5)) +
+    scale_x_continuous(
+      labels = c("0", "1", "2", "3"),
+      breaks = c(1, 2, 3, 4),
+      limits = c(0.5, 4.5)
+    ) +
     xlab("Score (0 to 3)") +
     theme(
       axis.text.y = element_blank(),
@@ -719,8 +725,7 @@ mod_list <- list(
 
 p <- wrap_plots(mod_list, ncol = 2) +
   plot_layout(guides = "collect") &
-  plot_annotation(title = "Bayesian posterior distributions of evaluation score models",
-                  tag_levels = "A") &
+  plot_annotation(title = "Bayesian posterior distributions of evaluation score models", tag_levels = "A") &
   theme(text = element_text("Arial"))
 
 ggsave(
