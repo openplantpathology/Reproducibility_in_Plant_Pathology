@@ -26,6 +26,15 @@ knitr::opts_chunk$set(
 )
 knitr::opts_chunk$set(fig.width = 6.4, fig.height = 6.4)
 ```
+## Notes
+
+### 2024-08-07
+
+While preparing a talk about this paper and compendium, typos and other minor errors were corrected in these analyses.
+However, there is [a bug](https://github.com/easystats/report/issues/374) in {report::report()} that prevents the report from being generated for a {brms} model, it also [duplicates text](https://github.com/easystats/report/issues/418) if it does generate it.
+Therefore, code to generate the reports are commented out and the original `report` objects are maintained along with the original model objects that were reported in the paper in the "Save the Model Objects" section. 
+
+## Introduction
 
 This vignette documents the analysis of the data gathered from surveying 21 journals and 450 articles in the field of plant pathology for their openness and reproducibility and the effect that the journal's 5-year impact factor had on that score.
 
@@ -87,9 +96,9 @@ pp_check(m_h1, type = "bars", draws = 50)
 
 plot(equivalence_test(m_h1))
 
-pander(m_h1_report <- report(m_h1))
-
-m_h1_es <- report_effectsize(m_h1)
+# pander(m_h1_report <- report(m_h1))
+# 
+# m_h1_es <- report_effectsize(m_h1)
 ```
 
 ### Data Availability
@@ -121,16 +130,16 @@ pp_check(m_h2, type = "bars", draws = 50)
 
 plot(equivalence_test(m_h2))
 
-pander(m_h2_report <- report(m_h2))
-
-m_h2_es <- report_effectsize(m_h2)
+# pander(m_h2_report <- report(m_h2))
+# 
+# m_h2_es <- report_effectsize(m_h2)
 ```
 
 ## Save Model Objects
 
 Save the model objects for figures in the paper.
 
-```{r save}
+```{r save, eval=FALSE}
 save(m_h1, file = here("inst/extdata/m_h1.Rda"))
 save(m_h2, file = here("inst/extdata/m_h2.Rda"))
 

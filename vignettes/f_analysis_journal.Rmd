@@ -27,8 +27,6 @@ knitr::opts_chunk$set(
 knitr::opts_chunk$set(fig.width = 6.4, fig.height = 6.4)
 ```
 
-This vignette documents the analysis of the data gathered from surveying 21 journals and 450 articles in the field of plant pathology for their openness and reproducibility and the effect that the journal it was published in had on that score.
-
 # Set-up Workspace
 
 Load libraries used and setting the *ggplot2* theme for the document.
@@ -50,7 +48,15 @@ theme_set(theme_classic())
 
 ## Notes
 
-All models are using the same priors.
+### 2024-08-07
+
+While preparing a talk about this paper and compendium, typos and other minor errors were corrected in these analyses.
+However, there is [a bug](https://github.com/easystats/report/issues/374) in {report::report()} that prevents the report from being generated for a {brms} model, it also [duplicates text](https://github.com/easystats/report/issues/418) if it does generate it.
+Therefore, code to generate the reports are commented out and the original `report` objects are maintained along with the original model objects that were reported in the paper in the "Save the Model Objects" section. 
+
+## Introduction
+
+This vignette documents the analysis of the data gathered from surveying 21 journals and 450 articles in the field of plant pathology for their openness and reproducibility and the effect that the journal it was published in had on that score.
 
 ## Journal Effect Models
 
@@ -66,7 +72,7 @@ priors <- c(prior(normal(0, 1), class = "b"),
 ### Computational Methods Availability
 
 Test the effect that the journal's effect on the available of computational methods.
-Set up a *brms* model with journal (`abbreviation`) as the fixed effect and `year` and `assignee` as random effects.
+Set up a *brms* model with journal (`abbreviation`) as the fixed effect and `assignee` as a random effect.
 Test the effect that the journal may have on the availability of data.
 Base level is set to *Phytopathology*, the journal that will be used as the intercept in the following model.
 
@@ -102,8 +108,8 @@ pp_check(m_f1, ndraws = 50, type = "bars")
 
 plot(equivalence_test(m_f1))
 
-pander(m_f1_report <- report(m_f1))
-m_f1_es <- report_effectsize(m_f1)
+# pander(m_f1_report <- report(m_f1))
+# m_f1_es <- report_effectsize(m_f1)
 ```
 
 ### Data Availability
@@ -137,19 +143,19 @@ summary(m_f2)
 
 plot(m_f2)
 
-pp_check(m_f1, ndraws = 50, type = "bars")
+pp_check(m_f2, ndraws = 50, type = "bars")
 
 plot(equivalence_test(m_f2), range = c(-0.1, 0.1))
 
-pander(m_f2_report <- report(m_f2))
-m_f2_es <- report_effectsize(m_f2)
+# pander(m_f2_report <- report(m_f2))
+# m_f2_es <- report_effectsize(m_f2)
 ```
 
 ## Save Model Objects
 
 Save the model objects for figures in the paper.
 
-```{r save-data}
+```{r save-data, eval=FALSE}
 save(m_f1, file = here("inst/extdata/m_f1.Rda"))
 save(m_f2, file = here("inst/extdata/m_f2.Rda"))
 

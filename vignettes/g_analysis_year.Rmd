@@ -27,6 +27,16 @@ knitr::opts_chunk$set(
 knitr::opts_chunk$set(fig.width = 6.4, fig.height = 6.4)
 ```
 
+## Notes
+
+### 2024-08-07
+
+While preparing a talk about this paper and compendium, typos and other minor errors were corrected in these analyses.
+However, there is [a bug](https://github.com/easystats/report/issues/374) in {report::report()} that prevents the report from being generated for a {brms} model, it also [duplicates text](https://github.com/easystats/report/issues/418) if it does generate it.
+Therefore, code to generate the reports are commented out and the original `report` objects are maintained along with the original model objects that were reported in the paper in the "Save the Model Objects" section. 
+
+## Introduction
+
 This vignette documents the analysis of the data gathered from surveying 21 journals and 450 articles in the field of plant pathology for their openness and reproducibility and the effect that the publication year had on that score.
 
 # Set-up Workspace
@@ -89,9 +99,9 @@ pp_check(m_g1, ndraws = 50, type = "bars")
 
 plot(equivalence_test(m_g1))
 
-pander(m_g1_report <- report(m_g1))
-
-m_g1_es <- report_effectsize(m_g1)
+# pander(m_g1_report <- report(m_g1))
+# 
+# m_g1_es <- report_effectsize(m_g1)
 ```
 
 ### Data Availability
@@ -121,16 +131,16 @@ pp_check(m_g2, ndraws = 50, type = "bars")
 
 plot(equivalence_test(m_g2))
 
-pander(m_g2_report <- report(m_g2))
-
-m_g2_es <- report_effectsize(m_g2)
+# pander(m_g2_report <- report(m_g2))
+# 
+# m_g2_es <- report_effectsize(m_g2)
 ```
 
 ## Save Model Objects
 
 Save the model objects for figures in the paper.
 
-```{r save-models}
+```{r save-data, eval=FALSE}
 save(m_g1, file = here("inst/extdata/m_g1.Rda"))
 save(m_g2, file = here("inst/extdata/m_g2.Rda"))
 
