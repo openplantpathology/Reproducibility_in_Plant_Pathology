@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 ![Publish Docker](https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/workflows/Publish%20Docker/badge.svg)
 [![DOI](https://zenodo.org/badge/62676177.svg)](https://zenodo.org/badge/latestdoi/62676177)
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 <!-- badges: end -->
 
 This repository contains the data and code for our article:

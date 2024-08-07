@@ -8,9 +8,10 @@
 ![Publish
 Docker](https://github.com/openplantpathology/Reproducibility_in_Plant_Pathology/workflows/Publish%20Docker/badge.svg)
 [![DOI](https://zenodo.org/badge/62676177.svg)](https://zenodo.org/badge/latestdoi/62676177)
-[![Project Status: Active – The project has reached a stable, usable
-state and is being actively
-developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![Project Status: Inactive – The project has reached a stable, usable
+state but is no longer being actively developed; support/maintenance
+will be provided as time
+allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 <!-- badges: end -->
 
 This repository contains the data and code for our article:
@@ -24,7 +25,7 @@ Our pre-print is online on the agriRxiv preprint server:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
 > J. (2023). *Openness and computational reproducibility in plant
-> pathology: where do we stand and a way forward*. agriRxiv, Accessed 05
+> pathology: where do we stand and a way forward*. agriRxiv, Accessed 07
 > Aug 2024. Online at <https://doi.org/10.31220/agriRxiv.2021.00082>
 
 The paper is a systematic and quantitative review of articles published
@@ -46,7 +47,7 @@ Please cite this compendium as:
 
 > Sparks, A.H., Del Ponte, E.M., Alves, K. S., Foster, Z., Grünwald, N.
 > J. (2024). *Compendium of R code and data for ‘Status and Best
-> Practices for Reproducible Research In Plant Pathology’*. Accessed 05
+> Practices for Reproducible Research In Plant Pathology’*. Accessed 07
 > Aug 2024. Online at <https://doi.org/10.5281/zenodo.1250664>
 
 ### How to download or install
